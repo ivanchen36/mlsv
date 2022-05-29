@@ -29,7 +29,7 @@ custom_exp_file=data/explist.txt
 
 ########EXP Settings#经验设置
 ########Exp rate 战斗经验倍率
-exprate=4
+exprate=20
 ########battle skill exp rate 战斗技能经验倍率
 battleskillexprate=1
 ########product skill exp rate 生产采集技能经验倍率

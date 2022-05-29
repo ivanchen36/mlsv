@@ -8,15 +8,15 @@ gameservname=cg31
 
 
 ############################# DB server IP or domain name  数据库IP
-dbservname=rm-2zexmm4zryedf483s.mysql.rds.aliyuncs.com
+dbservname=127.0.0.1
 ############################# DB username  数据库账号
-dbusername=cg
+dbusername=root
 ############################# DB charset   数据库字符集（默认latin1）
 dbcharset=gbk
 ############################# DB password  数据库密码
-dbpassword=cp@ssw0rdg
+dbpassword=123456
 ############################# DB database name  数据库库名
-dbdatabasename=crossgate
+dbdatabasename=cgdev
 
 
 ############################# mail server IP or domain name  邮件服务器ip
