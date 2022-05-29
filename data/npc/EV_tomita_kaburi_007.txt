@@ -1,261 +1,189 @@
-#赓艘樊迕井少曰坁弁巨旦玄﹛﹛??﹛巟鼹
+#檬焊磊侩 镜 巴 涅胶飘　　ｂｙ　配固鸥
 #
-#﹛﹛﹛累?民□末及摒
+#　　　采且赣聪 摹家狼 鼻
 
-###﹛PUK3尕赭当
+###　PUK3 家瘤窍瘤 臼澜
 block Trialflg < 8
-	EndWindow 3203669
-
-		#\n\n﹛鳞础卞中月?央?谛﹜市□伉午伉□扔及\n﹛蜕丹仇午反﹜耨迕六氏杅互中中冗﹝\n﹛丐中勾日反?谛午手掖勾五元扎井日卅﹝\n﹛戏引木凶午五井日公丹元扎匀凶﹝
+	EndWindow 7070001
 
 
 
-###﹛厘五中市皿市皿及潘﹋607961﹌毛赭当
+###　目促鄂 墨橇墨橇狼 揪狙（607961）阑 家瘤
 block Item_607961 >= 1
-	EndWindow 3203670
-
-		#\n\n﹛今允互反云木日及?支仄蝌分及﹝\n﹛市皿市皿及潘互厘五仁岳赢仄午月歹﹝\n﹛引今仄仁寨累及抩卞孔今歹仄中﹝\n﹛石永石永石永＿＿﹝
+	EndWindow 7070002
 
 
 
-###﹛累澡曰﹋ㄠ﹌﹋607956﹌毛赭当
+###　采厘侥（１）（607956）阑 家瘤
 block Item_607956 >= 1
 
-##﹛市皿市皿及潘﹋607955﹌毛赭当
+##　墨橇墨橇狼 揪狙（607955）阑 家瘤
 	If Item_607955 >= 1
-		Window 3203671,YES,NO
-
-		#\n\n﹛公及累澡曰毛当匀化中月午中丹仇午反﹜\n﹛云蟆今氏﹜?支仄蝌寨累互俓仄中氏分卅〝
+		Window 7070003,YES,NO
 
 			Window_YES Item_607955 >= 1 && Item_607956 >= 1 && ItemSpace >= 1
-				Window 3203672,OK
-
-		#\n\n﹛白件永﹜职卞澎心支仆手当凶内卞豭★仄中﹝\n﹛引丐﹜霪户仇氏匹中化手酷杅互卅中井日﹜\n﹛支月互及﹝\n﹛幻木﹜当匀化垫仃﹝
+				Window 7070004,OK
 
 					Window_OK Item_607955 >= 1 && Item_607956 >= 1 && ItemSpace >= 1
 						KillItemAll 607956
-						GiveItemEX 607959,1,3203673
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+						GiveItemEX 607959,1,"."
 						EndBlock
 
 					Window_OK Item_607956 >= 1 && ItemSpace >= 1
-						EndWindow 3203674
-
-		#\n\n﹛云支引丐﹜市皿市皿及潘互苇丐凶日氏及丹﹝\n﹛公木匹反?支仄反丐仆日木氏﹝\n﹛中支丐﹜酸?酸?﹜请躂仄化仇中﹝
+						EndWindow 7070005
 						EndBlock
 
 					Window_OK ItemSpace >= 1
-						EndWindow 3203675
-
-		#\n\n﹛石永石永石永﹜鬼中互及﹜?支仄蝌寨累反\n﹛累澡曰午娄五赘尹卅氏元扎﹝\n﹛请躂仄化﹜勾中匹卞职卞丐凶匀凶日升丹元扎〝
+						EndWindow 7070006
 						EndBlock
 
 					Window_OK
-						EndWindow 3203676
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+						EndWindow 7070007
 						EndBlock
 
 			Window_YES Item_607956 >= 1 && ItemSpace >= 1
-				EndWindow 3203677
-
-		#\n\n﹛云支引丐﹜市皿市皿及潘互苇丐凶日氏及丹﹝\n﹛公木匹反?支仄反丐仆日木氏﹝\n﹛中支丐﹜酸?酸?﹜请躂仄化仇中﹝
+				EndWindow 7070008
 				EndBlock
 
 			Window_YES ItemSpace >= 1
-				EndWindow 3203678
-
-		#\n\n﹛石永石永石永﹜鬼中互及﹜?支仄蝌寨累反\n﹛累澡曰午娄五赘尹卅氏元扎﹝\n﹛请躂仄化﹜勾中匹卞职卞丐凶匀凶日升丹元扎〝
+				EndWindow 7070009
 				EndBlock
 
 			Window_YES
-				EndWindow 3203679
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+				EndWindow 7070010
 				EndBlock
 
 			Window_NO
-				EndWindow 3203680
-
-		#\n\n﹛支户月及井﹝\n﹛石永石永石永﹜公及杅互恌井欠丹﹝\n﹛公及杅互昍?仁卅曰公丹元扎﹝
+				EndWindow 7070011
 				EndBlock
 
 
-###﹛市皿市皿及潘﹋607955﹌毛尕赭当
+###　墨橇墨橇狼 揪狙（607955）阑 家瘤窍瘤 臼澜
 	else
-		EndWindow 3203681
-
-		#\n\n﹛云蟆今氏卞反﹜?支仄蝌寨累反丐仆日木氏卅﹝\n﹛寨累反﹜市皿市皿及潘毁迕及?支仄分井日卅﹝\n﹛中支中支酸?元扎﹝石永石永石永石永＿﹝
+		EndWindow 7070012
 		EndBlock
 
 	endif
 
 
 
-###﹛累澡曰﹋ㄡ﹌﹋607957﹌毛赭当
+###　采厘侥（２）（607957）阑 家瘤
 block Item_607957 >= 1
 
-##﹛市皿市皿及潘﹋607955﹌毛赭当
+##　墨橇墨橇狼 揪狙（607955）阑 家瘤
 	If Item_607955 >= 1
-		Window 3203682,YES,NO
-
-		#\n\n﹛石永石永石永﹜方仁侳凶及﹝\n﹛幻幻丹﹜平伊奶卅累澡曰元扎＿苇凶杴反及﹝\n﹛云木及综匀凶?支仄蝌互俓仄中及井〝
+		Window 7070013,YES,NO
 
 			Window_YES Item_607955 >= 1 && Item_607957 >= 1 && ItemSpace >= 1
-				Window 3203683,OK
-
-		#\n\n﹛匹反﹜公及苇化仁木分仃及累澡曰午跟晶元扎﹝\n﹛幻木﹜镀仁当匀化中匀化仁木﹝\n﹛蔬仁化井卅歹氏﹝
+				Window 7070014,OK
 
 					Window_OK Item_607955 >= 1 && Item_607957 >= 1 && ItemSpace >= 1
 						KillItemAll 607957
-						GiveItemEX 607960,1,3203684
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+						GiveItemEX 607960,1,"."
 						EndBlock
 
 					Window_OK Item_607957 >= 1 && ItemSpace >= 1
-						EndWindow 3203685
-
-		#\n\n﹛窒元扎﹜市皿市皿及潘毛桩化化仄引匀凶及井〝\n﹛元扎丐﹜?支仄蝌手中日氏及分卅﹝\n﹛民永﹜六匀井仁昍?仁卅月午合匀凶及卞﹝
+						EndWindow 7070015
 						EndBlock
 
 					Window_OK ItemSpace >= 1
-						EndWindow 3203686
-
-		#\n\n﹛累澡曰反升丹仄凶〝﹛仇氏卅坁匹手﹜\n﹛幼皮失件玉泛奶弁互湘呿元扎冗﹝
+						EndWindow 7070016
 						EndBlock
 
 					Window_OK
-						EndWindow 3203687
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+						EndWindow 7070017
 						EndBlock
 
 			Window_YES Item_607957 >= 1 && ItemSpace >= 1
-				EndWindow 3203688
-
-		#\n\n﹛窒元扎﹜市皿市皿及潘毛桩化化仄引匀凶及井〝\n﹛元扎丐﹜?支仄蝌手中日氏及分卅﹝\n﹛民永﹜六匀井仁昍?仁卅月午合匀凶及卞﹝
+				EndWindow 7070018
 				EndBlock
 
 			Window_YES ItemSpace >= 1
-				EndWindow 3203689
-
-		#\n\n﹛累澡曰反升丹仄凶〝﹛仇氏卅坁匹手﹜\n﹛幼皮失件玉泛奶弁互湘呿元扎冗﹝
+				EndWindow 7070019
 				EndBlock
 
 			Window_YES
-				EndWindow 3203690
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+				EndWindow 7070020
 				EndBlock
 
 			Window_NO
-				EndWindow 3203691
-
-		#\n\n﹛仇仇引匹支匀化侳化﹜中日氏午蜕丹及井〝\n﹛＿民永﹜切午歹介午日仄井匀凶井手襞木氏卅﹝\n﹛昍?仁卅中蛊元扎﹜蛔友﹝
+				EndWindow 7070021
 				EndBlock
 
 
-###﹛市皿市皿及潘﹋607955﹌毛尕赭当
+###　墨橇墨橇狼 揪狙（607955）阑 家瘤窍瘤 臼澜
 	else
-		EndWindow 3203692
-
-		#\n\n﹛氏﹜?支仄蝌毛方仇六分午〝\n﹛白件永﹜市皿市皿及潘互卅五扎丐仆氏方﹝\n﹛分中凶中坁杴癫化午中丹及互竣卞罹歹氏﹝\n﹛蛔友〞
+		EndWindow 7070022
 		EndBlock
 
 	endif
 
 
 
-###﹛累澡曰﹋ㄢ﹌﹋607958﹌毛赭当
+###　采厘侥（３）（607958）阑 家瘤
 block Item_607958 >= 1
 
-##﹛市皿市皿及潘﹋607955﹌毛赭当
+##　墨橇墨橇狼 揪狙（607955）阑 家瘤
 	If Item_607955 >= 1
-		Window 3203693,YES,NO
-
-		#\n\n﹛石永石永石永﹜方仁侳凶及﹝\n﹛幻幻丹﹜平伊奶卅累澡曰元扎＿苇凶杴反及﹝\n﹛云木及综匀凶?支仄蝌互俓仄中及井〝
+		Window 7070023,YES,NO
 
 			Window_YES Item_607955 >= 1 && Item_607958 >= 1 && ItemSpace >= 1
-				Window 3203694,OK
-
-		#\n\n﹛反﹜公及苇化仁木分仃及累澡曰午跟晶元扎﹝\n﹛幻木﹜镀仁当匀化中匀化仁木﹝\n﹛蔬仁化井卅歹氏﹝
+				Window 7070024,OK
 
 					Window_OK Item_607955 >= 1 && Item_607958 >= 1 && ItemSpace >= 1
 						KillItemAll 607958
-						GiveItemEX 607960,1,3203695
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+						GiveItemEX 607960,1,"."
 						EndBlock
 
 					Window_OK Item_607958 >= 1 && ItemSpace >= 1
-						EndWindow 3203696
-
-		#\n\n﹛窒元扎﹜市皿市皿及潘毛桩化化仄引匀凶及井〝\n﹛元扎丐﹜?支仄蝌手中日氏及分卅﹝\n﹛民永﹜六匀井仁昍?仁卅月午合匀凶及卞﹝
+						EndWindow 7070025
 						EndBlock
 
 					Window_OK ItemSpace >= 1
-						EndWindow 3203697
-
-		#\n\n﹛累澡曰反升丹仄凶〝﹛仇氏卅坁匹手﹜\n﹛幼皮失件玉泛奶弁互湘呿元扎冗﹝
+						EndWindow 7070026
 						EndBlock
 
 					Window_OK
-						EndWindow 3203698
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+						EndWindow 7070027
 						EndBlock
 
 			Window_YES Item_607958 >= 1 && ItemSpace >= 1
-				EndWindow 3203699
-
-		#\n\n﹛窒元扎﹜市皿市皿及潘毛桩化化仄引匀凶及井〝\n﹛元扎丐﹜?支仄蝌手中日氏及分卅﹝\n﹛民永﹜六匀井仁昍?仁卅月午合匀凶及卞﹝
+				EndWindow 7070028
 				EndBlock
 
 			Window_YES ItemSpace >= 1
-				EndWindow 3203700
-
-		#\n\n﹛累澡曰反升丹仄凶〝﹛仇氏卅坁匹手﹜\n﹛幼皮失件玉泛奶弁互湘呿元扎冗﹝
+				EndWindow 7070029
 				EndBlock
 
 			Window_YES
-				EndWindow 3203701
-
-		#\n\n﹛俓仄中坁互丐月卅日﹜五切氏午公及桦赭毛\n﹛坞仃化云仁及互嗓午中丹坁匹丐欠丹﹝\n﹛请躂仄化仇中﹝
+				EndWindow 7070030
 				EndBlock
 
 			Window_NO
-				EndWindow 3203702
-
-		#\n\n﹛仇仇引匹支匀化侳化﹜中日氏午蜕丹及井〝\n﹛＿民永﹜切午歹介午日仄井匀凶井手襞木氏卅﹝\n﹛昍?仁卅中蛊元扎﹜蛔友﹝
+				EndWindow 7070031
 				EndBlock
 
 
-###﹛市皿市皿及潘﹋607955﹌毛尕赭当
+###　墨橇墨橇狼 揪狙（607955）阑 家瘤窍瘤 臼澜
 	else
-		EndWindow 3203703
-
-		#\n\n﹛氏﹜?支仄蝌毛方仇六分午〝\n﹛白件永﹜市皿市皿及潘互卅五扎丐仆氏方﹝\n﹛分中凶中坁杴癫化午中丹及互竣卞罹歹氏﹝\n﹛蛔友〞
+		EndWindow 7070032
 		EndBlock
 
 	endif
 
 
 
-###﹛市皿市皿及潘﹋607955﹌毛赭当
+###　墨橇墨橇狼 揪狙（607955）阑 家瘤
 block Item_607955 >= 1
-	EndWindow 3203704
-
-		#\n\n﹛云支云支﹜云蟆今氏及当匀化中月公及潘反﹜\n﹛升丹支日捻陃互箫曰卅中方丹分及﹝\n﹛累澡曰毛当匀化仁木壬﹜恌中?支仄毛支月冗﹝\n﹛澎卞?木化侳卅今木﹝
+	EndWindow 7070033
 
 
 
-###﹛晓筏失奶泛丞毛尕赭当
+###　惑扁 酒捞袍阑 家瘤窍瘤 臼澜
 block
-	EndWindow 3203705
+	EndWindow 7070034
 
-		#\n\n﹛鳞础卞中月?央?谛﹜市□伉午伉□扔及\n﹛蜕丹仇午反﹜耨迕六氏杅互中中冗﹝\n﹛丐中勾日反?谛午手掖勾五元扎井日卅﹝\n﹛戏引木凶午五井日公丹元扎匀凶﹝
+
 
 
 

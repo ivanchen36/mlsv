@@ -1,4 +1,4 @@
-#????ฆÞþฐ
+#ธ๔ลู บฮภฮ
 
 block
 	Window 22824,Yes,No
@@ -34,3 +34,4 @@ block
 																Window_OK
 																	LeaveGroup
 																	Warp 0,46030,29,3
+

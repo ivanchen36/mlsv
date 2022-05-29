@@ -1,4 +1,4 @@
-#??????
+#펫의 알？
 #
 
 #
@@ -6,7 +6,7 @@ block Item 16380 >= 2
 	EndWindow 21470
 
 block Item 16380 == 1
-#\n\n\n\n@c╀莢??????????
+#\n\n\n\n@c이상한 알을 깨겠습니까?
 	Window 21472,YES,NO
 		Window_YES PetSpace != 0 && Item 16380 == 1
 			KillItem 16380,1,(21473)

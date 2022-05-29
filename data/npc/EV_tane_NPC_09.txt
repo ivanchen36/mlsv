@@ -2,7 +2,7 @@
 
 block item 10003 >= 40
 
-	Window"\n\n﹛汁布毛汁布痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390001,yes,no
 
 		Window_yes item 10003 <= 39
 
@@ -22,7 +22,7 @@ block item 10003 >= 40
 
 block item 10004 >= 40
 
-	Window"\n\n﹛甲田毛甲田痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390002,yes,no
 
 		Window_yes item 10004 <= 39
 
@@ -41,7 +41,7 @@ block item 10004 >= 40
 
 block item 10005 >= 40
 
-	Window"\n\n﹛失市穴汁毛失市穴汁痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390003,yes,no
 
 		Window_yes item 10005 <= 39
 
@@ -60,7 +60,7 @@ block item 10005 >= 40
 
 block item 10006 >= 40
 
-	Window"\n\n﹛石左用平毛石左用平痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390004,yes,no
 
 		Window_yes item 10006 <= 39
 
@@ -79,7 +79,7 @@ block item 10006 >= 40
 
 block item 10007 >= 40
 
-	Window"\n\n﹛旦幼毛旦幼痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390005,yes,no
 
 		Window_yes item 10007 <= 39
 
@@ -98,7 +98,7 @@ block item 10007 >= 40
 
 block item 10008 >= 40
 
-	Window"\n\n﹛甲用平毛甲用平痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390006,yes,no
 
 		Window_yes item 10008 <= 39
 
@@ -117,7 +117,7 @@ block item 10008 >= 40
 
 block item 10009 >= 40
 
-	Window"\n\n﹛玄生伉戊毛玄生伉戊痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390007,yes,no
 
 		Window_yes item 10009 <= 39
 
@@ -137,7 +137,7 @@ block item 10009 >= 40
 block item 10010 >= 40
 
 
-	Window"\n\n﹛扑件弘夫□伙毛扑件弘夫□伙痹卞\n﹛引午户化仄引中引允井〝",yes,no
+	Window5390008,yes,no
 
 		Window_yes item 10010 <= 39
 
@@ -158,27 +158,29 @@ block item 10010 >= 40
 block
 
 
-	Window"\n\n﹛当切坁旦矢□旦及\n﹛坞五尕箫卞云?心及杅及云澎鳗中毛中凶仄引允﹝",next
+	Window5390009,next
 
-	Window "\n\n﹛汁布﹜甲田﹜失市穴汁﹜\n﹛石左用平﹜旦幼﹜甲用平﹜\n﹛玄生伉戊﹜扑件弘夫□伙﹜",next
+	Window 5390010,next
 
-	Window "\n\n﹛?ㄣ动晓及枆笺ㄣㄟ呿毛\n﹛卅氏午域呦及市□玉卞朼元化仄引中引允﹝\n﹛云当切扪太卞﹜厘庍忐厍〞",next
+	Window 5390011,next
 
-	window "\n\n﹛厘庍仍驯刉及迋阂卅及匹\n﹛娄五粮五﹜荼袜?手\n﹛秋匹云坌仃中凶仄引允﹝",next
+	window 5390012,next
 
-	endwindow "\n\n﹛市□玉反愤裘荸铄滇〞\n﹛母皮伙弁伉永弁匹\n﹛穑甄卞枆笺卞荸铄第?〞\n﹛仇及窗莘卞嫔?〞"
+	endwindow 5390013
 	
 
 block
 
 *case00*
-	endwindow "\n\n﹛醒互箫曰引六氏友﹝"
+	endwindow 5390014
 	
 
 block
 
 *case01*
-	endwindow "\n\n﹛公丹匹允井﹝\n﹛仍?曰迕及端反﹜\n﹛中勾匹手云邠友仁分今中﹝"
+	endwindow 5390015
+
+
 
 
 

@@ -1,4 +1,4 @@
-#å±žâ©jÔ‰©k
+#µî·Õ£¨ÈÄ£©
 
 block Item 16425 >= 1 && ItemCreateTime 16425 <= 60
 	Window 22973,OK
@@ -13,3 +13,4 @@ block
 			KillItemAll 16425,(4417)
 			LeaveGroup
 			Warp 0,43820,40,41
+

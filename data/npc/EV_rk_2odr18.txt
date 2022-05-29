@@ -1,4 +1,4 @@
-#ªÔ…Í
+#∑Á∫Ò
 
 #
 block
@@ -11,3 +11,4 @@ block
 			GiveItem 16438,1
 			LeaveGroup
 			Warp 0,43500,23,116
+

@@ -1,6 +1,0 @@
-###´óÓîÖÜÄêÇìÓÃ_ÅÝ²Ë¹øÊÕÄÉ²ÍºÐ
-
-block Item 15213 >=9
-	 KillItem 15213,9
-	 KillItem 46543,1
-	 GiveStackItem 46642,1

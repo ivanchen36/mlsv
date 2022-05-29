@@ -1,4 +1,4 @@
-#│Л╥╝
+#╦аюз
 
 block
 	Window 22909,Next

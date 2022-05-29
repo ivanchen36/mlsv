@@ -1,6 +1,6 @@
-#Ñ¨°Ç¡õÓÃÓÀÊĞ¡õì«
+#¸¶´õ ³ëÄ¿ »ó
 
-#ÓÜ1î¿Ã«µ±ÔÈ»¯ÖĞÔÂØ¦ÈÕ
+#ÈÆ1µîÀ» °¡Áö°í ÀÖ´Ù¸é
 block EndEvent 57 == 1 || EndEvent 65 == 1
 	Window 23234,Next
 		Window 23235,Yes,No
@@ -8,11 +8,11 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 				Window 23237,Yes,Cancel
 					Window_Yes ItemSpace == 0
 						EndWinodw 10000,OK
-					Window_Yes EndEvent 57 == 1#¾Ş»ïØ¦ÈÕ
+					Window_Yes EndEvent 57 == 1#¿¤ÀÌ¸é
 ####################################
-#©xÓÜÛÍ¾Şµ©Ğş¼°°×·ÂºëÃ«òå»¯âÙÓå¼À©x#
+#¡¡ÈÆ Äù½ºÆ®ÀÇ ÇÁ·¡±×¸¦ ¸ğµÎ ÃÊ±âÈ­¡¡#
 ####################################
-###·Â¼ş¼°±¹Ä¯âÙÓå¼À###
+###¶õÀÇ ÄªÈ£ ÃÊ±âÈ­###
 	EndEvent 58 = 0
 	EndEvent 59 = 0
 	EndEvent 60 = 0
@@ -22,7 +22,7 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	EndEvent 64 = 0
 	EndEvent 65 = 0
 	EndEvent 50 = 0
-###·Â¼ş¼°ÄÌÃ¬¼şĞşâÙÓå¼À###
+###¶õÀÇ ÀÌº¥Æ® ÃÊ±âÈ­###
 	NowEvent 112 = 0
 	EndEvent 112 = 0
 	NowEvent 114 = 0
@@ -42,7 +42,7 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	NowEvent 129 = 0
 	EndEvent 129 = 0
 	EndEvent 136 = 0
-###¾Ş»ïÈÎÑëÍßÊ§¼°±¹Ä¯âÙÓå¼À###
+###¿¤¹Ù´Ï¾ÆÀÇ ÄªÈ£ ÃÊ±âÈ­###
 	EndEvent 50 = 0
 	EndEvent 51 = 0
 	EndEvent 52 = 0
@@ -52,7 +52,7 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	EndEvent 56 = 0
 	EndEvent 57 = 0
 	EndEvent 58 = 0
-###¾Ş»ïÈÎÑëÍßÊ§¼°ÄÌÃ¬¼şĞşâÙÓå¼À###
+###¿¤¹Ù´Ï¾ÆÀÇ ÀÌº¥Æ® ÃÊ±âÈ­###
 	NowEvent 111 = 0
 	EndEvent 111 = 0
 	NowEvent 113 = 0
@@ -86,11 +86,11 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	LeaveGroup
 	Warp 0,33000,468,381
 
-					Window_Yes EndEvent 65 == 1#·Â¼şØ¦ÈÕ
+					Window_Yes EndEvent 65 == 1#¶õÀÌ¸é
 ####################################
-#©xÓÜÛÍ¾Şµ©Ğş¼°°×·ÂºëÃ«òå»¯âÙÓå¼À©x#
+#¡¡ÈÆ Äù½ºÆ®ÀÇ ÇÁ·¡±×¸¦ ¸ğµÎ ÃÊ±âÈ­¡¡#
 ####################################
-###·Â¼ş¼°±¹Ä¯âÙÓå¼À###
+###¶õÀÇ ÄªÈ£ ÃÊ±âÈ­###
 	EndEvent 58 = 0
 	EndEvent 59 = 0
 	EndEvent 60 = 0
@@ -100,7 +100,7 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	EndEvent 64 = 0
 	EndEvent 65 = 0
 	EndEvent 50 = 0
-###·Â¼ş¼°ÄÌÃ¬¼şĞşâÙÓå¼À###
+###¶õÀÇ ÀÌº¥Æ® ÃÊ±âÈ­###
 	NowEvent 112 = 0
 	EndEvent 112 = 0
 	NowEvent 114 = 0
@@ -120,7 +120,7 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	NowEvent 129 = 0
 	EndEvent 129 = 0
 	EndEvent 136 = 0
-###¾Ş»ïÈÎÑëÍßÊ§¼°±¹Ä¯âÙÓå¼À###
+###¿¤¹Ù´Ï¾ÆÀÇ ÄªÈ£ ÃÊ±âÈ­###
 	EndEvent 50 = 0
 	EndEvent 51 = 0
 	EndEvent 52 = 0
@@ -130,7 +130,7 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 	EndEvent 56 = 0
 	EndEvent 57 = 0
 	EndEvent 58 = 0
-###¾Ş»ïÈÎÑëÍßÊ§¼°ÄÌÃ¬¼şĞşâÙÓå¼À###
+###¿¤¹Ù´Ï¾ÆÀÇ ÀÌº¥Æ® ÃÊ±âÈ­###
 	NowEvent 111 = 0
 	EndEvent 111 = 0
 	NowEvent 113 = 0
@@ -170,3 +170,4 @@ block EndEvent 57 == 1 || EndEvent 65 == 1
 					Window_Yes
 						LeaveGroup
 						Warp 0,33000,468,381
+

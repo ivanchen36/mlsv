@@ -18,11 +18,11 @@ block
 					LocalCount2 = 5
 
 
-#					Window "\n\n﹛友之﹜云菸今氏﹜\n﹛丐凶仄毛踞仃月午合匀化",next
+#					Window "\n\n　历扁, 颊丛\n　历甫 档客林脚促绊 积阿窍绊",next
 					Window 3006886,next
 
 
-#					EndWindow "\n\n﹛仇及云菸今氏卞\n﹛卅氏井﹜扤匀凶﹜中支﹜?梦仄凶乒用毛\n﹛当匀化五化票今中方﹝"
+#					EndWindow "\n\n　捞 颊丛俊霸\n　购啊 解篮, 酒聪, 惯瓤茄 巴阑\n　啊廉客林技夸."
 					EndWindow 3006887
 
 
@@ -31,11 +31,11 @@ block
 
 					LocalCount2 = 5
 					
-#					Window "\n\n﹛丐丐﹜台及谛戏反﹜\n﹛中匀勾手瑛倾戊件瓜卅及井卅丑〝",next
+#					Window "\n\n　酒酒, 郴 牢积篮\n　亲惑 搬惫 捞繁 吧鳖?",next
 					Window 3006888,next
 
 
-#					EndWindow "\n\n﹛接﹜惚﹜?梦﹜纶午拸午裆午辉＿＿\n﹛＿＿匀化﹜仃匀仇丹中中妢区竣元扎氏＿＿",next
+#					EndWindow "\n\n　快匡, 厚, 惯瓤, 楷绢客 传拱苞 巢磊客 咯磊ˇˇ\n　ˇˇ饿鳖, 蚕 宝满篮 盒困扁垒酒ˇˇ",next
 					EndWindow 3006889,next
 
 
@@ -49,11 +49,11 @@ block
 
 				LocalCount2 = 2
 
-#				Window "\n\n﹛丐丐﹜卅氏化仇匀凶＿＿\n﹛六匀井仁域?妘粟仄化\n﹛螃敢毛疆扔仿仄化云饕毛铵户凶及卞＿＿",next
+#				Window "\n\n　酒酒, 捞 公郊ˇˇ\n　葛贸烦 奴 妇冈绊\n　脚包阑 包滴绊 啊霸甫 矫累沁绰单ˇˇ",next
 				Window 3006890,next
 
 
-#				EndWindow "\n\n﹛仇氏卅搧卅云菸今氏仄井\n﹛勾井卅中卅氏化＿＿"
+#				EndWindow "\n\n　捞繁 快匡茄 颊丛 观俊\n　救 坷促聪ˇˇ"
 				EndWindow 3006891
 
 
@@ -61,6 +61,8 @@ block
 
 
 			endif
+
+
 
 
 

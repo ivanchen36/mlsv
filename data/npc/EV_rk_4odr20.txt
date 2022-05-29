@@ -1,4 +1,4 @@
-#?????
+#중간시험관
 
 block EquipItem == 16415
 	Window 22854,OK
@@ -14,3 +14,4 @@ block
 				Window_OK
 					LeaveGroup
 					Warp 0,46038,17,14
+

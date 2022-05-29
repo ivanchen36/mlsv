@@ -16,7 +16,7 @@ block
 
 
 
-#					EndWindow "\n\n©x£ß£ß"
+#					EndWindow "\n\n¡¡¡Ä¡Ä"
 					EndWindow 3006972
 
 
@@ -27,7 +27,7 @@ block
 
 
 
-#					EndWindow "\n\n£ß£ß£ß£ß\n©x£ß£ß£ß£ß£ß£ß"
+#					EndWindow "\n\n¡Ä¡Ä¡Ä¡Ä\n¡¡¡Ä¡Ä¡Ä¡Ä¡Ä¡Ä"
 					EndWindow 3006973
 
 
@@ -42,13 +42,15 @@ block
 
 
 
-#				EndWindow "\n\n©x£ß£ß£ß£ß\n©x£ß£ß\n©x£ß£ß£ß£ß"
+#				EndWindow "\n\n¡¡¡Ä¡Ä¡Ä¡Ä\n¡¡¡Ä¡Ä\n¡¡¡Ä¡Ä¡Ä¡Ä"
 				EndWindow 3006974
 
 
 
 
 			endif
+
+
 
 
 

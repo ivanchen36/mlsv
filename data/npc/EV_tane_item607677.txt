@@ -1,9 +1,11 @@
 #
-#ºë·Â¶Ítest
+#À¯¸®Ã¢test
 #
 
 
 block
-	Endwindow "\n\n @g,239501 @",ok
+	Endwindow 4050001,ok
+
+
 
 

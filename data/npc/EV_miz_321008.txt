@@ -1,8 +1,8 @@
-#汕母件斥亦件“打仿件扔奶
-#厘妐侬﹜凝妐侬及嗉帎反卅中
-#'_'反?心?壬仄
+#モ带怜：绊鄂荤捞
+#措巩磊, 家巩磊狼 备喊篮 绝澜
+#'_'绰 佬阑 锭 扒呈盾
 
-###########﹛伊矛伙19动票﹛汕?及谛﹛##############
+###########　饭骇19捞窍　モ魄狼 荤恩　##############
 block trialflg == 4 && level <= 19
 	Window 219010,OK
 	Window_OK level <= 19 && trialflg == 4 && Itemspace >= 2
@@ -13,7 +13,7 @@ block trialflg == 4 && level <= 19
 	Window_OK level <= 19 && trialflg == 4 && Itemspeace <= 1
 	EndWindow 219006,OK
 
-###########﹛伊矛伙20动晓﹛汕?及谛﹛##############
+###########　饭骇20捞惑　モ魄狼 荤恩　##############
 block level >= 20 && trialflg == 4 && Itemspace >= 2
 
 	Giveitem 15613,3
@@ -25,9 +25,10 @@ block level >= 20 && trialflg == 4 && Itemspace <= 1
 
 	EndWindow 219006,OK
 
-###########﹛汕?元扎卅中谛﹛##############
+###########　モ魄捞 酒囱 荤恩　##############
 block trialflg != 4
 
 	Setaction 16
 	EndWindow 219015,OK
+
 

@@ -1,4 +1,0 @@
-#mayko_gm_1102788.txt 回公主府的warp
-block xpos == 11  && ypos == 64
-	warp 0,32277,55,34
-endblock

@@ -9,19 +9,19 @@ local DailyEventGiveExpLast = 0 --完成全部任务给予经验奖励数量 为0或负数时不给经
 local DailyEventLevelMaxGiveItem = 0 --满级时完成一次任务给予道具奖励的itemid 如为负数则按照未满级给予
 local DailyEventLevelMaxGiveItemLast = 196921 --满级时完成全部任务给予道具奖励的itemid 如为负数则按照未满级给予
 local DailyEventStartLevel = 70 --开启修行任务的最低等级
-local ServerMaxLevel = 180 --服务器设定的满级等级
+local ServerMaxLevel = 130 --服务器设定的满级等级
 local DailyEventWarp = 0 --完成任务后是否传送 1为传送其他不传送
 local DailyEventWarpMap = 1000 --完成任务后传送地图
 local DailyEventWarpPosX = 0 --完成任务后传送x坐标
 local DailyEventWarpPoxY = 0 --完成任务后传送y坐标
 
 
-local DENpcMetamo = 231111 --修行npc形象
+local DENpcMetamo = 104731 --修行npc形象
 local DENpcName = "日常任务" --修行npc名字
 local DENpcMap = 1000 --修行npc地图
-local DENpcPosX = 236 --修行npc x坐标
-local DENpcPosY = 80 --修行npc y坐标
-local DENpcDir = 4 --修行npc方向
+local DENpcPosX = 247 --修行npc x坐标
+local DENpcPosY = 94 --修行npc y坐标
+local DENpcDir = 6 --修行npc方向
 
 local AnotherNpc = 0 --交任务Npc是否不同于修行Npc 0为同个npc交任务 1为启用单独交任务修行npc
 

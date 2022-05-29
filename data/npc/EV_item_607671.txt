@@ -14,13 +14,15 @@ if  Xpos == 149 && Ypos == 134
 
 else
 
-	endWindow "\n\n　何?起??????。"
+	endWindow 3200001
 
 
 
 endif
 
 block
-	endWindow "\n\n　何?起??????。"
+	endWindow 3200002
+
+
 
 

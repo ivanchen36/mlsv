@@ -1,42 +1,34 @@
 
 block Item 602000 >= 1 && Item 602600 >= 1
 
-	endwindow 3203297
-
-		#\n\n﹛侂填手母皮伙弁伉永弁仄化\n﹛隶?仄卅仃木壬泙卞凶切引六氏﹝\n﹛割?卅今中﹝
+	endwindow 5810001
 
 
 block ItemSpace < 2
 
-	endwindow 3203298
-
-		#\n\n﹛当切坁毛帮咥六方﹝
+	endwindow 5810002
 
 block Group >= 2
 
-	endwindow 3203299
-
-		#\n\n﹛?曰匹侳化仁分今中﹝
+	endwindow 5810003
 
 
 
 block Group == 1
 
 
-	window 3203300,ok
-
-		#\n\n﹛歹木日反\n﹛褥卞引午丹坁毛潮月樊﹝\n﹛公卅凶及恘毛魂今六化赡仁﹝
+	window 5810004,ok
 
 	window_ok Group >= 2
 
-		endwindow 3203301
-
-		#\n\n﹛?曰匹侳化仁分今中﹝
+		endwindow 5810005
 
 
 	window_ok
 	
 		Encount 3|||0|||||0|305266|||||||||
+
+
 
 
 

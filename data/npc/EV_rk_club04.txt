@@ -1,12 +1,12 @@
 #
-#石□伙溢﹋?饕﹌
+#圈 淬寸（涝痢）
 #
 
-## 抸日井卞赭当嗯互剂卅中桦宁﹋120+40=160G动票反仇仇匹反元仁﹌
+## 疙犬窍霸 家瘤陛捞 利篮 版快（120+40=160G 捞窍绰 咯扁辑 屁变促）
 block gold <= 160
 	EndWindow 21529
 
-##﹛弗件毛隙抩仄凶桦宁
+##　乃阑 瘤疙茄 版快
 block StrCmpChat == 21531
 	Window 21530,Next
 	Play_SE 75,320,240
@@ -16,7 +16,7 @@ block StrCmpChat == 21531
 			LeaveGroup
 			Warp 0,2431,37,13
 
-##﹛交伉毛隙抩仄凶桦宁
+##　蜡府甫 瘤疙茄 版快
 block StrCmpChat == 21534
 	Window 21533,Next
 	Play_SE 75,320,240
@@ -26,7 +26,7 @@ block StrCmpChat == 21534
 			LeaveGroup
 			Warp 0,2431,32,27
 
-##﹛本奶戊毛隙抩仄凶桦宁
+##　技捞内甫 瘤疙茄 版快
 block StrCmpChat == 21537
 	Window 21536,Next
 	Play_SE 75,320,240
@@ -36,7 +36,7 @@ block StrCmpChat == 21537
 			LeaveGroup
 			Warp 0,2431,39,18
 
-##﹛霁诘毛隙抩仄凶桦宁
+##　枚龋尔捞甫 瘤疙茄 版快
 block StrCmpChat == 21540
 	Window 21539,Next
 	Play_SE 75,320,240
@@ -46,30 +46,30 @@ block StrCmpChat == 21540
 			LeaveGroup
 			Warp 0,2431,28,24
 
-##﹛交瓜毛隙抩仄凶桦宁
+##　蜡唱甫 瘤疙茄 版快
 
 
-##﹛斥乓件甘毛隙抩仄凶桦宁
+##　莉蠢甫 瘤疙茄 版快
 block StrCmpChat == 21543
 	EndWindow 21542
 
-##﹛石□伙溢毛隙抩仄凶桦宁
+##　圈 淬寸阑 瘤疙茄 版快
 block StrCmpChat == 21545
 	EndWindow 21544
 
-##﹛交瓜毛隙抩仄凶桦宁
+##　蜡唱甫 瘤疙茄 版快
 block StrCmpChat == 21869
 	EndWindow 21868
 
-##﹛石□伙溢毛隙抩仄凶桦宁
+##　圈 淬寸阑 瘤疙茄 版快
 block StrCmpChat == 21871
 	EndWindow 21870
 
 block
-#\n\n﹛中日匀仄扎中引六℅ｎ\n﹛弁仿皮’丞□件尺方丹仇公〞今匀公仁癫饕及扑旦泛丞毛懊莞今六化中凶分五引允﹝
-#\n﹛?饕恔嗯反域峓100G午卅匀化云曰引允互﹜暧嗯互7G﹜扔□申旦恔嗯互10G匹117G赡丰仄化中引允﹝
-#癫饕愤坴及摨昜卅云鉼今氏午云仄扎屯曰仄卅互日仁勾欠中匹中匀化仁分今中﹝
-#?饕今木引允井〝
+#\n\n　绢辑 坷技夸~④\n　努反·巩俊 肋 坷继嚼聪促! 快急 历锐 啊霸狼 矫胶袍阑 家俺秦 靛府摆嚼聪促.
+#\n　涝痢 夸陛篮 老伏利栏肺 100G涝聪促父, 技陛捞 7G, 辑厚胶 夸陛捞 10G肺 117G罐绊 乐嚼聪促.
+#历锐 啊霸狼 磊尔牢 抗慧 酒啊揪甸苞 捞具扁窍搁辑 浆促啊绞矫坷.
+#涝痢窍矫摆嚼聪鳖?
 	Window 21526,Yes,No
 		Window_Yes Gold >= 117
 			AddGold -117
@@ -79,3 +79,4 @@ block
 			Endwindow 10005
 		Window_No
 			Endwindow 15684
+

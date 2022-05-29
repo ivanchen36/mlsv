@@ -1,6 +1,6 @@
-#»¥ÈÕÈÊÐ×
+#Àâµ¿»ç´Ï
 
-#²¼·Âµ©¼°³âÒàÓÀÆ½ ÒýÐ×·´ õß¼°?ÔÈÐ×³âÒàÓÀÆ½Ã«µ±ÔÈ»¯ÖÐÔÂ
+#À¯¸® Á¶³¢ ¶Ç´Â ¹°ÀÌ µé¾î°£ Á¶³¢¸¦ °¡Áö°í ÀÖ´Ù
 block Item 16432 >= 1 || Item 16433 >= 1
 	EndWindow 23244,OK
 #
@@ -11,3 +11,4 @@ block
 			EndWindow 10000,OK
 		Window_Yes
 			GiveItem 16432,1
+

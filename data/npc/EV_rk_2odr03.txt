@@ -1,10 +1,10 @@
-#Ñ¨¡õÓñÓÀÛÍ
+#¸Óµ¶
 
-#ÛÍ¾Şµ©ĞşÛÍØøÊ§
+#Äù½ºÆ® Å¬¸®¾î
 block EndEvent 121 == 1 || EndEvent 122 == 1
 	EndWindow 23136,OK
 
-#ÛÍ¾Şµ©Ğşñ×µæáw
+#Äù½ºÆ® ÁøÇà Áß
 block NowEvent 121 == 1 || NowEvent 122 == 1
 	Window 23132,Next
 	Window 23133,Yes,No

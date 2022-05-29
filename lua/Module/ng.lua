@@ -56,7 +56,7 @@ function ng_TalkEvent(player,msg,color,range,size)
 		end
 	end
 	
-	if(msg == "/2")then
+	if(msg == "")then
 		local getXiangVar1 = Char.GetData(player,%对象_不遇敌开关%);
 		if(getXiangVar1 == 1)then
 			Char.SetData(player,%对象_不遇敌开关%,0);
@@ -82,7 +82,7 @@ function ng_TalkEvent(player,msg,color,range,size)
 		Protocol.SendLuaCustomPacket(player,"diyng", "GSCJ");
 	end
 	
-	if(msg == "/6")then
+	if(msg == "")then
 		--开启高速战斗
 		Protocol.SendLuaCustomPacket(player,"diyng", "GSZD");
 	end
@@ -153,47 +153,47 @@ function ng_TalkEvent(player,msg,color,range,size)
 			NLG.SystemMessage(player,"您未受伤。");
 			return;
 		end
-		if(money>=200) and (Char.GetData(player,%对象_受伤%)>0 and Char.GetData(player,%对象_受伤%)<26) then
+		if(money>=20000) and (Char.GetData(player,%对象_受伤%)>0 and Char.GetData(player,%对象_受伤%)<26) then
 			Char.SetData(player,%对象_受伤%,shoushang-shoushang);
-			Char.SetData(player,%对象_金币%,money-200);
+			Char.SetData(player,%对象_金币%,money-20000);
 			NLG.UpdateParty(player);
 			NLG.UpChar(player);
 			NLG.SystemMessage(player,"恭喜你治疗完毕。");
 			NLG.SendGraphEvent(player, 45, 0);
-			NLG.SystemMessage(player,"扣除200魔币。");
+			NLG.SystemMessage(player,"扣除20000魔币。");
 			return;	
 		end
-		if(money>=400) and (Char.GetData(player,%对象_受伤%)>24 and Char.GetData(player,%对象_受伤%)<51) then
+		if(money>=40000) and (Char.GetData(player,%对象_受伤%)>24 and Char.GetData(player,%对象_受伤%)<51) then
 			Char.SetData(player,%对象_受伤%,shoushang-shoushang);
-			Char.SetData(player,%对象_金币%,money-400);
+			Char.SetData(player,%对象_金币%,money-40000);
 			NLG.UpdateParty(player);
 			NLG.UpChar(player);
 			NLG.SystemMessage(player,"恭喜你治疗完毕。");
 			NLG.SendGraphEvent(player, 45, 0);
-			NLG.SystemMessage(player,"扣除400魔币。");
+			NLG.SystemMessage(player,"扣除40000魔币。");
 			return;	
 		end
-		if(money>=800) and (Char.GetData(player,%对象_受伤%)>49 and Char.GetData(player,%对象_受伤%)<76) then
+		if(money>=80000) and (Char.GetData(player,%对象_受伤%)>49 and Char.GetData(player,%对象_受伤%)<76) then
 			Char.SetData(player,%对象_受伤%,shoushang-shoushang);
-			Char.SetData(player,%对象_金币%,money-800);
+			Char.SetData(player,%对象_金币%,money-80000);
 			NLG.UpdateParty(player);
 			NLG.UpChar(player);
 			NLG.SystemMessage(player,"恭喜你治疗完毕。");
 			NLG.SendGraphEvent(player, 45, 0);
-			NLG.SystemMessage(player,"扣除800魔币。");
+			NLG.SystemMessage(player,"扣除80000魔币。");
 			return;	
 		end
-		if(money>=1500) and (Char.GetData(player,%对象_受伤%)>74 and Char.GetData(player,%对象_受伤%)<101) then
+		if(money>=150000) and (Char.GetData(player,%对象_受伤%)>74 and Char.GetData(player,%对象_受伤%)<101) then
 			Char.SetData(player,%对象_受伤%,shoushang-shoushang);
-			Char.SetData(player,%对象_金币%,money-1500);
+			Char.SetData(player,%对象_金币%,money-150000);
 			NLG.UpdateParty(player);
 			NLG.UpChar(player);
 			NLG.SystemMessage(player,"恭喜你治疗完毕。");
 			NLG.SendGraphEvent(player, 45, 0);
-			NLG.SystemMessage(player,"扣除1500魔币。");
+			NLG.SystemMessage(player,"扣除150000魔币。");
 			return;	
 		else
-			NLG.SystemMessage(player,"对不起！您的魔币不足，治疗价格为【白伤200】【黄伤400】【紫伤800】【红伤1500】！");	
+			NLG.SystemMessage(player,"对不起！您的魔币不足，治疗价格为【白伤20000】【黄伤40000】【紫伤80000】【红伤150000】！");	
 			return;
 		end
 		return 0

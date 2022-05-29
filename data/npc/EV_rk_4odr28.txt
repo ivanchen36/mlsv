@@ -1,4 +1,4 @@
-#???╄��
+#미메이 부인
 
 block NowEvent 54 == 1 || NowEvent 62 == 1
 	EndWindow 22893
@@ -19,3 +19,4 @@ block Item 16421 >= 1 && EndEvent 61 == 1
 
 block
 		EndWindow 22880,OK
+

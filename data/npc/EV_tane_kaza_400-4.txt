@@ -47,3 +47,4 @@ block Xpos == 212 && Ypos == 117
 	Message 3006710
 	SetLp -10
 
+

@@ -1,4 +1,4 @@
-#伉任尼伉它旦
+#府骇府快胶
 
 block
 	ChangePal 2,600
@@ -19,3 +19,4 @@ block
 			SystemMessage 4419
 			LeaveGroup
 			Warp 0,58001,37,38
+

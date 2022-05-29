@@ -1,7 +1,0 @@
-block
-	 ##1054825	\n\n是否开启隐形功能？	1
-	 Window 1054825,YES,NO
-	 	 Window_YES
-	 	 	 HollowMan
-	 	 Window_NO
-	 	 

@@ -1,39 +1,33 @@
-#打皮伉件及邰尽﹛﹛??﹛巟鼹
+#绊喉赴狼 夸货　　ｂｙ　配固鸥
 #
-#﹛﹛﹛橘铲及杹?及摒
+#　　　惑辟 巩瘤扁狼 鼻
 
-###﹛由□泛奴□毛赚氏匹中月桦宁
+###　颇萍甫 捞风绊 乐绰 版快
 block Group >= 2
-	EndWindow 3201647
-		#\n\n﹛戊仿戊仿﹜厘尴匹冗欠冗欠侳月氏元扎卅中﹝\n﹛仇仇反目瓜民亦戊沓牬互?匀化仇卅中方丹卞﹜\n﹛ㄠ谛ㄠ谛元匀仁曰午呜怗允月午仇欠卅氏分﹝\n﹛由□泛奴□毛荸辣仄化﹜ㄠ谛内勾侳中〞
+	EndWindow 6180001
 
 
 
-###﹛?帎穸谨由旦?毛呁醒赭当
+###　漂喊快措菩胶Ａ甫 咯矾 俺 家瘤
 block Item_607915 >= 2
-	EndWindow 3201648
-		#\n\n﹛@n迋﹜\n﹛由旦毛公及方丹卞窒呦手云当切卞卅匀化反﹜\n﹛澎粮五互渔刭中凶仄引允﹝\n﹛ㄠ呦分仃云当切卞卅月方丹云凑中中凶仄引允﹝
+	EndWindow 6180002
 
 
-###﹛?帎穸谨由旦?毛ㄠ呦赭当
+###　漂喊快措菩胶Ａ甫 １厘 家瘤
 block Item_607915 == 1
 
 	If StampCount_607915 < 2
-		Window 3201649,YES,NO
-		#\n\n﹛云云﹜@n迋﹝\n﹛仍侳桦丐曰互午丹仍介中引允﹝\n﹛公及?帎穸谨由旦?毛云当切卅日壬﹜\n﹛勖漕及惮澡反拑迕匹仍介中引允﹝\n﹛仍?桦卅今中引允井〝
+		Window 6180003,YES,NO
 
 			Window_YES
-				Window 3201650,OK
-		#\n\n﹛匹反﹜云骚曰仁分今中﹝\n﹛打皮扪毛云笔曰中凶仄引允﹝
+				Window 6180004,OK
 
 					Window_OK Group >= 2
-						EndWindow 3201651
-		#\n\n﹛漱曰引允卅﹜公及方丹卅中凶内日反﹝\n﹛仇仇反ㄠ谛内勾骚月及互筋礼匹允﹝
+						EndWindow 6180005
 						EndBlock
 
 					Window_OK Item_607915 >= 2
-						EndWindow 3201652
-		#\n\n﹛云支﹜穸谨由旦?互喂尹化引允方﹝\n﹛筋礼匹允井日﹜ㄠ呦内勾云凑中仄引允﹝
+						EndWindow 6180006
 						EndBlock
 
 					Window_OK Item_607915 == 1 && StampCount_607915 < 2
@@ -42,38 +36,31 @@ block Item_607915 == 1
 						EndBlock
 
 					Window_OK Item_607915 == 1
-						EndWindow 3201653
-		#\n\n﹛云支﹜燮幻升及穸谨由旦?匹反丐曰引六氏友﹝\n﹛公木反渝蜃濠木匹允方﹝
+						EndWindow 6180007
 						EndBlock
 
 					Window_OK
-						EndWindow 3201654
-		#\n\n﹛云支﹜穸谨由旦?反升丹仄凶氏匹允〝\n﹛由旦互卅中桦宁反﹜骚聊匹五引六氏方﹝
+						EndWindow 6180008
 						EndBlock
 
 			Window_NO
-				EndWindow 3201655
-		#\n\n﹛公丹匹允井﹝\n﹛匹反﹜引凶及窗莘毛云谨切仄化云曰引允﹝
+				EndWindow 6180009
 				EndBlock
 
 
 	else
 		If StampCount_607915 == 2
-			Window 3201656,YES,NO
-		#\n\n﹛仇木反仇木反@n迋﹝\n﹛咍蘸及仍厍迕丐曰互午丹仍介中引允﹝\n﹛打皮伉件宎及云手化卅仄反中勾手骚曰匹允互﹜\n﹛漆荚互ㄢ荚杴午卅曰引允及匹﹜仍?桦及端卞反\n﹛?帎穸谨由旦?反荚璋今六化中凶分五引允﹝\n﹛仍?桦卅今中引允井〝
+			Window 6180010,YES,NO
 
 				Window_YES
-					Window 3201657,OK
-		#\n\n﹛匹反﹜由旦毛仍忒萃及晓﹜云骚曰仁分今中﹝\n﹛打皮扪毛云笔曰中凶仄引允﹝
+					Window 6180011,OK
 
 						Window_OK Group >= 2
-							EndWindow 3201658
-		#\n\n﹛漱曰引允卅﹜公及方丹卅中凶内日反﹝\n﹛仇仇反ㄠ谛内勾骚月及互筋礼匹允﹝
+							EndWindow 6180012
 							EndBlock
 
 						Window_OK Item_607915 >= 2
-							EndWindow 3201659
-		#\n\n﹛云支﹜穸谨由旦?互喂尹化引允方﹝\n﹛筋礼匹允井日﹜ㄠ呦内勾云凑中仄引允﹝
+							EndWindow 6180013
 							EndBlock
 
 						Window_OK Item_607915 == 1
@@ -82,19 +69,16 @@ block Item_607915 == 1
 							EndBlock
 
 						Window_OK
-							EndWindow 3201660
-		#\n\n﹛云支﹜穸谨由旦?反升丹仄凶氏匹允〝\n﹛由旦互卅中桦宁反﹜骚聊匹五引六氏方﹝
+							EndWindow 6180014
 							EndBlock
 
 				Window_NO
-					EndWindow 3201661
-		#\n\n﹛公丹匹允井﹝\n﹛匹反﹜引凶及窗莘毛云谨切仄化云曰引允﹝
+					EndWindow 6180015
 					EndBlock
 
 
 		else
-			Window 3201662,OK
-		#\n\n﹛云中云中﹜公及由旦反渝蜃濠木元扎友尹井﹝\n﹛打皮伉件毛?摩卞允月氏元扎友尹〞\n﹛忒仄支互木〞〞
+			Window 6180016,OK
 
 				Window_OK Item_607915 >= 1
 					KillItemAll 607915
@@ -109,71 +93,61 @@ block Item_607915 == 1
 
 
 
-###﹛穸谨?桦痹毛赭当
+###　快措涝厘鼻阑 家瘤
 block Item_607917 >= 1
-	Window 3201663,YES,NO
-		#\n\n﹛幻丹﹜公木反穸谨?桦痹分卅﹝\n﹛丹戈﹜公木卅日壬勖漕及惮澡反优邰卅中冗﹝\n﹛?桦允月井〝
+	Window 6180017,YES,NO
 
 		Window_YES
-			Window 3201664,OK
-		#\n\n﹛白永﹜中中蘸饨分﹝\n﹛匹反﹜痹毛欐仄化骚月互方中﹝
+			Window 6180018,OK
 
 				Window_OK Group >= 2
-					EndWindow 3201665
-		#\n\n﹛仇仇反ㄠ谛内勾仄井骚今卅中及分﹝\n﹛勾引日卅中蕞僻毛允月卅〞
+					EndWindow 6180019
 
 				Window_OK Item_607917 >= 1
 					KillItem 607917,1
 					Warp 0,59714,91,85
 
 				Window_OK
-					EndWindow 3201666
-		#\n\n﹛穸谨?桦痹反升仇尺支匀凶〝\n﹛仇切日卞欐今卅中午骚木卅中冗﹝
+					EndWindow 6180020
 
 		Window_NO
-			EndWindow 3201667
-		#\n\n﹛白永﹜异元竣勿中凶井﹝引丐﹜拑咥手卅中卅﹝\n﹛创貊互匹五凶日﹜引凶侳月互中中﹝
+			EndWindow 6180021
 
 
 
-###﹛勖漕及惮澡毛赭当
+###　盔茄狼 蓖吧捞甫 家瘤
 block Item_603005 >= 1
-	Window 3201668,YES,NO
-		#\n\n﹛白件永﹜勖漕及惮澡毛当匀化五凶井﹝\n﹛升丹支日剂仄反珃卞愤耨互丐月方丹分卅﹝\n﹛元扎丐﹜?月氏分卅〝
+	Window 6180022,YES,NO
 
 		Window_YES
-			Window 3201669,OK
-		#\n\n﹛卅日壬﹜今匀今午惮澡毛湮仇六﹜及欠引永〞\n﹛打皮伉件及雯欠仄今毛合中襞月互中中〞〞
+			Window 6180023,OK
 
 				Window_OK Group >= 2
-					EndWindow 3201670
-		#\n\n﹛窒毛仄化中月及分﹜?摩樊〞\n﹛仇仇反ㄠ谛内勾仄井骚今氏及分〞
+					EndWindow 6180024
 
 				Window_OK Item_603005 >= 1
 					KillItem 603005,1
 					Warp 0,59714,91,85
 
 				Window_OK
-					EndWindow 3201671
-		#\n\n﹛勖漕及惮澡毛升仇尺支匀凶〞\n﹛勾引日卅中凝称鼎毛允月支勾反骚今氏〞〞
+					EndWindow 6180025
 
 		Window_NO
-			EndWindow 3201672
-		#\n\n﹛眷匟樊卞迕反卅中﹝今匀今午壅尹欠〞〞
+			EndWindow 6180026
 
 
 
-###﹛?帎穸谨由旦?毛赭当
+###　漂喊快措菩胶Ｂ甫 家瘤
 block Item_607916 >= 1
-	EndWindow 3201673
-		#\n\n﹛?帎穸谨由旦?分午〝\n﹛公氏卅手及﹜仇仇元扎泙卞峏凶友尹氏分方﹝\n﹛白件永﹜窖木窖木〞〞\n﹛歹木歹木及母件斥亦件卞?曰凶仃木壬﹜\n﹛勖漕及惮澡毛当匀化侳中﹝
+	EndWindow 6180027
 
 
 
-###﹛晓筏失奶泛丞毛尕赭当
+###　惑扁 酒捞袍阑 家瘤窍瘤 臼澜
 block
-	EndWindow 3201674
-		#\n\n﹛澎少日匹侳月午反孔介仃凶蛊分﹝\n﹛?曰凶中及卅日﹜勖漕及惮澡毛当匀化侳中﹝\n﹛丐木毛澎卞?木日木月仁日中及掸恘卅日﹜\n﹛仇仇毛骚仄化支欠丹﹝
+	EndWindow 6180028
+
+
 
 
 

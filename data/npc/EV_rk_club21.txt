@@ -1,107 +1,11 @@
-#ÔÂÁÁ¾ãÀÖ²¿No.1 ÕäÄÝ5629
-#2433	9	6
-#EV_rk_club21.txt
+#
+#´ë±â½ÇÀÇ Àò´À
+#
 
 
-############©x100?ß–éÝë»Ü¸(¸¥¼þÆ¥ÛÍØøÊ§)©x############
+############¡¡100ÀÏÆ÷Àå ¼ö¿©(ÄËÀ¸·Î Å¬¸®¾î)¡¡############
 
-#22291	\n\n¡¡ÄãÖÕì¶³ÉÎª±¾µêµÚÒ»µÄ¿ÍÈËÁËÄÄ¡£\n¡¡Ò²¶Ô£¬ÓÐÎÒÔÚµÄµêÄÇÊÇµ±È»µÄÂï¡£
-#             ÏÖÔÚÆð¿É²»ÄÜ²»¡¡×øÄãµÄÌ¨ÁËÄÄ¡£\n¡¡²»¹ýÄØ...	1
-#22292	\n\n\n\n¡¡ÎÒÏë£¬ÎÒÒ²²î²»¶à¸Ã½á»éÁË¡£	1
-#22293	\n\n¡¡...ÒâË¼¾ÍÊÇÍËÐÝ¡£\n¡¡ËùÒÔÏÖÔÚÕý·³ÄÕÈÃË­¼Ì³Ð±¾µêµÄNo.1ÄØ¡£\n¡¡
-#                ¿Ï£¿°ÙºÏ£¿Ê¥×Ó£¿Ìú»¢£¿\n\n¡¡´ó¼Ò¶¼ºÜÓÅÐã£¬²»¹ýÈ´ÉÙÁËµãÊ²÷á¡£	1
-#22294	\n\n¡¡¶ÔNo.1À´Ëµ×îÖØÒªµÄ...¾ÍÊÇÑÞÀö°¡¡¢ÑÞÀö£¡\n¡¡
-#             ÒâË¼Ò²¾ÍÊÇËµÄÇ¸ö»¹ºÜÄÛµÄÐÂÈËÓÅÄÎÏàµ±ÖµµÃÆÚ´ý¡¡à¸£¬¶®ÁË°É£¿	1
-#22295	\n\n¡¡¾Í°ÝÍÐÄã¶à¶àÔÔÅàÓÅÄÎ£¬ÈÃËûÖªµÀ¹«¹ØÐ¡½ã×îÖØÒª¡¡
-#             µÄÊÇÊ²÷á¡£ÎÒÒÑ¾­Ã»ÓÐÊ±¼äÁËÑ½£¡	1
-#22296	\n\n¡¡ËäÈ»¼ÅÄ¯£¬½ñÌì¾ÍÒª·Ö±ðÁË¡£ÎÒ¾Í´ÓÎÒµÄÊÕ²ØÆ·Ö®¡¡ÖÐ£¬
-#             ÌôÒ»¸ö×îÊÊºÏÄãµÄ¶«Î÷×öÔù±ð°É¡£\n¡¡
-#             ÁíÍâÔÙËÍÄãÎÒËÄ±¾ÐÄµÃÊÖ²áµÄÆäÖÐÒ»²á¡£\n¡¡ÓÅÄÎ¾Í°ÝÍÐÄãÁË¡£	1
-#22297	\n\n\n\n¡¡ÓÅÄÎ£¡¡¡½Ó¿ÍÁË£¡	1
-#22298	\n\n\n\n@cß÷¡«£¡	
-##·ÄÖ¯ 100ÈÕ »»Á÷ÐÐ1
-block Job >= 1012 && Job <= 1017 && Item 16370 >= 1
-	Window 22291,Next
-	Window 22292,Next
-	Window 22293,Next
-	Window 22294,Next
-	Window 22295,Next
-	Window 22296,Next
-	Window 22297,Next
-	Window 22298,OK
-		Window_OK ItemSpace == 0
-			EndWindow 10000
-		Window_OK PetSpace == 0
-			EndWindow 22306
-		Window_OK Item 16370 >= 1
-			KillItem 16370,1
-			GivePet 2043
-			GiveItem 16371
-			GiveItem 16269
-			Warp 0,2431,26,1
-##·ÄÖ¯ 100ÈÕ »»Á÷ÐÐ2		
-block Job >= 1012 && Job <= 1017 && Item 16375 >= 1
-	Window 22291,Next
-	Window 22292,Next
-	Window 22293,Next
-	Window 22294,Next
-	Window 22295,Next
-	Window 22296,Next
-	Window 22297,Next
-	Window 22298,OK
-		Window_OK ItemSpace == 0
-			EndWindow 10000
-		Window_OK PetSpace == 0
-			EndWindow 22306
-		Window_OK Item 16375 >= 1
-			KillItem 16375,1
-			GivePet 2043
-			GiveItem 16372
-			GiveItem 16269
-			Warp 0,2431,26,1
-#·ÄÖ¯  Á÷ÐÐÈý			
-block Job >= 1012 && Job <= 1017 && Item 16376 >= 1
-	Window 22291,Next
-	Window 22292,Next
-	Window 22293,Next
-	Window 22294,Next
-	Window 22295,Next
-	Window 22296,Next
-	Window 22297,Next
-	Window 22298,OK
-		Window_OK ItemSpace == 0
-			EndWindow 10000
-		Window_OK PetSpace == 0
-			EndWindow 22306
-		Window_OK Item 16376 >= 1
-			KillItem 16376,1
-			GivePet 2043
-			GiveItem 16373
-			GiveItem 16269
-			Warp 0,2431,26,1			
-#·ÄÖ¯  Á÷ÐÐËÄ			
-block Job >= 1012 && Job <= 1017 && Item 16377 >= 1
-	Window 22291,Next
-	Window 22292,Next
-	Window 22293,Next
-	Window 22294,Next
-	Window 22295,Next
-	Window 22296,Next
-	Window 22297,Next
-	Window 22298,OK
-		Window_OK ItemSpace == 0
-			EndWindow 10000
-		Window_OK PetSpace == 0
-			EndWindow 22306
-		Window_OK Item 16377 >= 1
-			KillItem 16377,1
-			GivePet 2043
-			GiveItem 16374
-			GiveItem 16269
-			Warp 0,2431,26,1
-
-
-###½£¹¤©x###
+###¡¡°ËÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 202 && Job <= 207 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -115,13 +19,13 @@ block Job >= 202 && Job <= 207 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16245
 			Warp 0,2431,26,1
-###©xççÇÚÐØ¦ÈÕ©x###
+###¡¡µµ³¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 212 && Job <= 217 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -135,13 +39,13 @@ block Job >= 212 && Job <= 217 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16246
 			Warp 0,2431,26,1
-###©x¼üçÇÚÐØ¦ÈÕ©x###
+###¡¡Ã¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 222 && Job <= 227 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -155,13 +59,13 @@ block Job >= 222 && Job <= 227 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16247
 			Warp 0,2431,26,1
-###©xÝÔçÇÚÐØ¦ÈÕ©x###
+###¡¡È°Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 232 && Job <= 237 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -175,13 +79,13 @@ block Job >= 232 && Job <= 237 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16248
 			Warp 0,2431,26,1
-###©xÏðçÇÚÐØ¦ÈÕ©x###
+###¡¡ÁöÆÎÀÌÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 242 && Job <= 247 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -195,13 +99,13 @@ block Job >= 242 && Job <= 247 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16249
 			Warp 0,2431,26,1
-###©xÆ¤¡õ¶ª·Â¼þçÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎ¸Þ¶ûÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 252 && Job <= 257 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -215,13 +119,13 @@ block Job >= 252 && Job <= 257 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16250
 			Warp 0,2431,26,1
-###©x¹ÏÄÌ°×çÇÚÐØ¦ÈÕ©x###
+###¡¡³ªÀÌÇÁÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 262 && Job <= 267 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -235,13 +139,13 @@ block Job >= 262 && Job <= 267 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16251
 			Warp 0,2431,26,1
-###©x³¡çÇÚÐØ¦ÈÕ©x###
+###¡¡Åõ±¸Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 272 && Job <= 277 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -255,13 +159,13 @@ block Job >= 272 && Job <= 277 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16252
 			Warp 0,2431,26,1
-###©xÙ¦ºÒçÇÚÐØ¦ÈÕ©x###
+###¡¡¸ðÀÚÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 282 && Job <= 287 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -275,13 +179,13 @@ block Job >= 282 && Job <= 287 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16253
 			Warp 0,2431,26,1
-###©x¶¥çÇÚÐØ¦ÈÕ©x###
+###¡¡°©¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 292 && Job <= 297 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -295,13 +199,13 @@ block Job >= 292 && Job <= 297 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16254
 			Warp 0,2431,26,1
-###©xšõçÇÚÐØ¦ÈÕ©x###
+###¡¡¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 302 && Job <= 307 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -315,13 +219,13 @@ block Job >= 302 && Job <= 307 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16255
 			Warp 0,2431,26,1
-###©x·ò¡õÆ¤çÇÚÐØ¦ÈÕ©x###
+###¡¡·ÎºêÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 312 && Job <= 317 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -335,13 +239,13 @@ block Job >= 312 && Job <= 317 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16256
 			Warp 0,2431,26,1
-###©xÆ¤¡õÖ­çÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎÃ÷Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 322 && Job <= 327 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -355,13 +259,13 @@ block Job >= 322 && Job <= 327 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16257
 			Warp 0,2431,26,1
-###©xÐ¨çÇÚÐØ¦ÈÕ©x###
+###¡¡±¸µÎÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 332 && Job <= 337 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -375,13 +279,13 @@ block Job >= 332 && Job <= 337 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16258
 			Warp 0,2431,26,1
-###©x¼úçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æÆÐÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 342 && Job <= 347 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -395,13 +299,13 @@ block Job >= 342 && Job <= 347 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16259
 			Warp 0,2431,26,1
-###©xÆ©†A¸óØ¦ÈÕ©x###
+###¡¡Á¶¸®»çÀÌ¸é¡¡###
 block Job >= 352 && Job <= 357 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -415,13 +319,13 @@ block Job >= 352 && Job <= 357 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16260
 			Warp 0,2431,26,1
-###©xãï¹Ü¸óØ¦ÈÕ©x###
+###¡¡¾àÁ¦»çÀÌ¸é¡¡###
 block Job >= 362 && Job <= 367 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -435,13 +339,13 @@ block Job >= 362 && Job <= 367 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16261
 			Warp 0,2431,26,1
-###©x–_Õ¿Ä¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹«±â¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 372 && Job <= 377 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -455,13 +359,13 @@ block Job >= 372 && Job <= 377 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16262
 			Warp 0,2431,26,1
-###©xëÌîÄ¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æ¾î±¸¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 382 && Job <= 387 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -475,13 +379,13 @@ block Job >= 382 && Job <= 387 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16263
 			Warp 0,2431,26,1
-###©x×µÀÃÏÎØ¦ÈÕ©x###
+###¡¡°¨Á¤»çÀÌ¸é¡¡###
 block Job >= 392 && Job <= 397 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -495,13 +399,13 @@ block Job >= 392 && Job <= 397 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16264
 			Warp 0,2431,26,1
-###©x¼ëÓ£Ø¦ÈÕ©x###
+###¡¡Å½Á¤ÀÌ¸é¡¡###
 block Job >= 412 && Job <= 417 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -515,13 +419,13 @@ block Job >= 412 && Job <= 417 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16265
 			Warp 0,2431,26,1
-###©xÓªÚÐØ¦ÈÕ©x###
+###¡¡¼±ÀÎÀÌ¸é¡¡###
 block Job >= 422 && Job <= 427 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -535,13 +439,13 @@ block Job >= 422 && Job <= 427 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16266
 			Warp 0,2431,26,1
-###©xÔæÁÞŒãØ¦ÈÕ©x###
+###¡¡°£È£»çÀÌ¸é¡¡###
 block Job >= 432 && Job <= 437 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -555,13 +459,13 @@ block Job >= 432 && Job <= 437 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16267
 			Warp 0,2431,26,1
-###©xÏÎ·®Ø¦ÈÕ©x###
+###¡¡ÀÇ»çÀÌ¸é¡¡###
 block Job >= 442 && Job <= 447 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -575,13 +479,13 @@ block Job >= 442 && Job <= 447 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16268
 			Warp 0,2431,26,1
-###©xÎå³ðÔ»Ø¦ÈÕ©x###
+###¡¡³ª¹«²ÛÀÌ¸é¡¡###
 block Job >= 452 && Job <= 457 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -595,13 +499,13 @@ block Job >= 452 && Job <= 457 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16269
 			Warp 0,2431,26,1
-###©xÈóÚÐØ¦ÈÕ©x###
+###¡¡»ç³É²ÛÀÌ¸é¡¡###
 block Job >= 462 && Job <= 467 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -615,13 +519,13 @@ block Job >= 462 && Job <= 467 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16270
 			Warp 0,2431,26,1
-###©x³Ûá¨Ø¦ÈÕ©x###
+###¡¡±¤ºÎÀÌ¸é¡¡###
 block Job >= 472 && Job <= 477 && Item 16370 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -635,16 +539,16 @@ block Job >= 472 && Job <= 477 && Item 16370 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16370 >= 1
+		Window_OK
 			KillItem 16370,1
 			GivePet 2043
 			GiveItem 16371
 			GiveItem 16271
 			Warp 0,2431,26,1
 
-############©x100?ß–éÝë»Ü¸(½»ØøÆ¥ÛÍØøÊ§)©x############
+############¡¡100ÀÏÆ÷Àå ¼ö¿©(À¯¸®·Î Å¬¸®¾î)¡¡############
 
-###©xðôçÇÚÐØ¦ÈÕ©x###
+###¡¡°ËÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 202 && Job <= 207 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -658,13 +562,13 @@ block Job >= 202 && Job <= 207 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16245
 			Warp 0,2431,26,1
-###©xççÇÚÐØ¦ÈÕ©x###
+###¡¡µµ³¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 212 && Job <= 217 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -678,13 +582,13 @@ block Job >= 212 && Job <= 217 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16246
 			Warp 0,2431,26,1
-###©x¼üçÇÚÐØ¦ÈÕ©x###
+###¡¡Ã¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 222 && Job <= 227 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -698,13 +602,13 @@ block Job >= 222 && Job <= 227 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16247
 			Warp 0,2431,26,1
-###©xÝÔçÇÚÐØ¦ÈÕ©x###
+###¡¡È°Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 232 && Job <= 237 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -718,13 +622,13 @@ block Job >= 232 && Job <= 237 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16248
 			Warp 0,2431,26,1
-###©xÏðçÇÚÐØ¦ÈÕ©x###
+###¡¡ÁöÆÎÀÌÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 242 && Job <= 247 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -738,13 +642,13 @@ block Job >= 242 && Job <= 247 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16249
 			Warp 0,2431,26,1
-###©xÆ¤¡õ¶ª·Â¼þçÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎ¸Þ¶ûÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 252 && Job <= 257 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -758,13 +662,13 @@ block Job >= 252 && Job <= 257 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16250
 			Warp 0,2431,26,1
-###©x¹ÏÄÌ°×çÇÚÐØ¦ÈÕ©x###
+###¡¡³ªÀÌÇÁÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 262 && Job <= 267 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -778,13 +682,13 @@ block Job >= 262 && Job <= 267 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16251
 			Warp 0,2431,26,1
-###©x³¡çÇÚÐØ¦ÈÕ©x###
+###¡¡Åõ±¸Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 272 && Job <= 277 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -798,13 +702,13 @@ block Job >= 272 && Job <= 277 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16252
 			Warp 0,2431,26,1
-###©xÙ¦ºÒçÇÚÐØ¦ÈÕ©x###
+###¡¡¸ðÀÚÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 282 && Job <= 287 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -818,13 +722,13 @@ block Job >= 282 && Job <= 287 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16253
 			Warp 0,2431,26,1
-###©x¶¥çÇÚÐØ¦ÈÕ©x###
+###¡¡°©¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 292 && Job <= 297 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -838,13 +742,13 @@ block Job >= 292 && Job <= 297 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16254
 			Warp 0,2431,26,1
-###©xšõçÇÚÐØ¦ÈÕ©x###
+###¡¡¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 302 && Job <= 307 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -858,13 +762,13 @@ block Job >= 302 && Job <= 307 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16255
 			Warp 0,2431,26,1
-###©x·ò¡õÆ¤çÇÚÐØ¦ÈÕ©x###
+###¡¡·ÎºêÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 312 && Job <= 317 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -878,13 +782,13 @@ block Job >= 312 && Job <= 317 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16256
 			Warp 0,2431,26,1
-###©xÆ¤¡õÖ­çÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎÃ÷Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 322 && Job <= 327 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -898,13 +802,13 @@ block Job >= 322 && Job <= 327 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16257
 			Warp 0,2431,26,1
-###©xÐ¨çÇÚÐØ¦ÈÕ©x###
+###¡¡±¸µÎÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 332 && Job <= 337 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -918,13 +822,13 @@ block Job >= 332 && Job <= 337 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16258
 			Warp 0,2431,26,1
-###©x¼úçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æÆÐÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 342 && Job <= 347 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -938,13 +842,13 @@ block Job >= 342 && Job <= 347 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16259
 			Warp 0,2431,26,1
-###©xÆ©†A¸óØ¦ÈÕ©x###
+###¡¡Á¶¸®»çÀÌ¸é¡¡###
 block Job >= 352 && Job <= 357 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -958,13 +862,13 @@ block Job >= 352 && Job <= 357 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16260
 			Warp 0,2431,26,1
-###©xãï¹Ü¸óØ¦ÈÕ©x###
+###¡¡¾àÁ¦»çÀÌ¸é¡¡###
 block Job >= 362 && Job <= 367 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -978,13 +882,13 @@ block Job >= 362 && Job <= 367 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16261
 			Warp 0,2431,26,1
-###©x–_Õ¿Ä¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹«±â¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 372 && Job <= 377 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -998,13 +902,13 @@ block Job >= 372 && Job <= 377 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16262
 			Warp 0,2431,26,1
-###©xëÌîÄ¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æ¾î±¸¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 382 && Job <= 387 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1018,13 +922,13 @@ block Job >= 382 && Job <= 387 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16263
 			Warp 0,2431,26,1
-###©x×µÀÃÏÎØ¦ÈÕ©x###
+###¡¡°¨Á¤»çÀÌ¸é¡¡###
 block Job >= 392 && Job <= 397 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1038,13 +942,13 @@ block Job >= 392 && Job <= 397 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16264
 			Warp 0,2431,26,1
-###©x¼ëÓ£Ø¦ÈÕ©x###
+###¡¡Å½Á¤ÀÌ¸é¡¡###
 block Job >= 412 && Job <= 417 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1058,13 +962,13 @@ block Job >= 412 && Job <= 417 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16265
 			Warp 0,2431,26,1
-###©xÓªÚÐØ¦ÈÕ©x###
+###¡¡¼±ÀÎÀÌ¸é¡¡###
 block Job >= 422 && Job <= 427 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1078,13 +982,13 @@ block Job >= 422 && Job <= 427 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16266
 			Warp 0,2431,26,1
-###©xÔæÁÞŒãØ¦ÈÕ©x###
+###¡¡°£È£»çÀÌ¸é¡¡###
 block Job >= 432 && Job <= 437 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1098,13 +1002,13 @@ block Job >= 432 && Job <= 437 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16267
 			Warp 0,2431,26,1
-###©xÏÎ·®Ø¦ÈÕ©x###
+###¡¡ÀÇ»çÀÌ¸é¡¡###
 block Job >= 442 && Job <= 447 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1118,13 +1022,13 @@ block Job >= 442 && Job <= 447 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16268
 			Warp 0,2431,26,1
-###©xÎå³ðÔ»Ø¦ÈÕ©x###
+###¡¡³ª¹«²ÛÀÌ¸é¡¡###
 block Job >= 452 && Job <= 457 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1138,13 +1042,13 @@ block Job >= 452 && Job <= 457 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16269
 			Warp 0,2431,26,1
-###©xÈóÚÐØ¦ÈÕ©x###
+###¡¡»ç³É²ÛÀÌ¸é¡¡###
 block Job >= 462 && Job <= 467 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1158,13 +1062,13 @@ block Job >= 462 && Job <= 467 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16270
 			Warp 0,2431,26,1
-###©x³Ûá¨Ø¦ÈÕ©x###
+###¡¡±¤ºÎÀÌ¸é¡¡###
 block Job >= 472 && Job <= 477 && Item 16375 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1178,16 +1082,16 @@ block Job >= 472 && Job <= 477 && Item 16375 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16375 >= 1
+		Window_OK
 			KillItem 16375,1
 			GivePet 2043
 			GiveItem 16372
 			GiveItem 16271
 			Warp 0,2431,26,1
 
-############©x100?ß–éÝë»Ü¸(±¾ÄÌÎìÆ¥ÛÍØøÊ§)©x############
+############¡¡100ÀÏÆ÷Àå ¼ö¿©(¼¼ÀÌÄÚ·Î Å¬¸®¾î)¡¡############
 
-###©xðôçÇÚÐØ¦ÈÕ©x###
+###¡¡°ËÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 202 && Job <= 207 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1201,13 +1105,13 @@ block Job >= 202 && Job <= 207 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16245
 			Warp 0,2431,26,1
-###©xççÇÚÐØ¦ÈÕ©x###
+###¡¡µµ³¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 212 && Job <= 217 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1221,13 +1125,13 @@ block Job >= 212 && Job <= 217 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16246
 			Warp 0,2431,26,1
-###©x¼üçÇÚÐØ¦ÈÕ©x###
+###¡¡Ã¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 222 && Job <= 227 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1241,13 +1145,13 @@ block Job >= 222 && Job <= 227 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16247
 			Warp 0,2431,26,1
-###©xÝÔçÇÚÐØ¦ÈÕ©x###
+###¡¡È°Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 232 && Job <= 237 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1261,13 +1165,13 @@ block Job >= 232 && Job <= 237 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16248
 			Warp 0,2431,26,1
-###©xÏðçÇÚÐØ¦ÈÕ©x###
+###¡¡ÁöÆÎÀÌÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 242 && Job <= 247 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1281,13 +1185,13 @@ block Job >= 242 && Job <= 247 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16249
 			Warp 0,2431,26,1
-###©xÆ¤¡õ¶ª·Â¼þçÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎ¸Þ¶ûÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 252 && Job <= 257 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1301,13 +1205,13 @@ block Job >= 252 && Job <= 257 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16250
 			Warp 0,2431,26,1
-###©x¹ÏÄÌ°×çÇÚÐØ¦ÈÕ©x###
+###¡¡³ªÀÌÇÁÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 262 && Job <= 267 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1321,13 +1225,13 @@ block Job >= 262 && Job <= 267 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16251
 			Warp 0,2431,26,1
-###©x³¡çÇÚÐØ¦ÈÕ©x###
+###¡¡Åõ±¸Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 272 && Job <= 277 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1341,13 +1245,13 @@ block Job >= 272 && Job <= 277 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16252
 			Warp 0,2431,26,1
-###©xÙ¦ºÒçÇÚÐØ¦ÈÕ©x###
+###¡¡¸ðÀÚÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 282 && Job <= 287 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1361,13 +1265,13 @@ block Job >= 282 && Job <= 287 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16253
 			Warp 0,2431,26,1
-###©x¶¥çÇÚÐØ¦ÈÕ©x###
+###¡¡°©¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 292 && Job <= 297 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1381,13 +1285,13 @@ block Job >= 292 && Job <= 297 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16254
 			Warp 0,2431,26,1
-###©xšõçÇÚÐØ¦ÈÕ©x###
+###¡¡¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 302 && Job <= 307 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1401,13 +1305,13 @@ block Job >= 302 && Job <= 307 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16255
 			Warp 0,2431,26,1
-###©x·ò¡õÆ¤çÇÚÐØ¦ÈÕ©x###
+###¡¡·ÎºêÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 312 && Job <= 317 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1421,13 +1325,13 @@ block Job >= 312 && Job <= 317 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16256
 			Warp 0,2431,26,1
-###©xÆ¤¡õÖ­çÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎÃ÷Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 322 && Job <= 327 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1441,13 +1345,13 @@ block Job >= 322 && Job <= 327 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16257
 			Warp 0,2431,26,1
-###©xÐ¨çÇÚÐØ¦ÈÕ©x###
+###¡¡±¸µÎÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 332 && Job <= 337 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1461,13 +1365,13 @@ block Job >= 332 && Job <= 337 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16258
 			Warp 0,2431,26,1
-###©x¼úçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æÆÐÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 342 && Job <= 347 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1481,13 +1385,13 @@ block Job >= 342 && Job <= 347 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16259
 			Warp 0,2431,26,1
-###©xÆ©†A¸óØ¦ÈÕ©x###
+###¡¡Á¶¸®»çÀÌ¸é¡¡###
 block Job >= 352 && Job <= 357 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1501,13 +1405,13 @@ block Job >= 352 && Job <= 357 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16260
 			Warp 0,2431,26,1
-###©xãï¹Ü¸óØ¦ÈÕ©x###
+###¡¡¾àÁ¦»çÀÌ¸é¡¡###
 block Job >= 362 && Job <= 367 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1521,13 +1425,13 @@ block Job >= 362 && Job <= 367 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16261
 			Warp 0,2431,26,1
-###©x–_Õ¿Ä¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹«±â¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 372 && Job <= 377 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1541,13 +1445,13 @@ block Job >= 372 && Job <= 377 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16262
 			Warp 0,2431,26,1
-###©xëÌîÄ¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æ¾î±¸¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 382 && Job <= 387 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1561,13 +1465,13 @@ block Job >= 382 && Job <= 387 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16263
 			Warp 0,2431,26,1
-###©x×µÀÃÏÎØ¦ÈÕ©x###
+###¡¡°¨Á¤»çÀÌ¸é¡¡###
 block Job >= 392 && Job <= 397 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1581,13 +1485,13 @@ block Job >= 392 && Job <= 397 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16264
 			Warp 0,2431,26,1
-###©x¼ëÓ£Ø¦ÈÕ©x###
+###¡¡Å½Á¤ÀÌ¸é¡¡###
 block Job >= 412 && Job <= 417 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1601,13 +1505,13 @@ block Job >= 412 && Job <= 417 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16265
 			Warp 0,2431,26,1
-###©xÓªÚÐØ¦ÈÕ©x###
+###¡¡¼±ÀÎÀÌ¸é¡¡###
 block Job >= 422 && Job <= 427 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1621,13 +1525,13 @@ block Job >= 422 && Job <= 427 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16266
 			Warp 0,2431,26,1
-###©xÔæÁÞŒãØ¦ÈÕ©x###
+###¡¡°£È£»çÀÌ¸é¡¡###
 block Job >= 432 && Job <= 437 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1641,13 +1545,13 @@ block Job >= 432 && Job <= 437 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16267
 			Warp 0,2431,26,1
-###©xÏÎ·®Ø¦ÈÕ©x###
+###¡¡ÀÇ»çÀÌ¸é¡¡###
 block Job >= 442 && Job <= 447 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1661,13 +1565,13 @@ block Job >= 442 && Job <= 447 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16268
 			Warp 0,2431,26,1
-###©xÎå³ðÔ»Ø¦ÈÕ©x###
+###¡¡³ª¹«²ÛÀÌ¸é¡¡###
 block Job >= 452 && Job <= 457 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1681,13 +1585,13 @@ block Job >= 452 && Job <= 457 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16269
 			Warp 0,2431,26,1
-###©xÈóÚÐØ¦ÈÕ©x###
+###¡¡»ç³É²ÛÀÌ¸é¡¡###
 block Job >= 462 && Job <= 467 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1701,13 +1605,13 @@ block Job >= 462 && Job <= 467 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16270
 			Warp 0,2431,26,1
-###©x³Ûá¨Ø¦ÈÕ©x###
+###¡¡±¤ºÎÀÌ¸é¡¡###
 block Job >= 472 && Job <= 477 && Item 16376 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1721,16 +1625,16 @@ block Job >= 472 && Job <= 477 && Item 16376 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16376 >= 1
+		Window_OK
 			KillItem 16376,1
 			GivePet 2043
 			GiveItem 16373
 			GiveItem 16271
 			Warp 0,2431,26,1
 
-############©x100?ß–éÝë»Ü¸(ö«ÚµÆ¥ÛÍØøÊ§)©x############
+############¡¡100ÀÏÆ÷Àå ¼ö¿©(Ã¶È£¶ûÀÌ·Î Å¬¸®¾î)¡¡############
 
-###©xðôçÇÚÐØ¦ÈÕ©x###
+###¡¡°ËÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 202 && Job <= 207 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1744,13 +1648,13 @@ block Job >= 202 && Job <= 207 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16245
 			Warp 0,2431,26,1
-###©xççÇÚÐØ¦ÈÕ©x###
+###¡¡µµ³¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 212 && Job <= 217 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1764,13 +1668,13 @@ block Job >= 212 && Job <= 217 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16246
 			Warp 0,2431,26,1
-###©x¼üçÇÚÐØ¦ÈÕ©x###
+###¡¡Ã¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 222 && Job <= 227 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1784,13 +1688,13 @@ block Job >= 222 && Job <= 227 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16247
 			Warp 0,2431,26,1
-###©xÝÔçÇÚÐØ¦ÈÕ©x###
+###¡¡È°Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 232 && Job <= 237 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1804,13 +1708,13 @@ block Job >= 232 && Job <= 237 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16248
 			Warp 0,2431,26,1
-###©xÏðçÇÚÐØ¦ÈÕ©x###
+###¡¡ÁöÆÎÀÌÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 242 && Job <= 247 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1824,13 +1728,13 @@ block Job >= 242 && Job <= 247 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16249
 			Warp 0,2431,26,1
-###©xÆ¤¡õ¶ª·Â¼þçÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎ¸Þ¶ûÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 252 && Job <= 257 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1844,13 +1748,13 @@ block Job >= 252 && Job <= 257 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16250
 			Warp 0,2431,26,1
-###©x¹ÏÄÌ°×çÇÚÐØ¦ÈÕ©x###
+###¡¡³ªÀÌÇÁÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 262 && Job <= 267 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1864,13 +1768,13 @@ block Job >= 262 && Job <= 267 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16251
 			Warp 0,2431,26,1
-###©x³¡çÇÚÐØ¦ÈÕ©x###
+###¡¡Åõ±¸Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 272 && Job <= 277 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1884,13 +1788,13 @@ block Job >= 272 && Job <= 277 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16252
 			Warp 0,2431,26,1
-###©xÙ¦ºÒçÇÚÐØ¦ÈÕ©x###
+###¡¡¸ðÀÚÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 282 && Job <= 287 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1904,13 +1808,13 @@ block Job >= 282 && Job <= 287 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16253
 			Warp 0,2431,26,1
-###©x¶¥çÇÚÐØ¦ÈÕ©x###
+###¡¡°©¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 292 && Job <= 297 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1924,13 +1828,13 @@ block Job >= 292 && Job <= 297 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16254
 			Warp 0,2431,26,1
-###©xšõçÇÚÐØ¦ÈÕ©x###
+###¡¡¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 302 && Job <= 307 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1944,13 +1848,13 @@ block Job >= 302 && Job <= 307 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16255
 			Warp 0,2431,26,1
-###©x·ò¡õÆ¤çÇÚÐØ¦ÈÕ©x###
+###¡¡·ÎºêÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 312 && Job <= 317 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1964,13 +1868,13 @@ block Job >= 312 && Job <= 317 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16256
 			Warp 0,2431,26,1
-###©xÆ¤¡õÖ­çÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎÃ÷Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 322 && Job <= 327 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -1984,13 +1888,13 @@ block Job >= 322 && Job <= 327 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16257
 			Warp 0,2431,26,1
-###©xÐ¨çÇÚÐØ¦ÈÕ©x###
+###¡¡±¸µÎÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 332 && Job <= 337 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2004,13 +1908,13 @@ block Job >= 332 && Job <= 337 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16258
 			Warp 0,2431,26,1
-###©x¼úçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æÆÐÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 342 && Job <= 347 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2024,13 +1928,13 @@ block Job >= 342 && Job <= 347 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16259
 			Warp 0,2431,26,1
-###©xÆ©†A¸óØ¦ÈÕ©x###
+###¡¡Á¶¸®»çÀÌ¸é¡¡###
 block Job >= 352 && Job <= 357 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2044,13 +1948,13 @@ block Job >= 352 && Job <= 357 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16260
 			Warp 0,2431,26,1
-###©xãï¹Ü¸óØ¦ÈÕ©x###
+###¡¡¾àÁ¦»çÀÌ¸é¡¡###
 block Job >= 362 && Job <= 367 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2064,13 +1968,13 @@ block Job >= 362 && Job <= 367 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16261
 			Warp 0,2431,26,1
-###©x–_Õ¿Ä¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹«±â¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 372 && Job <= 377 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2084,13 +1988,13 @@ block Job >= 372 && Job <= 377 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16262
 			Warp 0,2431,26,1
-###©xëÌîÄ¤†AçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æ¾î±¸¼ö¸®Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 382 && Job <= 387 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2104,13 +2008,13 @@ block Job >= 382 && Job <= 387 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16263
 			Warp 0,2431,26,1
-###©x×µÀÃÏÎØ¦ÈÕ©x###
+###¡¡°¨Á¤»çÀÌ¸é¡¡###
 block Job >= 392 && Job <= 397 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2124,13 +2028,13 @@ block Job >= 392 && Job <= 397 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16264
 			Warp 0,2431,26,1
-###©x¼ëÓ£Ø¦ÈÕ©x###
+###¡¡Å½Á¤ÀÌ¸é¡¡###
 block Job >= 412 && Job <= 417 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2144,13 +2048,13 @@ block Job >= 412 && Job <= 417 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16265
 			Warp 0,2431,26,1
-###©xÓªÚÐØ¦ÈÕ©x###
+###¡¡¼±ÀÎÀÌ¸é¡¡###
 block Job >= 422 && Job <= 427 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2164,13 +2068,13 @@ block Job >= 422 && Job <= 427 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16266
 			Warp 0,2431,26,1
-###©xÔæÁÞŒãØ¦ÈÕ©x###
+###¡¡°£È£»çÀÌ¸é¡¡###
 block Job >= 432 && Job <= 437 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2184,13 +2088,13 @@ block Job >= 432 && Job <= 437 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16267
 			Warp 0,2431,26,1
-###©xÏÎ·®Ø¦ÈÕ©x###
+###¡¡ÀÇ»çÀÌ¸é¡¡###
 block Job >= 442 && Job <= 447 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2204,13 +2108,13 @@ block Job >= 442 && Job <= 447 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16268
 			Warp 0,2431,26,1
-###©xÎå³ðÔ»Ø¦ÈÕ©x###
+###¡¡³ª¹«²ÛÀÌ¸é¡¡###
 block Job >= 452 && Job <= 457 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2224,13 +2128,13 @@ block Job >= 452 && Job <= 457 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16269
 			Warp 0,2431,26,1
-###©xÈóÚÐØ¦ÈÕ©x###
+###¡¡»ç³É²ÛÀÌ¸é¡¡###
 block Job >= 462 && Job <= 467 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2244,13 +2148,13 @@ block Job >= 462 && Job <= 467 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
 			GiveItem 16270
 			Warp 0,2431,26,1
-###©x³Ûá¨Ø¦ÈÕ©x###
+###¡¡±¤ºÎÀÌ¸é¡¡###
 block Job >= 472 && Job <= 477 && Item 16377 >= 1
 	Window 22291,Next
 	Window 22292,Next
@@ -2264,7 +2168,7 @@ block Job >= 472 && Job <= 477 && Item 16377 >= 1
 			EndWindow 10000
 		Window_OK PetSpace == 0
 			EndWindow 22306
-		Window_OK Item 16377 >= 1
+		Window_OK
 			KillItem 16377,1
 			GivePet 2043
 			GiveItem 16374
@@ -2272,42 +2176,42 @@ block Job >= 472 && Job <= 477 && Item 16377 >= 1
 			Warp 0,2431,26,1
 
 
-############©x30?ß–éÝë»Ü¸©x############
+############¡¡30ÀÏÆ÷Àå ¼ö¿©¡¡############
 block Item 16272 >= 1
 	Window 21866,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16272 >= 1
+		Window_OK
 			KillItem 16272,1
 			GiveItem 16326,1
 			Warp 0,2431,26,1
 
-############©x15?ß–éÝë»Ü¸©x############
+############¡¡15ÀÏÆ÷Àå ¼ö¿©¡¡############
 block Item 16292 >= 1
 	Window 21965,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16292 >= 1
+		Window_OK
 			KillItem 16292,1
 			GiveItem 18972
 			Warp 0,2431,26,1
 
 
-############©x7?ß–éÝë»Ü¸©x############
+############¡¡7ÀÏÆ÷Àå ¼ö¿©¡¡############
 block Item 16273 >= 1
 	Window 21867,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16273 >= 1
+		Window_OK
 			KillItem 16273,1
 			NowEvent 104 = 1
 			GiveItem 18967
 			Warp 0,2431,26,1
 
 
-###©x¹«Ä¾¶¯Â½Ø¦ÈÕ©x###
+###¡¡±× ÀÌ¿Ü¶ó¸é¡¡###
 block
-#\n\n©xØ¤Ø¦Ð×ÖÏÆ¥³ð³ð±åÖÐÔÂ¼°·½¨•©xÆ¥»¯ÖÐÔÈ»¯ÇÐ½ïµ¤·ÖÖÐ¨•
+#\n\n¡¡ª¢ªÊª¿ù¼ªÇª³ª³ªËª¤ªëªÎªè£¡¡¡ªÇªÆª¤ªÃªÆªÁªçª¦ªÀª¤£¡
 	Window 21872,OK
 		Window_OK
 		Warp 0,2431,26,1

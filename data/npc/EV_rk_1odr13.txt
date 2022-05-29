@@ -1,4 +1,4 @@
-#»£Å¢¼°?ÚÐ
+#À¯ÀûÀÇ ÆÄ¼ö²Û
 
 #
 block
@@ -8,5 +8,6 @@ block
 	Window 23246,Next
 	Window 23247,Next
 	EndWindow 23248,OK
+
 
 

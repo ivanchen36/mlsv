@@ -1,4 +1,4 @@
-#ÈÓ°Ç¼şÊĞ
+#»çÀÜÄ«
 
 block
 	Window 22902,Next

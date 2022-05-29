@@ -1,9 +1,9 @@
 #
-#ÖœÏş³ß½ÑÔÊÈÓ·ÂÑ¨¼şÄ¸
+#Áö»óÀ¸·Î µ¹·Áº¸³»´Â »ç¶ó¸¸´õ
 #
 
 block
-#\n\n\n\n@c©xÊÖµ¤ ¸±å½ÑÔ»Ğ×ÖĞ¼°¾®¨”
+#\n\n\n\n@c¡¡ÀÌÁ¦ ±â½¾À¸·Î µ¹¾Æ°¡°í ½Í¾î?
  Window 21495,Yes,No
   Window_Yes
    LeaveGroup

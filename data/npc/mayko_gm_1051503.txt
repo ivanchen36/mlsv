@@ -1,8 +1,0 @@
-#雪人屋	爱丝波波弟弟
-#	■　新年到～穿新衣～戴新帽～
-
-block 
-	#EndWindow 1053626
-	Window 1053626,OK
-	Window_OK
-	setaction 3

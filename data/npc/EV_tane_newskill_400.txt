@@ -1,8 +1,9 @@
 
 block Xpos >= 149 && Xpos <= 151 && Ypos >= 110 && Ypos <= 112
 
-	endWindow 3200664,ok
-		#\n\n©x’z¾®Ô»»¥êûØÆ»¯ÖÐÔÂ©z\n©xçÖà¦±åµõÔÈ¾®Ô»Îç\n©xÂ½³ßÁ¸ÈÊè§»¥·°ÖÐ»¯ÖÐÔÂ»¥\n©xæÎÈÊ»¯?¾®Ø¦ÖÐ©z
+	endWindow 5340001,ok
+
+
 
 
 

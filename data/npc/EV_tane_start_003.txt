@@ -12,9 +12,7 @@ block Item 620030 == 0
 #	if LocalFlag2 == 0
 
 #		LocalFlag2 = 1
-#		endwindow 3203273
-
-		#\n\n©xØ¤Ø¦Ð×·´Òý·Ö©y\n©x³ð¼°ÛÆ±åñ×¸êÍÍÎåÆ¥·´Ø¤Ô»ÒýÁùÊÏ©z
+#		endwindow "\n\n¡¡´ç½ÅÀº ¾ÆÁ÷\n¡¡ÀÌ ¾ÕÀ¸·Î ³ª¾Æ°¡¼­´Â ¾ÈµË´Ï´Ù."
 
 #		Play_SE 260,320,240
 #		shapenext 103011
@@ -29,9 +27,7 @@ block Item 620030 == 0
 if Xpos == 75 && Ypos == 130 && Item 620030 == 0
 
 
-		endwindow 3203274
-
-		#\n\n©xØ¤Ø¦Ð×·´Òý·Ö©y\n©x³ð¼°ÛÆ±åñ×¸êÍÍÎåÆ¥·´Ø¤Ô»ÒýÁùÊÏ©z
+		endwindow "\n\n¡¡´ç½ÅÀº ¾ÆÁ÷\n¡¡ÀÌ ¾ÕÀ¸·Î ³ª¾Æ°¡¼­´Â ¾ÈµË´Ï´Ù."
 
 
 
@@ -60,6 +56,8 @@ if Xpos == 75 && Ypos == 130 && Item 620030 >= 1
 
 
 endif
+
+
 
 
 

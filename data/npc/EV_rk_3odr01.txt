@@ -1,6 +1,6 @@
-#ÔæÁŞŒãÃñÄá¼şÃñÄá
+#°£È£»ç Ã¾Ã¼
 
-#çÖÎş¼°¾İÃ«µ±ÔÈ»¯ÖĞÔÂ
+#ÃµÁ¦ÀÇ ÁõÇ¥¸¦ °¡Áö°í ÀÖ´Ù
 block Item 16428 >= 1
 	Window 22990,Yes,No
 		Window_No
@@ -9,7 +9,7 @@ block Item 16428 >= 1
 			LeaveGroup
 			Warp 0,43772,7,18
 		Window_Yes
-#?¶ããïÃ«µ±ÔÈ»¯ÖĞÔÂ
+#Æ¯È¿¾àÀ» °¡Áö°í ÀÖ´Ù
 block Item 16429 >= 1
 	Window 22992,Yes,No
 		Window_No
@@ -18,26 +18,26 @@ block Item 16429 >= 1
 			LeaveGroup
 			Warp 0,43771,7,18
 		Window_Yes
-#Ñ¨ÄÌÑ¨ÄÌã×Ã«µ±ÔÈ»¯ÖĞÔÂ
+#¸¶ÀÌ¸¶ÀÌ Ç®À» °¡Áö°í ÀÖ´Ù
 block Item 16430 >= 1
 	Window 22994,OK
 		Window_OK Item 16430 >= 1
 			LeaveGroup
 			Warp 0,43770,1,10
 		Window_OK
-#±ØÓÀÆË¼ş¼°³×‚UÃ«°¾Øê»¯©y?¶ããï2Ã«µ±ÔÈ»¯ÖĞÔÂØ¦ÈÕ
+#°Ô½ÅÀÇ ÀÇ·Ú¸¦ ¹Ş°í, Æ¯È¿¾à2¸¦ °¡Áö°í ÀÖ´Ù¸é
 block NowEvent 145 == 1 && Item 16439 >= 1
 	EndWindow 22993,OK
-#±ØÓÀÆË¼ş¼°³×‚UÃ«°¾ØêĞ×
+#°Ô½ÅÀÇ ÀÇ·Ú¸¦ ¹Ş¾Ò´Ù
 block NowEvent 145 == 1
 	Window 23243,OK
 		Window_OK
 			LeaveGroup
 			Warp 0,43770,1,10
-#ÛÍ¾Şµ©Ğşñ×µæáw
+#Äù½ºÆ® ÁøÇà Áß
 block NowEvent 119 == 1 || NowEvent 120 == 1
 	EndWindow 22995,OK
-#ÓÜ¨ãî¿ô÷µ±
+#ÈÆ£´µî ¼ÒÁö
 block EndEvent 54 == 1 || EndEvent 62 == 1
 	Window 22996,Yes,No
 		Window_No
@@ -50,4 +50,5 @@ block EndEvent 54 == 1 || EndEvent 62 == 1
 #
 block
 	EndWindow 22999,OK
+
 

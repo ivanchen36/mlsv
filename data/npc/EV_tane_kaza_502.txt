@@ -8,13 +8,13 @@ block
 if  Item 607600 >= 1
 
 
-#			Window "\n\n﹛?﹜凳卅月蕉心毛侗戈支〝",yes,no	
+#			Window "\n\n　弊措, 歹宽 表篮 镑阑 官扼绰啊?",yes,no	
 			Window 3006803,yes,no	
 
 
 			Window_yes
 
-#				Window "\n\n﹛卅日壬﹜凳卅月譁及镶﹜\n﹛梓及柁帼尺﹝",ok
+#				Window "\n\n　弊犯促搁, 歹宽 表篮 顶狼 关官蹿\n　阂采狼 楷苛栏肺.",ok
 				Window 3006804,ok
 
 
@@ -26,15 +26,17 @@ if  Item 607600 >= 1
 
 			Window_no
 
-#				EndWindow "\n\n﹛卅日壬﹜峏切蛔月互恌中﹝\n﹛仄壬日仁詨卞反﹜引凶﹜仇仇卞\n﹛譁帼及报互钒仁﹝"
+#				EndWindow "\n\n　弊犯促搁, 倒酒啊档废 窍扼.\n　倔付 饶俊绰 促矫 咯扁俊\n　瘤苛狼 架捞 凯赴促."
 				EndWindow 3006805
 
 
 else
 
-#				EndWindow "\n\n﹛衙五萼毛菲户方﹝"
+#				EndWindow "\n\n　坷贰等 凯艰甫 备窍扼."
 				EndWindow 3006806
 
 
 endif
+
+
 

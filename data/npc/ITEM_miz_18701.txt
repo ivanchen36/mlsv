@@ -1,5 +1,5 @@
 #
-#½ÊØêÔÂ?ÎË¼°ÈÛ
+#ºû³ª´Â ¹éÀºÀÇ È¥
 #
 
 ##############  ##############
@@ -35,8 +35,8 @@ block BBImage >= 106350 && BBImage <= 106374
 
 	EndWindow 20693,OK
 
-block BBImage >= 105525 && BBImage <= 105548
-	EndWindow 20693,OK
+
+
 ##############################
 block
 
@@ -45,5 +45,6 @@ block
 	KillItem 18701,1,(20696)
 	EndWindow 20692,OK
 	
+
 
 

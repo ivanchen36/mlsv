@@ -1,25 +1,42 @@
-#﹛港盒及拨叶﹛﹛??﹛巟鼹
+#　籍角狼 磨泅　　ｂｙ　配固鸥
 #
-#﹛﹛﹛必件市件及摒
+#　　　罢沫狼 鼻
 
-###﹛菰缜谛匹菰综岳旦平伙伊矛伙互ㄤ动晓
+###　劝流牢捞绊 劝累己 胶懦饭骇捞 ５捞惑
 block JobAncestry == 230 && SkillLevel_203 >= 5
-	Window 3203089,OK
-
-		#\n\n﹛台及杴毛苇欠﹝＿＿丹戈﹜宁伞分﹝\n﹛匹反﹜立旦玄伙泛奶件及综岳芊毛鳗尹方丹﹝\n﹛脱互菰互﹜聂仁及樊卞曾牒今木月仇午毛笔月﹝\n﹛匹反﹜今日壬﹝
+	Window 8830001,OK
 
 		Window_OK
+			if SkillLevel_200 >= 5
+			GiveRecipe 24
+			endif
+			if SkillLevel_201 >= 5
+			GiveRecipe 84
+			endif
+			if SkillLevel_202 >= 5
+			GiveRecipe 144
+			endif
+			if SkillLevel_203 >= 5
 			GiveRecipe 204
+			endif
+			if SkillLevel_204 >= 5
+			GiveRecipe 264
+			endif
+			if SkillLevel_205 >= 5
+			GiveRecipe 324
+			endif
+			if SkillLevel_206 >= 5
+			GiveRecipe 384
+			endif
+
 			LeaveGroup
 			Warp 0,59679,163,191
 
 
 
-###﹛菰缜谛分互菰综岳旦平伙伊矛伙互ㄤ怳坢
+###　劝流牢捞瘤父 劝累己 胶懦饭骇捞 ５固父
 block JobAncestry == 230
-	Window 3203090,OK
-
-		#\n\n﹛台及杴毛苇欠﹝\n﹛＿云蟆反引分﹜脱互菰毛健尹月珃匹反卅中卅﹝\n﹛升丹支匀化仇仇尺侳凶及井反襞日厄互﹜\n﹛漆反娄五晓仆月互方中﹝
+	Window 8830002,OK
 
 		Window_OK
 			LeaveGroup
@@ -28,25 +45,21 @@ block JobAncestry == 230
 
 
 
-###﹛菰缜谛匹反卅中
+###　劝流牢捞 酒聪促
 block
-	Window 3203091,YES,NO
-
-		#\n\n﹛菰缜谛匹反卅中卅﹝窖椒毛侗戈及井〝
+	Window 8830003,YES,NO
 
 		Window_YES
-			Window 3203092,OK
-
-		#\n\n﹛匹反﹜港盒及请轼嗤仁引匹霜曰?仃方丹﹝
+			Window 8830004,OK
 
 				Window_OK
 					LeaveGroup
 					Warp 0,59679,163,191
 
 		Window_NO
-			EndWindow 3203093
+			EndWindow 8830005
 
-		#\n\n﹛菰动陆及仇午匹狪仄井仃日木化手漱月卅﹝\n﹛酷仪及梁呺毛仄卅中匹仁木﹝
+
 
 
 

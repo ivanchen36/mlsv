@@ -1,104 +1,76 @@
-#﹛璋剀祸母件斥亦件﹋蛙笙菱心母件斥亦件“扔皮?﹌﹛﹛??﹛巟鼹
+#　荐犬力 带怜（备 咯抚规切 带怜：辑宏Ａ）　　ｂｙ　配固鸥
 #
-#﹛﹛﹛戏嬴仃盒及摒
+#　　　积备捞笼狼 鼻
 
-###﹛港玄市必及?戏嬴五毛赭当
+###　官困 档付轨狼 馆 积备捞甫 家瘤
 
 block Item_607932 >= 1
-	EndWindow 3202802
-
-		#\n\n﹛什孔孔﹜公及?戏嬴五﹜恌中戏嬴仃填宁分卅﹝\n﹛什孔孔﹜镀仁罹屯化心卅﹜什孔孔﹝
+	EndWindow 8450001
 
 
 
-###﹛港玄市必毛赭当
+###　官困 档付轨阑 家瘤
 
 block Item_607931 >= 1
-	Window 3202803,OK
-
-		#\n\n﹛什孔孔﹜当匀化五凶卅﹝元扎﹜嬴仁卅﹝\n﹛什孔孔﹜请侳凶卅﹝什孔孔﹜丐仆月方﹝
+	Window 8450002,OK
 
 		Window_OK Item_607931 >= 1 && ItemSpace >= 1
 			KillItemAll 607931
-			GiveItemEX 607932,1,3202804
-
-		#\n\n﹛什孔孔﹜丐仆日木卅中卅﹝\n﹛什孔孔﹜绂坁互中匀天中分卅﹝
+			GiveItemEX 607932,1,"."
 
 		Window_OK ItemSpace >= 1
-			EndWindow 3202805
-
-		#\n\n﹛什孔孔﹜港玄市必互壅尹凶卅﹝\n﹛什孔孔﹜?仆凶及井卅﹝
+			EndWindow 8450003
 
 		Window_OK
-			EndWindow 3202806
-
-		#\n\n﹛什孔孔﹜丐仆日木卅中卅﹝\n﹛什孔孔﹜绂坁互中匀天中分卅﹝
+			EndWindow 8450004
 
 
 
-###﹛云升欠戊件瓦乓弁毛赭当
+###　待阂 帮距阑 家瘤
 
 block Item_607934 >= 1
-	Window 3202807,OK
-
-		#\n\n﹛什孔孔﹜丐五日户凶卅﹝\n﹛什孔孔﹜元扎﹜仇木反中日卅中卅﹝
+	Window 8450005,OK
 
 		Window_OK
 			KillItemAll 607934
 
 
 
-###﹛旦永由?扤毛赭当
+###　疆 滴何甫 家瘤
 
 block Item_607933 >= 1
-	Window 3202808,YES,NO
-
-		#\n\n﹛什孔孔﹜云支勾凝蹉及银中分卅﹝\n﹛什孔孔﹜酸?分卅﹜港玄市必互卅中卅﹝\n﹛什孔孔﹜港玄市必毛当匀化仁月井〝
+	Window 8450006,YES,NO
 
 		Window_YES Item_607933 >=1 && ItemSpace >= 1
-			Window 3202809,OK
-
-		#\n\n﹛什孔孔﹜港玄市必反玄市必凯曰抩谛互\n﹛当匀化月卅﹝\n﹛什孔孔﹜云升欠戊件瓦乓弁毛当匀化垫五卅﹝\n﹛支勾及厘驯坁分卅﹝
+			Window 8450007,OK
 
 				Window_OK Item_607933 >= 1 && ItemSpace >= 1
 					KillItemAll 607933
-					GiveItemEX 607934,1,3202810
-
-		#\n\n﹛什孔孔﹜丐仆日木卅中卅﹝\n﹛什孔孔﹜绂坁互中匀天中分卅﹝
+					GiveItemEX 607934,1,"."
 
 				Window_OK ItemSpace >= 1
-					EndWindow 3202811
-
-		#\n\n﹛什孔孔﹜旦永由?扤互壅尹凶卅﹝\n﹛什孔孔﹜罹屯凶及井卅﹝
+					EndWindow 8450008
 
 				Window_OK
-					EndWindow 3202812
-
-		#\n\n﹛什孔孔﹜丐仆日木卅中卅﹝\n﹛什孔孔﹜绂坁互中匀天中分卅﹝
+					EndWindow 8450009
 
 		Window_YES ItemSpace >= 1
-			EndWindow 3202813
-
-		#\n\n﹛什孔孔﹜旦永由?扤互壅尹凶卅﹝\n﹛什孔孔﹜罹屯凶及井卅﹝
+			EndWindow 8450010
 
 		Window_YES
-			EndWindow 3202814
-
-		#\n\n﹛什孔孔﹜丐仆日木卅中卅﹝\n﹛什孔孔﹜绂坁互中匀天中分卅﹝
+			EndWindow 8450011
 
 		Window_NO
-			EndWindow 3202815
-
-		#\n\n﹛什孔孔﹜公丹井﹜丐五日户月氏分卅﹝\n﹛元扎丐卅﹜什孔孔﹝
+			EndWindow 8450012
 
 
 
-###﹛晓筏失奶泛丞毛尕赭当
+###　惑扁 酒捞袍阑 家瘤窍瘤 臼澜
 
 block
-	EndWindow 3202816
+	EndWindow 8450013
 
-		#\n\n﹛什孔孔﹜罹屯坁反戏嬴仃互域?分卅﹝
+
 
 
 

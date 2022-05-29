@@ -1,4 +1,4 @@
-#ýø?????
+#½ÅÈ¥ ¸¶¸£¼Î
 
 #block EndEvent 127 == 1
 #	EndWindow 22330,OK
@@ -19,3 +19,4 @@ block Item 16379 >= 1
 			EndWindow 22332
 block
 	EndWindow 22334,OK
+

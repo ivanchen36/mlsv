@@ -1,9 +1,0 @@
-##ฮÝ	ฐฎหฟฒจฒจรรรร
-##กกะยายทþบรฦฏมมเธกซ
-
-block 
-	
-	#EndWindow 1053628
-	Window 1053628,OK
-	Window_OK
-	setaction 6

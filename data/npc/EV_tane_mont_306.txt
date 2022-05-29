@@ -16,7 +16,7 @@ block
 			LocalCount4 = 5
 
 
-#					EndWindow "\n\n﹛廿仁切氏﹜辄及滔缙毛蠕户月及互驯五卅氏方﹝\n﹛域?醱﹜内℅℅匀匀午﹝"
+#					EndWindow "\n\n　唱, 魂狼 版摹甫 官扼焊绰 吧 亮酒秦.\n　窍风 辆老, 拌~~加."
 					EndWindow 3006960
 
 
@@ -31,7 +31,7 @@ block
 
 
 
-#					EndWindow "\n\n﹛廿仁切氏﹜辄及抔日仄互驯五卅氏方﹝\n﹛市瓜汀民分仄﹝"
+#					EndWindow "\n\n　唱, 魂俊辑 荤绰 霸 亮酒.\n　钙林捍捞扁档 窍备."
 					EndWindow 3006961
 
 
@@ -46,13 +46,15 @@ block
 
 			LocalCount4 = 5
 
-#				EndWindow "\n\n﹛挃及辄及晓卞\n﹛凶引℅卞雄公丹卅谛互蛛月氏方﹝"
+#				EndWindow "\n\n　糠 魂 困俊\n　啊~阐 碍且 巴 鞍篮 荤恩捞 乐绢."
 				EndWindow 3007006
 
 
 	
 
 			endif
+
+
 
 
 

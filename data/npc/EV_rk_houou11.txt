@@ -1,4 +1,4 @@
-#??????¦ 
+#¿Á¼ö¼ö ¹ç
 
 block Item 16330 >= 1
 	EndWindow 22092,OK

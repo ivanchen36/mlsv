@@ -1,17 +1,17 @@
 #
-#πœ”¿√Û
+#≥¿
 #
-############## πœ”¿√Û√´®·π¥∂Øœ˛µ±‘»ªØ‘¬ ##############
+############## ≥¿¿ª £≤∞≥ ¿ÃªÛ ∞°¡ˆ∞Ì ¿÷¥Ÿ ##############
 block Item 15702 >= 2
 
 	EndWindow 206690,OK
 
-############## ŒÎŒÂµ© ∏°ıµ©ª•ÛÔ‘ªÿ¶÷– ##############
+############## ∫Û ∞¯∞£¿Ã ∫Œ¡∑«œ¥Ÿ ##############
 block ItemSpace == 0
 
 	EndWindow 206664,OK
 
-############## πœ”¿√Ûº∞À·‘ªDURª•1 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 1 ##############
 block ItemDur 15702 == 1
 
 	Window 206645,YES,NO
@@ -20,7 +20,7 @@ block ItemDur 15702 == 1
 	GiveItem 15219
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•2 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 2 ##############
 block ItemDur 15702 == 2
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 2
@@ -28,7 +28,7 @@ block ItemDur 15702 == 2
 	GiveItem 15217
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•3 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 3 ##############
 block ItemDur 15702 == 3
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 3
@@ -36,7 +36,7 @@ block ItemDur 15702 == 3
 	GiveItem 15215
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•4 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 4 ##############
 block ItemDur 15702 == 4
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 4
@@ -44,7 +44,7 @@ block ItemDur 15702 == 4
 	GiveItem 15213
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•5 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 5 ##############
 block ItemDur 15702 == 5
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 5
@@ -52,7 +52,7 @@ block ItemDur 15702 == 5
 	GiveItem 15211
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª• ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã  ##############
 block ItemDur 15702 == 6
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 6
@@ -60,7 +60,7 @@ block ItemDur 15702 == 6
 	GiveItem 15210
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•7 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 7 ##############
 block ItemDur 15702 == 7
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 7
@@ -68,7 +68,7 @@ block ItemDur 15702 == 7
 	GiveItem 15208
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•8 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 8 ##############
 block ItemDur 15702 == 8
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 8
@@ -76,7 +76,7 @@ block ItemDur 15702 == 8
 	GiveItem 15206
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•9 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 9 ##############
 block ItemDur 15702 == 9
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 9
@@ -84,7 +84,7 @@ block ItemDur 15702 == 9
 	GiveItem 15203
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•10 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 10 ##############
 block ItemDur 15702 == 10
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 10
@@ -92,11 +92,12 @@ block ItemDur 15702 == 10
 	GiveItem 15201
 	Window_NO
 
-############## πœ”¿√Ûº∞À·‘ªDURª•11 ##############
+############## ≥¿¿« ≥≤¿∫ DUR¿Ã 11 ##############
 block ItemDur 15702 == 11
 	Window 206645,YES,NO
 	Window_YES ItemDur 15702 == 11
 	SetDur 15702,-1
 	GiveItem 15200
 	Window_NO
+
 

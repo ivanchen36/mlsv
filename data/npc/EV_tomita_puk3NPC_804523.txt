@@ -1,6 +1,6 @@
-#PUK3卞亢支井仄NPC﹛﹛??﹛巟鼹
+#PUK3 栋甸解茄 NPC　　ｂｙ　配固鸥
 #
-#﹛﹛﹛齿谛斥丞及摒
+#　　　惑牢 咙狼 鼻
 
 ###
 
@@ -9,18 +9,16 @@ block
 	LocalCount4 = Random 2,0
 
 	If LocalCount4 == 1
-		EndWindow 3204191
-
-		#\n\n﹛域测虯仆方丹午合匀化支匀化侳凶氏分互﹜\n﹛升丹手仇仇及洘醱午反井心宁歹卅中卅﹝\n﹛窒分井曳芛匟樊午狪仄化月心凶中匹友﹝
+		EndWindow 7960001
 		EndBlock
 
 	else
-		EndWindow 3204192
-
-		#\n\n﹛引匀凶仁﹜丹切及剡卞手漱匀凶手氏分﹝\n﹛仇仇尺邋仁卅曰?太请仄化中匀化﹜\n﹛窖匀化侳支仄卅中﹝\n﹛引﹜勾五丐中晓澎卅及反俇手仄中互友﹝
+		EndWindow 7960002
 		EndBlock
 
 	endif
+
+
 
 
 

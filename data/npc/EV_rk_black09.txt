@@ -1,4 +1,4 @@
-#”Ò‘–»Œ—Î
+#µŒπŸ
 
 
 block
@@ -17,4 +17,5 @@ block
 			NowEvent 140 = 1
 			LeaveGroup
 			Warp 0,51004,22,23
+
 

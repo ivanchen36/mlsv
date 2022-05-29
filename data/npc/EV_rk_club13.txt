@@ -1,52 +1,52 @@
 #
-#ö«Úµ
+#Ã¶È£¶ûÀÌ
 #
 
-#¹Í´é¶Ö½÷±ÔÃ«µ±ÔÈ»¯ÖĞÔÂØ¦ÈÕ
+#´ë±â½ÇÃÊ´ë±ÇÀ» °¡Áö°í ÀÖ´Ù¸é
 block Item 16272 >= 1 || Item 16273 >= 1
 	Endwindow 21876
 
-#Æ»Ø¦ÈÕ
+#¾ÆÄ§ÀÌ¸é
 block nowtime == 0
 			Endwindow 21818
 
-#Óò?·³ÁÄØÆ»¯ÖĞØ¦ÖĞØ¦ÈÕ
+#ÇÏ·ç °æ°úÇÏÁö ¾Ê¾Ò´Ù¸é
 block Item 16242 == 1 && ItemCreateTime 16242 <= 1439
 			Endwindow 21851
 
-#ö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥100¶¯ÏşØ¦ÈÕØ¦ÈÕ
+#Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ 100 ÀÌ»óÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 >= 100
 	Endwindow 21876
 
-#ö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥99Ø¦ÈÕ
+#Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ 99ÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 == 99
 			AddStampCount 16242
 			Endwindow 22290
 
-##©xö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥29Ø¦ÈÕ
+##¡¡Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ 29ÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 == 29
 			AddStampCount 16242
 			Endwindow 21865
 
-##©xö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥16Ø¦ÈÕ
+##¡¡Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ 16ÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 == 16
 			AddStampCount 16242
 			Endwindow 21963
 
-##©xö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥6Ø¦ÈÕ
+##¡¡Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ 6ÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 == 6
 			AddStampCount 16242
 			Endwindow 21864
 
-##©xö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥¨ã¶¯ÏşØ¦ÈÕ
+##¡¡Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ £´ÀÌ»óÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 >= 4
 			AddStampCount 16242
 			Endwindow 21853
-##©xö«Úµ¼°’oÍ­ÊĞËü¼şĞş»¥¨âØ¦ÈÕ
+##¡¡Ã¶È£¶ûÀÌÀÇ ¸íÇÔ Ä«¿îÆ®°¡ £³ÀÌ¸é
 block Item 16242 == 1 && StampCount 16242 == 3
 			Endwindow 21852
 
-#ÛÍÄÌ¡õ¼şÆ¤ÒÁµ©»¥Ø¤ÔÈ»¯Item 16242 == 1 && StampCount 16242 == 2
+#Äı ºê·¹½º°¡ ÀÖ°í Item 16242 == 1 && StampCount 16242 == 2
 block Item 18970 >= 1 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21772,Yes
 		Window_Yes
@@ -58,7 +58,7 @@ block Item 18970 >= 1 && Item 16242 == 1 && StampCount 16242 == 2
 					LeaveGroup
 					Warp 0,1165,19,38
 
-##©xItem 16242 == 1 && StampCount 16242 == 2
+##¡¡Item 16242 == 1 && StampCount 16242 == 2
 block Item 16242 == 1 && StampCount 16242 == 2
 	Window 21770,Next
 	EndWindow 21771
@@ -78,7 +78,7 @@ block Item 16242 == 1 && StampCount 16242 == 1
 			Warp 0,2431,5,28
 
 
-##©xö«Úµ¼°’oÍ­Ã«µ±ÔÈ»¯ÖĞØ¦ÖĞØ¦ÈÕ
+##¡¡Ã¶È£¶ûÀÌÀÇ ¸íÇÔÀ» °¡Áö°í ÀÖÁö ¾Ê´Ù¸é
 block
 	Window 21758,Next
 	Window 21759,Yes,No
@@ -99,3 +99,4 @@ block
 					AddStampCount 16242
 					LeaveGroup
 					Warp 0,1165,19,38
+

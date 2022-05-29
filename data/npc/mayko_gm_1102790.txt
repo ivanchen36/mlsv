@@ -1,5 +1,0 @@
-block item 41272 >0
- 
-	leavegroup 
- 	warp 0,31802,17,18
- 	endblock

@@ -8,12 +8,12 @@ block
 				if LocalCount0 == 1
 
 
-#					Window "\n\n﹛丐丐﹜累分﹜累互中匀天中苇尹月＿＿",next
+#					Window "\n\n　酒酒, 采捞促. 采捞 儡多 焊咯ˇˇ",next
 					Window 3006874,next
 
 
 
-#					EndWindow "\n\n﹛丐﹜韶氏分反内及左斥奶民乓件＿＿"
+#					EndWindow "\n\n　酒, 倒酒啊脚 且酒滚瘤ˇˇ"
 					EndWindow 3006875
 
 
@@ -22,28 +22,30 @@ block
 
 					if LocalCount0 == 2
 
-#						Window "\n\n﹛屾衔辄反﹜屾衔辄反升及杅剩井卅＿＿",next
+#						Window "\n\n　饶瘤魂篮, 饶瘤魂篮 绢蠢 规氢老鳖ˇˇ",next
 						Window 3006876,next
 
 
-#						EndWindow "\n\n﹛手丹剂仄仄凶日﹜\n﹛手丹﹜手丹切斤匀午匹﹜\n﹛弁瓦卞窖木月＿＿"
+#						EndWindow "\n\n　炼陛父 歹 啊搁\n　炼陛父, 炼陛父 歹 啊搁\n　绊氢俊 倒酒哎 荐 乐绢ˇˇ"
 						EndWindow 3006877
 
 
 
 					else
 
-#						Window "\n\n﹛巨伉亘扑左件〝\n﹛巨伉亘扑左件分午〞〞",next
+#						Window "\n\n　郡幅矫柯?\n　郡幅矫柯捞扼绊!!",next
 						Window 3006878,next
 
 
-#						EndWindow "\n\n﹛本仿巨用豭踏欺赶鉼呬〝"
+#						EndWindow "\n\n　技扼俊畴 档辑包 3磊概?"
 						EndWindow 3006879
 
 
 					endif
 
 				endif
+
+
 
 
 

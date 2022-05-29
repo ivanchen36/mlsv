@@ -1,7 +1,7 @@
-#2006Ê¯·¥ÄÌÐþ·¸¡õ
-#¾Þµ©·º»ï
+#2003 È­ÀÌÆ® µ¥ÀÌ
+#¿¡½ºÅÚ
 
-#?ÖÐÃñØ¨¡õØøÓÀÃóÎç?ÍÉØÆÐ×èëÄþ
+#ÇÏ¾á Æ«¸³ÀÌ¶ó°í ¹ß¾ðÇÑ °æ¿ì
 block Item 16347 >= 1
 	Window 22122,Yes,No
 		Window_No
@@ -10,13 +10,10 @@ block Item 16347 >= 1
 			Window 21881,OK
 				Window_OK
 					KillItem 16347,1
-#					SystemMessage 4036
-#					SetCharm +4
-					SystemMessage 3004758
-					SetCharm +8
+					SystemMessage 4036
+					SetCharm +4
 		Window_Yes
 
 #
 block 
 	EndWindow 22123,OK
-

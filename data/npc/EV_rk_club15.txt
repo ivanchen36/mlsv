@@ -1,13 +1,13 @@
 #
-#斥乓件甘
+#莉蠢
 #
 
-#镞卅日﹛
+#撤捞搁　
 block nowtime == 1
 	Endwindow 21815
 
 
-###﹛布□生永玄毛手匀化中月卅日﹛###
+###　啊齿阑 啊瘤绊 乐促搁　###
 block Item 13611 >= 1 || Item 13612 >= 1 || Item 13613 >= 1 || Item 13614 >= 1 || Item 13615 >= 1 || Item 13616 >= 1 || Item 13617 >= 1 || Item 13618 >= 1 || Item 13619 >= 1 || Item 13610 >= 1
 #
 	Window 21781,Next
@@ -67,12 +67,12 @@ block Item 13611 >= 1 || Item 13612 >= 1 || Item 13613 >= 1 || Item 13614 >= 1 |
 			Warp 0,1165,19,38
 		Window_OK
 
-###﹛市它件玄100及抩铜毛手匀化中月卅日
+###　墨款飘100狼 疙窃阑 啊瘤绊 乐促搁
 block Item 16239 == 1 && StampCount 16239 == 100
 	Window 22286,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16239 == 1 && StampCount 16239 == 100
+		Window_OK
 			EndEvent 125 = 1
 			CheckTitle
 			KillItem 16239
@@ -82,7 +82,7 @@ block Item 16240 == 1 && StampCount 16240 == 100
 	Window 22286,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16240 == 1 && StampCount 16240 == 100
+		Window_OK
 			EndEvent 125 = 1
 			CheckTitle
 			KillItem 16240
@@ -92,7 +92,7 @@ block Item 16241 == 1 && StampCount 16241 == 100
 	Window 22286,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16241 == 1 && StampCount 16241 == 100
+		Window_OK
 			EndEvent 125 = 1
 			CheckTitle
 			KillItem 16241
@@ -102,19 +102,19 @@ block Item 16242 == 1 && StampCount 16242 == 100
 	Window 22286,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16242 == 1 && StampCount 16242 == 100
+		Window_OK
 			EndEvent 125 = 1
 			CheckTitle
 			KillItem 16242
 			GiveItem 16377
 			Warp 0,2433,7,6
 
-###﹛市它件玄30及抩铜毛手匀化中月卅日
+###　墨款飘30狼 疙窃阑 啊瘤绊 乐促搁
 block Item 16239 == 1 && StampCount 16239 == 30
 	Window 21856,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16239 == 1 && StampCount 16239 == 30
+		Window_OK
 			AddStampCount 16239
 			GiveItem 16272
 			Warp 0,2433,7,6
@@ -122,7 +122,7 @@ block Item 16240 == 1 && StampCount 16240 == 30
 	Window 21856,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16240 == 1 && StampCount 16240 == 30
+		Window_OK
 			AddStampCount 16240
 			GiveItem 16272
 			Warp 0,2433,7,6
@@ -130,7 +130,7 @@ block Item 16241 == 1 && StampCount 16241 == 30
 	Window 21856,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16241 == 1 && StampCount 16241 == 30
+		Window_OK
 			AddStampCount 16241
 			GiveItem 16272
 			Warp 0,2433,7,6
@@ -138,17 +138,17 @@ block Item 16242 == 1 && StampCount 16242 == 30
 	Window 21856,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16242 == 1 && StampCount 16242 == 30
+		Window_OK
 			AddStampCount 16242
 			GiveItem 16272
 			Warp 0,2433,7,6
 
-###﹛市它件玄17及抩铜毛手匀化中月卅日
+###　墨款飘17狼 疙窃阑 啊瘤绊 乐促搁
 block Item 16239 == 1 && StampCount 16239 == 17
 	Window 21964,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16239 == 1 && StampCount 16239 == 17
+		Window_OK
 			AddStampCount 16239
 			GiveItem 16292
 			Warp 0,2433,7,6
@@ -156,7 +156,7 @@ block Item 16240 == 1 && StampCount 16240 == 17
 	Window 21964,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16240 == 1 && StampCount 16240 == 17
+		Window_OK
 			AddStampCount 16240
 			GiveItem 16292
 			Warp 0,2433,7,6
@@ -164,7 +164,7 @@ block Item 16241 == 1 && StampCount 16241 == 17
 	Window 21964,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16241 == 1 && StampCount 16241 == 17
+		Window_OK
 			AddStampCount 16241
 			GiveItem 16292
 			Warp 0,2433,7,6
@@ -172,18 +172,18 @@ block Item 16242 == 1 && StampCount 16242 == 17
 	Window 21964,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16242 == 1 && StampCount 16242 == 17
+		Window_OK
 			AddStampCount 16242
 			GiveItem 16292
 			Warp 0,2433,7,6
 
 
-###﹛市它件玄ㄦ及抩铜毛手匀化中月卅日
+###　墨款飘７狼 疙窃阑 啊瘤绊 乐促搁
 block Item 16239 == 1 && StampCount 16239 == 7
 	Window 21855,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16239 == 1 && StampCount 16239 == 7
+		Window_OK
 			AddStampCount 16239
 			GiveItem 16273
 			Warp 0,2433,7,6
@@ -191,7 +191,7 @@ block Item 16240 == 1 && StampCount 16240 == 7
 	Window 21855,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16240 == 1 && StampCount 16240 == 7
+		Window_OK
 			AddStampCount 16240
 			GiveItem 16273
 			Warp 0,2433,7,6
@@ -199,7 +199,7 @@ block Item 16241 == 1 && StampCount 16241 == 7
 	Window 21855,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16241 == 1 && StampCount 16241 == 7
+		Window_OK
 			AddStampCount 16241
 			GiveItem 16273
 			Warp 0,2433,7,6
@@ -207,12 +207,12 @@ block Item 16242 == 1 && StampCount 16242 == 7
 	Window 21855,OK
 		Window_OK ItemSpace == 0
 			EndWindow 10000
-		Window_OK Item 16242 == 1 && StampCount 16242 == 7
+		Window_OK
 			AddStampCount 16242
 			GiveItem 16273
 			Warp 0,2433,7,6
 
-###﹛市它件玄ㄢ及抩铜毛手匀化中月卅日
+###　墨款飘３狼 疙窃阑 啊瘤绊 乐促搁
 block Item 16239 == 1 && StampCount 16239 == 3
 	Window 21778,Next
 	Window 21779,Next
@@ -234,7 +234,7 @@ block Item 16242 == 1 && StampCount 16242 == 3
 		AddStampCount 16242
 		Endwindow 21780
 
-###﹛市它件玄ㄣ动晓及抩铜毛手匀化中月卅日
+###　墨款飘４捞惑狼 疙窃阑 啊瘤绊 乐促搁
 block Item 16239 == 1 && StampCount 16239 >= 4
 	EndWindow 21857
 block Item 16240 == 1 && StampCount 16240 >= 4
@@ -244,6 +244,7 @@ block Item 16241 == 1 && StampCount 16241 >= 4
 block Item 16242 == 1 && StampCount 16242 >= 4
 	EndWindow 21857
 
-###﹛升木卞手丐化反引日卅中桦宁
+###　绢蠢 巴俊档 秦寸登瘤 臼绰 版快
 block
 	Endwindow 21784
+

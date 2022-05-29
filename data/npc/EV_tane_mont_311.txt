@@ -13,7 +13,7 @@ block
 
 
 
-#					Window "\n\n©xÉ§µæ÷±»§·Ö©z",no
+#					Window "\n\n¡¡ÅëÇà±ÝÁö´Ù.",no
 					Window 3006970,no
 
 					window_no
@@ -25,12 +25,14 @@ block
 
 
 
-#					endWindow "\n\n©x½ÑÄ¾©z"
+#					endWindow "\n\n¡¡µ¹¾Æ°¡."
 					endWindow 3006971
 
 
 
 				endif
+
+
 
 
 

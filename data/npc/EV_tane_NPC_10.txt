@@ -3,15 +3,15 @@
 block StrCmpChat==3007208
 
 *case01*
-	Window "\n\n﹛反中﹜忏五挎及市□玉友﹝\n﹛ㄤㄟ?卞卅曰引允﹝",Yes,No
+	Window 5400001,Yes,No
 		Window_No
-			EndWindow "\n\n﹛丐木〝邰日卅中及〝",OK
+			EndWindow 5400002,OK
 		Window_Yes ItemSpace == 0
-			EndWindow "\n\n﹛失奶泛丞互中匀天中分友﹝",OK
+			EndWindow 5400003,OK
 		Window_Yes Gold <= 49
-			EndWindow "\n\n﹛云嗯互箫曰卅中友﹝",OK
+			EndWindow 5400004,OK
 		Window_Yes
-			Window "\n\n﹛反中﹜咍蘸丐曰℅〞",OK
+			Window 5400005,OK
 				Window_OK
 					AddGold -50
 					GiveItem 620008,1
@@ -22,15 +22,15 @@ block StrCmpChat==3007208
 block StrCmpChat==3007209
 
 *case02*
-	Window "\n\n﹛反中﹜旦奶市喃曰及市□玉友﹝\n﹛ㄤㄟ?卞卅曰引允﹝",Yes,No
+	Window 5400006,Yes,No
 		Window_No
-			EndWindow "\n\n﹛丐木〝邰日卅中及〝",OK
+			EndWindow 5400007,OK
 		Window_Yes ItemSpace == 0
-			EndWindow "\n\n﹛失奶泛丞互中匀天中分友﹝",OK
+			EndWindow 5400008,OK
 		Window_Yes Gold <= 49
-			EndWindow "\n\n﹛云嗯互箫曰卅中友﹝",OK
+			EndWindow 5400009,OK
 		Window_Yes
-			Window "\n\n﹛反中﹜咍蘸丐曰℅〞",OK
+			Window 5400010,OK
 				Window_OK
 					AddGold -50
 					GiveItem 620009,1
@@ -40,15 +40,15 @@ block StrCmpChat==3007209
 block StrCmpChat==3007210
 
 *case03*
-	Window "\n\n﹛反中﹜笙田泛及市□玉友﹝\n﹛ㄤㄟ?卞卅曰引允﹝",Yes,No
+	Window 5400011,Yes,No
 		Window_No
-			EndWindow "\n\n﹛丐木〝邰日卅中及〝",OK
+			EndWindow 5400012,OK
 		Window_Yes ItemSpace == 0
-			EndWindow "\n\n﹛失奶泛丞互中匀天中分友﹝",OK
+			EndWindow 5400013,OK
 		Window_Yes Gold <= 49
-			EndWindow "\n\n﹛云嗯互箫曰卅中友﹝",OK
+			EndWindow 5400014,OK
 		Window_Yes
-			Window "\n\n﹛反中﹜咍蘸丐曰℅〞",OK
+			Window 5400015,OK
 				Window_OK
 					AddGold -50
 					GiveItem 620010,1
@@ -74,12 +74,14 @@ block StrCmpChat==3007213
 block
 
 
-	Window"\n\n﹛酸趟及虞仄中筐濡﹝\n﹛聊亢斗仁笙卞合中毛殷户化﹜\n﹛左玄乒母民卞仍饥诰及市□玉毛霜曰引仄斤丹〞",next
+	Window5400016,next
 
-	Window "\n\n﹛渝棉蜃烂及弘伉□犯奴件弘市□玉互\n﹛漆卅日﹜卅氏午域呦ㄤㄟ?〞\n﹛母皮伙弁伉永弁允木壬窒荚匹手苇木月方﹝",next
-	Window "\n\n﹛赶潘挀丐月井日﹜驯五卅及毛蓟氏匹﹜\n﹛市□玉?﹞市□玉?﹞市□玉?匀化蜕匀化\n﹛台卞镗妐仄化友〞",next
-	window "\n﹛﹛﹛﹛市□玉?反仇氏卅及﹝\n\n﹛ @g,239506 @",next
-	window "\n﹛﹛﹛﹛匹﹜市□玉?反仇氏卅及﹝\n\n﹛ @g,239507 @",next
-	endwindow "\n﹛﹛﹛﹛瘉詨及市□玉?反仇氏卅及﹝\n\n﹛ @g,239508 @"
+	Window 5400017,next
+	Window 5400018,next
+	window 5400019,next
+	window 5400020,next
+	endwindow 5400021
 	
+
+
 

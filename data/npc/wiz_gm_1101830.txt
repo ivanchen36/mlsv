@@ -1,8 +1,0 @@
-######■月光船夫回wiz_gm_1101830.txt
-
-block 
-	 Window 1101947,YES,NO
-	 ##1101947	\n\n\n  要离开月光花园吗？
-	 	 Window_NO
-	 	 Window_YES
-	 	 	 Warp 0,30010,202,109

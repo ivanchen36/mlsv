@@ -13,7 +13,7 @@ block
 
 
 
-#					Window "\n\n﹛夫午﹜五日中﹝",ok
+#					Window "\n\n　荤恩, 饺绢.",ok
 					Window 3006963,ok
 
 
@@ -26,12 +26,14 @@ block
 
 
 
-#					endWindow "\n\n﹛狪仄井仃月卅﹝"
+#					endWindow "\n\n　富 吧瘤 付."
 					endWindow 3006964
 
 
 
 				endif
+
+
 
 
 

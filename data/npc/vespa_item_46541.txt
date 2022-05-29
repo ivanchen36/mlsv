@@ -1,7 +1,0 @@
-###大宇周年庆用_汉堡收纳餐盒
-
-block Item 15209 >=9
-	 KillItem 15209,9
-	 KillItem 46541,1
-	 GiveStackItem 46640,1
-	 

@@ -13,19 +13,19 @@ block
 					LocalCount30 = 1
 				endif
 				GiveItem 607631,1
-#				EndWindow "\n\n©x½»»ïºë¼°¾®ØêÈÕÃ«Î­¹´ØêĞ×¨•"
+#				EndWindow "\n\n¡¡À¯¸£±×ÀÇ Á¶°¢À» ¹ß°ßÇß´Ù!"
 				EndWindow 3006998
 
 			else
 
-#				EndWindow "\n\n©xØ¦±å¾®Ø¤ÔÂ»¥©y\n©xµ±ÇĞˆ^»¥ÖĞÔÈÌìÖĞÆ¥½ºÒüØ¦ÖĞ©z"
+#				EndWindow "\n\n¡¡¹º°¡ ÀÖÁö¸¸\n¡¡¼ÒÁöÇ°ÀÌ °¡µæ Â÷¼­ °¡Áú ¼ö ¾ø´Ù"
 				EndWindow 3006999
 
 
 			endif
 		else
 		
-#		EndWindow "\n\n©xÎëÔÈµõ·Ö©z"
+#		EndWindow "\n\n¡¡ÅÖ ºñ¾ú´Ù."
 		EndWindow 3007000
 
 
@@ -33,10 +33,12 @@ block
 
 		else
 		
-#		EndWindow "\n\n©xÎëÔÈµõ·Ö©z"
+#		EndWindow "\n\n¡¡ÅÖ ºñ¾ú´Ù."
 		EndWindow 3007000
 
 
 	endif
+
+
 
 

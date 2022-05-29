@@ -1,4 +1,4 @@
-#?????
+#Âõ¾îÁø ¿Ê
 
 #
 block
@@ -12,3 +12,4 @@ block
 			LeaveGroup
 			SetLp -300
 			Warp 0,48023,54,45
+

@@ -1,6 +1,0 @@
-###展场包_装满鱼翅汤收纳餐盒
-
-block ItemSpace >=3
-	 KillItem 46784,1
-	 GiveStackItem 15218,9
-	 

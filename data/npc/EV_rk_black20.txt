@@ -1,4 +1,4 @@
-#Žð¼°ÑþÁÝ»Í©jÕ±©k
+#¿ëÀÇ ¸ð·¡½Ã°è£¨Àû£©
 
 block
 	Window 22969,Yes,No
@@ -11,3 +11,4 @@ block
 			Warp 0,51004,22,23
 block
 	EndWindow 22970,OK
+

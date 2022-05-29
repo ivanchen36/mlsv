@@ -1,7 +1,0 @@
-###展场包_鱼翅汤收纳餐盒
-
-block Item 15218 >=9
-	 KillItem 15218,9
-	 KillItem 46779,1
-	 GiveStackItem 46784,1
-	 

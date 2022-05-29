@@ -1,256 +1,179 @@
-#宎衔布扑乓申件	﹋999“移涩譆﹌
-#厘妐侬﹜凝妐侬及嗉帎反卅中
-#'_'反?心?壬仄
-#100	201	165
-#士兵卡夏平的检查关卡
-###################大於 25 级 通过 #######################
-block  Level >= 25 && Group == 1
-	 #\n\n嗯！像你这麽强的人，应该是没问题的吧？那就过去吧！不过你还是小心一点的好。
-	 Window 14070,OK,CANCEL
-
-####只能给一个人通过
-	 Window_OK Group > 1	
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-	 Window_YES
-	 Window_NO
-	
-####只有一个人时
-	 Window_OK Group == 1
-	 Warp 0,15000,22,33
+#捍荤 啊箕后	（999：啊汲摹）
+#措巩磊, 家巩磊狼 备喊篮 绝澜
+#'_'篮 佬阑 锭 扒呈盾
 
 
-	
-################### 有真通行证 通过 ####################
+############饭骇 25捞绊 困炼刘辑（己傍)甫 啊瘤绊 乐绰 版快#############
+block Level >= 25 && Leak1Item 18382 >= 1 && Group == 1
+	#\n\n 坷坷. 惑寸洒 惑秦脸焙. 弊 饭骇捞扼搁 啊楼刘辑 绝捞档 烹苞且 荐 乐绢. 炼缴窍扼备.
+	Window 14071,OK,CANCEL
+
+####扩档快 ＯＫ捞绊 颇萍甫 捞风绊 乐绰 版快
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
+
+	Window_YES
+	Window_NO
+####扩档快 ＯＫ捞绊 去磊牢 版快
+	Window_OK Group == 1
+	Warp 0,15000,22,33
+############饭骇 25牢 版快#########################################
+block Level >= 25 && Group == 1
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝叼.
+
+	Window 14054,OK,CANCEL
+###饭骇 25啊 救 登绰 版快
+	Window_OK Level < 25 && Group == 1
+
+	#\n\n 蜡皑捞瘤父, 呈绰 咯扁甫 烹苞且 炼扒阑 盲快瘤 给茄 巴 鞍促. 促矫 坷档废 秦.
+	EndWindow 14078
+
+###饭骇 25捞惑牢 版快.
+	Window_OK Level >= 25 && Group == 1
+	#\n\n 褥. 呈 沥档肺 碍窍促搁 咯扁甫 烹苞秦档 捌沥 绝摆焙. 刘辑 绝捞 烹青阑 倾遏窍瘤. 窍瘤父 面盒洒 炼缴窍扼备.
+	Window 14070,OK,CANCEL
+
+#OK捞绊 弊缝阑 捞风绊 乐阑 锭
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
+
+	Window_NO
+
+###OK捞绊 去磊牢 版快
+	Window_OK Group == 1
+	Warp 0,15000,22,33
+
+############柳楼 刘辑甫 啊瘤绊 乐绰 版快###########
 block Item 18383 >= 1 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 Window 14054,OK,CANCEL
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝促.
+	Window 14054,OK,CANCEL
 
-	 Window_OK Group == 1
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！
-	 Window 14056,OK,CANCEL
+	Window_OK Group == 1
+	#\n\n澜. 撇覆绝绰 魄何福农 空泵狼 刘辑肺焙. 亮酒, 烹苞窍档废 秦.
+	Window 14056,OK,CANCEL
 
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
+#OK捞绊 弊缝阑 捞风绊 乐阑 锭
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
 
-	 Window_NO
+	Window_NO
 
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 Warp 0,15000,22,33
+##去磊捞绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group == 1
+	Warp 0,15000,22,33
 
+############困炼刘辑（己傍皑沥饶）甫 啊瘤绊 乐绰 版快###########
+block Leak1Item 18382 >= 1 && Group == 1
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝促.
+	Window 14054,OK,CANCEL
 
-############生产系拿假真通行证（监定後） 通过 #######################
-block Leak1Item 18382 >= 1 && Job >=200 && Job < 430 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
+	Window_OK Group == 1
+	#\n\n澜. 撇覆绝绰 魄何福农 空泵狼 刘辑肺焙. 亮酒, 烹苞窍档废 秦.
+	Window 14056,OK,CANCEL
 
-	 Window_OK Group == 1
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！
-	 Window 14056,OK,CANCEL
+#OK捞绊 弊缝阑 捞风绊 乐阑 锭
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
 
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
+	Window_NO
 
-	 Window_NO
+##去磊捞绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group == 1
+	Warp 0,15000,22,33
 
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 Warp 0,15000,22,33
-	
-
-############采集系拿假真通行证（监定後） 通过 #######################
-block Leak1Item 18382 >= 1 && Job >=450 && Job < 480 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-
-	 Window_OK Group == 1
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！
-	 Window 14056,OK,CANCEL
-
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-
-	 Window_NO
-
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 Warp 0,15000,22,33
-############纺织工拿假真通行证（监定後） 通过 #######################	 
-block Leak1Item 18382 >= 1 && Job >=1010 && Job < 1020 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-
-	 Window_OK Group == 1
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！
-	 Window 14056,OK,CANCEL
-
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-
-	 Window_NO
-
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 Warp 0,15000,22,33
-
-############生产系拿假真通行证（未监定） 通过 #######################
-block Leak0Item 18382 >= 1 && Job >=200 && Job < 430 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改                                                                            
-	 Window 14054,OK,CANCEL                                                               
-                                                                                             
-	 Window_OK Group == 1                                                                 
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！                                
-	 Window 14056,OK,CANCEL                                                               
-
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-
-	 Window_NO
-
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 KillLeak0Item 18382
-	 GiveLeak1Item 18382
-	 Warp 0,15000,22,33
-	
-############采集系拿假真通行证（未监定） 通过 #######################
-block Leak0Item 18382 >= 1 && Job >=450 && Job < 480 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-
-	 Window_OK Group == 1
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！
-	 Window 14056,OK,CANCEL
-
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-
-	 Window_NO
-
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 KillLeak0Item 18382
-	 GiveLeak1Item 18382
-	 Warp 0,15000,22,33
-
-############纺织工拿假真通行证（未监定） 通过 #######################
-block Leak0Item 18382 >= 1 && Job >=1010 && Job < 1020 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-
-	 Window_OK Group == 1
-	 #\n\n嗯！这的确是里谢里雅堡发行的通行证。好！过去吧！
-	 Window 14056,OK,CANCEL
-
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-
-	 Window_NO
-
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 KillLeak0Item 18382
-	 GiveLeak1Item 18382
-	 Warp 0,15000,22,33
-	 
-############拿假假通行证（未监定）的状况 不过 #######################
-block Leak0Item 18381 >= 1 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
-
-	 Window_YES
-	 Window_NO
-
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 #\n\n嗯！？这是假通行证吧！哼！我不会上当的！想偷跑～门儿都没有！
-	 KillLeak0Item 18381
-	 GiveLeak1Item 18381
-	 EndWindow 14057
-
-############拿假假通行证（监定後）的状况 不过 #######################
+############困炼刘辑（角菩皑沥饶）甫 啊瘤绊 乐绰 版快###############
 block Leak1Item 18381 >= 1 && Group == 1
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-#按 OK 後有组队
-	 Window_OK Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
-	 Window_YES Group > 1
-	 LeaveGroup
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝促.
+	Window 14054,OK,CANCEL
+##弊缝阑 捞风绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
 
-	 Window_YES
-	 Window_NO
+	Window_YES
+	Window_NO
 
-#按 OK 後没组队
-	 Window_OK Group == 1
-	 #\n\n嗯！？这是假通行证吧！哼！我不会上当的！想偷跑～门儿都没有！
-	 EndWindow 14057	
+##去磊捞绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group == 1
+	#\n\n览!? 捞巴篮 啊楼肺焙!! ..饱韭窍促! 匙仇篮 瘤唱哎 荐 绝绢!!!
+	EndWindow 14057
+
+############困炼刘辑（角菩）甫 啊瘤绊 乐菌带 版快###############
+block Leak0Item 18381 >= 1 && Group == 1
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝促.
+	Window 14054,OK,CANCEL
+##弊缝阑 捞风绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
+
+	Window_YES
+	Window_NO
+
+##去磊捞绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group == 1
+	#\n\n览!? 捞巴篮 啊楼肺焙!! ..饱韭窍促! 匙仇篮 瘤唱哎 荐 绝绢!!!
+	KillLeak0Item 18381
+	GiveLeak1Item 18381
+	EndWindow 14057
 
 
-	
-########## 不能组队 #############
+############困炼刘辑（己傍）甫 啊瘤绊 乐菌带 版快###############
+block Leak0Item 18382 >= 1 && Group == 1
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝促.
+	Window 14054,OK,CANCEL
+
+	Window_OK Group == 1
+	#\n\n澜. 撇覆绝绰 魄何福农 空泵狼 刘辑肺焙. 亮酒, 烹苞窍档废 秦.
+	Window 14056,OK,CANCEL
+
+#OK捞绊 弊缝阑 捞风绊 乐阑 锭
+	Window_OK Group > 1
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
+	Window_YES Group > 1
+	LeaveGroup
+
+	Window_NO
+
+##去磊捞绊 ＯＫ甫 穿弗 版快.
+	Window_OK Group == 1
+	KillLeak0Item 18382
+	GiveLeak1Item 18382
+	Warp 0,15000,22,33
+
+########## 颇萍 阂啊 ##########
 block Group > 1
-	 #\n\n这里只能一个人一个人单独前进。\n要解散队伍吗？
-	 Window 14072,YES,NO
+	#\n\n　咯扁辑何磐绰 去磊父 烹苞且 荐 乐促\n 颇萍甫 秦魂窍摆唱?
+	Window 14072,YES,NO
 
-	 Window_YES Group > 1
-	 LeaveGroup
+	Window_YES Group > 1
+	LeaveGroup
 
-	 Window_YES
-	 Window_NO
+	Window_YES
+	Window_NO
 
-###########什麽条件都没有的状况
+###########绢蠢 炼扒档 盲快瘤 臼篮 版快
 block
-	 #\n\n这里是通往莎莲娜的海底洞穴入口。\n要进这里必须是等级够高的人或是有通行证才能过。
-	 #讯息未改
-	 Window 14054,OK,CANCEL
-	 Window_OK
-	 #\n\n只要你不是见习士兵的话，应该就能在里谢里雅堡拿到通行证的。
-	 EndWindow 14055
+	#\n\n捞 捞惑篮 饭骇捞 臭篮 荤恩捞唱 刘辑甫 啊柳 荤恩捞 酒聪搁 烹苞且 荐 绝促.
+	Window 14054,OK,CANCEL
+	Window_OK
+	EndWindow 14055
+
 

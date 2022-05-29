@@ -1,4 +1,4 @@
-#?户中凶朿盒﹋氘﹌疋失用
+#荐荐膊尝狼 规（官恩）乔酒畴
 
 block Item 18976 >= 1
 	EndWindow 21601,OK
@@ -12,4 +12,6 @@ block
 		Window_Yes Item 18976 == 0
 			GiveItem 18976
 		Window_Yes 
-			EndWindow "\n\n﹛手丹当匀化中引允﹝",OK
+			EndWindow 3490001,OK
+
+

@@ -1,11 +1,10 @@
 #
-#魔界风水盘
+#付拌浅荐肺
 #
 
 
 block Item 607670 >= 2
-	Endwindow 4100003
-	#"\n\n  一次只能使用一样。"
+	Endwindow 3190001
 
 
 block
@@ -13,6 +12,7 @@ block
 			Play_SE 281,320,240
 			EndEvent200 = 1
 			CheckTitle
-			EndWindow 4100004
-			#"\n\n  可以感觉到怪物的属性了！"
+			EndWindow 3190002
+
+
 

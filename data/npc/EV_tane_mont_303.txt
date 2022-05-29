@@ -16,11 +16,11 @@ block
 					LocalCount1 = 5
 
 
-#					Window "\n\n﹛仇及翘﹜兜蝈﹝\n﹛歹仄日﹜毙井卞抔日允分仃﹝",next
+#					Window "\n\n　捞 付阑, 救傈.\n　快府甸, 炼侩洒 混 挥.",next
 					Window 3006940,next
 
 
-#					EndWindow "\n\n﹛呺坁﹜舅支?及方丹卅手及﹝\n﹛歹仄日互蜕中妏井六木壬﹜鬼今﹜仄卅中﹝"
+#					EndWindow "\n\n　付拱, 俺唱 绊剧捞 鞍篮 巴.\n　快府甸捞 肋 鸥捞福搁, 唱慧 窿, 救 秦."
 					EndWindow 3006941
 
 
@@ -30,11 +30,11 @@ block
 					LocalCount1 = 5
 
 
-#					Window "\n\n﹛?仆凶幼伙玉及峇阂﹜厘缠仇仇卞侳月﹝",next
+#					Window "\n\n　档噶模 辨靛狼 府内, 酒付档 咯扁肺 柯促.",next
 					Window 3006942,next
 
 
-#					EndWindow "\n\n﹛匹手﹜莘尹化手\n﹛公中勾﹜窖月仇午反卅中﹝"
+#					EndWindow "\n\n　窍瘤父, 父唱档\n　弊 赤籍, 倒酒坷瘤绰 臼酒."
 					EndWindow 3006943
 
 
@@ -46,15 +46,15 @@ block
 
 			else
 
-#				Window "\n\n﹛仇仇反﹜\n﹛峇褪毛撩匀凶曰﹜峇褪井日?仆化五凶曰仄凶\n﹛幼伙玉乒件旦正□及翘﹝",next
+#				Window "\n\n　咯扁绰,\n　剧何葛甫 酪芭唱, 剧何葛俊霸辑 档噶模\n　辨靛 阁胶磐狼 付阑.",next
 				Window 3006944,next
 
 
-#				Window "\n\n﹛歹仄日﹜手丹﹜螃啗卞反窖木卅中﹝\n﹛仇仇匹毙井卞抔日允﹝",next
+#				Window "\n\n　快府甸, 捞力, 脚开俊绰 倒酒哎 荐 绝绢.\n　咯扁辑 炼侩洒 混 芭具.",next
 				Window 3006945,next
 
 
-#				EndWindow "\n\n﹛歹仄日﹜引仄及杅﹝\n﹛濮侗仄化呺坁卞卅匀凶蛊手中月﹝"
+#				EndWindow "\n\n　快府甸, 唱篮 祈.\n　例噶秦辑 付拱捞 等 赤籍档 乐绢."
 				EndWindow 3006946
 
 
@@ -62,6 +62,8 @@ block
 
 
 			endif
+
+
 
 
 

@@ -1,4 +1,4 @@
-#???????찋
+#밀리센트의 재보
 
 block Item 16358 >= 1
 	EndWindow 22257,OK

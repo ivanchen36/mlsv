@@ -2,14 +2,15 @@
 block Xpos == 120 && Ypos == 149
 
 
-	window 3200148,yes,no
-		#\n\n©xÖœÏþ±å–Ô»ÒýÔÊ¾®¨”
+	window 4690001,yes,no
 	
 		window_yes
 
 			warp 0,59502,150,131
 
 		window_no
+
+
 
 
 

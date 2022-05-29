@@ -1,6 +1,0 @@
-####04中秋节&& 周年庆
-###
-block
-	 KillItem 46292,1
-	 GiveLeak1Item 46293,1
-	 

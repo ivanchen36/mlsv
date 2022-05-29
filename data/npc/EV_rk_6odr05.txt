@@ -1,14 +1,14 @@
-#¥|¦öû¹þÏ????
+#µ¶ºÎÁýÁ¤°ü ¾ß°ö
 
-#???????????
+#ÀÌ¹Ì Å¬¸®¾îÇß´Ù¸é
 block EndEvent 113 == 1 || EndEvent 114 == 1 || EndEvent 129 == 1
 	EndWindow 22490,OK
 
-#????????????????
+#ÀÌ¹Ì Å° ¾ÆÀÌÅÛÀ» °¡Áö°í ÀÖ´Ù¸é
 block Item 16385 >= 1
 	EndWindow 22489,OK
 
-#?????þ­??
+#¿¤£·µîÀ¸·Î ÁøÇà Áß
 block NowEvent 113 == 1
 	Window 22454,Next
 	Window 22455,Next
@@ -19,7 +19,7 @@ block NowEvent 113 == 1
 		Window_OK
 			GiveItem 16385
 
-#?????þ­??
+#¶õ£·µîÀ¸·Î ÁøÇà Áß
 block NowEvent 114 == 1
 	Window 22458,Next
 	Window 22459,Next

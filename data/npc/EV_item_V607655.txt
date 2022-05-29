@@ -1,16 +1,17 @@
 block Item 607655 >= 2
 
-				endWindow "\n\n﹛晓咺五反域箫内勾茧匀化仁分今中﹝"
+				endWindow 3210001
 
 
 
-block CheckRealTime 2007/2/15,00:00:01 == 1
-#block CheckRealTime 2007/2/1,15:00:01 == 1
+block CheckRealTime 2005/2/15,00:00:01 == 1
+#block CheckRealTime 2005/2/7,15:00:01 == 1
 
 		killitem 607655,1,(3007157)
-		GiveItem (15200 %10,19574 %15,18648 %15,18649 %15,18650 %15,18651 %15,18652 %15)
+		GiveItem (15200 %30,19574 %10,18648 %12,18649 %12,18650 %12,18651 %12,18652 %12)
 
 block
 
 
-		EndWindow "\n\n﹛梂卞窒井?匀化中月日仄中互\n﹛方仁歹井日卅中﹝"
+		EndWindow 3210002
+

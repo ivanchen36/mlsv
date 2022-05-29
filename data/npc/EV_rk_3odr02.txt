@@ -1,13 +1,13 @@
-#ÏÎ¸ó±¾·ÂÈÎÅ«
+#ÀÇ»ç ¼¼¶óºñ
 
-#?¶ããï2Ã«µ±ÔÈ»¯ÖÐÔÂ
+#Æ¯È¿¾à2¸¦ °¡Áö°í ÀÖ´Ù
 block Item 16439 >= 1
 	Window 23181,OK
 		Window_OK
 			LeaveGroup
 			Warp 0,43753,7,32
 
-#ÆËØø¡õ¼þ±åãïÃ«ÍñÒýÁùÐ×Ô‰
+#½Ç¸°¿¡°Ô ¾àÀ» ¸ÔÀÎ ÈÄ
 block EndEvent 145 == 1
 	Window 23000,Next
 	Window 23001,OK
@@ -15,7 +15,7 @@ block EndEvent 145 == 1
 			LeaveGroup
 			Warp 0,43775,2,3
 
-#Ñ¨ÄÌÑ¨ÄÌã×Ã«µ±ÔÈ»¯ÖÐÔÂ
+#¸¶ÀÌ¸¶ÀÌ Ç®À» °¡Áö°í ÀÖ´Ù
 block Item 16430 >= 1
 	Window 23002,Next
 	Window 23003,OK
@@ -25,7 +25,7 @@ block Item 16430 >= 1
 			LeaveGroup
 			Warp 0,43771,7,18
 		Window_OK
-#¾Þ»ï
+#¿¤
 block EndEvent 54 == 1
 	Window 23004,Next
 	Window 23005,Next
@@ -35,7 +35,7 @@ block EndEvent 54 == 1
 			NowEvent 119 = 1
 			LeaveGroup
 			Warp 0,43753,7,32
-#·Â¼þ
+#¶õ
 block EndEvent 62 == 1
 	Window 23004,Next
 	Window 23005,Next
@@ -45,5 +45,6 @@ block EndEvent 62 == 1
 			NowEvent 120 = 1
 			LeaveGroup
 			Warp 0,43753,7,32
+
 
 

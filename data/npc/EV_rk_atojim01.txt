@@ -1,10 +1,10 @@
-#欐蔷盒弁夫奶甘
+#唱讽硅 荤傍 农肺捞蠢
 
-#爵?烟缜仅卅日
+#傈捧拌 流诀捞扼搁
 block Job <= 200
 	EndWindow 22269,OK
 
-#公及职及缜仅卅日
+#弊 寇狼 流诀捞扼搁
 block
 	Window 22270,Yes,No
 		Window_Yes Gold >= 200

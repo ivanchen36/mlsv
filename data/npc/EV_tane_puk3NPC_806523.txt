@@ -1,23 +1,17 @@
-#PUK3卞亢支井仄NPC﹛﹛??﹛凶友
+#PUK3 栋甸解茄 NPC　　ｂｙ　鸥匙
 #
-#﹛﹛﹛尝珇栋咥敢A及摒
+#　　　亲父包府包A狼 鼻
 
 ###
 
 block Trialflg == 8
-	Window 3203265,NEXT
-
-		#\n\n﹛仇及燮反﹜甲件丢伙平件玄尺轾井丹蔷及远顺午\n﹛卅匀化云曰引允﹝\n﹛甲件丢伙平件玄尺及境垫凛棉反3坌﹜\n﹛蔷铙反500?匹允﹝
-	Window 3203266,YES,NO
-
-		#\n\n\n\n@c蔷铙毛障囮匀化﹜远顺尺?曰引允井〝
+	Window 5580001,NEXT
+	Window 5580002,YES,NO
 
 		Window_NO
 
 		Window_YES Gold < 500
-			EndWindow 3203267
-
-		#\n\n﹛酸?匹允互﹜赭当嗯互箫曰引六氏﹝
+			EndWindow 5580003
 
 		Window_YES
 			AddGold -500
@@ -27,5 +21,6 @@ block Trialflg == 8
 
 
 block
-#\n\n﹛萧仄沭丐曰引六氏互﹜仇仇反蜇箕鼎仪醱匹允﹝渣莴匹允及匹丐引曰嗤勿井卅中匹仁分今中﹝
+#\n\n　了价钦聪促父, 咯扁绰 泅犁 傍荤 吝涝聪促. 困氰窍骨肺 呈公 立辟窍瘤 富酒林绞矫坷.
 	EndWindow 15528,OK
+

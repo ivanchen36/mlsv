@@ -1,5 +1,5 @@
 #
-#∫Ãº˛µ©…Í”¿€Õ∑∫µ©–˛
+#∆˘Ω∫∫Ò≈© ≈◊Ω∫∆Æ
 #
 
 ################################################################################
@@ -8,21 +8,23 @@
 
 block
      SetAction 0
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ0",NEXT
+     Window 8920001,NEXT
      SetAction 1
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ1",NEXT
+     Window 8920002,NEXT
      SetAction 2
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ2",NEXT
+     Window 8920003,NEXT
      SetAction 3
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ3",NEXT
+     Window 8920004,NEXT
      SetAction 4
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ4",NEXT
+     Window 8920005,NEXT
      SetAction 5
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ5",NEXT
+     Window 8920006,NEXT
      SetAction 6
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ6",NEXT
+     Window 8920007,NEXT
      SetAction 7
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ7",NEXT
+     Window 8920008,NEXT
      SetAction 8
-     Window "\n\n©xÿ§» ÿ∆ΩÔ œ8",NEXT
+     Window 8920009,NEXT
      
+
+

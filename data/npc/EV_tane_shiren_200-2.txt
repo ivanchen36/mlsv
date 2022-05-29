@@ -36,3 +36,4 @@ block Xpos == 211 && Ypos == 166
 	Play_SE 274,320,240
 	Message 3006709
 	SetLp -5
+

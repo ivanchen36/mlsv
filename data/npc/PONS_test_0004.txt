@@ -1,5 +1,5 @@
 #
-#ºÌ¼þµ©ÉêÓÀÛÍ·ºµ©Ðþ
+#Æù½ººñÅ© Å×½ºÆ®
 #
 
 ################################################################################
@@ -8,16 +8,18 @@
 
 block
      ChangePal 10,180
-     Window "\n\n©x10-180",NEXT
+     Window 8900001,NEXT
      ChangePal 8,180
-     Window "\n\n©x8-180",NEXT
+     Window 8900002,NEXT
      ChangePal 6,180
-     Window "\n\n©x6-180",NEXT
+     Window 8900003,NEXT
      ChangePal 4,180
-     Window "\n\n©x4-180",NEXT
+     Window 8900004,NEXT
      ChangePal 2,180
-     Window "\n\n©x2-180",NEXT
+     Window 8900005,NEXT
      ChangePal 0,180
-     Window "\n\n©x0-180",NEXT
+     Window 8900006,NEXT
+
+
 
 

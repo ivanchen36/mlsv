@@ -1,4 +1,4 @@
-#MKOT–„Ëø¨à
+#MKOT¹®Á¦£±
 
 block Item 16200 >= 1
 #

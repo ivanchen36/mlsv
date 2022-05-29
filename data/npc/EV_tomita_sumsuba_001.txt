@@ -1,169 +1,121 @@
-#﹛璋剀祸母件斥亦件﹋蛙笙菱心母件斥亦件“扔皮?﹌﹛﹛??﹛巟鼹
+#　荐犬力 带怜（备 咯抚规切 带怜：辑宏Ａ）　　ｂｙ　配固鸥
 #
-#﹛﹛﹛云支勾凝蹉及摒
+#　　　埃侥 部付狼 鼻
 
-###﹛幼伙乒件云支勾﹋弗伊皮伊件瓜永汁丐月中反失奶扑乓平乓件犯奴□﹌毛赭当
+###　辨阁 埃侥（奶饭宏坊 呈明 趣篮 酒捞箕 牡叼）家瘤
 
 block Item_608600 >= 1 || Item_608604 >= 1
 
-	EndWindow 3202777
-
-		#\n\n﹛左伉亦﹜幼伙玉乒件旦正□及云支勾分﹝\n﹛云支勾反中中方友﹜云中仄仁化﹜凶及仄仁化﹝
+	EndWindow 8430001
 
 
 
-###﹛港玄市必及?戏嬴五毛呁醒赭当
+###　官困 档付轨狼 馆 积备捞甫 咯矾 俺 家瘤
 
 block Item_607932 >= 2
-	EndWindow 3202778
-
-		#\n\n﹛左伉亦﹜?戏嬴五互中匀天中分﹝\n﹛中匀天中及云支勾反母丢永〞\n﹛皮弁皮弁卞卅月井日﹝
+	EndWindow 8430002
 
 
 
-###﹛港玄市必及?戏嬴五毛ㄠ蜊赭当﹋?澎詨ㄠㄟ坌怳坢﹌
+###　官困 档付轨狼 馆 积备捞甫 １俺家瘤（涝荐饶 １０盒 固父）
 
 block Item_607932 == 1 && ItemCreateTime_607932 < 10
-	EndWindow 3202779
-
-		#\n\n﹛左伉亦﹜仇木反引分失汁失汁分﹝\n﹛手匀午甲巨甲巨卞卅匀化井日当匀化五化方﹝
+	EndWindow 8430003
 
 
 
-###﹛港玄市必及?戏嬴五毛ㄠ蜊赭当﹋?澎詨ㄠㄟ坌动晓烦聊﹌
+###　官困 档付轨狼 馆 积备捞甫 １俺家瘤（涝荐饶 １０盒 捞惑 版苞）
 
 block Item_607932 == 1 && ItemCreateTime_607932 >= 10
-	Window 3202780,YES,NO
-
-		#\n\n﹛左伉亦﹜港玄市必及?戏嬴五分﹝\n﹛云中仄公丹分卅﹝公木﹜示弁及云支勾〝
+	Window 8430004,YES,NO
 
 		Window_YES Item_607932 >= 2
-			EndWindow 3202781
-
-		#\n\n﹛左伉亦﹜?戏嬴五互中匀天中分﹝\n﹛中匀天中及云支勾反母丢永〞\n﹛皮弁皮弁卞卅月井日﹝
+			EndWindow 8430005
 
 		Window_YES Item_607932 == 1 && ItemCreateTime_607932 < 10
-			EndWindow 3202782
-
-		#\n\n﹛左伉亦﹜仇木反引分失汁失汁分﹝\n﹛手匀午甲巨甲巨卞卅匀化井日当匀化五化方﹝
+			EndWindow 8430006
 
 		Window_YES Item_607932 == 1 && ItemCreateTime_607932 >= 10 && ItemSpace >= 1
-			Window 3202783,OK
-
-		#\n\n﹛左伉亦伉亦﹜丐曰互午丹﹝\n﹛妪壬仄今午戏蔬今互﹜穴未穴未匹中中友﹝\n﹛元扎丐﹜仇木毛丐仆月方﹝
+			Window 8430007,OK
 
 				Window_OK Item_607932 >= 2
-					EndWindow 3202784
-
-		#\n\n﹛左伉亦﹜?戏嬴五互中匀天中分﹝\n﹛中匀天中及云支勾反母丢永〞\n﹛皮弁皮弁卞卅月井日﹝
+					EndWindow 8430008
 
 				Window_OK Item_607932 == 1 && ItemCreateTime_607932 < 10
-					EndWindow 3202785
-
-		#\n\n﹛左伉亦﹜仇木反引分失汁失汁分﹝\n﹛手匀午甲巨甲巨卞卅匀化井日当匀化五化方﹝
+					EndWindow 8430009
 
 				Window_OK Item_607932 == 1 && ItemCreateTime_607932 >= 10 && ItemSpace >= 1
 					KillItemAll 607932
 					GiveItem(15306%40,15308%35,608604%25)
 
 				Window_OK ItemSpace >= 1
-					EndWindow 3202786
-
-		#\n\n﹛左伉亦﹜?戏嬴五互卅仁卅匀凶﹝仁木卅中及〝\n﹛元扎﹜丐仆卅中方﹝
+					EndWindow 8430010
 
 				Window_OK
-					EndWindow 3202787
-
-		#\n\n﹛左伉亦﹜绂坁互中匀天中分﹝\n﹛罹屯凶中方﹜窒午井仄化方﹝
+					EndWindow 8430011
 
 		Window_YES ItemSpace >= 1
-			EndWindow 3202788
-
-		#\n\n﹛左伉亦﹜?戏嬴五互卅仁卅匀凶﹝仁木卅中及〝\n﹛元扎﹜丐仆卅中方﹝
+			EndWindow 8430012
 
 		Window_YES
-			EndWindow 3202789
-
-		#\n\n﹛左伉亦﹜绂坁互中匀天中分﹝\n﹛罹屯凶中方﹜窒午井仄化方﹝
+			EndWindow 8430013
 
 		Window_NO
-			EndWindow 3202790
-
-		#\n\n﹛左伉亦伉亦﹜切互丹及〝﹛奶乩卅及〝\n﹛弗民卅及〝﹛勾引氏卅中及永〞
+			EndWindow 8430014
 
 
 
-###﹛旦永由?扤毛赭当
+###　疆 滴何甫 家瘤
 
 block Item_607933 >= 1
-	Window 3202791,OK
-
-		#\n\n﹛左伉亦﹜枑匀化五凶及〝﹛奶乩卅及〝\n﹛失平凶及〝﹛元扎﹜匋璋永〞
+	Window 8430015,OK
 
 		Window_OK
 			KillItemAll 607933
 
 
 
-###﹛云升欠戊件瓦乓弁毛赭当
+###　待阂 帮距阑 家瘤
 
 block Item_607934 >= 1
-	EndWindow 3202792
-
-		#\n\n﹛左伉亦伉亦﹜云升欠戊件瓦乓弁分﹝\n﹛皿伙皿伙﹜甲巨甲巨﹜平仿奶分方永〞
+	EndWindow 8430016
 
 
 
-###﹛港玄市必毛赭当
+###　官困 档付轨阑 家瘤
 
 block Item_607931 >= 1
-	EndWindow 3202793
-
-		#\n\n﹛左伉亦伉亦﹜戏玄市必永〞\n﹛戏反云支勾卞卅日卅中方永〞
+	EndWindow 8430017
 
 
 
-###﹛晓筏失奶泛丞毛尕赭当
+###　惑扁 酒捞袍阑 家瘤窍瘤 臼澜
 
 block
-	Window 3202794,YES,NO
-
-		#\n\n﹛左伉亦﹜甲玄分﹝示弁反云支勾凝蹉﹝\n﹛中勾手云支勾毛谨匀化月氏分﹝\n﹛漆反﹜港玄市必及?戏嬴五互罹屯凶中卅丐﹝\n﹛当匀化五化仁木卅中井卅丐﹝
+	Window 8430018,YES,NO
 
 		Window_YES Item_607933 >= 1
-			EndWindow 3202795
-
-		#\n\n﹛左伉亦﹜手丹当匀化月友﹝\n﹛元扎﹜云斪手允月井日﹜互氏壬匀化方永〞
+			EndWindow 8430019
 
 		Window_YES ItemSpace >= 1
-			Window 3202796,OK
-
-		#\n\n﹛左伉亦﹜仿永平□永〞\n﹛元扎﹜戏嬴仃盒匹?匀化五化方﹝\n﹛云医反﹜仇及旦永由?扤分方﹝\n﹛云斪手允月方﹝互氏壬匀化方永〞
+			Window 8430020,OK
 
 				Window_OK Item_607933 >= 1
-					EndWindow 3202797
-
-		#\n\n﹛左伉亦﹜手丹当匀化月友﹝\n﹛元扎﹜云斪手允月井日﹜互氏壬匀化方永〞
+					EndWindow 8430021
 
 				Window_OK ItemSpace >= 1
-					GiveItemEX 607933,1,3202798
-
-		#\n\n﹛左伉亦﹜绂坁互中匀天中分﹝\n﹛职及甲玄卞俇戈方﹝
+					GiveItemEX 607933,1,"."
 
 				Window_OK
-					EndWindow 3202799
-
-		#\n\n﹛左伉亦﹜绂坁互中匀天中分﹝\n﹛职及甲玄卞俇戈方﹝
+					EndWindow 8430022
 
 		Window_YES
-			EndWindow 3202800
-
-		#\n\n﹛左伉亦﹜绂坁互中匀天中分﹝\n﹛职及甲玄卞俇戈方﹝
+			EndWindow 8430023
 
 		Window_NO
-			EndWindow 3202801
+			EndWindow 8430024
 
-		#\n\n﹛左伉亦伉亦﹜酸?永〞﹛云斪手允月及卞卅丐﹝
+
 
 
 

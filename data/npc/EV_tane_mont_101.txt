@@ -1,18 +1,13 @@
-# 7 3200556
-		#EV_tane_mont_101.txt
-# 1 3200557 1
-		#header/global0.h
-# 8 3200558 2
-		#EV_tane_mont_101.txt
+# 7 "EV_tane_mont_101.txt"
+# 1 "header/global0.h" 1
+# 8 "EV_tane_mont_101.txt" 2
 
 
 block Item 607621 >= 1
 
-                        Window 3200559,next
-		#\n\n﹛云累﹜睡木引仄凶〝\n﹛恌井匀凶匹允友〞
+                        Window 5090001,next
 
-                        EndWindow 3200560
-		#\n\n﹛台手漆井日累毛脏氏匹\n﹛谧抇及匟情尺垫仁勾手曰卅氏匹允﹝
+                        EndWindow 5090002
 
 
 block
@@ -23,11 +18,9 @@ if globalFlag0 == 0
         if Item 607620 >= 1
 
 
-                Window 3200561,next
-		#\n\n﹛引丑﹜镘毛当匀化五化仁木凶氏匹允井〝
+                Window 5090003,next
 
-                Window 3200562,yes,no
-		#\n\n﹛公木﹜中凶分中化手〝
+                Window 5090004,yes,no
 
 
 				Window_yes Item 607620 >= 1
@@ -36,19 +29,16 @@ if globalFlag0 == 0
 
                         globalFlag0 = 1
 
-		                EndWindow 3200563
-		#\n\n﹛镀簧﹜旵仄化心引允﹝\n﹛仇木匹五匀午\n﹛摨昜卅累互粹五引允歹﹝
+		                EndWindow 5090005
 
 				Window_yes
 
-		                EndWindow 3200564
-		#\n\n﹛丐日〝\n﹛镘﹜蛛引六氏友﹝\n﹛竣及六中分匀凶及井卅丑﹝
+		                EndWindow 5090006
 
 
 				Window_no
 
-		                EndWindow 3200565
-		#\n\n﹛公丹匹允井＿＿\n﹛塑洢仄化忯引尹凶手及匹允手氏友﹝\n﹛仄斤丹互卅中匹允友﹝
+		                EndWindow 5090007
 
 
         else
@@ -58,23 +48,19 @@ if globalFlag0 == 0
                 if LocalCount3 == 1
 
 
-                        Window 3200566,next
-		#\n\n﹛匟竣及谧抇互﹜\n﹛咍苹仇仇匹粹仁洈阕毛啼仄心卞仄化月及卞＿＿
+                        Window 5090008,next
 
 
-                        EndWindow 3200567
-		#\n\n﹛仇仇及午仇欠﹜卅井卅井累互粹井卅仁化﹝
+                        EndWindow 5090009
 
                 else
 
 
-                        Window 3200568,next
-		#\n\n﹛仇及蕨手瘉嗤庍歹匀化五化仄引匀化﹜\n﹛动蟆方曰呺坁手喂尹化中月仄﹝
+                        Window 5090010,next
 
 
 
-                        EndWindow 3200569
-		#\n\n﹛累凶切卞捻陃毛扪少镘凶切手\n﹛内中少氏蛹匀凶心凶中匹允﹝\n﹛仇仇及洈阕手卅井卅井粹井卅仁卅匀化﹝
+                        EndWindow 5090011
 
 
                 endif
@@ -91,24 +77,20 @@ else
                 if LocalCount3 == 2
 
 
-                        Window 3200570,next
-		#\n\n﹛丐﹜云反方丹仍介中引允﹝
+                        Window "\n\n　酒, 救崇窍技夸.",next
 
 
 
-                        EndWindow 3200571
-		#\n\n﹛手仄井仄凶日﹜\n﹛手丹粹中化月井手仄木引六氏方﹜\n﹛洈阕﹝
+                        EndWindow 5090012
 
 
                 else
 
-                        Window 3200572,next
-		#\n\n﹛丐﹜云反方丹仍介中引允﹝
+                        Window 5090013,next
 
 
 
-                        EndWindow 3200573
-		#\n\n﹛云累﹜\n﹛脏氏分日﹜ㄡㄟ坌仁日中匹\n﹛仄云木化仄引丹及匹\n﹛竣毛勾仃化﹝
+                        EndWindow 5090014
 
 
                 endif
@@ -116,13 +98,11 @@ else
         else
 
 
-                Window 3200574,next
-		#\n\n﹛仇氏卞切反﹝
+                Window 5090015,next
 
 
 
-                EndWindow 3200575
-		#\n\n﹛镘今氏凶切互域戏睦抰?中化引允﹝\n﹛抸仃杅卞侳木壬\n﹛五匀午累互粹中化引允方﹝
+                EndWindow 5090016
 
 
         endif
@@ -130,3 +110,5 @@ else
 
 
 endif
+
+

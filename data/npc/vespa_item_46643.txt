@@ -1,6 +1,0 @@
-###大宇周年庆用_装满螃蟹锅收纳餐盒
-	 
-block ItemSpace >=3
-	 KillItem 46643,1
-	 GiveStackItem 15214,9
-	 

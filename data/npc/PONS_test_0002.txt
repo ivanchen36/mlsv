@@ -1,5 +1,5 @@
 #
-#禾件旦申永弁泛旦玄
+#迄胶厚农 抛胶飘
 #
 
 ################################################################################
@@ -7,25 +7,27 @@
 ################################################################################
 
 block Item 12006 == 0
-    EndWindow "\n\n﹛玄穴玄毛当匀化中卅中蛊卞反迕反拑中匀!!",OK
+    EndWindow 8880001,OK
 
 block Item 12006 == 1
-    EndWindow "\n\n﹛ㄠ仳仄井玄穴玄毛当匀化中卅中蛊卞手迕反拑中匀!!",OK
+    EndWindow 8880002,OK
 
 block Item 12006 == 2
-    EndWindow "\n\n﹛玄穴玄ㄡ仳分仃匹反狪卞卅日卅中分欠丹匀!!",OK
+    EndWindow 8880003,OK
 
 block Item 12006 == 3
-    EndWindow "\n\n﹛玄穴玄ㄢ仳井﹜引分箫曰卅中匀匀!!",OK
+    EndWindow 8880004,OK
 
 block Item 12006 == 4
-    EndWindow "\n\n﹛玄穴玄ㄣ仳井﹜手丹夫午中五分匀!!",OK
+    EndWindow 8880005,OK
 
 block Item 12006 == 5
-    EndWindow "\n\n﹛玄穴玄ㄤ仳井﹜云引尹反尹日中匀!!",OK
+    EndWindow 8880006,OK
 
 block Item 12006 >= 6
-    EndWindow "\n\n﹛闯辄玄穴玄毛当匀化愤坴允月竣井匀!!",OK
+    EndWindow 8880007,OK
+
+
 
 
 

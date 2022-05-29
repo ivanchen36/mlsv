@@ -1,4 +1,4 @@
-#????????
+#레이디·베고니아
 
 block Item 16417 >= 1 || Item 16416 >= 1
 	EndWindow 22894,OK
@@ -27,3 +27,4 @@ block
 						Window_OK
 							AddGold -100
 							GiveItem 16415,1
+

@@ -9,8 +9,7 @@ block
 
 
 
-					EndWindow 3200188
-		#\n\n﹛港反凶引仍仍?驯五﹝
+					EndWindow 5510001
 
 
 
@@ -21,32 +20,30 @@ block
 
 
 
-						EndWindow 3200189
-		#\n\n﹛港反拑轼匹分仃升聒咥盏中﹝
+						EndWindow 5510002
 
 
 
 					else
 
-						Window 3200190,yes,no
-		#\n\n﹛云呏互允中凶日﹜仍?﹝\n﹛仍?及伊扑疋﹜中月〝
+						Window 5510003,yes,no
 
 
 						Window_yes skilllevel 215 >= 1
-						Window 3200191,ok
-		#\n\n﹛反中﹝\n﹛云岊午辞玾匹?坌匹仍?﹝\n﹛凛棉反掖﹝
+						Window 5510004,ok
 								Window_ok
 								GiveRecipe 948
 
 						Window_yes
-						EndWindow 3200192
-		#\n\n﹛譬咥旦平伙互心丐凶日卅中﹝
+						EndWindow 5510005
 
 						Window_no
 
 					endif
 
 				endif
+
+
 
 
 

@@ -1,14 +1,15 @@
 #
-#幕及筏盛﹋幕及祸薯﹌
+#孺狼 扁撅（孺狼 力窜）
 #
 
 ##############  ##############
 block
-#\n\n\n\n@c﹛幕及筏盛毛银中引允井〝
+#\n\n\n\n@c　孺狼 扁撅阑 荤侩窍摆嚼聪鳖?
 	Window 21242,YES,NO
 	Window_YES
 	KillItem 18767,1,(21247)
 	LeaveGroup
 	Warp 0,15541,20,21
 	Window_NO
+
 

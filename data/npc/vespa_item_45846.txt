@@ -1,4 +1,0 @@
-######ÃÕÖ®²Êµ°ID:45846  »»µ­ºìÍÃ¶úÍæÅ¼
-block
-	 KillLeak1item 45846,1
-	 GiveLeak1Item 45855,1

@@ -1,51 +1,39 @@
-#PUK3±å¿ºÖ§¾®ØÆNPC©x©x??©xŽx÷ú
+#PUK3¶°µé½âÇÑ NPC by Åä¹ÌÅ¸
 #
-#©x©x©x»Ô±Ï¼°Þð
+#¡¡¡¡¡¡¿©¿ÕÀÇ ±Ç
 
-###©xÜÒŒa–cåÇ?åÇ¾ÝÃ«ô÷µ±
+###¡¡¿ëº´ºÎ´ë ÀÔ´ëÁõÀ» ¼ÒÁö
 block Item_631002 >= 1
-	EndWindow 3204933
-
-		#\n\n\n\n@c£ß£ß£ß£ß£ß£ß©z
+	EndWindow "\n\n\n\n@c¡¦¡¦¡¦¡¦¡¦¡¦¡£"
 
 
 
-###©x©~Enter£«Æ½¡õ?n
+###¡¡[Enter]Å° ÀÔ·Â
 block StrCmpChat == R
-	EndWindow 3204934
-
-		#\n\n\n\n@c£ß£ß£ß£ß£ß£ß£ß©z
+	EndWindow "\n\n\n\n@c¡¦¡¦¡¦¡¦¡¦¡¦¡£"
 
 
 
-###©xÄþÍÉºª©l½»»ïºë©mÃ«?n
+###¡¡¾ÏÈ£¡¸À¯¸£±×¡¹¸¦ ÀÔ·Â
 block StrCmpChat == 3004895
-	Window 3204935,OK
-
-		#\n\n\n\n@c£ß£ß£ß£ß£ß£ß£ß£ß¨•
+	Window "\n\n\n\n@c¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡ª",OK
 
 		Window_OK Item_631002 >= 1
-			EndWindow 3204936
-
-		#\n\n\n\n@c£ß£ß£ß¨”
+			EndWindow "\n\n\n\n@c¡¦¡¦¡¦¡©"
 
 		Window_OK ItemSpace >= 1
-			GiveItemEX 631002,1,3204937
-
-		#\n\n\n\n@c£ß£ß£ß¨”
+			GiveItemEX 631002,1,"."
 
 		Window_OK
-			EndWindow 3204938
-
-		#\n\n\n\n@c£ß£ß£ß¨”
+			EndWindow "\n\n\n\n@c¡¦¡¦¡¦¡©"
 
 
 
-###©xÏþ·¤¶¯Â½¼°èëÄþ
+###¡¡»ó±â ÀÌ¿ÜÀÇ °æ¿ì
 block
-	EndWindow 3204939
+	EndWindow "\n\n\n\n@c¡¦¡¦¡¦¡¦¡¦¡¦¡£"
 
-		#\n\n\n\n@c£ß£ß£ß£ß£ß£ß£ß©z
+
 
 
 

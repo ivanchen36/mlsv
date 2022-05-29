@@ -1,34 +1,36 @@
-#泛旦玄﹛由伊民尼件﹛旦奶永民及谛
-#厘妐侬﹜凝妐侬及嗉帎反卅中
-#'_'反?心?壬仄
+#抛胶飘　迫饭镁　胶困摹狼 荤恩
+#措巩磊, 家巩磊狼 备喊篮 绝澜
+#'_'绰 佬阑 锭 扒呈盾
 
-###########﹛窒手卅仄﹛##############
+###########　酒公巴档 绝澜　##############
 block
 
-	Window "\n\n﹛云公午卞请凶中及井仄日〝",YES,NO
+	Window 5910001,YES,NO
 
         Window_YES
-			Window "支匀天曰﹜\n﹛仇氏卅市申仁今中午仇欠\n﹛中支方友﹝",next
-			Window "勾中匹卞\n﹛打穴切扎氏手勾木化匀化ｎ",yes,no
+			Window 5910002,next
+			Window 5910003,yes,no
 			
 				Window_yes ItemSpace >= 1
 					GiveItem 274101,1
-					Window "中匀化日匀仄扎℅中"
+					Window 5910004
 					
 					Warp 0,59500,217,128
 
 				Window_yes ItemSpace == 0
 
-					Window "丐日﹜\n﹛当切手及互域?友﹝\n﹛引丑﹜中中歹﹝\n﹛?曰匹垫匀化友﹝"
+					Window 5910005
 					
 					Warp 0,59500,217,128
 					
 				Window_no
 
-					Window "丐日﹜\n﹛挕凶中及友﹝\n﹛引丑﹜中中歹﹝\n﹛?曰匹垫匀化友﹝"
+					Window 5910006
 					
 					Warp 0,59500,217,128
 
 		
 		Window_NO
-			EndWindow "手丹剂仄﹜\n﹛正件弗件仄化仁〝",OK
+			EndWindow 5910007,OK
+
+

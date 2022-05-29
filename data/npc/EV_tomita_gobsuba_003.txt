@@ -1,24 +1,21 @@
-#打皮伉件及邰尽﹛﹛??﹛巟鼹
+#绊喉赴狼 夸货　　ｂｙ　配固鸥
 #
-#﹛﹛﹛凝迩赢及摒
+#　　　家措厘狼 鼻
 
-###﹛铲抭刉笠刓毛呁醒赭当
+###　辟公乞啊钎甫 咯矾 俺 家瘤
 block Item_607907 >= 2
-	EndWindow 3201813
-		#\n\n﹛云蟆﹜铲抭刉笠刓毛呁醒当匀化中月卅﹝\n﹛母丢分﹜台反ㄠ蘸卞ㄠ呦午瑁户化中月氏分﹝\n﹛台及仄化中月仇午反抸日井卞尕恳分互﹜\n﹛公木匹手公木卅曰及伙□伙反丐月氏分冗﹝
+	EndWindow 6310001
 
 
 
-###﹛铲抭刉笠刓毛ㄠ呦赭当﹋旦正件皿ㄠㄤ﹌
+###　辟公乞啊钎甫 １厘 家瘤（胶牌橇１５）
 block Item_607907 == 1 && StampCount_607907 == 15
 	If Item_607908 >= 1 && Item_607909 == 0 && Item_607910 == 0 && Item_607911 == 0 && Item_607912 == 0 && Item_607913 == 0
 
-		Window 3201814,OK
-		#\n\n﹛谛棉及仁六卞铲抭刉笠刓卅升毛当匀化＿﹝\n﹛卅月幻升﹜簿井卞俇引木凶及分卅﹝\n﹛匹﹜伐奶夫反＿白丞﹜打皮伉件戋狪螂井﹝\n﹛幻丹﹜仇木反台互当匀化中卅中摒分卅﹝\n﹛枃匀化云仇丹﹝刉笠反﹜引丐哔尹化云仁方﹝
+		Window 6310002,OK
 
 			Window_OK Item_607907 >= 2
-				EndWindow 3201815
-		#\n\n﹛丞丞﹜铲抭刉笠刓互喂尹化中月卅﹝\n﹛鬼中互﹜仇及狪反卅井匀凶仇午卞仄方丹﹝\n﹛台反ㄠ蘸卞ㄠ呦仄井熬仃尥仃卅中潜聒分﹝
+				EndWindow 6310003
 				EndBlock
 
 			Window_OK Item_607907 == 1 && StampCount_607907 == 15 && Item_607908 >= 1
@@ -27,30 +24,25 @@ block Item_607907 == 1 && StampCount_607907 == 15
 				EndBlock
 
 			Window_OK Item_607907 == 1 && StampCount_607907 == 15
-				EndWindow 3201816
-		#\n\n﹛打皮伉件戋狪螂反升丹仄凶及分〝﹛卅仁仄凶及卅日﹜仇及狪反?饼分﹝
+				EndWindow 6310004
 				EndBlock
 
 			Window_OK Item_607907 == 1
-				EndWindow 3201817
-		#\n\n﹛公及铲抭刉笠刓反﹜瘉赓卞苇凶手及匹反卅中﹝\n﹛怉卅蕞僻毛允月蛊分﹝窖匀化仁木〞
+				EndWindow 6310005
 				EndBlock
 
 			Window_OK
-				EndWindow 3201818
-		#\n\n﹛铲抭刉笠刓互卅中方丹分冗﹝\n﹛引凶请躂仄化仁月氏分卅﹝
+				EndWindow 6310006
 				EndBlock
 
 
 	else
 		If Item_607908 == 0 && Item_607909 >= 1 && Item_607910 == 0 && Item_607911 == 0 && Item_607912 == 0 && Item_607913 == 0
 
-			Window 3201819,OK
-		#\n\n﹛谛棉及仁六卞铲抭刉笠刓卅升毛当匀化＿﹝\n﹛卅月幻升﹜簿井卞俇引木凶及分卅﹝\n﹛匹﹜伐奶夫反＿打皮伉件钓赫井﹜蕙综井卅＿﹝\n﹛丹氏﹜鬼仁反卅中﹝枃匀化云仇丹﹝\n﹛刉笠反﹜引丐哔尹化云仁方﹝
+			Window 6310007,OK
 
 				Window_OK Item_607907 >= 2
-					EndWindow 3201820
-		#\n\n﹛丞丞﹜铲抭刉笠刓互喂尹化中月卅﹝\n﹛鬼中互﹜仇及狪反卅井匀凶仇午卞仄方丹﹝\n﹛台反ㄠ蘸卞ㄠ呦仄井熬仃尥仃卅中潜聒分﹝
+					EndWindow 6310008
 					EndBlock
 
 				Window_OK Item_607907 == 1 && StampCount_607907 == 15 && Item_607909 >= 1
@@ -59,30 +51,25 @@ block Item_607907 == 1 && StampCount_607907 == 15
 					EndBlock
 
 				Window_OK Item_607907 == 1 && StampCount_607907 == 15
-					EndWindow 3201821
-		#\n\n﹛打皮伉件钓赫毛升仇尺支匀凶及分〝\n﹛钓赫互卅中卅日﹜刉笠反戴日卅中冗﹝
+					EndWindow 6310009
 					EndBlock
 
 				Window_OK Item_607907 == 1
-					EndWindow 3201822
-		#\n\n﹛公及铲抭刉笠刓反﹜瘉赓卞苇凶手及匹反卅中﹝\n﹛怉卅蕞僻毛允月蛊分﹝窖匀化仁木〞
+					EndWindow 6310010
 					EndBlock
 
 				Window_OK
-					EndWindow 3201823
-		#\n\n﹛铲抭刉笠刓互卅中方丹分冗﹝\n﹛引凶请躂仄化仁月氏分卅﹝
+					EndWindow 6310011
 					EndBlock
 
 
 		else
 			If Item_607908 ==0 && Item_607909 ==0 && Item_607910 >= 1 && Item_607911 == 0 && Item_607912 == 0 && Item_607913 == 0
 
-				Window 3201824,OK
-		#\n\n﹛谛棉及仁六卞铲抭刉笠刓卅升毛当匀化＿﹝\n﹛卅月幻升﹜簿井卞俇引木凶及分卅﹝\n﹛匹﹜伐奶夫反＿打皮伉件斥亦永平井﹝\n﹛引丐﹜丐匀化坛反卅中﹝枃匀化云仁井卅﹝\n﹛刉笠反﹜引丐哔尹化云仁方﹝
+				Window 6310012,OK
 
 					Window_OK Item_607907 >= 2
-						EndWindow 3201825
-		#\n\n﹛丞丞﹜铲抭刉笠刓互喂尹化中月卅﹝\n﹛鬼中互﹜仇及狪反卅井匀凶仇午卞仄方丹﹝\n﹛台反ㄠ蘸卞ㄠ呦仄井熬仃尥仃卅中潜聒分﹝
+						EndWindow 6310013
 						EndBlock
 
 					Window_OK Item_607907 == 1 && StampCount_607907 == 15 && Item_607910 >= 1
@@ -91,30 +78,25 @@ block Item_607907 == 1 && StampCount_607907 == 15
 						EndBlock
 
 					Window_OK Item_607907 == 1 && StampCount_607907 == 15
-						EndWindow 3201826
-		#\n\n﹛打皮伉件斥亦永平反升丹仄凶〝\n﹛欐今卅中及卅日﹜刉笠及狪反云峸木分﹝
+						EndWindow 6310014
 						EndBlock
 
 					Window_OK Item_607907 == 1
-						EndWindow 3201827
-		#\n\n﹛公及铲抭刉笠刓反﹜瘉赓卞苇凶手及匹反卅中﹝\n﹛怉卅蕞僻毛允月蛊分﹝窖匀化仁木〞
+						EndWindow 6310015
 						EndBlock
 
 					Window_OK
-						EndWindow 3201828
-		#\n\n﹛铲抭刉笠刓互卅中方丹分冗﹝\n﹛引凶请躂仄化仁月氏分卅﹝
+						EndWindow 6310016
 						EndBlock
 
 
 			else
 				If Item_607908 == 0 && Item_607909 == 0 && Item_607910 == 0 && Item_607911 >= 1 && Item_607912 == 0 && Item_607913 == 0
 
-					Window 3201829,OK
-		#\n\n﹛谛棉及仁六卞铲抭刉笠刓卅升毛当匀化＿﹝\n﹛卅月幻升﹜簿井卞俇引木凶及分卅﹝\n﹛匹﹜伐奶夫反＿打皮伉件赚伈井﹝\n﹛譆仁桦赭卞反漱日卅中仄﹜枃丹仇午卞允月井﹝\n﹛刉笠反﹜引丐哔尹化云仁方﹝
+					Window 6310017,OK
 
 						Window_OK Item_607907 >= 2
-							EndWindow 3201830
-		#\n\n﹛丞丞﹜铲抭刉笠刓互喂尹化中月卅﹝\n﹛鬼中互﹜仇及狪反卅井匀凶仇午卞仄方丹﹝\n﹛台反ㄠ蘸卞ㄠ呦仄井熬仃尥仃卅中潜聒分﹝
+							EndWindow 6310018
 							EndBlock
 
 						Window_OK Item_607907 == 1 && StampCount_607907 == 15 && Item_607911 >= 1
@@ -123,30 +105,25 @@ block Item_607907 == 1 && StampCount_607907 == 15
 							EndBlock
 
 						Window_OK Item_607907 == 1 && StampCount_607907 == 15
-							EndWindow 3201831
-		#\n\n﹛打皮伉件赚伈毛升仇尺支匀凶及分〝\n﹛卅中及匹丐木壬﹜仇及潸娄反瑛屯卅中卅﹝
+							EndWindow 6310019
 							EndBlock
 
 						Window_OK Item_607907 == 1
-							EndWindow 3201832
-		#\n\n﹛公及铲抭刉笠刓反﹜瘉赓卞苇凶手及匹反卅中﹝\n﹛怉卅蕞僻毛允月蛊分﹝窖匀化仁木〞
+							EndWindow 6310020
 							EndBlock
 
 						Window_OK
-							EndWindow 3201833
-		#\n\n﹛铲抭刉笠刓互卅中方丹分冗﹝\n﹛引凶请躂仄化仁月氏分卅﹝
+							EndWindow 6310021
 							EndBlock
 
 
 				else
 					If Item_607908 == 0 && Item_607909 == 0 && Item_607910 == 0 && Item_607911 == 0 && Item_607912 >= 1 && Item_607913 == 0
 
-						Window 3201834,OK
-		#\n\n﹛谛棉及仁六卞铲抭刉笠刓卅升毛当匀化＿﹝\n﹛卅月幻升﹜簿井卞俇引木凶及分卅﹝\n﹛匹﹜伐奶夫反＿打皮伉件县酱井﹝\n﹛朿盒互抸月仁卅月及反鬼仁卅中﹝枃丹方﹝\n﹛刉笠反﹜引丐哔尹化云仁方﹝
+						Window 6310022,OK
 
 							Window_OK Item_607907 >= 2
-								EndWindow 3201835
-		#\n\n﹛丞丞﹜铲抭刉笠刓互喂尹化中月卅﹝\n﹛鬼中互﹜仇及狪反卅井匀凶仇午卞仄方丹﹝\n﹛台反ㄠ蘸卞ㄠ呦仄井熬仃尥仃卅中潜聒分﹝
+								EndWindow 6310023
 								EndBlock
 
 							Window_OK Item_607907 == 1 && StampCount_607907 == 15 && Item_607912 >= 1
@@ -155,30 +132,25 @@ block Item_607907 == 1 && StampCount_607907 == 15
 								EndBlock
 
 							Window_OK Item_607907 == 1 && StampCount_607907 == 15
-								EndWindow 3201836
-		#\n\n﹛打皮伉件县酱毛升仇尺怅仄凶及分〝\n﹛欐今卅中卅日﹜仇及潸娄反壅仄化仄引丹冗﹝
+								EndWindow 6310024
 								EndBlock
 
 							Window_OK Item_607907 == 1
-								EndWindow 3201837
-		#\n\n﹛公及铲抭刉笠刓反﹜瘉赓卞苇凶手及匹反卅中﹝\n﹛怉卅蕞僻毛允月蛊分﹝窖匀化仁木〞
+								EndWindow 6310025
 								EndBlock
 
 							Window_OK
-								EndWindow 3201838
-		#\n\n﹛铲抭刉笠刓互卅中方丹分冗﹝\n﹛引凶请躂仄化仁月氏分卅﹝
+								EndWindow 6310026
 								EndBlock
 
 
 					else
 						If Item_607908 == 0 && Item_607909 == 0 && Item_607910 == 0 && Item_607911 == 0 && Item_607912 == 0 && Item_607913 >= 1
 
-							Window 3201839,OK
-		#\n\n﹛谛棉及仁六卞铲抭刉笠刓卅升毛当匀化＿﹝\n﹛卅月幻升﹜簿井卞俇引木凶及分卅﹝\n﹛匹﹜伐奶夫反＿打皮伉件云潮曰分午永〞\n﹛梧粟匹手卅中﹝公木反＿中支﹜娄五潸欠丹﹝\n﹛孔丹﹜渣丹仁?怍毛壬日允午仇欠分匀凶﹝
+							Window 6310027,OK
 
 								Window_OK Item_607907 >= 2
-									EndWindow 3201840
-		#\n\n﹛丞丞﹜铲抭刉笠刓互喂尹化中月卅﹝\n﹛鬼中互﹜仇及狪反卅井匀凶仇午卞仄方丹﹝\n﹛台反ㄠ蘸卞ㄠ呦仄井熬仃尥仃卅中潜聒分﹝
+									EndWindow 6310028
 									EndBlock
 
 								Window_OK Item_607907 == 1 && StampCount_607907 == 15 && Item_607913 >= 1
@@ -187,30 +159,25 @@ block Item_607907 == 1 && StampCount_607907 == 15
 									EndBlock
 
 								Window_OK Item_607907 == 1 && StampCount_607907 == 15
-									EndWindow 3201841
-		#\n\n﹛打皮伉件云潮曰互苇丐凶日卅中冗﹝\n﹛引丐﹜卅中杅互丐曰互凶中互＿＿﹝
+									EndWindow 6310029
 									EndBlock
 
 								Window_OK Item_607907 == 1
-									EndWindow 3201842
-		#\n\n﹛公及铲抭刉笠刓反﹜瘉赓卞苇凶手及匹反卅中﹝\n﹛怉卅蕞僻毛允月蛊分﹝窖匀化仁木〞
+									EndWindow 6310030
 									EndBlock
 
 								Window_OK
-									EndWindow 3201843
-		#\n\n﹛铲抭刉笠刓互卅中方丹分冗﹝\n﹛引凶请躂仄化仁月氏分卅﹝
+									EndWindow 6310031
 									EndBlock
 
 
 						else
 							If Item_607908 == 0 && Item_607909 == 0 && Item_607910 == 0 && Item_607911 == 0 && Item_607912 == 0 && Item_607913 == 0
-								EndWindow 3201844
-		#\n\n﹛幻丹﹜公木反脱★及铲抭刉笠刓匹反卅中井﹝\n﹛甩甩失﹜升仇井及打皮伉件卞俇引木凶及分卅﹝\n﹛台卞伐奶夫毛欐仄化﹜刉笠毛晓仆化仇中午匹手\n﹛蜕歹木凶及分欠丹﹝\n﹛白白永﹜公及打皮伉件﹜卅井卅井哔尹凶卅﹝\n﹛中中分欠丹﹜台反伐奶夫互厘驯五分﹝\n﹛驯心及坁分匀凶日﹜刉笠毛晓仆化支欠丹﹝
+								EndWindow 6310032
 
 
 							else
-								EndWindow 3201845
-		#\n\n﹛白件永﹜伐奶夫毛ㄠ潘挀卞瑁户井友凶井﹝\n﹛公丹中丹穸蝗尕蝇卅樊午反潸娄仄凶仁卅中卅﹝\n﹛台反ㄠ潘挀卞嘟月﹜公及本件旦互苇凶中及分﹝
+								EndWindow 6310033
 
 							endif
 
@@ -228,17 +195,17 @@ block Item_607907 == 1 && StampCount_607907 == 15
 
 
 
-###﹛铲抭刉笠刓毛ㄠ呦赭当﹋旦正件皿ㄠㄤ动陆﹌
+###　辟公乞啊钎甫 １厘 家瘤（胶牌橇１５捞寇）
 block Item_607907 == 1
-	EndWindow 3201846
-		#\n\n﹛公及刉笠刓反﹜湃卞ㄠ蘸苇凶手及匹反卅中井〞\n﹛豭卞昙月卅﹜尕恳及民乓件旦反ㄠ荚分仃分〞〞
+	EndWindow 6310034
 
 
 
-###﹛铲抭刉笠刓毛尕赭当
+###　辟公乞啊钎甫 家瘤窍瘤 臼澜
 block
-	EndWindow 3201847
-		#\n\n﹛台及泙杴反仇仇匹朿票及爵中少曰毛苇化﹜\n﹛簿毛哝褡今六月井瑁户月仇午分﹝\n﹛引丐﹜哝褡及杅芊反公木分仃元扎卅中互友﹝\n﹛邰允月卞﹜评艘丐木壬踹艘午中丹仇午分﹝
+	EndWindow 6310035
+
+
 
 
 

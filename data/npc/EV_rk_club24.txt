@@ -1,5 +1,5 @@
 #
-#¶ª»ï¡õ¶ªÄ¸Ëü¶ªÄÌ
+#¸Þ¸£¸Þ ´Ù¿ì¸ÞÀÌ
 #
 
 
@@ -25,7 +25,7 @@ block Item 16326 >= 1
 					Window 22031,OK
 					Window_OK ItemSpace <= 4
 						EndWindow 22025
-					Window_OK Item 16326 >= 1
+					Window_OK
 						GiveItem 16321
 						GiveItem 16322
 						GiveItem 16323

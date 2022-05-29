@@ -1,4 +1,4 @@
-#å±žâ©jó¡©k
+#µî·Õ£¨¾Õ£©
 
 block
 	Window 22971,Yes,No
@@ -9,3 +9,4 @@ block
 			GiveItem 16425,1
 			LeaveGroup
 			Warp 0,43821,51,54
+

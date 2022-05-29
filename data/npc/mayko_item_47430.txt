@@ -1,3 +1,0 @@
-block
-	 EndWindow 1054678
-	 

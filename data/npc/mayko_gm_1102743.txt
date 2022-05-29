@@ -1,4 +1,0 @@
-Block  Xpos >=8 && Xpos<= 11 && Ypos == 17
-
-		warp 0,1091,11,8
-endblock		

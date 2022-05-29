@@ -1,13 +1,13 @@
-#?üåþ°????
+#¾Ï»óÀÎ ¸Þ·À°Ô
 
-#?????????????
+#³ë¸®ÀÇ ºñ´ÃÀ» °¡Áö°í ÀÖ´Ù¸é
 block Item 16393 >= 1
 	Window 22569,Yes,No
 		Window_Yes
 			Window 22570,OK
 				Window_OK Gold > 998200
 					EndWindow 22576,OK
-				Window_OK Item 16393 >= 1
+				Window_OK
 					KillItem 16393,1
 					AddGold 1800
 		Window_No
@@ -18,18 +18,18 @@ block Item 16393 >= 1
 					EndWindow 22576,OK
 				Window_Yes
 					Window 22570,OK
-						Window_OK Item 16393 >= 1
+						Window_OK
 							KillItem 16393,1
 							AddGold 2400
 
-#¢ð¦g?????????
+#¹é³âÃÊ¸¦ °¡Áö°í ÀÖ´Ù¸é
 block Item 16391 >= 1
 	Window 22544,Yes,No
 		Window_Yes
 			Window 22570,OK
 				Window_OK Gold > 999750
 					EndWindow 22576,OK
-				Window_OK Item 16391 >= 1
+				Window_OK
 					KillItem 16391,1
 					AddGold 250
 		Window_No

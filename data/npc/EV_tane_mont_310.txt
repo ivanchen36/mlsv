@@ -13,7 +13,7 @@ block
 
 
 
-#					endWindow "\n\n﹛什止什止什止〝\n﹛卞文"
+#					endWindow "\n\n　备客备客备客?\n　春"
 					endWindow 3006968
 
 
@@ -22,12 +22,14 @@ block
 
 
 
-#					endWindow "\n\n﹛五斤五斤五斤\n﹛五斤氏"
+#					endWindow "\n\n　撵撵撵\n　砃"
 					endWindow 3006969
 
 
 
 				endif
+
+
 
 
 

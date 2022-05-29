@@ -1,6 +1,0 @@
-###展场包_装满醋饭寿司收纳餐盒
-
-block ItemSpace >=3
-	 KillItem 46782,1
-	 GiveStackItem 15216,9
-	 

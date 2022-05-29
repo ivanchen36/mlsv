@@ -1,5 +1,0 @@
-#############■盲目之龙艾汀-有动作
-block
-	 setaction 2
-	 Window 1052989,OK
-	 Window_OK

@@ -1,4 +1,4 @@
-#???????
+#킨메 할아버지
 
 block EndEvent 103 == 1
 	Message 21610

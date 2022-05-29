@@ -18,7 +18,7 @@ block
 
 
 
-#					EndWindow "\n\n﹛杴及蟆及陶卞丐中化月?楷互\n﹛樯及伄撮卞骚元化月氏分方﹝"
+#					EndWindow "\n\n　传 菊狼 涵尔俊 墩妨乐绰 悼奔捞\n　烤朝 葫角肺 烹秦乐绢."
 					EndWindow 3006904
 
 
@@ -28,7 +28,7 @@ block
 					LocalCount8 = 5
 					
 
-#					EndWindow "\n\n﹛?楷及崦及伄撮卞\n﹛樯及忡绣芢湛互侹切化月仃升\n﹛悸歞卞钒仃切扎渣卅中方﹝"
+#					EndWindow "\n\n　悼奔 救狼 葫角俊\n　烤朝狼 焊粮侩扁啊 冻绢廉 乐瘤父\n　疾阂府 凯搁 困氰秦."
 					EndWindow 3006905
 
 
@@ -42,11 +42,11 @@ block
 
 				LocalCount8 = 2
 
-#				Window "\n\n﹛云支仇氏卅质卞\n﹛钟仄中﹝",next
+#				Window "\n\n　绢扼, 捞繁 镑俊\n　脚扁窍焙.",next
 				Window 3006906,next
 
 
-#				EndWindow "\n\n﹛丐氏凶手伄撮泞茧腹井友〝"
+#				EndWindow "\n\n　寸脚档 葫角蜡利 沤氰牢啊?"
 				EndWindow 3006907
 
 
@@ -54,6 +54,8 @@ block
 
 
 			endif
+
+
 
 
 

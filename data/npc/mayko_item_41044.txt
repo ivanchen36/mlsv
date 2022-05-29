@@ -1,6 +1,0 @@
-block
-		 ##1110453	\n\n是否使用偷亏功能？	1
-		 Window 1110453,YES,NO
-		 	 Window_YES
-		 	 	 spectator
-		 	 Window_NO

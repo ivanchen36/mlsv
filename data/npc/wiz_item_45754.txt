@@ -1,6 +1,0 @@
-###甜在心巧克力wiz_item_45754.txt
-block Item 45754 >= 1
-	 KillItem  45754
-	 setlp +50
-	 setfp +50
-	

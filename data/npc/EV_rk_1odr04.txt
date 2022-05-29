@@ -1,6 +1,6 @@
-#ÈöÁµ¼°–?
+#ÁúÅõÀÇ ¹®Áö±â
 
-#ÈöÁµ¼°óÛÌ¤Ã«µ±ÔÈ»¯ÖÐÔÂ
+#ÁúÅõÀÇ ÁË¼­¸¦ °¡Áö°í ÀÖ´Ù
 block Item 16441 >= 1
 	Window 23187,OK
 		Window_OK
@@ -18,3 +18,4 @@ block
 					Window_OK
 						LeaveGroup
 						Warp 0,33000,468,381
+

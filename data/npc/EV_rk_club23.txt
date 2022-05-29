@@ -1,8 +1,8 @@
 #
-#Ëü¾ŞÄÌĞşÒÁµ©
+#¿şÀÌÆ®¸®½º
 #
 
-#endflg104»¥ONÆ¥ÄşÍÉºª£¾Éê¡õ»ï...£½Ã«?ÍÉ
+#endflg104°¡ ONÀÌ°í ¾ÏÈ£¡¸¸ÆÁÖ...¡¹¸¦ ¹ß¾ğ
 block EndEvent 104 ==1 && StrCmpChat == 21884
 	Window 21881,OK
 		Window_OK ItemSpace == 0
@@ -13,7 +13,7 @@ block EndEvent 104 ==1 && StrCmpChat == 21884
 			AddGold -200
 			GiveItem 18963
 
-#endflg104»¥ONÆ¥ÄşÍÉºª£¾ºÌ·ºĞş°×·ÂÄÌ...£½Ã«?ÍÉ
+#endflg104°¡ ONÀÌ°í ¾ÏÈ£¡¸°¨ÀÚÆ¢±è...¡¹À» ¹ß¾ğ
 block EndEvent 104 ==1 && StrCmpChat == 21885
 	Window 21881,OK
 		Window_OK ItemSpace == 0
@@ -24,7 +24,7 @@ block EndEvent 104 ==1 && StrCmpChat == 21885
 			AddGold -100
 			GiveItem 18964
 
-#endflg104»¥ONØ¦ÈÕ
+#endflg104°¡ ONÀÌ¸é
 block EndEvent 104 ==1
 	Endwindow 21882
 block

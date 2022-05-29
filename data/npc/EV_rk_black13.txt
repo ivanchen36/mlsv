@@ -1,21 +1,6 @@
-#·‹·®Øø¡õ½»¼þ
+#¿ëÀÚ ¸®À±
 
-block BBImage >= 105525 && BBImage <= 105548  ##·ÄÖ¯Å®
-	Window 22940,Next
-	Window 22941,Next
-	Window 22977,Next
-	Window 22942,Yes,No
-		Window_Yes
-			Window 22943,OK
-				Window_OK
-					LeaveGroup
-					Warp 0,51102,17,20
-		Window_No
-			Window 22944,OK
-				Window_OK
-					LeaveGroup
-					Warp 0,51102,17,20
-#¾É°æÅ®½Ç  Â¶±È³ýÍâ
+#ÇÃ·¹ÀÌ¾î°¡ ¡¸¾ÆÀÌ ÀÌ¿ÜÀÇ ¿©¼º Ä³¸¯ÅÍ¡¹ÀÌ¸é
 block BBImage >= 100275 && BBImage <= 100423
 	Window 22940,Next
 	Window 22941,Next
@@ -31,7 +16,6 @@ block BBImage >= 100275 && BBImage <= 100423
 				Window_OK
 					LeaveGroup
 					Warp 0,51102,17,20
-#ÁúÉ°¾ÉÅ®½Ç  Â¶±È³ýÍâ					
 block BBImage >= 105275 && BBImage <= 105423
 	Window 22940,Next
 	Window 22941,Next
@@ -47,7 +31,6 @@ block BBImage >= 105275 && BBImage <= 105423
 				Window_OK
 					LeaveGroup
 					Warp 0,51102,17,20
-#ÁúÉ°Å®½Ç					
 block BBImage >= 106250 && BBImage <= 106423
 	Window 22940,Next
 	Window 22941,Next
@@ -73,3 +56,4 @@ block
 		Window_OK
 			LeaveGroup
 			Warp 0,51102,17,20
+

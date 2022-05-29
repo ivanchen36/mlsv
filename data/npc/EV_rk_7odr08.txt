@@ -1,14 +1,14 @@
-#????
+#크루루
 
-?????混쪃?
+란 훈７등 취득후
 block EndEvent 112 == 1
 	EndWindow 22194,OK
 
-#?????��??
+#란 훈７등 진행 중
 block NowEvent 112 == 1
 	EndWindow 22195,OK
 
-#??????????
+#란 훈８등 가지고 있다
 block EndEvent 58 == 1
 	EndWindow 22196,OK
 

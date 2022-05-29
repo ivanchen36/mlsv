@@ -1,4 +1,4 @@
-#¢†ûù
+#¹Å´úÊ÷
 
 block
 	Window 21959,OK

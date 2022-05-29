@@ -1,6 +1,6 @@
-#????????
+#맹목의 아딘
 
-#EndFLG138?ON???????????????????????9??揮??
+#EndFLG138이 ON이고 아딘의 비늘을 가지고 있고, 게다가 꽝 막대를 9개 이상 소지
 block Item 16408 >= 1 && EndEvent 138 == 1 && Item 16410 >= 9
 	Window 22691,Next
 	Window 22692,Next
@@ -40,7 +40,7 @@ block Item 16408 >= 1 && EndEvent 138 == 1 && Item 16410 >= 9
 			Warp 0,43800,125,87
 		Window_OK
 
-#EndFLG138?ON????????????????
+#EndFLG138이 ON이고 아딘의 비늘을 가지고 있다면
 block Item 16408 >= 1 && EndEvent 138 == 1
 	Window 22691,Next
 	Window 22692,Next
@@ -66,7 +66,7 @@ block Item 16408 >= 1 && EndEvent 138 == 1
 			LeaveGroup
 			Warp 0,43800,125,87
 
-#EndFLG138?ON?????????????????????9??揮??
+#EndFLG138이 ON이고 노리의 비늘을 가지고 있고, 게다가 꽝 막대를 9개 이상 소지
 block Item 16393 >= 1 && EndEvent 138 == 1 && Item 16410 >= 9
 	Window 22691,Next
 	Window 22692,Next
@@ -106,7 +106,7 @@ block Item 16393 >= 1 && EndEvent 138 == 1 && Item 16410 >= 9
 			Warp 0,43800,125,87
 		Window_OK
 
-#EndFLG138?ON??????????????
+#EndFLG138이 ON이고 노리의 비늘을 가지고 있다면
 block Item 16393 >= 1 && EndEvent 138 == 1
 	Window 22691,Next
 	Window 22692,Next
@@ -131,7 +131,7 @@ block Item 16393 >= 1 && EndEvent 138 == 1
 			CheckTitle
 			LeaveGroup
 			Warp 0,43800,125,87
-#?????or???????????????
+#노리의 비늘or아딘의 비늘을 가지고 있다면
 block Item 16393 >= 1 || Item 16408 >= 1
 	Window 22691,Next
 	Window 22779,OK
@@ -144,3 +144,4 @@ block
 		Window_OK
 			LeaveGroup
 			Warp 0,43800,125,87
+

@@ -3,7 +3,7 @@
 
 
 #写1为默认官方伤害算法，写0为高精度伤害计算(变态服写0)
-damage_formula_retro=1
+damage_formula_retro=0
 
 #敏捷上限(不建议修改)
 dex_limit=251
@@ -18,7 +18,7 @@ disable_pet_leave = 0
 drop_notice=0
 
 ########最大等级设置
-char_max_level=160
+char_max_level=130
 
 ########自定义经验列表（如果不开启请设置为0，不开启情况下升级经验按照官方设置）
 custom_exp_list=0
@@ -36,7 +36,7 @@ battleskillexprate=1
 productskillexprate=1
 
 ########最大卡时上限（小时）
-char_fever_max=6
+char_fever_max=9
 
 ########每天增加的卡时（小时）
 char_fever_one_day=1
@@ -74,7 +74,7 @@ randomshot_mode=0
 
 
 ########是否允许删除人物（0不允许，1允许）
-allow_delchar=0
+allow_delchar=1
 
 
 ################## 不掉耐久地图ID设置

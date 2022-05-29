@@ -1,12 +1,11 @@
-#˝Ô˚‘?????
+#Ω≈¿⁄ µÂ∏Æ∆«
 
-#EndFLG©x138ª•ONÿ¶»’
-block EndEvent 138 == 1
+#EndFLG°°138¿Ã ON¿Ã∂Û∏È°§ block EndEvent 138 == 1
 	Window 22739,Next
 	Window 22740,Next
 	EndWindow 22741,OK
 
-#NowFLG?138?ON??
+#NowFLG°°138¿Ã ON¿Ã∂Û∏È
 block NowEvent 138 == 1
 	Window 22736,OK
 		Window_OK
@@ -18,3 +17,4 @@ block
 	Window 22739,Next
 	Window 22740,Next
 	EndWindow 22741,OK
+

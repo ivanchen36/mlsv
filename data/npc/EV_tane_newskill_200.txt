@@ -4,22 +4,19 @@
 block Item 15316 >= 1 && globalFlag27 == 1 && globalFlag28 == 1 && globalFlag29 == 1 && globalFlag30 == 1
 
 
-					Window 3200622,yes,no
-		#\n\n﹛孔戈丰＿＿\n﹛公及澎及?卞丐月?勾中凶蛊毛间允月卅日\n﹛哔尹化支日氏仇午手卅中冗〝
+					Window 5280001,yes,no
 
 						window_yes item 15316 == 0
 
-							endWindow 3200623
-		#凝叶仄中〞
+							endWindow 5280002
 
 
 						window_yes
 
-							Window 3200624,ok
-		#\n\n﹛孔戈﹜缰徽木卅艘互仃分﹝\n﹛方欠仄中﹜\n﹛?帎卞仇及台午爵丹仪毛袱第仄方丹﹝\n﹛五卅今中﹝
+							Window 5280003,ok
 							
-									window_ok item 15316 >= 1
-										killitem 15316,1
+									window_ok
+
 										globalFlag27 = 0 
 										globalFlag28 = 0 
 										globalFlag29 = 0 
@@ -30,16 +27,14 @@ block Item 15316 >= 1 && globalFlag27 == 1 && globalFlag28 == 1 && globalFlag29 
 
 						window_no
 
-							endWindow 3200625
-		#公木匹反升丹仄方丹手卅中卅﹝
+							endWindow 5280004
 
 
 
 block Item 15316 >= 1
 
 
-					endWindow 3200626
-		#\n\n﹛幻丹﹜＿＿\n﹛卅井卅井恌今仆卅坁毛＿＿\n﹛中支﹜筑迋反﹜引分仇仇毛骚月卞反庵壬厄﹝
+					endWindow 5280005
 
 
 
@@ -51,25 +46,24 @@ block Item 15316 >= 1
 block
 
 
-					Window 3200627,yes,no
-		#\n\n﹛卅氏分云蟆日反〝\n﹛仇及燮反穴旦正□迋琼及恄啗分﹝\n﹛咑谛及峏切?匀化恌中午仇欠匹反卅中﹝\n﹛娄五忒六﹝
+					Window 5280006,yes,no
 
 
 						window_no
 						
 						
-							endWindow 3200628
-		#\n\n﹛妏五坌仃及卅中支勾分﹝
+							endWindow 5280007
 
 						
 						window_yes
 						
-							Window 3200629,ok
-		#\n\n﹛方欠仄中﹝\n﹛井仁丐月屯仄﹝\n﹛卅日壬﹜\n﹛歹仄互霜匀化支欠丹﹝
+							Window 5280008,ok
 							
 									window_ok
 									
 										Warp 0,59504,231,128
+
+
 
 
 

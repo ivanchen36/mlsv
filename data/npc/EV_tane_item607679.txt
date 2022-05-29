@@ -4,15 +4,16 @@
 
 
 block
-	Window 3200510,yes,no
-		#?–f¼°Ùß±å’F¾®Ä¾ÔÂÖ§¨”
+	Window 4070001,yes,no
 
 	Window_yes
-	killitem 607679,1,(3007274)
+	killitem 607679,1,(3007204)
 	leavegroup
 	Warp 0,59520,174,63
 	
 
 	Window_no
+
+
 
 

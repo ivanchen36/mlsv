@@ -1,4 +1,4 @@
-#�版�???
+#병사 레온
 
 block
 	Window 22791,Yes,No
@@ -9,4 +9,5 @@ block
 				Window_OK
 					LeaveGroup
 					Warp 0,43100,174,170
+
 

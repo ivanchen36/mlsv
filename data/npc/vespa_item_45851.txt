@@ -1,4 +1,0 @@
-#######รีึฎฒสตฐ ID:45851 ถาปปดฟฐือรถ๚อๆลผ
-block
-	 KillLeak1item 45851,1
-	 GiveLeak1Item 45856,1

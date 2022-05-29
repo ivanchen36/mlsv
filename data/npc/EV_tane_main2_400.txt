@@ -1,30 +1,25 @@
 #
-#瓜永扔它
+#炒荤快
 #
 
 block globalFlag34 == 1 && Item 607699 >= 1
 
-	Endwindow 3201198
-		#\n\n﹛垫匀化五卅今中﹝\n﹛僧扪毛﹝
+	Endwindow 4770001
 
 
 block globalFlag33 == 1 && Item 607699 >= 1
 
 
-		Window 3201199,next
-		#\n\n﹛楝手满质互庄仄中午獍氏分井〝
+		Window 4770002,next
 
-		Window 3201200,next
-		#\n\n﹛公丹井﹜\n﹛孔丹戈＿＿\n﹛手仄井仄化﹜楝手\n﹛摒五殷引木月扪抰卞\n﹛丐月及井手襞木卅中﹝
+		Window 4770003,next
 
-		Window 3201201,yes,no
-		#\n\n﹛楝卞公及竣互丐月卅日﹜\n﹛莘歹六凶中乒用互蛛月及分互﹜\n﹛升丹井卅〝
+		Window 4770004,yes,no
 
 
 		Window_yes
 
-			Window 3201202,ok
-		#\n\n﹛孔戈﹜卅日壬螫反萌仆分﹝\n﹛仁木什木手\n﹛撩斪及拑中方丹卞卅﹝
+			Window 4770005,ok
 
 			Window_ok
 
@@ -34,20 +29,19 @@ block globalFlag33 == 1 && Item 607699 >= 1
 
 
 			
-			endWindow 3201203
-		#\n\n﹛拑咥雄中反仄引中﹝
+			endWindow 4770006
 
 
 
 block globalFlag32 == 1
 
-		endWindow 3201204
-		#\n\n﹛孔戈﹜怉卅午仇欠匹莘丹卅〝\n﹛哔尹手拑仄卞\n﹛丐引曰丹欠切斤欠仄卅中杅互恌中冗〝
+		endWindow 4770007
 
 
 block
 
 
-		EndWindow 3201205
-		#\n\n﹛仇及梂卞\n﹛扔示泛件及方丹卅乒用互丐月午\n﹛妏中化五凶及分互＿＿﹝
+		EndWindow 4770008
+
+
 

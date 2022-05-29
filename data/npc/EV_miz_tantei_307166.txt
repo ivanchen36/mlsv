@@ -1,13 +1,13 @@
-#¼ëÓ£ÛÍ¾Şµ©Ğş¡°ËüÅ«¼şÓ×µ©õÓ½¬©j¨ç©k
-#ÀåŠqÙ¯©yÄıŠqÙ¯¼°à¼·´Ø¦ÖĞ
-#'_'·´?ĞÄ?ÈÉØÆ
+#Å½Á¤ Äù½ºÆ®£ºÀ©±â½º °øÀÛ£¨£¸£©
+#´ë¹®ÀÚ, ¼Ò¹®ÀÚÀÇ ±¸º°Àº ¾øÀ½
+#'_'´Â ÀĞÀ» ¶§ °Ç³Ê¶Ü
 
-###########©xÑûÜı±Î?©x##############
+###########¡¡¼ö»çÁ¾¹İ¡¡##############
 block nowevent74 == 1 && endevent74 == 1
 
 	Endwindow 206655,OK
 
-###########©x²¼ÓÀ·º¼ş?·¤Ø¤Ô»©x##############
+###########¡¡°¡ÅÙ ÀÏ±â ÀÖÀ½¡¡##############
 block endevent73 == 1
 
 	EndWindow 206575,OK
@@ -21,7 +21,7 @@ block nowevent73 == 1 && Item 18898 >= 1
 	nowevent73 = 0
 	KillItem 18898
 
-###########©xendevent72©x##############
+###########¡¡endevent72¡¡##############
 block nowevent73 == 1
 
 	Window 206192,OK
@@ -35,7 +35,7 @@ block endevent72 == 1
 	endevent72 = 0
 	nowevent73 = 1
 
-###########©xendevent 69 on ©xnowevent 70 on©x##############
+###########¡¡endevent 69 on ¡¡nowevent 70 on¡¡##############
 block endevent70 == 1
 
 	EndWindow 206215,OK
@@ -51,12 +51,12 @@ block endevent69 == 1 && nowevent70 == 1
 	nowevent70 = 0
 	endevent70 = 1
 
-###########©xNOWFLG 69 on©x £¾Ê§ØøÌïÄÌ...£½©x##############
+###########¡¡NOWFLG 69 on¡¡ ¡¸¾Ë¸®¹ÙÀÌ...¡¹¡¡##############
 block nowevent69 == 1 && strcmpchat == 206740
 
 	EndWindow 206229,OK
 
-###########©xendevent 68 on©xİåÔ»Çë½ñÄ¾Ğ×Åì±ı©x##############
+###########¡¡endevent 68 on¡¡±×À»·Á¼­ ³ªÅ¸³­ ÆíÁö¡¡##############
 block nowevent69 == 1 
 
 	EndWindow 206228,OK
@@ -72,13 +72,13 @@ block endevent68 == 1 && Item 18895 >= 1
 	nowevent69 = 1
 	endevent68 = 0
 
-###########©x?±ı¼°¶ªÆ¹©x##############
+###########¡¡¹éÁöÀÇ ¸Ş¸ğ¡¡##############
 block Item 18893 >= 1 && endevent68 == 1
 
 	EndWindow 206224,OK
 
 
-###########©xË¦¼şÛÍ¾®ÈÕ¼°Åì±ı©x##############
+###########¡¡ÇàÅ©·ÎºÎÅÍ ¿Â ÆíÁö¡¡##############
 block Item 18892 >= 1
 
 	Window 206216,NEXT
@@ -94,9 +94,10 @@ block Item 18892 >= 1
 	endevent68 = 1
 	
 
-###########©xÖÏÊÖØ¦ØÆ©x##############
+###########¡¡¾Æ¹«°Íµµ ¾øÀ½¡¡##############
 block
 
 	EndWindow 206215,OK
+
 
 

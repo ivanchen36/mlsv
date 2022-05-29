@@ -1,10 +1,10 @@
 #
-#Á¥Ôè¸ó·Â¶ª·Â
+#Àå½Ä»ç ¶ó¸á¶ó
 #
 
 
 
-###©xðôçÇÚÐØ¦ÈÕ©x###
+###¡¡°ËÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 202 && Job <= 207 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -18,7 +18,7 @@ block Job >= 202 && Job <= 207 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xççÇÚÐØ¦ÈÕ©x###
+###¡¡µµ³¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 212 && Job <= 217 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -32,7 +32,7 @@ block Job >= 212 && Job <= 217 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©x¼üçÇÚÐØ¦ÈÕ©x###
+###¡¡Ã¢Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 222 && Job <= 227 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -46,7 +46,7 @@ block Job >= 222 && Job <= 227 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xÝÔçÇÚÐØ¦ÈÕ©x###
+###¡¡È°Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 232 && Job <= 237 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -60,7 +60,7 @@ block Job >= 232 && Job <= 237 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xÏðçÇÚÐØ¦ÈÕ©x###
+###¡¡ÁöÆÎÀÌÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 242 && Job <= 247 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -74,7 +74,7 @@ block Job >= 242 && Job <= 247 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xÆ¤¡õ¶ª·Â¼þçÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎ¸Þ¶ûÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 252 && Job <= 257 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -88,7 +88,7 @@ block Job >= 252 && Job <= 257 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©x¹ÏÄÌ°×çÇÚÐØ¦ÈÕ©x###
+###¡¡³ªÀÌÇÁÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 262 && Job <= 267 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -102,7 +102,7 @@ block Job >= 262 && Job <= 267 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©x³¡çÇÚÐØ¦ÈÕ©x###
+###¡¡Åõ±¸Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 272 && Job <= 277 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -116,7 +116,7 @@ block Job >= 272 && Job <= 277 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xÙ¦ºÒçÇÚÐØ¦ÈÕ©x###
+###¡¡¸ðÀÚÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 282 && Job <= 287 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -130,7 +130,7 @@ block Job >= 282 && Job <= 287 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©x¶¥çÇÚÐØ¦ÈÕ©x###
+###¡¡°©¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 292 && Job <= 297 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -144,7 +144,7 @@ block Job >= 292 && Job <= 297 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xšõçÇÚÐØ¦ÈÕ©x###
+###¡¡¿ÊÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 302 && Job <= 307 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -158,7 +158,7 @@ block Job >= 302 && Job <= 307 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©x·ò¡õÆ¤çÇÚÐØ¦ÈÕ©x###
+###¡¡·ÎºêÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 312 && Job <= 317 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -172,7 +172,7 @@ block Job >= 312 && Job <= 317 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xÆ¤¡õÖ­çÇÚÐØ¦ÈÕ©x###
+###¡¡ºÎÃ÷Á÷ÀÎÀÌ¸é¡¡###
 block Job >= 322 && Job <= 327 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -186,7 +186,7 @@ block Job >= 322 && Job <= 327 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xÐ¨çÇÚÐØ¦ÈÕ©x###
+###¡¡±¸µÎÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 332 && Job <= 337 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -200,7 +200,7 @@ block Job >= 332 && Job <= 337 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©x¼úçÇÚÐØ¦ÈÕ©x###
+###¡¡¹æÆÐÁ÷ÀÎÀÌ¸é¡¡###
 block Job >= 342 && Job <= 347 && Item 16242 == 1 && StampCount 16242 == 2
 	Window 21775,Next
 #\n\n
@@ -214,12 +214,13 @@ block Job >= 342 && Job <= 347 && Item 16242 == 1 && StampCount 16242 == 2
 		Window_Yes
 			Endwindow 21875
 
-###©xçÇÚÐ¶¯Â½Ø¦ÈÕ©x###
+###¡¡Á÷ÀÎ ÀÌ¿Ü¶ó¸é¡¡###
 block Item 16242 == 1 && StampCount 16242 == 2
 #
 	Endwindow 21775
 
 ###
 block
-#\n\n©xÖÐÒý?»ÔÎç¼°ÁÝÃÞÃ«ÌäØÆÊÏÆ¥ÖÐÔÂÊÏ·Ö©z\n©x‚U¸ê¾®ÈÕÁº…ëØÆØ¦ÖÐÆ¥ÈÊÄ¾©z
+#\n\n¡¡Áö±Ý ±×³à¿ÍÀÇ ½Ã°£À» Áñ±â°í ÀÖ´Ù±¸.\n¡¡ºÎÅ¹ÀÌ´Ï±î ¹æÇØÇÏÁö ¸»¾ÆÁà.
 	Endwindow 21774
+

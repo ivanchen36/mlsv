@@ -1,5 +1,6 @@
-#FOT–„Ëø¨á
+#FOT¹®Á¦£²
 
 block
 #
 	EndWindow 21717,OK
+

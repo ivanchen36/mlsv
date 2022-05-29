@@ -1,6 +1,5 @@
 
-#include 3201305
-		#./header/global0.h
+#include "./header/global0.h"
 
 block
 
@@ -17,22 +16,18 @@ if Item 607621 == 0
 			if LocalCount0 == 1
 
 
-				Window 3201306,next
-		#\n\n﹛丐丐﹜卅勾井仄中友之﹝\n﹛丐氏凶﹜云累?卞垫匀凶及井中〝
+				Window 5100001,next
 
 
-				EndWindow 3201307,next
-		#\n\n﹛丐凶仄手潦中滞反﹜\n﹛丐公仇匹庣谛锹澎卞\n﹛少中少中蜕歹六凶乒件分仃升友之﹝
+				EndWindow 5100002,next
 
 
 			else
 
-				Window 3201308,next
-		#\n\n﹛潦仁苇尹月匀化〝\n﹛公曰扎呺辉分手及﹝
+				Window 5100003,next
 
 
-				EndWindow 3201309
-		#\n\n﹛丐凶仄扎﹜仇木匹手缯互蛛月碟今友﹝
+				EndWindow 5100004
 
 
 			endif
@@ -49,42 +44,35 @@ if Item 607621 == 0
 
 				LocalCount1 = 1
 
-				Window 3201310,next
-		#\n\n﹛瘉嗤反﹜累?呺辉手\n﹛聂剩烦采卞卅匀凶日仄中友之﹝
+				Window 5100005,next
 
 
-				EndWindow 3201311
-		#\n\n﹛累窜动陆卞手\n﹛中欠中欠澎毛请仄化月心凶中分仄﹝
+				EndWindow 5100006
 
 
 			else
 
 				LocalCount0 = 1
 
-				Window 3201312,next
-		#\n\n﹛仇氏卅田田失及狪毛\n﹛中勾手妏中化仁木化丐曰互午丹方﹝
+				Window 5100007,next
 
 
-				Window 3201313,ok
-		#\n\n﹛云斪卞戊伊毛支欠丹﹝\n﹛梧粟手及今友﹝
+				Window 5100008,ok
 
 
 					window_ok Item 607631 >= 1
 
-					endWindow 3201314
-		#\n\n﹛手丹当匀化月友之﹝\n﹛?蜊手中日卅中友之﹝
+					endWindow 5100009
 
 
 					window_ok LocalCount10 == 1
 
-					endWindow 3201315
-		#\n\n﹛手丹当匀化月友之﹝\n﹛?蜊手中日卅中友之﹝
+					endWindow 5100010
 
 
 					window_ok ItemSpace == 0
 
-#					Window 3201316
-		#\n\n﹛当切坁互中匀天中分友之﹝
+#					Window "\n\n　家瘤前捞 啊垫 谩备刚."
 					endWindow 3006796
 
 
@@ -103,24 +91,20 @@ if Item 607621 == 0
 
 				LocalCount1 = 1
 
-				Window 3201317,next
-		#\n\n﹛云累?卞蛛卅井匀凶井匀化〝
+				Window 5100011,next
 
 
-				EndWindow 3201318
-		#\n\n﹛丐凶仄扎﹜午匀仁卞呺辉毛娄转仄化\n﹛耵★愤赝及戏唾分方﹝
+				EndWindow 5100012
 
 
 			else
 
 				LocalCount0 = 1
 
-				Window 3201319,next
-		#\n\n﹛丐丐﹜\n﹛漆?反譬阂互中中午合匀凶仃升＿＿
+				Window 5100013,next
 
 
-				EndWindow 3201320
-		#\n\n﹛切斤匀午粟五丐互匀凶分仃匹＿＿
+				EndWindow 5100014
 
 
 			endif
@@ -131,25 +115,20 @@ if Item 607621 == 0
 else
 
 
-		Window 3201321,next
-		#\n\n﹛云支﹜丐氏凶﹜\n﹛蕨卞垫匀化月缯抯卞丐匀凶及井中〝\n﹛咍苹洈阕毛茧仄卞垫匀化仁木月氏分方﹜\n﹛鸠垫卅阂分方﹝
+		Window 5100015,next
 
 
 
-		Window 3201322,next
-		#\n\n﹛洈阕及累窜井中﹜\n﹛莠井仄中友之﹝\n﹛洈阕反友﹜\n﹛云累?呺辉毛抩昙匀化凶凛及\n﹛丐凶仄及?坁今友﹝
+		Window 5100016,next
 
 
-		Window 3201323,yes,no
-		#\n\n﹛丐氏凶﹜公及累毛\n﹛仇及陞木卅田田失卞\n﹛云仁木匹卅中井中〝
+		Window 5100017,yes,no
 
 			Window_yes
 
-				Window 3201324,next
-		#\n\n﹛丐丐﹜丐曰互午丹﹝\n﹛云斪卞仇木毛丐仆方丹﹝
+				Window 5100018,next
 
-				Window 3201325,ok
-		#\n\n﹛仇木反辄及轾仇丹及\n﹛云午亢及弁瓦尺及?桦痹今友﹝\n﹛丹孔孔孔孔﹝
+				Window 5100019,ok
 
 				Window_ok
 
@@ -164,14 +143,15 @@ else
 			Window_no
 *case1*
 
-				EndWindow 3201326
-		#\n\n﹛卅氏分中﹜\n﹛潦中及卞祛唭蔬中蛊分友﹝
+				EndWindow 5100020
 
 
 
 
 
 endif
+
+
 
 
 

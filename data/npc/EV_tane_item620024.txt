@@ -6,13 +6,13 @@
 block
 
 
-	Window "\n\n﹛朼元日木凶甲用平ㄣㄟ呿毛\n﹛荸铄仄引允井〝",yes,no
+	Window 4350001,yes,no
 
 
 
 	Window_yes ItemSpace < 1
 
-		endWindow "\n\n﹛当切坁互域?匹荸铄匹五卅中﹝"
+		endWindow 4350002
 
 
 	Window_yes
@@ -21,3 +21,5 @@ block
 		giveitem 10008,40
 
 	Window_no
+
+

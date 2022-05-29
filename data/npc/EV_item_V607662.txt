@@ -1,6 +1,6 @@
 block Item 607662 >= 2
 
-				endWindow "\n\n﹛晓咺五反域箫内勾茧匀化仁分今中﹝"
+				endWindow 3280001
 
 
 
@@ -15,4 +15,5 @@ block CheckRealTime 2004/2/15,00:00:01 == 1
 
 block
 
-		EndWindow "\n\n﹛梂卞窒井?匀化中月日仄中互\n﹛方仁歹井日卅中﹝"
+		EndWindow 3280002
+

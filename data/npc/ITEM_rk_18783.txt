@@ -1,10 +1,10 @@
-#?????????
-#15552	??????????þ_????
+#¼Ò¿ï ¿Àºê ¿À´õ
+#15552	ÀÚ¹®ÀÇ ¼ºÃ¤ ÀÔ±¸ ºÏÂÊÀ¸·Î ¿öÇÁ
 
 #
 
 block Item 18783 == 1
-#\n\n\n\n@c??????????úé?????
+#\n\n\n\n@c¼Ò¿ï ¿Àºê ¿À´õ¸¦ »ç¿ëÇÏ°Ú½À´Ï±î?
 	Window 21341,YES,NO
 	Window_YES Item 18783 == 1
 	KillItem 18783,1,(21342)
@@ -14,7 +14,7 @@ block Item 18783 == 1
 	Window_NO
 
 #block
-#\n\n\n\n@c~~?úé?????
+#\n\n\n\n@c~~À» »ç¿ëÇÏ°Ú½À´Ï±î?
 #	Window 15540,YES,NO
 #	Window_YES Item 18779 == 1
 #	SetDur 18779,-1
@@ -22,4 +22,5 @@ block Item 18783 == 1
 
 #	Window_YES
 #	Window_NO
+
 

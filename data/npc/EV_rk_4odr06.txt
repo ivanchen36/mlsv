@@ -1,4 +1,4 @@
-#鞋?????
+#집사 나이터
 
 block Item 16418 >= 1
 	EndWindow 22812,OK
@@ -19,3 +19,4 @@ block Item 16414 >= 1
 	EndWindow 22814,OK
 block
 	EndWindow 22815,OK
+

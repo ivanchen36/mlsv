@@ -1,4 +1,4 @@
-#鞋?????
+#집사 나이터
 
 block 
 	Window 22840,Yes,No
@@ -9,3 +9,4 @@ block
 				Window_OK
 					LeaveGroup
 					Warp 0,43100,91,136
+

@@ -1,13 +1,13 @@
-#???¥|¦öû¹þÏ?
+#¾ß°ö µ¶ºÎÁýÁ¤°ü
 
-#?????????
+#¿¤ ÈÆ£·µî Å¬¸®¾î ÈÄ
 block EndEvent 111 == 1
 	EndWindow 22153,OK
-#?????????
+#¶õ ÈÆ£·µî Å¬¸®¾î ÈÄ
 block EndEvent 112 == 1
 	EndWindow 22154,OK
 
-#?????þ­???þ°???
+#¿¤ ÈÆ£·µî ÁøÇà Áß£¦ÀÎ¾îÀÇ ´«¹°
 block NowEvent 111 == 1 && Item 16364 >= 1
 	Window 22155,YES,NO
 		Window_YES
@@ -27,15 +27,15 @@ block NowEvent 111 == 1 && Item 16364 >= 1
 					EndEvent 51 = 1
 					CheckTitle
 
-#?????þ­??
+#¿¤ ÈÆ£·µî ÁøÇà Áß
 #block NowEvent 111 == 1
 #	EndWindow 22158,OK
 
-#??????????
+#¿¤ ÈÆ£¸µîÀ» °¡Áö°í ÀÖ´Ù
 block EndEvent 50 == 1
 	Window 22159,NEXT
 	EndWindow 22160,OK
-#??????????
+#¶õ ÈÆ£¸µîÀ» °¡Áö°í ÀÖ´Ù
 block EndEvent 58 == 1
 	EndWindow 22161,OK
 

@@ -1,4 +1,4 @@
-#úó§Æ??
+#²¿ºØ Æä¶ó
 
 block NowEvent 112 == 1
 	Window 22278,Yes,No

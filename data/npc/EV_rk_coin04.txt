@@ -1,5 +1,5 @@
 #
-#ÑÃó°äúÂ¦ÒÁ¡õĞşÔæ?
+#¿¾ µ¿Àü ±³È¯ ·¹ÀÌÆ® °£ÆÇ
 #
 
 block
@@ -7,3 +7,4 @@ block
 	Window 22021,Next
 	Window 22140,Next
 	EndWindow 22141,OK
+

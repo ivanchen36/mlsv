@@ -1,4 +1,4 @@
-#�版�???
+#병사 레온
 
 block EndEvent 117 == 1 || EndEvent 118 == 1
 	EndWindow 22784,OK
@@ -21,3 +21,4 @@ block EndEvent 53 == 1 || EndEvent 61 == 1
 
 block
 	EndWindow 22790,OK
+

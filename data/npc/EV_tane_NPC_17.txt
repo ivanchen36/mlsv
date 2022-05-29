@@ -2,23 +2,23 @@
 
 block EndEvent 205 == 1 && Item 620048 >= 1
 
-	if Gold >= 997501
+	if Gold >= 995001
 
-		GAEndWindow "\n\n﹛幻予〝\n﹛算幵互中匀天中及方丹匹〝\n﹛中支﹜丹日支引仄中蜃曰﹝\n﹛升仇冗匹算幵毛\n﹛市仿卞仄化侳月午胀井卅﹝"
+		GAEndWindow 5490001
 
 	endif
 
 
 	if globalFlag76 == 1
 
-		GAEndWindow "\n\n﹛跟晶荚醒毛\n﹛聊亢化仄引匀凶匹豢甄月卅〝"
+		GAEndWindow 5490002
 
 	endif
 
 
 	if globalFlag75 == 1
 
-		GAWindow "\n\n﹛瘉詨及跟晶匹仍介月卅〝",next
+		GAWindow 5490003,next
 		globalFlag76 = 1
 
 		gotoF case04
@@ -28,7 +28,7 @@ block EndEvent 205 == 1 && Item 620048 >= 1
 
 	if globalFlag74 == 1
 
-		GAWindow "\n\n﹛铨荚杴及跟晶匹仍介月卅〝",next
+		GAWindow 5490004,next
 		globalFlag75 = 1
 
 		gotoF case04
@@ -38,7 +38,7 @@ block EndEvent 205 == 1 && Item 620048 >= 1
 
 	if globalFlag73 == 1
 
-		GAWindow "\n\n﹛赶荚杴及跟晶匹仍介月卅〝",next
+		GAWindow 5490005,next
 		globalFlag74 = 1
 
 		gotoF case04
@@ -49,7 +49,7 @@ block EndEvent 205 == 1 && Item 620048 >= 1
 
 	if globalFlag73 == 0
 
-		GAWindow "\n\n﹛?荚杴及跟晶匹仍介月卅〝",next
+		GAWindow 5490006,next
 		globalFlag73 = 1
 
 		gotoF case04
@@ -60,67 +60,43 @@ block EndEvent 205 == 1 && Item 620048 >= 1
 
 block EndEvent 205 == 1
 
-	GAEndWindow "\n\n﹛中支﹜引匀仇午﹛云苇仪匹仍介匀凶﹝"
+	GAEndWindow 5490007
 
 
 
 block Item 620047 >=1
 
-		GAWindow "\n\n﹛中支﹜\n﹛云苇仪﹜云苇仪〞",next
+		GAWindow 5490008,next
 
-		GAWindow "\n\n﹛引今井蒙樊及?卅月乒用蝈化毛\n﹛藉切逦允穻樊互云欠丹午反〞",next
+		GAWindow 5490009,next
 
-		GAWindow "\n\n﹛筏?及惫寞毛\n﹛云尥仃萧公丹﹝",ok
+		GAWindow 5490010,ok
 
-		Window_ok Item 620047 == 0
+		GAWindow_ok Item 620047 == 0
 
-			EndWindow "\n\n﹛皮伊奶皮布奶汁毛侉木内手匀化井日﹜\n﹛匹﹜仍介月方﹝"
+			EndWindow 5490011
 
-		Window_ok Item 620047 >= 1
+		Window_ok
 
 			killItem 620047,1
 			EndEvent 205 = 1
 			CheckTitle
 
 
-			if Item 620048 >=1
-				GAWindow "\n\n﹛公丹公丹﹜喘仃嗯毛诡蜗?忒仄﹜\n﹛匹丐匀凶卅﹝",next
-
-				GAWindow "\n\n﹛蝈化及喘仃嗯毛熬仃潸月引匹\n﹛域蘸蒙樊井日峊木凶桦宁\n﹛跟晶荚醒反\n﹛酸曰铨荚匹仍介月﹝\n﹛狪仄井仃凶分仃匹手域荚午苇卅仄引允裕\n﹛云竣毛勾仃黎今木中﹝",next
-					gotoF case03
-
-			else
+		if Item 620048 >=1
+					gotoF case04
+		else
 					gotoF case06
-			endif
-
-		Window_ok
-			GAEndWindow"\n\n﹛皮伊奶皮布奶汁毛升仇卞怅仄凶及匹仍介月〝"
+		endif
 
 endblock
 
 
 *case04*
-				GAWindow "\n\n﹛公丹公丹﹜喘仃嗯毛诡蜗?忒仄﹜\n﹛匹丐匀凶卅﹝",next
 
-				GAWindow "\n\n﹛蝈化及喘仃嗯毛熬仃潸月引匹\n﹛域蘸蒙樊井日峊木凶桦宁\n﹛狪仄井仃凶分仃匹手域荚午苇卅仄引允裕\n﹛云竣毛勾仃黎今木中﹝",next
+				GAWindow 5490012,next
 
-
-				if globalFlag76 == 1 && globalFlag75 == 1 && globalFlag74 == 1 && globalFlag73 == 1
-					GAWindow "\n\n﹛仇木互瘉詨匹仍介月方﹝",next
-				else
-				if globalFlag76 == 0 && globalFlag75 == 1 && globalFlag74 == 1 && globalFlag73 == 1
-					GAWindow "\n\n﹛跟晶荚醒反\n﹛戚互瘉詨匹仍介月方﹝",next
-				else
-				if globalFlag76 == 0 && globalFlag75 == 0 && globalFlag74 == 1 && globalFlag73 == 1
-					GAWindow "\n\n﹛跟晶荚醒反\n﹛詨ㄡ荚匹仍介月方﹝",next
-				else
-				if globalFlag76 == 0 && globalFlag75 == 0 && globalFlag74 == 0 && globalFlag73 == 1
-					GAWindow "\n\n﹛跟晶荚醒反\n﹛詨ㄢ荚匹仍介月方﹝",next
-
-				endif﹛##跟晶荚醒﹛丐午ㄣ
-				endif﹛##跟晶荚醒﹛丐午ㄢ
-				endif﹛##跟晶荚醒﹛丐午ㄡ
-				endif﹛##跟晶荚醒﹛丐午ㄠ
+				GAWindow 5490013,next
 
 
 
@@ -149,28 +125,28 @@ globalFlag72 = 0
 			
 *case05*
 				
-				GAWindow "\n\n﹛匹反﹜夫午勾",ok
+				GAWindow 5490014,ok
 
-				Window_ok Gold >= 997501
+				Window_ok Gold >= 995001
 
-					GAEndWindow "\n\n﹛幻予〝\n﹛算幵互中匀天中及方丹匹〝\n﹛中支﹜丹日支引仄中蜃曰﹝\n﹛升仇冗匹算幵毛\n﹛市仿卞仄化侳月午胀井卅﹝"
+					GAEndWindow 5490015
 
 				Window_ok Item 620048 == 0
 
-					GAEndWindow "\n\n﹛厘?痹毛侉木内手匀化井日﹜\n﹛匹﹜仍介月方﹝"
+					GAEndWindow 5490016
 
 				Window_ok
 
-					AddGold 2500
+					AddGold 5000
 					killItem 620048,1
 
 
 
 					if globalFlag72 == 1
 
-						GAWindow "\n\n﹛?木萧仄凶﹝\n﹛午曰丐尹内﹜蔽曰匹仍介月卅﹝",next
+						GAWindow 5490017,next
 
-						GAEndWindow "\n\n﹛仇木井日手擎褡卅今木方﹝\n﹛公仄化?木凶日\n﹛仇及≦灿庍及谖?≧午及爵中毛\n﹛合中请今木月互方井欠丹﹝"
+						GAEndWindow 5490018
 
 						endblock
 
@@ -332,7 +308,7 @@ globalFlag72 = 0
 
 				if  Item 620048 >=1
 
-					GAWindow "\n\n﹛引分肣曰萧允卅〝",next
+					GAWindow 5490019,next
 
 					gotoB case05
 
@@ -340,19 +316,19 @@ globalFlag72 = 0
 
 
 
-			GAEndWindow "\n\n﹛仇木井日手擎褡卅今木方﹝\n﹛公仄化?木凶日\n﹛仇及≦灿庍及谖?≧午及爵中毛\n﹛合中请今木月互方井欠丹﹝"
+			GAEndWindow 5490020
 
 
 block Item 620048 >=1 && EndEvent 205 == 0
 
-		GAWindow "\n\n﹛云丹云丹﹜\n﹛厘?痹毛云当切匹﹝",next
+		GAWindow 5490021,next
 
-		GAWindow "\n\n﹛今化﹜仇及≦灿庍及谖?≧卞\n﹛蔺心卅今月创貊反云勾五井卅〝",OK
+		GAWindow 5490022,OK
 
 
 		Window_ok Item 620048 == 0
 
-				GAEndWindow "\n\n﹛厘?痹毛侉木内手匀化井日﹜\n﹛匹﹜仍介月方﹝"
+				GAEndWindow 5490023
 
 		Window_OK
 
@@ -360,34 +336,34 @@ block Item 620048 >=1 && EndEvent 205 == 0
 
 block  EndEvent 205 == 0
 
-		GAWindow "\n\n﹛孔戈﹜公仇卅豢谚﹜\n﹛仄壬仄谨凶木方﹝",next
+		GAWindow 5490024,next
 
-		GAWindow "\n\n﹛蒙樊≦灿庍及谖?≧﹜\n﹛胧胧阂手蜇木凶仪匹丐月及匹\n﹛漆域蘸﹜裘毛苇躂仄化云月瘉醱匹丐月﹝",next
+		GAWindow 5490025,next
 
-		GAWindow "\n\n﹛苇月卞筑楝反﹜\n﹛选坌珃卞盛尹互丐曰公丹分﹝\n﹛仇及≦灿庍及谖?≧﹜\n﹛夫午勾云澎宁歹六毛凑中凶中\n﹛仇及谖?互?卞?户当勾樊琼\n﹛蝈化卞藉切鴃化木壬\n﹛穻樊及惫寞毛瞿曰萧公丹﹝",next
+		GAWindow 5490026,next
 
-		GAWindow "\n\n﹛爵尹月及反﹜仇及≦厘?痹≧毛\n﹛云?中菲户中凶分中凶豢谚及心﹝\n﹛域呦ㄤㄟ?﹜?呦动晓云?中丐仆及桦宁﹜\n﹛?呦杴动嫦反公匀仁曰喘仃嗯午卅曰萧允﹝\n﹛苇仪﹜蝈鴃及传卞反﹜\n﹛惫寞午隋卞喘仃嗯反诡蜗?忒仄〞",next
+		GAWindow 5490027,next
 
-		GAWindow "\n\n﹛药虫匹手熬仃尥仃萧允﹝\n﹛凶分仄﹜公及凛反穻樊及据毛?月及反﹜\n﹛僧扪卅云域杅分仃﹝",next
+		GAWindow 5490028,next
 
-		GAWindow "\n\n﹛绂坁卞反夫午勾分仃坞五毛\n﹛综匀化云仁匹仍介月方﹝\n﹛蝈化卞藉切鴃匀凶詨卞\n﹛穻樊及据毛熬仃潸木友壬\n﹛萸仁卞萸仃厄﹝幻匀幻匀幻﹝",next
+		GAWindow 5490029,next
 
-		GAWindow "\n\n﹛手仄﹜坳互域穻樊及据毛\n﹛云澎卞请侳凶日\n﹛中引域蘸﹜蒙樊卞云擘毛云井仃票今木﹝\n﹛穻樊及据毛云当切及杅分仃\n﹛喘仃嗯毛忒仄萧允﹝\n﹛云醮棉及杅反仪蟆卞穻樊卞\n﹛厘?痹毛欐仄化云仁及毛云换户中凶公丹﹝",next
+		GAWindow 5490030,next
 
 
-		GAWindow "\n\n﹛升丹井卅〝域轼ㄤㄟ?﹜\n﹛窒轼匹手云熬仃仄萧允冗〝\n﹛凶分仄﹜蒙樊反蜊卞仄化?曰卞丐日内﹝\n﹛壑钗及绊化绊化引匹欲五\n﹛雄樊隋及恘毛?心殷氏分褥﹝\n﹛凶中公丹雄丹豢甄月方〝\n﹛云竣毛勾仃丐木〝",next
+		GAWindow 5490031,next
 
-		GAWindow "\n\n﹛反化今化﹜中井互井卅〝",yes,no
+		GAWindow 5490032,yes,no
 
 		Window_no
 
-			GAEndWindow "\n\n﹛幻幻丹﹜\n﹛中支﹜尪狟卞戏五月手引凶谛及?﹝\n﹛蒙樊及方丹卅樊井日心木壬\n﹛引仇午﹜丹日支引仄中蜃曰﹝"
+			GAEndWindow 5490033
 
 
 		Window_yes
 
 
-			GAWindow "\n\n﹛孔戈﹜\n﹛蒙樊及杴卞飧中反卅井匀凶井卅〝\n﹛匹反﹜引内反ㄤㄟ?云萧仄尥仃方丹﹝",OK
+			GAWindow 5490034,OK
 
 			Window_OK
 
@@ -395,14 +371,14 @@ block  EndEvent 205 == 0
 
 				if Gold <= 49
 
-					GAWindow "\n\n﹛仇木反仄凶曰〞\n﹛蒙樊方曰当匀化云日厄豢谚匹丐匀凶井〞",next
+					GAWindow 5490035,next
 
  						gotoF case02
 
 				else
 					if ItemSpace == 0
 
-						GAWindow "\n\n﹛公木动晓﹜当化厄午苇尹月﹝",next
+						GAWindow 5490036,next
 
 						gotoF case02
 
@@ -412,7 +388,7 @@ block  EndEvent 205 == 0
 						AddGold -50
 						GiveItem 620048,1
 
-						GAWindow "\n\n﹛今化﹜\n﹛躂什卞铵户萧公丹井〝\n﹛公木午手﹜引分?歹木引允井卅〝\n﹛铵户月桦宁反???午\n﹛蚕尹萧今木方﹝",yes,no
+						GAWindow 5490037,yes,no
 
 						Window_yes
 
@@ -420,7 +396,7 @@ block  EndEvent 205 == 0
 
 						Window_no
 
-							GAWindow "\n\n﹛今木壬﹜手丹ㄤㄟ?﹝",next
+							GAWindow 5490038,next
 
 							gotoB case01
 
@@ -433,11 +409,11 @@ block  EndEvent 205 == 0
 
 		if Item 620048 >=1 
 		
-			GAWindow "\n\n﹛公木匹反﹜铵户萧公丹",yes,no
+			GAWindow 5490039,yes,no
 
 				Window_yes Item 620048 == 0
 
-						GAEndWindow "\n\n﹛厘?痹毛侉木内手匀化井日﹜\n﹛匹﹜仍介月方﹝"
+						GAEndWindow 5490040
 
 				Window_yes
 
@@ -448,14 +424,15 @@ block  EndEvent 205 == 0
 
 				Window_no
 
-						GAEndWindow "\n\n﹛蒙樊反雄丹豢甄月﹝\n﹛斗匀仁曰创貊毛瑁户日木方﹝"
+						GAEndWindow 5490041
 
 		else
 		
-			GAEndWindow "\n\n﹛蒙樊卞蔺戈及卅日\n﹛厘?痹毛侉木内手匀化井日﹜\n﹛匹﹜仍介月方﹝",OK
+			GAEndWindow 5490042,OK
 		
 		endif
 
 block 
 
-		GAEndWindow "\n\n﹛漆?反竣互昙日卅中匹仍介月方﹝\n﹛域蘸扙仃凶豢谚卞覆仄化反\n﹛卅云今日匹仍介月﹝",OK
+		GAEndWindow 5490043,OK
+

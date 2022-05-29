@@ -1,9 +1,0 @@
-#
-#kaisuukenn
-#
-
-
-block
-	Endwindow "\n\n©x @g,239504 @",ok
-
-

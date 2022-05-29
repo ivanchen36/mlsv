@@ -1,4 +1,4 @@
-#•U?•n??????07
+#»Î¿« µø±º «‘¡§07
 
 block XPos == 34 && YPos == 45
 	Play_se 207,240,320
@@ -6,3 +6,4 @@ block XPos == 34 && YPos == 45
 	SetLp -20
 	Message 21597
 	SetLp -20
+

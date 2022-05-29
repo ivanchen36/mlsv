@@ -1,19 +1,19 @@
-#PUK3卞亢支井仄NPC﹛﹛??﹛tane
+#PUK3 栋甸解茄 NPC　　ｂｙ　tane
 #
-#﹛﹛﹛尝珇栋咥敢B及摒
+#　　　亲父包府包B狼 鼻
 
 ###
 
 block
-	Window 3203268,YES,NO
-
-		#\n\n\n\n@c远顺井日请引允井〝
+	Window 5590001,YES,NO
 
 		Window_NO
 
 		Window_YES
 			LeaveGroup
 			Warp 0,59524,128,89
+
+
 
 
 

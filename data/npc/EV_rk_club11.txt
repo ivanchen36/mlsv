@@ -1,8 +1,8 @@
 #
-#本奶戊
+#技捞内
 #
 
-#雇撮吨谨痹毛当匀化中月卅日
+#措扁角 檬措鼻阑 啊瘤绊 乐促搁
 block Item 16272 >= 1 || Item 16273 >= 1
 	Endwindow 21876
 
@@ -10,43 +10,43 @@ block Item 16272 >= 1 || Item 16273 >= 1
 block nowtime == 3
 			Endwindow 21816
 
-#域?烦聊仄化中卅中卅日
+#窍风 版苞窍瘤 臼疽促搁
 block Item 16241 == 1 && ItemCreateTime 16241 <= 1439
 			Endwindow 21850
 
-#本奶戊及抩铜市它件玄互100动晓卅日卅日
+#技捞内狼 疙窃 墨款飘啊 100 捞惑捞搁
 block Item 16241 == 1 && StampCount 16241 >= 100
 	Endwindow 21876
 
-#本奶戊及抩铜市它件玄互99卅日
+#技捞内狼 疙窃 墨款飘啊 99捞搁
 block Item 16241 == 1 && StampCount 16241 == 99
 			AddStampCount 16241
 			Endwindow 22289
 
-##﹛本奶戊及抩铜市它件玄互29卅日
+##　技捞内狼 疙窃 墨款飘啊 29捞搁
 block Item 16241 == 1 && StampCount 16241 == 29
 			AddStampCount 16241
 			Endwindow 21863
 
-##﹛本奶戊及抩铜市它件玄互16卅日
+##　技捞内狼 疙窃 墨款飘啊 16捞搁
 block Item 16241 == 1 && StampCount 16241 == 16
 			AddStampCount 16241
 			Endwindow 21962
 
-##﹛本奶戊及抩铜市它件玄互6卅日
+##　技捞内狼 疙窃 墨款飘啊 6捞搁
 block Item 16241 == 1 && StampCount 16241 == 6
 			AddStampCount 16241
 			Endwindow 21862
 
-##﹛本奶戊及抩铜市它件玄互ㄣ动晓卅日
+##　技捞内狼 疙窃 墨款飘啊 ４捞惑捞搁
 block Item 16241 == 1 && StampCount 16241 >= 4
 			AddStampCount 16241
 			Endwindow 21849
-##﹛本奶戊及抩铜市它件玄互ㄢ卅日
+##　技捞内狼 疙窃 墨款飘啊 ３捞搁
 block Item 16241 == 1 && StampCount 16241 == 3
 			Endwindow 21848
 
-#仄斤丹斗?彰仿□丢件互丐匀化Item 16241 == 1 && StampCount 16241 == 2
+#埃厘 捣内明 扼搁捞 乐绊 Item 16241 == 1 && StampCount 16241 == 2
 block Item 18968 >= 1 && Item 16241 == 1 && StampCount 16241 == 2
 	Window 21752,Yes
 		Window_Yes
@@ -58,13 +58,13 @@ block Item 18968 >= 1 && Item 16241 == 1 && StampCount 16241 == 2
 					LeaveGroup
 					Warp 0,1165,19,38
 
-##﹛Item 16241 == 1 && StampCount 16241 == 2卅日
+##　Item 16241 == 1 && StampCount 16241 == 2捞搁
 block Item 16241 == 1 && StampCount 16241 == 2
 	Window 21749,Next
 	Window 21750,Next
 	EndWindow 21751
 
-#﹛Item 16241 == 1 && StampCount 16241 == 1
+#　Item 16241 == 1 && StampCount 16241 == 1
 block Item 16241 == 1 && StampCount 16241 == 1
 	Window 21740,Next
 	Window 21741,Next
@@ -83,7 +83,7 @@ block Item 16241 == 1 && StampCount 16241 == 1
 			Warp 0,2431,7,3,	0,2431,5,28
 
 
-##﹛本奶戊及抩铜毛当匀化中卅中卅日
+##　技捞内狼 疙窃阑 啊瘤绊 乐瘤 臼促搁
 block
 	Window 21589,Next
 	Window 21590,Yes,No
@@ -104,3 +104,4 @@ block
 					AddStampCount 16241
 					LeaveGroup
 					Warp 0,1165,19,38
+

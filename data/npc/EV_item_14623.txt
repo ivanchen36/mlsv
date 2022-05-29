@@ -1,13 +1,15 @@
 #
-#魔界风水老
+#付拌浅荐肺
 #
 
 
 block Item 14623 >= 2
-	Endwindow "\n\n　一?????使???。"
+	Endwindow 3180001
 
 
 block
 			KillItem 14623,1,(3007172)
 			EndEvent201 = 1
 			CheckTitle
+
+

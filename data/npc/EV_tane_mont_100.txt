@@ -15,8 +15,7 @@ if globalFlag0 == 1
 
 #			Message 3006712
 
-			Window 3200554,ok
-		#\n\n﹛摨昜卞粹中化中月洈阕毛域堪﹜\n﹛公匀午脏心潸匀凶﹝
+			Window "\n\n　抗悔霸 乔绢乐绰 催狼厘钱阑 茄 价捞\n　混娄 勃菌促.",ok
 
 			Window_ok
 
@@ -26,8 +25,7 @@ if globalFlag0 == 1
 
 		else
 		
-			EndWindow 3200555,ok
-		#\n\n﹛洈阕反粹中化中卅井匀凶﹝
+			EndWindow 5080001,ok
 
 		
 		endif
@@ -36,4 +34,6 @@ if globalFlag0 == 1
 #endif
 
 endif
+
+
 

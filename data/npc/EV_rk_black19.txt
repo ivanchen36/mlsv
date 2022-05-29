@@ -1,4 +1,4 @@
-#ğ¼°ÑşÁİ»Í©jv©k
+#¿ëÀÇ ¸ğ·¡½Ã°è£¨³ì£©
 
 block EndEvent 140 == 1
 	Window 22936,OK
@@ -17,3 +17,4 @@ block
 
 block
 	EndWindow 22934,OK
+

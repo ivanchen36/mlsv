@@ -1,23 +1,17 @@
-#LV50绅亢桦弁巨旦玄﹛﹛??﹛巟鼹
+#LV50国捞厘家 涅胶飘　　ｂｙ　配固鸥
 #
-#﹛﹛﹛滔圴跟晶及辉及摒
+#　　　版前背券狼 咯磊狼 鼻
 
-###﹛抚竣凶穴永民﹋607962﹌及赭当醒卞方月坌渭
+###　嚼扁 蛮 己成（607962）狼 家瘤荐俊 狼茄 盒扁
 block
 
-#﹛19蜊动晓
+#　19俺 捞惑
 	If Item_607962 >= 19
-		Window 3203815,NEXT
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛抚竣凶穴永民毛当匀化＿＿引丐﹜允仍中醒〞\n﹛公及内壬?仃凶漪岭卞覆允月扷菱午卅月午﹜\n﹛滔圴卅氏井方曰手﹜抩芡互孔今歹仄中﹜
-		Window 3203816,YES,NO
-
-		#\n\n﹛公丹丐凶仄反合丹氏分仃升﹜升丹井仄日〝\n﹛穴永民午娄五赘尹卞﹜抩芡毛澎卞仄化心月〝
+		Window 7540001,NEXT
+		Window 7540002,YES,NO
 
 			Window_YES Item_607962 >= 19
-				Window 3203817,OK
-
-		#\n\n﹛孔孔孔﹜公丹蚕尹月午合匀凶﹝\n﹛丐卅凶及凶户卞﹜?帎卅惫寞毛迕啦仄凶歹﹝\n﹛减氏匹仁木月午中中氏分仃升﹝\n﹛元扎丐﹜穴永民毛切斤丹分中﹝
+				Window 7540003,OK
 
 					Window_OK Item_607962 >= 19
 						KillItemAll 607962
@@ -26,85 +20,59 @@ block
 						EndBlock
 
 					Window_OK
-						EndWindow 3203818
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜醱鞅卞允月歹﹝
+						EndWindow 7540004
 						EndBlock
 
 			Window_YES
-				EndWindow 3203819
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜醱鞅卞允月歹﹝
+				EndWindow 7540005
 				EndBlock
 
 			Window_NO
-				EndWindow 3203820
-
-		#\n\n﹛丐日酸?友﹝\n﹛元扎丐﹜竣互庍歹匀凶日侳化切斤丹分中﹝\n﹛谨匀化月歹﹝
+				EndWindow 7540006
 				EndBlock
 
 
-#﹛17℅18蜊
+#　17~18俺
 	else
 		If Item_607962 >= 17
-			Window 3203821,YES,NO
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛抚竣凶穴永民毛当匀化中月方丹友﹝\n﹛醒卞杀元化滔圴午跟晶匹五月仃升﹜\n﹛跟晶仄化心月〝
+			Window 7540007,YES,NO
 
 				Window_YES Item_607962 >= 17 && ItemSpace >= 1
-					Window 3203822,OK
-
-		#\n\n﹛方仁螂户凶歹友﹝\n﹛滔圴反伉永民卞﹜呺简及弁伉旦正伙方﹝\n﹛元扎﹜穴永民毛切斤丹分中﹝
+					Window 7540008,OK
 
 						Window_OK Item_607962 >= 17 && ItemSpace >= 1
 							KillItemAll 607962
-							GiveItemEX 18450,1,3203823
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+							GiveItemEX 18450,1,"."
 							EndBlock
 
 						Window_OK Item_607962 >= 17
-							EndWindow 3203824
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+							EndWindow 7540009
 							EndBlock
 
 						Window_OK
-							EndWindow 3203825
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+							EndWindow 7540010
 							EndBlock
 
 				Window_YES Item_607962 >= 17
-					EndWindow 3203826
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+					EndWindow 7540011
 					EndBlock
 
 				Window_YES
-					EndWindow 3203827
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+					EndWindow 7540012
 					EndBlock
 
 				Window_NO
-					EndWindow 3203828
-
-		#\n\n﹛丐日酸?友﹝\n﹛元扎丐﹜竣互庍歹匀凶日侳化切斤丹分中﹝\n﹛谨匀化月歹﹝
+					EndWindow 7540013
 					EndBlock
 
 
-#﹛14℅16蜊
+#　14~16俺
 		else
 			If Item_607962 >= 14
-				Window 3203829,YES,NO
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛抚竣凶穴永民毛当匀化中月方丹友﹝\n﹛醒卞杀元化滔圴午跟晶匹五月仃升﹜\n﹛跟晶仄化心月〝
+				Window 7540014,YES,NO
 
 					Window_YES Item_607962 >= 14 && ItemSpace >= 1
-						Window 3203830,OK
-
-		#\n\n﹛互氏壬匀凶歹友﹝\n﹛丐卅凶及滔圴反﹜恌撙卅扲檗及升木井方﹝\n﹛元扎﹜穴永民毛切斤丹分中﹝
+						Window 7540015,OK
 
 							Window_OK Item_607962 >= 14 && ItemSpace >= 1
 								KillItemAll 607962
@@ -112,194 +80,132 @@ block
 								EndBlock
 
 							Window_OK Item_607962 >= 14
-								EndWindow 3203831
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+								EndWindow 7540016
 								EndBlock
 
 							Window_OK
-								EndWindow 3203832
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+								EndWindow 7540017
 								EndBlock
 
 					Window_YES Item_607962 >= 14
-						EndWindow 3203833
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+						EndWindow 7540018
 						EndBlock
 
 					Window_YES
-						EndWindow 3203834
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+						EndWindow 7540019
 						EndBlock
 
 					Window_NO
-						EndWindow 3203835
-
-		#\n\n﹛丐日酸?友﹝\n﹛元扎丐﹜竣互庍歹匀凶日侳化切斤丹分中﹝\n﹛谨匀化月歹﹝
+						EndWindow 7540020
 						EndBlock
 
 
-#﹛11℅13蜊
+#　11~13俺
 			else
 				If Item_607962 >= 11
-					Window 3203836,YES,NO
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛抚竣凶穴永民毛当匀化中月方丹友﹝\n﹛醒卞杀元化滔圴午跟晶匹五月仃升﹜\n﹛跟晶仄化心月〝
+					Window 7540021,YES,NO
 
 						Window_YES Item_607962 >= 11 && ItemSpace >= 1
-							Window 3203837,OK
-
-		#\n\n﹛滔圴反﹜弗伊皮伊件白伙□汁弗□平方﹝\n﹛元扎﹜穴永民毛切斤丹分中﹝
+							Window 7540022,OK
 
 								Window_OK Item_607962 >= 11 && ItemSpace >= 1
 									KillItemAll 607962
-									GiveItemEX 608601,1,3203838
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+									GiveItemEX 608601,1,"."
 									EndBlock
 
 								Window_OK Item_607962 >= 11
-									EndWindow 3203839
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+									EndWindow 7540023
 									EndBlock
 
 								Window_OK
-									EndWindow 3203840
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+									EndWindow 7540024
 									EndBlock
 
 						Window_YES Item_607962 >= 11
-							EndWindow 3203841
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+							EndWindow 7540025
 							EndBlock
 
 						Window_YES
-							EndWindow 3203842
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+							EndWindow 7540026
 							EndBlock
 
 						Window_NO
-							EndWindow 3203843
-
-		#\n\n﹛丐日酸?友﹝\n﹛元扎丐﹜竣互庍歹匀凶日侳化切斤丹分中﹝\n﹛谨匀化月歹﹝
+							EndWindow 7540027
 							EndBlock
 
 
-#﹛6℅10蜊
+#　6~10俺
 				else
 					If Item_607962 >= 6
-						Window 3203844,YES,NO
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛抚竣凶穴永民毛当匀化中月方丹友﹝\n﹛醒卞杀元化滔圴午跟晶匹五月仃升﹜\n﹛跟晶仄化心月〝
+						Window 7540028,YES,NO
 
 							Window_YES Item_607962 >= 6 && ItemSpace >= 1
-								Window 3203845,OK
-
-		#\n\n﹛公及醒分午﹜滔圴反螃鹧蟆伐□皿痹方﹝\n﹛元扎﹜穴永民毛切斤丹分中﹝
+								Window 7540029,OK
 
 									Window_OK Item_607962 >= 6 && ItemSpace >= 1
 										KillItemAll 607962
-										GiveItemEX 607952,1,3203846
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+										GiveItemEX 607952,1,"."
 										EndBlock
 
 									Window_OK Item_607962 >= 6
-										EndWindow 3203847
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+										EndWindow 7540030
 										EndBlock
 
 									Window_OK
-										EndWindow 3203848
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+										EndWindow 7540031
 										EndBlock
 
 							Window_YES Item_607962 >= 6
-								EndWindow 3203849
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+								EndWindow 7540032
 								EndBlock
 
 							Window_YES
-								EndWindow 3203850
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+								EndWindow 7540033
 								EndBlock
 
 							Window_NO
-								EndWindow 3203851
-
-		#\n\n﹛丐日酸?友﹝\n﹛元扎丐﹜竣互庍歹匀凶日侳化切斤丹分中﹝\n﹛谨匀化月歹﹝
+								EndWindow 7540034
 								EndBlock
 
 
-#﹛1℅5蜊
+#　1~5俺
 					else
 						If Item_607962 >= 1
-							Window 3203852,YES,NO
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛抚竣凶穴永民毛当匀化中月方丹友﹝\n﹛醒卞杀元化滔圴午跟晶匹五月仃升﹜\n﹛跟晶仄化心月〝
+							Window 7540035,YES,NO
 
 								Window_YES Item_607962 >= 1 && ItemSpace >= 1
-									Window 3203853,OK
-
-		#\n\n﹛公及穴永民及醒分午﹜滔圴反市立市立阕友﹝\n﹛元扎﹜穴永民毛切斤丹分中﹝
+									Window 7540036,OK
 
 										Window_OK Item_607962 >= 1 && ItemSpace >= 1
 											KillItemAll 607962
-											GiveItemEX 608605,1,3203854
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+											GiveItemEX 608605,1,"."
 											EndBlock
 
 										Window_OK Item_607962 >= 1
-											EndWindow 3203855
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+											EndWindow 7540037
 											EndBlock
 
 										Window_OK
-											EndWindow 3203856
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+											EndWindow 7540038
 											EndBlock
 
 								Window_YES Item_607962 >= 1
-									EndWindow 3203857
-
-		#\n\n﹛绂坁互中匀天中匹﹜滔圴互欐六卅中歹友﹝\n﹛坞五毛综匀化井日﹜引凶侳化切斤丹分中﹝
+									EndWindow 7540039
 									EndBlock
 
 								Window_YES
-									EndWindow 3203858
-
-		#\n\n﹛升丹仄化井仄日﹜穴永民互蛹匀化月方丹友﹝\n﹛盟卅芺普互允月井日﹜跟晶反醱鞅卞允月歹﹝
+									EndWindow 7540040
 									EndBlock
 
 								Window_NO
-									EndWindow 3203859
-
-		#\n\n﹛丐日酸?友﹝\n﹛元扎丐﹜竣互庍歹匀凶日侳化切斤丹分中﹝\n﹛谨匀化月歹﹝
+									EndWindow 7540041
 									EndBlock
 
 
-#﹛尕赭当
+#　家瘤窍瘤 臼澜
 						else
-							Window 3203860,NEXT
-
-		#\n\n﹛辉午踏中化﹍夫午﹎匀化?戈及方﹝\n﹛恦及?楷匹抚竣凶穴永民互澎卞?匀凶日﹜\n﹛当匀化五化仁木卅中井仄日﹝\n﹛赭当醒卞杀元化﹜滔圴午跟晶仄化丐仆月歹方﹝
-							EndWindow 3203861
-
-		#\n\n﹛抚竣凶穴永民卅氏井升丹允月及井匀化〝\n﹛揖井仄化?月及﹜切斤匀午潦综曰仄化友﹝\n﹛丹匀孔匀孔匀＿＿﹝
+							Window 7540042,NEXT
+							EndWindow 7540043
 
 						endif
 
@@ -312,6 +218,8 @@ block
 		endif
 
 	endif
+
+
 
 
 

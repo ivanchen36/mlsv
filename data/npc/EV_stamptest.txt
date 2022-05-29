@@ -20,3 +20,4 @@ block Item 16242 == 1
 	AddStampCount 16242
 block
 	Message 990272
+

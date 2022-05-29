@@ -1,6 +1,7 @@
-#¥U?¥n??????12
+#ÈëÀÇ µ¿±¼ ÇÔÁ¤12
 
 block XPos >= 37 && XPos <= 38 && YPos == 65
 	Play_se 207,240,320
 	Message 21597
 	SetLp -20
+

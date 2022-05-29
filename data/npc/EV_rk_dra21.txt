@@ -1,4 +1,4 @@
-#庤及银中(15554)
+#龙的使者（天使蝙蝠）(15554)
 #
 
 block
@@ -10,6 +10,7 @@ block
      killitemall 18784
      giveitem 18780,1
      LeaveGroup
-        Warp 0,1530,15,6
+        Warp 0,1511,8,7
     Window_OK
          Endwindow 10000
+

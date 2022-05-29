@@ -1,11 +1,10 @@
 #
-#ºë·Â¶Ítest
+#±¸¶ó Ã¢test
 #
 
 
 block
-	Endwindow 3204338
+	Endwindow "\n\n @g,239521 @"
 
-		#\n\n @g,239521 @
 
 

@@ -1,6 +1,6 @@
 block Item 607664 >= 2
 
-				endWindow "\n\n©xÅì±ý·´ÓòÉ§ÄÚ¹´·°Øê»¯ÈÊ·Ö½ñÖÐ©z"
+				endWindow 3300001
 
 
 
@@ -22,9 +22,9 @@ block
 
 
 
-#				Window "\n\n©xÒÆÔÆÓ¬Ô»©xÊ§»ïÌïµ©©xñÉÁëéùØê",ok
+#				Window "\n\n¡¡°¡Äª °ÅÀý¡¡¾Ë¹Ù½º¡¡³²¼ºÇâ",ok
 
-				Window "\n\n©xÔÆó¡¼°·½µ¤Ø¦Óò?ÚÐ»¥\n©x³ð¼°Ì¨±åÄÀåâÔÊÔÂØ¦Èßk…ÖÌÚÖÐ´õ¨•\n©xØÆ¾®ÊÖ©yÖþÞ‚·´ñÉÆ¥·´Ø¦ÖÐ¾®¨•\n©xÎìÒÁÆ¥ÊÖÈÊÄ¾»¯Ö§ÔÂ¾®ÈÕ\n©x°Ú»§ÔÂ»¥ÖÐÖÐ©z",ok
+				Window 3300002,ok
 
 
 				Window_ok
@@ -38,7 +38,7 @@ block
 
 
 					if BBImage >= 105000 && BBImage <= 105173
-#ñÉman
+#Ñûman
 
 						globalFlag15 = 0
 						globalFlag16 = 0
@@ -53,9 +53,9 @@ block
 
 
 
-#						Window "\n\n©xÒÆÔÆÓ¬Ô»©xÊ§»ïÌïµ©©xñÉÁëéùØê",ok
+#						Window "\n\n¡¡°¡Äª °ÅÀý¡¡¾Ë¹Ù½º¡¡³²¼ºÇâ",ok
 
-						Window "\n\n©xÔÆó¡¼°·½µ¤Ø¦Óò?ÚÐ»¥\n©x³ð¼°Ì¨±åÄÀåâÔÊÔÂØ¦Èßk…ÖÌÚÖÐ´õ¨•\n©xØÆ¾®ÊÖ©yÖþÞ‚·´ñÉÆ¥·´Ø¦ÖÐ¾®¨•\n©xÎìÒÁÆ¥ÊÖÈÊÄ¾»¯Ö§ÔÂ¾®ÈÕ\n©x°Ú»§ÔÂ»¥ÖÐÖÐ©z",ok
+						Window 3300003,ok
 
 
 						Window_ok
@@ -67,7 +67,7 @@ block
 					else
 
 						if BBImage >= 106000 && BBImage <= 106173
-#ñÉman
+#Ñûman
 
 							globalFlag15 = 0
 							globalFlag16 = 0
@@ -82,9 +82,9 @@ block
 
 
 
-#							Window "\n\n©xÒÆÔÆÓ¬Ô»©xÊ§»ïÌïµ©©xñÉÁëéùØê",ok
+#							Window "\n\n¡¡°¡Äª °ÅÀý¡¡¾Ë¹Ù½º¡¡³²¼ºÇâ",ok
 
-							Window "\n\n©xÔÆó¡¼°·½µ¤Ø¦Óò?ÚÐ»¥\n©x³ð¼°Ì¨±åÄÀåâÔÊÔÂØ¦Èßk…ÖÌÚÖÐ´õ¨•\n©xØÆ¾®ÊÖ©yÖþÞ‚·´ñÉÆ¥·´Ø¦ÖÐ¾®¨•\n©xÎìÒÁÆ¥ÊÖÈÊÄ¾»¯Ö§ÔÂ¾®ÈÕ\n©x°Ú»§ÔÂ»¥ÖÐÖÐ©z",ok
+							Window 3300004,ok
 
 
 							Window_ok
@@ -96,7 +96,7 @@ block
 
 
 						else
-#»Ôwoman
+#Ò³woman
 
 							globalFlag15 = 0
 							globalFlag16 = 0
@@ -111,9 +111,9 @@ block
 
 
 
-#							Window "\n\n©xÒÆÔÆÓ¬Ô»©xÊ§»ïÌïµ©©x»ÔÁëéùØê",ok
+#							Window "\n\n¡¡°¡Äª °ÅÀý¡¡¾Ë¹Ù½º¡¡¿©¼ºÇâ",ok
 
-							Window "\n\n©xµ¤¸ê©yÔÊÒý¶ò»¥©y\n©xÌ¨·´Öþ»Ô¼°·½µ¤Ø¦\n©xÌï·ÂØÆÐ×ÈÕÔÊÊ²ÉØ±å¹«µ¤Ø¦\n©xÓò?ÚÐ±å·´âÁG»¥Ø¦ÖÐ©z\n©xÎìÒÁÆ¥ÊÖµ±ÔÈ»¯ÎçÔÈÎçÎç½ÑÔÂ»¥·½ÖÐ©zÛÍÛÍÓÀ©z",ok
+							Window 3300005,ok
 
 
 							Window_ok
@@ -126,4 +126,6 @@ block
 						endif
 					endif
 	endif
+
+
 

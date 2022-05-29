@@ -7,13 +7,13 @@ end
 function announce_create() --宣传大使
 	if (announce_index == nil) then
 		announce_index = NL.CreateNpc("lua/Module/announce.lua", "announce_initialize");
-		Char.SetData(announce_index,%对象_形象%,106602);
-		Char.SetData(announce_index,%对象_原形%,106602);
+		Char.SetData(announce_index,%对象_形象%,100203);
+		Char.SetData(announce_index,%对象_原形%,100203);
 		Char.SetData(announce_index,%对象_X%,242);
 		Char.SetData(announce_index,%对象_Y%,88);
 		Char.SetData(announce_index,%对象_地图%,1000);
 		Char.SetData(announce_index,%对象_方向%,4);
-		Char.SetData(announce_index,%对象_名字%,"宣传大使");
+		Char.SetData(announce_index,%对象_名字%,"麦穗魔力");
 		NLG.UpChar(announce_index);
 		Char.SetTalkedEvent("lua/Module/announce.lua", "Server_AnMsg", announce_index);
 		Char.SetWindowTalkedEvent("lua/Module/announce.lua", "Server_AnTalk", announce_index);
@@ -25,12 +25,12 @@ end
 --定义一个随机数种子,这样取的随机数每次都会不一样
 math.randomseed(os.time());
 local LastAnTime = 0;
-local Anon1 = {"通知：服务器的摆摊功能与官方一样，123！"};
-local Anon2 = {"小窍门：如果您怕没人带您过海的话，游民练到20级可以直接偷渡哦！"};
-local Anon3 = {"通知：本服提供了聊天频道，按TAB可切换频道，新手频道支援30级以前玩家！"};
-local Anon4 = {"通知：各老玩家请记得要多多帮助新手哦！这样我们的魔力才会热闹起来！"};
-local Anon5 = {"小窍门：25级可以走到莎莲娜海底隧道，36级就可以开通雪山传送了！"};
-local Anon6 = {"通知：美女管理为各新手排忧解难，禁止商人加入，禁止发布交易信息！"};
+local Anon1 = {"通知：做任务走迷宫找NPC和找出口请配合F3和F4使用！"};
+local Anon2 = {"小窍门：如果您打不过BOSS，请转生练级，9转之后很强大"};
+local Anon3 = {"通知：做任务的或者打BOSS的时候，别忘记了泡点挂积分卡！"};
+local Anon4 = {"通知：合成新宠物的时候一定要把宠物装备拿下来！"};
+local Anon5 = {"小窍门：没有钱的时候，快去风洞挂机！"};
+local Anon6 = {"通知：练级的时候吃好香配合F5自动遇敌功能，有了会员在会员地图练级会快很多！"};
 local Server_Anon = {Anon1,Anon2,Anon3,Anon4,Anon5,Anon6};
 local An_State = 1;
 
@@ -82,11 +82,11 @@ function Server_AnTalk(_MeIndex,_PlayerIndex,_seqno,_select,_data)
 				NLG.ShowWindowTalked(_PlayerIndex,_MeIndex,%窗口_信息框%,%按钮_关闭%,10,Server_str);
 			end
 			if (selectitem == 2) then
-				local Server_str = "\\n\\n客服QQ:715837\\n\\n客服电话:715837\\n\\n官方网站:ga.cgdev.me\\n\\n官方论坛:ga.cgdev.me";
+				local Server_str = "\\n\\n客服QQ:715837\\n\\n客服电话:110\\n\\n官方网站:www.baidu.com\\n\\n官方论坛:www.baidu.com";
 				NLG.ShowWindowTalked(_PlayerIndex,_MeIndex,%窗口_信息框%,%按钮_关闭%,10,Server_str);
 			end
 			if (selectitem == 3) then
-				local Server_str = "\\n1、银行汇款转帐，请客服QQ:715837索取银行帐号\\n\\n2、淘宝或者支付宝，请联系客服QQ索取购买地址或者支付宝帐号\\n\\n3、网站自助充值，请到网站选择在线充值(支持银行在线支付、手机卡、游戏点卡)\\n\\n官方网站:ga.cgdev.me";
+				local Server_str = "\\n1、银行汇款转帐，请客服QQ:110索取银行帐号\\n\\n2、淘宝或者支付宝，请联系客服QQ索取购买地址或者支付宝帐号\\n\\n3、网站自助充值，请到网站选择在线充值(支持银行在线支付、手机卡、游戏点卡)\\n\\n官方网站:www.baidu.com";
 				NLG.ShowWindowTalked(_PlayerIndex,_MeIndex,%窗口_信息框%,%按钮_关闭%,10,Server_str);
 			end
 		end

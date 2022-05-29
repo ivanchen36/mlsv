@@ -1,31 +1,31 @@
-#?줡??둬??
+#귀족 밀리센트
 
-#???????巒????둬????찋???褻??
+#엘 훈７등 클리어 후＆밀리센트의 재보를 가지고 왔다
 block EndEvent 111 == 1 && NowEvent 108 == 1 && Item 16358 >= 1
 	Window 22165,Next
 	Window 22166,OK
-		Window_OK EndEvent 111 == 1 && NowEvent 108 == 1 && Item 16358 >= 1
+		Window_OK
 			KillItemAll 16358
 			EndEvent 111 = 0
 			NowEvent 108 = 0
 			EndEvent 108 = 1
 			GiveItem 16359,1
-#???????巒????둬????찋?????
+#엘 훈７등 클리어 후＆밀리센트의 재보를 가지고 오지 못했다
 block EndEvent 111 == 1 && NowEvent 108 == 1 && Item 16358 == 0
 	Window 22167,OK
 		Window_OK
 			EndEvent 111 = 0
 			NowEvent 108 = 0
 
-#?????混츌?
+#엘 훈７등 취득 후
 #block EndEvent 51 == 1
 #	EndWindow 22164,OK
 
-#?????��??
+#엘 훈７등 진행 중
 block NowEvent 111 == 1
 	EndWindow 22168,OK
 
-#??????????
+#엘 훈８등을 가지고 있다
 block EndEvent 50 == 1
 	Window 22169,NEXT
 	Window 22170,NEXT
@@ -41,7 +41,7 @@ block EndEvent 50 == 1
 					NowEvent 108 = 1
 					NowEvent 111 = 1
 
-#??????????
+#란 훈８등을 가지고 있다
 block EndEvent 58 == 1
 	EndWindow 22176,OK
 

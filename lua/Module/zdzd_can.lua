@@ -14,8 +14,8 @@ zdzd_SetComSkill.dy = {68} --可以对队友使用的技能且不能对敌方和自己使用 例如气绝
 
 zdzd_SetComSkill.MeStrong = {62,65} -- 对我方使用的强力技能
 zdzd_SetComSkill.EnemyStrong = {23,24,25,26,38,39,40,41,42,43,}-- 对敌方使用的强力技能
-zdzd_SetComSkill.MeSuper = {63,66}   -- 对我方使用的超强技能
-zdzd_SetComSkill.EnemySuper = {27,28,29,30,44,45,46,47,48,49}-- 对敌方使用的超强技能
+zdzd_SetComSkill.MeSuper = {63,66,67,802,572,574}   -- 对我方使用的超强技能
+zdzd_SetComSkill.EnemySuper = {27,28,29,30,44,45,46,47,48,49,195,570,805}-- 对敌方使用的超强技能
 
 
 
@@ -25,7 +25,7 @@ zdzd_SetComSkill.zdsitu = {1,100}  -- 是否开启原地走路 1开启 0 关闭 ，间隔时间（
 zdzd_SetComSkill.speed_production = 1   --反高速制作  1 开启， 0 关闭 (注意：开启后 刻印技能无法使用了)
 zdzd_SetComSkill.speed_fighting = 0    -- 反高速战斗
 zdzd_SetComSkill.speed_fighting_tolerate = 3 -- 反高速容忍  数值越大 越降低误封的可能性 （推荐 3）
-zdzd_SetComSkill.validation = 60 -- npc 对话验证码   0 关闭 其他为时间间隔 分钟
+zdzd_SetComSkill.validation = 0 -- npc 对话验证码   0 关闭 其他为时间间隔 分钟
 
 
 zdzd_SetComSkill.CombatValidation = 0  -- 是否开启战斗验证码

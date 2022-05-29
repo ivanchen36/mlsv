@@ -2,3 +2,4 @@ block
 	KillItem 275,1,(15870)
 	SetCharm +10
 
+

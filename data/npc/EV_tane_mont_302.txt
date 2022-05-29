@@ -1,5 +1,18 @@
 
 
+
+block LocalCount2 == 10
+
+	Window 5130001,next
+
+	Window 5130002,next
+
+	Window 5130003,ok
+
+		Window_ok
+
+			CheckTitle
+
 block
 
 
@@ -16,13 +29,11 @@ block
 					LocalCount0 = 5
 
 
-#					Window 3200593,next
-		#\n\n﹛?仄井匀凶卅丑﹜丹氏﹝
+#					Window "\n\n　酒抚翠焙, 览.",next
 					Window 3006933,next
 
 
-#					EndWindow 3200594
-		#\n\n﹛丐木反﹜\n﹛?仄井匀凶﹝
+#					EndWindow "\n\n　弊扒\n　酒抚促奎绢."
 					EndWindow 3006934
 
 
@@ -32,13 +43,11 @@ block
 					LocalCount0 = 5
 
 
-#					Window 3200595,next
-		#\n\n﹛洈阕互﹜洈毛裟少﹜\n﹛粹中凶壬井曰及﹜梗支井卅苹及累互﹝
+#					Window "\n\n　催狼厘钱捞 捞浇阑 何弗促\n　阜 乔绢抄, 绊款 酒魔狼 采捞.",next
 					Window 3006935,next
 
 
-#					EndWindow 3200596
-		#\n\n﹛匹手﹜仇及翘匹反﹜\n﹛洈阕互澎卞?日卅中氏分方友＿＿
+#					EndWindow "\n\n　窍瘤父 捞 付阑俊辑绰,\n　催狼厘钱阑 颊俊 持阑 荐 绝焙夸ˇˇ"
 					EndWindow 3006936
 
 
@@ -52,23 +61,22 @@ block
 					LocalCount0 = 5
 
 
-#				Window 3200597,next
-		#\n\n﹛冞反友﹜\n﹛仇仇匹﹜虏及方丹卅\n﹛洈及顺毛苇凶仇午互丐月氏匹允方﹝
+#				Window "\n\n　唱绰\n　咯扁辑 券惑 鞍篮\n　捞浇狼 促府甫 夯 利捞 乐绢夸.",next
 				Window 3006937,next
 
-#				Window 3200598,next
-		#\n\n﹛粹中凶壬井曰及\n﹛梗支井卅洈阕互\n﹛哝曰井仃凶洈毛螂户＿＿
+#				Window "\n\n　阜 乔绢抄\n　绊款 催狼厘钱捞\n　阜 郴赴 捞浇阑 葛酒辑ˇˇ",next
 				Window 3006938,next
 
 
-#				EndWindow 3200599
-		#\n\n﹛苹?卞五日五日午\n﹛?及方丹卞绞仁\n﹛曳及方丹卞?仄中＿＿
+#				EndWindow "\n\n　酒魔寝混俊 馆娄馆娄\n　公瘤俺贸烦 蝴唱绰\n　厕贸烦 酒抚促款ˇˇ"
 				EndWindow 3006939
 
 
 
 
 			endif
+
+
 
 
 

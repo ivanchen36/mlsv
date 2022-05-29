@@ -1,4 +1,4 @@
-#Ì¾»Ô±¾ÛÍ¶ªÐþ¼°ÈÛ
+#È²³à ¼¼Å©¸ÞÆ®ÀÇ È¥
 
 block
 	Window 22954,Next
@@ -25,7 +25,7 @@ block
 			KillItemAll 16423,(4415)
 			GiveItem 16424,1
 			LeaveGroup
-			Warp 0,1530,15,6
+			Warp 0,1511,8,7
 		Window_OK ItemSpace == 0
 			EndWindow 10000
 		Window_OK
@@ -38,4 +38,5 @@ block
 			KillItemAll 16423,(4415)
 			GiveItem 16424,1
 			LeaveGroup
-			Warp 0,1530,15,6
+			Warp 0,1511,8,7
+

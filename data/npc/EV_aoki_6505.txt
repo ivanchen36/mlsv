@@ -1,14 +1,14 @@
-#犧??쩓?渾
-##########????????携?#######
+#숲으로 가는 나룻배 사공
+##########물건이 가득 찬 경우#######
 block ItemSpace == 0
 	Window 14036,YES,NO
 	Window_YES
 	EndWindow 10000
 	Window_NO
 
-##########?????죯????携? ##########
+##########파티를 이루고 있는 경우 ##########
 block Group >= 2
-   #?죘?죏???????
+   #너는 선택된 자인가?
    
 	Window 14036,YES,NO
 	Window_YES
@@ -16,9 +16,9 @@ block Group >= 2
 	Window_No
 
 
-##########肴?????????携? ##########
+##########나무꾼의 팔찌를 가지고 있는 경우 ##########
 block Item 18360 >= 1 && Group == 1 && ItemSpace >= 1
-   #?죘?죏???????
+   #너는 선택된 자인가?
    
 	Window 14036,YES,NO
 
@@ -28,15 +28,15 @@ block Item 18360 >= 1 && Group == 1 && ItemSpace >= 1
 	Window 14037,OK
 	Window_OK ItemSpace == 0
 	EndWindow 10000
-	Window_OK ItemSpace >= 1 && Item 18360 >= 1 && Group == 1
+	Window_OK ItemSpace >= 1
 	KillItem 18360,1
 	GiveItem 18368,1
 	Warp 0,15303,47,35
 	Window_No
 
-##########肴???????????????携? ##########
+##########나무꾼의 팔찌（손상된）를 가지고 있는 경우 ##########
 block Item 18368 >= 1 && Group == 1 && ItemSpace >= 1
-   #?죘?죏???????
+   #너는 선택된 자인가?
    
 	Window 14036,YES,NO
 
@@ -46,15 +46,15 @@ block Item 18368 >= 1 && Group == 1 && ItemSpace >= 1
 	Window 14037,OK
 	Window_OK ItemSpace == 0
 	EndWindow 10000
-	Window_OK ItemSpace >= 1 && Item 18368 >= 1 && Group == 1
+	Window_OK ItemSpace >= 1
 	KillItem 18368,1
 	GiveItem 18369,1
 	Warp 0,15303,47,35
 	Window_No
 
-##########肴???????????????携? ##########
+##########나무꾼의 팔찌（파손직전）를 가지고 있는 경우 ##########
 block Item 18369 >= 1 && Group == 1 && ItemSpace >= 1
-   #?죘?죏???????
+   #너는 선택된 자인가?
    
 	Window 14036,YES,NO
 
@@ -64,15 +64,16 @@ block Item 18369 >= 1 && Group == 1 && ItemSpace >= 1
 	Window 14037,OK
 	Window_OK ItemSpace == 0
 	EndWindow 10000
-	Window_OK ItemSpace >= 1 && Item 18369 >= 1 && Group == 1
+	Window_OK ItemSpace >= 1
 	KillItem 18369,1
 	GiveItem 18372,1
 	Warp 0,15303,47,35
 	Window_No
 
-#########肴??????????携?###################################
+#########나무꾼의 팔찌를 가지고 있지 않은 경우###################################
 block
 	Window 14036,YES,NO
 	Window_YES
 	EndWindow 14038
 	Window_NO  
+

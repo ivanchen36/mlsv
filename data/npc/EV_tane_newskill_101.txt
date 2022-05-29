@@ -14,8 +14,7 @@ block
 
 
 
-					EndWindow 3200614
-		#\n\n﹛瘉詨及顺及?谛午域荚匹手谏毛跟尹凶日\n﹛苇莲中琼午爵匀凶仪反\n﹛瓜扑卞卅匀切扎丹匀化今﹝
+					EndWindow 5260001
 #					EndWindow 3006981
 
 
@@ -27,8 +26,7 @@ block
 
 
 
-					EndWindow 3200615
-		#\n\n﹛笮璎谛午中尹壬＿＿??午井驯五卅及井仄日〝
+					EndWindow 5260002
 #					EndWindow 3006982
 
 
@@ -42,13 +40,11 @@ block
 				LocalCount3 = 5
 
 
-				Window 3200616,next
-		#\n\n﹛仇仇分仃及狪分仃升﹜\n﹛瘉詨及顺及?谛匀化﹜\n﹛丐丐苇尹化手掸反﹜瑛厌卅笮璎谛日仄中及﹝
+				Window 5260003,next
 #				Window 3006983,next
 
 
-				endWindow 3200617
-		#\n\n﹛＿＿卅氏及泙卞手峏凶卅中树扷分仃升友﹝
+				endWindow 5260004
 #				endWindow 3006984
 
 
@@ -56,6 +52,8 @@ block
 
 
 			endif
+
+
 
 
 

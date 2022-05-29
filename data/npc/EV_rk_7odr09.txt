@@ -1,17 +1,17 @@
-#?ÞÎ??
+#³ªÄ«ÅäÅ°
 
-#???????Øµ???Û¡??úù?ÖÃ???Ö±
+#¶õ ÈÆ£·µî Å¬¸®¾î ÈÄ£¦µ«Ä¡ÀÇ ¹ÝÁö°¡ ÀÖÀ» ¶§
 block EndEvent 112 == 1 && Item 16369 >= 1
 	Window 22281,Next
 	Window 22198,OK
-		Window_OK EndEvent 112 == 1 && Item 16369 >= 1
+		Window_OK
 			KillItemAll 16369
 			GiveItem 16362,1
 			EndEvent 112 = 0
 			LeaveGroup
 			Warp 0,33500,22,28
 
-#???????Øµ?
+#¶õ ÈÆ£·µî Å¬¸®¾î ÈÄ
 block EndEvent 112 == 1
 	Window 22198,OK
 		Window_OK
@@ -19,15 +19,15 @@ block EndEvent 112 == 1
 			LeaveGroup
 			Warp 0,33500,22,28
 
-#þ°???????????
+#ÀÎ¾îÀÇ ´«¹°À» °¡Áö°í ÀÖ´Ù¸é
 block Item 16364 >= 1
 	EndWindow 22265,OK
 
-#?¢O?ûªýß???
+#ÇØÀûÀÇ ±Í°ÉÀÌ¸¦ ¼ÒÁö
 block Item 16366 >= 1
 	EndWindow 22265,OK
 
-#?????þ­??
+#¶õ ÈÆ£·µî ÁøÇà Áß
 block NowEvent 112 == 1
 	Window 22199,Next
 	Window 22200,Next
@@ -40,11 +40,11 @@ block NowEvent 112 == 1
 					GiveItem 16366,1
 
 
-#??????????
+#¶õ ÈÆ£¸µîÀ» °¡Áö°í ÀÖ´Ù
 block EndEvent 58 == 1
 	EndWindow 22202,OK
 
-#?????þ­??
+#¿¤ ÈÆ£·µî ÁøÇà Áß
 block NowEvent 111 == 1
 	EndWindow 22203,OK
 

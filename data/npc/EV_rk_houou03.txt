@@ -1,4 +1,4 @@
-#????
+#라지우스
 
 block Item 16333 >= 1
 	EndWindow 22109,OK

@@ -1,147 +1,192 @@
 #//////////////////////////////////////////////////////////////////////
-#	酗螃
+#	秦脚
 #//////////////////////////////////////////////////////////////////////
 
 #//////////////////////////////////////////////////////////////////////
-#	较傻及瑞弅毛当匀化中卅中
+#	邦苛狼 炼阿阑 啊瘤绊 乐瘤 臼促
 #//////////////////////////////////////////////////////////////////////
-block Item 18843 == 0
-#15629’\n\n﹛仇仇反谛及侳月屯五桦赭匹反卅中﹝峏切蛔月互方中﹝
-	EndWindow 15629,OK
 
 #//////////////////////////////////////////////////////////////////////
-#	较傻及瑞弅互1℅9蜊
+#	邦苛狼 炼阿捞 1ⅵ9俺
 #//////////////////////////////////////////////////////////////////////
-block Item 18843 <= 9 && Item 18843 >= 1
-#15630’\n\n﹛较傻及瑞弅井＿＿酸?分互公及醒匹反较傻毛疯戏允月仇午反匹五卅中﹝
-	EndWindow 15630,OK
 
 #//////////////////////////////////////////////////////////////////////
-#	较傻互10蜊
+#	邦苛捞 10俺
 #//////////////////////////////////////////////////////////////////////
-block Item 18843 >= 10
-#15631’\n\n﹛方仁冗潸曰枑仄凶﹝公木分仃丐木壬疯太凛?及较傻毛疯戏允月仇午手吃丹分欠丹﹝
+block
 	Window 15631,YES,NO
 
 #//////////////////////////////////////////////////////////////////////
-#	反中毛蓟枪﹋综岳烟及桦宁﹥蕙伊扑疋?澎仄﹜譁晓尺伐□皿﹌
-#	反中毛蓟枪﹋公及职及桦宁﹥较傻及隙挎?澎仄﹜譁晓尺伐□皿﹌
+#	匙甫 急琶（累己拌狼 版快＝货 饭矫乔 涝荐秦辑, 瘤惑栏肺 况橇）
+#	匙甫 急琶（弊 寇狼 版快＝邦苛狼 馆瘤 涝荐秦辑, 瘤惑栏肺 况橇）
 #//////////////////////////////////////////////////////////////////////
-	#缜仅诞柈痿缜谛动晓
-	Window_YES Job >= 203 && Job <= 207
-	KillItem 18843,10
+
+	#武器
+	Window_YES Job >= 201 && Job <= 267
 	GiveRecipe 21
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈忕缜谛动晓
-	Window_YES Job >= 213 && Job <= 217
-	KillItem 18843,10
 	GiveRecipe 81
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈键缜谛动晓
-	Window_YES Job >= 223 && Job <= 227
-	KillItem 18843,10
 	GiveRecipe 141
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈菰缜谛动晓
-	Window_YES Job >= 233 && Job <= 237
-	KillItem 18843,10
 	GiveRecipe 201
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈橡缜谛动晓
-	Window_YES Job >= 243 && Job <= 247
-	KillItem 18843,10
 	GiveRecipe 261
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈髑填缜谛动晓
-	Window_YES Job >= 253 && Job <= 257
-	KillItem 18843,10
 	GiveRecipe 321
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈瓜奶白缜谛动晓
-	Window_YES Job >= 263 && Job <= 267
-	KillItem 18843,10
 	GiveRecipe 381
 	LeaveGroup
 	Warp 0,34002,32,10
-	#缜仅诞柈场缜谛动晓
-	Window_YES Job >= 273 && Job <= 277
-	KillItem 18843,10
+	#防具
+	Window_YES Job >= 271 && Job <= 347
 	GiveRecipe 441
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈佴阂缜谛动晓
-	Window_YES Job >= 283 && Job <= 287
-	KillItem 18843,10
 	GiveRecipe 501
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈顶缜谛动晓
-	Window_YES Job >= 293 && Job <= 297
-	KillItem 18843,10
 	GiveRecipe 561
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈汋缜谛动晓
-	Window_YES Job >= 303 && Job <= 307
-	KillItem 18843,10
 	GiveRecipe 621
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈夫□皮缜谛动晓
-	Window_YES Job >= 313 && Job <= 317
-	KillItem 18843,10
 	GiveRecipe 681
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈皮□汁缜谛动晓
-	Window_YES Job >= 323 && Job <= 327
-	KillItem 18843,10
 	GiveRecipe 741
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈楔缜谛动晓
-	Window_YES Job >= 333 && Job <= 337
-	KillItem 18843,10
 	GiveRecipe 801
-	LeaveGroup
-	Warp 0,34002,32,10
-	#缜仅诞柈贱缜谛动晓
-	Window_YES Job >= 343 && Job <= 347
-	KillItem 18843,10
 	GiveRecipe 861
 	LeaveGroup
 	Warp 0,34002,32,10
-	#缜仅诞柈譬咥阁动晓
-	Window_YES Job >= 353 && Job <= 357
-	KillItem 18843,10
-	GiveRecipe 972
+
+
+	#铸剑
+	Window_YES Job >= 201 && Job <= 207
+	GiveRecipe 21
+	GiveRecipe 81
+	GiveRecipe 141
+	GiveRecipe 261
 	LeaveGroup
 	Warp 0,34002,32,10
-	#缜仅诞柈泔管阁动晓
-	Window_YES Job >= 363 && Job <= 367
-	KillItem 18843,10
+	#铸斧
+	Window_YES Job >= 211 && Job <= 217
+	GiveRecipe 21
+	GiveRecipe 81
+	GiveRecipe 141
+	GiveRecipe 261
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸枪
+	Window_YES Job >= 221 && Job <= 227
+	GiveRecipe 21
+	GiveRecipe 81
+	GiveRecipe 141
+	GiveRecipe 261
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸弓
+	Window_YES Job >= 231 && Job <= 237
+	GiveRecipe 201
+	GiveRecipe 321
+	GiveRecipe 381
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸杖
+	Window_YES Job >= 241 && Job <= 247
+	GiveRecipe 21
+	GiveRecipe 81
+	GiveRecipe 141
+	GiveRecipe 261
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸回力
+	Window_YES Job >= 251 && Job <= 257
+	GiveRecipe 201
+	GiveRecipe 321
+	GiveRecipe 381
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸小刀
+	Window_YES Job >= 261 && Job <= 267
+	GiveRecipe 201
+	GiveRecipe 321
+	GiveRecipe 381
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸头盔
+	Window_YES Job >= 271 && Job <= 277
+	GiveRecipe 441
+	GiveRecipe 561
+	GiveRecipe 741
+	GiveRecipe 861
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸帽子
+	Window_YES Job >= 281 && Job <= 287
+	GiveRecipe 501
+	GiveRecipe 621
+	GiveRecipe 681
+	GiveRecipe 801
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸凯
+	Window_YES Job >= 291 && Job <= 297
+	GiveRecipe 441
+	GiveRecipe 561
+	GiveRecipe 741
+	GiveRecipe 861
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸衣
+	Window_YES Job >= 301 && Job <= 307
+	GiveRecipe 501
+	GiveRecipe 621
+	GiveRecipe 681
+	GiveRecipe 801
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸袍
+	Window_YES Job >= 311 && Job <= 317
+	GiveRecipe 501
+	GiveRecipe 621
+	GiveRecipe 681
+	GiveRecipe 801
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸靴
+	Window_YES Job >= 321 && Job <= 327
+	GiveRecipe 441
+	GiveRecipe 561
+	GiveRecipe 741
+	GiveRecipe 861
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸鞋
+	Window_YES Job >= 331 && Job <= 337
+	GiveRecipe 501
+	GiveRecipe 621
+	GiveRecipe 681
+	GiveRecipe 801
+	LeaveGroup
+	Warp 0,34002,32,10
+	#铸盾
+	Window_YES Job >= 341 && Job <= 347
+	GiveRecipe 441
+	GiveRecipe 561
+	GiveRecipe 741
+	GiveRecipe 861
+	LeaveGroup
+	Warp 0,34002,32,10
+	#厨师
+	Window_YES Job >= 351 && Job <= 357
+	GiveRecipe 972
 	GiveRecipe 921
 	LeaveGroup
 	Warp 0,34002,32,10
-	#晓筏动陆及缜仅
+	#药剂师
+	Window_YES Job >= 361 && Job <= 367
+	GiveRecipe 972
+	GiveRecipe 921
+	LeaveGroup
+	Warp 0,34002,32,10
+	#惑扁 捞寇狼 流诀 
 	Window_YES
-	KillItem 18843,10
 	GiveItem 18958
 	LeaveGroup
 	Warp 0,34002,32,10
 
 #//////////////////////////////////////////////////////////////////////
-#	中中尹毛蓟枪﹋酗螃卞巨件市它件玄﹌
+#	酒聪坷甫 急琶（秦脚俊霸 牢墨款飘）
 #//////////////////////////////////////////////////////////////////////
 	Window_NO
-#15632’\n\n\n\n\n@c卅日壬恘内仁匹潸曰忒允引匹分
+#15632·\n\n\n\n\n@c弊犯促搁 塞栏肺扼档 登茫摆促
 	Window 15632,OK
-	Window_OK Item 18843 >= 10
-	KillItem 18843,10
+	Window_OK
 	Encount 2|0,0,0,0||0|||||0|20008|||||||||
+

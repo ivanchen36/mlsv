@@ -1,7 +1,7 @@
-#厘妐侬﹜凝妐侬及嗉帎反卅中
-#'_'反?心?壬仄
+#措巩磊, 家巩磊狼 备喊篮 绝澜
+#'_'绰 佬阑 锭 扒呈盾
 
-###########﹛窒手卅仄﹛##############
+###########　酒公巴档 绝澜　##############
 
 
 
@@ -11,9 +11,7 @@ block GlobalTimerB >= 300
 
 			if LocalCount0 == 1
 
-				GAwindow 3202428,ok
-
-		#\n\n﹛仁匀仁匀匀仁匀匀仁\n﹛楝日﹜戏仃午仄戏仃月坁互\n﹛卅氏匹﹜仇氏卅质卞中月及井卅丑℅\n﹛仁匀仁匀匀仁匀仁匀匀匀仁﹝
+				GAwindow 4840001,ok
 
 				window_ok
 
@@ -25,9 +23,7 @@ block GlobalTimerB >= 300
 			
 				if LocalCount0 == 2
 			
-					GAwindow 3202429,ok
-
-		#\n\n﹛公匀井丑﹜\n﹛楝互公丹卅及井丑﹝\n﹛公曰扎﹜满质卞裟壬木月反内分﹝\n﹛仁匀仁匀匀仁匀仁匀匀匀仁﹝
+					GAwindow 4840002,ok
 
 					window_ok
 
@@ -39,9 +35,7 @@ block GlobalTimerB >= 300
 				else
 					if LocalCount0 == 3
 
-						GAwindow 3202430,ok
-
-		#\n\n﹛仁匀仁匀仁﹜\n﹛钟仄中云菸今氏分卅丑﹜\n﹛韶六月脱互潜卞\n﹛卅卞井豢迕卅及井卅丑〝
+						GAwindow 4840003,ok
 
 						window_ok
 
@@ -52,9 +46,7 @@ block GlobalTimerB >= 300
 
 					else
 
-						GAwindow 3202431,ok
-
-		#\n\n﹛孔氏孔氏孔氏﹜\n﹛恌中普元﹜恌中普元分丑℅\n﹛楝﹜允仍仁恌中普元分﹜\n﹛仁匀匀仁匀匀仁匀仁﹝
+						GAwindow 4840004,ok
 
 						window_ok
 
@@ -68,8 +60,8 @@ block GlobalTimerB >= 300
 
 
 block
-						GAendwindow 3202432
+						GAendwindow 4840005
 
-		#\n\n﹛丐丐丐丐丐丐﹜孔丑﹝\n﹛漆竣坌元扎友尹卅丑﹝\n﹛詨匹卅﹝
+
 
 

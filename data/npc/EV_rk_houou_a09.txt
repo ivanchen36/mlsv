@@ -1,4 +1,4 @@
-#��?????
+#신부 코케트
 
 block EndEvent 126 == 1 && EndEvent 127 == 1
 	EndWindow 22341,OK

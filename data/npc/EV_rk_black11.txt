@@ -1,4 +1,4 @@
-#≥™€÷ÓŒ≥ﬂº∞?
+#¿Ãºº∞Ë∑Œ¿« πÆ
 
 block EndEvent 140 == 1
 	Window 22935,Yes,No
@@ -10,4 +10,5 @@ block EndEvent 140 == 1
 				LeaveGroup
 				Warp 0,51104,29,20
 block
+
 

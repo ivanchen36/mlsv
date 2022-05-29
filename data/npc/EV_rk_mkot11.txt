@@ -1,4 +1,4 @@
-#MKOT–„Ëø¨ã
+#MKOT¹®Á¦£´
 
 block Item 16203 >= 1
 #
@@ -11,3 +11,4 @@ block Item 16209 >= 1
 block
 #
 	EndWindow 21723,OK
+

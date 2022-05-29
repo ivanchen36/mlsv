@@ -1,4 +1,4 @@
-#?????
+#밀리센트
 
 block EndEvent 53 == 1 || EndEvent 61 == 1
 	Window 22798,Next
@@ -24,4 +24,5 @@ block
 		Window_OK
 			LeaveGroup
 			Warp 0,43100,131,48
+
 

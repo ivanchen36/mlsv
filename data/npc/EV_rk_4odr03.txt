@@ -1,4 +1,4 @@
-#þt©ûþ°????
+#¹Ì¸ÁÀÎ °¡¸£½Ã¶ó
 
 block Item 16413 >= 1
 	Window 22794,Yes,No
@@ -15,3 +15,4 @@ block Item 16413 >= 1
 
 block
 	EndWindow 22797,OK
+

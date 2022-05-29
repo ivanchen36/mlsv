@@ -1,6 +1,6 @@
-#±ØÓÀÆË¼þ
+#°Ô½Å
 
-#¾Þ»ïÆ¥çÖÎþ¼°¾ÝÃ«µ±ÔÈ»¯ÖÐÔÂ
+#¿¤¿¡¼­ ÃµÁ¦ÀÇ ÁõÇ¥¸¦ °¡Áö°í ÀÖ´Ù
 block EndEvent 119 == 1 && Item 16428 >= 1
 	Window 23045,Next
 	Window 23046,Next
@@ -9,17 +9,17 @@ block EndEvent 119 == 1 && Item 16428 >= 1
 	Window 23049,Next
 	Window 23050,Next
 	EndWindow 23051,OK
-#·Â¼þÆ¥çÖÎþ¼°¾ÝÃ«µ±ÔÈ»¯ÖÐÔÂ
+#¶õ¿¡¼­ ÃµÁ¦ÀÇ ÁõÇ¥¸¦ °¡Áö°í ÀÖ´Ù
 block EndEvent 120 == 1 && Item 16428 >= 1
 	Window 23052,Next
 	Window 23053,Next
 	EndWindow 23054,OK
 
-#±ØÓÀÆË¼þ±åãïÃ«ÍñÒýÁùÐ×Ô‰
+#°Ô½Å¿¡°Ô ¾àÀ» ¸ÔÀÎ ÈÄ
 block EndEvent 119 == 1 || EndEvent 120 == 1
 	EndWindow 23055
 
-#¾Þ»ïÆ¥?¶ããï2Ã«µ±ÔÈ»¯ÖÐÔÂ
+#¿¤¿¡¼­ Æ¯È¿¾à2¸¦ °¡Áö°í ÀÖ´Ù
 block NowEvent 119 == 1 && Item 16439 >= 1
 	Window 23056,Next
 	Window 23057,Next
@@ -31,7 +31,7 @@ block NowEvent 119 == 1 && Item 16439 >= 1
 		Window_OK Item 16439 >= 1
 			KillItemAll 16439
 			EndEvent 119 = 1
-#·Â¼þÆ¥?¶ããï2Ã«µ±ÔÈ»¯ÖÐÔÂ
+#¶õ¿¡¼­ Æ¯È¿¾à2¸¦ °¡Áö°í ÀÖ´Ù
 block NowEvent 120 == 1 && Item 16439 >= 1
 	Window 23056,Next
 	Window 23063,Next
@@ -43,21 +43,21 @@ block NowEvent 120 == 1 && Item 16439 >= 1
 		Window_OK Item 16439 >= 1
 			KillItemAll 16439
 			EndEvent 120 = 1
-#ÆËØø¡õ¼þ±åãïÃ«ÍñÒýÁùÐ×Ô‰©j?¶ããï·´µ±ÔÈ»¯ÖÐØ¦ÖÐ©k
+#½Ç¸°¿¡°Ô ¾àÀ» ¸ÔÀÎ ÈÄ£¨Æ¯È¿¾àÀº °¡Áö°í ÀÖÁö ¾Ê´Ù£©
 block EndEvent 145 == 1
 	EndWindow 23066,OK
-#±ØÓÀÆË¼þ¼°³×‚UÃ«°¾ØêÐ×Ô‰
+#°Ô½ÅÀÇ ÀÇ·Ú¸¦ ¹ÞÀº ÈÄ
 block NowEvent 145 == 1
 	EndWindow 23067,OK
 
-#¾Þ»ïÆ¥ÛÍ¾Þµ©Ðþñ×µæáwÆ¥Ñ¨ÄÌÑ¨ÄÌã×Ã«µ±ÔÈ»¯ÖÐÔÂ
+#¿¤¿¡¼­ Äù½ºÆ® ÁøÇà ÁßÀÌ°í ¸¶ÀÌ¸¶ÀÌ Ç®À» °¡Áö°í ÀÖ´Ù
 block NowEvent 119 == 1 && Item 16430 >= 1
 	Window 23068,Next
 	Window 23069,Next
 	Window 23070,OK
 		Window_OK
 			NowEvent 145 = 1 && Item 16430 >= 1
-#·Â¼þÆ¥ÛÍ¾Þµ©Ðþñ×µæáwÆ¥Ñ¨ÄÌÑ¨ÄÌã×Ã«µ±ÔÈ»¯ÖÐÔÂ
+#¶õ¿¡¼­ Äù½ºÆ® ÁøÇà ÁßÀÌ°í ¸¶ÀÌ¸¶ÀÌ Ç®À» °¡Áö°í ÀÖ´Ù
 block NowEvent 120 == 1 && Item 16430 >= 1
 	Window 23068,Next
 	Window 23071,Yes,No
@@ -74,4 +74,5 @@ block NowEvent 120 == 1 && Item 16430 >= 1
 					NowEvent 145 = 1
 block
 	EndWindow 23066,OK
+
 

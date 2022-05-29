@@ -1,6 +1,6 @@
-#??脅???
+#약제사 카렘
 
-#EndFLG?132?ON??
+#EndFLG　132이 ON이면
 block EndEvent 132 == 1
 	Window 22573,Next
 	Window 22574,Next
@@ -11,26 +11,26 @@ block EndEvent 132 == 1
 			EndEvent 133 = 1
 			CheckTitle
 
-#??????쭅??????????
+#「세멜레의 비약」을 가지고 있으면
 block Item 16392 >= 1
 	EndWindow 22583,OK
 
-#?????????????????
+#「세멜레의 메모」를 가지고 있으면
 block Item 16388 >= 1
 	Window 22491,Next
 	EndWindow 22492,OK
 
-#?��쉟?鋏??????????
+#「제물의 반지」를 가지고 있으면
 block Item 16389 >= 1
 	Window 22494,Next
 	EndWindow 22495,OK
 
-#NowFLG?132?ON??
+#NowFLG　132이 ON이면
 block NowEvent 132 == 1
 	Window 22497,Next
 	EndWindow 22498,OK
 
-#EndFLG?131?ON????確?????
+#EndFLG　131이 ON（용사Ⅰ종료끝）이면
 block EndEvent 131 == 1
 	Window 22496,Next
 	Window 22497,Next
@@ -40,3 +40,4 @@ block EndEvent 131 == 1
 #
 block
 	EndWindow 22499,OK
+

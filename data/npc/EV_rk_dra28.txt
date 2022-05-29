@@ -1,16 +1,16 @@
-#??????
-#15552	??????????¦F????
+#ÁúÖ®Ïñ
+#15552	ºÚÉ«¼ÇÒäÂ·Ïß
 
 #
 
-### ?ú÷?????? ###
+### ÀÇÁö¸¦ °¡Áö°í ÀÖ´Ù ###
 block Item 18780 >= 1 || Item 18781 >= 1 || Item 18782 >= 1
 Changepal 2,180
  Endwindow 21338
 
 block Item 18783 >= 1 || Item 18784 >= 1
 Changepal 2,180
-#\n\n\n\n@c??????????????????????
+#\n\n\n\n@c¡¡±× Ææ´øÆ®ÀÇ ÈûÀÌ ÀÖÀ¸¸é º¼ÀÏÀº ¾øÀ»Å×Áö.
 	Endwindow 21347
 
 block
@@ -20,6 +20,7 @@ Changepal 2,180
 	Window 21346,YES,NO
 	Window_YES
         LeaveGroup
-	KillItem 18784
+	GiveItem 18784,1
 	Warp 0,15552,14,39
 	Window_NO
+

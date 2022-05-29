@@ -1,4 +1,4 @@
-#Kฮ็ุฦ่ง
+#วิมค
 
 block XPos == 43 && YPos <= 75 && YPos >= 73
 	Play_se 207,240,320

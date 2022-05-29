@@ -1,4 +1,4 @@
-#¥U?¥n??????11
+#ÈëÀÇ µ¿±¼¡¡ÇÔÁ¤11
 
 block XPos >= 57 && XPos <= 58 && YPos == 58
 	Play_se 207,240,320
@@ -6,3 +6,4 @@ block XPos >= 57 && XPos <= 58 && YPos == 58
 	SetLp -20
 	Message 21597
 	SetLp -20
+

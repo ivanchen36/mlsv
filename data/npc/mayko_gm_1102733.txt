@@ -1,8 +1,0 @@
-
-### ÿª§÷Æª®
-block 	 
-	 Window 1111473,ok
-	 Window_ok
-	 Encount 2|0,32194,7,6||0|||||0|40349|||||||||	 
-	 Endblock
-	 

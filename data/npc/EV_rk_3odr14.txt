@@ -1,7 +1,7 @@
-#±ØÓÀÆË¼þ
+#°Ô½Å
 
 
-#Ñ¨ÄÌÑ¨ÄÌã×Ã«µ±ÔÈ»¯ÖÐÔÂ
+#¸¶ÀÌ¸¶ÀÌ Ç®À» °¡Áö°í ÀÖ´Ù
 block Item 16430 >= 1
 	Window 23086,OK
 		Window_OK
@@ -10,4 +10,5 @@ block Item 16430 >= 1
 #
 block
 	EndWindow 23087,OK
+
 

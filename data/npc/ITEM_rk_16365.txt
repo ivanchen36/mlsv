@@ -1,4 +1,4 @@
-#¹ÏÊÐÐþÆ½¼°??
+#³ªÄ«ÅäÅ°ÀÇ ºñÆÄ
 
 block Floor == 33000 && Xpos >= 534 && Xpos <= 566 && Ypos >= 413 && Ypos <= 443
 	Window 22252,Next

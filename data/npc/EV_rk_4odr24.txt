@@ -1,4 +1,4 @@
-#§w
+#¹®
 
 block Item 16418 >= 1
 	Window 22865,Yes,No
@@ -9,3 +9,4 @@ block Item 16418 >= 1
 
 block
 	EndWindow 22866,OK
+

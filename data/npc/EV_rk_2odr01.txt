@@ -1,6 +1,6 @@
-#ÆËØø¡õ¼ş
+#½Ç¸°
 
-#¾Ş»ïÆ¥ÛÍ¾Şµ©ĞşÛÍØøÊ§
+#¿¤¿¡¼­ Äù½ºÆ® Å¬¸®¾î
 block EndEvent 121 == 1
 	Window 23108,Next
 	Window 23109,Next
@@ -18,7 +18,7 @@ block EndEvent 121 == 1
 			Warp 0,43500,117,103
 
 
-#·Â¼şÆ¥ÛÍ¾Şµ©ĞşÛÍØøÊ§
+#¶õ¿¡¼­ Äù½ºÆ® Å¬¸®¾î
 block EndEvent 122 == 1
 	Window 23108,Next
 	Window 23109,Next
@@ -36,7 +36,7 @@ block EndEvent 122 == 1
 			Warp 0,43500,117,103
 
 
-#ÓÜ3î¿ô÷µ±
+#ÈÆ3µî ¼ÒÁö
 block EndEvent 55 == 1
 	Window 23115,Next
 	Window 23116,Next
@@ -59,3 +59,4 @@ block EndEvent 63 == 1
 			NowEvent 122 = 1
 			LeaveGroup
 			Warp 0,43500,117,103
+

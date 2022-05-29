@@ -1,18 +1,13 @@
-# 3 3201291
-		#EV_tane_mont_001.txt
-# 1 3201292 1
-		#header/global0.h
-# 4 3201293 2
-		#EV_tane_mont_001.txt
+# 3 "EV_tane_mont_001.txt"
+# 1 "header/global0.h" 1
+# 4 "EV_tane_mont_001.txt" 2
 
 block Item 607699 >= 1
 
-		Window 3201294,next
-		#\n\n©xÈÓÊ¾·º¼þ±å¾®ÈÕ©y\n©xÖÏ¾®Ã«ôÄÌ«ÇëÔÊÄÌ¶ª¡õ³â»¥\n©x÷©´õÔÈ»¯ÈÊÔÂ©z
+		Window 5070001,next
 
 
-		EndWindow 3201295
-		#\n\n©xØÆ¾®ØÆ©y¹«Ä¾·ÖØê·ÖÔÈÐ×©z
+		EndWindow 5070002
 
 
 
@@ -25,8 +20,7 @@ if Item 608000 >= 1 || Item 608100 >= 1 || Item 608200 >= 1
 
 	if Item 607688 == 0
 
-		Window 3201296,yes,no
-		#\n\n©xäô…í±å\n©xÓ×»ïÆ¹¼þ¼°µ¤¨KÇÐÃ«\n©x×@ÎåÒýÔÊ¾®¨”
+		Window 5070003,yes,no
 
 		Window_yes Item 608000 >= 1 || Item 608100 >= 1 || Item 608200 >= 1
 
@@ -39,8 +33,7 @@ if Item 608000 >= 1 || Item 608100 >= 1 || Item 608200 >= 1
 
 		Window_yes
 
-			Endwindow 3201297
-		#\n\n©x×@ÈÊÍÍÎåÊÖ¼°»¥Ø¦ÖÐ©z
+			Endwindow 5070004
 
 		Window_no
 
@@ -49,22 +42,19 @@ if Item 608000 >= 1 || Item 608100 >= 1 || Item 608200 >= 1
 		if ItemCreateTime 607688 < 61
 *case1*
 	
-				Endwindow 3201298
-		#\n\n©x¶ÆÔÊ¿ºÐ×·½µ¤·Ö©z
+				Endwindow 5070005
 	
 		else
 
 *case2*
 
-				Window 3201299,ok
-		#\n\n©x°×¼þÎì·ò²¼ÆË»¥ÐÑšíÐ×¾®ÔÈ»¯ÖÐÔÂ©z
+				Window 5070006,ok
 
 				window_ok
 
 				killitem 607688,1
 				giveitem 607620,1
-				Endwindow 3201300
-		#\n\n©x°×¼þÎì·ò²¼ÆËÃ«ôÒýÒüÐ×©z
+				Endwindow 5070007
 
 
 		endif
@@ -78,22 +68,19 @@ else
 
 #			gotoB case1
 
-				Endwindow 3201301
-		#\n\n©x¶ÆÔÊ¿ºÐ×·½µ¤·Ö©z
+				Endwindow 5070008
 
 		else
 		
 #			gotoB case2
 
-				Window 3201302,ok
-		#\n\n©x°×¼þÎì·ò²¼ÆË»¥ÐÑšíÐ×¾®ÔÈ»¯ÖÐÔÂ©z
+				Window 5070009,ok
 
 				window_ok
 
 				killitem 607688,1
 				giveitem 607620,1
-				Endwindow 3201303
-		#\n\n©x°×¼þÎì·ò²¼ÆËÃ«ôÒýÒüÐ×©z
+				Endwindow 5070010
 
 
 
@@ -101,10 +88,11 @@ else
 	
 	else
 
-			Endwindow 3201304
-		#\n\n©xÚ™»¥ÌÚÖÐ©z
+			Endwindow 5070011
 
 	endif
 
 endif
+
+
 

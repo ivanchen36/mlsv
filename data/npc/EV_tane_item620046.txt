@@ -4,8 +4,7 @@
 
 
 block
-	Endwindow 3204340,ok
+	Endwindow "\n\n¡¡ @g,239523 @",ok
 
-		#\n\n©x @g,239523 @
 
 

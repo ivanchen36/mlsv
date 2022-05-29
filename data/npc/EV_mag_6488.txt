@@ -1,24 +1,24 @@
 #
-#àÁŞ¼°èó¦©j¾ô?Ô‰©k
+#ºÏÈ£ÀÇ ¿ë½Å£¨ÀüÅõ ÈÄ£©
 #
-############## ÈÛØ¦±åÊÖØ¦ÖĞ ##############
+############## È¥ ¾Æ¹«°Íµµ ¾øÀ½ ##############
 block Item 18589 == 0 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØê·½µ¤
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±âÁö
 	Window 15308,OK
 	Window_OK Item 18589 == 0 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0 && ItemSpace == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØêĞ×ÖĞ
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±â°í ½Í±º
 	EndWindow 15309,OK
 	Window_OK Item 18589 == 0 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0 && ItemSpace != 0
 	GiveItem 18590
 	LeaveGroup
 	Warp 0,20101,12,37
 
-############## BASEÈÛØ¤Ô» ##############
+############## BASEÈ¥ ÀÖÀ½ ##############
 block Item 18589 == 1 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØê·½µ¤
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±âÁö
 	Window 15308,OK
 	Window_OK Item 18589 == 1 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0 && ItemSpace == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØêĞ×ÖĞ
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±â°í ½Í±º
 	EndWindow 15309,OK
 	Window_OK Item 18589 == 1 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0 && ItemSpace != 0
 	KillItem 18589
@@ -26,12 +26,12 @@ block Item 18589 == 1 && Item 18593 == 0 && Item 18594 == 0 && Item 18595 == 0
 	LeaveGroup
 	Warp 0,20101,12,37
 
-############## ?ÁŞÈÛ¨àØ¤Ô» ##############
+############## ³²È£ È¥£± ÀÖÀ½ ##############
 block Item 18589 == 0 && Item 18593 == 1 && Item 18594 == 0 && Item 18595 == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØê·½µ¤
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±âÁö
 	Window 15308,OK
 	Window_OK Item 18589 == 0 && Item 18593 == 1 && Item 18594 == 0 && Item 18595 == 0 && ItemSpace == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØêĞ×ÖĞ
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±â°í ½Í±º
 	EndWindow 15309,OK
 	Window_OK Item 18589 == 0 && Item 18593 == 1 && Item 18594 == 0 && Item 18595 == 0 && ItemSpace != 0
 	KillItem 18593
@@ -39,18 +39,19 @@ block Item 18589 == 0 && Item 18593 == 1 && Item 18594 == 0 && Item 18595 == 0
 	LeaveGroup
 	Warp 0,20101,12,37
 
-############## ?ÁŞÈÛ¨áØ¤Ô» ##############
+############## ³²È£ È¥£² ÀÖÀ½ ##############
 block Item 18589 == 0 && Item 18593 == 0 && Item 18594 == 1 && Item 18595 == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØê·½µ¤
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±âÁö
 	Window 15308,OK
 	Window_OK Item 18589 == 0 && Item 18593 == 0 && Item 18594 == 1 && Item 18595 == 0 && ItemSpace == 0
-#\n\n\n\n@c·½¾®Ç·µ¤©y?±åÍÑ»¥ÈÛÃ«ÆgØêĞ×ÖĞ
+#\n\n\n\n@cÁÁ¾Æ, ±×´ë¿¡°Ô ³» È¥À» ¸Ã±â°í ½Í±º
 	EndWindow 15309,OK
 	Window_OK Item 18589 == 0 && Item 18593 == 0 && Item 18594 == 1 && Item 18595 == 0 && ItemSpace != 0
 	KillItem 18594
 	GiveItem 18592
 	LeaveGroup
 	Warp 0,20101,12,37
+
 
 
 

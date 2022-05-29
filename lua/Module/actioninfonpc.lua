@@ -1,14 +1,14 @@
 tbl_TJitemset = {} --{物品id,个数,几率(千分比)}
-tbl_TJitemset[0] = {88888,500,1000};--周日物品设置
-tbl_TJitemset[1] = {88888,500,160};--周1物品设置
-tbl_TJitemset[2] = {88888,500,160};--周2物品设置
-tbl_TJitemset[3] = {88888,500,160};--周3物品设置
-tbl_TJitemset[4] = {88888,500,160};--周4物品设置
-tbl_TJitemset[5] = {88888,500,160};--周5物品设置
-tbl_TJitemset[6] = {88888,500,160};--周6物品设置
+tbl_TJitemset[0] = {88888,100,160};--周日物品设置
+tbl_TJitemset[1] = {50100,1000,160};--周1物品设置
+tbl_TJitemset[2] = {50100,1000,160};--周2物品设置
+tbl_TJitemset[3] = {50100,1000,160};--周3物品设置
+tbl_TJitemset[4] = {50100,1000,160};--周4物品设置
+tbl_TJitemset[5] = {50100,1000,160};--周5物品设置
+tbl_TJitemset[6] = {88888,100,160};--周6物品设置
 
 battle_enemytotallv = 1;--怪物最低综合等级
-tbl_TJtime = "16:35:00";--天降活动开始时间
+tbl_TJtime = "20:30:00";--天降活动开始时间
 
 tbl_item_actionset = tbl_item_actionset or {0,0,0,0,0,0,0,"",""};
 tbl_itemset = tbl_itemset or {};

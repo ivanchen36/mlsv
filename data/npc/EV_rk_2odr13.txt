@@ -1,5 +1,6 @@
-#ÆËØø¡õ¼ş
+#½Ç¸°
 
 #
 block
 	EndWindow 23161,OK
+

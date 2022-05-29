@@ -1,27 +1,24 @@
-#·ºµ©ĞşÄÌÃ¬¼şĞş©jÆ½Ø¨µ©·ºy©k©x??x÷ú©xÁè001
+#Å×½ºÆ® ÀÌº¥Æ®£¨Å¥½ºÅ× Æí£©¡¡£â£ùÅä¹ÌÅ¸¡¡¢à001
 #
-#©x©x©x²¼ÓÀĞş¼°Şğ
+#¡¡¡¡¡¡°«Æ®ÀÇ ±Ç
 
-###©xªIØÆ¾®ØêÈÕÄ¾Ğ×ÎçÎå
+###¡¡¸»À» °É¾î¿ÔÀ» ¶§
 
 block
 
 	LocalCount1 = Random 3,0
 
 	If LocalCount1 == 1
-		EndWindow 3200772
-		#\n\n©xËüËüÔĞ¨G¨G¨GÓÀ¨•©x£ß£ß£ß£ß£ß
+		EndWindow 7490001
 		EndBlock
 
 	else
 		If LocalCount1 == 2
-			EndWindow 3200773
-		#\n\n©x×óÑ¨¾Ş£ß£ßÆ½·ÂÄÌ£ß£ß£ß
+			EndWindow 7490002
 			EndBlock
 
 		else
-			Window 3200774,OK
-		#\n\n©x¼×Ğş£ß¼×Ğş£ß£ß£ßÆ½¾Ş·òÓÀ¨•¨•
+			Window 7490003,OK
 				Window_OK
 					Encount 3|0,59524,100,134||0|||||0|305090|||||||||
 			EndBlock
@@ -29,5 +26,7 @@ block
 		endif
 
 	endif
+
+
 
 

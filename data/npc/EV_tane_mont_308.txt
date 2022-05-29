@@ -13,7 +13,7 @@ block
 
 
 
-#					endWindow "\n\n©xÓÈÔÈÓÈÔÈÓÈÔÈ\n©xÓÈÔÈÓÈÈÊÓÈ¡õ"
+#					endWindow "\n\n¡¡Ç²Ç²Ç²\n¡¡Ç²Çª²ÙÇª~"
 					endWindow 3006965
 
 
@@ -22,12 +22,14 @@ block
 
 
 
-#					endWindow "\n\n©x	ÈÊÔÈ¹´©yÈÊ¹´ÈÊ¹´¨G"
+#					endWindow "\n\n¡¡	ÄóÃ÷, ÄíÃ÷ÄíÃ÷~"
 					endWindow 3006966
 
 
 
 				endif
+
+
 
 
 

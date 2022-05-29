@@ -1,4 +1,4 @@
-#统伀本伊件
+#啊锐 技坊
 
 block EndEvent 142 == 1
 	Window 22914,Next
@@ -55,3 +55,4 @@ block
 		Window_OK
 			LeaveGroup
 			Warp 0,58000,38,37
+

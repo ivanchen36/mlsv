@@ -1,10 +1,10 @@
-#(15588)
+#ºÚÁú(15588)
 #
 
-###Žè¼°Ï³¼°èëÄþ·´Ý·ªIÆ¥ÎåØ¦ÖÐ###
+###¿ëÀÇ ¸ð½ÀÀÎ °æ¿ì´Â ´ëÈ­ÇÒ ¼ö ¾ø´Ù###
 block BImage == 101904 || BImage == 101905
 	Endwindow 21517
-###©x###
+###¡¡###
 block
 #
 	Window 21435,next
@@ -18,9 +18,9 @@ block
 
 	Window 21439,OK
 		Window_OK PetSpace != 0
-			KillItemFree 18781
-			KillItemFree 18903
-			KillItemFree 18904
+			KillItem 18781
+			KillItem 18903
+			KillItem 18904
 			EndEvent 39 = 1
 			NowEvent 39 = 0
 			checktitle
@@ -28,13 +28,13 @@ block
 			#
 			Message 21440
 			LeaveGroup
-			Warp 0,1530,15,6
+			Warp 0,1511,8,7
 		Window_OK ItemSpace == 0
 			EndWindow 10000
 		Window_OK
-			KillItemFree 18781
-			KillItemFree 18903
-			KillItemFree 18904
+			KillItem 18781
+			KillItem 18903
+			KillItem 18904
 			EndEvent 39 = 1
 			NowEvent 39 = 0
 			checktitle
@@ -42,4 +42,4 @@ block
 			#
 			Message 21440
 			LeaveGroup
-			Warp 0,1530,15,6
+			Warp 0,1511,8,7

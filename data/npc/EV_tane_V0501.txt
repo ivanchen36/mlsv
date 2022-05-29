@@ -1,6 +1,6 @@
 
-block CheckRealTime 2007/2/15,00:00:01 == 1
-#block CheckRealTime 2007/2/1,15:00:01 == 1
+block CheckRealTime 2005/2/15,00:00:01 == 1
+#block CheckRealTime 2005/2/7,15:00:01 == 1
 
 
 if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
@@ -8,18 +8,18 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 
 	if globalFlag15 == 1
 
-		Window "\n\n﹛票蛲?及醱卞\n﹛澎饼互?匀化中月﹝\n﹛潸曰请仄引允井〝",yes,no
+		Window 5970001,yes,no
 		
 			Window_no
-				EndWindow "\n\n﹛票蛲?及雩毛岉元凶﹝"
+				EndWindow 5970002
 
 			Window_yes ItemSpace == 0
 
-				EndWindow "\n\n﹛当切坁互中匀天中及方丹匹允﹝"
+				EndWindow 5970003
 
 			Window_yes Item 607658 >= 1 || Item 607656 >= 1 || Item 607657 >= 1 || Item 607659 >= 1  || Item 607660 >= 1  || Item 607661 >= 1  || Item 607663 >= 1 || Item 607664 >= 1  || Item 607665 >= 1  || Item 607666 >= 1 
 
-				EndWindow "\n\n﹛澎饼反域骚仄井午木引六氏﹝"
+				EndWindow 5970004
 
 			Window_yes
 
@@ -34,7 +34,7 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 				globalFlag23 = 0
 				globalFlag24 = 0
 
-				GiveItem (607658 %30,607656 %70)
+				GiveItem (607658 %70,607656 %30)
 #				GiveItem (607658 %75,607656 %25)
 
 
@@ -43,18 +43,18 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 
 	if globalFlag16 == 1
 
-		Window "\n\n﹛票蛲?及醱卞\n﹛澎饼午抁心互?匀化中月﹝\n﹛潸曰请仄引允井〝",yes,no
+		Window 5970005,yes,no
 		
 			Window_no
-				EndWindow "\n\n﹛票蛲?及雩毛岉元凶﹝"
+				EndWindow 5970006
 
 			Window_yes ItemSpace == 0
 
-				EndWindow "\n\n﹛当切坁互中匀天中及方丹匹允﹝"
+				EndWindow 5970007
 
 			Window_yes Item 607658 >= 1 ||Item 607656 >= 1 || Item 607657 >= 1 || Item 607659 >= 1  || Item 607660 >= 1  || Item 607661 >= 1  || Item 607663 >= 1 || Item 607664 >= 1  || Item 607665 >= 1  || Item 607666 >= 1 
 
-				EndWindow "\n\n﹛澎饼反域骚仄井午木引六氏﹝"
+				EndWindow 5970008
 
 
 			Window_yes
@@ -78,18 +78,18 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 
 	if globalFlag17 == 1
 
-		Window "\n\n﹛票蛲?及醱卞\n﹛澎饼午抁心互?匀化中月﹝\n﹛潸曰请仄引允井〝",yes,no
+		Window 5970009,yes,no
 		
 			Window_no
-				EndWindow "\n\n﹛票蛲?及雩毛岉元凶﹝"
+				EndWindow 5970010
 
 			Window_yes ItemSpace == 0
 
-				EndWindow "\n\n﹛当切坁互中匀天中及方丹匹允﹝"
+				EndWindow 5970011
 
 			Window_yes Item 607658 >= 1 || Item 607656 >= 1 || Item 607657 >= 1 || Item 607659 >= 1  || Item 607660 >= 1  || Item 607661 >= 1  || Item 607663 >= 1 || Item 607664 >= 1  || Item 607665 >= 1  || Item 607666 >= 1 
 
-				EndWindow "\n\n﹛澎饼反域骚仄井午木引六氏﹝"
+				EndWindow 5970012
 
 
 			Window_yes
@@ -106,28 +106,28 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 				globalFlag24 = 0
 
 				Play_SE 274,320,240
-				SetLp -50
-				Window "\n\n﹛澎饼互?昴仄凶",next
-				Window "\n\n﹛?中饼弅互\n﹛夫日夫日午朸中侹切化五凶",next
-				EndWindow "\n\n﹛＞褫井匀凶氏分冗℅〞〞\n﹛田市℅〞﹛??伙申＝"
+				SetLp -15
+				Window 5970013,next
+				Window 5970014,next
+				EndWindow 5970015
 
 	endif
 
 
 	if globalFlag18 == 1
 
-		Window "\n\n﹛票蛲?及醱卞\n﹛澎饼午抁心互?匀化中月﹝\n﹛潸曰请仄引允井〝",yes,no
+		Window 5970016,yes,no
 		
 			Window_no
-				EndWindow "\n\n﹛票蛲?及雩毛岉元凶﹝"
+				EndWindow 5970017
 
 			Window_yes ItemSpace == 0
 
-				EndWindow "\n\n﹛当切坁互中匀天中及方丹匹允﹝"
+				EndWindow 5970018
 
 			Window_yes Item 607658 >= 1 || Item 607656 >= 1 || Item 607657 >= 1 || Item 607659 >= 1  || Item 607660 >= 1  || Item 607661 >= 1  || Item 607663 >= 1 || Item 607664 >= 1  || Item 607665 >= 1  || Item 607666 >= 1 
 
-				EndWindow "\n\n﹛澎饼反域骚仄井午木引六氏﹝"
+				EndWindow 5970019
 
 
 
@@ -154,7 +154,7 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 
 			if Item 607658 >= 1 || Item 607656 >= 1 || Item 607657 >= 1 || Item 607659 >= 1  || Item 607660 >= 1  || Item 607661 >= 1  || Item 607663 >= 1 || Item 607664 >= 1  || Item 607665 >= 1  || Item 607666 >= 1 
 
-				EndWindow "\n\n﹛澎饼反域骚仄井午木引六氏﹝"
+				EndWindow 5970020
 			else
 
 				globalFlag15 = 0
@@ -170,8 +170,8 @@ if globalFlag15 + globalFlag16 + globalFlag17 + globalFlag18 + globalFlag19 >= 1
 
 
 
-				Window "\n\n﹛?中饼濠木互?匀化中月﹝",next
-				EndWindow "\n\n﹛＞夫午及晓咺五﹜\n﹛鴃澎卞当匀化仁卅℅℅〞﹛??伙申"
+				Window 5970021,next
+				EndWindow 5970022
 
 			endif
 
@@ -189,7 +189,7 @@ else
 				globalFlag22 = 0
 				globalFlag23 = 0
 				globalFlag24 = 0
-						EndWindow "\n\n﹛票蛲?反坞匀吊分﹝"
+						EndWindow 5970023
 
 endif
 
@@ -200,16 +200,16 @@ if Item 18586 + Item 18587 +Item 16303 + Item 16304 + Item 16307 + Item 16305 + 
 
 
 
-	Window "\n\n﹛票蛲?及方丹卞苇尹月﹝\n﹛抩诳卞﹍伙申﹎午踏中化丐月﹝",Next
-	Window "\n\n﹛民亦戊毛?木引允井〝",yes,no
+	Window 5970024,Next
+	Window 5970025,yes,no
 	
 		Window_no
-			EndWindow "\n\n﹛票蛲?及雩毛岉元凶﹝"
+			EndWindow 5970026
 
 		Window_Yes
 			if Item 18586 + Item 18587 +Item 16303 + Item 16304 + Item 16307 + Item 16305 + Item 16306 >= 2
 
-				EndWindow "\n\n﹛民亦戊反夫午勾仄井\n﹛?曰公丹卞卅中﹝"
+				EndWindow 5970027
 
 			else
 
@@ -285,10 +285,10 @@ if Item 18586 + Item 18587 +Item 16303 + Item 16304 + Item 16307 + Item 16305 + 
 
 				endif
 
-				Window "\n\n﹛晓咺五毛当切蛔曰引允井〝",yes,no
+				Window 5970028,yes,no
 
 					Window_no
-						EndWindow "\n\n﹛票蛲?及雩毛岉元凶﹝"
+						EndWindow 5970029
 
 					Window_yes ItemSpace == 0
 
@@ -303,7 +303,7 @@ if Item 18586 + Item 18587 +Item 16303 + Item 16304 + Item 16307 + Item 16305 + 
 				globalFlag23 = 0
 				globalFlag24 = 0
 
-						EndWindow "\n\n﹛当切坁互中匀天中及方丹匹允﹝"
+						EndWindow 5970030
 
 					Window_yes Item 607655 >= 1  || Item 607662 >= 1
 
@@ -318,7 +318,7 @@ if Item 18586 + Item 18587 +Item 16303 + Item 16304 + Item 16307 + Item 16305 + 
 				globalFlag23 = 0
 				globalFlag24 = 0
 
-						EndWindow "\n\n﹛票蛲?反手丹坞匹允﹝"
+						EndWindow 5970031
 
 
 					Window_yes
@@ -341,7 +341,8 @@ if Item 18586 + Item 18587 +Item 16303 + Item 16304 + Item 16307 + Item 16305 + 
 
 else
 
-	endWindow "\n\n﹛票蛲?及方丹卞苇尹月﹝\n﹛抩诳卞﹍伙申﹎午踏中化丐月﹝"
+	endWindow 5970032
 
 endif
+
 

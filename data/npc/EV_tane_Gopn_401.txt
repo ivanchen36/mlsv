@@ -1,16 +1,16 @@
-#Ó×»ïÓñopen©xshikenkan©xhi¼°ÚÐ
-#ÀåŠqÙ¯©yÄýŠqÙ¯¼°à¼Ž·´Ø¦ÖÐ
-#'_'·´?ÐÄ?ÈÉØÆ
+#±æµå open¡¡shikenkan¡¡hiÀÇ »ç¶÷
+#´ë¹®ÀÚ, ¼Ò¹®ÀÚÀÇ ±¸º°Àº ¾øÀ½
+#'_'´Â ÀÐÀ» ¶§ °Ç³Ê¶Ü
 
 
 
 
-###########©x14603©x##############
+###########¡¡14603¡¡##############
 
 block Item 14603 >= 1
 
 
-#\n\n©xÛÆÃ«ÃÈ»¥Ä¾ÔÂ»¥f¾®Ç·µ¤©z
+#\n\n¡¡¼­µÑ·¯¾ß°ÚÁö¸¸ ±¦Âú°ÚÁö.
 
 
 	EndWindow 3006299
@@ -19,16 +19,16 @@ block Item 14603 >= 1
 
 
 
-###########©x¾ô?Ô‰©x##############
+###########¡¡ÀüÅõ ÈÄ¡¡##############
 
 
 block Item 14605 >= 1 &&  Item 14604 >= 1 &&  Item 14602 >= 1 &&  Item 14601 >= 1
 
-	window 3006282,OK
+	window 3006282,ok
 	
 		window_ok Itemspace <= 0
 
-			EndWindow 10000
+			EndWindow 3880001
 
 		window_ok Item 14603 >= 1
 
@@ -36,7 +36,7 @@ block Item 14605 >= 1 &&  Item 14604 >= 1 &&  Item 14602 >= 1 &&  Item 14601 >= 
 
 		window_ok
 
-			GiveItem 14603,1
+			giveitem 14603,1
 
 
 
@@ -44,6 +44,7 @@ block Item 14605 >= 1 &&  Item 14604 >= 1 &&  Item 14602 >= 1 &&  Item 14601 >= 
 block
 
 
-	EndWindow 4000005
+	EndWindow 3880002
 
 	
+

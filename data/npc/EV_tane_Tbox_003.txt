@@ -11,25 +11,24 @@ block
 
 				LocalCount30 = 1
 				GiveItem 607681,1
-				EndWindow 3200229
-		#\n\n﹛母打件及萼毛苇勾仃凶〞
+				EndWindow 5880001
 #				EndWindow 3006998
 
 			else
 
-#				EndWindow 3200230
-		#\n\n﹛卅卞井丐月互﹜\n﹛当切坁互中匀天中匹胶尹卅中﹝
+#				EndWindow "\n\n　购啊 乐瘤父\n　家瘤前捞 啊垫 瞒辑 林匡 荐 绝促."
 				EndWindow 3006999
 
 			endif
 		else
 		
-#			EndWindow 3200231
-		#\n\n﹛坞匀吊分﹝
+#			EndWindow "\n\n　胖 厚菌促."
 			EndWindow 3007000
 
 
 		endif
+
+
 
 
 

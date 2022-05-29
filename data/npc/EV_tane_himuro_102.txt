@@ -16,11 +16,11 @@ block
 
 					LocalCount3 = 5
 
-#					Window "\n\n﹛扤曰乒用〝\n﹛公丹友之＿＿",next
+#					Window "\n\n　解篮 芭?\n　臂疥ˇˇ",next
 					Window 3006892,next
 
 
-#					EndWindow "\n\n﹛伄撮匹手丐木壬中中氏分仃升﹝\n﹛伄撮匹窒伝?手及棉﹜\n﹛中欠中欠卅乒用毛臻井仄化心月﹜午﹝"
+#					EndWindow "\n\n　葫角捞扼档 乐栏搁 亮摆瘤父.\n　葫角俊辑 割 归 斥 悼救捞唱\n　咯矾啊瘤 巴阑 犁况抵 夯促, 扼绊."
 					EndWindow 3006893
 
 
@@ -30,11 +30,11 @@ block
 					LocalCount3 = 5
 
 
-#					Window "\n\n﹛友壬友壬仄凶仄凶乒用反\n﹛褥虫卞恌中及方﹝",next
+#					Window "\n\n　馋利馋利茄 巴篮\n　个俊 亮酒夸.",next
 					Window 3006894,next
 
 
-#					EndWindow "\n\n﹛剪中午仇欠匹\n﹛窒蜗?手窒伝?手臻井六化\n﹛友壬友壬友壬友壬友壬友壬\n﹛友壬友壬友壬今六凶乒用反﹝",next
+#					EndWindow "\n\n　绢滴款 镑俊辑\n　割 绞 斥捞绊 割 归 斥捞绊 犁况抵辑\n　馋利馋利馋利馋利馋利馋利\n　馋利馋利馋利窍霸 茄 巴篮.",next
 					EndWindow 3006895,next
 
 
@@ -48,17 +48,19 @@ block
 				LocalCount3 = 5
 
 
-#				Window "\n\n﹛锻及陆卞公廿嫦月惚\n﹛饪塑仄中云饕匹﹜搧?仄中裆凶切互＿＿",next
+#				Window "\n\n　芒巩 观俊 芭磨霸 郴府绰 厚\n　厚良绊 翠翠茄 啊霸俊辑, 澜匡茄 巢磊甸捞ˇˇ",next
 				Window 3006896,next
 
 
-#				EndWindow "\n\n﹛丐凶仄卞葵毛绉木氏壬井曰及嗤仁匹\n﹛扤匀凶乒用及云狪毛\n﹛丹孔孔＿＿"
+#				EndWindow "\n\n　唱俊霸 绢柄啊 搓阑 沥档肺 啊鳖捞俊辑\n　解篮 巴狼 捞具扁甫\n　快饶饶ˇˇ"
 				EndWindow 3006897
 
 
 
 
 			endif
+
+
 
 
 

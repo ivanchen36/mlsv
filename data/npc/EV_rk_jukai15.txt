@@ -1,4 +1,4 @@
-#
+#·ç¾«
 
 block
 	Window 21930,Next

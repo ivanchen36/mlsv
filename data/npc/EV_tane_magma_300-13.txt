@@ -83,3 +83,4 @@ block Xpos == 184 && Ypos == 279
 	Message 3006710
 	SetLp -10
 
+

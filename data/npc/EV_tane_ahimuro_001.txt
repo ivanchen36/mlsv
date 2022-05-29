@@ -1,14 +1,13 @@
-# 7 "EV_tane_ahimuro_001.txt"
+﻿# 7 "EV_tane_ahimuro_001.txt"
 # 1 "header/global0.h" 1
 # 8 "EV_tane_ahimuro_001.txt" 2
-##Modified by Gaoliang 20040323
 
 block
 
         if Item 607640 >= 1 || Item 607644 >= 1 ||  Item 607645 >= 1 ||  Item 607646 >= 1 || Item 607647 >= 1 ||  Item 607648 >= 1 
 
 
-                EndWindow 3006723
+                Window 3006723,next
 
 
         endif
@@ -194,3 +193,4 @@ else
 
         endif
 endif
+

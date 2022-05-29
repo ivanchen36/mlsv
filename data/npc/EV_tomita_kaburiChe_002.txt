@@ -1,43 +1,33 @@
-#赓艘樊迕井少曰坁弁巨旦玄﹛﹛??﹛巟鼹
+#檬缴磊侩 镜 巴 涅胶飘　　ｂｙ　配固鸥
 #
-#﹛﹛﹛鳗濩及裆﹋民尼永弁迕NPC﹌及摒
+#　　　傈汲狼 巢磊（眉农侩 NPC）狼 鼻
 
-###﹛?挤踹蠹毛尕赭当
+###　漂力拱烹阑 家瘤窍瘤 臼澜
 block Item_607954 < 1
-	EndWindow 3203403
-
-		#\n\n﹛氏﹜窒井迕井〝﹛左伊反云蟆卞迕反卅中冗﹝\n﹛田瓜瓜毛罹丹及卞侄仄中氏分﹝\n﹛引凶卞仄化仁木﹝
+	EndWindow 6970001
 
 
 
-###﹛惘弁伉永弁
+###　快 努腐
 block StrCmpChat == R
-	EndWindow 3203404
-
-		#\n\n﹛云蟆及?挤踹蠹卞反旦正件皿互勾中化月冗﹝\n﹛旦正件皿醒毛庍尹凶中卅日﹜ㄟ井ㄠ井ㄡ毛\n﹛?剩醒侬匹民乓永玄?恘仄欠﹝\n﹛凶分仄﹜匹五卅中午五手丐月冗﹝\n﹛午仇欠匹﹜民乓永玄匀化窒分〝
+	EndWindow 6970002
 
 
 
-###﹛民乓永玄?恘＞ㄟ＝
+###　盲泼 涝仿「０」
 block StrCmpChat == 3004930
 	If Item_607954 >= 2
-		EndWindow 3203405
-
-		#\n\n﹛云蟆﹜窒匹公氏卅卞?挤踹蠹当匀化月氏分〝\n﹛窒井术伙仄凶分欠﹝公丹中丹蛊卞反﹜\n﹛仇及左伊及﹍虏及惘﹎毛云苇朸中允月冗〞
+		EndWindow 6970003
 		EndBlock
 
 	else
 		If Item_607954 == 1 && StampCount_607954 == 0
-			EndWindow 3203406
-
-		#\n\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄟ分﹝\n﹛庍尹月优邰卅中分欠﹝
+			EndWindow 6970004
 			EndBlock
 
 		else
 			If Item_607954 == 1 && StampCount_607954 == 1
-				Window 3203407,OK
-
-		#\n\n﹛??刳桦永〞\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄠ分﹝\n﹛元扎丐﹜旦正件皿醒毛ㄟ卞允月冗﹝
+				Window 6970005,OK
 
 					Window_OK
 						AddStampCount 607954,-1
@@ -45,9 +35,7 @@ block StrCmpChat == 3004930
 
 			else
 				If Item_607954 == 1 && StampCount_607954 == 2
-					Window 3203408,OK
-
-		#\n\n﹛??刳桦永〞\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄡ分﹝\n﹛元扎丐﹜旦正件皿醒毛ㄟ卞允月冗﹝
+					Window 6970006,OK
 
 						Window_OK
 							AddStampCount 607954,-2
@@ -55,15 +43,11 @@ block StrCmpChat == 3004930
 
 				else
 					If Item_607954 == 1 && StampCount_607954 > 2
-						EndWindow 3203409
-
-		#\n\n﹛云蟆﹜窒匹公氏卅卞旦正件皿当匀化月氏分〝\n﹛窒井术伙仄凶分欠﹝公丹中丹蛊卞反﹜\n﹛仇及左伊及﹍虏及惘﹎毛云苇朸中允月冗〞
+						EndWindow 6970007
 						EndBlock
 
 					else
-						EndWindow 3203410
-
-		#\n\n﹛云中云蟆﹜?挤踹蠹反升仇卞丐月氏分〝\n﹛请今卅中午﹜旦正件皿醒毛庍尹日木卅中冗﹝
+						EndWindow 6970008
 						EndBlock
 
 					endif
@@ -78,19 +62,15 @@ block StrCmpChat == 3004930
 
 
 
-###﹛民乓永玄?恘＞ㄠ＝
+###　盲泼 涝仿「１」
 block StrCmpChat == 3004921
 	If Item_607954 >= 2
-		EndWindow 3203411
-
-		#\n\n﹛云蟆﹜窒匹公氏卅卞?挤踹蠹当匀化月氏分〝\n﹛窒井术伙仄凶分欠﹝公丹中丹蛊卞反﹜\n﹛仇及左伊及﹍虏及惘﹎毛云苇朸中允月冗〞
+		EndWindow 6970009
 		EndBlock
 
 	else
 		If Item_607954 == 1 && StampCount_607954 == 0
-			Window 3203412,OK
-
-		#\n\n﹛??刳桦永〞\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄟ分﹝\n﹛元扎丐﹜旦正件皿醒毛ㄠ卞允月冗﹝
+			Window 6970010,OK
 
 				Window_OK
 					AddStampCount 607954,+1
@@ -98,16 +78,12 @@ block StrCmpChat == 3004921
 
 		else
 			If Item_607954 == 1 && StampCount_607954 == 1
-				EndWindow 3203413
-
-		#\n\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄠ分﹝\n﹛庍尹月优邰卅中分欠﹝
+				EndWindow 6970011
 				EndBlock
 
 			else
 				If Item_607954 == 1 && StampCount_607954 == 2
-					Window 3203414,OK
-
-		#\n\n﹛??刳桦永〞\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄡ分﹝\n﹛元扎丐﹜旦正件皿醒毛ㄠ卞允月冗﹝
+					Window 6970012,OK
 
 						Window_OK
 							AddStampCount 607954,-1
@@ -115,15 +91,11 @@ block StrCmpChat == 3004921
 
 				else
 					If Item_607954 == 1 && StampCount_607954 > 2
-						EndWindow 3203415
-
-		#\n\n﹛云蟆﹜窒匹公氏卅卞旦正件皿当匀化月氏分〝\n﹛窒井术伙仄凶分欠﹝公丹中丹蛊卞反﹜\n﹛仇及左伊及﹍虏及惘﹎毛云苇朸中允月冗〞
+						EndWindow 6970013
 						EndBlock
 
 					else
-						EndWindow 3203416
-
-		#\n\n﹛云中云蟆﹜?挤踹蠹反升仇卞丐月氏分〝\n﹛请今卅中午﹜旦正件皿醒毛庍尹日木卅中冗﹝
+						EndWindow 6970014
 						EndBlock
 
 					endif
@@ -138,19 +110,15 @@ block StrCmpChat == 3004921
 
 
 
-###﹛民乓永玄?恘＞ㄡ＝
+###　盲泼 涝仿「２」
 block StrCmpChat == 3004922
 	If Item_607954 >= 2
-		EndWindow 3203417
-
-		#\n\n﹛云蟆﹜窒匹公氏卅卞?挤踹蠹当匀化月氏分〝\n﹛窒井术伙仄凶分欠﹝公丹中丹蛊卞反﹜\n﹛仇及左伊及﹍虏及惘﹎毛云苇朸中允月冗〞
+		EndWindow 6970015
 		EndBlock
 
 	else
 		If Item_607954 == 1 && StampCount_607954 == 0
-			Window 3203418,OK
-
-		#\n\n﹛??刳桦永〞\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄟ分﹝\n﹛元扎丐﹜旦正件皿醒毛ㄡ卞允月冗﹝
+			Window 6970016,OK
 
 				Window_OK
 					AddStampCount 607954,+2
@@ -158,9 +126,7 @@ block StrCmpChat == 3004922
 
 		else
 			If Item_607954 == 1 && StampCount_607954 == 1
-				Window 3203419,OK
-
-		#\n\n﹛??刳桦永〞\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄠ分﹝\n﹛元扎丐﹜旦正件皿醒毛ㄡ卞允月冗﹝
+				Window 6970017,OK
 
 					Window_OK
 						AddStampCount 607954,+1
@@ -168,22 +134,16 @@ block StrCmpChat == 3004922
 
 			else
 				If Item_607954 == 1 && StampCount_607954 == 2
-					EndWindow 3203420
-
-		#\n\n﹛云蟆及?挤踹蠹卞勾中化月旦正件皿醒反ㄡ分﹝\n﹛庍尹月优邰卅中分欠﹝
+					EndWindow 6970018
 					EndBlock
 
 				else
 					If Item_607954 == 1 && StampCount_607954 > 2
-						EndWindow 3203421
-
-		#\n\n﹛云蟆﹜窒匹公氏卅卞旦正件皿当匀化月氏分〝\n﹛窒井术伙仄凶分欠﹝公丹中丹蛊卞反﹜\n﹛仇及左伊及﹍虏及惘﹎毛云苇朸中允月冗〞
+						EndWindow 6970019
 						EndBlock
 
 					else
-						EndWindow 3203422
-
-		#\n\n﹛云中云蟆﹜?挤踹蠹反升仇卞丐月氏分〝\n﹛请今卅中午﹜旦正件皿醒毛庍尹日木卅中冗﹝
+						EndWindow 6970020
 						EndBlock
 
 					endif
@@ -195,6 +155,8 @@ block StrCmpChat == 3004922
 		endif
 
 	endif
+
+
 
 
 

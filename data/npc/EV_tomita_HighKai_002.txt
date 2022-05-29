@@ -1,19 +1,15 @@
-#甩奶伊矛伙轾仃荼瞻豭﹛﹛??﹛巟鼹
+#窍捞 饭骇侩 俺炼档 by 配固鸥
 #
-#﹛﹛﹛启宎及摒
+#　　　困捍狼 鼻
 
-###﹛平乓用件豸毛赭当
+###　某稠器甫 家瘤
 block Item_607724 >= 1
 
 	If Level < 60
-		Window 3204530,YES,NO
-
-		#\n\n﹛公及弁仿它件反愤恘匹澎卞?木凶及井〝\n﹛公丹匹卅中及卅日﹜娄五忒仄凶杅互恌中﹝\n﹛筑跤匹反抸日井卞掸恘尕箫分冗﹝\n﹛公木匹手卅云﹜癫柈宎桦及楛柈毛熬仃月井〝
+		Window "\n\n　弊 农扼款阑 磊扁 塞栏肺 涝荐沁唱?\n　弊犯瘤 臼促搁, 倒妨林绰 霸 亮酒.\n　蓖傍篮 绢掉 毫档 角仿何练捞匙.\n　弊贰档, 快府 楷捍厘 绕访阑 罐阑 刨啊?",YES,NO
 
 			Window_YES
-				Window 3204531,OK
-
-		#\n\n﹛拑侜卅蓟枪分卅﹝\n﹛手丹鞅户氏﹜垫仁互中中﹝
+				Window "\n\n　公葛茄 急琶捞肺焙.\n　绢驴 荐 绝焙, 啊焊霸.",OK
 
 					Window_OK
 						LeaveGroup
@@ -21,15 +17,11 @@ block Item_607724 >= 1
 						EndBlock
 
 			Window_NO
-				EndWindow 3204532
-
-		#\n\n﹛叶抸卅?蝇分﹝
+				EndWindow "\n\n　泅疙茄 魄窜捞促."
 				EndBlock
 
 	else
-		Window 3204533,OK
-
-		#\n\n﹛目永玉平乓用件毛当匀化中月及卅日﹜\n﹛掸恘反濯曰饼尥五分卅﹝\n﹛雄樊反穸奥仄卅仁化反卅﹝\n﹛?迩据及肣拑卞楮歹日内?木化支欠丹﹝
+		Window "\n\n　庆靛 某稠阑 爱绊 乐促搁,\n　角仿篮 辆捞茄厘 瞒捞.\n　角仿磊绰 快措且 荐 观俊.\n　涝措刘 蜡公俊 惑包绝捞 甸绢坷霸.",OK
 
 			Window_OK
 				LeaveGroup
@@ -40,18 +32,14 @@ block Item_607724 >= 1
 
 
 
-###﹛芤宎朿迩?迩据毛赭当
+###　侩捍何措 涝措刘阑 家瘤
 block Item_631002 >= 1
 
 	If Level < 60
-		Window 3204534,YES,NO
-
-		#\n\n﹛芤宎朿迩?迩据反当匀化中月方丹分互﹜\n﹛峔躂卞蜕匀化筑跤反掸恘尕箫分冗﹝\n﹛抰互中仁勾丐匀化手箫曰氏卅﹝\n﹛公木匹手楛柈毛垫丹勾手曰井〝
+		Window "\n\n　侩捍何措 涝措刘篮 爱绊 乐绰 淀 茄单,\n　贾流洒 蓖傍篮 角仿何练捞具.\n　格见捞 酒滨瘤 臼唱?\n　弊贰档 绕访阑 罐摆绰啊?",YES,NO
 
 			Window_YES Item_631002 >= 1
-				Window 3204535,OK
-
-		#\n\n﹛创貊及晓卅日手丹鞅户氏﹝垫仁互中中﹝
+				Window "\n\n　阿坷沁促搁, 且 荐 绝瘤. 啊焊霸.",OK
 
 					Window_OK Item_631002 >= 1
 						KillItemAll 631002
@@ -60,27 +48,19 @@ block Item_631002 >= 1
 						EndBlock
 
 					Window_OK
-						EndWindow 3204536
-
-		#\n\n﹛氏﹜?迩据互苇丐凶日氏冗﹝\n﹛匹反﹜?木月仇午反匹五氏卅﹝
+						EndWindow "\n\n　澜, 涝措刘捞 绝垒酒.\n　甸绢哎 荐 绝绢."
 						EndBlock
 
 			Window_YES
-				EndWindow 3204537
-
-		#\n\n﹛氏﹜?迩据互苇丐凶日氏冗﹝\n﹛匹反﹜?木月仇午反匹五氏卅﹝
+				EndWindow "\n\n　澜, 涝措刘捞 绝垒酒.\n　甸绢哎 荐 绝绢."
 				EndBlock
 
 			Window_NO
-				EndWindow 3204538
-
-		#\n\n﹛撕嵘敢鹧反澎癫凶曰戚熔卞?迩据毛\n﹛?匀化中月方丹分卅﹝\n﹛引匀凶仁﹜漱匀凶手及分﹝
+				EndWindow "\n\n　笼沥包 唱府绰 酒公茄抛唱 涝措刘阑\n　唱床林绊 乐绰扒啊.\n　曼唱, 绢贸备聪啊 绝焙."
 				EndBlock
 
 	else
-		Window 3204539,OK
-
-		#\n\n﹛醱匹及楛柈反虞仄中互﹜公木卞觐尹化仇公\n﹛域谛蟆及芤宎分﹝匹反﹜垫匀化仇中〞
+		Window "\n\n　救狼 绕访篮 决拜窍瘤父, 弊吧 斑诞郴具\n　力措肺等 困捍捞促. 磊, 艾促坷霸!",OK
 
 			Window_OK Item_631002 >= 1
 				KillItemAll 631002
@@ -89,20 +69,17 @@ block Item_631002 >= 1
 				EndBlock
 
 			Window_OK
-				EndWindow 3204540
-
-		#\n\n﹛氏﹜?迩据互苇丐凶日氏冗﹝\n﹛卅仃木壬﹜?木月仇午反匹五氏﹝
+				EndWindow "\n\n　澜, 涝措刘捞 绝垒酒.\n　甸绢哎 荐 绝绢."
 				EndBlock
 
 	endif
 
 
 
-###晓筏失奶泛丞毛尕赭当
+###惑扁 酒捞袍阑 阂家瘤
 block
-	EndWindow 3204541
+	EndWindow "\n\n　咯变 包拌磊 捞寇 免涝陛瘤促.\n　绢辑 波廉!!"
 
-		#\n\n﹛仇仇反楮溢樊动陆峏切?曰嗟鞅分﹝\n﹛梁呺分﹜峏切蛔木永〞〞
 
 
 

@@ -1,3 +1,0 @@
-##Watchevent2
-block XPos == 19 && YPos == 35
-Warp 0,30017,52,54

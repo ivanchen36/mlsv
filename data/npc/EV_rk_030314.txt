@@ -1,12 +1,12 @@
-#2006Ê¯·¥ÄÌÐþ·¸¡õ
-#ÀÛÔàÐÄÄ©ÒÁÄÌ½»
+#2003È­ÀÌÆ® µ¥ÀÌ
+#²Éµû´Â ¼Ö·¹ÀÌÀ¯
 
-#3.14¶¯æÏ·´?ÈÕØ¦ÖÐ
-block CheckRealTime 2007/03/14,00:00:01 == 1
-#block CheckRealTime 2007/02/16,15:00:01 == 1
+#3.15 ÀÌÈÄ´Â ÆÈÁö ¾Ê´Â´Ù
+block CheckRealTime 2005/03/15,00:00:00 == 1
+#block CheckRealTime 2005/02/24,15:00:00 == 1
 	EndWindow 21937,OK
 
-#»ÔÁëÆ½ÅÒ·ÂÛÍÕýÃ«·´ÔªÈÊ
+#¿©¼º Ä³¸¯ÅÍ¸¦ Æ¨°Ü³½´Ù
 block BBImage >= 100250 && BBImage <= 100423
 	EndWindow 22038,OK
 block BBImage >= 105250 && BBImage <= 105423
@@ -14,82 +14,77 @@ block BBImage >= 105250 && BBImage <= 105423
 block BBImage >= 106250 && BBImage <= 106423
 	EndWindow 22038,OK
 
-#?ÖÐÃñØ¨¡õØøÓÀÃóÎç?ÍÉØÆÐ×èëÄþ
+#ÇÏ¾á Æ«¸³ÀÌ¶ó°í ¹ß¾ðÇÑ °æ¿ì
 block StrCmpChat==4031
 	Window 22111,Yes,No
 		Window_No
 			EndWindow 21941,OK
 		Window_Yes ItemSpace == 0
 			EndWindow 15258,OK
-		Window_Yes Gold <= 499
+		Window_Yes Gold <= 999
 			EndWindow 21942,OK
 		Window_Yes
 			Window 22110,OK
 				Window_OK
-					AddGold -500
+					AddGold -1000
 					GiveItem 16339
-
-#Á²ÖÐÃñØ¨¡õØøÓÀÃóÎç?ÍÉØÆÐ×èëÄþ
+#ÆÄ¶õ Æ«¸³ÀÌ¶ó°í ¹ß¾ðÇÑ °æ¿ì
 block StrCmpChat==4032
 	Window 22112,Yes,No
 		Window_No
 			EndWindow 21941,OK
 		Window_Yes ItemSpace == 0
 			EndWindow 15258,OK
-		Window_Yes Gold <= 499
+		Window_Yes Gold <= 999
 			EndWindow 21942,OK
 		Window_Yes
 			Window 22110,OK
 				Window_OK
-					AddGold -500
+					AddGold -1000
 					GiveItem 16340
-
-#Ä»ÖÐÃñØ¨¡õØøÓÀÃóÎç?ÍÉØÆÐ×èëÄþ
+#°ËÀº Æ«¸³ÀÌ¶ó°í ¹ß¾ðÇÑ °æ¿ì
 block StrCmpChat==4033
 	Window 22113,Yes,No
 		Window_No
 			EndWindow 21941,OK
 		Window_Yes ItemSpace == 0
 			EndWindow 15258,OK
-		Window_Yes Gold <= 499
+		Window_Yes Gold <= 999
 			EndWindow 21942,OK
 		Window_Yes
 			Window 22110,OK
 				Window_OK
-					AddGold -500
+					AddGold -1000
 					GiveItem 16341
-
-#Õ±ÖÐÃñØ¨¡õØøÓÀÃóÎç?ÍÉØÆÐ×èëÄþ
+#»¡°£ Æ«¸³ÀÌ¶ó°í ¹ß¾ðÇÑ °æ¿ì
 block StrCmpChat==4034
 	Window 22114,Yes,No
 		Window_No
 			EndWindow 21941,OK
 		Window_Yes ItemSpace == 0
 			EndWindow 15258,OK
-		Window_Yes Gold <= 149
+		Window_Yes Gold <= 299
 			EndWindow 21942,OK
 		Window_Yes
 			Window 22110,OK
 				Window_OK
-					AddGold -150
+					AddGold -300
 					GiveItem 16342
-
-#´ÃçÆÖÐÃñØ¨¡õØøÓÀÃóÎç?ÍÉØÆÐ×èëÄþ
+#³ë¶õ Æ«¸³ÀÌ¶ó°í ¹ß¾ðÇÑ °æ¿ì
 block StrCmpChat==4035
 	Window 22115,Yes,No
 		Window_No
 			EndWindow 21941,OK
 		Window_Yes ItemSpace == 0
 			EndWindow 15258,OK
-		Window_Yes Gold <= 499
+		Window_Yes Gold <= 999
 			EndWindow 21942,OK
 		Window_Yes
 			Window 22110,OK
 				Window_OK
-					AddGold -500
+					AddGold -1000
 					GiveItem 16343
 #
 block 
 	Window 22039,Next
 	EndWindow 22040,OK
-
