@@ -8,15 +8,15 @@ gameservname=cg31
 
 
 ############################# DB server IP or domain name  数据库IP
-dbservname=127.0.0.1
+dbservname=rm-2zexmm4zryedf483s.mysql.rds.aliyuncs.com
 ############################# DB username  数据库账号
-dbusername=root
+dbusername=cg
 ############################# DB charset   数据库字符集（默认latin1）
 dbcharset=gbk
 ############################# DB password  数据库密码
-dbpassword=123456
+dbpassword=cp@ssw0rdg
 ############################# DB database name  数据库库名
-dbdatabasename=cgdev
+dbdatabasename=crossgate
 
 
 ############################# mail server IP or domain name  邮件服务器ip
@@ -38,7 +38,7 @@ nodelay=0
 ################################ CharSave interval
 CharSaveinterval=3600 
 ################################ Max fd num
-fdnum=800
+fdnum=10240
 ################################ pet num, = fdnum * (5+10+1)*2)
 petnum=12000
 ################################ other char num 

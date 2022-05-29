@@ -139,6 +139,6 @@ char_maxpoolgoldhave=99999999
 ################### 安全相關
 
 # 乱射伤害算法 0：45%->30%->15%->5%；1：60%->45%->25%->8%
-randomshot_mode=0
+randomshot_mode=1
 
 skipversioncheck=1
