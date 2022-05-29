@@ -1,0 +1,70 @@
+#﹛累?﹛伉本永玄及谛
+#厘妐侬﹜凝妐侬及嗉帎反卅中
+#'_'反?心?壬仄
+
+
+
+block Item 15313 >= 1
+
+			Window 3200530,next
+		#\n\n﹛云〞手﹜手仄井仄化﹜\n﹛楝及当匀化中月及反剉仍?井中〝
+
+			Window 3200531,yes,no
+		#\n\n﹛中中卅℅中中卅℅\n﹛＿＿尹〝仁木月及〝
+
+				window_yes
+					
+
+#					Window 3200532,ok
+		#\n\n﹛鬼中友﹜疡睑仄凶心凶中匹﹝\n﹛公丹分〞云斪卞冞及竻琼卞懊莞仄方丹〞\n﹛及氏太曰仄凶支勾匹﹜\n﹛厘尴卞瓷仄井仃今六月及手卅氏分井日\n﹛渝棉蜃烂匹友〞
+
+#					window_ok Item 15313 >= 1
+#						killItemall 15313
+#						leavegroup
+#						Warp 0,59524,102,87
+
+#					window_ok
+
+
+
+
+					Window 3200533,ok
+		#\n\n﹛鬼中友﹜疡睑仄凶心凶中匹﹝\n﹛卅卞井豢斪毛仄凶中仃升＿＿\n﹛公丹分﹜冞及翘卞吨谨仄方丹〞
+
+					window_ok Item 15313 >= 1
+						killItemall 15313
+						giveitem 607687,1
+
+					window_ok
+
+				window_no
+
+					EndWindow 3200534
+		#\n\n﹛公丹井﹜仁木卅中方卅﹜\n﹛冞﹜呺坁分仄﹝
+
+
+block
+
+
+
+	Window 3007016,yes,no
+	
+	window_yes
+
+		globalFlag11 = 0
+		globalFlag12 = 0
+		globalFlag13 = 0
+		globalFlag14 = 0
+
+		KillItemall 14640
+		KillItemall 14641
+		KillItemall 14642
+		KillItemall 14643
+
+		KillItemall 14652
+		KillItemall 14650
+		KillItemall 14653
+		KillItemall 14651
+	window_no
+	
+	

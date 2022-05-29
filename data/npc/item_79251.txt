@@ -1,0 +1,24 @@
+#幸运之锤脚本
+
+block floor != 1000
+	endwindow "\n\n\n\n@c幸运彩蛋请前往法兰城229,110"
+
+block floor == 1000
+	if xpos >= 226 && xpos <= 233 && ypos >= 109 && ypos <= 116
+		window "\n\n\n　　您确定要使用幸运之锤砸开您脚下的这颗幸运彩蛋吗？",YES,NO
+		window_NO
+		window_YES xpos >= 226 && xpos <= 233 && ypos >= 109 && ypos <= 116 && item 66671 >= 1
+			luac checkluckyegg
+			if localcount31 == 1 && item 66671 >= 1
+				killitem 66671,1
+				luac openluckyegg1
+			else
+				endwindow "\n\n\n\n@c抱歉，彩蛋还没准备好，请稍等！"
+			endif
+	else
+		endwindow "\n\n\n\n@c请站到您要砸的彩蛋位置上！"
+	endif
+
+
+
+

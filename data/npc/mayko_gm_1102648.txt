@@ -1,0 +1,10 @@
+# °×»¢ ·ÅÆúµÄÐ¡Ñò mayko_gm_1102648txt	
+#1110756	\n\n\n\n@cÄãÒª·ÅÆúÂð£¿	1
+
+block 
+	 Window 1110756,yes,no
+	 window_yes
+	 warp 0,13001,78,10
+	 endblock
+	 Window_no
+	 endwindow 1110752	#\n\n\n\n@cÂé·³ÄãÓÃ³ô³ô²ÝÑ¬ÐÑ°×»¢´óÈËÂÞ£¡£¡	1

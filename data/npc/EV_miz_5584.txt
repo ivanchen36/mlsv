@@ -1,0 +1,17 @@
+#营谛耦缜弁巨旦玄“艘樟黄毛潸月桦赭
+#厘妐侬﹜凝妐侬及嗉帎反卅中
+#'_'反?心?壬仄
+
+###########﹛母永民亦□卞≦艘樟黄≧午狪仄喘仃凶﹛##############
+block nowevent33 == 1
+
+	Window 20794,OK
+	Window_OK ItemSpace == 0
+	EndWindow 20795,OK
+	Window_OK
+	Window 20794,OK
+	Window_OK
+	leavegroup
+	nowevent33 = 0
+	GiveItem 18758
+

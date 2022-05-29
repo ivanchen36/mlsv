@@ -1,0 +1,22 @@
+#幸运之锤脚本
+
+block floor != 1000
+	endwindow "\n\n\n\n@c幸运彩蛋请前往法兰城229,110"
+
+block floor == 1000
+	if xpos >= 226 && xpos <= 233 && ypos >= 109 && ypos <= 116
+		window "\n\n\n　　您确定要使用乾坤幸运之锤吗？使用成功之后，将会将您所站立位置周围的彩蛋全部震碎！注意不要站在边角，那样会浪费！",YES,NO
+		window_NO
+		window_YES itemspace < 7
+			endwindow "\n\n\n\n@c您身上的空位不足七个，请整理一下背包"
+		window_YES xpos >= 226 && xpos <= 233 && ypos >= 109 && ypos <= 116 && item 66672 >= 1 && itemSpace >= 7
+			luac checkluckyegg
+			if localcount31 == 1 && item 66672 >= 1
+				killitem 66672,1
+				luac openluckyegg2
+			else
+				endwindow "\n\n\n\n@c抱歉，彩蛋还没准备好，请稍等！"
+			endif
+	else
+		endwindow "\n\n\n\n@c请站到内部彩蛋位置，不要站在边角的地方哦！"
+	endif

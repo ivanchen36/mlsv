@@ -1,0 +1,21 @@
+#勒衔樊呿朿迕??? 犯奴弘戚牬
+#瘉赓卞椭瘀互域谯仄凶皮夫永弁毛质咥允月
+#厘妐侬﹜凝妐侬及嗉帎反卅中
+#'_'反?心?壬仄
+
+####### 疋弘立□田永玄当匀化中月 ########
+block petlevel 243 >= 1
+ Window 21163,yes,no
+ Window_yes ItemSpace == 0
+  Endwindow 21189
+ Window_yes
+  Window 21164,OK
+   Window_OK petlevel_243 >= 1
+    killpetL 243
+    giveitem 18633
+   Window_OK
+ Window_no
+  Endwindow 21165
+####### 疋弘立□田永玄当匀化中卅中 ########
+block
+ Endwindow 21162
