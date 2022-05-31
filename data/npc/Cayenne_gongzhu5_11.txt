@@ -1,0 +1,6 @@
+block 
+window "\n\n琉璃殿下在塔顶等着阁下,请随我来...",ok
+window_ok 
+warp 0,1694,14,55
+
+

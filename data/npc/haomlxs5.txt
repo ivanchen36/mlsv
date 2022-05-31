@@ -1,0 +1,9 @@
+block Item 39740 >=1
+	Window "\n\n\n@c原来你们就是光明骑士团推荐的讨伐黑暗神的勇者门，请带着这个,愿意光明神和你们同在?",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c骗我?走开....",OK
+	Window_YES Item 39740 >=1
+	KillItem 39740,1
+	Warp 0,913,24,24
+block
+Window "\n\n  你没有做任务啦.快去做任务吧!...",ok

@@ -1,0 +1,5 @@
+block 
+	Window "\n\n\n\n@c@n来吧， 快去变换新形象吧。",Yes,No
+Window_Yes
+			Warp 0,60004,2,6
+        Window_No

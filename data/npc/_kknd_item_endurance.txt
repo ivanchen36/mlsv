@@ -1,0 +1,6 @@
+block
+	Window "\n\n\n是否要使用耐力卷轴?",yes,no
+		Window_yes Item 100017 >= 1
+			setmoonboyDB 0,-1,56,100
+			killitem 100017,1
+		Window_NO

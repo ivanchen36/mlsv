@@ -1,0 +1,12 @@
+block Item 77059 >= 5  &&  item 652104>= 20 &&  item 77044>= 1
+	window "\n\n\n   身上的〖王者之铠甲〗碎片全部聚在一起,引发了共鸣,渐渐的融合在一起...",ok
+	window_ok
+        KillItem 77059,5
+        KillItem 77044,1
+        KillItem 652104,20
+        giveitem 77054,1
+
+
+block Item 77059>= 1
+	window "\n\n\n   〖@n〗您的〖王者之铠甲〗碎片还不够哦,收集5个之后,准备20个金币和[宠装]星耀之铠甲,双点即可获得此[宠装]王者之铠甲",ok
+	window_ok

@@ -1,0 +1,6 @@
+block
+window "\n\n我们的英雄,打扰你休息了,公主殿下已经醒了,公主要见你,请随我来.",ok
+window_ok
+leavegroup
+warp 0,27151,14,16
+

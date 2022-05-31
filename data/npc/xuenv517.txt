@@ -1,0 +1,10 @@
+block petlevel 200126 >= 1 && petlevel 101218>= 130 && item 652104>= 20
+window "\n\n拥有雪灵后期进化型+130级白娘子和20个金币可与我换取善良の爱神。请保留一个宠物栏！",ok
+window_ok
+	KillPetl 200126
+        KillPetl 101218
+        killitem 652104,20
+	GivePet 101221
+
+block 
+endwindow "\n\n你身上没有雪灵后期进化型,白娘子,20个金币可与我换取善良の爱神。",ok

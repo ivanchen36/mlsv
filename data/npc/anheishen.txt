@@ -1,0 +1,10 @@
+block 
+	Window "\n\n 使用后就职传说中的暗黑神",ok,cancel
+        Window_ok item 652104 >=10
+        killitem 100088
+        killitem 652104,10
+        GiveItem 555814,1
+        leavegroup
+        Warp 0,682,25,30
+	Window_ok
+	EndWindow "\n\n\n\n 你还没有10个金币，不能传送，快去刷钱吧!"

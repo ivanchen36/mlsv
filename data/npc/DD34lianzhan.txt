@@ -1,0 +1,11 @@
+block
+
+window "\n\n想挑战我吗？我掉落秘药宝箱,配方宝箱，100W人物经验丹和100W宠物经验丹,勇士你准备好了嘛？",yes,no
+
+window_yes
+
+encount 3|0||||||||500001||||
+
+Window_no
+
+EndWindow "\n\n 想好了再来!"

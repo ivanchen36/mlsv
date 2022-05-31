@@ -1,0 +1,21 @@
+block EndEvent 245 == 1
+window "\n\n你是否要前往达利尔雪德城?",yes,no
+window_yes
+window "\n\n请上船吧,船马上就要起航了,一会就到了,祝你旅途愉快.",ok
+window_ok
+leavegroup
+warp 0,27101,25,24
+
+
+
+block item 200205 >= 1
+window "\n\n你是否要前往达利尔雪德城?",yes,no
+window_yes
+window "\n\n请上船吧,船马上就要起航了,一会就到了,祝你旅途愉快.",ok
+window_ok
+leavegroup
+warp 0,27101,25,24
+
+
+block
+endwindow "\n\n你没有船票是无法登船前往达利尔雪德城."

@@ -1,0 +1,12 @@
+block Item 77066>= 5  &&  item 652104>= 25  &&  item 77051>= 1
+	window "\n\n\n   身上的〖荣耀之头盔〗碎片全部聚在一起,引发了共鸣,渐渐的融合在一起...",ok
+	window_ok
+        KillItem 77066,5
+        KillItem 77051,1
+        KillItem 652104,25
+        giveitem 77061,1
+
+
+block Item 77066 >= 1
+	window "\n\n\n   〖@n〗您的〖荣耀之头盔〗碎片还不够哦,收集5个之后,准备25个金币和[宠装]王者之头盔,双点即可获得此[宠装]荣耀之头盔",ok
+	window_ok

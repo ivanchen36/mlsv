@@ -1,0 +1,10 @@
+block 
+	Window "\n\n 使用后就职传说中七月剑魂",ok,cancel
+        Window_ok item 652104 >=10
+        killitem 100091
+        killitem 652104,10
+        GiveItem 555900,1
+        leavegroup
+        Warp 0,683,25,30
+	Window_ok
+	EndWindow "\n\n\n\n 你还没有10个金币，不能传送，快去刷钱吧!"

@@ -1,0 +1,87 @@
+block item 598271 >= 1	
+           Window "\n\n  〖@n〗您是尊贵的〖青铜会员〗可以无限制追杀我!",next
+           Window "\n\n  友情提示〖支持多人组队哦〗",ok
+           Window_ok
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 301782
+
+block item 598272 >= 1	
+           Window "\n\n  〖@n〗您是尊贵的〖黄金会员〗可以无限制追杀我!",next
+           Window "\n\n  友情提示〖支持多人组队哦〗",ok
+           Window_ok
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 301783
+
+block item 598273 >= 1	
+           Window "\n\n  〖@n〗您是尊贵的〖白金会员〗可以无限制追杀我!",next
+           Window "\n\n  友情提示〖支持多人组队哦〗",ok
+           Window_ok
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 301784
+
+block item 598274 >= 1	
+           Window "\n\n  〖@n〗您是尊贵的〖钻石会员〗可以无限制追杀我!",next
+           Window "\n\n  友情提示〖支持多人组队哦〗",ok
+           Window_ok
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 301785
+
+block item 598275 >= 1	
+           Window "\n\n  〖@n〗您是尊贵的〖金尊会员〗可以无限制追杀我!",next
+           Window "\n\n  友情提示〖支持多人组队哦〗",ok
+           Window_ok
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 301786
+
+block item 598276 >= 1	
+           Window "\n\n  〖@n〗您是尊贵的〖至尊会员〗可以无限制追杀我!",next
+           Window "\n\n  友情提示〖支持多人组队哦〗",ok
+           Window_ok
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 301787
+
+block Item 9903 >= 5 && Group == 5
+           Window "\n\n  〖@n〗您好什么你要追杀我吗？救命啊，群主，〖@n〗他要追杀我!",next
+           Window "\n\n  友情提示〖5人模式消耗5个强盗币〗",ok
+           Window_ok Group == 5
+           killitem 9903,5
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 300665
+
+block Item 9903 >= 4 && Group == 4
+           Window "\n\n  〖@n〗您好什么你要追杀我吗？救命啊，群主，〖@n〗他要追杀我!",next
+           Window "\n\n  友情提示〖4人模式消耗4个强盗币〗",ok
+           Window_ok Group == 4
+           killitem 9903,4
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 300665
+
+block Item 9903 >= 3 && Group == 3
+           Window "\n\n  〖@n〗您好什么你要追杀我吗？救命啊，群主，〖@n〗他要追杀我!",next
+           Window "\n\n  友情提示〖3人模式消耗3个强盗币〗",ok
+           Window_ok Group == 3
+           killitem 9903,3
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 300665
+
+block Item 9903 >= 2 && Group == 2
+           Window "\n\n  〖@n〗您好什么你要追杀我吗？救命啊，群主，〖@n〗他要追杀我!",next
+           Window "\n\n  友情提示〖2人模式消耗2个强盗币〗",ok
+           Window_ok Group == 2
+           killitem 9903,2
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 300665
+
+block Item 9903 >= 1
+           Window "\n\n  〖@n〗您好什么你要追杀我吗？救命啊，群主，〖@n〗他要追杀我!",next
+           Window "\n\n  友情提示〖追杀1次消耗1次强盗追杀币哦〗",ok
+           Window_ok
+           LeaveGroup
+           killitem 9903,1
+           encount 2|0||0|||||0|140949|||||||||
+           sendmsgtoall 300665
+
+
+block
+	window 300660,OK
+	window_OK

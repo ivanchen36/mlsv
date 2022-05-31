@@ -1,0 +1,6 @@
+block
+	window "\n\n\n@c你要去神之祭坛吗?",yes,no
+	window_yes
+	killitem 39730,1
+	warp 0,916,16,9
+	window_no

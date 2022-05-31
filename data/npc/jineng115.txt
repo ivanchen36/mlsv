@@ -1,0 +1,10 @@
+block job >= 171 && job <=175
+
+	Window "\n\n　伟大的圣骑士大人，欢迎您回家。",yes,no
+	window_yes
+	leavegroup
+	warp 0,684,25,30
+	window_no
+	window"再见伟大的圣骑士大人......",OK
+block
+	Window "\n\n　你还不够资格进入。找别人吧！",ok

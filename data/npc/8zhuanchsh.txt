@@ -1,0 +1,8 @@
+block Item 9282 >= 1
+if Xpos == 4 && Ypos == 15 &&  Trialflg >= 7
+            window "\n\n〖@n〗恭喜你,通过考验获得〖新的力量〗",ok
+            Window_ok
+            KillItem 9282,1
+            sendmsgtoall 301770
+				LeaveGroup
+			warp 0,2571,4,15

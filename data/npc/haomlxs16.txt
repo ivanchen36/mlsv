@@ -1,0 +1,6 @@
+block
+	window "\n\n\n@cÄãÒªÈ¥°×É«¼ÀÌ³Âğ?",yes,no
+	window_yes
+	killitem 39728,1
+	warp 0,914,24,24
+	window_no

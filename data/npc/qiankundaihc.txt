@@ -1,0 +1,9 @@
+block  item 120023>= 100 && item 652104>= 10
+window "\n\n拥有乾坤袋碎片100个和10个金币,我可以帮您合成1个乾坤袋！",ok
+window_ok
+        killitem 120023,100
+        killitem 652104,10
+        GiveItem 1455,1
+
+block 
+endwindow "\n\n你身上没有足够的乾坤袋碎片和金币，凑齐了再来找我吧。",ok

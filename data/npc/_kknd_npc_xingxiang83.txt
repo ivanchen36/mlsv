@@ -1,0 +1,36 @@
+block
+window "\n\n@c 此形象10金币\n\n@c 不绑定武器请选[是],绑定武器请选[否]",yes,no
+window_yes item 652104 >= 10
+killitem 652104,10
+mysetplayer 0,0,3,105832
+mysetplayer 0,0,179,105832	
+window_no item 652104 >= 10
+window "\n\n@c 绑定斧头请选[是],否则请选[否]",yes,no
+window_yes item 652104 >= 10
+killitem 652104,10
+mysetplayer 0,0,3,105830
+mysetplayer 0,0,179,105830	
+window_no item 652104 >= 10
+window "\n\n@c 绑定弓请选[是],否则请选[否]",yes,no
+window_yes item 652104 >= 10
+killitem 652104,10
+mysetplayer 0,0,3,105831
+mysetplayer 0,0,179,105831	
+window_no item 652104 >= 10
+window "\n\n@c 绑定剑请选[是],否则请选[否]",yes,no
+window_yes item 652104 >= 10
+killitem 652104,10
+mysetplayer 0,0,3,105833
+mysetplayer 0,0,179,105833	
+window_no item 652104 >= 10
+window "\n\n@c 绑定杖请选[是],否则请选[否]",yes,no
+window_yes item 652104 >= 10
+killitem 652104,10
+mysetplayer 0,0,3,105834
+mysetplayer 0,0,179,105834	
+window_no item 652104 >= 10
+window "\n\n@c 绑定枪请选[是],否则请选[否]",yes,no
+window_yes item 652104 >= 10
+killitem 652104,10
+mysetplayer 0,0,3,105835
+mysetplayer 0,0,179,105835

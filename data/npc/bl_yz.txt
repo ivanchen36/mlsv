@@ -1,0 +1,14 @@
+block level < 20
+	EndWindow "\n\n\n@c你的等级还没有达到20级，不能再使用此传送了。",OK
+
+
+block itemspace<1
+	EndWindow "\n\n 清理一下包包再来"
+
+block
+	Window "\n\n\n@c你想传送到一转树精吗？",OK
+	Window_OK
+		
+		giveitem 18315
+		LeaveGroup
+		warp 0,15507,29,16

@@ -1,0 +1,31 @@
+block Item 100160 >= 1
+	Window "\n\n	我想要月光宝盒和5个金币,130级森林巨人或者130级赤焰领主,如果你有，可以带来和我换上古妖兽或者霍迪诺·弗德或冰翼麒麟。",Next
+	Window "\n\n	点击 <是> 使用月光宝盒和5个金币换取1只宠物。选择<是>后有百分七十的几率获得上古妖兽,百分三十的几率获得霍迪诺·弗德或者冰翼麒麟。兑换的时候一定要把宠物装备取下来",yes,no
+		Window_NO 
+			EndWindow "\n\n	兑换失败。",OK
+		Window_YES 
+			Window "\n\n	点击 <是> 选择<百分七十的几率获得上古妖兽百分三十的几率获得霍迪诺·弗德>，点击 <否> 选择百分百获得冰翼麒麟>。宠物装备一定要取下来",yes,no
+				Window_YES itemspace < 1
+					endwindow "\n\n	你的包包好像满了...先整理一下吧！"
+				Window_NO itemspace < 1
+					endwindow "\n\n	你的包包好像满了...先整理一下吧！"
+				Window_YES itemspace >= 1 &&  Item 100160 >= 1 && Item 652104 >= 5 && petlevel 101214 >=130
+					KillItem 100160,1 
+					KillItem 652104,5
+                                        KillPetl 101214
+					GiveItem (110009%70,110010%30)
+					EndWindow "\n\n	兑换成功。",OK
+				Window_NO  itemspace >= 1 &&  Item 100160 >= 1 && Item 652104 >= 5 && petlevel 101213 >=130
+					KillItem 100160,1 
+					KillItem 652104,5
+                                        KillPetl 101213
+					GiveItem 110008
+					EndWindow "\n\n	兑换成功。",OK
+				Window_YES
+					EndWindow "\n\n	兑换失败。",OK
+				Window_NO
+					EndWindow "\n\n	兑换失败。",OK
+
+block 
+	Window "\n\n	我想要月光宝盒和5个金币,130级森林巨人或者130级赤焰领主,如果你有,可以带来和我换上古妖兽或者霍迪诺·弗德或冰翼麒麟",Next
+	EndWindow "\n\n	不过我知道你现在没有,有实力就去做月光宝盒任务吧。",OK

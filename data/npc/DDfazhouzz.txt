@@ -1,0 +1,11 @@
+block
+
+window "\n\n想挑战我吗？我掉落灭世碎片I-V,和100W人物经验丹,勇士你准备好了嘛？",yes,no
+
+window_yes
+
+encount 3|0||||||||711221||||
+
+Window_no
+
+EndWindow "\n\n 想好了再来!"

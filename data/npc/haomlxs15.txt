@@ -1,0 +1,6 @@
+block
+	Window "\n\n\n@c这么快就杀到我这里了?看看我的厉害吧!",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c哈哈哈哈...不敢?真是胆小鬼....",OK
+	Window_YES
+	encount 2|warp 0,1000,239,79||0|||||0|608010|||||||||

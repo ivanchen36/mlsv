@@ -1,0 +1,41 @@
+block Item 39723 >=1 && Item 39724 >=1 && Item 39725 >=1 && Item 39726 >=1 && Item 39727 >=1
+	Window "\n\n\n@c原来你们就是光明骑士团推荐的讨伐黑暗神的勇者门，请带着这个,愿意光明神和你们同在?",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不想就算了...",OK
+	Window_YES
+	KillItem 39723,1
+	KillItem 39724,1
+	KillItem 39725,1
+	KillItem 39726,1
+	KillItem 39727,1
+	giveitem 39740,1
+	Window "\n\n  请拿好黑暗之书吧!",ok
+block Item 39731 >=1
+	Window "\n\n\n@c谢谢你帮我找回[黑暗的领域],你要兑换奖励吗?",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不想就算了...",OK
+	Window_YES Item 39731 >=1 && petlevel 101201 >=130
+	KillItem 39731,1
+        KillPetl 101201
+	GivePet 101212
+	Warp 0,1511,12,9
+block Item 39732 >=1
+	Window "\n\n\n@c谢谢你帮我找回[黑暗的象征],你要兑换奖励吗?",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不想就算了...",OK
+	Window_YES Item 39732 >=1 && petlevel 101200 >=130
+	KillItem 39732,1
+        KillPetl 101200
+	GivePet 101211
+	Warp 0,1511,12,9
+block Item 39733 >=1
+	Window "\n\n\n@c谢谢你帮我找回[黑暗的守护],你要兑换奖励吗?",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不想就算了...",OK
+	Window_YES Item 39733 >=1 
+	KillItem 39733,1
+	GivePet 101202
+	Warp 0,1511,12,9
+
+block
+Window "\n\n  你没有做任务啦.快去做任务吧!...",ok

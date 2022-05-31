@@ -1,0 +1,22 @@
+block
+	window 800015,ok,no,cancel
+	window_ok
+		window 800023,ok,cancel
+		window_ok gold < 500000
+			endwindow 800019
+		window_ok ItemSpace==0
+			endwindow 800020
+		window_ok gold>=1000000 && ItemSpace!=0
+			addgold -1000000
+			giveItem(652104%100)
+			endwindow 800021
+	window_no
+		window 800016,ok,cancel
+		window_ok item 652104==0
+			endwindow 800018
+		window_ok gold>500000
+			endwindow 800017
+		window_ok item 652104!=0 && gold<=500000
+			killitem 652104,1
+			addgold 1000000
+			endwindow 800021

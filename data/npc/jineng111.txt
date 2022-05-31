@@ -1,0 +1,10 @@
+block job >= 181 && job <=185
+
+	Window "\n\n　伟大的邪魔剑神，欢迎您回家。",yes,no
+	window_yes
+	leavegroup
+	warp 0,680,25,30
+	window_no
+	window"再见伟大的邪魔剑神......",OK
+block
+	Window "\n\n　你还不够资格进入。找别人吧！",ok

@@ -1,0 +1,11 @@
+block Item 77006>= 5  &&  item 652104>= 1
+	window "\n\n\n   身上的〖青铜之头盔〗碎片全部聚在一起,引发了共鸣,渐渐的融合在一起...",ok
+	window_ok
+        KillItem 77006,5
+        KillItem 652104,1
+        giveitem 77001,1
+
+
+block Item 77006 >= 1
+	window "\n\n\n   〖@n〗您的〖青铜之头盔〗碎片还不够哦,收集5个之后,准备1个金币,双点即可获得此[宠装]青铜之头盔",ok
+	window_ok

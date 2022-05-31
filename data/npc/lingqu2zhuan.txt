@@ -1,0 +1,14 @@
+block item 396034 >= 1 || Item 396035 >= 1 || Item 396036 >= 1 || Item 396037 >= 1 || Item 396038 >= 1 || Item 396039 >= 1 || Item 396040 >= 1 || Item 396041 >= 1 || Item 396042 >= 1 || Item 396043 >= 1
+          window"\n\n\n〖@n〗请先双点〖转生灵药Lv1〗在继续〖点我〗",ok
+
+block
+	Window "\n\n\n〖@n〗要进行〖1转〗吗?",YES,NO
+	Window_YES itemspace >= 1
+        giveitem 9182,1
+        giveitem 396034,1
+        sendmsgtoall 301773
+	Warp 0,1000,242,100
+	Window_YES
+        Endwindow "\n\n\n   〖@n〗您的物品格满了〖保持1个位置〗",ok
+	window_no
+	Endwindow "\n\n\n   〖@n〗需要转生的时候,在来找我吧.",ok

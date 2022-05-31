@@ -1,0 +1,10 @@
+#用于显示游戏说明
+########## 游戏说明 ##########
+block
+	Window 800001,yes,no
+	window_no
+	endwindow 800003,ok
+	window_yes
+	window 800002,ok
+        window_ok
+

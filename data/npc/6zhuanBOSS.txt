@@ -1,0 +1,11 @@
+block Item 9186 >= 1
+            window "\n\n〖@n〗只要打败我,你就可以获得〖新的力量〗",next
+			window "\n\n开始吧,我的拳头已经饥渴难耐了",ok
+	        window_ok
+	        encount 3|0,2579,3,15|||||0|||8273|||||||||
+			sendmsgtoall 301748
+			
+block
+            window "\n\n对不起,您没有〖练级指南〗无法获得〖新的力量〗",ok
+	        window_ok
+			

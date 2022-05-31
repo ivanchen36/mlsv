@@ -1,0 +1,9 @@
+block Item 9284 >= 1
+if Xpos == 4 && Ypos == 15 &&  Trialflg >= 7
+            window "\n\n〖@n〗恭喜你〖转生毕业〗啦,现在可以去挑战〖东门BOSS〗啦",ok
+            Window_ok
+            KillItem 9284,1
+            giveitem 396043,1
+            sendmsgtoall 301772
+				LeaveGroup
+            warp 0,2573,4,15

@@ -1,0 +1,6 @@
+block
+	Window "\n\n\n是否要使用声望卷轴?",yes,no
+		Window_yes Item 100016 >= 1
+			setmoonboyDB 1,-1,60,10000
+			killitem 100016,1
+		Window_NO

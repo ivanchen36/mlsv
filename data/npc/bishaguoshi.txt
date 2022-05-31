@@ -1,0 +1,3 @@
+block	item 555590 >= 1
+		killitem 555590,1
+		mysetpet 0,1,100,29,1

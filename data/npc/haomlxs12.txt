@@ -1,0 +1,6 @@
+block
+	Window "\n\n\n@c不错不错,你以为能赢了了我吗?!",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不敢?真是胆小鬼哦.",OK
+	Window_YES
+	encount 2|||0|||||0|608015|||||||||

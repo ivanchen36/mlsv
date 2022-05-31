@@ -1,0 +1,7 @@
+block 
+	Window "\n\n 使用后获得9999积分卡",ok,cancel
+        Window_ok item 100094 >=1
+        killitem 100094,1
+        GiveItem 50100,100
+	Window_ok
+	EndWindow "\n\n\n\n 打开有惊喜!"

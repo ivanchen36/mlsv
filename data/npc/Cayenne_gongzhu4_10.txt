@@ -1,0 +1,18 @@
+block petlevel 400512 == 1 && petlevel 400512 == 1 && petlevel 400512 == 1 && petlevel 400512 == 1 && petlevel 400512 == 1 && item 47231 >= 1
+window "\n\n确定要交出所有风精合成巴拉斯吗?",yes,no
+window_no
+window_yes petlevel 400511 == 1 || petlevel 400513 == 1 || petlevel 400514 == 1 || petspace >= 1
+endwindow "\n\n携带5个风精才能合成!"
+window_yes petlevel 400512 == 1 && petlevel 400512 == 1 && petlevel 400512 == 1 && petlevel 400512 == 1 && petlevel 400512 == 1 && item 47231 >= 1
+killpetl 400512
+killpetl 400512
+killpetl 400512
+killpetl 400512
+killpetl 400512
+killitem 47231,1
+givepet 330071
+endwindow "\n\n恭喜你合成了巴拉斯!"
+
+
+block
+endwindow "\n\n似乎缺少了某些宠物,无法使用!"

@@ -1,0 +1,11 @@
+block
+
+window "\n\n想挑战我吗？饰品1必杀,饰品1躲闪,饰品1命中,饰品1反击和100W人物经验丹,勇士你准备好了嘛？",yes,no
+
+window_yes
+
+encount 3|0||||||||802010||||
+
+Window_no
+
+EndWindow "\n\n 想好了再来!"

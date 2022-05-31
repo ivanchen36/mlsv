@@ -1,0 +1,90 @@
+block item 396034 >= 1 || Item 396035 >= 1 || Item 396036 >= 1 || Item 396037 >= 1 || Item 396038 >= 1 || Item 396039 >= 1 || Item 396040 >= 1 || Item 396041 >= 1 || Item 396042 >= 1 || Item 396043 >= 1
+          window"\n\n\n〖@n〗请先双点〖转生灵药〗",ok
+
+block Item 9181 >= 1 && Level >= 130
+	Window "\n\n\n恭喜〖@n〗达到〖130级〗是否挑战〖1转BOSS〗\n\n\n友情提示:寻求其他玩家帮助\n\n\n【帮助你的玩家，你要好好感谢人家】",YES,NO
+	Window_YES Item 9181 >= 1
+                LeaveGroup
+ 	Warp 0,2554,3,4
+    sendmsgtoall 301730
+	Window_YES
+    Endwindow "\n\n  〖@n〗您没有〖练级指南〗所以无法转生！",ok
+	window_no
+	Endwindow "\n\n\n   〖@n〗需要转生的时候,在来点我吧......",ok
+
+block Level >= 120
+	Window "\n\n\n欢迎使用1转（120-130）练功指南，达到130级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,59670,175,131
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 110
+	Window "\n\n\n欢迎使用1转（110-120）练功指南，达到120级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,34017,11,5
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 100
+	Window "\n\n\n欢迎使用1转（100-110）练功指南，达到110级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,34017,11,5
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 80
+	Window "\n\n\n欢迎使用1转（80-100）练功指南，达到100级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,402,74,183
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 70
+	Window "\n\n\n欢迎使用1转（70-80）练功指南，达到80级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,15564,21,7
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 60
+	Window "\n\n\n欢迎使用1转（60-70）练功指南，达到70级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,15542,15,8
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 50
+	Window "\n\n\n欢迎使用1转（50-60）练功指南，达到60级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,15595,20,3
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 40
+	Window "\n\n\n欢迎使用1转（40-50）练功指南，达到50级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,100,540,40
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 30
+	Window "\n\n\n欢迎使用1转（30-40）练功指南，达到40级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,30192,10,10
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 10
+	Window "\n\n\n欢迎使用1转（10-30）练功指南，达到30级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,33000,290,434
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok
+
+block Level >= 1
+	Window "\n\n\n欢迎使用1转（1-10）练功指南，达到10级以后再来双击哦",ok
+        window_ok itemspace >= 2
+	Warp 0,1538,15,15
+        window_ok
+        Endwindow "\n\n\n   〖@n〗您的物品格满了（保持2个位置）在使用练级指南",ok

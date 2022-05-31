@@ -1,0 +1,19 @@
+block moonplayer 45>=5
+	endwindow "\n\n@c你已经进行过LV5的转生了!"
+block item 396038>=1 && level>=130 
+	window "\n\n@c你要进行转生?\n转生后人物将恢复为1级的状态.",yes,no
+	window_no
+	window_yes item 396038>=1 && level>=130
+	killitem 396038,1
+	setmoonboyDB 0,0,43,1030
+	setmoonboyDB 0,0,42,0
+	setmoonboyDB 0,0,9,1
+	setmoonboyDB 0,0,12,0
+	setmoonboyDB 0,0,13,0
+	setmoonboyDB 0,0,14,0
+	setmoonboyDB 0,0,15,0
+	setmoonboyDB 0,0,16,0
+	setmoonboyDB 0,0,45,5
+	endwindow "\n\n成功转生,恢复为1级,赠送BP1000点"
+block
+	endwindow "\n\n你感受到一股神奇的力量,但似乎什么都没有改变."

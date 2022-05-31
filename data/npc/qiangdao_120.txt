@@ -1,0 +1,316 @@
+block Visitor==0
+	window 300601,ok
+	window_ok Visitor==0
+        sendmsgtoall 300603
+	setvisitor +1
+        encount 2|0||0|||||0|140949|||||||||
+
+#龟裂地下1
+block	StrCmpChat == 300607
+	window "\n\n\n   @n你选择的迷宫是〖龟裂地下〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,11012,7,23
+
+#牛鬼的洞2
+block	StrCmpChat == 300608
+	window "\n\n\n   @n你选择的迷宫是〖牛鬼的洞〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,11017,16,10
+
+#法兰迷宫3
+block	StrCmpChat == 300609
+	window "\n\n\n   @n你选择的迷宫是〖法兰迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,1538,15,18
+
+#煖炉迷宫4
+block	StrCmpChat == 300610
+	window "\n\n\n   @n你选择的迷宫是〖煖炉迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15511,1,8
+
+#玄关迷宫5
+block	StrCmpChat == 300611
+	window "\n\n\n   @n你选择的迷宫是〖玄关迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15502,10,6
+
+#竞技场迷6
+block	StrCmpChat == 300612
+	window "\n\n\n   @n你选择的迷宫是〖竞技场迷〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,1405,25,25
+
+#霞之洞穴7
+block	StrCmpChat == 300613
+	window "\n\n\n   @n你选择的迷宫是〖霞之洞穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,100,586,248
+
+#水之洞穴8
+block	StrCmpChat == 300614
+	window "\n\n\n   @n你选择的迷宫是〖水之洞穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15542,10,8
+
+#土之洞穴9
+block	StrCmpChat == 300615
+	window "\n\n\n   @n你选择的迷宫是〖土之洞穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,11034,6,5
+
+#斋戒迷宫10
+block	StrCmpChat == 300616
+	window "\n\n\n   @n你选择的迷宫是〖斋戒迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,24003,10,24
+
+#冰雪的牢11
+block	StrCmpChat == 300617
+	window "\n\n\n   @n你选择的迷宫是〖冰雪的牢〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,4502,14,5
+
+#风鸣之塔12
+block	StrCmpChat == 300618
+	window "\n\n\n   @n你选择的迷宫是〖风鸣之塔〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,301,45,69
+
+#诅咒的迷13
+block	StrCmpChat == 300619
+	window "\n\n\n   @n你选择的迷宫是〖诅咒的迷〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,24073,22,14
+
+#六曜之塔14
+block	StrCmpChat == 300620
+	window "\n\n\n   @n你选择的迷宫是〖六曜之塔〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,20111,12,37
+
+#迷之迷宫15
+block	StrCmpChat == 300621
+	window "\n\n\n   @n你选择的迷宫是〖迷之迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,100,625,125
+
+#哥布林洞16
+block	StrCmpChat == 300622
+	window "\n\n\n   @n你选择的迷宫是〖哥布林洞〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,100,437,308
+
+#奇怪的洞17
+block	StrCmpChat == 300623
+	window "\n\n\n   @n你选择的迷宫是〖奇怪的洞〗出发啦...祝您好运",ok
+	window_ok
+	warp 0,100,538,34
+
+#布满青苔18
+block	StrCmpChat == 300624
+	window "\n\n\n   @n你选择的迷宫是〖布满青苔〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,100,380,353
+
+#迷路之穴19
+block	StrCmpChat == 300625
+	window "\n\n\n   @n你选择的迷宫是〖迷路之穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,100,246,210
+
+#白龙城穴20
+block	StrCmpChat == 300626
+	window "\n\n\n   @n你选择的迷宫是〖白龙城穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15579,25,15
+
+#黑龙城穴21
+block	StrCmpChat == 300627
+	window "\n\n\n   @n你选择的迷宫是〖黑龙城穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15578,24,26
+
+#炎之洞穴22
+block	StrCmpChat == 300628
+	window "\n\n\n   @n你选择的迷宫是〖炎之洞穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15595,25,4
+
+#阿鲁巴斯23
+block	StrCmpChat == 300629
+	window "\n\n\n   @n你选择的迷宫是〖阿鲁巴斯〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15517,8,38
+
+#黑色的祈24
+block	StrCmpChat == 300630
+	window "\n\n\n   @n你选择的迷宫是〖黑色的祈〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,16507,14,14
+
+#罗连斯研25
+block	StrCmpChat == 300631
+	window "\n\n\n   @n你选择的迷宫是〖罗连斯研〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,23003,42,21
+
+#沙漠之祠26
+block	StrCmpChat == 300632
+	window "\n\n\n   @n你选择的迷宫是〖沙漠之祠〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,300,570,300
+
+#沙尘之洞27
+block	StrCmpChat == 300633
+	window "\n\n\n   @n你选择的迷宫是〖沙尘之洞〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,3355,11,5
+
+#峡之洞窟28
+block	StrCmpChat == 300634
+	window "\n\n\n   @n你选择的迷宫是〖峡之洞窟〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15525,23,5
+
+#风之洞穴29
+block	StrCmpChat == 300635
+	window "\n\n\n   @n你选择的迷宫是〖风之洞穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15564,23,5
+
+#走失的龙30
+block	StrCmpChat == 300636
+	window "\n\n\n   @n你选择的迷宫是〖走失的龙〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15568,58,45
+
+#贝兹雷姆31
+block	StrCmpChat == 300637
+	window "\n\n\n   @n你选择的迷宫是〖贝兹雷姆〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,16510,25,7
+
+#地下实验32
+block	StrCmpChat == 300638
+	window "\n\n\n   @n你选择的迷宫是〖地下实验〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,4402,16,13
+
+#积雪的山33
+block	StrCmpChat == 300639
+	window "\n\n\n   @n你选择的迷宫是〖积雪的山〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,402,84,193
+
+#奇怪的坑34
+block	StrCmpChat == 300640
+	window "\n\n\n   @n你选择的迷宫是〖奇怪的坑〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,400,356,345
+
+#永久冻土35
+block	StrCmpChat == 300641
+	window "\n\n\n   @n你选择的迷宫是〖永久冻土〗出发啦...祝您好运",ok
+	window_ok
+	warp 0,15536,21,8
+
+#深渊迷宫36
+block	StrCmpChat == 300642
+	window "\n\n\n   @n你选择的迷宫是〖深渊迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15538,14,7
+
+#咨询之塔37
+block	StrCmpChat == 300643
+	window "\n\n\n   @n你选择的迷宫是〖咨询之塔〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,15552,18,15
+
+#布朗山穴38
+block	StrCmpChat == 300644
+	window "\n\n\n   @n你选择的迷宫是〖布朗山穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,36003,17,4
+#地下水脉39
+block	StrCmpChat == 300645
+	window "\n\n\n   @n你选择的迷宫是〖地下水脉〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,37010,36,30
+#地下遗迹40
+block	StrCmpChat == 300646
+	window "\n\n\n   @n你选择的迷宫是〖地下遗迹〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,35000,13,34
+
+#无人洞穴41
+block	StrCmpChat == 300647
+	window "\n\n\n   @n你选择的迷宫是〖无人洞穴〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,33223,23,16
+
+#时波之祠42
+block	StrCmpChat == 300648
+	window "\n\n\n   @n你选择的迷宫是〖时波之祠〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,34004,9,4
+
+#深绿迷宫43
+block	StrCmpChat == 300649
+	window "\n\n\n   @n你选择的迷宫是〖深绿迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,33000,290,436
+
+#盗贼迷宫44
+block	StrCmpChat == 300650
+	window "\n\n\n   @n你选择的迷宫是〖盗贼迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,47000,11,6
+
+#雷姆而山45
+block	StrCmpChat == 300651
+	window "\n\n\n   @n你选择的迷宫是〖雷姆而山〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,47007,7,3
+
+#岛的洞窟46
+block	StrCmpChat == 300652
+	window "\n\n\n   @n你选择的迷宫是〖岛的洞窟〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,46055,14,12
+
+#魔鬼之祠47
+block	StrCmpChat == 300653
+	window "\n\n\n   @n你选择的迷宫是〖魔鬼之祠〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,59715,233,116
+
+#虫洞迷宫48
+block	StrCmpChat == 300654
+	window "\n\n\n   @n你选择的迷宫是〖虫洞迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,59503,202,264
+
+#羽音洞窟49
+block	StrCmpChat == 300655
+	window "\n\n\n   @n你选择的迷宫是〖羽音洞窟〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,59503,72,161
+
+#里欧波多50
+block	StrCmpChat == 300656
+	window "\n\n\n   @n你选择的迷宫是〖里欧波多〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,32511,31,23
+
+#黄金迷宫51
+block	StrCmpChat == 300657
+	window "\n\n\n   @n你选择的迷宫是〖黄金迷宫〗出发啦...祝您好运",ok
+	window_ok
+	Warp 0,1401,54,52
+
+block
+	window 300658,next
+	window 300659,next
+	window 300660,OK
+	window_OK

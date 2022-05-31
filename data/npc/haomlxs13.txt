@@ -1,0 +1,6 @@
+block
+	Window "\n\n\n@c把我兄弟杀了?你蛮牛B的嘛?来我们比试一下?!",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不敢?真是胆小鬼哦.",OK
+	Window_YES
+	encount 2|||0|||||0|608017|||||||||

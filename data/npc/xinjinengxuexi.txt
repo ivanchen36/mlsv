@@ -1,0 +1,6 @@
+block 
+	Window "\n\n 使用后就可以学习新技能，切记一定要四转之后使用这个卷轴",ok
+        Window_ok
+        killitem 100085
+        leavegroup
+        Warp 0,122,74,48

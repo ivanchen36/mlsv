@@ -1,0 +1,4 @@
+block Item 9168 >= 1
+        killitem 9168,1
+        mysetpet 0,1,-1,15,100
+        sendmsgtoall 300536

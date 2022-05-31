@@ -1,0 +1,5 @@
+
+block
+	Window "\n\n\n@c你想传送到内心吗？",OK
+	Window_OK
+		warp 0,30192,10,10

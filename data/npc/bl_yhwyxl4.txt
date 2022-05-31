@@ -1,0 +1,156 @@
+block	StrCmpChat == 80000029 || StrCmpChat == 80000055
+	window 12601,yes,no
+	window_yes item 611221>=1 && itemdurper 611221<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611221,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000030 || StrCmpChat == 80000056
+	window 12601,yes,no
+	window_yes item 611222>=1 && itemdurper 611222<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611222,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000031 || StrCmpChat == 80000057
+	window 12601,yes,no
+	window_yes item 611223>=1 && itemdurper 611223<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611223,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000032 || StrCmpChat == 80000058
+	window 12601,yes,no
+	window_yes item 611224>=1 && itemdurper 611224<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611224,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000033 || StrCmpChat == 80000059
+	window 12601,yes,no
+	window_yes item 611225>=1 && itemdurper 611225<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611225,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000034 || StrCmpChat == 80000060
+	window 12601,yes,no
+	window_yes item 611226>=1 && itemdurper 611226<1000 && item 50100>=25
+	killitem 50100,26
+	setdur 611226,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000035 || StrCmpChat == 80000061
+	window 12601,yes,no
+	window_yes item 611227>=1 && itemdurper 611227<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611227,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000036 || StrCmpChat == 80000062
+	window 12601,yes,no
+	window_yes item 611228>=1 && itemdurper 611228<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611228,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000037 || StrCmpChat == 80000063
+	window 12601,yes,no
+	window_yes item 611229>=1 && itemdurper 611229<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611229,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000038 || StrCmpChat == 80000064
+	window 12601,yes,no
+	window_yes item 611230>=1 && itemdurper 611230<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611230,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000039 || StrCmpChat == 80000065
+	window 12601,yes,no
+	window_yes item 611231>=1 && itemdurper 611231<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611231,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000040 || StrCmpChat == 80000066
+	window 12601,yes,no
+	window_yes item 611232>=1 && itemdurper 611232<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611232,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000041 || StrCmpChat == 80000067
+	window 12601,yes,no
+	window_yes item 611233>=1 && itemdurper 611233<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611233,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000042 || StrCmpChat == 80000068
+	window 12601,yes,no
+	window_yes item 611234>=1 && itemdurper 611234<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611234,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000043 || StrCmpChat == 80000069
+	window 12601,yes,no
+	window_yes item 611235>=1 && itemdurper 611235<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611235,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000044 || StrCmpChat == 80000070
+	window 12601,yes,no
+	window_yes item 611236>=1 && itemdurper 611236<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611236,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000045 || StrCmpChat == 80000071
+	window 12601,yes,no
+	window_yes item 611237>=1 && itemdurper 611237<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611237,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000046 || StrCmpChat == 80000072
+	window 12601,yes,no
+	window_yes item 611238>=1 && itemdurper 611238<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 611238,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#Npc对话框
+#block	level >= 1
+#	window 80000232,OK
+#	window_OK
+
+#Npc对话框
+block	item 50100 >= 25
+	window 80000232,OK
+	window_OK
+#Npc对话框
+block	item 50100 < 25
+	window "\n\n\n@c@n,快去泡点攒积分吧,努力吧少年！！！!",OK
+	window_OK

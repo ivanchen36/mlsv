@@ -1,0 +1,31 @@
+block Item 521 >= 1
+	Window "\n\n	我想要恶魔果实和10个金币,130级上古妖兽或者130级霍迪诺·弗德,如果你有,可以带来和我换恶魔老人或者灰姑娘。",Next
+	Window "\n\n	点击 <是> 使用恶魔果实和10个金币换取1只宠物。选择<是>后百分百获得恶魔老人,或者灰姑娘。兑换的时候一定要把宠物装备取下来",yes,no
+		Window_NO 
+			EndWindow "\n\n	兑换失败。",OK
+		Window_YES 
+			Window "\n\n	点击 <是> 选择<百分百获得恶魔老人>，点击 <否> 选择百分百获得灰姑娘>。宠物装备一定要取下来",yes,no
+				Window_YES itemspace < 1
+					endwindow "\n\n	你的包包好像满了...先整理一下吧！"
+				Window_NO itemspace < 1
+					endwindow "\n\n	你的包包好像满了...先整理一下吧！"
+				Window_YES itemspace >= 1 &&  Item 521 >= 1 && Item 652104 >= 10 && petlevel 101216 >=130
+					KillItem 521,1 
+					KillItem 652104,10
+                                        KillPetl 101216
+					GiveItem 110012
+					EndWindow "\n\n	兑换成功。",OK
+				Window_NO  itemspace >= 1 &&  Item 521 >= 1 && Item 652104 >= 10 && petlevel 101217 >=130
+					KillItem 521,1 
+					KillItem 652104,10
+                                        KillPetl 101217
+					GiveItem 110013
+					EndWindow "\n\n	兑换成功。",OK
+				Window_YES
+					EndWindow "\n\n	兑换失败。",OK
+				Window_NO
+					EndWindow "\n\n	兑换失败。",OK
+
+block 
+	Window "\n\n	我想要恶魔果实和10个金币,130级上古妖兽或者130级霍迪诺·弗德,如果你有,可以带来和我换恶魔老人或灰姑娘",Next
+	EndWindow "\n\n	不过我知道你现在没有,有实力就去做精灵的震怒吧。",OK

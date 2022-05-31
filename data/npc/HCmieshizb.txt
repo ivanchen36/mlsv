@@ -1,0 +1,265 @@
+#幽魂之剑
+block	StrCmpChat == 80000029 || StrCmpChat == 80000055
+	window 12700,yes,no
+	window_yes item 411221 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411221,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511221%60,411221%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#B幽魂之斧
+block	StrCmpChat == 80000030 || StrCmpChat == 80000056
+	window 12700,yes,no
+	window_yes item 411222 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411222,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511222%60,411222%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#C幽魂之枪
+block	StrCmpChat == 80000031 || StrCmpChat == 80000057
+	window 12700,yes,no
+	window_yes item 411223 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411223,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511223%60,411223%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#D幽魂之弓
+block	StrCmpChat == 80000032 || StrCmpChat == 80000058
+	window 12700,yes,no
+	window_yes item 411224 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411224,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511224%60,411224%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#E幽魂之杖
+block	StrCmpChat == 80000033 || StrCmpChat == 80000059
+	window 12700,yes,no
+	window_yes item 411225 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411225,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511225%60,411225%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#F幽魂拳套
+block	StrCmpChat == 80000034 || StrCmpChat == 80000060
+	window 12700,yes,no
+	window_yes item 411226 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411226,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511226%60,411226%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#G幽魂之盔
+block	StrCmpChat == 80000035 || StrCmpChat == 80000061
+	window 12700,yes,no
+	window_yes item 411227 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411227,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511227%60,411227%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#H幽魂之帽
+block	StrCmpChat == 80000036 || StrCmpChat == 80000062
+	window 12700,yes,no
+	window_yes item 411228 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411228,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511228%60,411228%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#I幽魂之铠
+block	StrCmpChat == 80000037 || StrCmpChat == 80000063
+	window 12700,yes,no
+	window_yes item 411229 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411229,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511229%60,411229%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#J幽魂之衣
+block	StrCmpChat == 80000038 || StrCmpChat == 80000064
+	window 12700,yes,no
+	window_yes item 411230 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411230,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511230%60,411230%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#K幽魂之袍
+block	StrCmpChat == 80000039 || StrCmpChat == 80000065
+	window 12700,yes,no
+	window_yes item 411231 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411231,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511231%60,411231%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#L幽魂之靴
+block	StrCmpChat == 80000040 || StrCmpChat == 80000066
+	window 12700,yes,no
+	window_yes item 411232 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411232,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511232%60,411232%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#M幽魂之鞋
+block	StrCmpChat == 80000041 || StrCmpChat == 80000067
+	window 12700,yes,no
+	window_yes item 411233 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411233,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511233%60,411233%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#N幽魂之盾
+block	StrCmpChat == 80000042 || StrCmpChat == 80000068
+	window 12700,yes,no
+	window_yes item 411234 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411234,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511234%60,411234%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#O幽魂之链
+block	StrCmpChat == 80000043 || StrCmpChat == 80000069
+	window 12700,yes,no
+	window_yes item 411235 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411235,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511235%60,411235%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#P幽魂之戒
+block	StrCmpChat == 80000044 || StrCmpChat == 80000070
+	window 12700,yes,no
+	window_yes item 411236 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411236,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511236%60,411236%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#Q幽魂水晶(地:火)
+block	StrCmpChat == 80000045 || StrCmpChat == 80000071
+	window 12700,yes,no
+	window_yes item 411237 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411237,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511237%60,411237%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#R幽魂水晶(水:风)
+block	StrCmpChat == 80000046 || StrCmpChat == 80000072
+	window 12700,yes,no
+	window_yes item 411238 >= 1 && item 120010 >= 1 && item 120011 >= 1 && item 120012 >= 1 && item 120013 >= 1 && item 120014 >= 1 && item 652104 >= 5
+	killitem 411238,1
+	killitem 120010,1
+	killitem 120011,1
+	killitem 120012,1
+	killitem 120013,1
+	killitem 120014,1
+        killitem 652104,5
+        giveitem(511238%60,411238%40)
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#Npc对话框
+#block	level >= 1
+#	window 80000129,OK
+#	window_OK
+
+#Npc对话框
+block	item 652104 >= 5
+	window 80000129,OK
+	window_OK
+#Npc对话框
+block	item 652104 < 5
+	window "\n\n\n@c@n,你是穷鬼吗？连5个金币都没有吗？快去风洞刷钱吧！！！!",OK
+	window_OK

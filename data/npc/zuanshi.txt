@@ -1,0 +1,6 @@
+block
+window"\n\n\n@c 尊贵的钻石会员，您要进入会员专用房间吗？",yes,no
+window_yes
+leaveGroup
+warp 0,2902,9,18
+window_no

@@ -1,0 +1,7 @@
+block
+	Window "传送到宠物满档重置房间么？",Yes,No
+		Window_Yes Item 100020 >= 1
+			KillItem 100020,1
+			LeaveGroup
+			Warp 0,60007,11,17
+	Window_No	

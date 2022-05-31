@@ -1,0 +1,9 @@
+block itemspace<3
+	EndWindow "\n\n 包包放不下奖品了!"
+block
+	window 800168,ok
+	window_ok itemspace>=3
+	leavegroup
+	giveitem 661040
+	giveitem 661046,2
+	warp 0,1000,162,146

@@ -1,0 +1,8 @@
+block item 795100 == 1
+window "\n\n　黑暗会再次苏醒的。。",ok
+window_ok itemspace == 0
+endwindow "\n\n　您的东西太多了"
+window_ok
+giveitem 795103
+Leavegroup
+warp 0,1000,242,88

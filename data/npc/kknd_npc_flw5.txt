@@ -1,0 +1,9 @@
+block itemspace == 0
+	window "\n\n　　你身上物品满了！",ok
+
+block
+	window "\n\n　　回去吧！人类！这不是你该来的地方！",ok
+	window_ok itemspace != 0
+		giveitem 120015
+                LeaveGroup
+		warp 0,2300,37,42

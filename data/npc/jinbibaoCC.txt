@@ -1,0 +1,7 @@
+block 
+	Window "\n\n 使用后获得9999金币",ok,cancel
+        Window_ok item 100093 >=1
+        killitem 100093,1
+        GiveItem 652104,9999
+	Window_ok
+	EndWindow "\n\n\n\n 打开有惊喜!"

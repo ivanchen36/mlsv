@@ -1,0 +1,3462 @@
+##############钱不够的时候##############
+block Gold < 50000
+	EndWindow "\n\n  你身上的钱不够了...!"
+
+############## 冥卫 ##############
+block Gold >= 50000 && petlevel 100000 == 1
+	Window "\n\n 你要更换<冥卫>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100000,1
+		GivePet 100000
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雪人 ##############
+block Gold >= 50000 && petlevel 100001 == 1
+	Window "\n\n 你要更换<雪人>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100001,1
+		GivePet 100001
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 热沙的欧滋那克 ##############
+block Gold >= 50000 && petlevel 100027 == 1
+	Window "\n\n 你要更换<热沙的欧滋那克>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100027,1
+		GivePet 100027
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 热沙的欧滋尼克 ##############
+block Gold >= 50000 && petlevel 100030 == 1
+	Window "\n\n 你要更换<热沙的欧滋尼克>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100030,1
+		GivePet 100030
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 九尾 ##############
+block Gold >= 50000 && petlevel 100031 == 1
+	Window "\n\n 你要更换<九尾>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100031,1
+		GivePet 100031
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 麒麟 ##############
+block Gold >= 50000 && petlevel 100032 == 1
+	Window "\n\n 你要更换<麒麟>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100032,1
+		GivePet 100032
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 变异型腐尸 ##############
+block Gold >= 50000 && petlevel 100033 == 1
+	Window "\n\n 你要更换<变异型腐尸>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100033,1
+		GivePet 100033
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 树化石 ##############
+block Gold >= 50000 && petlevel 100034 == 1
+	Window "\n\n 你要更换<树化石>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100034,1
+		GivePet 100034
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 金属骷髅 ##############
+block Gold >= 50000 && petlevel 100035 == 1
+	Window "\n\n 你要更换<金属骷髅>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100035,1
+		GivePet 100035
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 犀利哥 ##############
+block Gold >= 50000 && petlevel 100036 == 1
+	Window "\n\n 你要更换<犀利哥>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100036,1
+		GivePet 100036
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 大地牛头怪 ##############
+block Gold >= 50000 && petlevel 100037 == 1
+	Window "\n\n 你要更换<大地牛头怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100037,1
+		GivePet 100037
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 火焰牛头怪 ##############
+block Gold >= 50000 && petlevel 100038 == 1
+	Window "\n\n 你要更换<火焰牛头怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100038,1
+		GivePet 100038
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 烈风牛头怪 ##############
+block Gold >= 50000 && petlevel 100039 == 1
+	Window "\n\n 你要更换<烈风牛头怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100039,1
+		GivePet 100039
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 寒冰牛头怪 ##############
+block Gold >= 50000 && petlevel 100040 == 1
+	Window "\n\n 你要更换<寒冰牛头怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100040,1
+		GivePet 100040
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 露比 ##############
+block Gold >= 50000 && petlevel 100041 == 1
+	Window "\n\n 你要更换<露比>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100041,1
+		GivePet 100041
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 佛利波罗 ##############
+block Gold >= 50000 && petlevel 100042 == 1
+	Window "\n\n 你要更换<佛利波罗>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100042,1
+		GivePet 100042
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 阿卡斯 ##############
+block Gold >= 50000 && petlevel 100043 == 1
+	Window "\n\n 你要更换<阿卡斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100043,1
+		GivePet 100043
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 巴洛斯 ##############
+block Gold >= 50000 && petlevel 100044 == 1
+	Window "\n\n 你要更换<巴洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100044,1
+		GivePet 100044
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 里贝留斯 ##############
+block Gold >= 50000 && petlevel 100045 == 1
+	Window "\n\n 你要更换<里贝留斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100045,1
+		GivePet 100045
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化水蓝鼠 ##############
+block Gold >= 50000 && petlevel 100046 == 1
+	Window "\n\n 你要更换<强化水蓝鼠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100046,1
+		GivePet 100046
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化鼠王 ##############
+block Gold >= 50000 && petlevel 100047 == 1
+	Window "\n\n 你要更换<强化鼠王>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100047,1
+		GivePet 100047
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化镰刀魔 ##############
+block Gold >= 50000 && petlevel 100048 == 1
+	Window "\n\n 你要更换<强化镰刀魔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100048,1
+		GivePet 100048
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化暗黑僧侣 ##############
+block Gold >= 50000 && petlevel 100049 == 1
+	Window "\n\n 你要更换<强化暗黑僧侣>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100049,1
+		GivePet 100049
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化斩首者 ##############
+block Gold >= 50000 && petlevel 100050 == 1
+	Window "\n\n 你要更换<强化斩首者>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100050,1
+		GivePet 100050
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化冥界死神 ##############
+block Gold >= 50000 && petlevel 100051 == 1
+	Window "\n\n 你要更换<强化冥界死神>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100051,1
+		GivePet 100051
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化丘比特 ##############
+block Gold >= 50000 && petlevel 100052 == 1
+	Window "\n\n 你要更换<强化丘比特>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100052,1
+		GivePet 100052
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化火精 ##############
+block Gold >= 50000 && petlevel 100053 == 1
+	Window "\n\n 你要更换<强化火精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100053,1
+		GivePet 100053
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化风精 ##############
+block Gold >= 50000 && petlevel 100054 == 1
+	Window "\n\n 你要更换<强化风精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100054,1
+		GivePet 100054
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化水精 ##############
+block Gold >= 50000 && petlevel 100055 == 1
+	Window "\n\n 你要更换<强化水精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100055,1
+		GivePet 100055
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化地精 ##############
+block Gold >= 50000 && petlevel 100056 == 1
+	Window "\n\n 你要更换<强化地精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100056,1
+		GivePet 100056
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化幻影 ##############
+block Gold >= 50000 && petlevel 100057 == 1
+	Window "\n\n 你要更换<强化幻影>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100057,1
+		GivePet 100057
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化旋律影子 ##############
+block Gold >= 50000 && petlevel 100058 == 1
+	Window "\n\n 你要更换<强化旋律影子>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100058,1
+		GivePet 100058
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化暗影 ##############
+block Gold >= 50000 && petlevel 100059 == 1
+	Window "\n\n 你要更换<强化暗影>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100059,1
+		GivePet 100059
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化阴影 ##############
+block Gold >= 50000 && petlevel 100060 == 1
+	Window "\n\n 你要更换<强化阴影>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100060,1
+		GivePet 100060
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化血腥之刃 ##############
+block Gold >= 50000 && petlevel 100061 == 1
+	Window "\n\n 你要更换<强化血腥之刃>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100061,1
+		GivePet 100061
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化纯白吓人箱 ##############
+block Gold >= 50000 && petlevel 100062 == 1
+	Window "\n\n 你要更换<强化纯白吓人箱>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100062,1
+		GivePet 100062
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化翼龙 ##############
+block Gold >= 50000 && petlevel 100063 == 1
+	Window "\n\n 你要更换<强化翼龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100063,1
+		GivePet 100063
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化九头巨蛇 ##############
+block Gold >= 50000 && petlevel 100064 == 1
+	Window "\n\n 你要更换<强化九头巨蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100064,1
+		GivePet 100064
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化蛟龙 ##############
+block Gold >= 50000 && petlevel 100065 == 1
+	Window "\n\n 你要更换<强化蛟龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100065,1
+		GivePet 100065
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############## 强化埃及眼睛蛇 ##############
+block Gold >= 50000 && petlevel 100066 == 1
+	Window "\n\n 你要更换<强化埃及眼睛蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100066,1
+		GivePet 100066
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化八歧大蛇 ##############
+block Gold >= 50000 && petlevel 100067 == 1
+	Window "\n\n 你要更换<强化八歧大蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100067,1
+		GivePet 100067
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化魔法师之鬼 ##############
+block Gold >= 50000 && petlevel 100068 == 1
+	Window "\n\n 你要更换<强化魔法师之鬼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100068,1
+		GivePet 100068
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化德鲁伊之鬼 ##############
+block Gold >= 50000 && petlevel 100069 == 1
+	Window "\n\n 你要更换<强化德鲁伊之鬼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100069,1
+		GivePet 100069
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化火焰之鬼 ##############
+block Gold >= 50000 && petlevel 100070 == 1
+	Window "\n\n 你要更换<强化火焰之鬼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100070,1
+		GivePet 100070
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化风神之鬼 ##############
+block Gold >= 50000 && petlevel 100071 == 1
+	Window "\n\n 你要更换<强化风神之鬼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100071,1
+		GivePet 100071
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小樱 ##############
+block Gold >= 50000 && petlevel 100072 == 1
+	Window "\n\n 你要更换<小樱>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100072,1
+		GivePet 100072
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小梅 ##############
+block Gold >= 50000 && petlevel 100073 == 1
+	Window "\n\n 你要更换<小梅>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100073,1
+		GivePet 100073
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 山吹 ##############
+block Gold >= 50000 && petlevel 100074 == 1
+	Window "\n\n 你要更换<山吹>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100074,1
+		GivePet 100074
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 大天使 ##############
+block Gold >= 50000 && petlevel 100075 == 1
+	Window "\n\n 你要更换<大天使>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100075,1
+		GivePet 100075
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 草绿棺材 ##############
+block Gold >= 50000 && petlevel 100079 == 1
+	Window "\n\n 你要更换<草绿棺材>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100079,1
+		GivePet 100079
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 淡蓝棺材 ##############
+block Gold >= 50000 && petlevel 100080 == 1
+	Window "\n\n 你要更换<淡蓝棺材>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100080,1
+		GivePet 100080
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 橘红棺材 ##############
+block Gold >= 50000 && petlevel 100081 == 1
+	Window "\n\n 你要更换<橘红棺材>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100081,1
+		GivePet 100081
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 浅黄棺材 ##############
+block Gold >= 50000 && petlevel 100082 == 1
+	Window "\n\n 你要更换<浅黄棺材>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100082,1
+		GivePet 100082
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 里雍(绿) ##############
+block Gold >= 50000 && petlevel 100083 == 1
+	Window "\n\n 你要更换<里雍(绿)>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100083,1
+		GivePet 100083
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 里雍(蓝) ##############
+block Gold >= 50000 && petlevel 100084 == 1
+	Window "\n\n 你要更换<里雍(蓝)>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100084,1
+		GivePet 100084
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 里雍(红) ##############
+block Gold >= 50000 && petlevel 100085 == 1
+	Window "\n\n 你要更换<里雍(红)>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100085,1
+		GivePet 100085
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 里雍(白) ##############
+block Gold >= 50000 && petlevel 100086 == 1
+	Window "\n\n 你要更换<里雍(白)>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100086,1
+		GivePet 100086
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雪人.橘 ##############
+block Gold >= 50000 && petlevel 100087 == 1
+	Window "\n\n 你要更换<雪人.橘>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100087,1
+		GivePet 100087
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雪人.蓝 ##############
+block Gold >= 50000 && petlevel 100088 == 1
+	Window "\n\n 你要更换<雪人.蓝>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100088,1
+		GivePet 100088
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雪人.绿 ##############
+block Gold >= 50000 && petlevel 100089 == 1
+	Window "\n\n 你要更换<雪人.绿>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100089,1
+		GivePet 100089
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 死神 ##############
+block Gold >= 50000 && petlevel 100090 == 1
+	Window "\n\n 你要更换<死神>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100090,1
+		GivePet 100090
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 米特拉 ##############
+block Gold >= 50000 && petlevel 100091 == 1
+	Window "\n\n 你要更换<米特拉>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100091,1
+		GivePet 100091
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 艾吉 ##############
+block Gold >= 50000 && petlevel 100092 == 1
+	Window "\n\n 你要更换<艾吉>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100092,1
+		GivePet 100092
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 豆丁 ##############
+block Gold >= 50000 && petlevel 100093 == 1
+	Window "\n\n 你要更换<豆丁>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100093,1
+		GivePet 100093
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 阿布 ##############
+block Gold >= 50000 && petlevel 100094 == 1
+	Window "\n\n 你要更换<阿布>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100094,1
+		GivePet 100094
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化可爱优奈 ##############
+block Gold >= 50000 && petlevel 100095 == 1
+	Window "\n\n 你要更换<强化可爱优奈>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100095,1
+		GivePet 100095
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 佰兩招財貓 ##############
+block Gold >= 50000 && petlevel 100096 == 1
+	Window "\n\n 你要更换<佰兩招財貓>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100096,1
+		GivePet 100096
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 仟兩招財貓 ##############
+block Gold >= 50000 && petlevel 100097 == 1
+	Window "\n\n 你要更换<仟兩招財貓>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100097,1
+		GivePet 100097
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 萬兩招財貓 ##############
+block Gold >= 50000 && petlevel 100098 == 1
+	Window "\n\n 你要更换<萬兩招財貓>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100098,1
+		GivePet 100098
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 十萬兩招財貓 ##############
+block Gold >= 50000 && petlevel 100099 == 1
+	Window "\n\n 你要更换<十萬兩招財貓>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100099,1
+		GivePet 100099
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 億萬兩招財貓 ##############
+block Gold >= 50000 && petlevel 100100 == 1
+	Window "\n\n 你要更换<億萬兩招財貓>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100100,1
+		GivePet 100100
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魯帕斯 ##############
+block Gold >= 50000 && petlevel 100101 == 1
+	Window "\n\n 你要更换<魯帕斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100101,1
+		GivePet 100101
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 巴特溫 ##############
+block Gold >= 50000 && petlevel 100102 == 1
+	Window "\n\n 你要更换<巴特溫>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100102,1
+		GivePet 100102
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 布特拉 ##############
+block Gold >= 50000 && petlevel 100103 == 1
+	Window "\n\n 你要更换<布特拉>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100103,1
+		GivePet 100103
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 巴拉斯 ##############
+block Gold >= 50000 && petlevel 100104 == 1
+	Window "\n\n 你要更换<巴拉斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100104,1
+		GivePet 100104
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 布拉茲 ##############
+block Gold >= 50000 && petlevel 100105 == 1
+	Window "\n\n 你要更换<布拉茲>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100105,1
+		GivePet 100105
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 佛魯斯奇美拉 ##############
+block Gold >= 50000 && petlevel 100106 == 1
+	Window "\n\n 你要更换<佛魯斯奇美拉>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100106,1
+		GivePet 100106
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 乌贼怪 ##############
+block Gold >= 50000 && petlevel 100107 == 1
+	Window "\n\n 你要更换<乌贼怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100107,1
+		GivePet 100107
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 亭登乌贼 ##############
+block Gold >= 50000 && petlevel 100108 == 1
+	Window "\n\n 你要更换<亭登乌贼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100108,1
+		GivePet 100108
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 賽修乌贼 ##############
+block Gold >= 50000 && petlevel 100109 == 1
+	Window "\n\n 你要更换<賽修乌贼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100109,1
+		GivePet 100109
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 西比亞乌贼 ##############
+block Gold >= 50000 && petlevel 100110 == 1
+	Window "\n\n 你要更换<西比亞乌贼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100110,1
+		GivePet 100110
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 大地霸王 ##############
+block Gold >= 50000 && petlevel 100111 == 1
+	Window "\n\n 你要更换<大地霸王>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100111,1
+		GivePet 100111
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 玫瑰粉怪 ##############
+block Gold >= 50000 && petlevel 100112 == 1
+	Window "\n\n 你要更换<玫瑰粉怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100112,1
+		GivePet 100112
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 牛奶粉怪 ##############
+block Gold >= 50000 && petlevel 100113 == 1
+	Window "\n\n 你要更换<牛奶粉怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100113,1
+		GivePet 100113
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 葡萄酒粉怪 ##############
+block Gold >= 50000 && petlevel 100114 == 1
+	Window "\n\n 你要更换<葡萄酒粉怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100114,1
+		GivePet 100114
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 馬卡來粉怪 ##############
+block Gold >= 50000 && petlevel 100115 == 1
+	Window "\n\n 你要更换<馬卡來粉怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100115,1
+		GivePet 100115
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魔術機甲 ##############
+block Gold >= 50000 && petlevel 100116 == 1
+	Window "\n\n 你要更换<魔術機甲>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100116,1
+		GivePet 100116
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魔術機乙 ##############
+block Gold >= 50000 && petlevel 100117 == 1
+	Window "\n\n 你要更换<魔術機乙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100117,1
+		GivePet 100117
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魔術機丙 ##############
+block Gold >= 50000 && petlevel 100118 == 1
+	Window "\n\n 你要更换<魔術機丙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100118,1
+		GivePet 100118
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魔術機丁 ##############
+block Gold >= 50000 && petlevel 100119 == 1
+	Window "\n\n 你要更换<魔術機丁>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100119,1
+		GivePet 100119
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魔術機戊 ##############
+block Gold >= 50000 && petlevel 100120 == 1
+	Window "\n\n 你要更换<魔術機戊>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100120,1
+		GivePet 100120
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 巨大金屬怪 ##############
+block Gold >= 50000 && petlevel 100121 == 1
+	Window "\n\n 你要更换<巨大金屬怪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100121,1
+		GivePet 100121
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 風獸 ##############
+block Gold >= 50000 && petlevel 100122 == 1
+	Window "\n\n 你要更换<風獸>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100122,1
+		GivePet 100122
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小白龍 ##############
+block Gold >= 50000 && petlevel 100123 == 1
+	Window "\n\n 你要更换<小白龍>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100123,1
+		GivePet 100123
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 火柴小精靈 ##############
+block Gold >= 50000 && petlevel 100124 == 1
+	Window "\n\n 你要更换<火柴小精靈>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100124,1
+		GivePet 100124
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 地之妖精 ##############
+block Gold >= 50000 && petlevel 100125 == 1
+	Window "\n\n 你要更换<地之妖精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100125,1
+		GivePet 100125
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 風之妖精 ##############
+block Gold >= 50000 && petlevel 100126 == 1
+	Window "\n\n 你要更换<風之妖精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100126,1
+		GivePet 100126
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夜魅 ##############
+block Gold >= 50000 && petlevel 100127 == 1
+	Window "\n\n 你要更换<夜魅>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100127,1
+		GivePet 100127
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夜魔.水 ##############
+block Gold >= 50000 && petlevel 100128 == 1
+	Window "\n\n 你要更换<夜魔.水>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100128,1
+		GivePet 100128
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夜魔.风 ##############
+block Gold >= 50000 && petlevel 100129 == 1
+	Window "\n\n 你要更换<夜魔.风>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100129,1
+		GivePet 100129
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夜魔.火 ##############
+block Gold >= 50000 && petlevel 100130 == 1
+	Window "\n\n 你要更换<夜魔.火>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100130,1
+		GivePet 100130
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夜魔.地 ##############
+block Gold >= 50000 && petlevel 100131 == 1
+	Window "\n\n 你要更换<夜魔.地>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100131,1
+		GivePet 100131
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 陣 ##############
+block Gold >= 50000 && petlevel 100132 == 1
+	Window "\n\n 你要更换<陣>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100132,1
+		GivePet 100132
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 連 ##############
+block Gold >= 50000 && petlevel 100133 == 1
+	Window "\n\n 你要更换<連>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100133,1
+		GivePet 100133
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 軍 ##############
+block Gold >= 50000 && petlevel 100134 == 1
+	Window "\n\n 你要更换<軍>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100134,1
+		GivePet 100134
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############## 强化改狗 ##############
+block Gold >= 50000 && petlevel 100135 == 1
+	Window "\n\n 你要更换<强化改狗>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100135,1
+		GivePet 100135
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小鸭子 ##############
+block Gold >= 50000 && petlevel 100136 == 1
+	Window "\n\n 你要更换<小鸭子>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100136,1
+		GivePet 100136
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小兔子 ##############
+block Gold >= 50000 && petlevel 100137 == 1
+	Window "\n\n 你要更换<小兔子>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100137,1
+		GivePet 100137
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 鸭嘴兽 ##############
+block Gold >= 50000 && petlevel 100138 == 1
+	Window "\n\n 你要更换<鸭嘴兽>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100138,1
+		GivePet 100138
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雏鸟 ##############
+block Gold >= 50000 && petlevel 100139 == 1
+	Window "\n\n 你要更换<雏鸟>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100139,1
+		GivePet 100139
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 大公鸡 ##############
+block Gold >= 50000 && petlevel 100140 == 1
+	Window "\n\n 你要更换<大公鸡>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100140,1
+		GivePet 100140
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改鲨 ##############
+block Gold >= 50000 && petlevel 100141 == 1
+	Window "\n\n 你要更换<强化改鲨>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100141,1
+		GivePet 100141
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改大地鼠 ##############
+block Gold >= 50000 && petlevel 100142 == 1
+	Window "\n\n 你要更换<强化改大地鼠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100142,1
+		GivePet 100142
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改火焰鼠 ##############
+block Gold >= 50000 && petlevel 100143 == 1
+	Window "\n\n 你要更换<强化改火焰鼠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100143,1
+		GivePet 100143
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改鸟 ##############
+block Gold >= 50000 && petlevel 100144 == 1
+	Window "\n\n 你要更换<强化改鸟>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100144,1
+		GivePet 100144
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改冰龙 ##############
+block Gold >= 50000 && petlevel 100145 == 1
+	Window "\n\n 你要更换<强化改冰龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100145,1
+		GivePet 100145
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改旋律 ##############
+block Gold >= 50000 && petlevel 100146 == 1
+	Window "\n\n 你要更换<强化改旋律>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100146,1
+		GivePet 100146
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改盗贼 ##############
+block Gold >= 50000 && petlevel 100147 == 1
+	Window "\n\n 你要更换<强化改盗贼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100147,1
+		GivePet 100147
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改僵 ##############
+block Gold >= 50000 && petlevel 100148 == 1
+	Window "\n\n 你要更换<强化改僵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100148,1
+		GivePet 100148
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改蜘蛛 ##############
+block Gold >= 50000 && petlevel 100149 == 1
+	Window "\n\n 你要更换<强化改蜘蛛>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100149,1
+		GivePet 100149
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改口臭 ##############
+block Gold >= 50000 && petlevel 100150 == 1
+	Window "\n\n 你要更换<强化改口臭>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100150,1
+		GivePet 100150
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改阴影 ##############
+block Gold >= 50000 && petlevel 100151 == 1
+	Window "\n\n 你要更换<强化改阴影>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100151,1
+		GivePet 100151
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改史来母 ##############
+block Gold >= 50000 && petlevel 100152 == 1
+	Window "\n\n 你要更换<强化改史来母>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100152,1
+		GivePet 100152
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改蜥蜴斗士 ##############
+block Gold >= 50000 && petlevel 100153 == 1
+	Window "\n\n 你要更换<强化改蜥蜴斗士>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100153,1
+		GivePet 100153
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改迷你蝙蝠 ##############
+block Gold >= 50000 && petlevel 100154 == 1
+	Window "\n\n 你要更换<强化改迷你蝙蝠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100154,1
+		GivePet 100154
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化改烈风哥不林 ##############
+block Gold >= 50000 && petlevel 100155 == 1
+	Window "\n\n 你要更换<强化改烈风哥不林>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100155,1
+		GivePet 100155
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化二改水蜘蛛 ##############
+block Gold >= 50000 && petlevel 100156 == 1
+	Window "\n\n 你要更换<强化二改水蜘蛛>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100156,1
+		GivePet 100156
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 新手螳螂 ##############
+block Gold >= 50000 && petlevel 100157 == 1
+	Window "\n\n 你要更换<新手螳螂>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100157,1
+		GivePet 100157
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小金龍 ##############
+block Gold >= 50000 && petlevel 100158 == 1
+	Window "\n\n 你要更换<小金龍>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100158,1
+		GivePet 100158
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 多啦母糖 ##############
+block Gold >= 50000 && petlevel 100159 == 1
+	Window "\n\n 你要更换<多啦母糖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100159,1
+		GivePet 100159
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 螣蛇 ##############
+block Gold >= 50000 && petlevel 100160 == 1
+	Window "\n\n 你要更换<螣蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100160,1
+		GivePet 100160
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 化蛇 ##############
+block Gold >= 50000 && petlevel 100161 == 1
+	Window "\n\n 你要更换<化蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100161,1
+		GivePet 100161
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 钩蛇 ##############
+block Gold >= 50000 && petlevel 100162 == 1
+	Window "\n\n 你要更换<钩蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100162,1
+		GivePet 100162
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 鸣蛇 ##############
+block Gold >= 50000 && petlevel 100163 == 1
+	Window "\n\n 你要更换<鸣蛇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100163,1
+		GivePet 100163
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 梼杌 ##############
+block Gold >= 50000 && petlevel 100164 == 1
+	Window "\n\n 你要更换<梼杌>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100164,1
+		GivePet 100164
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 赑屃 ##############
+block Gold >= 50000 && petlevel 100165 == 1
+	Window "\n\n 你要更换<赑屃>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100165,1
+		GivePet 100165
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 貔貅 ##############
+block Gold >= 50000 && petlevel 100166 == 1
+	Window "\n\n 你要更换<貔貅>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100166,1
+		GivePet 100166
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 椒图 ##############
+block Gold >= 50000 && petlevel 100167 == 1
+	Window "\n\n 你要更换<椒图>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100167,1
+		GivePet 100167
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 獬豸 ##############
+block Gold >= 50000 && petlevel 100168 == 1
+	Window "\n\n 你要更换<獬豸>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100168,1
+		GivePet 100168
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 白泽 ##############
+block Gold >= 50000 && petlevel 100169 == 1
+	Window "\n\n 你要更换<白泽>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100169,1
+		GivePet 100169
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 商羊 ##############
+block Gold >= 50000 && petlevel 100170 == 1
+	Window "\n\n 你要更换<商羊>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100170,1
+		GivePet 100170
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 马交 ##############
+block Gold >= 50000 && petlevel 100171 == 1
+	Window "\n\n 你要更换<马交>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100171,1
+		GivePet 100171
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 鬼车 ##############
+block Gold >= 50000 && petlevel 100172 == 1
+	Window "\n\n 你要更换<鬼车>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100172,1
+		GivePet 100172
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 重明鸟 ##############
+block Gold >= 50000 && petlevel 100173 == 1
+	Window "\n\n 你要更换<重明鸟>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100173,1
+		GivePet 100173
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 毕方 ##############
+block Gold >= 50000 && petlevel 100174 == 1
+	Window "\n\n 你要更换<毕方>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100174,1
+		GivePet 100174
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 远飞鸡 ##############
+block Gold >= 50000 && petlevel 100175 == 1
+	Window "\n\n 你要更换<远飞鸡>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100175,1
+		GivePet 100175
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 新手水龙蜥 ##############
+block Gold >= 50000 && petlevel 100176 == 1
+	Window "\n\n 你要更换<新手水龙蜥>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100176,1
+		GivePet 100176
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 新手黄蜂 ##############
+block Gold >= 50000 && petlevel 100177 == 1
+	Window "\n\n 你要更换<新手黄蜂>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100177,1
+		GivePet 100177
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 拉奇鲁哥 ##############
+block Gold >= 50000 && petlevel 100178 == 1
+	Window "\n\n 你要更换<拉奇鲁哥>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100178,1
+		GivePet 100178
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 卡达鲁卡斯 ##############
+block Gold >= 50000 && petlevel 100179 == 1
+	Window "\n\n 你要更换<卡达鲁卡斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100179,1
+		GivePet 100179
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 格尔格 ##############
+block Gold >= 50000 && petlevel 100180 == 1
+	Window "\n\n 你要更换<格尔格>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100180,1
+		GivePet 100180
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 扬奇洛斯 ##############
+block Gold >= 50000 && petlevel 100181 == 1
+	Window "\n\n 你要更换<扬奇洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100181,1
+		GivePet 100181
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 邦浦洛斯 ##############
+block Gold >= 50000 && petlevel 100182 == 1
+	Window "\n\n 你要更换<邦浦洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100182,1
+		GivePet 100182
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 邦奇诺 ##############
+block Gold >= 50000 && petlevel 100183 == 1
+	Window "\n\n 你要更换<邦奇诺>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100183,1
+		GivePet 100183
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 布鲁顿 ##############
+block Gold >= 50000 && petlevel 100184 == 1
+	Window "\n\n 你要更换<布鲁顿>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100184,1
+		GivePet 100184
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 利侧诺顿 ##############
+block Gold >= 50000 && petlevel 100185 == 1
+	Window "\n\n 你要更换<利侧诺顿>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100185,1
+		GivePet 100185
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 贝鲁伊卡 ##############
+block Gold >= 50000 && petlevel 100186 == 1
+	Window "\n\n 你要更换<贝鲁伊卡>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100186,1
+		GivePet 100186
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 格鲁西斯 ##############
+block Gold >= 50000 && petlevel 100187 == 1
+	Window "\n\n 你要更换<格鲁西斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100187,1
+		GivePet 100187
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 金格萨贝鲁 ##############
+block Gold >= 50000 && petlevel 100188 == 1
+	Window "\n\n 你要更换<金格萨贝鲁>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100188,1
+		GivePet 100188
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 佩露夏 ##############
+block Gold >= 50000 && petlevel 100189 == 1
+	Window "\n\n 你要更换<佩露夏>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100189,1
+		GivePet 100189
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 贝鲁卡 ##############
+block Gold >= 50000 && petlevel 100190 == 1
+	Window "\n\n 你要更换<贝鲁卡>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100190,1
+		GivePet 100190
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 扑满乌立 ##############
+block Gold >= 50000 && petlevel 100191 == 1
+	Window "\n\n 你要更换<扑满乌立>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100191,1
+		GivePet 100191
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 卡卡金宝 ##############
+block Gold >= 50000 && petlevel 100192 == 1
+	Window "\n\n 你要更换<卡卡金宝>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100192,1
+		GivePet 100192
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 摩娜西普 ##############
+block Gold >= 50000 && petlevel 100193 == 1
+	Window "\n\n 你要更换<摩娜西普>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100193,1
+		GivePet 100193
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 玛恩摩洛斯 ##############
+block Gold >= 50000 && petlevel 100194 == 1
+	Window "\n\n 你要更换<玛恩摩洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100194,1
+		GivePet 100194
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 朵拉比斯 ##############
+block Gold >= 50000 && petlevel 100195 == 1
+	Window "\n\n 你要更换<朵拉比斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100195,1
+		GivePet 100195
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 葛雷基殴 ##############
+block Gold >= 50000 && petlevel 100196 == 1
+	Window "\n\n 你要更换<葛雷基殴>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100196,1
+		GivePet 100196
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 葛雷洛比 ##############
+block Gold >= 50000 && petlevel 100197 == 1
+	Window "\n\n 你要更换<葛雷洛比>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100197,1
+		GivePet 100197
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 葛雷吉鲁 ##############
+block Gold >= 50000 && petlevel 100198 == 1
+	Window "\n\n 你要更换<葛雷吉鲁>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100198,1
+		GivePet 100198
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 葛雷马恩 ##############
+block Gold >= 50000 && petlevel 100199 == 1
+	Window "\n\n 你要更换<葛雷马恩>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100199,1
+		GivePet 100199
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 鲁比 ##############
+block Gold >= 50000 && petlevel 100200 == 1
+	Window "\n\n 你要更换<鲁比>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100200,1
+		GivePet 100200
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 吉比 ##############
+block Gold >= 50000 && petlevel 100201 == 1
+	Window "\n\n 你要更换<吉比>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100201,1
+		GivePet 100201
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 吉鲁 ##############
+block Gold >= 50000 && petlevel 100202 == 1
+	Window "\n\n 你要更换<吉鲁>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100202,1
+		GivePet 100202
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 凯恩 ##############
+block Gold >= 50000 && petlevel 100203 == 1
+	Window "\n\n 你要更换<凯恩>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100203,1
+		GivePet 100203
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 蒙奇 ##############
+block Gold >= 50000 && petlevel 100204 == 1
+	Window "\n\n 你要更换<蒙奇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100204,1
+		GivePet 100204
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雷恩巴肯 ##############
+block Gold >= 50000 && petlevel 100205 == 1
+	Window "\n\n 你要更换<雷恩巴肯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100205,1
+		GivePet 100205
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 格林巴肯 ##############
+block Gold >= 50000 && petlevel 100206 == 1
+	Window "\n\n 你要更换<格林巴肯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100206,1
+		GivePet 100206
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 多鲁多 ##############
+block Gold >= 50000 && petlevel 100207 == 1
+	Window "\n\n 你要更换<多鲁多>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100207,1
+		GivePet 100207
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 佛克斯 ##############
+block Gold >= 50000 && petlevel 100208 == 1
+	Window "\n\n 你要更换<佛克斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100208,1
+		GivePet 100208
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 艾迪希洛 ##############
+block Gold >= 50000 && petlevel 100209 == 1
+	Window "\n\n 你要更换<艾迪希洛>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100209,1
+		GivePet 100209
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 宠物蛋 ##############
+block Gold >= 50000 && petlevel 100210 == 1
+	Window "\n\n 你要更换<宠物蛋>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100210,1
+		GivePet 100210
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 赫拉克勒斯 ##############
+block Gold >= 50000 && petlevel 100211 == 1
+	Window "\n\n 你要更换<赫拉克勒斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100211,1
+		GivePet 100211
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 洛奇斯德 ##############
+block Gold >= 50000 && petlevel 100212 == 1
+	Window "\n\n 你要更换<洛奇斯德>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100212,1
+		GivePet 100212
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 翟贝里恩 ##############
+block Gold >= 50000 && petlevel 100213 == 1
+	Window "\n\n 你要更换<翟贝里恩>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100213,1
+		GivePet 100213
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 繆那 ##############
+block Gold >= 50000 && petlevel 100214 == 1
+	Window "\n\n 你要更换<繆那>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100214,1
+		GivePet 100214
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 左迪洛斯 ##############
+block Gold >= 50000 && petlevel 100215 == 1
+	Window "\n\n 你要更换<左迪洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100215,1
+		GivePet 100215
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 巴朵兰恩 ##############
+block Gold >= 50000 && petlevel 100216 == 1
+	Window "\n\n 你要更换<巴朵兰恩>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100216,1
+		GivePet 100216
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 帖拉所伊朵 ##############
+block Gold >= 50000 && petlevel 100217 == 1
+	Window "\n\n 你要更换<帖拉所伊朵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100217,1
+		GivePet 100217
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 斑尼迪克 ##############
+block Gold >= 50000 && petlevel 100218 == 1
+	Window "\n\n 你要更换<斑尼迪克>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100218,1
+		GivePet 100218
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 卡芙娜 ##############
+block Gold >= 50000 && petlevel 100219 == 1
+	Window "\n\n 你要更换<卡芙娜>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100219,1
+		GivePet 100219
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 波比 ##############
+block Gold >= 50000 && petlevel 100220 == 1
+	Window "\n\n 你要更换<波比>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100220,1
+		GivePet 100220
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 查落比克 ##############
+block Gold >= 50000 && petlevel 100221 == 1
+	Window "\n\n 你要更换<查落比克>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100221,1
+		GivePet 100221
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 菲奇亚 ##############
+block Gold >= 50000 && petlevel 100222 == 1
+	Window "\n\n 你要更换<菲奇亚>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100222,1
+		GivePet 100222
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 胖达多 ##############
+block Gold >= 50000 && petlevel 100223 == 1
+	Window "\n\n 你要更换<胖达多>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100223,1
+		GivePet 100223
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 鲁贝莱欧 ##############
+block Gold >= 50000 && petlevel 100224 == 1
+	Window "\n\n 你要更换<鲁贝莱欧>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100224,1
+		GivePet 100224
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 萨德斯凯 ##############
+block Gold >= 50000 && petlevel 100225 == 1
+	Window "\n\n 你要更换<萨德斯凯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100225,1
+		GivePet 100225
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 萨德迪比 ##############
+block Gold >= 50000 && petlevel 100226 == 1
+	Window "\n\n 你要更换<萨德迪比>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100226,1
+		GivePet 100226
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 弗丽露 ##############
+block Gold >= 50000 && petlevel 100227 == 1
+	Window "\n\n 你要更换<弗丽露>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100227,1
+		GivePet 100227
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 美拉 ##############
+block Gold >= 50000 && petlevel 100228 == 1
+	Window "\n\n 你要更换<美拉>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100228,1
+		GivePet 100228
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 伦迪 ##############
+block Gold >= 50000 && petlevel 100229 == 1
+	Window "\n\n 你要更换<伦迪>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100229,1
+		GivePet 100229
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 奇朋洛依 ##############
+block Gold >= 50000 && petlevel 100230 == 1
+	Window "\n\n 你要更换<奇朋洛依>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100230,1
+		GivePet 100230
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 哈沃斯 ##############
+block Gold >= 50000 && petlevel 100231 == 1
+	Window "\n\n 你要更换<哈沃斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100231,1
+		GivePet 100231
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雷尔x1 ##############
+block Gold >= 50000 && petlevel 100232 == 1
+	Window "\n\n 你要更换<雷尔x1>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100232,1
+		GivePet 100232
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雷尔x2 ##############
+block Gold >= 50000 && petlevel 100233 == 1
+	Window "\n\n 你要更换<雷尔x2>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100233,1
+		GivePet 100233
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雷尔x3 ##############
+block Gold >= 50000 && petlevel 100234 == 1
+	Window "\n\n 你要更换<雷尔x3>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100234,1
+		GivePet 100234
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 哈利恩斯 ##############
+block Gold >= 50000 && petlevel 100235 == 1
+	Window "\n\n 你要更换<哈利恩斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100235,1
+		GivePet 100235
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 摩洛索斯 ##############
+block Gold >= 50000 && petlevel 100236 == 1
+	Window "\n\n 你要更换<摩洛索斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100236,1
+		GivePet 100236
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 帖伊诺斯 ##############
+block Gold >= 50000 && petlevel 100237 == 1
+	Window "\n\n 你要更换<帖伊诺斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100237,1
+		GivePet 100237
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 2D利侧诺顿 ##############
+block Gold >= 50000 && petlevel 100238 == 1
+	Window "\n\n 你要更换<2D利侧诺顿>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100238,1
+		GivePet 100238
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 2D扬奇洛斯 ##############
+block Gold >= 50000 && petlevel 100239 == 1
+	Window "\n\n 你要更换<2D扬奇洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100239,1
+		GivePet 100239
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 2D邦奇诺 ##############
+block Gold >= 50000 && petlevel 100240 == 1
+	Window "\n\n 你要更换<2D邦奇诺>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100240,1
+		GivePet 100240
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 2D布鲁顿 ##############
+block Gold >= 50000 && petlevel 100241 == 1
+	Window "\n\n 你要更换<2D布鲁顿>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100241,1
+		GivePet 100241
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 2D邦浦洛斯 ##############
+block Gold >= 50000 && petlevel 100242 == 1
+	Window "\n\n 你要更换<2D邦浦洛斯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100242,1
+		GivePet 100242
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 莱恩奇夫 ##############
+block Gold >= 50000 && petlevel 100243 == 1
+	Window "\n\n 你要更换<莱恩奇夫>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100243,1
+		GivePet 100243
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 莱恩洛克 ##############
+block Gold >= 50000 && petlevel 100244 == 1
+	Window "\n\n 你要更换<莱恩洛克>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100244,1
+		GivePet 100244
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 奈坎特 ##############
+block Gold >= 50000 && petlevel 100245 == 1
+	Window "\n\n 你要更换<奈坎特>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100245,1
+		GivePet 100245
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 奈宇罗 ##############
+block Gold >= 50000 && petlevel 100246 == 1
+	Window "\n\n 你要更换<奈宇罗>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100246,1
+		GivePet 100246
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 瓦奇肯 ##############
+block Gold >= 50000 && petlevel 100247 == 1
+	Window "\n\n 你要更换<瓦奇肯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100247,1
+		GivePet 100247
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 弗奇肯 ##############
+block Gold >= 50000 && petlevel 100248 == 1
+	Window "\n\n 你要更换<弗奇肯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100248,1
+		GivePet 100248
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 欧奇肯 ##############
+block Gold >= 50000 && petlevel 100249 == 1
+	Window "\n\n 你要更换<欧奇肯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100249,1
+		GivePet 100249
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 波奇肯 ##############
+block Gold >= 50000 && petlevel 100250 == 1
+	Window "\n\n 你要更换<波奇肯>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100250,1
+		GivePet 100250
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 鼹鼠 ##############
+block Gold >= 50000 && petlevel 100251 == 1
+	Window "\n\n 你要更换<鼹鼠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100251,1
+		GivePet 100251
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 奶牛 ##############
+block Gold >= 50000 && petlevel 100252 == 1
+	Window "\n\n 你要更换<奶牛>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100252,1
+		GivePet 100252
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夏克 ##############
+block Gold >= 50000 && petlevel 100253 == 1
+	Window "\n\n 你要更换<夏克>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100253,1
+		GivePet 100253
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 夏基 ##############
+block Gold >= 50000 && petlevel 100254 == 1
+	Window "\n\n 你要更换<夏基>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100254,1
+		GivePet 100254
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化黄金树精 ##############
+block Gold >= 50000 && petlevel 100255 == 1
+	Window "\n\n 你要更换<强化黄金树精>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100255,1
+		GivePet 100255
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化迷你龙 ##############
+block Gold >= 50000 && petlevel 100256 == 1
+	Window "\n\n 你要更换<强化迷你龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100256,1
+		GivePet 100256
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化火焰舞者 ##############
+block Gold >= 50000 && petlevel 100257 == 1
+	Window "\n\n 你要更换<强化火焰舞者>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100257,1
+		GivePet 100257
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化棉花糖 ##############
+block Gold >= 50000 && petlevel 100258 == 1
+	Window "\n\n 你要更换<强化棉花糖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100258,1
+		GivePet 100258
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化狮鸠兽 ##############
+block Gold >= 50000 && petlevel 100259 == 1
+	Window "\n\n 你要更换<强化狮鸠兽>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100259,1
+		GivePet 100259
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化天使蝙蝠 ##############
+block Gold >= 50000 && petlevel 100260 == 1
+	Window "\n\n 你要更换<强化天使蝙蝠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100260,1
+		GivePet 100260
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化恶魔蝙蝠 ##############
+block Gold >= 50000 && petlevel 100261 == 1
+	Window "\n\n 你要更换<强化恶魔蝙蝠>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100261,1
+		GivePet 100261
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化幽灵 ##############
+block Gold >= 50000 && petlevel 100262 == 1
+	Window "\n\n 你要更换<强化幽灵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100262,1
+		GivePet 100262
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化鬼灵 ##############
+block Gold >= 50000 && petlevel 100263 == 1
+	Window "\n\n 你要更换<强化鬼灵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100263,1
+		GivePet 100263
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化亡灵 ##############
+block Gold >= 50000 && petlevel 100264 == 1
+	Window "\n\n 你要更换<强化亡灵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100264,1
+		GivePet 100264
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化死灵 ##############
+block Gold >= 50000 && petlevel 100265 == 1
+	Window "\n\n 你要更换<强化死灵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100265,1
+		GivePet 100265
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化盾 ##############
+block Gold >= 50000 && petlevel 100266 == 1
+	Window "\n\n 你要更换<强化盾>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100266,1
+		GivePet 100266
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化潜盾 ##############
+block Gold >= 50000 && petlevel 100267 == 1
+	Window "\n\n 你要更换<强化潜盾>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100267,1
+		GivePet 100267
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化强盾 ##############
+block Gold >= 50000 && petlevel 100268 == 1
+	Window "\n\n 你要更换<强化强盾>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100268,1
+		GivePet 100268
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化神盾 ##############
+block Gold >= 50000 && petlevel 100269 == 1
+	Window "\n\n 你要更换<强化神盾>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100269,1
+		GivePet 100269
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化猫熊 ##############
+block Gold >= 50000 && petlevel 100270 == 1
+	Window "\n\n 你要更换<强化猫熊>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100270,1
+		GivePet 100270
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化丸子炸弹 ##############
+block Gold >= 50000 && petlevel 100271 == 1
+	Window "\n\n 你要更换<强化丸子炸弹>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 100271,1
+		GivePet 100271
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############## 角龙 ##############
+block Gold >= 50000 && petlevel 101001 == 1
+	Window "\n\n 你要更换<角龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101001,1
+		GivePet 101001
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 亢龙 ##############
+block Gold >= 50000 && petlevel 101002 == 1
+	Window "\n\n 你要更换<亢龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101002,1
+		GivePet 101002
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 氐龙 ##############
+block Gold >= 50000 && petlevel 101003 == 1
+	Window "\n\n 你要更换<氐龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101003,1
+		GivePet 101003
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 箕龙 ##############
+block Gold >= 50000 && petlevel 101004 == 1
+	Window "\n\n 你要更换<箕龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101004,1
+		GivePet 101004
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 心龙 ##############
+block Gold >= 50000 && petlevel 101005 == 1
+	Window "\n\n 你要更换<心龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101005,1
+		GivePet 101005
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 天使之龙 ##############
+block Gold >= 50000 && petlevel 101006 == 1
+	Window "\n\n 你要更换<天使之龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101006,1
+		GivePet 101006
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 姑婆芋小妖 ##############
+block Gold >= 50000 && petlevel 101007 == 1
+	Window "\n\n 你要更换<姑婆芋小妖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101007,1
+		GivePet 101007
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 海芋小妖 ##############
+block Gold >= 50000 && petlevel 101008 == 1
+	Window "\n\n 你要更换<海芋小妖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101008,1
+		GivePet 101008
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 火鹤小妖 ##############
+block Gold >= 50000 && petlevel 101009 == 1
+	Window "\n\n 你要更换<火鹤小妖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101009,1
+		GivePet 101009
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 向日葵小妖 ##############
+block Gold >= 50000 && petlevel 101010 == 1
+	Window "\n\n 你要更换<向日葵小妖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101010,1
+		GivePet 101010
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 灵芝小妖 ##############
+block Gold >= 50000 && petlevel 101011 == 1
+	Window "\n\n 你要更换<灵芝小妖>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101011,1
+		GivePet 101011
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 灰兔 ##############
+block Gold >= 50000 && petlevel 101012 == 1
+	Window "\n\n 你要更换<灰兔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101012,1
+		GivePet 101012
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 黄兔 ##############
+block Gold >= 50000 && petlevel 101013 == 1
+	Window "\n\n 你要更换<黄兔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101013,1
+		GivePet 101013
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 红兔 ##############
+block Gold >= 50000 && petlevel 101014 == 1
+	Window "\n\n 你要更换<红兔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101014,1
+		GivePet 101014
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雪兔 ##############
+block Gold >= 50000 && petlevel 101015 == 1
+	Window "\n\n 你要更换<雪兔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101015,1
+		GivePet 101015
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 闹钟小叮 ##############
+block Gold >= 50000 && petlevel 101016 == 1
+	Window "\n\n 你要更换<闹钟小叮>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101016,1
+		GivePet 101016
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 闹钟小答 ##############
+block Gold >= 50000 && petlevel 101017 == 1
+	Window "\n\n 你要更换<闹钟小答>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101017,1
+		GivePet 101017
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 闹钟小滴 ##############
+block Gold >= 50000 && petlevel 101018 == 1
+	Window "\n\n 你要更换<闹钟小滴>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101018,1
+		GivePet 101018
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 闹钟小当 ##############
+block Gold >= 50000 && petlevel 101019 == 1
+	Window "\n\n 你要更换<闹钟小当>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101019,1
+		GivePet 101019
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 绅士兔 ##############
+block Gold >= 50000 && petlevel 101020 == 1
+	Window "\n\n 你要更换<绅士兔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101020,1
+		GivePet 101020
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 醒狮 ##############
+block Gold >= 50000 && petlevel 101021 == 1
+	Window "\n\n 你要更换<醒狮>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101021,1
+		GivePet 101021
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 烈焰之龙 ##############
+block Gold >= 50000 && petlevel 101022 == 1
+	Window "\n\n 你要更换<烈焰之龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101022,1
+		GivePet 101022
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 寒冰之龙 ##############
+block Gold >= 50000 && petlevel 101023 == 1
+	Window "\n\n 你要更换<寒冰之龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101023,1
+		GivePet 101023
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 疾风之龙 ##############
+block Gold >= 50000 && petlevel 101024 == 1
+	Window "\n\n 你要更换<疾风之龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101024,1
+		GivePet 101024
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 大地之龙 ##############
+block Gold >= 50000 && petlevel 101025 == 1
+	Window "\n\n 你要更换<大地之龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101025,1
+		GivePet 101025
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 神龙 ##############
+block Gold >= 50000 && petlevel 101026 == 1
+	Window "\n\n 你要更换<神龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101026,1
+		GivePet 101026
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 赤焰 ##############
+block Gold >= 50000 && petlevel 101027 == 1
+	Window "\n\n 你要更换<赤焰>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101027,1
+		GivePet 101027
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 苍焰 ##############
+block Gold >= 50000 && petlevel 101028 == 1
+	Window "\n\n 你要更换<苍焰>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101028,1
+		GivePet 101028
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 碧焰 ##############
+block Gold >= 50000 && petlevel 101029 == 1
+	Window "\n\n 你要更换<碧焰>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101029,1
+		GivePet 101029
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 紫焰 ##############
+block Gold >= 50000 && petlevel 101030 == 1
+	Window "\n\n 你要更换<紫焰>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101030,1
+		GivePet 101030
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 青焰 ##############
+block Gold >= 50000 && petlevel 101031 == 1
+	Window "\n\n 你要更换<青焰>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101031,1
+		GivePet 101031
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 番茄公主 ##############
+block Gold >= 50000 && petlevel 101032 == 1
+	Window "\n\n 你要更换<番茄公主>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101032,1
+		GivePet 101032
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 水果公主 ##############
+block Gold >= 50000 && petlevel 101033 == 1
+	Window "\n\n 你要更换<水果公主>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101033,1
+		GivePet 101033
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 南瓜公主 ##############
+block Gold >= 50000 && petlevel 101034 == 1
+	Window "\n\n 你要更换<南瓜公主>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101034,1
+		GivePet 101034
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 橘子公主 ##############
+block Gold >= 50000 && petlevel 101035 == 1
+	Window "\n\n 你要更换<橘子公主>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101035,1
+		GivePet 101035
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 哈密瓜公主 ##############
+block Gold >= 50000 && petlevel 101036 == 1
+	Window "\n\n 你要更换<哈密瓜公主>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101036,1
+		GivePet 101036
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 番茄咩 ##############
+block Gold >= 50000 && petlevel 101041 == 1
+	Window "\n\n 你要更换<番茄咩>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101041,1
+		GivePet 101041
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 圣诞精灵 ##############
+block Gold >= 50000 && petlevel 101042 == 1
+	Window "\n\n 你要更换<圣诞精灵>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101042,1
+		GivePet 101042
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 围巾兔 ##############
+block Gold >= 50000 && petlevel 101043 == 1
+	Window "\n\n 你要更换<围巾兔>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101043,1
+		GivePet 101043
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 幼生独角兽 ##############
+block Gold >= 50000 && petlevel 101044 == 1
+	Window "\n\n 你要更换<幼生独角兽>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101044,1
+		GivePet 101044
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 幼生火焰独角兽 ##############
+block Gold >= 50000 && petlevel 101045 == 1
+	Window "\n\n 你要更换<幼生火焰独角兽>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101045,1
+		GivePet 101045
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 招财猫 ##############
+block Gold >= 50000 && petlevel 101046 == 1
+	Window "\n\n 你要更换<招财猫>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101046,1
+		GivePet 101046
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 拳击企鹅 ##############
+block Gold >= 50000 && petlevel 101047 == 1
+	Window "\n\n 你要更换<拳击企鹅>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101047,1
+		GivePet 101047
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 牧羊神使化身 ##############
+block Gold >= 50000 && petlevel 101048 == 1
+	Window "\n\n 你要更换<牧羊神使化身>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101048,1
+		GivePet 101048
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 金牛神使化身 ##############
+block Gold >= 50000 && petlevel 101049 == 1
+	Window "\n\n 你要更换<金牛神使化身>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101049,1
+		GivePet 101049
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 幼生神龙 ##############
+block Gold >= 50000 && petlevel 101050 == 1
+	Window "\n\n 你要更换<幼生神龙>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101050,1
+		GivePet 101050
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 恶魔吓人箱 ##############
+block Gold >= 50000 && petlevel 101051 == 1
+	Window "\n\n 你要更换<恶魔吓人箱>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101051,1
+		GivePet 101051
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 九尾灵狐 ##############
+block Gold >= 50000 && petlevel 101052 == 1
+	Window "\n\n 你要更换<九尾灵狐>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101052,1
+		GivePet 101052
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 魔动铠甲 ##############
+block Gold >= 50000 && petlevel 101053 == 1
+	Window "\n\n 你要更换<魔动铠甲>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101053,1
+		GivePet 101053
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 带刀侍卫 ##############
+block Gold >= 50000 && petlevel 101054 == 1
+	Window "\n\n 你要更换<带刀侍卫>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101054,1
+		GivePet 101054
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 巨螯螃蟹 ##############
+block Gold >= 50000 && petlevel 101055 == 1
+	Window "\n\n 你要更换<巨螯螃蟹>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101055,1
+		GivePet 101055
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 蓝色饿狼 ##############
+block Gold >= 50000 && petlevel 101056 == 1
+	Window "\n\n 你要更换<蓝色饿狼>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 101056,1
+		GivePet 101056
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+############## 飞火龙皇 ##############
+block Gold >= 50000 && petlevel 200021 == 1
+	Window "\n\n 你要更换<飞火龙皇>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 200021,1
+		GivePet 200021
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 地海豚 ##############
+block Gold >= 50000 && petlevel 200030 == 1
+	Window "\n\n 你要更换<地海豚>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 200030,1
+		GivePet 200030
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 风鬼娃 ##############
+block Gold >= 50000 && petlevel 200031 == 1
+	Window "\n\n 你要更换<风鬼娃>吗?\n 更换需扣除你5w魔币.",yes,no
+	Window_yes Gold >= 50000
+		Addgold -50000
+		KillPetl 200031,1
+		GivePet 200031
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+
+
+
+
+
+
+
+
+##############15W钱不够的时候##############
+block Gold < 150000
+	EndWindow "\n\n  你身上的钱不够了...!"
+
+
+
+############## 容嬷嬷 ##############
+block Gold >= 150000 && petlevel 101037 == 1
+	Window "\n\n 你要更换<容嬷嬷>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101037,1
+		GivePet 101037
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 小桂子 ##############
+block Gold >= 150000 && petlevel 101038 == 1
+	Window "\n\n 你要更换<小桂子>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101038,1
+		GivePet 101038
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 李莲英 ##############
+block Gold >= 150000 && petlevel 101039 == 1
+	Window "\n\n 你要更换<李莲英>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101039,1
+		GivePet 101039
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 李翠花 ##############
+block Gold >= 150000 && petlevel 101040 == 1
+	Window "\n\n 你要更换<李翠花>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101040,1
+		GivePet 101040
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+############## 鸟人酋长 ##############
+block Gold >= 150000 && petlevel 101057 == 1
+	Window "\n\n 你要更换<鸟人酋长>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101057,1
+		GivePet 101057
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 大祭司 ##############
+block Gold >= 150000 && petlevel 101058 == 1
+	Window "\n\n 你要更换<大祭司>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101058,1
+		GivePet 101058
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化天使之龙 ##############
+block Gold >= 150000 && petlevel 101083 == 1
+	Window "\n\n 你要更换<强化天使之龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101083,1
+		GivePet 101083
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 强化九尾灵狐 ##############
+block Gold >= 150000 && petlevel 101084 == 1
+	Window "\n\n 你要更换<强化九尾灵狐>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101084,1
+		GivePet 101084
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 雷帝斯洛 ##############
+block Gold >= 150000 && petlevel 101085 == 1
+	Window "\n\n 你要更换<雷帝斯洛>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101085,1
+		GivePet 101085
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 布尔摩 ##############
+block Gold >= 150000 && petlevel 101091 == 1
+	Window "\n\n 你要更换<布尔摩>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101091,1
+		GivePet 101091
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 史卡鲁 ##############
+block Gold >= 150000 && petlevel 101092 == 1
+	Window "\n\n 你要更换<史卡鲁>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101092,1
+		GivePet 101092
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 罗多克雷 ##############
+block Gold >= 150000 && petlevel 101093 == 1
+	Window "\n\n 你要更换<罗多克雷>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101093,1
+		GivePet 101093
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 乌力王 ##############
+block Gold >= 150000 && petlevel 101094 == 1
+	Window "\n\n 你要更换<乌力王>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101094,1
+		GivePet 101094
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 卡克亚斯 ##############
+block Gold >= 150000 && petlevel 101095 == 1
+	Window "\n\n 你要更换<卡克亚斯>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101095,1
+		GivePet 101095
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 邦恩多斯 ##############
+block Gold >= 150000 && petlevel 101096 == 1
+	Window "\n\n 你要更换<邦恩多斯>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101096,1
+		GivePet 101096
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 斯天多斯 ##############
+block Gold >= 150000 && petlevel 101097 == 1
+	Window "\n\n 你要更换<斯天多斯>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101097,1
+		GivePet 101097
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 布洛多斯 ##############
+block Gold >= 150000 && petlevel 101098 == 1
+	Window "\n\n 你要更换<布洛多斯>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101098,1
+		GivePet 101098
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 布拉奇多斯 ##############
+block Gold >= 150000 && petlevel 101099 == 1
+	Window "\n\n 你要更换<布拉奇多斯>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101099,1
+		GivePet 101099
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 布林帖斯 ##############
+block Gold >= 150000 && petlevel 101100 == 1
+	Window "\n\n 你要更换<布林帖斯>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101100,1
+		GivePet 101100
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 黑乌力王 ##############
+block Gold >= 150000 && petlevel 101101 == 1
+	Window "\n\n 你要更换<黑乌力王>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101101,1
+		GivePet 101101
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 黑暗菲莉雅 ##############
+block Gold >= 150000 && petlevel 101102 == 1
+	Window "\n\n 你要更换<黑暗菲莉雅>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101102,1
+		GivePet 101102
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 光明菲莉雅 ##############
+block Gold >= 150000 && petlevel 101103 == 1
+	Window "\n\n 你要更换<光明菲莉雅>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101103,1
+		GivePet 101103
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 大地巨龙 ##############
+block Gold >= 150000 && petlevel 101104 == 1
+	Window "\n\n 你要更换<大地巨龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101104,1
+		GivePet 101104
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 寒冰巨龙 ##############
+block Gold >= 150000 && petlevel 101105 == 1
+	Window "\n\n 你要更换<寒冰巨龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101105,1
+		GivePet 101105
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 火焰巨龙 ##############
+block Gold >= 150000 && petlevel 101106 == 1
+	Window "\n\n 你要更换<火焰巨龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101106,1
+		GivePet 101106
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 黄金巨龙 ##############
+block Gold >= 150000 && petlevel 101107 == 1
+	Window "\n\n 你要更换<黄金巨龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101107,1
+		GivePet 101107
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 白银巨龙 ##############
+block Gold >= 150000 && petlevel 101108 == 1
+	Window "\n\n 你要更换<白银巨龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101108,1
+		GivePet 101108
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 暗黑巨龙 ##############
+block Gold >= 150000 && petlevel 101109 == 1
+	Window "\n\n 你要更换<暗黑巨龙>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101109,1
+		GivePet 101109
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 树精之王 ##############
+block Gold >= 150000 && petlevel 101110 == 1
+	Window "\n\n 你要更换<树精之王>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101110,1
+		GivePet 101110
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+############## 树精之王 ##############
+block Gold >= 150000 && petlevel 101111 == 1
+	Window "\n\n 你要更换<树精之王>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101111,1
+		GivePet 101111
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 依代 ##############
+block Gold >= 150000 && petlevel 101112 == 1
+	Window "\n\n 你要更换<依代>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101112,1
+		GivePet 101112
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 里雍 ##############
+block Gold >= 150000 && petlevel 101113 == 1
+	Window "\n\n 你要更换<里雍>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101113,1
+		GivePet 101113
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 终究进化雪灵 ##############
+block Gold >= 150000 && petlevel 101114 == 1
+	Window "\n\n 你要更换<终究进化雪灵>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101114,1
+		GivePet 101114
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 终究进化雪灵 ##############
+block Gold >= 150000 && petlevel 101115 == 1
+	Window "\n\n 你要更换<终究进化雪灵>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101115,1
+		GivePet 101115
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 终究进化雪灵 ##############
+block Gold >= 150000 && petlevel 101116 == 1
+	Window "\n\n 你要更换<终究进化雪灵>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101116,1
+		GivePet 101116
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+############## 终究进化雪灵 ##############
+block Gold >= 150000 && petlevel 101117 == 1
+	Window "\n\n 你要更换<终究进化雪灵>吗?\n 更换需扣除你15w魔币.",yes,no
+	Window_yes Gold >= 150000
+		Addgold -150000
+		KillPetl 101117,1
+		GivePet 101117
+	Window_no
+		EndWindow "\n\n 欢迎下次光临!"
+
+
+
+############## 没可洗宠物的时候 ##############
+block
+	EndWindow "\n\n 我是洗宠使者，可以帮你洗1级宠档次.\n 只限150档以上宠物\n 需要洗宠的话请带好1级宠和足够魔币\n 洗宠5w每次"

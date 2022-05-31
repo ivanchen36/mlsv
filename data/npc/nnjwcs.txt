@@ -1,0 +1,58 @@
+block item 598271 >= 1 && Gold >= 200000
+window"\n\n\n@c 您要追杀九尾妖狐分身吗？",yes,no	
+window_no	
+window_yes	
+window"\n\n\n@c 身份验证完毕，您是尊贵的青铜会员，可以带其他玩家进入。",ok	
+window_ok
+	addgold -200000	
+	Warp 0,25002,51,59
+	
+block item 598272 >= 1 && Gold >= 200000	
+window"\n\n\n@c 您要追杀九尾妖狐分身吗？",yes,no	
+window_no	
+window_yes	
+window"\n\n\n@c 身份验证完毕，您是尊贵的黄金会员，可以带其他玩家进入。",ok	
+window_ok
+	addgold -200000		
+	Warp 0,25002,51,59
+	
+block item 598273 >= 1 && Gold >= 200000	
+window"\n\n\n@c 您要追杀九尾妖狐分身吗？",yes,no	
+window_no	
+window_yes	
+window"\n\n\n@c 身份验证完毕，您是尊贵的白金会员，可以带其他玩家进入。",ok	
+window_ok
+	addgold -200000		
+	Warp 0,25002,51,59
+
+block item 598274 >= 1 && Gold >= 200000	
+window"\n\n\n@c 您要追杀九尾妖狐分身吗？",yes,no	
+window_no	
+window_yes	
+window"\n\n\n@c 身份验证完毕，您是尊贵的钻石会员，可以带其他玩家进入。",ok	
+window_ok
+	addgold -200000		
+	Warp 0,25002,51,59	
+
+block item 598275 >= 1 && Gold >= 200000	
+window"\n\n\n@c 您要追杀九尾妖狐分身吗？",yes,no	
+window_no	
+window_yes	
+window"\n\n\n@c 身份验证完毕，您是尊贵的金尊会员，可以带其他玩家进入。",ok	
+window_ok
+	addgold -200000		
+	Warp 0,25002,51,59
+
+block item 598276 >= 1 && Gold >= 200000	
+window"\n\n\n@c 您要追杀九尾妖狐分身吗？",yes,no	
+window_no	
+window_yes	
+window"\n\n\n@c 身份验证完毕，您是尊贵的至尊会员，可以带其他玩家进入。",ok	
+window_ok
+	addgold -200000		
+	Warp 0,25002,51,59
+window_no	
+block 
+	Window "\n\n\n\n@c@n您还没够资格进入。\n可以找土豪玩家带你进去。",ok
+	window_ok
+

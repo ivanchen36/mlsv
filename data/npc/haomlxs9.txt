@@ -1,0 +1,9 @@
+block Item 39735 >=1
+	Window "\n\n\n@c把我兄弟杀了?你蛮牛B的嘛?来我们比试一下?!",YES,NO
+	Window_NO
+	EndWindow "\n\n\n@c不敢?真是胆小鬼哦.",OK
+	Window_YES
+	KillItem 39735,1
+	encount 2|warp 0,1000,239,79||0|||||0|608014|||||||||
+block
+Window "\n\n  你没资格挑战我!走开啦...",ok

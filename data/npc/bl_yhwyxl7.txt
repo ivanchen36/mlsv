@@ -1,0 +1,156 @@
+block	StrCmpChat == 80000029 || StrCmpChat == 80000055
+	window 12604,yes,no
+	window_yes item 811221>=1 && itemdurper 811221<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811221,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000030 || StrCmpChat == 80000056
+	window 12604,yes,no
+	window_yes item 811222>=1 && itemdurper 811222<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811222,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000031 || StrCmpChat == 80000057
+	window 12604,yes,no
+	window_yes item 811223>=1 && itemdurper 811223<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811223,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000032 || StrCmpChat == 80000058
+	window 12604,yes,no
+	window_yes item 811224>=1 && itemdurper 811224<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811224,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000033 || StrCmpChat == 80000059
+	window 12604,yes,no
+	window_yes item 811225>=1 && itemdurper 811225<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811225,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000034 || StrCmpChat == 80000060
+	window 12604,yes,no
+	window_yes item 811226>=1 && itemdurper 811226<1000 && item 50100>=25
+	killitem 50100,26
+	setdur 811226,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000035 || StrCmpChat == 80000061
+	window 12604,yes,no
+	window_yes item 811227>=1 && itemdurper 811227<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811227,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000036 || StrCmpChat == 80000062
+	window 12604,yes,no
+	window_yes item 811228>=1 && itemdurper 811228<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811228,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000037 || StrCmpChat == 80000063
+	window 12604,yes,no
+	window_yes item 811229>=1 && itemdurper 811229<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811229,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000038 || StrCmpChat == 80000064
+	window 12604,yes,no
+	window_yes item 811230>=1 && itemdurper 811230<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811230,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000039 || StrCmpChat == 80000065
+	window 12604,yes,no
+	window_yes item 811231>=1 && itemdurper 811231<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811231,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000040 || StrCmpChat == 80000066
+	window 12604,yes,no
+	window_yes item 811232>=1 && itemdurper 811232<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811232,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000041 || StrCmpChat == 80000067
+	window 12604,yes,no
+	window_yes item 811233>=1 && itemdurper 811233<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811233,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000042 || StrCmpChat == 80000068
+	window 12604,yes,no
+	window_yes item 811234>=1 && itemdurper 811234<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811234,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000043 || StrCmpChat == 80000069
+	window 12604,yes,no
+	window_yes item 811235>=1 && itemdurper 811235<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811235,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000044 || StrCmpChat == 80000070
+	window 12604,yes,no
+	window_yes item 811236>=1 && itemdurper 811236<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811236,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000045 || StrCmpChat == 80000071
+	window 12604,yes,no
+	window_yes item 811237>=1 && itemdurper 811237<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811237,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+
+block	StrCmpChat == 80000046 || StrCmpChat == 80000072
+	window 12604,yes,no
+	window_yes item 811238>=1 && itemdurper 811238<1000 && item 50100>=25
+	killitem 50100,25
+	setdur 811238,+1000
+	window_yes
+	EndWindow "\n\n\n\n　　　　　　你的条件不足,还需要继续努力。"
+#Npc对话框
+#block	level >= 1
+#	window 80000235,OK
+#	window_OK
+
+#Npc对话框
+block	item 50100 >= 25
+	window 80000235,OK
+	window_OK
+#Npc对话框
+block	item 50100 < 25
+	window "\n\n\n@c@n,快去泡点攒积分吧,努力吧少年！！！!",OK
+	window_OK

@@ -1,0 +1,4 @@
+block
+	Window "\n\n\n@c你想传送到风洞吗？",OK
+	Window_OK
+		warp 0,59670,176,138

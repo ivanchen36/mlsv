@@ -1,0 +1,12 @@
+block Item 77028 >= 5  &&  item 652104>= 5  &&  item 77013>= 1
+	window "\n\n\n   身上的〖黄金之盾牌〗碎片全部聚在一起,引发了共鸣,渐渐的融合在一起...",ok
+	window_ok
+        KillItem 77028,5
+        KillItem 77013,1
+        KillItem 652104,5
+        giveitem 77023,1
+
+
+block Item 77028 >= 1
+	window "\n\n\n   〖@n〗您的〖黄金之盾牌〗碎片还不够哦,收集5个之后,准备5个金币和[宠装]白银之盾牌,双点即可获得此[宠装]黄金之盾牌",ok
+	window_ok

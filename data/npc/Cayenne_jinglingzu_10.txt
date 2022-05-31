@@ -1,0 +1,6 @@
+block
+window "\n\n是否要使用圣光之符?",yes,no
+window_no
+window_yes
+leaveGroup
+warp 0,1947,15,27

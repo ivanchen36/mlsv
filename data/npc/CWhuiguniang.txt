@@ -1,0 +1,24 @@
+block Item 521 >= 1
+	Window "\n\n	我想要恶魔果实和10个金币,130级冰翼麒麟+130级精灵女神,如果你有,可以带来和我换白娘子。",Next
+	Window "\n\n	点击 <是> 使用恶魔果实和10个金币换取1只宠物。选择<是>后百分百获得白娘子！兑换的时候一定要把宠物装备取下来",yes,no
+		Window_NO 
+			EndWindow "\n\n	兑换失败。",OK
+		Window_YES 
+			Window "\n\n	点击 <是> 选择<百分百获白娘子>，点击 <否> 选择就是您还没有想好换什么>。宠物装备一定要取下来",yes,no
+				Window_YES itemspace < 1
+					endwindow "\n\n	你的包包好像满了...先整理一下吧！"
+				Window_NO itemspace < 1
+					endwindow "\n\n	你的包包好像满了...先整理一下吧！"
+				Window_YES itemspace >= 1 &&  Item 521 >= 1 && Item 652104 >= 10 && petlevel 101215 >=130 && petlevel 101205 >=130
+					KillItem 521,1 
+					KillItem 652104,10
+                                        KillPetl 101215
+                                        KillPetl 101205
+					GiveItem 110011
+					EndWindow "\n\n	兑换成功。",OK
+				Window_NO  
+                                EndWindow "\n\n	想好再来。",OK
+
+block 
+	Window "\n\n	我想要恶魔果实和10个金币,130级冰翼麒麟+130级精灵女神,如果你有,可以带来和我换白娘子！",Next
+	EndWindow "\n\n	不过我知道你现在没有,有实力就去做精灵的震怒吧。",OK

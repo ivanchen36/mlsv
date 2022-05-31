@@ -1,0 +1,9 @@
+block
+window "\n\n要吃掉雪饼吗?",yes,no
+window_yes petspace == 0
+endwindow "\n\n宠物栏满啦"
+window_yes
+killItem 47278,1
+givepet 330132
+window_no
+endwindow "\n\n那改天再吃吧."

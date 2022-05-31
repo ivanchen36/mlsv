@@ -1,0 +1,12 @@
+block Item 77029 >= 5  &&  item 652104>= 5 &&  item 77014>= 1
+	window "\n\n\n   身上的〖黄金之铠甲〗碎片全部聚在一起,引发了共鸣,渐渐的融合在一起...",ok
+	window_ok
+        KillItem 77029,5
+        KillItem 77014,1
+        KillItem 652104,5
+        giveitem 77024,1
+
+
+block Item 77029>= 1
+	window "\n\n\n   〖@n〗您的〖黄金之铠甲〗碎片还不够哦,收集5个之后,准备5个金币和[宠装]白银之铠甲,双点即可获得此[宠装]黄金之铠甲",ok
+	window_ok

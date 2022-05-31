@@ -1,0 +1,11 @@
+block
+window "\n\n随时欢迎你再来这里探险哦...",yes,no
+window_yes itemspace < 1
+endwindow "你的背包满啦"
+window_yes
+GiveLeak1Item 47273
+LeaveGroup
+warp 0,1530,15,6
+window_no
+LeaveGroup
+warp 0,1661,12,27
