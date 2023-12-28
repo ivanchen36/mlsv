@@ -38,7 +38,7 @@ nodelay=0
 ################################ CharSave interval
 CharSaveinterval=3600 
 ################################ Max fd num
-fdnum=10240
+fdnum=800
 ################################ pet num, = fdnum * (5+10+1)*2)
 petnum=12000
 ################################ other char num 

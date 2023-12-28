@@ -4,7 +4,7 @@
                                             ---------------bbs.ml30.com发布最新----------------------
 
 
---20210618整理更新,内容在最下面 商业版咨询购买 功能界面定制联系phoenix QQ715837
+--20220913整理更新,内容在最下面 商业版咨询购买 功能界面定制联系phoenix QQ715837
 --本次更新感谢lua写手 无语 (QQ158471323) 提供大量lua功能脚本
 useModule("SG_ga");--默认支持库
 useModule("OnlinePlayer");--强制踢所有玩家下线避免出现卡号,命令[allout2]
@@ -166,3 +166,4 @@ useModule("zhaxiang");--全队便捷操作
 useModule("PetLoyalty");--身上携带道具宠物满忠诚(可能触发nono,依然会使用技能)
 useModule("reconnection");--断线战斗重连道具
 useModule("SG_PetDelSkill");--宠物技能删除
+useModule("animesps");--包含全部授权图档 免费版体验 参考连接:http://bbs.ml30.com/forum.php?mod=viewthread&tid=262

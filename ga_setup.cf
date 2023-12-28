@@ -29,7 +29,7 @@ custom_exp_file=data/explist.txt
 
 ########EXP Settings#经验设置
 ########Exp rate 战斗经验倍率
-exprate=20
+exprate=4
 ########battle skill exp rate 战斗技能经验倍率
 battleskillexprate=1
 ########product skill exp rate 生产采集技能经验倍率
@@ -139,6 +139,6 @@ char_maxpoolgoldhave=99999999
 ################### 安全相關
 
 # 乱射伤害算法 0：45%->30%->15%->5%；1：60%->45%->25%->8%
-randomshot_mode=1
+randomshot_mode=0
 
 skipversioncheck=1
