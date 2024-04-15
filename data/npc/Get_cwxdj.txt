@@ -1,0 +1,10 @@
+block mypet 0,9 == 1
+window"\n\n\n\n@c 要给第一栏宠物洗档吗?",yes,no
+window_no
+window_yes
+killitem 72141,1
+luac peth
+
+block
+endwindow"\n\n\n\n@c 请把需要洗档的宠物放在第一栏!\n\n注意:只有1级宠物才可以洗档!"
+

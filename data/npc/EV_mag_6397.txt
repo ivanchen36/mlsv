@@ -1,0 +1,13 @@
+#
+#ĞşÆ½Ö­¹ÏÓ×¼°éŞ?
+#
+
+##############  ##############
+block
+#\n\n©xÍÑ»¥ÜÅÖĞ±åÎtµ¤¾®£ß£ß
+	Window 14783,YES,NO
+	Window_YES
+	LeaveGroup
+	Warp 0,4332,10,5
+	Window_NO
+

@@ -1,0 +1,27 @@
+#庄趸弘伉白巧件忯凯弁巨旦玄“乒乒乒
+#厘妐侬﹜凝妐侬及嗉帎反卅中
+#'_'反?心?壬仄
+
+###########﹛舅罹屯日木詨﹛##############
+block endevent79 == 1
+
+	EndWindow 206869,OK
+
+###########﹛白件?苇詨﹛##############
+block nowevent79 == 1
+
+	Window 206867,NEXT
+	Window 206868,OK
+	Window_OK
+	nowevent79 = 0
+	endevent79 = 1
+
+###########﹛白件肣曰﹛##############
+block
+
+	EndWindow 206866,OK
+
+
+
+
+

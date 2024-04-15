@@ -1,0 +1,30 @@
+# 本文件为GMSV Avaritia 反作弊系统设置文件
+# http://www.cgdev.me/
+# 如果需要关闭某个设置，将设置改为0既可
+# 
+##################
+#反高速走路
+anti_speedwalk=1
+#反高速生产
+anti_producetimecheat=1
+#反高速采集
+anti_opecatetimecheat=1
+#反瞬间移动（切图）
+anti_warpwalk=1
+#反遇敌作弊（开启后gmsv将接管所有遇敌操作）
+anti_encountcheat=1
+#反boss战跳舞
+anti_bossdance=1
+#表示当一个角色行走超过指定步数后开始计算平均速度
+anti_speedwalk_check_cnt=10
+#表示一个行走的基准值,这个基准值是和行走速度相关的
+anti_speedwalk_factor=25.0
+#表示容忍值,也就是说用户的真实行走速度和基准值的偏差的容忍值,目前设置的是5%,也就是说速度高于5%的就会被当做作弊
+anti_speedwalk_tolerance=0.15
+#反高速战斗
+anti_speedbattle_check=0
+anti_speedbattle_factor=1.8
+
+
+#以下不要自行改动
+anti_battletimecheat=0

@@ -1,0 +1,12 @@
+==============GA framework 3.0==============
+GA框架3.0完全兼容老脚本
+##迁移方法##
+1，将您的Module文件夹下所有文件复制到本框架的Module中
+2，将您的Config.lua文件复制到本文件中并覆盖
+3，启动GA的gmsv尝试看看有无错误
+
+##新特征##
+http://bbs.ml30.com/forum.php?mod=viewthread&tid=46&extra=page%3D1
+
+##注意##
+存在未知BUG等潜在风险，在经过测试之前，请不要用于正式环境

@@ -1,0 +1,62 @@
+#
+# nrac 澀爛白央奶伙
+#
+# 1999 Jun 16 by ringo
+
+# 扔□田□由旦伐□玉
+pass aho.java
+
+# 禾□玄�砦璊怹葸�
+port 8005
+
+# 犯奴伊弁玄伉及澀爛
+logdir log
+chardir char
+lockdir lock
+wklogdir wklog
+dbdir db
+maildir mail
+infodir info
+keydir key
+
+ExpireDays 90
+
+# 伕弘及伕□氾□玄正奶立件弘﹝隙爛反卍﹝
+# 簽賬卅醒儂卞允月午心支允中﹝
+# 604800 卞允月午1蔥棉﹝
+# 2678400 卞允月午1井仆勾﹝
+rotate_interval 600000
+
+#丟□伙及ま芢反中勾引匹忡繡允月井
+# 卍匹踏仁   ㄠㄤゥ棉  3600*24*15=1296000
+mail_deletetime 604800
+
+# Joypark Begin - 2005.05.26 - Anit --------------------------------
+# 設定存放家族命令訊息的最大數(預設：3000)
+max_command_que_size 1500
+# 設定家族命令保留的時間(單位時間：秒；預設：60)
+command_hold_time 60
+# Joypark End ------------------------------------------------------
+
+# Joypark Begin - 2005.08.08 - Anit --------------------------------
+# 設定記憶體上DB資料儲存到硬碟的的間隔時間
+flush_db_interval_time 600
+# Joypark End ------------------------------------------------------
+
+# Joypark Begin - 2005.08.30 - Anit --------------------------------
+# 將原本使用檔案形式的db_addressbook改為由資料庫建立資料後載入記憶體
+# 資料庫的IP位址
+db_host_name 127.0.0.1
+# 資料庫的使用者名稱
+db_user_name root
+# 資料庫的使用者密碼
+db_user_password 123456
+# 所要使用的資料庫名稱
+db_database_name youxi
+#db_database_name rogue
+# DB init size 緩衝大小設定值(預設50000)
+# 系統會自動計算在DB目錄下所需載入各項資料大小的總和後配置剛好的記憶體存放資料，
+# 但因為資料上的可能新增所以必須預留緩衝區。
+# 設定為比例方式，追加預留的大小為總大小的10%(預設)，也就是所有資料載入到記憶體後仍會有10%的空間可以使用。
+db_data_extra_bufsize_rate 10
+# Joypark End ------------------------------------------------------

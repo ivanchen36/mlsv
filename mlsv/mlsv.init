@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# saac          Start/Stop the stone age account server
+#
+# 1999 Jun 22 created by ringo@titan.co.jp ( Kengo Nakajima )
+#
+#
+if [ $1 = stop ]
+then
+        tar -zcvf ~/mlsv/db.tar.gz ~/mlsv/db
+else
+        echo not backup mlsv db by Tim Yeh
+fi
+
+case "$1" in
+
+  start)
+	echo "Starting mlsv server with option $2"
+
+	# start up worker processes
+
+	echo -n sleeping...
+	sleep 2	
+	echo resumed.
+	/bin/tcsh mlwhile.csh &
+	echo
+	;;
+  stop)
+	echo "Stopping mlsv server"
+	# while を止める。
+	pid=`perl findpid.perl mlwhile.csh`
+	echo "killing process $pid"
+	kill -TERM "$pid"
+	# メールサーバーを止める。
+	pid=`perl findpid.perl mlsv`
+	echo "killing process $pid"
+	kill -TERM "$pid"
+	;;
+  *)
+	echo "Usage: mlsv.init {start|stop}"
+	exit 1
+esac
+
+exit 0

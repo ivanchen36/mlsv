@@ -1,0 +1,13 @@
+#互日仁凶
+
+#布仿旦及斥亦永平 引凶反 踹及?匀凶斥亦永平毛当匀化中月
+block Item 16432 >= 1 || Item 16433 >= 1
+	EndWindow 23244,OK
+#
+block
+	Window 23147,Yes,No
+		Window_No
+		Window_Yes ItemSpace == 0
+			EndWindow 10000,OK
+		Window_Yes
+			GiveItem 16432,1

@@ -1,0 +1,8 @@
+#! /bin/sh
+rm -f .shutdown
+rm -f rebootlog
+#. ./stop.sh
+nohup ./run.sh > /dev/null 2>&1 &
+echo "【提示】：引擎已启动!"
+
+

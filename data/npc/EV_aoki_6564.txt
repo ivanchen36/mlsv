@@ -1,0 +1,29 @@
+#伄及母件斥亦件凶中引勾譆五桦
+#厘妐侬﹜凝妐侬及嗉帎反卅中
+#'_'反?心?壬仄
+#block StrCmpChat == R
+
+#骚橘
+#凶中引勾毛当匀化中月桦宁
+block StrCmpChat == R && Item 18573 == 1
+###########################################
+#\n\n妦五绍毛仄凶詨互丐月
+	EndWindow 14168
+
+#绍及勾中凶凶中引勾毛当匀化中月桦宁
+block StrCmpChat == R && Item 18574 ==1
+###########################################
+#\n\n妦五绍毛仄凶詨互丐月
+	EndWindow 14168
+
+
+block StrCmpChat == R
+############################################
+#\n\n妦五绍毛仄凶詨互丐月﹝佽卞反引分银尹公丹卅凶中引勾互譆中化丐月﹝凶中引勾毛澎卞潸曰引允井〝
+	Window 14161,YES,NO
+	Window_YES ItemSpace == 0
+	EndWindow 10000
+	Window_YES ItemSpace >= 1
+	Giveitem 18573
+
+	Window_NO

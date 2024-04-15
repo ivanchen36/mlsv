@@ -1,0 +1,118 @@
+# 本文件为GMSV Avaritia 扩展设置文件
+# http://www.cgdev.me/
+
+
+#写1为默认官方伤害算法，写0为高精度伤害计算(变态服写0)
+damage_formula_retro=0
+
+#敏捷上限(不建议修改)
+dex_limit=251
+#伤害上限(不建议修改)
+dmg_limit=251
+
+#默认0, 如果为1 宠物不会在战斗中因为忠诚而逃跑，但依旧会触发其他NONO状态
+disable_pet_leave = 0
+
+################## Char 相关设置
+#限制mac多开
+max_connect_per_pc=9999
+
+###关闭贩卖验证码
+npc_recaptcha=0
+
+####丢低消失物品是否再次提示
+drop_notice=0
+
+########最大等级设置
+char_max_level=120
+
+########自定义经验列表（如果不开启请设置为0，不开启情况下升级经验按照官方设置）
+custom_exp_list=0
+
+########自定义经验列表文件（定义每等级的升级所需经验，必须在custom_exp_list为1时才生效）
+########如果自定义经验列表不足以支持char_max_level所需的经验，那么char_max_level就会强制符合经验列表的等级设置
+custom_exp_file=data/explist.txt
+
+########EXP Settings#经验设置
+########Exp rate 战斗经验倍率
+exprate=1
+########battle skill exp rate 战斗技能经验倍率
+battleskillexprate=10
+########product skill exp rate 生产采集技能经验倍率
+productskillexprate=2
+
+########最大卡时上限（小时）
+char_fever_max=6
+
+########每天增加的卡时（小时）
+char_fever_one_day=1
+
+########人物升级增加的可分配点数
+char_level_up_point=4
+
+########宠物升级增加的可分配点数
+pet_level_up_point=1
+
+########可以免费使用护士加血的等级
+char_free_healer_level=10
+
+########10级调教是否100%满忠诚（0不允许，1允许）
+pet_train_max=1
+
+########是否开放原地登陆（0不开放，1开放）
+char_login_point_fix=0
+
+########禁止宠物出售的等级
+pet_allow_sale_level=160
+
+########初始玩家的技能栏数量(不能超过15)
+char_default_skillslot=10
+
+########每日声望获得上限（声望锁）
+char_fame_one_day=1800
+
+########角色声望最大值（ga开放了11级生产，所以声望最大值有增加，韩服默认最大值为160999）
+char_fame_max=1000001
+
+
+########是否恢复2.0版乱射威力,0为不,1恢复
+randomshot_mode=0
+
+
+########是否允许删除人物（0不允许，1允许）
+allow_delchar=0
+
+
+################## 不掉耐久地图ID设置
+dual_map_01=1401
+dual_map_02=33221
+dual_map_03=43131
+dual_map_04=59545
+dual_map_05=777
+
+
+
+################## 摆摊相关设置
+#是否开放摆摊（0关闭，1开启）
+stall_flg=1
+
+#本线支持最大摆摊数量
+stall_num=100
+
+#摆摊交易税，0为免税
+stall_tax=0.01
+
+#########银行魔币上限 最大1000万
+char_maxgoldhave=1000000
+char_maxpoolgoldhave=1000000
+
+################### 安全相關 (不懂不要写)
+#設置玩家密碼加密
+pdw_enable=0
+#設置玩家密碼安全字段(8字節)
+pdw_safekey=cGdeV
+
+skipversioncheck=1
+
+################### 台服GA
+hellofromclient=[欢迎来到魔力,www.xx.com]

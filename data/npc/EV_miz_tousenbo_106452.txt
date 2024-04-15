@@ -1,0 +1,33 @@
+#缰票豢昈及午丹六氏廿平乓仿“失玄斥丞
+#厘妐侬﹜凝妐侬及嗉帎反卅中
+#'_'反?心?壬仄
+
+###########﹛﹛##############
+block
+
+	setaction 0
+	Window 206741,YES,NO
+	Window_YES
+	setaction 16
+	EndWindow 206746,OK
+	Window_NO
+	Window 206742,OK
+	Window_OK
+	setaction 11
+	Window 206743,YES,NO
+	Window_YES
+	setaction 16
+	EndWindow 206746,OK
+	Window_NO
+	Window 206744,YES,NO
+	Window_NO
+	setaction 16
+	EndWindow 206754,OK
+	Window_YES
+	setaction 14
+	Window 206745,OK
+	Window_OK
+	Encount 3|0,3300,313,349||0|||||0|20016|||||||||
+
+
+

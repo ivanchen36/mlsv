@@ -1,0 +1,6 @@
+handle SIGPIPE nostop noprint
+run
+where
+list
+quit
+

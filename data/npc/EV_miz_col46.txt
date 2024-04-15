@@ -1,0 +1,29 @@
+#ÖœÆ±?½xèëÛÍ¾Þµ©Ðþ©x±Ø»ïÆËÒàØ©©j…í¾ôDÓò¼Ô¾ôžC’z©k
+#ÀåŠqÙ¯©yÄýŠqÙ¯¼°à¼Ž·´Ø¦ÖÐ
+#'_'·´?ÐÄ?ÈÉØÆ
+
+
+######## ##########
+
+block 
+#\n\n©x…í¾ô±åËáÔÈÐ×¶ª¼þÌï¡õÃ«°ÃÝ¸ÖÐÐ×ØÆÒýÔÊ¨•¨•\n¯ÐÛ?ÏÎ©x@n¼»Åì¨•\n?·®ãâÍÙ©x¶ªÍ¡ÛÍ¼»Åì¨•¨•\n³âÅÒµ©·ºÅ«µ©Ä¿#ÓÀ
+#³âÊ¯ÓÀºë©xÓñÆ½¼»Åì¨•\nÔñ³Æ·´?âô©x»ïÉê¼»Åì¨•
+
+	Window 20361,NEXT
+
+#\n\n?Ñþ¼°×óÊõÍßÓÀÛÍ¼»Åì¨•\n¸ÅÚ½ØÆ¼°×óÊõ¹Ïºë¼»Åì¨•¨•\nÉ¡?½xÞæÛÖ’oÜÍ¸ó?©xvÛÆÏ·¨•¨•\nÄ¸ÄÌØÀÆ¹¼þÓñ¹ÏÓÀÛÍ»ï©x
+#³â¼þ¼»Åì\n¶¯Ïþ¼°¨çÚÐ»¥…í¾ôÇëèë·®Æ¥ÔÊ©z
+
+	Window 20362,NEXT
+
+#\n©xÓò¼Ô¾ôÈÛÓò»êÄþ@n¼»Åì¸²¶ªÍ¡ÛÍ¼»Åì©x\nÈÛ?»êÄþÓñÆ½¼»Åì¸²»ïÉê¼»Åì©x\nÈÛ¸Ï»êÄþ×óÊõ¹Ïºë¼»Åì¸²×óÊõÍßÓÀÛÍ¼»Åì©x
+# \nÈÛîý»êÄþvÛÆÏ·¸²³â¼þ¼»Åì
+
+	Window 20363,NEXT
+
+#
+
+	Window 20312,NEXT
+
+#
+	EndWindow 20344,OK
