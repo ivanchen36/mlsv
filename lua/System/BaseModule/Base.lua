@@ -21,10 +21,7 @@ function fieldadd(p,f,n)
 	return;
 end
 
-function fieldset(p,f,n)
-	Field.Set(p,f,n);
-	return;
-end
+
 
 function fielddel(p,f)
 	fieldset(p,f,"");
@@ -76,10 +73,11 @@ function check_msg(msg,check_msg)
    return false;
 end
 
+--%道具_堆叠数% 9
 function giveitem(p,i,n)
 	local item = Char.GiveItem(p,i);
 	if(item>0)then
-		Item.SetData(item,%道具_堆叠数%,n);
+		Item.SetData(item, 9,n);
 	end
 	for i=8,27 do
 		Item.UpItem(p,i);
@@ -87,12 +85,15 @@ function giveitem(p,i,n)
 	return;
 end
 
+--%对象_等级% 8
+--%对象_种族% 17
+--%对象_名字% 2000
 function isLevelOnePet(checkPet)
 	if(checkPet==0)then
 		return false;
 	end
-	if(Char.GetData(checkPet,%对象_等级%)==1 and Char.GetData(checkPet,%对象_种族%)~=9)then
-		if((Char.GetData(checkPet,%对象_名字%)=="迷你蝙蝠") or (Char.GetData(checkPet,%对象_名字%)=="哥布林") or (Char.GetData(checkPet,%对象_名字%)=="盗贼") or (Char.GetData(checkPet,%对象_名字%)=="小石像怪"))then
+	if(Char.GetData(checkPet, 8)==1 and Char.GetData(checkPet, 17)~=9)then
+		if((Char.GetData(checkPet, 2000)=="迷你蝙蝠") or (Char.GetData(checkPet, 2000)=="哥布林") or (Char.GetData(checkPet, 2000)=="盗贼") or (Char.GetData(checkPet, 2000)=="小石像怪"))then
 			return false;
 		end
 		return true;
@@ -102,7 +103,7 @@ end
 
 function Playerkey(player)
 	if(player ~= nil) then
-		local fanhui1 = Char.GetData(player,%对象_名字%)
+		local fanhui1 = Char.GetData(player, 2000)
 		local fanhui2 = Char.GetData(player,48)
 		
 		if(fanhui1 == nil or fanhui2 == nil) then
@@ -137,19 +138,7 @@ function VaildChar(index)
 		return false;
 	end
 
-	if(VERSION() == "GA") then
-		if(index>=0)then
-			return true;
-		end
-		return false;
-	end
-	if(VERSION() == "GPlus")then
-		if(index~=0) then
-			return true;
-		end
-		return false;
-	end
-	return false;
+	return index >= 0
 end
 
 
@@ -162,16 +151,18 @@ function math.mod(_num1,_num2)
    return math.fmod(_num1,_num2);
 end
 
+--%对象_金币% 53
 function Char.AddGold(_player,_gold)
-	Char.SetData(_player,%对象_金币%,Char.GetData(_player,%对象_金币%)+_gold);
+	Char.SetData(_player, 53,Char.GetData(_player, 53)+_gold);
 	NLG.UpChar(_player);
 end
 
+--%道具_ID% 0
 function pequipitem(_player,_itemid)
 	for k=0,7 do
 		local _itemindex = Char.GetItemIndex(_player,k);
 		if _itemindex ~= -1 and _itemindex ~= -2 and _itemindex ~= -3 then
-			if (_itemid == Item.GetData(itemindex, %道具_ID%))  then
+			if (_itemid == Item.GetData(itemindex, 0))  then
 				return true;
 			end
 		end

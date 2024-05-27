@@ -7,9 +7,9 @@
 ----------------------------原地登录系统-----------------------------------------
 -------------------------------------------------------------------------------------
 
-Login_MaxPlayer_PC = 6 --总窗口
+Login_MaxPlayer_PC = 999 --总窗口
 Login_MaxPlayer_PC_zhandou = 6 --战斗窗口
-Login_MaxPlayer_PC_shengchan = 6 --生产窗口
+Login_MaxPlayer_PC_shengchan = 888 --生产窗口
 Login_Num = 10
 Login_ls_table = Login_ls_table or {}
 Login_ls_table1 = Login_ls_table1 or  {}
@@ -25,10 +25,10 @@ Login_ls_table1 = Login_ls_table1 or  {}
 -------------------------------------------------------------------------------------
 
 xzdzd_SetComSkill ={}
-xzdzd_SetComSkill.WaitingTime = 30   -- 每回合出手等待时间（60 等于1秒） 注：此项很重要 根据自己服务器配置 调节 适合自己的速度
+xzdzd_SetComSkill.WaitingTime = 60   -- 每回合出手等待时间（60 等于1秒） 注：此项很重要 根据自己服务器配置 调节 适合自己的速度
 xzdzd_SetComSkill.zdsitu = {1,100}  -- 是否开启原地走路 1开启 0 关闭 ，间隔时间（60 等于1秒）  
 -----------------------反挂设置---------------
-xzdzd_SetComSkill.speed_production = 1   --反高速制作  1 开启， 0 关闭 (注意：开启后 刻印技能无法使用了)
+xzdzd_SetComSkill.speed_production = 0   --反高速制作  1 开启， 0 关闭 (注意：开启后 刻印技能无法使用了)
 xzdzd_SetComSkill.speed_fighting = 1    -- 反高速战斗
 xzdzd_SetComSkill.MovementSpeed = 1  	-- 反高移动加速   测试中 如果有问题 请修改为 0
 xzdzd_SetComSkill.validation = 60 -- npc 对话验证码   0 关闭 其他为时间间隔 分钟

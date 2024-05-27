@@ -7,7 +7,6 @@
 --20231127整理更新,内容在最下面 商业版咨询购买 功能界面定制联系phoenix QQ715837
 --本次更新感谢lua写手 无语 (QQ158471323) 提供大量lua功能脚本
 useModule("SG_ga");--默认支持库
-useModule("OnlinePlayer");--强制踢所有玩家下线避免出现卡号,命令[allout2]
 useModule("All_canshu");--部分脚本配置参数-傻瓜版
 useModule("user")--登录直接注册,mac会写在tbl_user的IP字段,修改密码参考All_canshu.lua
 useModule("animesps");--图档授权(仅限用于免费版)
@@ -16,16 +15,10 @@ useModule("xzdzd");--自动战斗相关
 useModule("t");--队长踢人
 useModule("Login_can");--原地登录相关
 useModule("Login");--原地登录相关
-useModule("ng");--便捷按钮 内挂相关 (新增多个指令内挂)
 useModule("getpetBp");--宠物算档 配合按钮
-useModule("antiDName");--检测重名
-useModule("LvOnePet");--1级宠物提示 or 宠物变异
 useModule("shop_canshu");--道具商城配置文件
 useModule("shop");--道具商城主文件
-useModule("NewbieBless");--天使庇护
-useModule("expSetting");--阶梯经验 在线经验加成 经验道具
-useModule("Welcome");--上线公告
-useModule("announce");--走动宣传npc
+
 useModule("fram");--声望查询
 useModule("laba");--喇叭
 useModule("wgfy");--王宫封印师查询配合wgfy.php
@@ -44,22 +37,18 @@ luac likeme
 block
 luac petme
 ]]
-useModule("RightChar");--GM右键操作相关
-useModule("TmpNpc");--GM右键操作相关
-useModule("MateChage");--角色变身卡,宠物变身卡
+
+--角色变身卡,宠物变身卡
 --[[
 包？	角色变身卡				LUA_useM1						76411	98893	0	26		0	1	0	72	1	1	1	1	0																																																										1	100502					0	0	1	0		0			100	0	0	0	0	0
 包？	宠物变身卡				LUA_useM1						76412	98893	0	26		0	1	0	72	1	1	1	1	0																																																										2	100452					0	0	1	0		0			100	0	0	0	0	0
 ]]
-useModule("paodian") --在线挂机泡点
 useModule("sellpet");--宠物贩卖价格
 --[[
 野生：等级*10
-
 1级BB：
 1-100级，固定100魔币
 101-满级，等级*500魔币
-
 ]]--
 
 useModule("DailyEvent")--每日任务多次版
@@ -105,16 +94,14 @@ useModule("astarsive_can");--自动寻路F3 配置20221027更新迷宫地图-消失时间
 useModule("astarsive");--自动寻路F3
 useModule("Team_Service");--组队T人界面
 --itemset.txt内,宠物洗挡卷指定档位,配置在lua/System/BaseModule/luac.lua
-useModule("SG_LuckyEggs_can");--砸蛋相关配置
-useModule("SG_LuckyEggs");--砸蛋主文件
-useModule("actioninfonpc");----全局掉落 可以限定时间 限定个数 几率 等级(服务器人数高于800不要使用)
+
+useModule("actioninfonpc");--全局掉落 可以限定时间 限定个数 几率 等级(服务器人数高于800不要使用)
+
 useModule("SG_Pet_Shop2_can");--宠物自售配置文件
 useModule("ShopQuery_can");--宠物自售配置文件
 useModule("SG_Pet_Shop2");--宠物自售
 useModule("ShopQuery");--宠物自售
---useModule("zhuanzhuan_can");--转盘参数配置
---useModule("zhuanzhuan");--转盘
-useModule("bianjie") --扩展菜单(右侧边栏可自由diy)
+
 useModule("Battle_eryebeibao_can") -- 扩展背包
 useModule("Battle_eryebeibao") -- 扩展背包
 --20210618更新
@@ -177,13 +164,14 @@ useModule("zhaxiang");--全队便捷操作
 /dag	全队关闭打卡
 ]]
 
-
 --杂七杂八
-useModule("PetLoyalty");--身上携带道具宠物满忠诚(可能触发nono,依然会使用技能)
 useModule("reconnection");--断线战斗重连道具
 useModule("SG_PetDelSkill");--宠物技能删除
-useModule("WorldBOSS2_can");--移动boss
-useModule("AllTakePrompt");--上线提示(道具,endevent)
 useModule("ItemPetBP_can");--快速加点
 useModule("ItemPetBP");--快速加点
 --20231127
+
+useModule("ansha_setting");
+useModule("ansha");--快速加点
+useModule("newflg");
+useModule("npcms");

@@ -1,0 +1,18 @@
+{
+  "scheduler": {
+    "tasks": [
+      {
+        "name": "startBoss",
+        "cron_expression": "0 10-22/2 * * *"
+      },
+      {
+        "name": "stopBoss",
+        "cron_expression": "30 10-22/2 * * *"
+      },
+      {
+        "name": "startGift",
+        "cron_expression": "30 20 * * 1"
+      }
+    ]
+  }
+}

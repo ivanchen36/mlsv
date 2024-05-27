@@ -32,7 +32,6 @@ StrongTable.magicBoss = 1   --魔法修正伤害释放适用于boss
 StrongTable.crit = 150 -- %暴击伤害倍率   150  = 伤害百分之 150%
 StrongTable.Boss = 15   -- 当Boss 攻击触发必杀时 且 触发暴减几率  减少必杀伤害比例
 
-
 StrongTable.attribute = {}
 StrongTable.attribute[1] = {   -- 头
 -- Item 内 升级需要的道具 道具ID ,数量     Damage 增加伤害 注意  抵属性超过99% 后受到的伤害为1     

@@ -47,26 +47,43 @@ TBL_AllOCEV["RegAllOutEvent"] = 1;   -- 玩家退出事件（包括大登出与掉线）
 TBL_AllOCEV["ScriptCall"] = 1;       -- luac.lua可以分别注册了
 
 dofile("lua/System/BaseModule/Base.lua");
+
+dofile("lua/System/OtherModule/Util.lua");
+dofile("lua/System/OtherModule/MyPlayer.lua");
+dofile("lua/System/OtherModule/MyPet.lua");
+
 dofile("lua/System/BaseModule/luac.lua");
+
 gadofile("lua/System/BaseModule/NEvent.lua");
 gadofile("lua/System/BaseModule/powersend.lua");
 gadofile("lua/System/BaseModule/trycatch.lua");
 gadofile("lua/System/BaseModule/newflg.lua");
 gadofile("lua/System/BaseModule/newrecipe.lua");
 
-
 dofile("lua/Config.lua");
+
+gadofile("lua/System/OtherModule/TaskHandler.lua");--定时任务处理
+gadofile("lua/System/OtherModule/CommonEventHandler.lua");--通用事件处理
+
+--业务功能
+gadofile("lua/Module/player/Vip.lua");--vip系统
+gadofile("lua/Module/player/Pk.lua");--pk系统
+gadofile("lua/Module/player/Test.lua");--pk系统
+
+--客户端界面
+gadofile("lua/Module/client/VipClient.lua");
+--系统通用事件
+gadofile("lua/Module/sys/Exp.lua");--系统经验
+gadofile("lua/Module/sys/GeneralCommand.lua");--通用命令
+gadofile("lua/Module/sys/GmCommand.lua");--gm命令
+gadofile("lua/Module/sys/CharInit.lua");--角色初始化
+gadofile("lua/Module/sys/BattleInit.lua");--战斗初始化
 
 -- 兼容Delegate
 for _,Func in ipairs(tbl_delegate_Init) do
 	local f = loadstring(Func.."()");	
 	f();
 end
-
-dofile("lua/Module/npcms.lua");--npc显示名字以及颜色介绍
-
-
-
 
 -- ABundle 3.1
 gadofile("lua/ABundle/Core31.lua");

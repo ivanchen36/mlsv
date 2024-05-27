@@ -2,7 +2,7 @@
 	shop_vip = 40000;
 	
 	--ÅÜÂíµÆ
-	text_pmd = "ga.cgdev.me";
+	text_pmd = "bbs.chxml.com";
 	
 	
 	tbl_fenlei = {
