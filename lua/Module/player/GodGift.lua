@@ -6,11 +6,21 @@ local rate = 20
 local gitRate = {}
 local nextRate = 0
 
+function getGiftDes()
+    local str = ""
+    for i = 1, #gift do
+        local info = gift[i]
+        str = str .. info["name"] .. "x" .. info["count"] .. " "
+    end
+    return str
+end
+
 function startGift(itemInfo)
     gift = itemInfo
     gitRate = getGiftRate(gift)
     giftSwitch = true
     giftEndTime = os.time() + 7200
+    NLG.SystemMessage(-1, "[天降活动] 天降活动盛宴开启，大家踊跃参加，抢夺天降礼包，本次礼包共有" .. getGiftDes() .. ", 惊喜无数，不容错过！")
 end
 
 function getGiftRate(itemInfo)
@@ -69,9 +79,9 @@ function distributeGiftByPlayer(player)
     end
 
     player:getItem(item["id"])
-    NLG.SystemMessage(player,"[天降活动] 恭喜" .. player.getName()  .. "获得" .. item["name"] .. ",剩余" .. item["count"] .. "个");
+    NLG.SystemMessage(player,"[天降活动] 恭喜" .. player:getName()  .. "获得" .. item["name"] .. ",剩余" .. item["count"] .. "个");
     if not giftSwitch then
-        NLG.SystemMessage(player,"[天降活动] 物品发放完毕，天降活动结束，祝大家游戏开心!")
+        NLG.SystemMessage(-1, "[天降活动] 物品发放完毕，天降活动结束，祝大家游戏开心!")
     end
 end
 
@@ -111,6 +121,8 @@ function startDistributeGift(regNum, info)
             ["count"] = tonumber(arr[i * 3])
         }
     end
+
+    NLG.SystemMessage(-1 , "感谢玩家支持，即将天降礼包，回馈你我，共享喜悦，天降礼包因你们的热情而更加璀璨！")
     startGift(itemInfos)
 end
 

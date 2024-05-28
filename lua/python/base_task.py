@@ -1,8 +1,18 @@
 class BaseTask:
     def __init__(self, mysqlClient):
         self.mysqlClient = mysqlClient
-    def start(self):
-        return
+    def startBoss(self): # 7
+        sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
+               "(0,7,1,'',Now(), Now());"
+        self.mysqlClient.execute(sql)
 
-    def stop(self):
-        return
+    def stopBoss(self): #8
+        sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
+              "(0,8,1,'', Now(), Now());"
+        self.mysqlClient.execute(sql)
+
+    def gift(self): #6
+        info = ""
+        sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
+              "(0,%ld,1,'%s',%ld, Now());" % (6, info, 1)
+        self.mysqlClient.execute(sql)

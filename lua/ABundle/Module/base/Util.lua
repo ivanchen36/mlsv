@@ -1,21 +1,33 @@
-local lastEvent = -1
-function print(str)
-    Cli.SysMessage(str,4,3)
+function print(...)
+    local file = io.open("./log.txt", "a+")
+
+    -- 检查文件是否成功打开
+    if file then
+        -- 使用pairs遍历所有传入的参数
+        for i, v in pairs{...} do
+            -- 使用tostring将参数转换为字符串
+            local str = tostring(v)
+            -- 如果这不是第一个参数，添加一个空格分隔
+            if i > 1 then str = " " .. str end
+            -- 输出字符串
+            file:write(str)
+        end
+        file:write("\n")
+        -- 关闭文件
+        file:close()
+    else
+        -- 如果文件无法打开，输出错误信息
+        print("Cannot open file")
+    end
 end
 
 function printTbl(tbl)
-    local tmp = ""
-    local  i = 0
-    for key1, value1 in pairs(tbl) do
-        tmp = tmp .. " |  " .. key1 .. ":" .. tostring(value1)
-        i = i + 1
-        if  i  > 8 then
-            print("tbl " ..tmp)
-            i = 0
-            tmp = ""
+    for i, v in pairs(tbl) do
+        print(i, v)
+        if type(v) == "table" then
+            printTbl(v)
         end
     end
-    print("tbl " ..tmp)
 end
 
 function truncDay(t1)
@@ -41,13 +53,19 @@ end
 
 function createSingleWidget(widget)
     local tmp = nil
-    Cli.SysMessage( 'createSingleWidget ',4,3)
+    print( 'createSingleWidget ')
     if "btn" == widget.type then
-        Cli.SysMessage( 'btn1 ',4,3)
+        print( 'btn1 ')
         tmp = Button:new(widget.title, widget.img, widget.text)
+        if rawget(widget, "click") ~= nil then
+            tmp:clicked(_G[widget.click])
+        end
     elseif "lab" == widget.type then
         print( 'lab1 ')
         tmp = Label:new(widget.title, widget.text)
+    elseif "img" == widget.type then
+        print( 'img ')
+        tmp = Image:new(widget.title, widget.img)
     end
     tmp:setPos(widget.x, widget.y)
     return tmp
@@ -61,6 +79,14 @@ function getGlobVal(tblStr, index)
     end
 end
 
+function getGlobFunc(tblStr, index)
+    if tblStr:sub(1, 1) == '#' then
+        return _G[tblStr:sub(2)][index]
+    else
+        return _G[tblStr]
+    end
+end
+
 function createMulWidget(x, y, widget)
     local widgets = {}
     local posX = widget.x
@@ -68,22 +94,31 @@ function createMulWidget(x, y, widget)
     local titles = _G[widget.title:sub(2)]
 
     for i = 1, #titles do
-        Cli.SysMessage( 'createMulWidget ' .. i,4,3)
+        print( 'createMulWidget 1')
         if "" ~= titles[i] and "" ~=titles[i] then
             local tmp = nil
             if "btn" == widget.type then
-                Cli.SysMessage( 'btn ',4,3)
-                tmp = Button:new(titles[i], getGlobVal(widget.img), getGlobVal(widget.text))
+                print( 'btn ')
+                tmp = Button:new(titles[i], getGlobVal(widget.img, i), getGlobVal(widget.text, i))
                 tmp:setActiveImg(widget.active)
                 tmp:setDisableImg(widget.disable)
+                if rawget(widget, "click") ~= nil then
+                    tmp:clicked(getGlobFunc(widget.click, i))
+                end
             elseif "lab" == widget.type then
-                Cli.SysMessage( 'lab ',4,3)
-                tmp = Label:new(titles[i], getGlobVal(widget.text))
+                print( 'lab ')
+                tmp = Label:new(titles[i], getGlobVal(widget.text, i))
+            elseif "img" == widget.type then
+                print( 'img ')
+                tmp = Image:new(titles[i], getGlobVal(widget.img, i))
             end
             tmp:setPos(posX + (i - 1) * x, posY + (i - 1) * y)
             table.insert(widgets, tmp)
+            print("createMulWidget 2")
         end
     end
+    return widgets
+
 end
 
 function createWindow(title, wndConfig)
@@ -91,7 +126,7 @@ function createWindow(title, wndConfig)
     local bgImg = ""
     local close = nil
     for i = 1, #wndConfig do
-        Cli.SysMessage( 'wndConfig ' .. i,4,3)
+        print( 'wndConfig ')
         local widget = wndConfig[i]
         local dis = 0
         if "bg" == widget.type then
@@ -99,7 +134,7 @@ function createWindow(title, wndConfig)
         elseif "close" == widget.type then
             close = widget
         elseif rawget(widget, "align") ~= nil then
-            Cli.SysMessage( 'mul ' .. i,4,3)
+            print( 'mul ')
             local tmpArr = {}
             if rawget(widget, "dis") ~= nil then
                 dis = widget.dis
@@ -113,7 +148,7 @@ function createWindow(title, wndConfig)
                 table.insert(widgets, tmpArr[i])
             end
         else
-            Cli.SysMessage( 'single ' .. i,4,3)
+            print( 'single ')
             table.insert(widgets, createSingleWidget(widget))
         end
     end

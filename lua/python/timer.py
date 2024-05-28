@@ -33,13 +33,13 @@ class ConfigFileHandler(FileSystemEventHandler):
         print("Tasks reloaded from config file.")
 
 def startBoss():
-    base_task.startBoss()
+    baseTask.startBoss()
 
 def stopBoss():
-    base_task.stopBoss()
+    baseTask.stopBoss()
 
 def startGift():
-    base_task.gift()
+    baseTask.gift()
 
 def read_config(file_path):
     with open(file_path, 'r') as file:

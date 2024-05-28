@@ -65,13 +65,21 @@ dofile("lua/Config.lua");
 gadofile("lua/System/OtherModule/TaskHandler.lua");--定时任务处理
 gadofile("lua/System/OtherModule/CommonEventHandler.lua");--通用事件处理
 
---业务功能
-gadofile("lua/Module/player/Vip.lua");--vip系统
-gadofile("lua/Module/player/Pk.lua");--pk系统
-gadofile("lua/Module/player/Test.lua");--pk系统
-
 --客户端界面
 gadofile("lua/Module/client/VipClient.lua");
+
+--业务功能
+gadofile("lua/Module/pet/PetAwakening.lua"); -- 宠物觉醒
+gadofile("lua/Module/pet/PetProficient.lua"); -- 种族专精
+gadofile("lua/Module/pet/PetSynthesis.lua"); -- 宠物合成
+gadofile("lua/Module/pet/PetTalent.lua"); -- 宠物天赋
+gadofile("lua/Module/player/RoutineTask.lua"); -- 日常任务
+gadofile("lua/Module/player/WorldBoss.lua"); --世界boss
+gadofile("lua/Module/player/GodGift.lua");--天降礼包
+gadofile("lua/Module/player/Pk.lua");--pk系统
+gadofile("lua/Module/player/Vip.lua");--vip系统
+gadofile("lua/Module/player/Test.lua");
+
 --系统通用事件
 gadofile("lua/Module/sys/Exp.lua");--系统经验
 gadofile("lua/Module/sys/GeneralCommand.lua");--通用命令

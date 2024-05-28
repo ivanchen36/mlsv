@@ -4,6 +4,7 @@ Label.__index = Label
 
 -- 定义构造函数 new
 function Label:new(title, text)
+    print("lab " .. tostring(title) .. " " .. tostring(text))
     local newObj = {
         _text = new.textbox(title),
         _showText = nil,
@@ -50,4 +51,5 @@ function Label:show(view)
     self._showText.xpos = self._posX + 10
     self._showText.ypos = self._posY + 5
     self._showText.text = self._labText
+    self._showText.fontsize = 9
 end

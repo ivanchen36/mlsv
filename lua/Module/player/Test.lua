@@ -9,7 +9,7 @@ function test1()
 end
 
 function test(player)
-    Protocol.PowerSend(player:getObj(),"MY_FUNC", "")
+    getVipClient(player, "")
 end
 
 TalkEvent["/test"] = test

@@ -36,6 +36,26 @@ local vipAvoid = {
     [9] = 10800
 }
 
+local vipGiftInfo = {
+    {
+        ["id"] = 111,
+        ["name"] = "test",
+        ["count"] = 222
+    },{
+        ["id"] = 222,
+        ["name"] = "test",
+        ["count"] = 222
+    },{
+        ["id"] = 3333,
+        ["name"] = "test",
+        ["count"] = 222
+    }
+}
+
+local vipGift = {
+    111, 222, 333, 444
+}
+
 function getVipLevel(exp)
     local level = 0
     for i = 1, #vipExp do
@@ -50,7 +70,7 @@ function getVipLevel(exp)
 end
 
 function initVip(player)
-    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
+    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table")then
         print("vipInfo not found, id:" .. player:getRegistNumber());
@@ -69,6 +89,7 @@ function initVip(player)
             ["warp"] = 0,
             ["avoidFlag"] = 0,
             ["avoidTime"] = 0,
+            ["upGift"] = 0,
             ["index"] = player:getObj()
         }
         Protocol.PowerSend(player:getObj(),"FLUSH_VIP", vipInfo[player:getRegistNumber()])
@@ -85,6 +106,7 @@ function initVip(player)
         ["bank"] = tonumber(rs["0_6"]),
         ["gift"] = tonumber(rs["0_7"]),
         ["warp"] = tonumber(rs["0_8"]),
+        ["upGift"] = tonumber(rs["0_9"]),
         ["avoidFlag"] = 0,
         ["avoidTime"] = 0,
         ["index"] = player:getObj()
@@ -124,6 +146,7 @@ function addVipExp(player, info, exp)
     end
     if level > info["level"] then
         info["level"] = level
+        info["upGift"] = 1
         info["luck"] = vipLuck[level]
         info["avoid"] = info["avoid"] + vipAvoid[level] - vipAvoid[info["level"]]
         sql = sql .. ",VipLevel=" .. info["level"] .. ",LuckVal=" .. info["luck"] .. ",EnemyAvoidSec=" .. info["avoid"]
@@ -202,6 +225,27 @@ function openBank(player, arg)
 end
 
 function godGift(player, arg)
+    local info = vipInfo[player:getRegistNumber()]
+    if info["level"] <= 7 or info["gift"] ~= 1 then
+        player:sysMsg("您无法开启【天降礼包】！")
+        return
+    end
+
+    NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您开启的【天降礼包】闪耀全场，好运与您同在！")
+    startGift(vipGiftInfo)
+end
+
+function upGift(player, arg)
+    local info = vipInfo[player:getRegistNumber()]
+    if info["upGift"] ~= 1 then
+        player:sysMsg("您已经领取会员礼包！")
+        return
+    end
+
+    local sql = "UPDATE tbl_vip_info SET UpGift = 0 WHERE UpGift = 1 and RegNum = " .. player:getRegistNumber()
+    SQL.Run(sql)
+    player:getItem(vipGift[info["level"]])
+    player:sysMsg("恭喜您领取会员礼包！")
 end
 
 function vipWarp(player, arg)
@@ -214,6 +258,7 @@ ClientEvent["close_avoid"] = userCloseAvoid
 ClientEvent["open_bank"] = openBank
 ClientEvent["god_gift"] = godGift
 ClientEvent["vip_warp"] = vipWarp
+ClientEvent["up_gift"] = upGift
 
 InitEvent["char"] = initVip
 DeinitEvent["char"] = deinitVip

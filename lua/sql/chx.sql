@@ -27,6 +27,7 @@ CREATE TABLE `tbl_vip_info` (
                                       `RemoteBank` int NOT NULL DEFAULT 0 COMMENT '远程银行开关',
                                       `GodGift` int NOT NULL DEFAULT 0 COMMENT '天降开关',
                                       `Warp` int NOT NULL DEFAULT 0 COMMENT '传送开关',
+                                      `UpGift` int NOT NULL DEFAULT 0 COMMENT '升级礼包',
                                       `CreateTime` int NOT NULL,
                                       `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                       PRIMARY KEY (`RegNum`)

@@ -90,6 +90,11 @@ function Window:show()
     new.ShowView(self._id, showWnd)
 end
 
+function Window:close()
+    View.Close(self._id)
+    Audio.Bell(54,320)
+end
+
 function Window:getView()
     return self._view
 end
