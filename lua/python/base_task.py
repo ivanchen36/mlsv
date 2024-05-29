@@ -12,7 +12,7 @@ class BaseTask:
         self.mysqlClient.execute(sql)
 
     def gift(self): #6
-        info = ""
+        info = "||"
         sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
-              "(0,%ld,1,'%s',%ld, Now());" % (6, info, 1)
+              "(0,%ld,1,'%s',Now(), Now());" % (6, info)
         self.mysqlClient.execute(sql)

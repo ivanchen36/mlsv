@@ -34,7 +34,6 @@ function Window:new(title, img)
         _bg = bg,
         _view = nil,
         _widgets = {},
-        _controls = {}
     }
     wndId = wndId + 2
     setmetatable(newObj, self)
@@ -49,8 +48,12 @@ end
 
 function Window:setupUi()
     self._view.settop();
-    for i=1, #self._controls do
-        self._view.add(self._controls[i])
+    for i=1, #self._widgets do
+        local widget = self._widgets[i]
+        local controls = widget:getControls()
+        for i=1, #controls do
+            self._view.add(controls[i])
+        end
     end
     self._view.add(self._bg)
 end
@@ -122,14 +125,13 @@ function Window:addClose(x, y, img, actImg, disImg)
 end
 
 function Window:addWidget(widget)
-    local controls = widget:getControls()
-    for i=1, #controls do
-        table.insert(self._controls, controls[i])
-        if nil ~= self._view then
-            self._view.add(controls[i])
-        end
-    end
     if nil ~= self._view then
+        local controls = widget:getControls()
+        for i=1, #controls do
+            if nil ~= self._view then
+                self._view.add(controls[i])
+            end
+        end
         widget:show(self._view)
     end
     self._widgets[widget:getTitle()] = widget

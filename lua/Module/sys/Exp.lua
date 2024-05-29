@@ -5,6 +5,10 @@ local ADD_EXP_RATE = 0;
 local ADD_B_SKILL_RATE = 0;
 local ADD_P_SKILL_RATE = 0;
 
+local charEndTime = 0
+local charSkillTime = 0
+local charProductTime = 0
+
 -- 道具_ID 0
 function pequipitem(index,itemid)
  for k=0,7 do
@@ -34,25 +38,46 @@ GetSysExpRate = function(player)
 	logPrint("sysRate:", sysRate)
 end
 
-function setCharExp(rate)
+function setCharExp(rate, time)
+	if ADD_EXP_RATE > 0 then
+		return 0
+	end
+	
 	ADD_EXP_RATE = rate;
-	NLG.SystemMessage(-1,"系统调整了战斗经验加成，增加"..ADD_EXP_RATE.."%");
+	charEndTime = os.time() + time;
+	NLG.SystemMessage(-1,"系统调整了战斗经验加成，增加"..ADD_EXP_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
+	return 1
 end
 
-function setSkillExp(rate)
+function setSkillExp(rate, time)
+	if ADD_B_SKILL_RATE > 0 then
+		return 0
+	end
 	ADD_B_SKILL_RATE = rate
-	NLG.SystemMessage(-1,"系统调整了战斗技能经验加成，增加"..ADD_B_SKILL_RATE.."%");
+	charSkillTime = os.time() + time;
+	NLG.SystemMessage(-1,"系统调整了战斗技能经验加成，增加"..ADD_B_SKILL_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
+	return 1
 end
 
-function setProductExp(rate)
+function setProductExp(rate, time)
+	if ADD_P_SKILL_RATE > 0 then
+		return 0
+	end
 	ADD_P_SKILL_RATE = rate;
-	NLG.SystemMessage(-1,"系统调整了生产技能经验加成，增加"..ADD_P_SKILL_RATE.."%");
+	charProductTime = os.time() + time;
+	NLG.SystemMessage(-1,"系统调整了生产技能经验加成，增加"..ADD_P_SKILL_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
+	return 1
 end
 
-ProductExpEvent["sys"] = function (index, skill, rate)
+SkillExpEvent["sys"] = function (index, skill, rate)
 	local exp = 100
 	exp = exp * INIT_B_SKILL_RATE;
 	if(ADD_B_SKILL_RATE>0) then
+		if charSkillTime < os.time() then
+			ADD_B_SKILL_RATE = 0;
+			charSkillTime = 0
+			return rate
+		end
 		exp = exp * (1 + ADD_B_SKILL_RATE/100);
 	end
 	
@@ -63,6 +88,11 @@ ProductExpEvent["sys"] = function (index, skill, rate)
 	local exp = 100
 	exp = exp * INIT_P_SKILL_RATE;
 	if(ADD_P_SKILL_RATE>0) then
+		if charProductTime < os.time() then
+            ADD_P_SKILL_RATE = 0;
+            charProductTime = 0
+            return rate
+        end
 		exp = exp * (1 + ADD_P_SKILL_RATE/100);
 	end
 	return rate - 100 + math.floor(exp);
@@ -75,6 +105,11 @@ CharExpEvent["sys"] = function(player, rate)
 	end
 
 	if(ADD_EXP_RATE > 0) then
+		if charEndTime < os.time() then
+            ADD_EXP_RATE = 0;
+            charEndTime = 0
+            return rate
+        end
 		exp = exp * (1 + ADD_EXP_RATE/100);
 	end
 	
@@ -94,3 +129,22 @@ CharExpEvent["sys"] = function(player, rate)
 	
 	return rate - 100 + exp;
 end
+
+function sysCharExp (regNum, info)
+	local param = strSplit(info, "|")
+	return setCharExp (tonumber(param[1]), tonumber(param[2]));
+end
+
+function sysSkillExp (regNum, info)
+	local param = strSplit(info, "|")
+	return setSkillExp (tonumber(param[1]), tonumber(param[2]));
+end
+
+function sysProductExp (regNum, info)
+	local param = strSplit(info, "|")
+	return setProductExp (tonumber(param[1]), tonumber(param[2]));
+end
+
+TaskHandler[3] = sysCharExp
+TaskHandler[4] = sysSkillExp
+TaskHandler[5] = sysProductExp

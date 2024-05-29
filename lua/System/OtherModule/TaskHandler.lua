@@ -4,11 +4,12 @@ TaskHandler = {}
 -- 2 开启pk
 -- 3 设置人物经验
 -- 4 设置技能经验
--- 5 设置人物经验
+-- 5 设置生产经验
 -- 6 系统天降
 -- 7 开启世界boss
 -- 8 关闭世界boss
 -- 99 游戏公告
+-- 100 发放物品
 
 local taskHandlerIndex = nil;
 function initTaskHandlerNpc(_index)
@@ -51,3 +52,16 @@ function doTask(index)
         end
     end
 end
+
+function sysNotice (regNum, info)
+    NLG.SystemMessage(-1 , info)
+    return 1
+end
+
+function sendItem (regNum, info)
+    MyPlayer:new(vipInfo[regNum]["index"]):getItem(tonumber(info))
+    return 1
+end
+
+TaskHandler[99] = sysNotice
+TaskHandler[100] = sendItem

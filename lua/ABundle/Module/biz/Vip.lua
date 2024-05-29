@@ -1,9 +1,9 @@
 
-vipTitle = {"value", "luck", "avoid", "bank", "gift", "warp"}
-vipTitleVal = {"会员经验值", "幸运值", "驱魔时间", "远程银行", "天降", "传送"}
-vipText = {"valueText", "luckText", "avoidText", "bankText", "giftText", "warpText"}
-vipBtn = {"valueBtn", "", "avoidBtn", "bankBtn", "giftBtn", "warpBtn"}
-vipBtnText = {"领取",  "", "开启", "开启", "开启", "开启"}
+vipTitle = {"value", "exp", "luck", "avoid", "bank", "gift", "warp"}
+vipTitleVal = {"会员经验值", "经验加成", "幸运值", "驱魔时间", "远程银行", "天降", "传送"}
+vipText = {"valueText", "expText", "luckText", "avoidText", "bankText", "giftText", "warpText"}
+vipBtn = {"valueBtn", "expBtn", "", "avoidBtn", "bankBtn", "giftBtn", "warpBtn"}
+vipBtnText = {"领取", "开启",  "", "开启", "开启", "开启", "开启"}
 
 local vipWnd = nil
 local vipInfo = {}
@@ -150,14 +150,14 @@ function loadVipClient(client)
     vipWnd = createWindow("vip", vipClient)
 end
 
-function showVip(info)
-    print( 'showVip1')
-    vipInfo = info;
-    vipWnd = createWindow("vip", vipClient)
-    printTbl(vipWnd)
-    vipWnd:show()
-    printTbl(vipWnd)
+function showVip(vid)
+    print( 'showVip1 ' .. vid)
+    --vipInfo = info;
+    --vipWnd = createWindow("vip", vipClient)
+    --vipWnd:show()
+    --printTbl(vipWnd)
     --initVipContent()
+    View.Show(tonumber(vid))
     print( 'showVip2')
 end
 

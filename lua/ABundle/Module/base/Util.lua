@@ -10,7 +10,7 @@ function print(...)
             -- 如果这不是第一个参数，添加一个空格分隔
             if i > 1 then str = " " .. str end
             -- 输出字符串
-            file:write(str)
+            file:write(os.date("%Y-%m-%d %H:%M:%S ", os.time()) .. str)
         end
         file:write("\n")
         -- 关闭文件
@@ -21,13 +21,20 @@ function print(...)
     end
 end
 
-function printTbl(tbl)
+function tblToString(tbl)
+    local str = ""
     for i, v in pairs(tbl) do
-        print(i, v)
         if type(v) == "table" then
-            printTbl(v)
+            str = str .. i .. " {" .. tblToString(v) .. "},"
+        else
+            str = str .. i .. " " .. tostring(v) .. ","
         end
     end
+    return str
+end
+
+function printTbl(tbl)
+    print(tblToString(tbl))
 end
 
 function truncDay(t1)
@@ -60,6 +67,7 @@ function createSingleWidget(widget)
         if rawget(widget, "click") ~= nil then
             tmp:clicked(_G[widget.click])
         end
+        print( 'btn2 ')
     elseif "lab" == widget.type then
         print( 'lab1 ')
         tmp = Label:new(widget.title, widget.text)
@@ -68,6 +76,7 @@ function createSingleWidget(widget)
         tmp = Image:new(widget.title, widget.img)
     end
     tmp:setPos(widget.x, widget.y)
+    print( 'btn3 ')
     return tmp
 end
 
@@ -102,9 +111,11 @@ function createMulWidget(x, y, widget)
                 tmp = Button:new(titles[i], getGlobVal(widget.img, i), getGlobVal(widget.text, i))
                 tmp:setActiveImg(widget.active)
                 tmp:setDisableImg(widget.disable)
+                print( 'btn1 ')
                 if rawget(widget, "click") ~= nil then
                     tmp:clicked(getGlobFunc(widget.click, i))
                 end
+                print( 'btn2 ')
             elseif "lab" == widget.type then
                 print( 'lab ')
                 tmp = Label:new(titles[i], getGlobVal(widget.text, i))
@@ -113,6 +124,7 @@ function createMulWidget(x, y, widget)
                 tmp = Image:new(titles[i], getGlobVal(widget.img, i))
             end
             tmp:setPos(posX + (i - 1) * x, posY + (i - 1) * y)
+            print( 'btn3 ')
             table.insert(widgets, tmp)
             print("createMulWidget 2")
         end

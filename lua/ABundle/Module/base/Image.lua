@@ -23,6 +23,9 @@ function bufToInt16(num1, num2)
 end
 
 function getSize(imgId)
+    if imgId < 9990000 then
+        return 0,0
+    end
     local buf = tbl_bmp2[imgId - 9990000].buf
     return bufToInt32(buf,18), bufToInt32(buf,22)
 end

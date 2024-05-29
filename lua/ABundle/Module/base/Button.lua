@@ -1,13 +1,11 @@
 Button = {}
 Button.__index = Button
 
+local fontPixels = { 16, 13 }
 function Button:new(title, image, text)
-    local img = new.image(title)
-
     local newObj = {
-        _img = img,
+        _title = title,
         _showImg = nil,
-        _text = new.textbox(title .. "Text"),
         _showText = nil,
         _normalImg = getImgId(image),
         _activeImg = nil,
@@ -21,46 +19,52 @@ function Button:new(title, image, text)
         _isDisable = false,
     }
     setmetatable(newObj, self)
-    newObj._img.callbackfunc = function(object, event)
-        if newObj._isDisable then
-            return
-        end
 
-        if 1 == event then
-            if newObj._activeImg ~= newObj._showImg.imageID then
-                newObj._showImg.imageID = newObj._activeImg
-            end
-            return
-        end
-
-        if 0 == event then
-            if newObj._normalImg ~= newObj._showImg.imageID then
-                newObj._showImg.imageID = newObj._normalImg
-            end
-            return
-        end
-
-        if 11 == event then
-            newObj:onClick()
-            return
-        elseif 1291 == event then
-            newObj:onDoubleClick()
-        end
-    end
     return newObj
 end
 
 function Button:getTitle()
-    return self._img.title
+    return self._title
 end
 
 function Button:getControls()
     self._showImg = nil
     self._showText = nil
-    if nil ~= self._text then
-        return {self._text, self._img}
+    local img = new.image(self._title)
+    print("111")
+    img.callbackfunc = function(object, event)
+        if self._isDisable then
+            return
+        end
+
+        if 1 == event then
+            if self._activeImg ~= self._showImg.imageID then
+                self._showImg.imageID = self._activeImg
+            end
+            return
+        end
+
+        if 0 == event then
+            if self._normalImg ~= self._showImg.imageID then
+                self._showImg.imageID = self._normalImg
+            end
+            return
+        end
+
+        if 11 == event then
+            self:onClick()
+            return
+        elseif 1291 == event then
+            self:onDoubleClick()
+        end
     end
-    return {self._img}
+    print("222")
+    if "" ~= self._btnText then
+        local text = new.textbox(self._title .. "Text")
+        return {text, img}
+    end
+    print("333")
+    return {img}
 end
 
 function Button:onClick()
@@ -89,6 +93,9 @@ end
 
 function Button:setVisible(isVisible)
     self._showImg.enable = (isVisible and 1) or 0
+    if "" == self._btnText then
+        return
+    end
     self._showText.enable = (isVisible and 1) or 0
 end
 
@@ -150,15 +157,51 @@ function Button:setPos(x, y)
     end
 end
 
+function Button:getFonSize(fontPixel)
+    for i = 1, #fontPixels do
+        if fontPixel >= fontPixels[i] then
+            return i
+        end
+    end
+    return #fontPixels
+end
+
+function Button:getFontInfo()
+    local sizeX, sizeY = getSize(self._normalImg)
+    local textLen = math.floor(string.len(self._btnText) / 2)
+    print("sizeX " .. sizeX .. " sizeY " .. sizeY .. " textLen " .. textLen)
+    local fontPixel = sizeY
+    if fontPixel > sizeX / textLen then
+        fontPixel = math.floor(sizeX / textLen)
+    end
+    local fontIndex = self:getFonSize(fontPixel)
+    print("fontPixel " .. fontPixel .. " fontIndex " .. fontIndex)
+    local pixel = fontPixels[fontIndex]
+
+    return 11 - fontIndex, math.floor((sizeX - pixel * textLen) / 2), math.floor((sizeY - pixel) / 2)
+end
+
 function Button:show(view)
-    self._showImg = view.find(self._img.title)
-    self._showText = view.find(self._text.title)
+    self._showImg = view.find(self._title)
     self:setVisible(true)
     self._showImg.imageID = self._normalImg
     self._showImg.xpos = self._posX
     self._showImg.ypos = self._posY
-    self._showText.xpos = self._posX + 5
-    self._showText.ypos = self._posY + 2
-    self._showText.fontsize = 9
+    if "" == self._btnText then
+        return
+    end
+
+    self._showText = view.find(self._title .. "Text")
+    local fontSize, posX, posY = self:getFontInfo()
+    if posX < 0 then
+        posX = 0
+    end
+    if posY < 0 then
+        posY = 0
+    end
+    self._showText.xpos = self._posX + posX
+    self._showText.ypos = self._posY + posY
+    self._showText.fontsize = fontSize
     self._showText.text = self._btnText
+    print("fontSize " .. fontSize .. " posX " .. posX .. " posY " .. posY .. " sizex " .. self._showText.sizex .. " sizey " .. self._showText.sizey)
 end

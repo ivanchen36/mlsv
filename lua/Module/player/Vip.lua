@@ -251,6 +251,24 @@ end
 function vipWarp(player, arg)
 end
 
+function openExp(player, arg)
+    local info = vipInfo[player:getRegistNumber()]
+    local addRate = info["level"] * 10
+    if ADD_EXP_RATE >= addRate then
+        player:sysMsg("系统已经开启更强大的经验加成！")
+        return
+    end
+    player:sysMsg("您已经成功开启加成！")
+    if ADD_EXP_RATE == 0 then
+        NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您将开启经验提升" .. addRate .."%，好运与您同在！")
+    else
+        NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您将经验提升" .. ADD_EXP_RATE .. "%增加至提升" .. addRate .."%，好运与您同在！")
+    end
+    setCharExpRate(ADD_EXP_RATE + addRate, 7200)
+end
+
+ClientEvent["up_gift"] = upGift
+
 TalkEvent["[vip]"] = showVip
 ClientEvent["collect_vip"] = collectVip
 ClientEvent["open_avoid"] = openAvoid
@@ -258,7 +276,7 @@ ClientEvent["close_avoid"] = userCloseAvoid
 ClientEvent["open_bank"] = openBank
 ClientEvent["god_gift"] = godGift
 ClientEvent["vip_warp"] = vipWarp
-ClientEvent["up_gift"] = upGift
+ClientEvent["open_exp"] = openExp
 
 InitEvent["char"] = initVip
 DeinitEvent["char"] = deinitVip
