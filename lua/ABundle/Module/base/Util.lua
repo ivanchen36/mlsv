@@ -60,23 +60,17 @@ end
 
 function createSingleWidget(widget)
     local tmp = nil
-    print( 'createSingleWidget ')
     if "btn" == widget.type then
-        print( 'btn1 ')
         tmp = Button:new(widget.title, widget.img, widget.text)
         if rawget(widget, "click") ~= nil then
             tmp:clicked(_G[widget.click])
         end
-        print( 'btn2 ')
     elseif "lab" == widget.type then
-        print( 'lab1 ')
         tmp = Label:new(widget.title, widget.text)
     elseif "img" == widget.type then
-        print( 'img ')
         tmp = Image:new(widget.title, widget.img)
     end
     tmp:setPos(widget.x, widget.y)
-    print( 'btn3 ')
     return tmp
 end
 
@@ -103,30 +97,22 @@ function createMulWidget(x, y, widget)
     local titles = _G[widget.title:sub(2)]
 
     for i = 1, #titles do
-        print( 'createMulWidget 1')
         if "" ~= titles[i] and "" ~=titles[i] then
             local tmp = nil
             if "btn" == widget.type then
-                print( 'btn ')
                 tmp = Button:new(titles[i], getGlobVal(widget.img, i), getGlobVal(widget.text, i))
                 tmp:setActiveImg(widget.active)
                 tmp:setDisableImg(widget.disable)
-                print( 'btn1 ')
                 if rawget(widget, "click") ~= nil then
                     tmp:clicked(getGlobFunc(widget.click, i))
                 end
-                print( 'btn2 ')
             elseif "lab" == widget.type then
-                print( 'lab ')
                 tmp = Label:new(titles[i], getGlobVal(widget.text, i))
             elseif "img" == widget.type then
-                print( 'img ')
                 tmp = Image:new(titles[i], getGlobVal(widget.img, i))
             end
             tmp:setPos(posX + (i - 1) * x, posY + (i - 1) * y)
-            print( 'btn3 ')
             table.insert(widgets, tmp)
-            print("createMulWidget 2")
         end
     end
     return widgets
@@ -138,7 +124,6 @@ function createWindow(title, wndConfig)
     local bgImg = ""
     local close = nil
     for i = 1, #wndConfig do
-        print( 'wndConfig ')
         local widget = wndConfig[i]
         local dis = 0
         if "bg" == widget.type then
@@ -146,7 +131,6 @@ function createWindow(title, wndConfig)
         elseif "close" == widget.type then
             close = widget
         elseif rawget(widget, "align") ~= nil then
-            print( 'mul ')
             local tmpArr = {}
             if rawget(widget, "dis") ~= nil then
                 dis = widget.dis
@@ -160,18 +144,55 @@ function createWindow(title, wndConfig)
                 table.insert(widgets, tmpArr[i])
             end
         else
-            print( 'single ')
             table.insert(widgets, createSingleWidget(widget))
         end
     end
     wnd = Window:new(title, bgImg)
     wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
     for i = 1, #widgets do
-        print("addw " .. i)
         if widgets[i] ~= nil then
             wnd:addWidget(widgets[i])
         end
     end
-    print("createWindow 1")
     return wnd
 end
+
+function Event.ViewInit.PrintV(view)
+    if view.IsInit == false then
+        print("open view vid " .. view.vid)
+        return
+    end
+    printTbl(view)
+    print("init view vid " .. view.vid)
+end
+
+function Event.Recv.PrintP(player,packet)
+    print("Recv " .. packet)
+end
+
+function safeCall(func, ...)
+    print("safeCall" .. tostring(func))
+    sracetry {
+        func(...)
+    }
+    catch {
+        -- 发生异常后，被执行
+        function (errors)
+            print("catch")
+            print("[错误]"..os.date().." "..errors)
+        end
+    }
+end
+
+function try(f, catch_f)
+    return xpcall(f, function(msg)
+        catch_f(msg)  -- 在捕获到错误时调用 catch_f 函数
+    end)
+end
+
+local function catch(errors)
+    print("catch")
+    print("[错误]" .. os.date() .. " " .. errors)
+end
+
+

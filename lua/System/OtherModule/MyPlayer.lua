@@ -36,6 +36,14 @@ function MyPlayer:isPerson()
     return false
 end
 
+function MyPlayer:getPartyNum()
+    return Char.PartyNum(self._player)
+end
+
+function MyPlayer:getPartyMember(slot)
+    return Char.GetPartyMember(self._player, slot)
+end
+
 function MyPlayer:havePet(petId)
     return Char.HavePet(self._player, petId)
 end

@@ -1,0 +1,58 @@
+{
+  "scheduler": {
+    "tasks": [
+      {
+        "name": "baseTask.noticeBoss",
+        "cron_expression": "55 9-21/2 * * *"
+      },
+      {
+        "name": "baseTask.startBoss",
+        "cron_expression": "0 10-22/2 * * *"
+      },
+      {
+        "name": "baseTask.stopBoss",
+        "cron_expression": "30 10-22/2 * * *"
+      },
+      {
+        "name": "baseTask.noticeGift",
+        "cron_expression": "25 20 * * 1"
+      },
+      {
+        "name": "baseTask.startGift",
+        "cron_expression": "30 20 * * 1"
+      },
+      {
+        "name": "baseTask.noticeExp",
+        "cron_expression": "55 19 * * 1-5"
+      },
+      {
+        "name": "baseTask.noticeExp",
+        "cron_expression": "55 17 * * 1-5"
+      },
+      {
+        "name": "baseTask.weekdayExp",
+        "cron_expression": "0 20 * * 1-5"
+      },
+      {
+        "name": "baseTask.holidayExp",
+        "cron_expression": "0 18 * * 6,0"
+      },
+      {
+        "name": "pk.noticeSinglePk",
+        "cron_expression": "30 18 * * 5"
+      },
+      {
+        "name": "pk.noticeTeamPk",
+        "cron_expression": "30 18 * * 6"
+      },
+      {
+        "name": "pk.startSinglePk",
+        "cron_expression": "*/1 20-21 * * 5"
+      },
+      {
+        "name": "pk.startTeamPk",
+        "cron_expression": "*/1 20-23 * * 6"
+      }
+    ]
+  }
+}

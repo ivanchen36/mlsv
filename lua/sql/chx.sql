@@ -28,6 +28,7 @@ CREATE TABLE `tbl_vip_info` (
                                       `GodGift` int NOT NULL DEFAULT 0 COMMENT '天降开关',
                                       `Warp` int NOT NULL DEFAULT 0 COMMENT '传送开关',
                                       `UpGift` int NOT NULL DEFAULT 0 COMMENT '升级礼包',
+                                      `AddExp` int NOT NULL DEFAULT 0 COMMENT '经验加成',
                                       `CreateTime` int NOT NULL,
                                       `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                       PRIMARY KEY (`RegNum`)
@@ -36,7 +37,7 @@ CREATE TABLE `tbl_vip_info` (
 -- tbl_task
 DROP TABLE IF EXISTS `tbl_task`;
 CREATE TABLE `tbl_task` (
-                                `Id` int NOT NULL COMMENT '自增id',
+                                `Id` int NOT NULL AUTO_INCREMENT COMMENT '自增id',
                                 `RegNum` int NOT NULL COMMENT '角色id',
                                 `Type` int NOT NULL DEFAULT 0 COMMENT '任务类型',
                                 `Status` int NOT NULL DEFAULT 0 COMMENT '状态',
@@ -52,19 +53,13 @@ CREATE TABLE `tbl_task` (
 DROP TABLE IF EXISTS `tbl_pk_info`;
 CREATE TABLE `tbl_pk_info` (
                                   `Id` int NOT NULL AUTO_INCREMENT COMMENT '赛事ID',
-                                  `PkDate` date NOT NULL COMMENT '举办日期',
-                                  `Month` int NOT NULL COMMENT '举办月份',
-                                  `Week` int NOT NULL COMMENT '第几周',
+                                  `PkDate` varchar(20) NOT NULL COMMENT '举办日期',
+                                  `PkType` int NOT NULL COMMENT '赛事类型（1-单人PK，2-组队PK周赛 3-月赛 4-季度 5-年度）',
                                   `Round` int NOT NULL COMMENT '当前轮次',
                                   `count` int NOT NULL COMMENT '比赛次数',
                                   `EventDescription` text COMMENT '赛事描述',
                                   `ParticipantCount` int NOT NULL DEFAULT 0 COMMENT '参与人数',
-                                  `Status` int NOT NULL DEFAULT 0 COMMENT '状态（0-未开始，1-进行中，2-结算中，3-已经结束）',
-                                  `MapId` int NOT NULL COMMENT '地图ID',
-                                  `FloorID` int NOT NULL COMMENT '地图楼层ID',
-                                  `X` int NOT NULL COMMENT '地图X坐标',
-                                  `Y` int NOT NULL COMMENT '地图X坐标',
-                                  `TopNList` text COMMENT 'Top N名单，可以使用JSON格式存储',
+                                  `Status` int NOT NULL DEFAULT 1 COMMENT '状态（0-未开始 1-匹配中，2-进行中，3-结算中，4-已经结束）',
                                   `CreateTime` int NOT NULL,
                                   `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                   PRIMARY KEY (`Id`)
@@ -96,6 +91,8 @@ CREATE TABLE `tbl_pk_record` (
                                   `Status` int NOT NULL DEFAULT 0 COMMENT '战斗状态（0-未开始，1-进行中，2-已完成）',
                                   `BattleIndex` int NOT NULL COMMENT '战斗序号',
                                   `WinnerRegNum` int COMMENT '胜方队长角色ID',
+                                  `StartTime` int NOT NULL COMMENT '比赛开始时间',
+                                  `EndTime` int NOT NULL COMMENT '比赛结束时间',
                                   `CreateTime` int NOT NULL,
                                   `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                   PRIMARY KEY (`Id`),

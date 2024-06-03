@@ -110,7 +110,8 @@ end
 function startDistributeGift(regNum, info)
     local arr = strSplit(info, "|")
     local itemInfos = {}
-    if #arr % 3 ~= 0 then
+
+    if math.fmod(#arr, 3) ~= 0 then
         return 1
     end
 

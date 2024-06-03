@@ -14,13 +14,6 @@ function bufToInt32(buf,seek)
     num = num + leftShift(num4,24);
     return num;
 end
--- 二进制转shot
-function bufToInt16(num1, num2)
-    local num = 0;
-    num = num + num1;
-    num = num + leftShift(num2, 8);
-    return num;
-end
 
 function getSize(imgId)
     if imgId < 9990000 then
@@ -44,28 +37,26 @@ function getImgId(imgFile)
 end
 
 function Image:new(title, image)
-    local img = new.image(title)
-
     local newObj = {
-        _img = img,
+        _title = title,
         _imgId = getImgId(image),
         _showImg = nil,
         _posX = 0,
         _posY = 0
     }
     setmetatable(newObj, self)
-
     return newObj
 end
 
 function Image:getTitle()
-    return self._img.title
+    return self._title
 end
 
 function Image:getControls()
+    local img = new.image(self._title)
     self._showImg = nil
 
-    return {self._img}
+    return {img}
 end
 
 function Image:setVisible(isVisible)
@@ -89,7 +80,7 @@ function Image:setPos(x, y)
 end
 
 function Image:show(view)
-    self._showImg = view.find(self._img.title)
+    self._showImg = view.find(self._title)
     self:setVisible(true)
     self._showImg.imageID = self._imgId
     self._showImg.xpos = self._posX

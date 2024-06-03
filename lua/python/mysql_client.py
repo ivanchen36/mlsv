@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-# -*- coding=utf-8 -*-
+# -*- coding: utf-8 -*-
 
-import time
-import copy
 import itertools
 import logging
+import time
+
 import MySQLdb
-from DBUtils.PooledDB import PooledDB
+from dbutils.pooled_db import PooledDB
 
 class Row(dict):
     def __getattr__(self, name):
@@ -17,34 +17,17 @@ class Row(dict):
             raise AttributeError(name)
 
 class MysqlClient(object):
-    def __init__(self, host, port, db, user, passwd):
-        self.host = host
-        self.last_use_time = 0
-        self.max_idle_time = 1800
-        self.config = {}
-        self.config["host"] = host
-        self.config["port"] = port
-        self.config["db"] = db
-        self.config["user"] = user
-        self.config["passwd"] = passwd
-        self.config["charset"] = 'utf8'
-        self.db = None
-
-        try:
-            self.reconnect()
-        except Exception:
-            logging.error("Cannot connect to MySQL on %s", self.host)
-
-class MysqlClient(object):
-    def __init__(self, host, port, db, user, passwd):
+    def __init__(self, host, port, db, user, passwd, charset="utf8"):
         self.config = {
             "host": host,
             "port": port,
             "db": db,
             "user": user,
             "passwd": passwd,
-            "charset": 'utf8'
+            "charset": charset,
+            "autocommit": True
         }
+        self.db = None
         self.pool = PooledDB(MySQLdb, mincached=1, maxcached=20, **self.config)
 
     def __del__(self):
@@ -52,7 +35,7 @@ class MysqlClient(object):
 
     def close(self):
         """Closes this database connection."""
-        if getattr(self, "db", None) is not None:
+        if self.db is not None:
             self.db.close()
             self.db = None
 
@@ -61,15 +44,18 @@ class MysqlClient(object):
         self.db = self.pool.connection()
 
     def begin(self):
-        self.db.autocommit(False)
+        self.cursor().execute("SET autocommit = 0")
+        self.db.begin()
 
     def commit(self):
+        cursor = self.cursor()
         self.db.commit()
-        self.db.autocommit(True)
+        cursor.execute("SET autocommit = 1")
 
     def rollback(self):
+        cursor = self.cursor()
         self.db.rollback()
-        self.db.autocommit(True)
+        cursor.execute("SET autocommit = 1")
 
     def iter(self, query, *parameters):
         """Returns an iterator for the given query and parameters."""
@@ -107,7 +93,7 @@ class MysqlClient(object):
     # but for historical compatibility executeSql() must return lastrowid.
     def execute(self, query, *parameters):
         """Executes the given query, returning the lastrowid from the query."""
-        return self.execute_lastrowid(query, *parameters)
+        return self.execute_rowcount(query, *parameters)
 
     def execute_lastrowid(self, query, *parameters):
         """Executes the given query, returning the lastrowid from the query."""
@@ -127,14 +113,13 @@ class MysqlClient(object):
             return cursor.rowcount
         finally:
             cursor.close()
-            return -1
 
     def executemany(self, query, parameters):
         """Executes the given query against all the given param sequences.
 
         We return the lastrowid from the query.
         """
-        return self.executemany_lastrowid(query, parameters)
+        return self.executemany_rowcount(query, parameters)
 
     def executemany_lastrowid(self, query, parameters):
         """Executes the given query against all the given param sequences.
@@ -177,6 +162,8 @@ class MysqlClient(object):
 
     def executeSql(self, cursor, query, parameters):
         try:
+            if self.config["charset"] == 'gbk':
+                query = query.encode('gbk')
             return cursor.execute(query, parameters)
         except MySQLdb.OperationalError:
             logging.error("Error connecting to MySQL on %s", self.host)

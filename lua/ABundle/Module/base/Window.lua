@@ -7,8 +7,10 @@ function showWnd(view)
         wnd:setView(view)
     end
     if wnd:needSetupUi() then
+        print("setupUi")
         wnd:setupUi()
     else
+        print("showUi")
         wnd:showUi()
     end
 end
@@ -19,7 +21,6 @@ Window.__index = Window
 local wndId = 1001
 -- 定义构造函数 new
 function Window:new(title, img)
-    local bg = new.image(title .. "bg")
     local bgId = 0
 
     if type(img) == "number" then
@@ -31,9 +32,10 @@ function Window:new(title, img)
         _id = wndId,
         _bgId = bgId,
         _title = title,
-        _bg = bg,
         _view = nil,
         _widgets = {},
+        _widgetList = {},
+        _isOpen = false
     }
     wndId = wndId + 2
     setmetatable(newObj, self)
@@ -48,14 +50,14 @@ end
 
 function Window:setupUi()
     self._view.settop();
-    for i=1, #self._widgets do
-        local widget = self._widgets[i]
+    for __, item in pairs(self._widgetList) do
+        local widget = item.value
         local controls = widget:getControls()
         for i=1, #controls do
             self._view.add(controls[i])
         end
     end
-    self._view.add(self._bg)
+    self._view.add(new.image(self._title .. "bg"))
 end
 
 function Window:showUi()
@@ -87,9 +89,11 @@ function Window:showUi()
 end
 
 function Window:show()
-    if nil ~= self._view then
-        self._view = nil
+    self._view = nil
+    if self._isOpen then
+        self:close()
     end
+    self._isOpen = true
     new.ShowView(self._id, showWnd)
 end
 
@@ -135,6 +139,8 @@ function Window:addWidget(widget)
         widget:show(self._view)
     end
     self._widgets[widget:getTitle()] = widget
+    table.insert(self._widgetList, {key = widget:getTitle(), value = widget})
+    table.sort(self._widgetList, function(a, b) return a.key < b.key end)
 end
 
 function Window:getWidget(title)

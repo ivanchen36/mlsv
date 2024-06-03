@@ -14,17 +14,25 @@ function getVipClient(player, arg)
         },
         {
             ["type"] = "img",
-            ["x"] = 60,
+            ["title"] = "level",
+            ["x"] = 59,
             ["y"] = 50,
-            ["img"] = "vip0.bmp",
+            ["img"] = "vip10.bmp",
+        },
+        {
+            ["type"] = "img",
+            ["title"] = "me",
+            ["x"] = 135,
+            ["y"] = 141,
+            ["img"] = player:getFace(),
         },
         {
             ["align"] = "x",
             ["dis"] = 22,
             ["type"] = "lab",
             ["title"] = "#vipTitle",
-            ["x"] = 260,
-            ["y"] = 74,
+            ["x"] = 240,
+            ["y"] = 82,
             ["text"] = "#vipTitleVal",
         },
         {
@@ -32,20 +40,20 @@ function getVipClient(player, arg)
             ["dis"] = 22,
             ["type"] = "lab",
             ["title"] = "#vipText",
-            ["x"] = 320,
-            ["y"] = 74,
-            ["text"] = "",
+            ["x"] = 300,
+            ["y"] = 82,
+            ["text"] = "#vipTextVal",
         },
         {
             ["align"] = "x",
             ["dis"] = 22,
             ["type"] = "btn",
             ["title"] = "#vipBtn",
-            ["x"] = 380,
-            ["y"] = 77,
-            ["img"] = "green1.bmp",
-            ["active"] = "green2.bmp",
-            ["disable"] = "gray.bmp",
+            ["x"] = 400,
+            ["y"] = 78,
+            ["img"] = "b1.bmp",
+            ["active"] = "b2.bmp",
+            ["disable"] = "b3.bmp",
             ["text"] = "#vipBtnText",
             ["click"] = "#vipEvents",
         },
@@ -53,7 +61,7 @@ function getVipClient(player, arg)
             ["type"] = "btn",
             ["title"] = "collect",
             ["x"] = 362,
-            ["y"] = 247,
+            ["y"] = 258,
             ["img"] = "y1.bmp",
             ["active"] = "y2.bmp",
             ["disable"] = "y3.bmp",
@@ -96,10 +104,3 @@ ClientEvent["vip_client"] = getVipClient
 -- 50 ¡Ù—‘
 -- 58 »ÀŒÔºÚΩÈ
 -- 67 ∞⁄ÃØ
--- 68
-
-function showVip1(player)
-    Protocol.PowerSend(player:getObj(),"SHOW_VIP", 70)
-end
-
-TalkEvent["vip1"] = showVip1

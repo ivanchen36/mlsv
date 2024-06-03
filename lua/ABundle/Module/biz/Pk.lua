@@ -33,7 +33,7 @@ function initProficientFrame(view)
     end
 end
 
-function initVipContent(view)
+function initPkContent(view)
     setBaseFrame(view)
 
     for i=1, #races do

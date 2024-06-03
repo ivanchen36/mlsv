@@ -36,7 +36,7 @@ function startBoss(regNum, info)
         local H = bossID[bossIndex][8]
         local bossName = bossID[bossIndex][8]
         local NPC = NL.CreateArgNpc("WalkEnemy","1|1000|1|1000|0|0||||||||9999999|"..H.."|||||||||",bossName,B,C,D,E,F,1);
-        NLG.SystemMessage(-1, "[系统提示]世间的深渊中，怪物悄然苏醒，" .. bossName .. " 出现在【"..G.." " .. E .. "." .. F.."】，震撼寰宇的咆哮震颤着每一寸土地，请大神速去剿灭。");
+        NLG.SystemMessage(-1, "[系统提示]世间的深渊中，怪物悄然苏醒，" .. bossName .. " 出现在【" .. A .. G .. " " .. E .. "." .. F.."】，震撼寰宇的咆哮震颤着每一寸土地，请大神速去剿灭。");
         table.insert(bossNpcList,NPC)
     end
 end

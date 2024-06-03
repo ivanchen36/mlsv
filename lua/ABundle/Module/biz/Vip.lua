@@ -1,9 +1,10 @@
 
-vipTitle = {"value", "exp", "luck", "avoid", "bank", "gift", "warp"}
-vipTitleVal = {"会员经验值", "经验加成", "幸运值", "驱魔时间", "远程银行", "天降", "传送"}
-vipText = {"valueText", "expText", "luckText", "avoidText", "bankText", "giftText", "warpText"}
-vipBtn = {"valueBtn", "expBtn", "", "avoidBtn", "bankBtn", "giftBtn", "warpBtn"}
-vipBtnText = {"领取", "开启",  "", "开启", "开启", "开启", "开启"}
+vipTitle = {"value", "exp", "avoid", "bank", "gift", "warp", "luck"}
+vipTitleVal = {"会员经验:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:", "会员传送:", "幸运值数:"}
+vipText = {"valueText", "expText", "avoidText", "bankText", "giftText", "warpText", "luckText"}
+vipTextVal = {"", "", "", "VIP7开启", "VIP8开启", "VIP9开启", ""}
+vipBtn = {"valueBtn", "expBtn", "avoidBtn", "bankBtn", "giftBtn", "warpBtn", ""}
+vipBtnText = {"领取", "开启", "开启", "开启", "开启", "开启", ""}
 
 local vipWnd = nil
 local vipInfo = {}
@@ -56,9 +57,9 @@ end
 
 function showAvoid(level, text, op)
     if vipInfo["avoidFlag"] == 1 then
-        text:setText("驱魔剩余时间 " .. (vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]) .. "秒")
+        text:setText("驱魔时间 " .. (vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]) .. "秒")
     else
-        text:setText("驱魔剩余时间 " .. (vipInfo["avoid"]) .. "秒")
+        text:setText("驱魔时间 " .. (vipInfo["avoid"]) .. "秒")
     end
 
     if vipInfo["avoid"] <= 0 then
@@ -113,7 +114,17 @@ function showWarp(level, text, op)
     op:setText("开启")
 end
 
-local showEvents = {showExp, nil, showAvoid, showBank, showGift, showWarp}
+function showExp(level, text, op)
+    text:setText("+" .. vipInfo["level"] * 10 .. "%")
+    if vipInfo["level"] == 1 then
+        op:setEnabled(false)
+        return
+    end
+
+    op:setEnabled(true)
+end
+
+local showEvents = {showExp, showExp, showAvoid, showBank, showGift, showWarp, nil}
 
 function initVipContent()
     local level = vipInfo["level"]
@@ -142,24 +153,29 @@ end
 
 function flushVipInfo(info)
     vipInfo = info;
+    initVipContent()
 end
 
 function loadVipClient(client)
-    print('loadVipClient')
+    print("loadVipClient")
+    printTbl(client)
     vipClient = client
     vipWnd = createWindow("vip", vipClient)
 end
-
-function showVip(vid)
-    print( 'showVip1 ' .. vid)
-    --vipInfo = info;
-    --vipWnd = createWindow("vip", vipClient)
-    --vipWnd:show()
-    --printTbl(vipWnd)
-    --initVipContent()
-    View.Show(tonumber(vid))
+function showVip1(info)
+    print( 'showVip1')
+    vipInfo = info;
+    vipWnd:show()
+    initVipContent()
     print( 'showVip2')
 end
+
+function showVip(info)
+    try(function()
+        showVip1(info)  -- 尝试执行可能会出错的函数
+    end, catch)
+end
+
 
 Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["UPDATE_VIP"] = flushVipInfo

@@ -1,17 +1,61 @@
-waitBattleIndex = {}
+local waitBattleIndex = {}
+local startPk = false
 
 function setPkFinish(regNum)
     local sql1 = "update tbl_pk_team set Status = 2 where RegNum = " .. regNum .. " and Status = 1;";
     Sql.Run(sql1)
 end
 
-function confirmPK(id, winnerRegNum)
-    local sql1 = "update tbl_pk_record set Status = 2, WinnerRegNum = " .. winnerRegNum .. " where Id = " .. id;
-    Sql.Run(sql1)
+function joinPk(player)
+    if player:isLeader() then
+        player:sysMsg("[PK系统]你不是对队长，没有报名的资格")
+        return
+    end
+
+    if player:getPartyNum() ~= 5 then
+        player:sysMsg("[PK系统]请组满5人队伍再来参战。")
+        return
+    end
+
+    local sql = "select Id from tbl_pk_info where Status = 0";
+    local rs = Sql.Run(sql)
+    if type(rs) ~= "table" then
+        player:sysMsg("[PK系统]当前没有举办PK比赛")
+        return
+    end
+
+    sql = "select Id from tbl_pk_team where RegNum = 1 and Status IN (1, 0);"
+    rs = Sql.Run(sql)
+    if type(rs) == "table" then
+        player:sysMsg("[PK系统]您已经报名PK比赛！")
+        return
+    end
+    local teamInfo = tostring(player:getPartyMember(1):getRegistNumber())
+    for i = 2, 4 do
+        teamInfo = teamInfo .. "|" .. player:getPartyMember(i):getRegistNumber()
+    end
+    local pkId = tonumber(rs["0_0"])
+    sql = string.format("insert into tbl_pk_team (RegNum, PkId, Status, CurrentRanking, TeamInfo, CreateTime) values (%d, %d, 0, 0, '%s', UNIX_TIMESTAMP());",
+            player:getRegistNumber(), pkId, teamInfo)
+    Sql.Run(sql)
+    player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
 end
 
-function setPkResult(round, winnerRegNum, loseRegNum)
-    -- 更新胜者队伍状态（如果需要的话，这里假设更新为状态3表示胜利）
+function setPkResult(id, round, winnerRegNum, loseRegNum)
+    if 0 == round then
+        local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. 0 .. " where Id = " .. id;
+        local sql2 = "update tbl_pk_team set Status = 2 where RegNum = " .. winnerRegNum .. " and Status = 1;"
+        local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loseRegNum .. " and Status = 1;"
+        Sql.Run(sql1)
+        Sql.Run(sql2)
+        Sql.Run(sql3)
+
+        return
+    end
+
+    local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. winnerRegNum .. " where Id = " .. id;
+    Sql.Run(sql1)
+
     local sql2 = "update tbl_pk_team set Status = 0 where RegNum = " .. winnerRegNum .. " and Status = 1;"
     Sql.Run(sql2)
 
@@ -26,6 +70,8 @@ function setPkResult(round, winnerRegNum, loseRegNum)
     elseif round == 2 then
         NLG.SystemMessage(-1, "[PK系统] 恭喜" .. loser:getName() .. " 在本轮比赛中获得亚军！")
         NLG.SystemMessage(-1, "[PK系统] 恭喜" .. winner:getName() .. " 在本轮比赛中获得冠军！")
+        startPk = false
+        waitBattleIndex = {}
         NLG.SystemMessage(-1, "[PK系统] 本轮比赛结束，感谢各位的参与，奖品将在稍后发放，祝大家玩得开心！")
         local sql = "update tbl_pk_info set Status = 3 where Status = 2"
         Sql.Run(sql)
@@ -43,7 +89,19 @@ function startBattle(player1, player2)
     return battleIndex
 end
 
-function startPk()
+function pkNotice()
+    local sql = "select EventDescription from tbl_pk_info where Status = 1 limit 1;"
+    local rs = Sql.Run(sql)
+    local desc = rs["0_0"]
+    NLG.SystemMessage(-1, "[PK系统] " .. desc .. "正式开始，在这个舞台上，每一次拼搏都将被铭记，每一次突破都将成为传奇。让我们以饱满的热情，迎接这场激动人心的对决，向着胜利全力冲刺吧！")
+end
+
+function startPk(regNum, info)
+    if not startPk then
+        startPk = true
+        pkNotice()
+    end
+
     local sql = "select Id,TeamARegNum, TeamBRegNum,Round from tbl_pk_record where Status = 0"
     local rs = Sql.Run(sql)
     local round = rs["0_3"]
@@ -62,30 +120,26 @@ function startPk()
     for i = 1, (#rs) / 3 do
         local id = rs[i .. "_0"]
         local aRegNum = tonumber(rs[i .. "_1"])
-        local bReqNum = tonumber(rs[i .. "_2"])
+        local bRegNum = tonumber(rs[i .. "_2"])
         local playerA = nil
         local playerB = nil
         if rawget(vipInfo, aRegNum) ~= nil then
             playerA = MyPlayer:new(vipInfo[aRegNum]["index"]);
-        else
-            setPkFinish(aRegNum)
         end
-        if rawget(vipInfo, bReqNum) ~= nil then
+        if rawget(vipInfo, bRegNum) ~= nil then
             playerA = MyPlayer:new(player);
-        else
-            setPkFinish(bReqNum)
         end
         if nil ~= playerA and nil ~= playerB then
             local battleIndex = startBattle(playerA, playerB);
-            local sql1 = "update tbl_pk_record set Status = 1 where Id = " .. id;
+            local sql1 = "update tbl_pk_record set Status = 1, StartTime = UNIX_TIMESTAMP() where Id = " .. id;
             Sql.Run(sql1)
             waitBattleIndex[battleIndex] = 0
         elseif nil ~= playerA then
-            confirmPK(id, aRegNum)
+            setPkResult (id, round, aRegNum, bRegNum)
         elseif nil ~= playerB then
-            confirmPK(id, bRegNum)
+            setPkResult (id, round, bRegNum, aRegNum)
         else
-            confirmPK(id, 0)
+            setPkResult (id, 0, bRegNum, aRegNum)
         end
     end
 
@@ -102,7 +156,7 @@ function pkSummary(battleIndex)
     -- 获取战斗结果
     local winner = Battle.GetWinSide(battleIndex)
     -- 查询战斗记录
-    local sql = "select Id, TeamARegNum, TeamBRegNum, Round from tbl_pk_record where BattleIndex = " .. battleIndex .. " and Status = 1;"
+    local sql = "select Id, TeamARegNum, TeamBRegNum, Round, PkId from tbl_pk_record where BattleIndex = " .. battleIndex .. " and Status = 1;"
     local rs = Sql.Run(sql)
 
     -- 检查结果集是否有效
@@ -118,6 +172,13 @@ function pkSummary(battleIndex)
         loseRegNum = tonumber(rs["0_2"])
     end
 
-    confirmPK(tonumber(rs["0_0"]), winnerRegNum)
-    setPkResult(tonumber(rs["0_3"]), winnerRegNum, loseRegNum)
+    setPkResult(tonumber(rs["0_0"]), tonumber(rs["0_3"]), winnerRegNum, loseRegNum)
+    if #waitBattleIndex == 0 and startPk then
+        waitBattleIndex = {}
+        NLG.SystemMessage(-1, "[PK系统] 本轮比赛结束，下一轮马上开启，请稍等！")
+        local sql = "update tbl_pk_info set Status = 1 where Status = 2"
+        Sql.Run(sql)
+    end
 end
+
+DeinitEvent["battle"] = pkSummary

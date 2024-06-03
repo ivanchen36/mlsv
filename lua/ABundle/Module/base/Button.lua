@@ -1,7 +1,8 @@
 Button = {}
 Button.__index = Button
 
-local fontPixels = { 16, 13 }
+--local fontPixels = { 16, 13 }
+local fontPixels = { 13 }
 function Button:new(title, image, text)
     local newObj = {
         _title = title,
@@ -31,7 +32,6 @@ function Button:getControls()
     self._showImg = nil
     self._showText = nil
     local img = new.image(self._title)
-    print("111")
     img.callbackfunc = function(object, event)
         if self._isDisable then
             return
@@ -58,12 +58,10 @@ function Button:getControls()
             self:onDoubleClick()
         end
     end
-    print("222")
     if "" ~= self._btnText then
         local text = new.textbox(self._title .. "Text")
         return {text, img}
     end
-    print("333")
     return {img}
 end
 
@@ -169,20 +167,21 @@ end
 function Button:getFontInfo()
     local sizeX, sizeY = getSize(self._normalImg)
     local textLen = math.floor(string.len(self._btnText) / 2)
-    print("sizeX " .. sizeX .. " sizeY " .. sizeY .. " textLen " .. textLen)
     local fontPixel = sizeY
     if fontPixel > sizeX / textLen then
         fontPixel = math.floor(sizeX / textLen)
     end
     local fontIndex = self:getFonSize(fontPixel)
-    print("fontPixel " .. fontPixel .. " fontIndex " .. fontIndex)
     local pixel = fontPixels[fontIndex]
 
-    return 11 - fontIndex, math.floor((sizeX - pixel * textLen) / 2), math.floor((sizeY - pixel) / 2)
+    return 9 - fontIndex, math.floor((sizeX - pixel * textLen) / 2), math.floor((sizeY - pixel) / 2)
 end
 
 function Button:show(view)
     self._showImg = view.find(self._title)
+    if "" ~= self._btnText then
+        self._showText = view.find(self._title .. "Text")
+    end
     self:setVisible(true)
     self._showImg.imageID = self._normalImg
     self._showImg.xpos = self._posX
@@ -191,7 +190,6 @@ function Button:show(view)
         return
     end
 
-    self._showText = view.find(self._title .. "Text")
     local fontSize, posX, posY = self:getFontInfo()
     if posX < 0 then
         posX = 0
@@ -203,5 +201,5 @@ function Button:show(view)
     self._showText.ypos = self._posY + posY
     self._showText.fontsize = fontSize
     self._showText.text = self._btnText
-    print("fontSize " .. fontSize .. " posX " .. posX .. " posY " .. posY .. " sizex " .. self._showText.sizex .. " sizey " .. self._showText.sizey)
+    self._showText.color = 26
 end

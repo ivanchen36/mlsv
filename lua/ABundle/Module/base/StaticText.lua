@@ -4,9 +4,8 @@ Label.__index = Label
 
 -- 定义构造函数 new
 function Label:new(title, text)
-    print("lab " .. tostring(title) .. " " .. tostring(text))
     local newObj = {
-        _text = new.textbox(title),
+        _title = title,
         _showText = nil,
         _labText = text,
         _posX = 0,
@@ -17,12 +16,13 @@ function Label:new(title, text)
 end
 
 function Label:getTitle()
-    return self._text.title
+    return self._title
 end
 
 function Label:getControls()
+    local text = new.textbox(self._title)
     self._showText = nil
-    return { self._text }
+    return { text }
 end
 
 function Label:setVisible(isVisible)
@@ -40,16 +40,17 @@ function Label:setPos(x, y)
     self._posX = x
     self._posY = y
     if nil ~= self._showText then
-        self._showText.xpos = self._posX + 10
-        self._showText.ypos = self._posY + 5
+        self._showText.xpos = self._posX
+        self._showText.ypos = self._posY
     end
 end
 
 function Label:show(view)
-    self._showText = view.find(self._text.title)
+    self._showText = view.find(self._title)
     self:setVisible(true)
-    self._showText.xpos = self._posX + 10
-    self._showText.ypos = self._posY + 5
+    self._showText.xpos = self._posX
+    self._showText.ypos = self._posY
     self._showText.text = self._labText
     self._showText.fontsize = 9
+    self._showText.color = 26
 end
