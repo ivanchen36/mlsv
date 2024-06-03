@@ -41,7 +41,7 @@ function MyPlayer:getPartyNum()
 end
 
 function MyPlayer:getPartyMember(slot)
-    return Char.GetPartyMember(self._player, slot)
+    return self:new(Char.GetPartyMember(self._player, slot))
 end
 
 function MyPlayer:havePet(petId)

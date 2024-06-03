@@ -70,6 +70,7 @@ DROP TABLE IF EXISTS `tbl_pk_team`;
 CREATE TABLE `tbl_pk_team` (
                                         `Id` int NOT NULL AUTO_INCREMENT COMMENT '自增ID',
                                         `RegNum` int NOT NULL COMMENT '队长角色ID',
+                                        `Name` int NOT NULL COMMENT '队长角色名',
                                         `PkId` int NOT NULL COMMENT '所属于赛事ID',
                                         `Status` int NOT NULL DEFAULT 0 COMMENT '当前参与状态（0-未开始，1-进行中，2-待发奖品， 3-已结束）',
                                         `CurrentRanking` int COMMENT '当前成绩名次',
@@ -88,6 +89,8 @@ CREATE TABLE `tbl_pk_record` (
                                   `Round` int NOT NULL COMMENT '当前轮次',
                                   `TeamARegNum` int NOT NULL COMMENT '对战双方A队队长角色ID',
                                   `TeamBRegNum` int NOT NULL COMMENT '对战双方B队队长角色ID',
+                                  `TeamAName` int NOT NULL COMMENT '对战双方A队队长角色名',
+                                  `TeamBName` int NOT NULL COMMENT '对战双方B队队长角色名',
                                   `Status` int NOT NULL DEFAULT 0 COMMENT '战斗状态（0-未开始，1-进行中，2-已完成）',
                                   `BattleIndex` int NOT NULL COMMENT '战斗序号',
                                   `WinnerRegNum` int COMMENT '胜方队长角色ID',

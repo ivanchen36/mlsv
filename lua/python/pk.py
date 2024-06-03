@@ -67,7 +67,7 @@ class PK:
         pass
 
     def getRound(self, teamNum):
-        power = 1
+        power = 2
         while power < teamNum:
             power *= 2
         return power
@@ -78,8 +78,25 @@ class PK:
         if pkInfo:
             return
         pass
-        sql = "select Id, RegNum from tbl_pk_team where PkId = %ld and Status = 0;"
+        sql = "select Id, RegNum, Name from tbl_pk_team where PkId = %ld and Status = 0;"
         teams = self.mysqlClient.query(sql)
-        #round = getRound(len(teams))
-        #for team in teams:
+        if pkInfo["Round"] == 0:
+            round = self.getRound(len(teams))
+        else:
+            round = pkInfo["Round"]
+        teamCount = len(teams)
+        pkRecord = round / 2
+        for i in range(pkRecord):
+            teamA = teams[i]["RegNum"]
+            teamAName = teams[i]["Name"]
+            if i + pkRecord < teamCount:
+                teamB = teams[i + pkRecord]["RegNum"]
+                teamBName = teams[i + pkRecord]["Name"]
+            else:
+                teamB = 0
+                teamBName = ""
+            sql = "insert into tbl_pk_record (PkId, Round, TeamARegNum, TeamBRegNum, TeamAName, TeamBName, CreateTime) values " \
+                  "(%ld, %ld, %ld, %ld, %s, %s, UNIX_TIMESTAMP())" % (pkInfo["Id"], round, teamA, teamB, teamAName, teamBName)
+            self.mysqlClient.execute(sql)
+        sql = "update tbl_pk_info"
         pass
