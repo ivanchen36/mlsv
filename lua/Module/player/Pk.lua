@@ -1,11 +1,6 @@
 local waitBattleIndex = {}
 local startPk = false
 
-function setPkFinish(regNum)
-    local sql1 = "update tbl_pk_team set Status = 2 where RegNum = " .. regNum .. " and Status = 1;";
-    Sql.Run(sql1)
-end
-
 function joinPk(player)
     if player:isLeader() then
         player:sysMsg("[PK系统]你不是对队长，没有报名的资格")
@@ -17,15 +12,17 @@ function joinPk(player)
         return
     end
 
-    local sql = "select Id from tbl_pk_info where Status = 0";
-    local rs = Sql.Run(sql)
+    local sql = "select Id from tbl_pk_info where Status = 1 and PkType <> 1";
+    local rs = SQL.Run(sql)
     if type(rs) ~= "table" then
         player:sysMsg("[PK系统]当前没有举办PK比赛")
         return
     end
-
-    sql = "select Id from tbl_pk_team where RegNum = 1 and Status IN (1, 0);"
-    rs = Sql.Run(sql)
+    local pkId = tonumber(rs["0_0"])
+    local mac = player:getMac()
+    sql = string.format("select Id from tbl_pk_team where (RegNum = %d or Mac = '%s') and PkId = %d",
+        player:getRegistNumber(), mac, pkId)
+    rs = SQL.Run(sql)
     if type(rs) == "table" then
         player:sysMsg("[PK系统]您已经报名PK比赛！")
         return
@@ -34,53 +31,57 @@ function joinPk(player)
     for i = 2, 4 do
         teamInfo = teamInfo .. "|" .. player:getPartyMember(i):getRegistNumber()
     end
-    local pkId = tonumber(rs["0_0"])
-    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime) values (%d, %d, 0, 0, '%s', UNIX_TIMESTAMP());",
-            player:getRegistNumber(), player:getName(), pkId, teamInfo)
-    Sql.Run(sql)
+
+    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values (%d, %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
+            player:getRegistNumber(), player:getName(), pkId, teamInfo, player:getMac())
+    SQL.Run(sql)
     player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
 end
 
-function setPkResult(id, round, winnerRegNum, loseRegNum, winnerName, loserName)
+function setPkResult(pid, rid, round, winnerRegNum, loserRegNum, winnerName, loserName)
+    local sql = "update tbl_pk_info set Count = Count - Count, Status = if(Count == 0, 1, Status) where Id = " .. pid;
+    SQL.Run(sql)
     if 0 == round then
-        local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. 0 .. " where Id = " .. id;
-        Sql.Run(sql1)
+        local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. 0 .. " where Id = " .. rid;
+        SQL.Run(sql1)
         if 0 ~= winnerRegNum then
             local sql2 = "update tbl_pk_team set Status = 2 where RegNum = " .. winnerRegNum .. " and Status = 1;"
-            Sql.Run(sql2)
+            SQL.Run(sql2)
         end
-        if 0 ~= loseRegNum then
-            local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loseRegNum .. " and Status = 1;"
-            Sql.Run(sql3)
+        if 0 ~= loserRegNum then
+            local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loserRegNum .. " and Status = 1;"
+            SQL.Run(sql3)
         end
+        return
     end
 
-    local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. winnerRegNum .. " where Id = " .. id;
-    Sql.Run(sql1)
+    local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = "
+            .. winnerRegNum .. " where Id = " .. rid;
+    SQL.Run(sql1)
 
     local sql2 = "update tbl_pk_team set Status = 0 where RegNum = " .. winnerRegNum .. " and Status = 1;"
-    Sql.Run(sql2)
+    SQL.Run(sql2)
 
-    if 0 == loseRegNum then
+    if 0 == loserRegNum then
         NLG.SystemMessage(-1, "[PK系统] 恭喜" .. winnerName .. " 在本轮比赛中幸运轮空，直接进入下一轮比赛！")
         return
     end
 
-    local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loseRegNum .. " and Status = 1;"
-    Sql.Run(sql3)
+    local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loserRegNum .. " and Status = 1;"
+    SQL.Run(sql3)
 
     if round == 4 then
-        NLG.SystemMessage(-1, "[PK系统] 恭喜" .. winnerName .. " 在半决赛中战胜了 " .. loserName .. "！")
+        NLG.SystemMessage(-1, "[PK系统] 恭喜玩家 " .. winnerName .. " 在半决赛中战胜了 " .. loserName .. "！")
     elseif round == 2 then
-        NLG.SystemMessage(-1, "[PK系统] 恭喜" .. loserName .. " 在本轮比赛中获得亚军！")
-        NLG.SystemMessage(-1, "[PK系统] 恭喜" .. winnerName .. " 在本轮比赛中获得冠军！")
+        NLG.SystemMessage(-1, "[PK系统] 恭喜玩家 " .. loserName .. " 在本轮比赛中获得亚军！")
+        NLG.SystemMessage(-1, "[PK系统] 恭喜玩家 " .. winnerName .. " 在本轮比赛中获得冠军！")
         startPk = false
         waitBattleIndex = {}
         NLG.SystemMessage(-1, "[PK系统] 本轮比赛结束，感谢各位的参与，奖品将在稍后发放，祝大家玩得开心！")
-        local sql = "update tbl_pk_info set Status = 3 where Status = 2"
-        Sql.Run(sql)
+        local sql = "update tbl_pk_info set Status = 4 where Id = " .. pid;
+        SQL.Run(sql)
     else
-        NLG.SystemMessage(-1, "[PK系统] 恭喜" .. winnerName.. " 在" .. rs["0_3"] .. "进" .. (rs["0_3"] / 2) .. "比赛中战胜了 " .. loserName .. "！")
+        NLG.SystemMessage(-1, "[PK系统] 恭喜玩家 " .. winnerName.. " 在" .. round / 2 .. "强晋级比赛中战胜了 " .. loserName .. "！")
     end
 end
 
@@ -95,7 +96,7 @@ end
 
 function pkNotice()
     local sql = "select EventDescription from tbl_pk_info where Status = 1 limit 1;"
-    local rs = Sql.Run(sql)
+    local rs = SQL.Run(sql)
     local desc = rs["0_0"]
     NLG.SystemMessage(-1, "[PK系统] " .. desc .. "正式开始，在这个舞台上，每一次拼搏都将被铭记，每一次突破都将成为传奇。让我们以饱满的热情，迎接这场激动人心的对决，向着胜利全力冲刺吧！")
 end
@@ -106,9 +107,10 @@ function startPk(regNum, info)
         pkNotice()
     end
 
-    local sql = "select Id,TeamARegNum, TeamBRegNum, TeamAName, TeamBName,Round from tbl_pk_record where Status = 0"
-    local rs = Sql.Run(sql)
-    local round = rs["0_3"]
+    local sql = "select Id,TeamARegNum, TeamBRegNum, TeamAName, TeamBName,Round, PkId from tbl_pk_record where Status = 0"
+    local rs = SQL.Run(sql)
+    local round = tonumber(rs["0_5"])
+    local pkId = tonumber(rs["0_6"])
     if round == 4 then
         NLG.SystemMessage(-1, "[PK系统] 半决赛开始");
     elseif round == 2 then
@@ -121,8 +123,9 @@ function startPk(regNum, info)
         return 1
     end
 
-    for i = 1, (#rs) / 3 do
-        local id = rs[i .. "_0"]
+    local len = countKeys(rs)
+    for i = 1, (len / 7) do
+        local rid = rs[i .. "_0"]
         local aRegNum = tonumber(rs[i .. "_1"])
         local bRegNum = tonumber(rs[i .. "_2"])
         local playerA = nil
@@ -138,14 +141,14 @@ function startPk(regNum, info)
         if nil ~= playerA and nil ~= playerB then
             local battleIndex = startBattle(playerA, playerB);
             local sql1 = "update tbl_pk_record set Status = 1, StartTime = UNIX_TIMESTAMP() where Id = " .. id;
-            Sql.Run(sql1)
+            SQL.Run(sql1)
             waitBattleIndex[battleIndex] = 0
         elseif nil ~= playerA then
-            setPkResult (id, round, aRegNum, bRegNum, playerAName, playerBName)
+            setPkResult (pkId, rid, round, aRegNum, bRegNum, playerAName, playerBName)
         elseif nil ~= playerB then
-            setPkResult (id, round, bRegNum, aRegNum, playerBName, playerAName)
+            setPkResult (pkId, rid, round, bRegNum, aRegNum, playerBName, playerAName)
         else
-            setPkResult (id, 0, aRegNum, bRegNum, playerAName, playerBName)
+            setPkResult (pkId, rid, 0, aRegNum, bRegNum, playerAName, playerBName)
         end
     end
 
@@ -153,6 +156,10 @@ function startPk(regNum, info)
 end
 
 function pkSummary(battleIndex)
+    if not startPk then
+        return
+    end
+
     -- 检查战斗索引是否有效
     if rawget(waitBattleIndex, battleIndex) == nil then
         return
@@ -163,7 +170,7 @@ function pkSummary(battleIndex)
     local winner = Battle.GetWinSide(battleIndex)
     -- 查询战斗记录
     local sql = "select Id, TeamARegNum, TeamBRegNum, Round, PkId, TeamAName, TeamBName from tbl_pk_record where BattleIndex = " .. battleIndex .. " and Status = 1;"
-    local rs = Sql.Run(sql)
+    local rs = SQL.Run(sql)
 
     -- 检查结果集是否有效
     if type(rs) ~= "table" or #rs == 0 then
@@ -183,12 +190,12 @@ function pkSummary(battleIndex)
         loserName = rs["0_6"]
     end
 
-    setPkResult(tonumber(rs["0_0"]), round, winnerRegNum, loserRegNum, winnerName, loserName)
+    setPkResult(tonumber(rs["0_4"]), tonumber(rs["0_0"]), round, winnerRegNum, loserRegNum, winnerName, loserName)
     if #waitBattleIndex == 0 and startPk then
         waitBattleIndex = {}
         NLG.SystemMessage(-1, "[PK系统] 本轮比赛结束，下一轮马上开启，请稍等！")
-        local sql = "update tbl_pk_info set Status = 1, Round = " .. round / 2 .. " where Status = 2"
-        Sql.Run(sql)
+        local sql = "update tbl_pk_info set Status = 1 where Status = 2"
+        SQL.Run(sql)
     end
 end
 

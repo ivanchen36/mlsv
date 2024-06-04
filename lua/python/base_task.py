@@ -6,17 +6,14 @@ class BaseTask:
     def __init__(self, mysqlClient):
         self.mysqlClient = mysqlClient
 
-    def test1(self):
-        print("test1")
-
-    def test2(self):
-        print("test2")
-
-    def noticeBoss(self):  # 7
+    def sysMsg(self, msg):
         sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
-              "(0,99,1,'各位勇士，听我号令！世界boss即将汹涌来袭，这是一场前所未有的挑战，也是证明我们实力的最佳时刻。请大家迅速做好战斗准备，磨亮你们的武器，调整你们的状态，以最佳的精神面貌迎接这场硬仗。记住，我们不是孤军奋战，而是并肩作战的兄弟姐妹。让我们携手并进，共同击败这个强大的敌人，创造属于我们的辉煌！',UNIX_TIMESTAMP(), UNIX_TIMESTAMP());"
+              "(0,99,1,'%s',UNIX_TIMESTAMP(), UNIX_TIMESTAMP());" % msg
 
         self.mysqlClient.execute(sql)
+
+    def noticeBoss(self):  # 7
+        self.sysMsg('各位勇士，听我号令！世界boss即将汹涌来袭，这是一场前所未有的挑战，也是证明我们实力的最佳时刻。请大家迅速做好战斗准备，磨亮你们的武器，调整你们的状态，以最佳的精神面貌迎接这场硬仗。记住，我们不是孤军奋战，而是并肩作战的兄弟姐妹。让我们携手并进，共同击败这个强大的敌人，创造属于我们的辉煌！')
 
     def startBoss(self):  # 7
         sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
@@ -36,7 +33,7 @@ class BaseTask:
     def startGift(self):  # 6
         info = "||"
         sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
-              "(0,%ld,1,'%s',UNIX_TIMESTAMP(), UNIX_TIMESTAMP());" % (6, info)
+              "(0,6,1,'%s',UNIX_TIMESTAMP(), UNIX_TIMESTAMP());" % info
         self.mysqlClient.execute(sql)
 
     def weekdayExp(self):  # 3 4 5
@@ -63,7 +60,5 @@ class BaseTask:
                "(0,5,1,'%s',UNIX_TIMESTAMP(), UNIX_TIMESTAMP());" % (info)
         self.mysqlClient.execute(sql3)
 
-    def noticeExp(self):  # 7
-        sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values " \
-              "(0,99,1,'准备好了吗？激动人心的时刻来临，即将开启经验翻倍的狂飙之旅，每一秒都蓄势待发，',UNIX_TIMESTAMP(), UNIX_TIMESTAMP());"
-        self.mysqlClient.execute(sql)
+    def noticeExp(self):
+        self.sysMsg('准备好了吗？激动人心的时刻来临，即将开启经验翻倍的狂飙之旅，每一秒都蓄势待发，')

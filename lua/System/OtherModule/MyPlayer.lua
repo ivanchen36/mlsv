@@ -36,6 +36,14 @@ function MyPlayer:isPerson()
     return false
 end
 
+function MyPlayer:getIp()
+    return NLG.GetIp(self._player)
+end
+
+function MyPlayer:getMac()
+    return NLG.GetMAC(self._player)
+end
+
 function MyPlayer:getPartyNum()
     return Char.PartyNum(self._player)
 end

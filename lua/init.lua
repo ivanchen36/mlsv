@@ -77,6 +77,7 @@ gadofile("lua/Module/player/RoutineTask.lua"); -- 日常任务
 gadofile("lua/Module/player/WorldBoss.lua"); --世界boss
 gadofile("lua/Module/player/GodGift.lua");--天降礼包
 gadofile("lua/Module/player/Pk.lua");--pk系统
+gadofile("lua/Module/player/SinglePk.lua");--pk系统
 gadofile("lua/Module/player/Vip.lua");--vip系统
 gadofile("lua/Module/player/Test.lua");
 

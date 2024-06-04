@@ -56,7 +56,7 @@ CREATE TABLE `tbl_pk_info` (
                                   `PkDate` varchar(20) NOT NULL COMMENT '举办日期',
                                   `PkType` int NOT NULL COMMENT '赛事类型（1-单人PK，2-组队PK周赛 3-月赛 4-季度 5-年度）',
                                   `Round` int NOT NULL COMMENT '当前轮次',
-                                  `count` int NOT NULL COMMENT '比赛次数',
+                                  `Count` int NOT NULL COMMENT '比赛次数',
                                   `EventDescription` text COMMENT '赛事描述',
                                   `ParticipantCount` int NOT NULL DEFAULT 0 COMMENT '参与人数',
                                   `Status` int NOT NULL DEFAULT 1 COMMENT '状态（0-未开始 1-匹配中，2-进行中，3-结算中，4-已经结束）',
@@ -75,6 +75,7 @@ CREATE TABLE `tbl_pk_team` (
                                         `Status` int NOT NULL DEFAULT 0 COMMENT '当前参与状态（0-未开始，1-进行中，2-待发奖品， 3-已结束）',
                                         `CurrentRanking` int COMMENT '当前成绩名次',
                                         `TeamInfo` text COMMENT '队伍信息，可以使用JSON格式存储',
+                                        `Mac` varchar(128) NOT NULL DEFAULT '' COMMENT '队长Mac地址',
                                         `CreateTime` int NOT NULL,
                                         `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                         PRIMARY KEY (`Id`),
@@ -99,6 +100,7 @@ CREATE TABLE `tbl_pk_record` (
                                   `CreateTime` int NOT NULL,
                                   `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                   PRIMARY KEY (`Id`),
+                                  INDEX `idx_Status` (`Status`)
                                   INDEX `idx_BattleIndex` (`BattleIndex`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='PK记录表';
 
