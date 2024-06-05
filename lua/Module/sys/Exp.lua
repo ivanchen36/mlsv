@@ -39,13 +39,13 @@ GetSysExpRate = function(player)
 end
 
 function setCharExp(rate, time)
-	if ADD_EXP_RATE > 0 then
+	if ADD_EXP_RATE > rate then
 		return 0
 	end
 	
 	ADD_EXP_RATE = rate;
 	charEndTime = os.time() + time;
-	NLG.SystemMessage(-1,"系统调整了战斗经验加成，增加"..ADD_EXP_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
+	NLG.SystemMessage(-1,"[系统加成]系统调整了战斗经验加成，增加"..ADD_EXP_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
 	return 1
 end
 
@@ -55,7 +55,7 @@ function setSkillExp(rate, time)
 	end
 	ADD_B_SKILL_RATE = rate
 	charSkillTime = os.time() + time;
-	NLG.SystemMessage(-1,"系统调整了战斗技能经验加成，增加"..ADD_B_SKILL_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
+	NLG.SystemMessage(-1,"[系统加成]系统调整了战斗技能经验加成，增加"..ADD_B_SKILL_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
 	return 1
 end
 
@@ -65,7 +65,7 @@ function setProductExp(rate, time)
 	end
 	ADD_P_SKILL_RATE = rate;
 	charProductTime = os.time() + time;
-	NLG.SystemMessage(-1,"系统调整了生产技能经验加成，增加"..ADD_P_SKILL_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
+	NLG.SystemMessage(-1,"[系统加成]系统调整了生产技能经验加成，增加"..ADD_P_SKILL_RATE.."%, 加成持续时间".. time / 3600 .. "小时");
 	return 1
 end
 
@@ -76,6 +76,7 @@ SkillExpEvent["sys"] = function (index, skill, rate)
 		if charSkillTime < os.time() then
 			ADD_B_SKILL_RATE = 0;
 			charSkillTime = 0
+			NLG.SystemMessage(-1,"[系统加成]战斗技能经验加成结束。");
 			return rate
 		end
 		exp = exp * (1 + ADD_B_SKILL_RATE/100);
@@ -91,6 +92,7 @@ ProductExpEvent["sys"] = function (index, skill, rate)
 		if charProductTime < os.time() then
             ADD_P_SKILL_RATE = 0;
             charProductTime = 0
+			NLG.SystemMessage(-1,"[系统加成]生产技能经验加成结束。");
             return rate
         end
 		exp = exp * (1 + ADD_P_SKILL_RATE/100);
@@ -108,7 +110,7 @@ CharExpEvent["sys"] = function(player, rate)
 		if charEndTime < os.time() then
             ADD_EXP_RATE = 0;
             charEndTime = 0
-            return rate
+			NLG.SystemMessage(-1,"[系统加成]战斗经验加成结束。");
         end
 		exp = exp * (1 + ADD_EXP_RATE/100);
 	end

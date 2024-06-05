@@ -10,6 +10,34 @@ CharExpEvent = {}
 SkillExpEvent = {}
 ProductExpEvent = {}
 
+DamageEvent = {}
+
+personAddDamage = {}
+petAddDamage = {}
+personSubDamage = {}
+petSubDamage = {}
+personDefSubDamage = {}
+petDefSubDamage = {}
+damageTable = {
+    [1] = personAddDamage,
+    [3]  = petAddDamage,
+    [11] = personSubDamage,
+    [13]  = petSubDamage,
+    [21] = personDefSubDamage,
+    [23]  = petDefSubDamage,
+}
+-- 创建并设置metatable
+setmetatable(DamageEvent, {
+    __index = function(t, key)
+        logPrint("InitEvent get: " .. key)
+        return damageTable[key]
+    end,
+    __newindex = function(t, key, val)
+        table.insert(damageTable[key], val)
+        logPrint("InitEvent set: ", key, #damageTable[key])
+    end,
+})
+
 charInitEvent = {}
 serverInitEvent = {}
 battleInitEvent = {}
@@ -127,20 +155,22 @@ end
 
 function Event.RegBattleSkillExpEvent.doSkillExpEvent(index, skill, exp)
     local rate = 100
+    local sysRate = 4
     for i, func in ipairs(SkillExpEvent) do
         rate = func(index, skill, rate)
     end
 
-    return math.floor(exp * rate / 100)
+    return math.floor(exp * sysRate * rate / 100)
 end
 
-function Event.RegProductSkillExpEvent.doProductExpEvent(index, product, exp)
+function Event.RegProductSkillExpEvent.doProductExpEvent(index, skill, exp)
     local rate = 100
+    local sysRate = 4
     for i, func in ipairs(ProductExpEvent) do
         rate = func(index, skill, rate)
     end
 
-    return math.floor(exp * rate / 100)
+    return math.floor(exp * sysRate * rate / 100)
 end
 
 GetSysExpRate = nil
@@ -160,6 +190,38 @@ function Event.RegGetExpEvent.doCharExpEvent(index, exp)
     end
 
     return math.floor(exp * sysRate * rate / 100)
+end
+
+-- 1 人 3 宠
+function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg)
+    logPrint("OriDamage ", Damage)
+    local atkRate = 100
+    local defRate = 100
+    local atkType =  Char.GetData(CharIndex, 0)
+    if rawget(damageTable, atkType) ~= nil then
+        local myPlayer1 = MyPlayer:new(CharIndex);
+        for i, func in ipairs(damageTable[atkType]) do
+            atkRate = func(myPlayer1, atkRate)
+        end
+        atkType = atkType + 10
+        for i, func in ipairs(damageTable[atkType]) do
+            defRate = func(defRate)
+        end
+    end
+    if defRate == 100 then
+        local defType =  Char.GetData(DefCharIndex, 0) + 20
+        if rawget(damageTable, defType) ~= nil then
+            for i, func in ipairs(damageTable[defType]) do
+                defRate = func(defRate)
+            end
+            if defRate < 0 then
+                defRate = 1
+            end
+        end
+    end
+
+    logPrint("RealDamage ", math.floor(Damage * (atkRate / 100) * (defRate / 100)))
+    return math.floor(Damage * (atkRate / 100) * (defRate / 100))
 end
 
 Delegate.RegInit("doServerInitEvent")

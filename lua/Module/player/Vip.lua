@@ -292,7 +292,7 @@ function openExp(player, arg)
     else
         NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您将经验提升" .. ADD_EXP_RATE .. "%增加至提升" .. addRate .."%，好运与您同在！")
     end
-    setCharExpRate(ADD_EXP_RATE + addRate, 7200)
+    setCharExp(addRate, 7200)
     Protocol.PowerSend(player:getObj(),"UPDATE_VIP", info)
 end
 
@@ -311,3 +311,6 @@ InitEvent["char"] = initVip
 DeinitEvent["char"] = deinitVip
 
 TaskHandler[1] = sysCloseAvoid
+
+DamageEvent[1] = addVipDamage
+DamageEvent[11] = subVipDamage

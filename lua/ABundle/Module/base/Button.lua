@@ -37,16 +37,16 @@ function Button:getControls()
             return
         end
 
-        if 1 == event then
-            if self._activeImg ~= self._showImg.imageID then
-                self._showImg.imageID = self._activeImg
+        if 0 == event then
+            if self._normalImg ~= self._showImg.imageID then
+                self._showImg.imageID = self._normalImg
             end
             return
         end
 
-        if 0 == event then
-            if self._normalImg ~= self._showImg.imageID then
-                self._showImg.imageID = self._normalImg
+        if 1 == event then
+            if self._activeImg ~= self._showImg.imageID then
+                self._showImg.imageID = self._activeImg
             end
             return
         end
