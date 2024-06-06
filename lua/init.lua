@@ -81,6 +81,8 @@ gadofile("lua/Module/player/SinglePk.lua");--pk系统
 gadofile("lua/Module/player/Vip.lua");--vip系统
 gadofile("lua/Module/player/Test.lua");
 
+gadofile("lua/Module/player/Damage.lua");
+
 --系统通用事件
 gadofile("lua/Module/sys/Exp.lua");--系统经验
 gadofile("lua/Module/sys/GeneralCommand.lua");--通用命令

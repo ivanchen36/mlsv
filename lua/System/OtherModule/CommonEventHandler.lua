@@ -205,14 +205,15 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
         end
         atkType = atkType + 10
         for i, func in ipairs(damageTable[atkType]) do
-            defRate = func(defRate)
+            defRate = func(myPlayer1, defRate)
         end
     end
     if defRate == 100 then
         local defType =  Char.GetData(DefCharIndex, 0) + 20
         if rawget(damageTable, defType) ~= nil then
+            local myPlayer1 = MyPlayer:new(DefCharIndex);
             for i, func in ipairs(damageTable[defType]) do
-                defRate = func(defRate)
+                defRate = func(myPlayer1, defRate)
             end
             if defRate < 0 then
                 defRate = 1

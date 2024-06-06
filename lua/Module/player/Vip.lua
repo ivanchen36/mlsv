@@ -51,7 +51,7 @@ local vipGiftInfo = {
         ["count"] = 222
     }
 }
-
+local bankIndex = -1
 local vipGift = {
     111, 222, 333, 444
 }
@@ -206,8 +206,21 @@ function sysCloseAvoid(regNum, info)
     end
 end
 
+--%NPC_银行% 0
 function openBank(player, arg)
     local info = vipInfo[player:getRegistNumber()]
+    if -1 == bankIndex then
+        bankIndex = NLG.FindNpcByPos("银行员")
+        if -1 == bankIndex then
+            player:sysMsg("系统异常，打开银行失败,稍后重试！")
+            return
+        end
+    end
+
+    if 0 ~= NLG.Talked(0, player:getObj(), bankIndex) then
+        player:sysMsg("系统异常，打开银行失败,稍后重试！")
+        return
+    end
 end
 
 function godGift(player, arg)

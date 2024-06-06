@@ -1,10 +1,10 @@
 
-vipTitle = {"value", "exp", "avoid", "bank", "gift", "warp", "luck"}
-vipTitleVal = {"会员经验:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:", "会员传送:", "幸运值数:"}
-vipText = {"valueText", "expText", "avoidText", "bankText", "giftText", "warpText", "luckText"}
-vipTextVal = {"", "", "", "VIP7可使用", "VIP8可使用", "VIP9可使用", ""}
-vipBtn = {"valueBtn", "expBtn", "avoidBtn", "bankBtn", "giftBtn", "warpBtn", ""}
-vipBtnText = {"领取", "开启", "开启", "开启", "开启", "开启", ""}
+vipTitle = {"value", "damage", "luck", "exp", "avoid", "bank", "gift"}
+vipTitleVal = {"会员经验:", "伤害加成:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
+vipText = {"valueText", "damageText", "luckText", "expText", "avoidText", "bankText", "giftText"}
+vipTextVal = {"", "", "", "", "", "VIP7可使用", "VIP8可使用"}
+vipBtn = {"valueBtn", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
+vipBtnText = {"领取", "", "", "开启", "开启", "开启", "开启", "开启", ""}
 
 local vipWnd = nil
 local vipInfo = {}
@@ -21,8 +21,10 @@ end
 function openAvoid(widget)
     if vipInfo["avoidFlag"] == 1 then
         Cli.Send("close_avoid")
+        op:setText("开启")
     else
         Cli.Send("open_avoid")
+        op:setText("关闭")
     end
 end
 
@@ -54,7 +56,7 @@ function upGift(widget)
     Cli.Send("up_gift")
 end
 
-vipEvents = {collectVip, addExp, openAvoid, openBank, godGift, vipWarp, nil}
+vipEvents = {collectVip, nil, nil, addExp, openAvoid, openBank, godGift}
 
 function showExp(level, text, op)
     text:setText(vipInfo["exp"] .. " / " .. vipExp[level + 1])
@@ -134,11 +136,15 @@ function showAddExp(level, text, op)
     op:setEnabled(true)
 end
 
+function showDamage(level, text, op)
+    text:setText("+" .. vipInfo["level"] .. "%")
+end
+
 function showLuck(level, text, op)
     text:setText(tostring(vipInfo["luck"]))
 end
 
-local showEvents = {showExp, showAddExp, showAvoid, showBank, showGift, showWarp, showLuck}
+local showEvents = {showExp, showDamage, showLuck, showAddExp, showAvoid, showBank, showGift}
 
 function initVipContent()
     local level = vipInfo["level"]
@@ -183,7 +189,13 @@ function loadVipClient(client)
     vipClient = client
     vipWnd = createWindow("vip", vipClient)
 end
+
 function showVip(info)
+    if (vipWnd == nil) then
+        Cli.Send("vip_client")
+        Cli.MessageBox("[系统提示] VIP功能正在加载中，请稍后！")
+        return
+    end
     print( 'showVip1')
     printTbl(info)
     vipInfo = info;

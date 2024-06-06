@@ -24,5 +24,4 @@ def startTimer():
     schedulerTask.startScheduler()
 
 if __name__ == "__main__":
-    #startTimer()
-    baseTask.noticeGift()
+    startTimer()

@@ -1,17 +1,27 @@
 
-function addPersonDamage(rate)
+function addPersonDamage(player, rate)
+    local info = vipInfo[player:getRegistNumber()]
+    return rate + info["level"]
+end
+
+function addPetDamage(player, rate)
     return rate + 100
 end
 
-function addPetDamage(rate)
-    return rate + 100
+function subPersonDamage(player, rate)
+    return rate
 end
 
-function subPersonDamage(rate)
+function subPetDamage(player, rate)
     return rate - 50
 end
 
-function subPetDamage(rate)
+function subPersonDefDamage(player, rate)
+    local info = vipInfo[player:getRegistNumber()]
+    return rate - info["level"]
+end
+
+function subPetDefDamage(player, rate)
     return rate - 50
 end
 

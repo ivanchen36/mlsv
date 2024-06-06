@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+import datetime
+import time
+
 
 # -*- coding: utf-8 -*-
 
@@ -62,3 +65,18 @@ class BaseTask:
 
     def noticeExp(self):
         self.sysMsg('准备好了吗？激动人心的时刻来临，即将开启经验翻倍的狂飙之旅，每一秒都蓄势待发，')
+
+    def initData(self):
+        ts = time.time() - 86400 * 7
+        isMonday = (datetime.date.today().weekday() == 0)
+        avoidArr = [600, 1800, 3600, 5400, 7200, 7800, 8400, 9200, 10800]
+        avoid = ""
+        gift = ""
+        for i in range(len(avoidArr)):
+            avoid = avoid + " when VipLevel = %ld then %ld" % (i + 1, avoidArr[i])
+        sql = "update tbl_vip_info set EnemyAvoidSec = case %s end, %s AddExp = if(VipLevel > 0, 1, 0) where VipLevel > 1 and UpdateTime > from_unixtime(%ld) "
+        if isMonday:
+            gift = " GodGift = if(VipLevel > 0, 1, 0),"
+        sql = sql % (avoid, gift, ts)
+        print(sql)
+        self.mysqlClient.execute(sql)

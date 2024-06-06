@@ -27,7 +27,7 @@
       },
       {
         "name": "baseTask.noticeExp",
-        "cron_expression": "55 17 * * 1-5"
+        "cron_expression": "55 17 * * 6,0"
       },
       {
         "name": "baseTask.weekdayExp",
@@ -60,6 +60,10 @@
       {
         "name": "pk.stopSinglePk",
         "cron_expression": "0 21 * * 5"
+      },
+      {
+        "name": "baseTask.initData",
+        "cron_expression": "0 0 * * *"
       }
     ]
   }
