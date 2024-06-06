@@ -42,6 +42,22 @@ function logPrint(...)
     end
 end
 
+function tblToString(tbl)
+    local str = ""
+    for i, v in pairs(tbl) do
+        if type(v) == "table" then
+            str = str .. i .. " {" .. tblToString(v) .. "},"
+        else
+            str = str .. i .. " " .. tostring(v) .. ","
+        end
+    end
+    return str
+end
+
+function logPrintTbl(tbl)
+    logPrint(tblToString(tbl))
+end
+
 function isOccur(permyriad)
     local probability = permyriad
     local rand = math.random() * 10000

@@ -36,7 +36,7 @@ function petSynthesis(player, arg)
     local level = rs["0_0"]
 
     if level >= 3 then
-        self:sysMsg("宠物" .. level .."已经完成第" .. level .."次觉醒失败");
+        player:sysMsg("宠物" .. level .."已经完成第" .. level .."次觉醒失败");
         return
     end
 
@@ -45,11 +45,11 @@ function petSynthesis(player, arg)
             local sql1 = "update tbl_pet_info set " .. attrField[attr] .. " = " .. attrField[attr] .. " + 1 where uuid = " .. pet:getUuid()
                     .. " and ".. attrField[attr] .. " < 3";
             SQL.Run(sql1);
-            self:sysMsg("宠物" .. level .."完成第" .. level .."次觉醒");
+            player:sysMsg("宠物" .. level .."完成第" .. level .."次觉醒");
             return
         end
     end
-    self:sysMsg("道具不足，宠物" .. level .."完成第" .. level .."次觉醒失败");
+    player:sysMsg("道具不足，宠物" .. level .."完成第" .. level .."次觉醒失败");
 end
 
 

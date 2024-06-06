@@ -15,6 +15,8 @@ function Button:new(title, image, text)
         _onDoubleClick = nil,
         _posX = 0,
         _posY = 0,
+        _sizeX = 0,
+        _sizeY = 0,
         _btnText = text,
         _isClick = false,
         _isDisable = false,
@@ -28,6 +30,17 @@ function Button:getTitle()
     return self._title
 end
 
+function Button:setImgId(imgId)
+    if nil ~= self._showImg then
+        self._showImg.imageID = imgId
+        if imgId < 9990000 then
+            return
+        end
+        self._showImg.sizex = self._sizeX
+        self._showImg.sizey = self._sizeY
+    end
+end
+
 function Button:getControls()
     self._showImg = nil
     self._showText = nil
@@ -39,25 +52,23 @@ function Button:getControls()
 
         if 0 == event then
             if self._normalImg ~= self._showImg.imageID then
-                self._showImg.imageID = self._normalImg
+                self:setImgId(self._normalImg)
             end
             return
         end
-
         if 1 == event then
             if self._activeImg ~= self._showImg.imageID then
-                self._showImg.imageID = self._activeImg
+                self:setImgId(self._activeImg)
             end
             return
         end
-
         if 11 == event then
             self:onClick()
-            return
         elseif 1291 == event then
             self:onDoubleClick()
         end
     end
+
     if "" ~= self._btnText then
         local text = new.textbox(self._title .. "Text")
         return {text, img}
@@ -71,9 +82,7 @@ function Button:onClick()
     end
 
     self._isClick = true
-    self._showImg.imageID = self._disableImg
     self._onClick(self)
-    self._showImg.imageID = self._normalImg
     self._isClick = false
 end
 
@@ -83,9 +92,7 @@ function Button:onDoubleClick()
     end
 
     self._isClick = true
-    self._showImg.imageID = self._disableImg
     self._onDoubleClick(self)
-    self._showImg.imageID = self._normalImg
     self._isClick = false
 end
 
@@ -98,9 +105,14 @@ function Button:setVisible(isVisible)
 end
 
 function Button:setEnabled(isEnable)
-    if nil ~= self._disableImg then
-        self._showImg.imageID = (isEnable and self._normalImg) or self._disableImg
+    if isEnable then
+        self:setImgId(self._normalImg)
+    else
+        if nil ~= self._disableImg then
+            self:setImgId(self._disableImg)
+        end
     end
+
     self._isDisable = not isEnable;
 end
 
@@ -137,9 +149,7 @@ end
 
 function Button:setImg(image)
     self._normalImg = getImgId(image)
-    if nil ~= self._showImg then
-        self._showImg.imageID = self._normalImg
-    end
+    self:setImgId(self._normalImg)
 end
 
 function Button:setPos(x, y)
@@ -164,8 +174,7 @@ function Button:getFonSize(fontPixel)
     return #fontPixels
 end
 
-function Button:getFontInfo()
-    local sizeX, sizeY = getSize(self._normalImg)
+function Button:getFontInfo(sizeX, sizeY)
     local textLen = math.floor(string.len(self._btnText) / 2)
     local fontPixel = sizeY
     if fontPixel > sizeX / textLen then
@@ -186,11 +195,19 @@ function Button:show(view)
     self._showImg.imageID = self._normalImg
     self._showImg.xpos = self._posX
     self._showImg.ypos = self._posY
+
     if "" == self._btnText then
         return
     end
-
-    local fontSize, posX, posY = self:getFontInfo()
+    self._sizeX, self._sizeY = getSize(self._normalImg)
+    if 0 ~= self._showImg.sizex then
+        self._sizeX = self._showImg.sizex
+        self._sizeY = self._showImg.sizey
+    else
+        self._showImg.sizex = self._sizeX
+        self._showImg.sizey = self._sizeY
+    end
+    local fontSize, posX, posY = self:getFontInfo(self._sizeX, self._sizeY)
     if posX < 0 then
         posX = 0
     end
@@ -202,4 +219,6 @@ function Button:show(view)
     self._showText.fontsize = fontSize
     self._showText.text = self._btnText
     self._showText.color = 26
+    self._showText.sizex = 0
+    self._showText.sizey = 0
 end

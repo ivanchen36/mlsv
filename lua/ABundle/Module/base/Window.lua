@@ -7,10 +7,8 @@ function showWnd(view)
         wnd:setView(view)
     end
     if wnd:needSetupUi() then
-        print("setupUi")
         wnd:setupUi()
     else
-        print("showUi")
         wnd:showUi()
     end
 end

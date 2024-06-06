@@ -59,13 +59,25 @@ function getVipClient(player, arg)
         },
         {
             ["type"] = "btn",
-            ["title"] = "collect",
+            ["title"] = "upVip",
             ["x"] = 362,
             ["y"] = 258,
             ["img"] = "y1.bmp",
             ["active"] = "y2.bmp",
             ["disable"] = "y3.bmp",
+            ["text"] = "Éý¼¶",
+            ["click"] = "upVip",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "upGift",
+            ["x"] = 407,
+            ["y"] = 258,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
             ["text"] = "ÁìÈ¡",
+            ["click"] = "upGift",
         }
     }
     logPrint("getVipClient")

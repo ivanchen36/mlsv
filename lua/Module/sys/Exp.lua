@@ -1,9 +1,9 @@
 local INIT_B_SKILL_RATE = 4;
 local INIT_P_SKILL_RATE = 4;
 
-local ADD_EXP_RATE = 0;
-local ADD_B_SKILL_RATE = 0;
-local ADD_P_SKILL_RATE = 0;
+ADD_EXP_RATE = 0;
+ADD_B_SKILL_RATE = 0;
+ADD_P_SKILL_RATE = 0;
 
 local charEndTime = 0
 local charSkillTime = 0

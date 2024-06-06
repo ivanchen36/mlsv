@@ -1,6 +1,6 @@
 function print(...)
     local file = io.open("./log.txt", "a+")
-
+    file:write(os.date("%Y-%m-%d %H:%M:%S ", os.time()))
     -- 检查文件是否成功打开
     if file then
         -- 使用pairs遍历所有传入的参数
@@ -10,7 +10,7 @@ function print(...)
             -- 如果这不是第一个参数，添加一个空格分隔
             if i > 1 then str = " " .. str end
             -- 输出字符串
-            file:write(os.date("%Y-%m-%d %H:%M:%S ", os.time()) .. str)
+            file:write(str)
         end
         file:write("\n")
         -- 关闭文件
@@ -62,6 +62,8 @@ function createSingleWidget(widget)
     local tmp = nil
     if "btn" == widget.type then
         tmp = Button:new(widget.title, widget.img, widget.text)
+        tmp:setActiveImg(widget.active)
+        tmp:setDisableImg(widget.disable)
         if rawget(widget, "click") ~= nil then
             tmp:clicked(_G[widget.click])
         end
@@ -75,11 +77,16 @@ function createSingleWidget(widget)
 end
 
 function getGlobVal(tblStr, index)
-    if tblStr:sub(1, 1) == '#' then
-        return _G[tblStr:sub(2)][index]
-    else
+    if type(tblStr) == "number" then
         return tblStr
     end
+    if #tblStr >= 2 then
+        if tblStr:sub(1, 1) == '#' then
+            return _G[tblStr:sub(2)][index]
+        end
+    end
+
+    return tblStr
 end
 
 function getGlobFunc(tblStr, index)
@@ -159,15 +166,15 @@ end
 
 function Event.ViewInit.PrintV(view)
     if view.IsInit == false then
-        print("open view vid " .. view.vid)
+        --print("open view vid " .. view.vid)
         return
     end
-    printTbl(view)
-    print("init view vid " .. view.vid)
+    --printTbl(view)
+    --print("init view vid " .. view.vid)
 end
 
 function Event.Recv.PrintP(player,packet)
-    print("Recv " .. packet)
+    --print("Recv " .. packet)
 end
 
 function safeCall(func, ...)
@@ -183,16 +190,3 @@ function safeCall(func, ...)
         end
     }
 end
-
-function try(f, catch_f)
-    return xpcall(f, function(msg)
-        catch_f(msg)  -- 在捕获到错误时调用 catch_f 函数
-    end)
-end
-
-local function catch(errors)
-    print("catch")
-    print("[错误]" .. os.date() .. " " .. errors)
-end
-
-

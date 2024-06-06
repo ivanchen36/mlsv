@@ -29,7 +29,7 @@ function initTalent(player, slot)
 
     if player:delNum(initItemId, 1) > 0 then
         pet:addSkill(allSkill[math.random(#allSkill)])
-        self:sysMsg("宠物天赋觉醒成功");
+        player:sysMsg("宠物天赋觉醒成功");
         return
     end
 
@@ -62,7 +62,7 @@ function reInitTalent(player, slot, level)
                 local skillId = advancedSkill[math.random(#advancedSkill)]
                 pet:addSkill(skillId)
             end
-            self:sysMsg("宠物天赋重置成功");
+            player:sysMsg("宠物天赋重置成功");
             return
         end
     end

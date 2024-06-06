@@ -70,7 +70,7 @@ function getVipLevel(exp)
 end
 
 function initVip(player)
-    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, UpGift,AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
+    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table")then
         print("vipInfo not found, id:" .. player:getRegistNumber());
@@ -112,8 +112,9 @@ function initVip(player)
         ["up"] = tonumber(rs["0_11"]),
         ["avoidFlag"] = 0,
         ["avoidTime"] = 0,
-        ["index"] = player:getObj()
+        ["index"] = player:getObj(),
     }
+    logPrintTbl(vipInfo[player:getRegistNumber()])
 end
 
 function deinitVip(player)
@@ -129,65 +130,31 @@ function showVip(player)
     Protocol.PowerSend(player:getObj(),"SHOW_VIP", info)
 end
 
-function addVipExp(player, info, exp)
-    info["lastExp"] = exp
-    info["lastTime"] = os.time()
-    info["exp"] = info["exp"] + exp
-    local level = getVipLevel(info["exp"])
-    local curLevel = info["level"]
-    if level <= curLevel then
-        local sql = "UPDATE tbl_vip_info SET VipExp=" .. info["exp"] .. ",LastTime=unix_timestamp(),LastExp=" ..
-                info["lastExp"] .. " WHERE RegNum=" .. player:getRegistNumber();
-        SQL.Run(sql);
-        return
-    end
-    local sql = "UPDATE tbl_vip_info SET VipExp=" .. info["exp"] .. ",LastTime=unix_timestamp(),LastExp=" ..
-            info["lastExp"]
-    if curLevel == 0 then
-        info["addExp"] = 1
-    end
-    if curLevel <= 6 and level > 6 then
-        info["bank"] = 1
-        sql = sql .. ",RemoteBank=" .. info["bank"]
-    end
-    if curLevel <= 7 and level > 7 then
-        info["gift"] = 1
-        sql = sql .. ",GodGift=" .. info["gift"]
-    end
-    if curLevel <= 8 and level > 8 then
-        info["warp"] = 1
-        sql = sql .. ",Warp=" .. info["warp"]
-    end
-
-    info["level"] = level
-    info["upGift"] = 1
-    info["luck"] = vipLuck[level]
-    info["avoid"] = info["avoid"] + vipAvoid[level] - vipAvoid[info["level"]]
-    sql = sql .. ",VipLevel=" .. info["level"] .. ",LuckVal=" .. info["luck"] .. ",EnemyAvoidSec=" .. info["avoid"]
-
-    sql = sql .. " WHERE RegNum=" .. player:getRegistNumber();
-    SQL.Run(sql);
-    self:sysMsg("会员等级提升至" .. level .."级！");
-end
-
 function collectVip(player, arg)
     local info = vipInfo[player:getRegistNumber()]
     if(isToday(info["lastTime"])) then
-        self:sysMsg("今日已经领取过会员经验！");
+        player:sysMsg("今日已经领取过会员经验！");
         return
     end
     local exp = info["lastExp"]
     if exp < 40 then
         exp = exp + 10
     end
-    self:sysMsg("领取" .. exp .."会员经验！");
-    addVipExp(player, info, exp)
+    info["lastExp"] = exp
+    info["lastTime"] = os.time()
+    info["exp"] = info["exp"] + exp
+    local sql = "UPDATE tbl_vip_info SET VipExp=" .. info["exp"] .. ",LastTime=unix_timestamp(),LastExp=" ..
+            info["lastExp"] .. " WHERE RegNum=" .. player:getRegistNumber();
+    SQL.Run(sql);
+    player:sysMsg("领取" .. exp .."会员经验！");
+
     Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
 end
 
 function openAvoid(player, arg)
     local info = vipInfo[player:getRegistNumber()]
     if info["avoid"] <= 0 then
+        player:sysMsg("您已经驱魔时间可使用！");
         return 1
     end
 
@@ -198,6 +165,7 @@ function openAvoid(player, arg)
             player:getRegistNumber() .. ",1,1,'',unix_timestamp() + " .. info["avoid"] .. ", UNIX_TIMESTAMP());"
     SQL.Run(sql);
     Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    player:sysMsg("您已经成功开启驱魔功能，开始不遇敌！");
     return 1
 end
 
@@ -270,6 +238,44 @@ function upGift(player, arg)
     Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
 end
 
+function upVip(player, arg)
+    local info = vipInfo[player:getRegistNumber()]
+    local curLevel = info["level"]
+    if info["exp"] < vipExp[curLevel + 1] then
+        player:sysMsg("您还无法提升会员等级！")
+        return
+    end
+    local level = curLevel + 1
+    local sql = "UPDATE tbl_vip_info SET VipExp=" .. info["exp"] .. ",LastTime=unix_timestamp(),LastExp=" ..
+            info["lastExp"]
+    if curLevel == 0 then
+        info["addExp"] = 1
+        sql = sql .. ",AddExp=" .. info["addExp"]
+    end
+    if curLevel <= 6 and level > 6 then
+        info["bank"] = 1
+        sql = sql .. ",RemoteBank=" .. info["bank"]
+    end
+    if curLevel <= 7 and level > 7 then
+        info["gift"] = 1
+        sql = sql .. ",GodGift=" .. info["gift"]
+    end
+    if curLevel <= 8 and level > 8 then
+        info["warp"] = 1
+        sql = sql .. ",Warp=" .. info["warp"]
+    end
+
+    info["upGift"] = 1
+    info["luck"] = vipLuck[level]
+    info["avoid"] = info["avoid"] + vipAvoid[level] - vipAvoid[info["level"]]
+    info["level"] = level
+    sql = sql .. ",VipLevel=" .. info["level"] .. ",LuckVal=" .. info["luck"] .. ",EnemyAvoidSec=" .. info["avoid"]
+    sql = sql .. " WHERE RegNum=" .. player:getRegistNumber();
+    SQL.Run(sql);
+    player:sysMsg("会员等级提升至" .. level .."级！");
+    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+end
+
 function vipWarp(player, arg)
 end
 
@@ -295,22 +301,3 @@ function openExp(player, arg)
     setCharExp(addRate, 7200)
     Protocol.PowerSend(player:getObj(),"UPDATE_VIP", info)
 end
-
-ClientEvent["up_gift"] = upGift
-
-TalkEvent["[vip]"] = showVip
-ClientEvent["collect_vip"] = collectVip
-ClientEvent["open_avoid"] = openAvoid
-ClientEvent["close_avoid"] = userCloseAvoid
-ClientEvent["open_bank"] = openBank
-ClientEvent["god_gift"] = godGift
-ClientEvent["vip_warp"] = vipWarp
-ClientEvent["open_exp"] = openExp
-
-InitEvent["char"] = initVip
-DeinitEvent["char"] = deinitVip
-
-TaskHandler[1] = sysCloseAvoid
-
-DamageEvent[1] = addVipDamage
-DamageEvent[11] = subVipDamage

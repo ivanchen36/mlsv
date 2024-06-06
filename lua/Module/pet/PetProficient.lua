@@ -60,9 +60,9 @@ function upProficient(player, arg)
         SQL.Run(sql);
         killNum = killNum - proficientKill[level + 1];
         level = level + 1;
-        self:sysMsg(raceName[race] .. "专精提升至" .. level .."级！");
+        player:sysMsg(raceName[race] .. "专精提升至" .. level .."级！");
     else
-        self:sysMsg(raceName[race] .. "专精提失败，击杀数据量不足！");
+        player:sysMsg(raceName[race] .. "专精提失败，击杀数据量不足！");
     end
     Protocol.PowerSend(player:getObj(),"SHOW_PROFICIENT", {
         [race] = level .. "|" .. killNum

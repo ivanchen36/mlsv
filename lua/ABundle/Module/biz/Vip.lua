@@ -2,7 +2,7 @@
 vipTitle = {"value", "exp", "avoid", "bank", "gift", "warp", "luck"}
 vipTitleVal = {"会员经验:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:", "会员传送:", "幸运值数:"}
 vipText = {"valueText", "expText", "avoidText", "bankText", "giftText", "warpText", "luckText"}
-vipTextVal = {"", "", "", "VIP7开启", "VIP8开启", "VIP9开启", ""}
+vipTextVal = {"", "", "", "VIP7可使用", "VIP8可使用", "VIP9可使用", ""}
 vipBtn = {"valueBtn", "expBtn", "avoidBtn", "bankBtn", "giftBtn", "warpBtn", ""}
 vipBtnText = {"领取", "开启", "开启", "开启", "开启", "开启", ""}
 
@@ -10,7 +10,6 @@ local vipWnd = nil
 local vipInfo = {}
 local vipClient = nil
 local vipExp = {120, 1020, 3360, 6720, 13880, 23880, 33600, 67200, 201600}
-local ops = {"领取",  "", "开启", "开启", "开启", "开启"}
 
 function collectVip(widget)
     Cli.Send("collect_vip").wait["FLUSH_VIP"] = function(info)
@@ -43,7 +42,19 @@ function upGift(widget)
     Cli.Send("up_gift")
 end
 
-vipEvents = {collectVip, nil, openAvoid, openBank, godGift, vipWarp}
+function addExp(widget)
+    Cli.Send("open_exp")
+end
+
+function upVip(widget)
+    Cli.Send("up_vip")
+end
+
+function upGift(widget)
+    Cli.Send("up_gift")
+end
+
+vipEvents = {collectVip, addExp, openAvoid, openBank, godGift, vipWarp, nil}
 
 function showExp(level, text, op)
     text:setText(vipInfo["exp"] .. " / " .. vipExp[level + 1])
@@ -57,9 +68,9 @@ end
 
 function showAvoid(level, text, op)
     if vipInfo["avoidFlag"] == 1 then
-        text:setText("驱魔时间 " .. (vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]) .. "秒")
+        text:setText("剩余时间 " .. (vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]) .. "秒")
     else
-        text:setText("驱魔时间 " .. (vipInfo["avoid"]) .. "秒")
+        text:setText("剩余时间 " .. (vipInfo["avoid"]) .. "秒")
     end
 
     if vipInfo["avoid"] <= 0 then
@@ -114,21 +125,25 @@ function showWarp(level, text, op)
     op:setText("开启")
 end
 
-function showExp(level, text, op)
+function showAddExp(level, text, op)
     text:setText("+" .. vipInfo["level"] * 10 .. "%")
-    if vipInfo["level"] == 1 then
+    if vipInfo["addExp"] == 0 then
         op:setEnabled(false)
         return
     end
-
     op:setEnabled(true)
 end
 
-local showEvents = {showExp, showExp, showAvoid, showBank, showGift, showWarp, nil}
+function showLuck(level, text, op)
+    text:setText(tostring(vipInfo["luck"]))
+end
+
+local showEvents = {showExp, showAddExp, showAvoid, showBank, showGift, showWarp, showLuck}
 
 function initVipContent()
     local level = vipInfo["level"]
     local vip = vipWnd:getWidget("level")
+    local upVip = vipWnd:getWidget("upVip");
     local upGift = vipWnd:getWidget("upGift");
 
     vip:setImg("vip" .. level .. ".bmp")
@@ -136,13 +151,18 @@ function initVipContent()
         local op = nil
         local text = vipWnd:getWidget(vipText[i]);
 
-        if ops[i] ~= "" then
+        if vipBtnText[i] ~= "" then
             op = vipWnd:getWidget(vipBtn[i])
         end
         local func = showEvents[i]
         if nil ~= func then
             func(level, text, op)
         end
+    end
+    if vipInfo["exp"] >= vipExp[level + 1] then
+        upVip:setEnabled(true)
+    else
+        upVip:setEnabled(false)
     end
     if vipInfo["upGift"] == 1 then
         upGift:setEnabled(true)
@@ -152,6 +172,7 @@ function initVipContent()
 end
 
 function flushVipInfo(info)
+    printTbl(info)
     vipInfo = info;
     initVipContent()
 end
@@ -162,20 +183,14 @@ function loadVipClient(client)
     vipClient = client
     vipWnd = createWindow("vip", vipClient)
 end
-function showVip1(info)
+function showVip(info)
     print( 'showVip1')
+    printTbl(info)
     vipInfo = info;
     vipWnd:show()
     initVipContent()
     print( 'showVip2')
 end
-
-function showVip(info)
-    try(function()
-        showVip1(info)  -- 尝试执行可能会出错的函数
-    end, catch)
-end
-
 
 Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["UPDATE_VIP"] = flushVipInfo

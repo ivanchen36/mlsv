@@ -73,9 +73,6 @@ function initProficientUi(view)
     initProficientContent(view)
 end
 
-function flushVipInfo(info)
-    vipInfo = info;
-end
 
 function showVipFrame(info)
     new.ShowView(902, initProficientUi)

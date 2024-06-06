@@ -42,10 +42,24 @@ function Image:new(title, image)
         _imgId = getImgId(image),
         _showImg = nil,
         _posX = 0,
-        _posY = 0
+        _posY = 0,
+        _sizeX = 0,
+        _sizeY = 0,
+        _lastEvent = -1
     }
     setmetatable(newObj, self)
     return newObj
+end
+
+function Image:setImgId(imgId)
+    if nil ~= self._showImg then
+        self._showImg.imageID = imgId
+        if imgId < 9990000 then
+            return
+        end
+        self._showImg.sizex = self._sizeX
+        self._showImg.sizey = self._sizeY
+    end
 end
 
 function Image:getTitle()
@@ -54,6 +68,7 @@ end
 
 function Image:getControls()
     local img = new.image(self._title)
+    img.callbackfunc = {}
     self._showImg = nil
 
     return {img}
@@ -66,7 +81,7 @@ end
 function Image:setImg(image)
     self._imgId = getImgId(image)
     if nil ~= self._showImg then
-        self._showImg.imageID = self._imgId
+        self:setImgId(self._imgId)
     end
 end
 
@@ -85,4 +100,12 @@ function Image:show(view)
     self._showImg.imageID = self._imgId
     self._showImg.xpos = self._posX
     self._showImg.ypos = self._posY
+    self._sizeX, self._sizeY = getSize(self._imgId)
+    if 0 ~= self._showImg.sizex then
+        self._sizeX = self._showImg.sizex
+        self._sizeY = self._showImg.sizey
+    else
+        self._showImg.sizex = self._sizeX
+        self._showImg.sizey = self._sizeY
+    end
 end
