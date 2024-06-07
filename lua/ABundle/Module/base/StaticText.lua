@@ -52,5 +52,4 @@ function Label:show(view)
     self._showText.ypos = self._posY
     self._showText.text = self._labText
     self._showText.fontsize = 9
-    self._showText.color = 26
 end

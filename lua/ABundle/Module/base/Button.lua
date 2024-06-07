@@ -218,7 +218,6 @@ function Button:show(view)
     self._showText.ypos = self._posY + posY
     self._showText.fontsize = fontSize
     self._showText.text = self._btnText
-    self._showText.color = 26
     self._showText.sizex = 0
     self._showText.sizey = 0
 end
