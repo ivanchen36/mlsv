@@ -1,6 +1,6 @@
 
 vipTitle = {"value", "damage", "luck", "exp", "avoid", "bank", "gift"}
-vipTitleVal = {"会员经验:", "伤害加成:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
+vipTitleVal = {"会员经验:", "增伤减伤:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
 vipText = {"valueText", "damageText", "luckText", "expText", "avoidText", "bankText", "giftText"}
 vipTextVal = {"", "", "", "", "", "VIP7可使用", "VIP8可使用"}
 vipBtn = {"valueBtn", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
@@ -59,8 +59,11 @@ end
 vipEvents = {collectVip, nil, nil, addExp, openAvoid, openBank, godGift}
 
 function showExp(level, text, op)
-    text:setText(vipInfo["exp"] .. " / " .. vipExp[level + 1])
-
+    local nextLevel = level + 1
+    if nextLevel > 9  then
+        nextLevel = 9
+    end
+    text:setText(vipInfo["exp"] .. " / " .. vipExp[nextLevel])
     if isToday(vipInfo["lastTime"]) then
         op:setEnabled(false)
         return
@@ -90,7 +93,6 @@ end
 
 function showBank(level, text, op)
     if vipInfo["bank"] ~= 1 then
-        text:setText("暂无权限")
         op:setEnabled(false)
         return
     end
@@ -101,7 +103,6 @@ end
 
 function showGift(level, text, op)
     if level <= 7 then
-        text:setText("暂无权限")
         op:setEnabled(false)
         return
     end
@@ -165,7 +166,11 @@ function initVipContent()
             func(level, text, op)
         end
     end
-    if vipInfo["exp"] >= vipExp[level + 1] then
+    local nextLevel = level + 1
+    if nextLevel > 9  then
+        nextLevel = 9
+    end
+    if vipInfo["exp"] >= vipExp[nextLevel] and level < 9 then
         upVip:setEnabled(true)
     else
         upVip:setEnabled(false)
@@ -193,7 +198,7 @@ end
 function showVip(info)
     if (vipWnd == nil) then
         Cli.Send("vip_client")
-        Cli.MessageBox("[系统提示] VIP功能正在加载中，请稍后！")
+        Cli.Message("[系统提示] VIP功能正在加载中，请稍后！")
         return
     end
     print( 'showVip1')
@@ -204,7 +209,12 @@ function showVip(info)
     print( 'showVip2')
 end
 
+function sendTax(param)
+    Cli.Send("pay_tax")
+end
+
 Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["UPDATE_VIP"] = flushVipInfo
 Cli.Send().wait["SHOW_VIP"] = showVip
+Cli.Send().wait["SEND_TAX"] = sendTax
 Cli.Send("vip_client")

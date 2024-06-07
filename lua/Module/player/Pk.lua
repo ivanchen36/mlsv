@@ -90,7 +90,6 @@ function startBattle(player1, player2)
     if battleIndex < 0 then
         return 0
     end
-    table.insert(waitBattleIndex, battleIndex)
     return battleIndex
 end
 

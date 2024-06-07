@@ -54,6 +54,10 @@ function tblToString(tbl)
     return str
 end
 
+function startsWith(str, prefix)
+    return str:sub(1, #prefix) == prefix
+end
+
 function logPrintTbl(tbl)
     logPrint(tblToString(tbl))
 end

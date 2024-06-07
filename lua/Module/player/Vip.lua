@@ -210,14 +210,16 @@ end
 function openBank(player, arg)
     local info = vipInfo[player:getRegistNumber()]
     if -1 == bankIndex then
-        bankIndex = NLG.FindNpcByPos("银行员")
+        bankIndex = NLG.FindNpcByName("银行员工")
         if -1 == bankIndex then
+            logPrint("FindNpcByName failed")
             player:sysMsg("系统异常，打开银行失败,稍后重试！")
             return
         end
     end
 
-    if 0 ~= NLG.Talked(0, player:getObj(), bankIndex) then
+    if 1 ~= NLG.Talked(0, bankIndex, player:getObj()) then
+        logPrint("Talked failed")
         player:sysMsg("系统异常，打开银行失败,稍后重试！")
         return
     end
@@ -254,6 +256,11 @@ end
 function upVip(player, arg)
     local info = vipInfo[player:getRegistNumber()]
     local curLevel = info["level"]
+    if curLevel >= 9 then
+        player:sysMsg("您已经提升至会员最高等级！")
+        return
+    end
+
     if info["exp"] < vipExp[curLevel + 1] then
         player:sysMsg("您还无法提升会员等级！")
         return

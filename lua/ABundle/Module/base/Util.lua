@@ -173,8 +173,8 @@ function Event.ViewInit.PrintV(view)
     --print("init view vid " .. view.vid)
 end
 
-function Event.Recv.PrintP(player,packet)
-    --print("Recv " .. packet)
+function Event.Recv.PrintP(player, packet)
+    print("Recv " .. packet)
 end
 
 function safeCall(func, ...)
