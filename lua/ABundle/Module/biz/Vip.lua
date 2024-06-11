@@ -198,7 +198,7 @@ end
 function showVip(info)
     if (vipWnd == nil) then
         Cli.Send("vip_client")
-        Cli.Message("[系统提示] VIP功能正在加载中，请稍后！")
+        Cli.SysMessage("[系统提示] VIP功能正在加载中，请稍后！",4,3)
         return
     end
     print( 'showVip1')

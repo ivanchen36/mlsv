@@ -80,7 +80,6 @@ function getVipClient(player, arg)
             ["click"] = "upGift",
         }
     }
-    logPrint("getVipClient")
     Protocol.PowerSend(player:getObj(), "VIP_CLIENT", vipClient)
 end
 

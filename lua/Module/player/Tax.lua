@@ -1,32 +1,37 @@
-local taxRate =
-{
-    [20000] = 0,
-    [100000] = 0.2,
-    [200000] = 0.3,
-    [100000000000] = 0.5
-}
+local taxAmount = {20000, 100000, 200000, 100000000000}
+local taxRate = {0,0.2,0.3,0.5}
 local playerGold = {}
+
+function getTaxRate(amount)
+    for i = 1, #taxRate do
+        if amount <= i then
+            return taxRate[i]
+        end
+    end
+    return 0.5
+end
 
 function payTax(player, arg)
     local cycle = truncDay(os.time());
     local playerRegNum = player:getRegistNumber();
+    local mac = player:getMac()
     local amount = player:getGold() - playerGold[player:getObj()]
-    logPrint("sell ", amount)
-    playerGold[player:getObj()] = nil
 
+    playerGold[player:getObj()] = nil
     local sql = string.format( "SELECT Amount, TaxAmount, Cycle, CreateTime FROM tbl_tax_info WHERE RegNum = %d and Cycle = %d", playerRegNum, cycle);
     local rs = SQL.Run(sql);
     if type(rs) ~= "table" then
-        sql = string.format("INSERT INTO tbl_tax_info (RegNum, Amount, TaxAmount, Cycle, CreateTime) VALUES (%d, 0, 0, %d, unix_timestamp())",
-                playerRegNum, cycle);
+        sql = string.format("INSERT INTO tbl_tax_info (RegNum, Amount, TaxAmount, Cycle, CreateTime) VALUES (%d, %d, 0, %d, unix_timestamp())",
+                playerRegNum, amount, cycle);
         SQL.Run(sql);
 
         return;
     end
-    sql = string.format("UPDATE tbl_tax_info set TaxAmount = TaxAmount + %d WHERE RegNum = %d and Cycle = %d",
-            amount, playerRegNum, cycle);
+    sql = string.format("UPDATE tbl_tax_info set Amount = Amount + %d, TaxAmount = TaxAmount + %d WHERE RegNum = %d and Cycle = %d",
+            amount, amount, playerRegNum, cycle);
     SQL.Run(sql);
 end
+
 --subMoney
 function checkSellAmount(fd, head, packet)
     local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))

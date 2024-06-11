@@ -18,6 +18,7 @@ function Button:new(title, image, text)
         _sizeX = 0,
         _sizeY = 0,
         _btnText = text,
+        _color = 26,
         _isClick = false,
         _isDisable = false,
     }
@@ -165,6 +166,13 @@ function Button:setPos(x, y)
     end
 end
 
+function Button:setColor(color)
+    self._color = color
+    if nil ~= self._showText then
+        self._showText.color = color
+    end
+end
+
 function Button:getFonSize(fontPixel)
     for i = 1, #fontPixels do
         if fontPixel >= fontPixels[i] then
@@ -218,6 +226,7 @@ function Button:show(view)
     self._showText.ypos = self._posY + posY
     self._showText.fontsize = fontSize
     self._showText.text = self._btnText
+    self._showText.color = self._color
     self._showText.sizex = 0
     self._showText.sizey = 0
 end

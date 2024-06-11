@@ -1,13 +1,13 @@
-local raceHuman = 0    -- 人形种族
-local raceDragon = 1   -- 龙种族
-local raceUndead = 2   -- 不死种族
-local raceFlying = 3   -- 飞行种族
-local raceInsect = 4   -- 昆虫种族
-local racePlant = 5    -- 植物种族
-local raceBeast = 6    -- 野兽种族
-local raceSpecial = 7  -- 特殊种族
-local raceMetal = 8    -- 金属种族
-local raceDemonic = 9  -- 邪魔种族
+local raceHuman = 1    -- 人形种族
+local raceDragon = 2   -- 龙种族
+local raceUndead = 3   -- 不死种族
+local raceFlying = 4   -- 飞行种族
+local raceInsect = 5   -- 昆虫种族
+local racePlant = 6    -- 植物种族
+local raceBeast = 7    -- 野兽种族
+local raceSpecial = 8  -- 特殊种族
+local raceMetal = 9    -- 金属种族
+local raceDemonic = 10  -- 邪魔种族
 
 local raceName = {
     [raceHuman] = "人形系",
@@ -69,7 +69,25 @@ function upProficient(player, arg)
     })
 end
 
-function updateProficientKill(index, exp)
+function raceChallenge(player, arg)
+    local race = tonumber(arg);
+    local sql = "select Level, KillNum from tbl_pet_proficient where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race;
+    local rs = SQL.Run(sql);
+    local level = tonumber(rs[0 .. "_0"]);
+    local killNum = tonumber(rs[0 .. "_1"]);
+    if proficientKill[level + 1] < killNum then
+        sql = "update tbl_pet_proficient set Level = Level + 1, KillNum = KillNum - " .. proficientKill[level + 1]
+                .. " where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race .. " and KillNum >= " .. proficientKill[level + 1];
+        SQL.Run(sql);
+        killNum = killNum - proficientKill[level + 1];
+        level = level + 1;
+        player:sysMsg(raceName[race] .. "专精提升至" .. level .."级！");
+    else
+        player:sysMsg(raceName[race] .. "专精提失败，击杀数据量不足！");
+    end
+end
+
+function Event.RegGetExpEvent.updateProficientKill(index, exp)
     logPrint("updateProficientKill", index, exp);
     if exp < 100 then
         return
@@ -82,4 +100,4 @@ end
 
 TalkEvent["[proficient]"] = showProficient
 ClientEvent["up_proficient"] = upProficient
-NL.RegGetExpEvent(nil, "updateProficientKill");
+ClientEvent["race_challenge"] = raceChallenge
