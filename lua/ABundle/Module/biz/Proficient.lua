@@ -1,82 +1,93 @@
 proficientInfo = {}
-local races = {"人形系", "龙系", "不死系", "飞行系", "昆虫系", "植物系", "野兽系", "特殊系", "金属系", "邪魔系"}
+local raceTitle = {"race1", "race2", "race3", "race4", "race5", "race6", "race7", "race8", "race9", "race10"}
+local raceTitleVal = {"人形系专精:", "龙系专精:", "不死系专精:", "飞行系专精:", "昆虫系专精:", "植物系专精:", "野兽系专精:", "特殊系专精:", "金属系专精:", "邪魔系专精:"}
+local raceLevel = {"rece1Lever", "rece2Lever", "rece3Lever", "rece4Lever", "rece5Lever", "rece6Lever", "rece7Lever", "rece8Lever", "rece9Lever", "rece10Lever"}
+local raceInfo = {"race1Info", "race2Info", "race3Info", "race4Info", "race5Info", "race6Info", "race7Info", "race8Info", "race9Info", "race10Info"}
+local raceUp = {"rece1Up", "rece2Up", "rece3Up", "rece4Up", "rece5Up", "rece6Up", "rece7Up", "rece8Up", "rece9Up", "rece10Up"}
+local raceChallenge = {"rece1Challenge", "rece2Challenge", "rece3Challenge", "rece4Challenge", "rece5Challenge", "rece6Challenge", "rece7Challenge", "rece8Challenge", "rece9Challenge", "rece10Challenge"}
+
 local proficientKill = { 99, 399, 999, 2999}
+local proficientWnd = nil
+local proficientClient = nil
+local proficientWnd = nil
 
-local menuPosX = 111
-local menuPosY = 111
-
-local startImg = chx.Uwait("green.bmp")
-local fightImg = chx.Uwait("red.bmp")
-local disImg = chx.Uwait("gray.bmp")
-
-function upProficient(object, event)
+function upProficient(widget)
     if event ~= 1 then
         return
     end
-    Cli.Send("upproficient|" .. object._select1[0])
+    Cli.Send("up_proficient|" .. race)
 end
 
-function initProficientFrame(view)
-    initBaseFrame(view,"proficient")
-    for i=1,#races do
-        -- 摆放锁按钮
-        view.add(new.textbox("title".. i));
-        view.add(new.textbox("value".. i));
-        view.add(new.bmpbutton("op".. i, disImg));
-        view.add(new.textbox("opT".. i));
-        view.add(new.bmpbutton("fight".. i, fightImg));
-        view.add(new.textbox("fightT".. i));
-    end
-end
-
-function initProficientContent(view)
-    setBaseFrame(view)
-
-    for i=1, #races do
-        local posX = menuPosX + (i - 1) * 60
-        local posY = menuPosY+ (i - 1) * 60
-        local title = view.find("title".. i);
-        local value = view.find("value".. i);
-
-        title.enable = 1;
-        title.xpos = posX;
-        title.ypos = posY;
-        title.text = races[i] .. "专精:";
-
-        local arr = strSplit(proficientInfo[i], "|")
-        local level = arr[1]
-        local kill = arr[2]
-
-        value.enable = 1;
-        value.xpos = posX + 20;
-        value.ypos = posY;
-        value.text = "等级" .. level .. "  飞行系宠物参战回合:" .. kill  .. "/" .. proficientKill[level + 1];
-
-        local op = view.find("op".. i);
-        op.enable = 1;
-        op.xpos = posX + 40;
-        op.ypos = posY;
-        if kill >= proficientKill[level + 1] then
-            op.event = upProficient
-        else
-            op.id = startImg
-            op.event = nil
-        end
-    end
-end
-
-function initProficientUi(view)
-    if not view.IsInit then
-        initProficientFrame(view)
+function raceChallenge(widget)
+    if event ~= 1 then
         return
     end
-    initProficientContent(view)
+    Cli.Send("race_challenge|" .. race)
 end
 
+function initProficientContent()
+    local level = ProficientInfo["level"]
+    local Proficient = ProficientWnd:getWidget("level")
+    local upProficient = ProficientWnd:getWidget("upProficient");
+    local upGift = ProficientWnd:getWidget("upGift");
 
-function showVipFrame(info)
-    new.ShowView(902, initProficientUi)
+    Proficient:setImg("Proficient" .. level .. ".bmp")
+    for i=1, #ProficientTitle do
+        local op = nil
+        local text = ProficientWnd:getWidget(ProficientText[i]);
+
+        if ProficientBtnText[i] ~= "" then
+            op = ProficientWnd:getWidget(ProficientBtn[i])
+        end
+        local func = showEvents[i]
+        if nil ~= func then
+            func(level, text, op)
+        end
+    end
+    local nextLevel = level + 1
+    if nextLevel > 9  then
+        nextLevel = 9
+    end
+    if ProficientInfo["exp"] >= ProficientExp[nextLevel] and level < 9 then
+        upProficient:setEnabled(true)
+    else
+        upProficient:setEnabled(false)
+    end
+    if ProficientInfo["upGift"] == 1 then
+        upGift:setEnabled(true)
+    else
+        upGift:setEnabled(false)
+    end
 end
 
-Cli.Send().wait["FLUSH_VIP"] = flushVipInfo
-Cli.Send().wait["SHOW_VIP"] = showVipFrame
+function flushProficientInfo(info)
+    printTbl(info)
+    ProficientInfo = info;
+    initProficientContent()
+end
+
+function loadProficientClient(client)
+    print("loadProficientClient")
+    printTbl(client)
+    proficientClient = client
+    proficientWnd = createWindow("proficient", proficientClient)
+end
+
+function showProficient(info)
+    if (proficientWnd == nil) then
+        Cli.Send("proficient_client")
+        Cli.SysMessage("[系统提示] 种族专精功能正在加载中，请稍后！",4,3)
+        return
+    end
+    print( 'showProficient1')
+    printTbl(info)
+    proficientInfo = info;
+    proficientWnd:show()
+    initProficientContent()
+    print( 'showProficient2')
+end
+
+Cli.Send().wait["FLUSH_PROFICIENT"] = flushProficientInfo
+Cli.Send().wait["SHOW_PROFICIENT"] = showProficient
+Cli.Send().wait["PROFICIENT_CLIENT"] = loadProficientClient
+Cli.Send("proficient_client")

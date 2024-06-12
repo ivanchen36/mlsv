@@ -1,5 +1,6 @@
 
 local wndMgr = {}
+local wndIdMgr = {}
 
 function showWnd(view)
     local wnd = wndMgr[view.vid]
@@ -26,8 +27,12 @@ function Window:new(title, img)
     else
         bgId = getImgId(img)
     end
+    if rawget(wndIdMgr, title) == nil then
+        wndIdMgr[title] = wndId
+        wndId = wndId + 2
+    end
     local newObj = {
-        _id = wndId,
+        _id = wndIdMgr[title],
         _bgId = bgId,
         _title = title,
         _view = nil,
@@ -35,7 +40,6 @@ function Window:new(title, img)
         _widgetList = {},
         _isOpen = false
     }
-    wndId = wndId + 2
     setmetatable(newObj, self)
     wndMgr[newObj._id] = newObj
 

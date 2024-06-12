@@ -67,8 +67,17 @@ function createSingleWidget(widget)
         if rawget(widget, "click") ~= nil then
             tmp:clicked(_G[widget.click])
         end
+        if rawget(widget, "color") ~= nil then
+            tmp:setColor(widget.color)
+        end
     elseif "lab" == widget.type then
         tmp = Label:new(widget.title, widget.text)
+        if rawget(widget, "color") ~= nil then
+            tmp:setColor(widget.color)
+        end
+        if rawget(widget, "font") ~= nil then
+            tmp:setFont(widget.font)
+        end
     elseif "img" == widget.type then
         tmp = Image:new(widget.title, widget.img)
     end
@@ -113,8 +122,17 @@ function createMulWidget(x, y, widget)
                 if rawget(widget, "click") ~= nil then
                     tmp:clicked(getGlobFunc(widget.click, i))
                 end
+                if rawget(widget, "color") ~= nil then
+                    tmp:setColor(getGlobVal(widget.color, i))
+                end
             elseif "lab" == widget.type then
                 tmp = Label:new(titles[i], getGlobVal(widget.text, i))
+                if rawget(widget, "color") ~= nil then
+                    tmp:setColor(getGlobVal(widget.color, i))
+                end
+                if rawget(widget, "font") ~= nil then
+                    tmp:setFont(getGlobVal(widget.font, i))
+                end
             elseif "img" == widget.type then
                 tmp = Image:new(titles[i], getGlobVal(widget.img, i))
             end

@@ -10,6 +10,8 @@ function Label:new(title, text)
         _labText = text,
         _posX = 0,
         _posY = 0,
+        _font = 9,
+        _color = 26
     }
     setmetatable(newObj, self)
     return newObj
@@ -45,11 +47,26 @@ function Label:setPos(x, y)
     end
 end
 
+function Label:setFont(font)
+    self._font = font
+    if nil ~= self._showText then
+        self._showText.fontsize = self._font
+    end
+end
+
+function Label:setColor(color)
+    self._color = color
+    if nil ~= self._showText then
+        self._showText.color = self._color
+    end
+end
+
 function Label:show(view)
     self._showText = view.find(self._title)
     self:setVisible(true)
     self._showText.xpos = self._posX
     self._showText.ypos = self._posY
     self._showText.text = self._labText
-    self._showText.fontsize = 9
+    self._showText.fontsize = self._font
+    self._showText.color = self._color
 end
