@@ -13,12 +13,7 @@ end
 
 -- %³èÎï×´Ì¬_Õ½¶·% 2
 function MyPet:getBattlePet(player)
-    for i = 0, 4 do
-        if 2 == Pet.GetStatus(player, i) then
-            return self:new(player, i)
-        end
-    end
-    return nil
+    return self:new(player,  Char.GetData(self.player, 62) )
 end
 
 function MyPet:isValid()

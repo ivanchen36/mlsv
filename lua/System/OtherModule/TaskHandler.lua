@@ -23,7 +23,7 @@ function initTaskHandler()
         return 1;
     end
 
-    taskHandlerIndex = NL.CreateNpc("lua/System/OtherModule/TaskHandler.lua", "NPCInit");
+    taskHandlerIndex = NL.CreateNpc(nil, "NPCInit");
     local myPlayer = MyPlayer:new(taskHandlerIndex);
     myPlayer:setImage(101003)
     myPlayer:setOriginalForm(101003)
@@ -32,7 +32,7 @@ function initTaskHandler()
     myPlayer:setMapId(777)
     myPlayer:setDirection(4)
     myPlayer:setName("定时任务处理")
-    Char.SetLoopEvent("lua/System/OtherModule/TaskHandler.lua", "doTask", taskHandlerIndex, 3000);
+    Char.SetLoopEvent(nil, "doTask", taskHandlerIndex, 3000);
 end
 
 function doTask(index)
@@ -48,6 +48,10 @@ function doTask(index)
         local regNum = tonumber(rs[i .. "_1"])
         local type = tonumber(rs[i .. "_2"])
         local info = rs[i .. "_3"]
+        if rawget(TaskHandler, type) == nil then
+            logPrint("TaskHandler[" .. type .. "] is not function")
+            return
+        end
         local rs = TaskHandler[type](regNum, info)
         if 1 == rs then
             local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Id = " .. id

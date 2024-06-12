@@ -14,6 +14,16 @@ end
 
 TalkEvent["/test"] = test
 
+
+function test(player)
+    getVipClient(player, "")
+end
+
+TalkEvent["/test1"] = function (player)
+    logPrint(player:getBattlePet())
+    logPrint(MyPet:getBattlePet(player:getObj()):getObj())
+end
+
 function testRecv(fd,head,packet)
     logPrint("testRecv", fd,head,packet)
 end
