@@ -62,10 +62,10 @@ function logPrintTbl(tbl)
     logPrint(tblToString(tbl))
 end
 
+-- Íò·Ö±È
 function isOccur(permyriad)
-    local probability = permyriad
     local rand = math.random() * 10000
-    return rand <= probability
+    return rand <= permyriad
 end
 
 function getRandObj(objList)

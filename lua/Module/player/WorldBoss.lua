@@ -1,7 +1,11 @@
 local bossID = {}
----地图名，BOSS形象，地图类型，地图编号，东，南，BOSS坐标提示，战斗编号【参照encount】--多个请复制添加 编号往下推
-bossID[1] = {"法兰城",107913,0,1000,188,88,"东医院附近",10000,"boss1"}
-bossID[2] = {"索奇亚",107913,0,300,307,322,"奇力村附近",10000,"boss1"}
+---地图名，BOSS形象，地图类型，地图编号，东，南，BOSS坐标提示，战斗编号【参照encount】,boss名称,boss类型
+---类型 1-可以打多次 2-只能打一次 3-战斗中所有的人一起必须打够足够的血量
+---奖励 1、2固定奖品，3-看排名
+--多个请复制添加 编号往下推
+
+bossID[1] = {"法兰城",107913,0,1000,188,88,"东医院附近",10000,"boss1", 1}
+bossID[2] = {"索奇亚",107913,0,300,307,322,"奇力村附近",10000,"boss1", 1}
 bossID[3] = {"索奇亚",107913,0,300,343,271,"奇力村附近",10000,"boss1"}
 bossID[4] = {"索奇亚",107913,0,300,716,182,"加纳村附近",10000,"boss1"}
 bossID[5] = {"索奇亚",107913,0,300,698,254,"加纳村附近",10000,"boss1"}
@@ -35,6 +39,7 @@ function startBoss(regNum, info)
         local G = bossID[bossIndex][7]
         local H = bossID[bossIndex][8]
         local bossName = bossID[bossIndex][8]
+        local bossType = bossID[bossIndex][9]
         local NPC = NL.CreateArgNpc("WalkEnemy","1|1000|1|1000|0|0||||||||9999999|"..H.."|||||||||",bossName,B,C,D,E,F,1);
         NLG.SystemMessage(-1, "[系统提示]世间的深渊中，怪物悄然苏醒，" .. bossName .. " 出现在【" .. A .. G .. " " .. E .. "." .. F.."】，震撼寰宇的咆哮震颤着每一寸土地，请大神速去剿灭。");
         table.insert(bossNpcList,NPC)

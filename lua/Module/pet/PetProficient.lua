@@ -92,10 +92,15 @@ function Event.RegGetExpEvent.updateProficientKill(index, exp)
     if exp < 100 then
         return
     end
-
-    local race = MyPlayer:getBattlePet(index):getRace();
-    local sql = "update tbl_pet_proficient set KillNum = KillNum + 1 where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race;
-    SQL.Run(sql);
+    local myPlayer = MyPlayer:new(index)
+    if myPlayer:isPerson() then
+        local pet = MyPet:getBattlePet(myPlayer:getObj())
+        if pet:isValid() then
+            local race = pet:getRace();
+            local sql = "update tbl_pet_proficient set KillNum = KillNum + 1 where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race;
+            SQL.Run(sql);
+        end
+    end
 end
 
 TalkEvent["[proficient]"] = showProficient

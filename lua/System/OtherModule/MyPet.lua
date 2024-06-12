@@ -13,11 +13,15 @@ end
 
 -- %宠物状态_战斗% 2
 function MyPet:getBattlePet(player)
-    return self:new(player,  Char.GetData(self.player, 62) )
+    return self:new(player,  Char.GetData(self.player, 62))
 end
 
 function MyPet:isValid()
     return VaildChar(self._pet)
+end
+
+function MyPet:getId()
+    return
 end
 
 function MyPet:getUuid()
@@ -45,18 +49,6 @@ end
 function MyPet:set(key, val)
     Char.SetData(self._pet, key, val)  -- 使用 Char.SetData 函数设置玩家数据
 end
-
-
--- 定义 __index 元方法，用于获取值
-function MyPet:__index(key)
-    return self:get(key)  -- 调用 get 方法获取值
-end
-
--- 定义 __newindex 元方法，用于设置值
-function MyPet:__newindex(key, val)
-    self:set(key, val)  -- 调用 set 方法设置值
-end
-
 
 --%对象_抗毒%	22
 --%对象_抗睡%	23
@@ -135,10 +127,6 @@ function MyPet:changeIamge(image)
     return 1
 end
 
-function MyPet:flush()
-    NLG.UpChar(self._pet)
-end
-
 function MyPlayer:isValid()
     return VaildChar(self._pet)
 end
@@ -149,10 +137,6 @@ end
 
 function MyPet:flush()
     Pet.UpPet(self._player, self._pet)
-end
-
-function MyPet:sysMsg(str)
-    NLG.SystemMessage(self._pet, str)
 end
 
 function MyPet:getLevel()

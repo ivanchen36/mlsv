@@ -73,6 +73,7 @@ gadofile("lua/Module/pet/PetAwakening.lua"); -- 宠物觉醒
 gadofile("lua/Module/pet/PetProficient.lua"); -- 种族专精&秘境
 gadofile("lua/Module/pet/PetSynthesis.lua"); -- 宠物融合
 gadofile("lua/Module/pet/PetTalent.lua"); -- 宠物天赋
+gadofile("lua/Module/pet/PetAnsha.lua"); -- 宠物暗杀
 gadofile("lua/Module/player/RoutineTask.lua"); -- 日常任务
 gadofile("lua/Module/player/WorldBoss.lua"); --世界boss
 gadofile("lua/Module/player/GodGift.lua");--天降礼包
