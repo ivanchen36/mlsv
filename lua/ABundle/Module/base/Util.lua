@@ -106,38 +106,48 @@ function getGlobFunc(tblStr, index)
     end
 end
 
-function createMulWidget(x, y, widget)
+function createMulWidget(rows, columns, w, h, widget)
     local widgets = {}
     local posX = widget.x
     local posY = widget.y
     local titles = _G[widget.title:sub(2)]
 
-    for i = 1, #titles do
-        if "" ~= titles[i] and "" ~=titles[i] then
-            local tmp = nil
-            if "btn" == widget.type then
-                tmp = Button:new(titles[i], getGlobVal(widget.img, i), getGlobVal(widget.text, i))
-                tmp:setActiveImg(widget.active)
-                tmp:setDisableImg(widget.disable)
-                if rawget(widget, "click") ~= nil then
-                    tmp:clicked(getGlobFunc(widget.click, i))
+    if rows == 0 then
+        rows = #titles / columns + 1
+    end
+    if columns == 0 then
+        columns = #titles / rows + 1
+    end
+    local pos = 1
+    for i = 1, rows do
+        for j = 1, columns do
+            pos = (i - 1) * columns + j
+            if nil ~=titles[pos] and "" ~= titles[pos] then
+                local tmp = nil
+                if "btn" == widget.type then
+                    tmp = Button:new(titles[pos], getGlobVal(widget.img, pos), getGlobVal(widget.text, pos))
+                    tmp:setActiveImg(widget.active)
+                    tmp:setDisableImg(widget.disable)
+                    if rawget(widget, "click") ~= nil then
+                        tmp:clicked(getGlobFunc(widget.click, pos))
+                    end
+                    if rawget(widget, "color") ~= nil then
+                        tmp:setColor(getGlobVal(widget.color, pos))
+                    end
+                elseif "lab" == widget.type then
+                    tmp = Label:new(titles[pos], getGlobVal(widget.text, pos))
+                    if rawget(widget, "color") ~= nil then
+                        tmp:setColor(getGlobVal(widget.color, pos))
+                    end
+                    if rawget(widget, "font") ~= nil then
+                        tmp:setFont(getGlobVal(widget.font, pos))
+                    end
+                elseif "img" == widget.type then
+                    tmp = Image:new(titles[pos], getGlobVal(widget.img, pos))
                 end
-                if rawget(widget, "color") ~= nil then
-                    tmp:setColor(getGlobVal(widget.color, i))
-                end
-            elseif "lab" == widget.type then
-                tmp = Label:new(titles[i], getGlobVal(widget.text, i))
-                if rawget(widget, "color") ~= nil then
-                    tmp:setColor(getGlobVal(widget.color, i))
-                end
-                if rawget(widget, "font") ~= nil then
-                    tmp:setFont(getGlobVal(widget.font, i))
-                end
-            elseif "img" == widget.type then
-                tmp = Image:new(titles[i], getGlobVal(widget.img, i))
+                tmp:setPos(posX + (j - 1) * w, posY + (i - 1) * h)
+                table.insert(widgets, tmp)
             end
-            tmp:setPos(posX + (i - 1) * x, posY + (i - 1) * y)
-            table.insert(widgets, tmp)
         end
     end
     return widgets
@@ -150,21 +160,22 @@ function createWindow(title, wndConfig)
     local close = nil
     for i = 1, #wndConfig do
         local widget = wndConfig[i]
-        local dis = 0
+        local width = 0
+        local high = 0
         if "bg" == widget.type then
             bgImg = widget.img
         elseif "close" == widget.type then
             close = widget
-        elseif rawget(widget, "align") ~= nil then
+        elseif rawget(widget, "table") ~= nil then
             local tmpArr = {}
-            if rawget(widget, "dis") ~= nil then
-                dis = widget.dis
+            local arr = strSplit(widget.table, ",")
+            if rawget(widget, "width") ~= nil then
+                width = widget.width
             end
-            if "x" == widget.align then
-                tmpArr = createMulWidget(0, dis, widget)
-            elseif "y" == widget.align then
-                tmpArr = createMulWidget(dis, 0, widget)
+            if rawget(widget, "high") ~= nil then
+                high = widget.high
             end
+            tmpArr = createMulWidget(tonumber(arr[1]), tonumber(arr[2]), width, high, widget)
             for i = 1, #tmpArr do
                 table.insert(widgets, tmpArr[i])
             end

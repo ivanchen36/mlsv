@@ -27,8 +27,8 @@ function getVipClient(player, arg)
             ["img"] = player:getFace(),
         },
         {
-            ["align"] = "x",
-            ["dis"] = 22,
+            ["table"] = "0,1",
+            ["high"] = 22,
             ["type"] = "lab",
             ["title"] = "#vipTitle",
             ["x"] = 240,
@@ -36,8 +36,8 @@ function getVipClient(player, arg)
             ["text"] = "#vipTitleVal",
         },
         {
-            ["align"] = "x",
-            ["dis"] = 22,
+            ["table"] = "0,1",
+            ["high"] = 22,
             ["type"] = "lab",
             ["title"] = "#vipText",
             ["x"] = 300,
@@ -45,8 +45,8 @@ function getVipClient(player, arg)
             ["text"] = "#vipTextVal",
         },
         {
-            ["align"] = "x",
-            ["dis"] = 22,
+            ["table"] = "0,1",
+            ["high"] = 22,
             ["type"] = "btn",
             ["title"] = "#vipBtn",
             ["x"] = 400,

@@ -21,7 +21,7 @@ function MyPet:isValid()
 end
 
 function MyPet:getId()
-    return
+    return self:get(57)
 end
 
 function MyPet:getUuid()
