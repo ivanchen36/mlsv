@@ -10,7 +10,7 @@ function getGiftDes()
     local str = ""
     for i = 1, #gift do
         local info = gift[i]
-        str = str .. info["name"] .. "x" .. info["count"] .. " "
+        str = str .. info["name"] .. "-" .. info["count"] .. "¸ö "
     end
     return str
 end

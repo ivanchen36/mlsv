@@ -4,7 +4,7 @@ vipTitleVal = {"会员经验:", "增伤减伤:", "幸运值数:", "经验加成:", "驱魔时间:", 
 vipText = {"valueText", "damageText", "luckText", "expText", "avoidText", "bankText", "giftText"}
 vipTextVal = {"", "", "", "", "", "VIP7可使用", "VIP8可使用"}
 vipBtn = {"valueBtn", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
-vipBtnText = {"领取", "", "", "开启", "开启", "开启", "开启", "开启", ""}
+vipBtnText = {"领取", "", "", "开启", "开启", "开启", "开启"}
 
 local vipWnd = nil
 local vipInfo = {}
@@ -64,7 +64,7 @@ function showExp(level, text, op)
         nextLevel = 9
     end
     text:setText(vipInfo["exp"] .. " / " .. vipExp[nextLevel])
-    if isToday(vipInfo["lastTime"]) and level < 9 then
+    if isToday(vipInfo["lastTime"]) or level >= 9 then
         op:setEnabled(false)
         return
     end
@@ -73,9 +73,13 @@ end
 
 function showAvoid(level, text, op)
     if vipInfo["avoidFlag"] == 1 then
-        text:setText("剩余时间 " .. (vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]) .. "秒")
+        local tmp = vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]
+        if tmp <= 0 then
+            tmp = 0
+        end
+        text:setText("剩余时间 " .. tmp .. "秒")
     else
-        text:setText("剩余时间 " .. (vipInfo["avoid"]) .. "秒")
+        text:setText("剩余时间 " .. vipInfo["avoid"] .. "秒")
     end
 
     if vipInfo["avoid"] <= 0 then
@@ -98,7 +102,6 @@ function showBank(level, text, op)
     end
 
     op:setEnabled(true)
-    op:setText("开启")
 end
 
 function showGift(level, text, op)
@@ -114,7 +117,6 @@ function showGift(level, text, op)
     end
 
     op:setEnabled(true)
-    op:setText("开启")
 end
 
 function showWarp(level, text, op)
