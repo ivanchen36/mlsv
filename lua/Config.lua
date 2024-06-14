@@ -171,7 +171,5 @@ useModule("ItemPetBP_can");--快速加点
 useModule("ItemPetBP");--快速加点
 --20231127
 
-useModule("ansha_setting");
-useModule("ansha");--快速加点
 useModule("newflg");
 useModule("npcms");

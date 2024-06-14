@@ -41,7 +41,7 @@ function initVip(player)
     local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table")then
-        print("vipInfo not found, id:" .. player:getRegistNumber());
+        logPrint("vipInfo not found, id:" .. player:getRegistNumber());
         sql = "INSERT INTO tbl_vip_info (RegNum,VipLevel,VipExp,LastExp,LastTime,CreateTime,LuckVal,EnemyAvoidSec,RemoteBank) VALUES ("
                 .. player:getRegistNumber() .. ",0,0,0,0,unix_timestamp(),0,0,0)";
         SQL.Run(sql);
@@ -201,7 +201,7 @@ function godGift(player, arg)
     end
 
     NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您开启的【天降礼包】闪耀全场，好运与您同在！")
-    info["gift"] = 1
+    info["gift"] = 0
     startGift(vipGiftInfo)
     Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
 end
@@ -289,3 +289,20 @@ function openExp(player, arg)
     setCharExp(addRate, 7200)
     Protocol.PowerSend(player:getObj(),"UPDATE_VIP", info)
 end
+
+--vip
+ClientEvent["up_gift"] = upGift
+TalkEvent["[vip]"] = showVip
+ClientEvent["collect_vip"] = collectVip
+ClientEvent["open_avoid"] = openAvoid
+ClientEvent["close_avoid"] = userCloseAvoid
+ClientEvent["open_bank"] = openBank
+ClientEvent["god_gift"] = godGift
+ClientEvent["vip_warp"] = vipWarp
+ClientEvent["open_exp"] = openExp
+ClientEvent["up_vip"] = upVip
+InitEvent["char"] = initVip
+DeinitEvent["char"] = deinitVip
+TaskHandler[1] = sysCloseAvoid
+DamageEvent[1] = addVipDamage
+DamageEvent[11] = subVipDamage

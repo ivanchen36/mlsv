@@ -64,7 +64,7 @@ function showExp(level, text, op)
         nextLevel = 9
     end
     text:setText(vipInfo["exp"] .. " / " .. vipExp[nextLevel])
-    if isToday(vipInfo["lastTime"]) then
+    if isToday(vipInfo["lastTime"]) and level < 9 then
         op:setEnabled(false)
         return
     end
@@ -183,14 +183,14 @@ function initVipContent()
 end
 
 function flushVipInfo(info)
-    printTbl(info)
+    logPrintTbl(info)
     vipInfo = info;
     initVipContent()
 end
 
 function loadVipClient(client)
-    print("loadVipClient")
-    printTbl(client)
+    logPrint("loadVipClient")
+    logPrintTbl(client)
     vipClient = client
     vipWnd = createWindow("vip", vipClient)
 end
@@ -201,12 +201,12 @@ function showVip(info)
         Cli.SysMessage("[系统提示] VIP功能正在加载中，请稍后！",4,3)
         return
     end
-    print( 'showVip1')
-    printTbl(info)
+    logPrint( 'showVip1')
+    logPrintTbl(info)
     vipInfo = info;
     vipWnd:show()
     initVipContent()
-    print( 'showVip2')
+    logPrint( 'showVip2')
 end
 
 function sendTax(param)

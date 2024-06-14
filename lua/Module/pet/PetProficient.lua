@@ -29,7 +29,7 @@ function showProficient(player)
     local rs = SQL.Run(sql);
     local proficientInfo = {};
     if(type(rs) ~= "table")then
-        print("proficientInfo not found, id:" .. player:getRegistNumber());
+        logPrint("proficientInfo not found, id:" .. player:getRegistNumber());
         for i = raceHuman, raceDemonic + 1 do
             sql = "INSERT INTO `tbl_pet_proficient`(`RegNum`, `Race`, `Level`, `KillNum`, `CreateTime`) VALUES ("
                     .. player:getRegistNumber() .. ", " .. i .. ", 0, 0, unix_timestamp());"

@@ -90,7 +90,6 @@ gadofile("lua/Module/sys/GeneralCommand.lua");--通用命令
 gadofile("lua/Module/sys/GmCommand.lua");--gm命令
 gadofile("lua/Module/sys/CharInit.lua");--角色初始化
 gadofile("lua/Module/sys/BattleInit.lua");--战斗初始化
-gadofile("lua/Module/sys/EventManager.lua");
 
 -- 兼容Delegate
 for _,Func in ipairs(tbl_delegate_Init) do

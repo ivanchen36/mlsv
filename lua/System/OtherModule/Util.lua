@@ -21,7 +21,7 @@ end
 
 function logPrint(...)
     local file = io.open("./log.txt", "a+")
-
+    file:write(os.date("%Y-%m-%d %H:%M:%S ", os.time()))
     -- 检查文件是否成功打开
     if file then
         -- 使用pairs遍历所有传入的参数

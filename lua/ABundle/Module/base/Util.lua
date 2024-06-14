@@ -1,4 +1,4 @@
-function print(...)
+function logPrint(...)
     local file = io.open("./log.txt", "a+")
     file:write(os.date("%Y-%m-%d %H:%M:%S ", os.time()))
     -- 检查文件是否成功打开
@@ -33,8 +33,8 @@ function tblToString(tbl)
     return str
 end
 
-function printTbl(tbl)
-    print(tblToString(tbl))
+function logPrintTbl(tbl)
+    logPrint(tblToString(tbl))
 end
 
 function truncDay(t1)
@@ -195,27 +195,27 @@ end
 
 function Event.ViewInit.PrintV(view)
     if view.IsInit == false then
-        --print("open view vid " .. view.vid)
+        --logPrint("open view vid " .. view.vid)
         return
     end
-    --printTbl(view)
-    --print("init view vid " .. view.vid)
+    --logPrintTbl(view)
+    --logPrint("init view vid " .. view.vid)
 end
 
-function Event.Recv.PrintP(player, packet)
-    print("Recv " .. packet)
-end
+-- function Event.Recv.PrintP(player, packet)
+    -- logPrint("Recv " .. packet)
+-- end
 
 function safeCall(func, ...)
-    print("safeCall" .. tostring(func))
+    logPrint("safeCall" .. tostring(func))
     sracetry {
         func(...)
     }
     catch {
         -- 发生异常后，被执行
         function (errors)
-            print("catch")
-            print("[错误]"..os.date().." "..errors)
+            logPrint("catch")
+            logPrint("[错误]"..os.date().." "..errors)
         end
     }
 end

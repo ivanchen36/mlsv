@@ -61,14 +61,14 @@ function initProficientContent()
 end
 
 function flushProficientInfo(info)
-    printTbl(info)
+    logPrintTbl(info)
     ProficientInfo = info;
     initProficientContent()
 end
 
 function loadProficientClient(client)
-    print("loadProficientClient")
-    printTbl(client)
+    logPrint("loadProficientClient")
+    logPrintTbl(client)
     proficientClient = client
     proficientWnd = createWindow("proficient", proficientClient)
 end
@@ -79,12 +79,12 @@ function showProficient(info)
         Cli.SysMessage("[系统提示] 种族专精功能正在加载中，请稍后！",4,3)
         return
     end
-    print( 'showProficient1')
-    printTbl(info)
+    logPrint( 'showProficient1')
+    logPrintTbl(info)
     proficientInfo = info;
     proficientWnd:show()
     initProficientContent()
-    print( 'showProficient2')
+    logPrint( 'showProficient2')
 end
 
 Cli.Send().wait["FLUSH_PROFICIENT"] = flushProficientInfo
