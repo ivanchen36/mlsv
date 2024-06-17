@@ -157,13 +157,10 @@ function closeAvoid(player)
 end
 
 function userCloseAvoid(player, arg)
-    local regNum = player:getRegistNumber()
-    if rawget(vipInfo, regNum) ~= nil then
-        local myPlayer = MyPlayer:new(vipInfo[regNum]["index"]);
-        closeAvoid(myPlayer)
-        local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and RegNum =" .. player:getRegistNumber()
-        SQL.Run(sql1)
-    end
+    closeAvoid(player)
+    local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and RegNum =" .. player:getRegistNumber()
+    SQL.Run(sql1)
+    player:sysMsg("您已经停止驱魔功能，关闭不遇敌！");
 end
 
 function sysCloseAvoid(regNum, info)
@@ -202,6 +199,8 @@ function godGift(player, arg)
 
     NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您开启的【天降礼包】闪耀全场，好运与您同在！")
     info["gift"] = 0
+    local sql = "UPDATE tbl_vip_info SET GodGift = 0 WHERE GodGift = 1 and RegNum = " .. player:getRegistNumber()
+    SQL.Run(sql)
     startGift(vipGiftInfo)
     Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
 end
@@ -279,7 +278,7 @@ function openExp(player, arg)
         player:sysMsg("系统已经开启更强大的经验加成！")
         return
     end
-    info["addExp"] = 0
+
     player:sysMsg("您已经成功开启加成！")
     if ADD_EXP_RATE == 0 then
         NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您将开启经验提升" .. addRate .."%，好运与您同在！")
@@ -287,6 +286,9 @@ function openExp(player, arg)
         NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您将经验提升" .. ADD_EXP_RATE .. "%增加至提升" .. addRate .."%，好运与您同在！")
     end
     setCharExp(addRate, 7200)
+    info["addExp"] = 0
+    local sql = "UPDATE tbl_vip_info SET AddExp = 0 WHERE AddExp = 1 and RegNum = " .. player:getRegistNumber()
+    SQL.Run(sql)
     Protocol.PowerSend(player:getObj(),"UPDATE_VIP", info)
 end
 

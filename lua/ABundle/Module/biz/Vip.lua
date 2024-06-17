@@ -1,5 +1,6 @@
 
 vipTitle = {"value", "damage", "luck", "exp", "avoid", "bank", "gift"}
+vipTitleLab = {"valueLab", "damageLab", "luckLab", "expLab", "avoidLab", "bankLab", "giftLab"}
 vipTitleVal = {"会员经验:", "增伤减伤:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
 vipText = {"valueText", "damageText", "luckText", "expText", "avoidText", "bankText", "giftText"}
 vipTextVal = {"", "", "", "", "", "VIP7可使用", "VIP8可使用"}
@@ -12,20 +13,17 @@ local vipClient = nil
 local vipExp = {120, 1020, 3360, 6720, 13880, 23880, 33600, 67200, 201600}
 
 function collectVip(widget)
-    Cli.Send("collect_vip").wait["FLUSH_VIP"] = function(info)
-        vipInfo = info
-        initVipContent()
-    end
+    Cli.Send("collect_vip")
+    widget:setEnabled(false)
 end
 
 function openAvoid(widget)
     if vipInfo["avoidFlag"] == 1 then
         Cli.Send("close_avoid")
-        op:setText("开启")
     else
         Cli.Send("open_avoid")
-        op:setText("关闭")
     end
+    widget:setEnabled(false)
 end
 
 function openBank(widget)
@@ -34,6 +32,7 @@ end
 
 function godGift(widget)
     Cli.Send("god_gift")
+    widget:setEnabled(false)
 end
 
 function vipWarp(widget)
@@ -42,18 +41,17 @@ end
 
 function upGift(widget)
     Cli.Send("up_gift")
+    widget:setEnabled(false)
 end
 
 function addExp(widget)
     Cli.Send("open_exp")
+    widget:setEnabled(false)
 end
 
 function upVip(widget)
     Cli.Send("up_vip")
-end
-
-function upGift(widget)
-    Cli.Send("up_gift")
+    widget:setEnabled(false)
 end
 
 vipEvents = {collectVip, nil, nil, addExp, openAvoid, openBank, godGift}
@@ -73,7 +71,7 @@ end
 
 function showAvoid(level, text, op)
     if vipInfo["avoidFlag"] == 1 then
-        local tmp = vipInfo["avoid"] + os.Time() - vipInfo["avoidTime"]
+        local tmp = vipInfo["avoid"] - os.time() + vipInfo["avoidTime"]
         if tmp <= 0 then
             tmp = 0
         end
@@ -84,6 +82,7 @@ function showAvoid(level, text, op)
 
     if vipInfo["avoid"] <= 0 then
         op:setEnabled(false)
+        op:setText("开启")
         return
     end
 
@@ -151,11 +150,13 @@ local showEvents = {showExp, showDamage, showLuck, showAddExp, showAvoid, showBa
 
 function initVipContent()
     local level = vipInfo["level"]
-    local vip = vipWnd:getWidget("level")
+    local vip = vipWnd:getWidget("aLevel")
+    local vip1 = vipWnd:getWidget("num")
     local upVip = vipWnd:getWidget("upVip");
     local upGift = vipWnd:getWidget("upGift");
 
     vip:setImg("vip" .. level .. ".bmp")
+    vip1:setImg("n" .. level .. ".bmp")
     for i=1, #vipTitle do
         local op = nil
         local text = vipWnd:getWidget(vipText[i]);
