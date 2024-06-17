@@ -1,15 +1,12 @@
 
 vipTitle = {"value", "damage", "luck", "exp", "avoid", "bank", "gift"}
-vipTitleLab = {"valueLab", "damageLab", "luckLab", "expLab", "avoidLab", "bankLab", "giftLab"}
 vipTitleVal = {"会员经验:", "增伤减伤:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
-vipText = {"valueText", "damageText", "luckText", "expText", "avoidText", "bankText", "giftText"}
 vipTextVal = {"", "", "", "", "", "VIP7可使用", "VIP8可使用"}
 vipBtn = {"valueBtn", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
 vipBtnText = {"领取", "", "", "开启", "开启", "开启", "开启"}
 
 local vipWnd = nil
 local vipInfo = {}
-local vipClient = nil
 local vipExp = {120, 1020, 3360, 6720, 13880, 23880, 33600, 67200, 201600}
 
 function collectVip(widget)
@@ -159,7 +156,7 @@ function initVipContent()
     vip1:setImg("n" .. level .. ".bmp")
     for i=1, #vipTitle do
         local op = nil
-        local text = vipWnd:getWidget(vipText[i]);
+        local text = vipWnd:getWidget(vipTitle[i] .. "Text");
 
         if vipBtnText[i] ~= "" then
             op = vipWnd:getWidget(vipBtn[i])
@@ -194,8 +191,7 @@ end
 function loadVipClient(client)
     logPrint("loadVipClient")
     logPrintTbl(client)
-    vipClient = client
-    vipWnd = createWindow("vip", vipClient)
+    vipWnd = createWindow("vip", client)
 end
 
 function showVip(info)

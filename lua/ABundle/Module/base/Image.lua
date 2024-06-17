@@ -94,6 +94,14 @@ function Image:setPos(x, y)
     end
 end
 
+function Image:getPosX()
+    return self._posX
+end
+
+function Image:getPosY()
+    return self._posY
+end
+
 function Image:show(view)
     self._showImg = view.find(self._title)
     self:setVisible(true)

@@ -91,7 +91,12 @@ function getGlobVal(tblStr, index)
     end
     if #tblStr >= 2 then
         if tblStr:sub(1, 1) == '#' then
-            return _G[tblStr:sub(2)][index]
+            local arr = strSplit(tblStr, "$")
+            if #arr > 1 then
+                return _G[arr[1]:sub(2)][index] .. arr[2]
+            else
+                return _G[tblStr:sub(2)][index]
+            end
         end
     end
 
@@ -106,11 +111,20 @@ function getGlobFunc(tblStr, index)
     end
 end
 
+function getTitleField(titleStr)
+    local arr = strSplit(titleStr, "$")
+    if #arr > 1 then
+        return arr[1]:sub(2)
+    else
+        return titleStr:sub(2)
+    end
+end
+
 function createMulWidget(rows, columns, w, h, widget)
     local widgets = {}
     local posX = widget.x
     local posY = widget.y
-    local titles = _G[widget.title:sub(2)]
+    local titles = _G[getTitleField(widget.title)]
 
     if rows == 0 then
         rows = #titles / columns + 1
@@ -125,7 +139,7 @@ function createMulWidget(rows, columns, w, h, widget)
             if nil ~=titles[pos] and "" ~= titles[pos] then
                 local tmp = nil
                 if "btn" == widget.type then
-                    tmp = Button:new(titles[pos], getGlobVal(widget.img, pos), getGlobVal(widget.text, pos))
+                    tmp = Button:new(getGlobVal(widget.title, pos), getGlobVal(widget.img, pos), getGlobVal(widget.text, pos))
                     tmp:setActiveImg(widget.active)
                     tmp:setDisableImg(widget.disable)
                     if rawget(widget, "click") ~= nil then
@@ -135,7 +149,7 @@ function createMulWidget(rows, columns, w, h, widget)
                         tmp:setColor(getGlobVal(widget.color, pos))
                     end
                 elseif "lab" == widget.type then
-                    tmp = Label:new(titles[pos], getGlobVal(widget.text, pos))
+                    tmp = Label:new(getGlobVal(widget.title, pos), getGlobVal(widget.text, pos))
                     if rawget(widget, "color") ~= nil then
                         tmp:setColor(getGlobVal(widget.color, pos))
                     end
@@ -143,7 +157,7 @@ function createMulWidget(rows, columns, w, h, widget)
                         tmp:setFont(getGlobVal(widget.font, pos))
                     end
                 elseif "img" == widget.type then
-                    tmp = Image:new(titles[pos], getGlobVal(widget.img, pos))
+                    tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img, pos))
                 end
                 tmp:setPos(posX + (j - 1) * w, posY + (i - 1) * h)
                 table.insert(widgets, tmp)
@@ -191,6 +205,37 @@ function createWindow(title, wndConfig)
         end
     end
     return wnd
+end
+
+function addCharAttr(wnd, attrTitle)
+    local attr = wnd:getWidget(attrTitle)
+    local x = attr:getPosX()
+    local y = attr:getPosY()
+
+    local tmp1 = Image:new(attrTitle .. "Earth", 0)
+    local tmp2 = Image:new(attrTitle .. "Water", 0)
+    local tmp3 = Image:new(attrTitle .. "Fire", 0)
+    local tmp4 = Image:new(attrTitle .. "Wind", 0)
+    tmp1:setPos(x, y)
+    tmp2:setPos(x, y)
+    tmp3:setPos(x, y)
+    tmp4:setPos(x, y)
+    wnd:addWidget(tmp1)
+    wnd:addWidget(tmp2)
+    wnd:addWidget(tmp3)
+    wnd:addWidget(tmp4)
+end
+
+function showCharAttr(wnd, attrTitle, earth, water, fire, wind)
+    local attr1 = wnd:getWidget(attrTitle .. "Earth")
+    local attr2 = wnd:getWidget(attrTitle .. "Water")
+    local attr3 = wnd:getWidget(attrTitle .. "Fire")
+    local attr4 = wnd:getWidget(attrTitle .. "Wind")
+
+    attr1:setImg()
+    attr2:setImg()
+    attr3:setImg()
+    attr4:setImg()
 end
 
 function Event.ViewInit.PrintV(view)

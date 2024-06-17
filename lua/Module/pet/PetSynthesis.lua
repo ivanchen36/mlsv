@@ -1,58 +1,65 @@
-local earthAttr = 1
-local waterAttr = 2
-local fireAttr = 3
-local windAttr = 4
+local synthesisAmount = 50000
 
-local itemList = {18310, 18311, 18312, 18313}
-local attrField = {"EarthLevel", "WaterLevel", "FireLevel", "WindLevel"}
-
-function showSynthesis(player, arg)
-    local petAwake = {}
+function getSynthesisInfo()
+    local petArr = {}
     for i = 0, 4 do
         local pet = MyPet:new(player:getObj(), i)
         if not pet:isValid() then
-            petAwake[i] = "#|0|0"
+            petArr[i] = nil
+        elseif pet:getLevel() ~= 1 then
+            petArr[i] = nil
         else
-            local sql = "select EarthLevel + WaterLevel + FireLevel+ WindLevel, EarthLevel,WaterLevel,FireLevel,WindLevel from tbl_pet_info where uuid = " .. pet:getUuid();
-            local rs = SQL.Run(sql);
-            if(type(rs) ~= "table")then
-                petAwake[i] = "#|0|0|0|0|0"
-            else
-                petAwake[i] = pet:getName() .. "|" .. rs["0_0"] .. "|" .. rs["0_1"] .. "|" .. rs["0_2"] .. "|" .. rs["0_3"] .. "|" .. rs["0_4"]
-            end
+            petArr[i] = {
+                ["name"] = pet:getName(),
+                ["uuid"] = pet:getUuid(),
+                ["vital"] = pet:getVital(),
+                ["str"] = pet:getStr(),
+                ["tough"] = pet:getTough(),
+                ["quick"] = pet:getQuick(),
+                ["magic"] = pet:getMagic(),
+                ["earth"] = pet:getEarthAttribute(),
+                ["water"] = pet:getWaterAttribute(),
+                ["fire"] = pet:getFireAttribute(),
+                ["wind"] = pet:getWindAttribute(),
+            }
         end
     end
-    Protocol.PowerSend(player:getObj(),"SHOW_SYNTHESIS", petAwake)
+    return petArr
+end
+
+function showSynthesis(player, arg)
+    Protocol.PowerSend(player:getObj(),"SHOW_SYNTHESIS", getSynthesisInfo())
 end
 
 function petSynthesis(player, arg)
     local param = strSplit(arg, "|")
-    local slot1 = tonumber(param[1]);
-    local attr = tonumber(param[2]);
-    local itemId = itemList[attr]
-    local pet = MyPet:new(player:getObj(), slot1)
-    local sql = "select EarthLevel + WaterLevel + FireLevel+ WindLevel, " .. attrField[attr] .. " from tbl_pet_info where uuid = " .. pet:getUuid();
-    local rs = SQL.Run(sql);
-    local level = rs["0_0"]
-
-    if level >= 3 then
-        player:sysMsg("宠物" .. level .."已经完成第" .. level .."次觉醒失败");
+    local uuid1 = tonumber(param[1]);
+    local uuid2 = tonumber(param[2]);
+    local pet1 = MyPet:getByUuid(player:getObj(), uuid1)
+    local pet2 = MyPet:getByUuid(player:getObj(), uuid2)
+    if nil == pet1 or nil == pet2 then
+        player:sysMsg("需要合成的宠物不存在，宠物合成失败");
+        Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo())
+        return
+    end
+    if pet1:getLevel() ~= 1 or pet2:getLevel() ~= 1 then
+        player:sysMsg("宠物等级不是1级，宠物合成失败");
+        Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo())
         return
     end
 
-    if player:getItemNum(itemId) < itemNum[level] then
-        if player:delNum(itemId, itemNum[level]) > 0 then
-            local sql1 = "update tbl_pet_info set " .. attrField[attr] .. " = " .. attrField[attr] .. " + 1 where uuid = " .. pet:getUuid()
-                    .. " and ".. attrField[attr] .. " < 3";
-            SQL.Run(sql1);
-            player:sysMsg("宠物" .. level .."完成第" .. level .."次觉醒");
-            return
-        end
+    if player:subMoney(synthesisAmount) <= 0 then
+        player:sysMsg("合成所需魔币不足，宠物合成失败");
+        return
     end
-    player:sysMsg("道具不足，宠物" .. level .."完成第" .. level .."次觉醒失败");
+
+    if pet2:delete() <= 0 then
+        player:sysMsg("需要合成的宠物不存在，宠物合成失败");
+        return
+    end
+    pet1:flush()
+    Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo())
 end
-
-
 
 TalkEvent["[synthesis]"] = showSynthesis
 ClientEvent["pet_synthesis"] = petSynthesis

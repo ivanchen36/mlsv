@@ -16,6 +16,18 @@ function MyPet:getBattlePet(player)
     return self:new(player,  Char.GetData(self.player, 62))
 end
 
+function MyPet:getByUuid(player, uuid)
+    for i = 0, 4 do
+        local pet = MyPet:new(player:getObj(), i)
+        if pet:isValid() then
+            if uuid == pet:getUuid() then
+                return pet
+            end
+        end
+    end
+    return nil
+end
+
 function MyPet:isValid()
     return VaildChar(self._pet)
 end
@@ -38,6 +50,20 @@ end
 
 function MyPet:addSkill(skillId)
     return Pet.AddSkill(self._pet, skillId)
+end
+
+function MyPet:delete()
+    local uuid = self:getUuid()
+    for i = 0, 4 do
+        local pet = MyPet:new(self._player:getObj(), i)
+        if pet:isValid() then
+            if uuid == pet:getUuid() then
+                return Char.DelSlotPet(self._player:getObj(), i)
+            end
+        end
+    end
+
+    return 0
 end
 
 -- 定义 get 方法，用于获取玩家数据
@@ -80,6 +106,26 @@ function MyPet:initXz()
 
     self:flush()
     self:sysMsg("宠物属性修正初始化")
+end
+
+function MyPet:getVital()
+    return Pet.FullArtRank(self._pet, 1)
+end
+
+function MyPet:getStr()
+    return Pet.FullArtRank(self._pet, 2)
+end
+
+function MyPet:getTough()
+    return Pet.FullArtRank(self._pet, 3)
+end
+
+function MyPet:getQuick()
+    return Pet.FullArtRank(self._pet, 4)
+end
+
+function MyPet:getMagic()
+    return Pet.FullArtRank(self._pet, 5)
 end
 
 --%宠档_体成% 1
@@ -127,7 +173,7 @@ function MyPet:changeIamge(image)
     return 1
 end
 
-function MyPlayer:isValid()
+function MyPet:isValid()
     return VaildChar(self._pet)
 end
 
@@ -137,6 +183,7 @@ end
 
 function MyPet:flush()
     Pet.UpPet(self._player, self._pet)
+    NLG.UpChar(self._pet)
 end
 
 function MyPet:getLevel()
@@ -196,4 +243,35 @@ function MyPet:getName()
 end
 function MyPet:setName(val)
     return self:set(2000, val)
+end
+--%对象_地属性% 18
+function MyPet:getEarthAttribute()
+    return self:get(18)
+end
+function MyPet:setEarthAttribute(val)
+    return self:set(18, val)
+end
+
+--%对象_水属性% 19
+function MyPet:getWaterAttribute()
+    return self:get(19)
+end
+function MyPet:setWaterAttribute(val)
+    return self:set(19, val)
+end
+
+--%对象_火属性% 20
+function MyPet:getFireAttribute()
+    return self:get(20)
+end
+function MyPet:setFireAttribute(val)
+    return self:set(20, val)
+end
+
+--%对象_风属性% 21
+function MyPet:getWindAttribute()
+    return self:get(21)
+end
+function MyPet:setWindAttribute(val)
+    return self:set(21, val)
 end

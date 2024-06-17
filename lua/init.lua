@@ -67,6 +67,11 @@ gadofile("lua/System/OtherModule/CommonEventHandler.lua");--通用事件处理
 
 --客户端界面
 gadofile("lua/Module/client/VipClient.lua");
+gadofile("lua/Module/client/ProficientClient.lua");
+gadofile("lua/Module/client/SynthesisClient.lua");
+gadofile("lua/Module/client/PkClient.lua");
+gadofile("lua/Module/client/AwakeningClient.lua");
+gadofile("lua/Module/client/TaskClient.lua");
 
 --业务功能
 gadofile("lua/Module/pet/PetAwakening.lua"); -- 宠物觉醒

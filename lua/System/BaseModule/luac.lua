@@ -168,6 +168,20 @@ scriptEvent["wudangxidangjuan"] = wudangxidangjuan;
 
 function ScriptCall(npc, player, s)
 	if rawget(scriptEvent, s) ~= nil then
-		return scriptEvent[msg](npc, player)
+		return scriptEvent[msg](npc, player, s)
 	end
+	if(string.find(s,"daily"))then
+        return daily(npc, player, s)
+    end
+	if(string.find(s,"setdy"))then
+        return setdy(npc, player, s)
+    end
+	if(string.find(s,"setskilllv"))then
+		return setskilllv(npc, player, s)
+	end
+	if(string.find(s,"setmj"))then
+		return setmj(npc, player, s)
+	end
+
+	return 0;
 end
