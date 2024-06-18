@@ -1,15 +1,12 @@
 local synthesisAmount = 50000
 
-function getSynthesisInfo()
+function getSynthesisInfo(player)
     local petArr = {}
+    local index = 1
     for i = 0, 4 do
         local pet = MyPet:new(player:getObj(), i)
-        if not pet:isValid() then
-            petArr[i] = nil
-        elseif pet:getLevel() ~= 1 then
-            petArr[i] = nil
-        else
-            petArr[i] = {
+        if pet:isValid() and pet:getLevel() == 1 then
+            petArr[index] = {
                 ["name"] = pet:getName(),
                 ["uuid"] = pet:getUuid(),
                 ["vital"] = pet:getVital(),
@@ -21,30 +18,37 @@ function getSynthesisInfo()
                 ["water"] = pet:getWaterAttribute(),
                 ["fire"] = pet:getFireAttribute(),
                 ["wind"] = pet:getWindAttribute(),
+                ["img"] = pet:getImage(),
             }
+            index = index + 1
         end
+    end
+    if player:getGold() >= synthesisAmount then
+        petArr["amount"] = 1
+    else
+        petArr["amount"] = 0
     end
     return petArr
 end
 
 function showSynthesis(player, arg)
-    Protocol.PowerSend(player:getObj(),"SHOW_SYNTHESIS", getSynthesisInfo())
+    Protocol.PowerSend(player:getObj(),"SHOW_SYNTHESIS", getSynthesisInfo(player))
 end
 
 function petSynthesis(player, arg)
-    local param = strSplit(arg, "|")
+    local param = strSplit(arg, ",")
     local uuid1 = tonumber(param[1]);
     local uuid2 = tonumber(param[2]);
     local pet1 = MyPet:getByUuid(player:getObj(), uuid1)
     local pet2 = MyPet:getByUuid(player:getObj(), uuid2)
     if nil == pet1 or nil == pet2 then
         player:sysMsg("需要合成的宠物不存在，宠物合成失败");
-        Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo())
+        Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo(player))
         return
     end
     if pet1:getLevel() ~= 1 or pet2:getLevel() ~= 1 then
         player:sysMsg("宠物等级不是1级，宠物合成失败");
-        Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo())
+        Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo(player))
         return
     end
 

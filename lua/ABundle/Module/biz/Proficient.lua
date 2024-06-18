@@ -1,4 +1,4 @@
-proficientInfo = {}
+local proficientInfo = {}
 local raceTitle = {"race1", "race2", "race3", "race4", "race5", "race6", "race7", "race8", "race9", "race10"}
 local raceTitleVal = {"人形系", "龙系", "不死系", "飞行系", "昆虫系", "植物系", "野兽系", "特殊系", "金属系", "邪魔系"}
 
@@ -10,10 +10,10 @@ function initProficientContent()
         infoArr = strSplit(proficientInfo[i], "|")
         local raceLevel = tonumber(infoArr[1])
         local raceNum = tonumber(infoArr[2])
-        local level = proficientWnd:getWidget(#raceTitle .. "Level");
-        local info = proficientWnd:getWidget(#raceTitle .. "Info");
-        local up = proficientWnd:getWidget(#raceTitle .. "Up");
-        local challenge = proficientWnd:getWidget(#raceTitle .. "Challenge");
+        local level = proficientWnd:getWidget(raceTitle[i] .. "Level");
+        local info = proficientWnd:getWidget(raceTitle[i] .. "Info");
+        local up = proficientWnd:getWidget(raceTitle[i] .. "Up");
+        local challenge = proficientWnd:getWidget(raceTitle[i] .. "Challenge");
 
         level:setText("等级" .. infoArr[1])
         info:setText(raceTitleVal[i] .. "宠物参战回合:" .. infoArr[2] .. "/" .. proficientKill[raceLevel + 1])

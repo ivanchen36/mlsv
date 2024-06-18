@@ -80,6 +80,8 @@ function createSingleWidget(widget)
         end
     elseif "img" == widget.type then
         tmp = Image:new(widget.title, widget.img)
+    elseif "radio" == widget.type then
+        tmp = Radio:new(widget.title, widget.img1, widget.img2, strSplit(widget.texts, ","), strSplit(widget.values, ","), widget.align, widget.width, widget.high)
     end
     tmp:setPos(widget.x, widget.y)
     return tmp
@@ -207,7 +209,7 @@ function createWindow(title, wndConfig)
     return wnd
 end
 
-function addCharAttr(wnd, attrTitle)
+function addCharAttr(wnd, attrTitle, earth, water, fire, wind)
     local attr = wnd:getWidget(attrTitle)
     local x = attr:getPosX()
     local y = attr:getPosY()
@@ -224,18 +226,6 @@ function addCharAttr(wnd, attrTitle)
     wnd:addWidget(tmp2)
     wnd:addWidget(tmp3)
     wnd:addWidget(tmp4)
-end
-
-function showCharAttr(wnd, attrTitle, earth, water, fire, wind)
-    local attr1 = wnd:getWidget(attrTitle .. "Earth")
-    local attr2 = wnd:getWidget(attrTitle .. "Water")
-    local attr3 = wnd:getWidget(attrTitle .. "Fire")
-    local attr4 = wnd:getWidget(attrTitle .. "Wind")
-
-    attr1:setImg()
-    attr2:setImg()
-    attr3:setImg()
-    attr4:setImg()
 end
 
 function Event.ViewInit.PrintV(view)

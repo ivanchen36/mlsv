@@ -1,10 +1,8 @@
-taskInfo = {}
-
+local taskInfo = {}
 local taskWnd = nil
 
 function initTaskContent()
     local level = taskInfo["level"]
-
 end
 
 function flushtaskInfo(info)

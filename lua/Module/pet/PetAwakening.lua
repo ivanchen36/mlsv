@@ -25,6 +25,7 @@ function showAwakening(player, arg)
                     ["water"] = 0,
                     ["fire"] = 0,
                     ["wind"] = 0,
+                    ["img"] = pet:getImage(),
                 }
             else
                 petAwake[i] = {
@@ -35,6 +36,7 @@ function showAwakening(player, arg)
                     ["water"] = tonumber(rs["0_2"]),
                     ["fire"] = tonumber(rs["0_3"]),
                     ["wind"] = tonumber(rs["0_4"]),
+                    ["img"] = pet:getImage(),
                 }
             end
         end

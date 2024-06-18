@@ -3,14 +3,14 @@ Radio.__index = Radio
 
 --local fontPixels = { 16, 13 }
 local fontPixels = { 13 }
-function Radio:new(title, image1, image2, texts, values, align, width, high)
+function Radio:new(title, image1, image2, texts, values, layout, width, high)
     local newObj = {
         _title = title,
         _texts = texts,
         _values = values,
         _width = width,
         _high = high,
-        _align = align,
+        _layout = layout,
         _selected = 1,
         _showImg = {},
         _showText = {},
@@ -120,35 +120,42 @@ function Radio:show(view)
     end
     self:setVisible(true)
     self._btnSizeX, self._btnSizeY = getSize(self._normalImg)
-    for i = 1, #self._texts do
-        if i == self._selected then
-            self._showImg[i].imageID = self._selectImg
-        else
-            self._showImg[i].imageID = self._normalImg
-        end
-        if 1 == i then
-            if 0 ~= self._showImg[i].sizex then
-                self._btnSizeX = self._showImg[i].sizex
-                self._btnSizeY = self._showImg[i].sizey
+    local arr = strSplit(self._layout, ",")
+    local rows = tonumber(arr[1])
+    local columns = tonumber(arr[2])
+    if rows == 0 then
+        rows = #self._texts / columns + 1
+    end
+    if columns == 0 then
+        columns = #self._texts / rows + 1
+    end
+    local i = 1
+    for r = 1, rows do
+        for c = 1, columns do
+            i = (r - 1) * columns + c
+            if i == self._selected then
+                self._showImg[i].imageID = self._selectImg
+            else
+                self._showImg[i].imageID = self._normalImg
             end
-        end
-        if 0 == self._showImg[i].sizex then
-            self._showImg[i].sizex = self._btnSizeX
-            self._showImg[i].sizey = self._btnSizeY
-        end
-        self._showText[i].fontsize = self._font
-        self._showText[i].text = self._texts[i]
-        self._showText[i].color = self._color
-        if "x" == self._align then
-            self._showText[i].xpos = self._posX
-            self._showText[i].ypos = self._posY + (i - 1) * self._high
-            self._showImg[i].xpos = self._posX + self._width - self._btnSizeX
-            self._showImg[i].ypos = self._posY + (i - 1) * self._high
-        else
-            self._showText[i].xpos = self._posX + (i - 1) * self._width
-            self._showText[i].ypos = self._posY
-            self._showImg[i].xpos = self._posX + (i - 1) * self._width  + self._width - self._btnSizeX
-            self._showImg[i].ypos = self._posY
+            if 1 == i then
+                if 0 ~= self._showImg[i].sizex then
+                    self._btnSizeX = self._showImg[i].sizex
+                    self._btnSizeY = self._showImg[i].sizey
+                end
+            end
+            if 0 == self._showImg[i].sizex then
+                self._showImg[i].sizex = self._btnSizeX
+                self._showImg[i].sizey = self._btnSizeY
+            end
+            self._showText[i].fontsize = self._font
+            self._showText[i].text = self._texts[i]
+            self._showText[i].color = self._color
+
+            self._showText[i].xpos = self._posX + (c - 1) * self._width
+            self._showText[i].ypos = self._posY + (r - 1) * self._high
+            self._showImg[i].xpos = self._posX + (c - 1) * self._width + self._width - self._btnSizeX
+            self._showImg[i].ypos = self._posY + (r - 1) * self._high
         end
     end
 end

@@ -117,6 +117,20 @@ function getSynthesisClient(player, arg)
             ["img"] = "attr.bmp",
         },
         {
+            ["type"] = "lab",
+            ["title"] = "hint",
+            ["x"] = 33,
+            ["y"] = 151,
+            ["text"] = "Âú×ãÌõ¼þ:50000Ä§±Ò",
+        },
+        {
+            ["type"] = "img",
+            ["title"] = "amount",
+            ["x"] = 33,
+            ["y"] = 151,
+            ["img"] = "false.bmp",
+        },
+        {
             ["type"] = "btn",
             ["title"] = "confirm",
             ["x"] = 407,

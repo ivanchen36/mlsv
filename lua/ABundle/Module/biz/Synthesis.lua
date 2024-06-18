@@ -1,21 +1,179 @@
-synthesisInfo = {}
+petTitle = {"pet1", "pet2"}
 
-local pet1 = -1
-local pet2 = -1
-local petTitle = {"pet1", "pet2"}
+local synthesisInfo = {}
+local petNum = 0
+local select = {nil, nil}
 local synthesisWnd = nil
 
+function getShowInfo()
+    local select1 = nil
+    local select2 = nil
+    for i = 1, #synthesisInfo do
+        if synthesisInfo[i] ~= nil then
+            if nil == select1 then
+                select1 = i
+            end
+            if nil == select2 then
+                select2 = i
+            end
+            return {select1, select2}
+        end
+    end
+    return {select1, select2}
+end
+
+function showSynthesisInfo(index, petInfo)
+    local name = synthesisWnd:getWidget(petTitle[index]);
+    local img = synthesisWnd:getWidget(petTitle[index] .. "Img");
+    local vital = synthesisWnd:getWidget(petTitle[index] .. "V");
+    local str = synthesisWnd:getWidget(petTitle[index] .. "S");
+    local tough = synthesisWnd:getWidget(petTitle[index] .. "T");
+    local quick = synthesisWnd:getWidget(petTitle[index] .. "Q");
+    local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
+    local next = synthesisWnd:getWidget(petTitle[index] .. "M");
+    local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
+
+    name:setText(petInfo.name)
+    img:setImg(petInfo.img)
+    vital:setText("体力: " .. petInfo.vital)
+    str:setText("力量: " .. petInfo.str)
+    tough:setText("强度: " .. petInfo.tough)
+    quick:setText("速度: " .. petInfo.quick)
+    magic:setText("魔法: " .. petInfo.magic)
+    addCharAttr(synthesisWnd, petTitle[index] .. "Attr", petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+end
+
+function synthesis(widget)
+    if nil ~= select[1] and nil ~= select[2] then
+        Cli.Send("pet_synthesis|" .. select[1] .. "," .. select[2])
+    end
+end
+
+function initSelectButton()
+    local select1 = select[1]
+    local select2 = select[2]
+    local next1 = synthesisWnd:getWidget(petTitle[1] .. "Next")
+    local prev1 = synthesisWnd:getWidget(petTitle[1] .. "Prev")
+    local next2 = synthesisWnd:getWidget(petTitle[2] .. "Next")
+    local prev2 = synthesisWnd:getWidget(petTitle[2] .. "Prev")
+    if select1 == nil then
+        next1:setEnable(false)
+        prev1:setEnable(false)
+        next2:setEnable(false)
+        prev2:setEnable(false)
+        return
+    end
+    if select2 == nil then
+        next1:setEnable(false)
+        prev1:setEnable(false)
+        next2:setEnable(false)
+        prev2:setEnable(false)
+        return
+    end
+    next1:setEnable(true)
+    prev1:setEnable(true)
+    next2:setEnable(true)
+    prev2:setEnable(true)
+
+    if select1 == 1 then
+        prev1:setEnable(false)
+    end
+
+    if select2 == 1 then
+        prev2:setEnable(false)
+    end
+
+    if select1 == petNum then
+        next1:setEnable(false)
+    end
+
+    if select2 == petNum then
+        next2:setEnable(false)
+    end
+end
+
 function initSynthesisContent()
-    local level = synthesisInfo["level"]
-    for i=1, #raceTitle do
-        local name = proficientWnd:getWidget(#raceTitle .. "Level");
-        local level = proficientWnd:getWidget(#raceTitle .. "Level");
+    select = getShowInfo()
+
+    for i=1, #petTitle do
+        if nil ~= select[i] then
+            showSynthesisInfo(i, synthesisInfo[select[i]])
+        end
+        local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
+        local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")
+
+        next.clicked(function()
+            local select1 = select[i]
+            if select1 >= petNum then
+                initSelectButton()
+                return
+            end
+
+            local other = (1 == i) and 2 or 1
+            local select2 = select[other]
+
+            for j = select1 + 1, petNum do
+                if j ~= select2 then
+                    select[i] = j
+                    showSynthesisInfo(i, synthesisInfo[select[i]])
+                    initSelectButton()
+                    return
+                end
+                if j == petNum then
+                    select[other] = j - 1
+                    showSynthesisInfo(i, synthesisInfo[select[i]])
+                    showSynthesisInfo(other, synthesisInfo[select[other]])
+                    initSelectButton()
+                    return
+                end
+            end
+        end)
+        prev.clicked(function()
+            local select1 = select[i]
+            if select1 <= 1 then
+                initSelectButton()
+                return
+            end
+
+            local other = (1 == i) and 2 or 1
+            local select2 = select[other]
+
+            for j = select1 - 1, 1, -1 do
+                if j ~= select2 then
+                    select[i] = j
+                    showSynthesisInfo(i, synthesisInfo[select[i]])
+                    initSelectButton()
+                    return
+                end
+                if j == 1 then
+                    select[other] = j + 1
+                    showSynthesisInfo(i, synthesisInfo[select[i]])
+                    showSynthesisInfo(other, synthesisInfo[select[other]])
+                    initSelectButton()
+                    return
+                end
+            end
+        end)
+    end
+    initSelectButton()
+    local confirm = synthesisWnd:getWidget("confirm")
+    local amount = synthesisWnd:getWidget("amount")
+    if synthesisInfo["amount"] == 1 then
+        amount:setImg("true.bmp")
+    else
+        amount:setImg("false.bmp")
+    end
+    if synthesisInfo["amount"] == 1 and petNum >= 2 then
+        confirm:setEnable(true)
+    else
+        confirm:setEnable(false)
     end
 end
 
 function flushSynthesisInfo(info)
     logPrintTbl(info)
     synthesisInfo = info;
+    petNum = #synthesisInfo
     initSynthesisContent()
 end
 
@@ -31,18 +189,13 @@ function showSynthesis(info)
         Cli.SysMessage("[系统提示] synthesis系统功能正在加载中，请稍后！",4,3)
         return
     end
-    pet1 = -1
-    pet2 = -1
+    select = {nil, nil}
     logPrint( 'showSynthesis1')
     logPrintTbl(info)
     synthesisInfo = info;
     synthesisWnd:show()
     initSynthesisContent()
     logPrint( 'showSynthesis2')
-end
-
-function synthesis()
-
 end
 
 Cli.Send().wait["FLUSH_SYNTHESIS"] = flushSynthesisInfo
