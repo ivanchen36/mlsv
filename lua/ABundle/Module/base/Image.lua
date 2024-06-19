@@ -36,29 +36,30 @@ function getImgId(imgFile)
     return 0
 end
 
-function Image:new(title, image)
+function Image:new(title, bg)
     local newObj = {
         _title = title,
-        _imgId = getImgId(image),
-        _showImg = nil,
+        _imgId = getImgId(bg),
+        _img = nil,
         _posX = 0,
         _posY = 0,
-        _sizeX = 0,
-        _sizeY = 0,
-        _lastEvent = -1
+        _lastEvent = -1,
+        _outImgId = nil,
+        _outImg = nil,
     }
     setmetatable(newObj, self)
     return newObj
 end
 
-function Image:setImgId(imgId)
-    if nil ~= self._showImg then
-        self._showImg.imageID = imgId
+function Image:setImgId(img, imgId)
+    if nil ~= img then
+        img.imageID = imgId
         if imgId < 9990000 then
             return
         end
-        self._showImg.sizex = self._sizeX
-        self._showImg.sizey = self._sizeY
+        local x, y = getSize(imgId)
+        img.sizex = x
+        img.sizey = y
     end
 end
 
@@ -69,29 +70,57 @@ end
 function Image:getControls()
     local img = new.image(self._title)
     img.callbackfunc = {}
-    self._showImg = nil
+    self._img = nil
+    self._outImg = nil
+    if nil == self._outImgId then
+        return {img}
+    end
 
-    return {img}
+    local img1 = new.image("a" .. self._title)
+    img1.callbackfunc = {}
+    return {img, img1}
 end
 
 function Image:setVisible(isVisible)
-    self._showImg.enable = (isVisible and 1) or 0
+    self._img.enable = (isVisible and 1) or 0
 end
 
 function Image:setImg(image)
     self._imgId = getImgId(image)
-    if nil ~= self._showImg then
-        self:setImgId(self._imgId)
+    if nil ~= self._img then
+        self:setImgId(self._img, self._imgId)
+    end
+end
+
+function Image:setOutImg(image)
+    self._outImgId = getImgId(image)
+    if nil ~= self._outImg then
+        self:setImgId(self._outImg, self._outImgId)
     end
 end
 
 function Image:setPos(x, y)
     self._posX = x
     self._posY = y
-    if nil ~= self._showImg then
-        self._showImg.xpos = self._posX
-        self._showImg.ypos = self._posY
+    if nil ~= self._img then
+        self._img.xpos = self._posX
+        self._img.ypos = self._posY
+        if nil == self._outImg then
+            return
+        end
+
+        local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
+        self._outImg.xpos = x
+        self._outImg.ypos = y
     end
+end
+
+function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
+    if sizeYA >= sizeYB then
+        return posXA + (sizeXA - sizeXB) / 2, posYA + (sizeYA - sizeYB) / 2
+    end
+
+    return posXA + (sizeXA - sizeXB) / 2, posYA + sizeYA - sizeYB
 end
 
 function Image:getPosX()
@@ -103,17 +132,19 @@ function Image:getPosY()
 end
 
 function Image:show(view)
-    self._showImg = view.find(self._title)
+    self._img = view.find(self._title)
     self:setVisible(true)
-    self._showImg.imageID = self._imgId
-    self._showImg.xpos = self._posX
-    self._showImg.ypos = self._posY
+    self._img.xpos = self._posX
+    self._img.ypos = self._posY
+
+    self:setImgId(self._img, self._imgId)
     self._sizeX, self._sizeY = getSize(self._imgId)
-    if 0 ~= self._showImg.sizex then
-        self._sizeX = self._showImg.sizex
-        self._sizeY = self._showImg.sizey
-    else
-        self._showImg.sizex = self._sizeX
-        self._showImg.sizey = self._sizeY
+    if nil == self._outImgId then
+        return
     end
+    self:setImgId(self._outImg, self._outImgId)
+    local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
+    self._outImg.xpos = x
+    self._outImg.ypos = y
+
 end

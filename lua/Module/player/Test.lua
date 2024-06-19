@@ -14,7 +14,6 @@ end
 
 TalkEvent["/test"] = test
 
-
 function test(player)
     getVipClient(player, "")
 end
@@ -26,6 +25,7 @@ end
 
 function testRecv(fd,head,packet)
     logPrint("testRecv", fd,head,packet)
+    return 0
 end
 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 1);
