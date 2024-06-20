@@ -25,9 +25,9 @@ function tblToString(tbl)
     local str = ""
     for i, v in pairs(tbl) do
         if type(v) == "table" then
-            str = str .. i .. " {" .. tblToString(v) .. "},"
+            str = str .. " { " .. i .. " :{" .. tblToString(v) .. "}},"
         else
-            str = str .. i .. " " .. tostring(v) .. ","
+            str = str .. " { " .. i .. " : " .. tostring(v) .. "},"
         end
     end
     return str
@@ -80,6 +80,9 @@ function createSingleWidget(widget)
         end
     elseif "img" == widget.type then
         tmp = Image:new(widget.title, widget.img)
+        if rawget(widget, "out") ~= nil then
+            tmp:setOutImg(widget.out)
+        end
     elseif "radio" == widget.type then
         tmp = Radio:new(widget.title, widget.img1, widget.img2, strSplit(widget.texts, ","), strSplit(widget.values, ","), widget.align, widget.width, widget.high)
     end
@@ -160,6 +163,9 @@ function createMulWidget(rows, columns, w, h, widget)
                     end
                 elseif "img" == widget.type then
                     tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img, pos))
+                    if rawget(widget, "out") ~= nil then
+                        tmp:setOutImg(getGlobVal(widget.out, pos))
+                    end
                 end
                 tmp:setPos(posX + (j - 1) * w, posY + (i - 1) * h)
                 table.insert(widgets, tmp)

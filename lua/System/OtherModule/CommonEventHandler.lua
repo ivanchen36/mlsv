@@ -11,6 +11,8 @@ SkillExpEvent = {}
 ProductExpEvent = {}
 
 DamageEvent = {}
+OtherDamageName = {}
+OtherDamageEvent = {}
 
 personAddDamage = {}
 petAddDamage = {}
@@ -125,6 +127,31 @@ function doServerInitEvent()
         logPrint("doServerInitEvent", i)
         func()
     end
+
+    for i, v in ipairs(OtherDamageName) do
+        if rawget(_G, v) ~= nil then
+            logPrint("insert OtherDamageEvent: ", v, _G[v])
+            table.insert(OtherDamageEvent, _G[v])
+        end
+    end
+    local deleteFunc = {}
+    for k, v in pairs(Event.RegDamageCalculateEvent) do
+        if k ~= "doDamageEvent" then
+            logPrint("insert OtherDamageEvent: ", k, v)
+            table.insert(OtherDamageEvent, v)
+            table.insert(deleteFunc, k)
+        else
+            logPrint("doDamageEvent")
+        end
+    end
+
+    for i, v in ipairs(deleteFunc) do
+        Event.RegDamageCalculateEvent[v] = nil
+    end
+end
+
+function NL.RegDamageCalculateEvent(Dofile, FuncName)
+    table.insert(OtherDamageName, FuncName)
 end
 
 function Event.RegBattleStartEvent.doBattleInitEvent(battle)
@@ -193,9 +220,10 @@ function Event.RegGetExpEvent.doCharExpEvent(index, exp)
 
     return math.floor(exp * sysRate * rate / 100)
 end
+
 -- 1 »À 3 ≥Ë
 function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg)
-    logPrint("OriDamage ", Damage)
+    logPrint("OriDamage ", OriDamage, Damage)
     local atkRate = 100
     local defRate = 100
     local atkType =  Char.GetData(CharIndex, 0)
@@ -221,8 +249,17 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
             end
         end
     end
-    local realDamage = math.ceil(Damage * (atkRate / 100) * (defRate / 100))
-    logPrint("RealDamage ", realDamage)
+    local realDamage = 0
+    for i, func in ipairs(OtherDamageEvent) do
+        realDamage = realDamage + func(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg) - Damage
+    end
+    logPrint("RealDamage1 ", realDamage)
+    if defRate == 100 then
+        realDamage = realDamage + math.ceil(Damage * (atkRate / 100) * (defRate / 100))
+    else
+        realDamage = realDamage + math.floor(Damage * (atkRate / 100) * (defRate / 100))
+    end
+    logPrint("RealDamage2 ", realDamage)
     return realDamage
 end
 

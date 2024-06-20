@@ -146,5 +146,4 @@ function Image:show(view)
     local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
     self._outImg.xpos = x
     self._outImg.ypos = y
-
 end

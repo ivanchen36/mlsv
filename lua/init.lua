@@ -60,8 +60,6 @@ gadofile("lua/System/BaseModule/trycatch.lua");
 gadofile("lua/System/BaseModule/newflg.lua");
 gadofile("lua/System/BaseModule/newrecipe.lua");
 
-dofile("lua/Config.lua");
-
 gadofile("lua/System/OtherModule/TaskHandler.lua");--定时任务处理
 gadofile("lua/System/OtherModule/CommonEventHandler.lua");--通用事件处理
 
@@ -96,9 +94,11 @@ gadofile("lua/Module/sys/GmCommand.lua");--gm命令
 gadofile("lua/Module/sys/CharInit.lua");--角色初始化
 gadofile("lua/Module/sys/BattleInit.lua");--战斗初始化
 
+dofile("lua/Config.lua");
+
 -- 兼容Delegate
 for _,Func in ipairs(tbl_delegate_Init) do
-	local f = loadstring(Func.."()");	
+	local f = loadstring(Func.."()");
 	f();
 end
 
