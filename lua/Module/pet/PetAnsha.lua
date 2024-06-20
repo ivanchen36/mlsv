@@ -23,24 +23,28 @@ function isUseAnsha(pet)
 end
 
 function useAnsha(fd,head,packet)
+	logPrint("useAnsha")
 	local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
 	local SplitArray = Split(packet,"|");
 	if SplitArray[1] == "W" and  SplitArray[2] ~= "FF" then -- 宠物技能 非什么都不做
+		logPrint("useAnsha1")
 		local pet = MyPet:getBattlePet(myPlayer:getObj())
 
 		if not isUseAnsha(pet) then
 			return 0
 		end
+		logPrint("useAnsha2")
 		if not isAnshaBoss and Battle.IsBossBattle(myPlayer:getBattleIndex()) == 1 then
 			return 0
 		end
+		logPrint("useAnsha3")
 		if Battle.IsWaitingCommand(pet:getObj()) ~= 1 then
 			return 0
 		end
-
+		logPrint("useAnsha4")
 		Battle.ActionSelect(pet:getObj(), 26, attackPos[SplitArray[3]], anshaSkillId)
 		return 1;
 	end
 end
 
-Protocol.OnRecv(nil, "useAnsha", 7)
+--Protocol.OnRecv(nil, "useAnsha", 7)

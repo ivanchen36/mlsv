@@ -29,12 +29,12 @@ damageTable = {
 -- 创建并设置metatable
 setmetatable(DamageEvent, {
     __index = function(t, key)
-        logPrint("InitEvent get: " .. key)
+        logPrint("DamageEvent get: " .. key)
         return damageTable[key]
     end,
     __newindex = function(t, key, val)
         table.insert(damageTable[key], val)
-        logPrint("InitEvent set: ", key, #damageTable[key])
+        logPrint("DamageEvent set: ", key, #damageTable[key])
     end,
 })
 
@@ -132,6 +132,7 @@ function Event.RegBattleStartEvent.doBattleInitEvent(battle)
     for i, func in ipairs(battleInitEvent) do
         func(battle)
     end
+    logPrint("doBattleInitEvent1")
 end
 
 function Event.RegBattleOverEvent.doBattleDeinitEvent(battle)
@@ -183,6 +184,7 @@ function Event.RegGetExpEvent.doCharExpEvent(index, exp)
 
     if GetSysExpRate ~= nil then
         sysRate = GetSysExpRate(myPlayer);
+        logPrint("GetSysExpRate ", sysRate)
     end
 
     for i, func in ipairs(CharExpEvent) do
@@ -191,7 +193,6 @@ function Event.RegGetExpEvent.doCharExpEvent(index, exp)
 
     return math.floor(exp * sysRate * rate / 100)
 end
-
 -- 1 人 3 宠
 function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg)
     logPrint("OriDamage ", Damage)
@@ -220,9 +221,9 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
             end
         end
     end
-
-    logPrint("RealDamage ", math.floor(Damage * (atkRate / 100) * (defRate / 100)))
-    return math.floor(Damage * (atkRate / 100) * (defRate / 100))
+    local realDamage = math.ceil(Damage * (atkRate / 100) * (defRate / 100))
+    logPrint("RealDamage ", realDamage)
+    return realDamage
 end
 
 Delegate.RegInit("doServerInitEvent")

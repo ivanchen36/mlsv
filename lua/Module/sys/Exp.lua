@@ -23,19 +23,17 @@ function pequipitem(index,itemid)
  return false;
 end
 
-GetSysExpRate = function(player)
+GetSysExpRate = function (player)
 	local lv = player:getLevel();
 
 	if (lv <= 40) then
-		sysRate = 10;
+		return 10;
 	elseif (lv <= 70) then
-		sysRate = 5;
+		return 6;
 	elseif (lv <= 100) then
-		sysRate = 4;
-	else
-		sysRate = 3;
+		return 5;
 	end
-	logPrint("sysRate:", sysRate)
+	return 3;
 end
 
 function setCharExp(rate, time)

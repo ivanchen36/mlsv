@@ -1,3 +1,5 @@
+local recoverHurtAmount = {100, 300, 700, 1200}
+
 TalkEvent["/dk"] = function (player)
     if 1 == player:getCheckIn() then
         player:feverStop()
@@ -12,6 +14,22 @@ end
 
 TalkEvent["/hc"] = function (player)
     player:warp(0,1000,240,80)
+end
+
+TalkEvent["/zl"] = function (player)
+    local health = math.ceil(player:getHurtStatus() / 25)
+    if health == 0 then
+        player:sysMsg("您没有受伤，无需治疗。")
+        return
+    end
+    local amount = recoverHurtAmount[health]
+    if player:subMoney(amount) > 0 then
+        player:recoverHurt()
+        player:sysMsg("治疗成功，您已经恢复健康。")
+        return
+    end
+
+    player:sysMsg("您的魔币不足" .. amount .."，治疗失败。")
 end
 
 TalkEvent["/1"] = function (player)

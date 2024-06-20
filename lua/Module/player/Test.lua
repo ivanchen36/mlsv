@@ -19,8 +19,7 @@ function test(player)
 end
 
 TalkEvent["/test1"] = function (player)
-    logPrint(player:getBattlePet())
-    logPrint(MyPet:getBattlePet(player:getObj()):getObj())
+    player:recoverHp()
 end
 
 function testRecv(fd,head,packet)

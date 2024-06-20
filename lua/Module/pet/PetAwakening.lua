@@ -58,7 +58,7 @@ function upAwakening(player, arg)
     local rs = SQL.Run(sql);
     local level = tonumber(rs["0_0"])
     local attrLevel = tonumber(rs["0_1"])
-    local addAttr = 1
+    local addAttr = 10
 
     if level >= 3 then
         player:sysMsg("宠物" .. level .."已经完成第" .. level .."次觉醒");
@@ -68,7 +68,7 @@ function upAwakening(player, arg)
     if player:getItemNum(itemId) < itemNum[level] then
         if player:delNum(itemId, itemNum[level]) > 0 then
             if 2 == attrLevel then
-                addAttr = 2
+                addAttr = 20
             end
             if attr == earthAttr then
                 pet:setEarthAttribute(pet:getEarthAttribute() + addAttr)

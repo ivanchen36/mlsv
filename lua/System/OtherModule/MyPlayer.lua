@@ -86,13 +86,13 @@ function MyPlayer:sysMsg(str)
 end
 
 function MyPlayer:feverStart()
-    Char.FeverStop(self._player)
+    Char.FeverStart(self._player)
     NLG.UpChar(self._player)
     self:sysMsg("¹§Ï²Äú´ò¿¨³É¹¦¡£")
 end
 
 function MyPlayer:feverStop()
-    Char.FeverStart(self._player)
+    Char.FeverStop(self._player)
     NLG.UpChar(self._player)
     self:sysMsg("¹§Ï²Äú¹Ø±Õ´ò¿¨³É¹¦¡£")
 end
@@ -104,6 +104,13 @@ end
 function MyPlayer:recoverHp()
     self:setHp(self:getMaxHp())
     self:flush()
+end
+
+function MyPlayer:recoverHurt()
+    self:setHurtStatus(0)
+    NLG.UpdateParty(player);
+    self:flush()
+    NLG.SendGraphEvent(player, 45, 0);
 end
 
 function MyPlayer:isValid()
@@ -123,7 +130,7 @@ function MyPlayer:subMoney(amount)
     local cur = self:getGold()
     if cur >= amount then
         self:setGold( cur - amount)
-        self:sysMsg("»ñµÃ" .. amount .. "Ä§±Ò¡£")
+        self:sysMsg("¿Û³ý" .. amount .. "Ä§±Ò¡£")
 
         return 1
     end

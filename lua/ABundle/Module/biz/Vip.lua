@@ -15,12 +15,12 @@ function collectVip(widget)
 end
 
 function openAvoid(widget)
+    widget:setEnabled(false)
     if vipInfo["avoidFlag"] == 1 then
         Cli.Send("close_avoid")
     else
         Cli.Send("open_avoid")
     end
-    widget:setEnabled(false)
 end
 
 function openBank(widget)
@@ -28,8 +28,8 @@ function openBank(widget)
 end
 
 function godGift(widget)
-    Cli.Send("god_gift")
     widget:setEnabled(false)
+    Cli.Send("god_gift")
 end
 
 function vipWarp(widget)
@@ -37,18 +37,18 @@ function vipWarp(widget)
 end
 
 function upGift(widget)
-    Cli.Send("up_gift")
     widget:setEnabled(false)
+    Cli.Send("up_gift")
 end
 
 function addExp(widget)
-    Cli.Send("open_exp")
     widget:setEnabled(false)
+    Cli.Send("open_exp")
 end
 
 function upVip(widget)
-    Cli.Send("up_vip")
     widget:setEnabled(false)
+    Cli.Send("up_vip")
 end
 
 vipEvents = {collectVip, nil, nil, addExp, openAvoid, openBank, godGift}
