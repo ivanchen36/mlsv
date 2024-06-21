@@ -68,21 +68,20 @@ function Image:getTitle()
 end
 
 function Image:getControls()
-    local img = new.image(self._title)
-    img.callbackfunc = {}
     self._img = nil
     self._outImg = nil
-    if nil == self._outImgId then
-        return {img}
-    end
 
+    local img = new.image(self._title)
     local img1 = new.image("a" .. self._title)
+
+    img.callbackfunc = {}
     img1.callbackfunc = {}
     return {img, img1}
 end
 
 function Image:setVisible(isVisible)
     self._img.enable = (isVisible and 1) or 0
+    self._outImg.enable = (isVisible and 1) or 0
 end
 
 function Image:setImg(image)
@@ -94,8 +93,12 @@ end
 
 function Image:setOutImg(image)
     self._outImgId = getImgId(image)
+
     if nil ~= self._outImg then
         self:setImgId(self._outImg, self._outImgId)
+        local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
+        self._outImg.xpos = x
+        self._outImg.ypos = y
     end
 end
 
@@ -133,6 +136,7 @@ end
 
 function Image:show(view)
     self._img = view.find(self._title)
+    self._outImg = view.find("a" .. self._title)
     self:setVisible(true)
     self._img.xpos = self._posX
     self._img.ypos = self._posY

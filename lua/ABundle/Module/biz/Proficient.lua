@@ -7,7 +7,7 @@ local proficientWnd = nil
 
 function initProficientContent()
     for i=1, #raceTitle do
-        infoArr = strSplit(proficientInfo[i], "|")
+        local infoArr = strSplit(proficientInfo[i], "|")
         local raceLevel = tonumber(infoArr[1])
         local raceNum = tonumber(infoArr[2])
         local level = proficientWnd:getWidget(raceTitle[i] .. "Level");

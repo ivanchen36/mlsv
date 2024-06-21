@@ -1,7 +1,10 @@
-pkInfo = {}
+pkTitle = {"single", "team"}
+pkTime = {"每周五晚上8点", "每周六晚上8点"}
+pkRule = {"积分制", "淘汰制"}
+pkInfo = {"单人参赛，获取积分兑换奖励", "队伍参赛，根据名次发放奖励"}
 
+local pkInfo = {}
 local pkWnd = nil
-
 function initPkContent()
     local level = pkInfo["level"]
 

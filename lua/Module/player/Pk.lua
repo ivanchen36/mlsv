@@ -199,3 +199,5 @@ function pkSummary(battleIndex)
 end
 
 DeinitEvent["battle"] = pkSummary
+
+TalkEvent["[pk]"] = showPk
