@@ -163,15 +163,32 @@ end
 
 --%对象_香上限% 8151
 function MyPlayer:startYudi()
-    self:setIncenseStepCount(999);
+    if self:getEnemyAvoidSwitch() == 1 then
+        self:stopAvoid()
+    end
     self:setIncenseUpperLimit( 999);
+    self:setIncenseStepCount(999);
+
     self:sysMsg("步步遇敌已经开启！");
 end
 
 function MyPlayer:stopYudi()
-    self:setIncenseStepCount(0);
     self:setIncenseUpperLimit(0);
+    self:setIncenseStepCount(0);
     self:sysMsg("步步遇敌已经关闭！");
+end
+
+function MyPlayer:startAvoid()
+    if self:isYudi() then
+        self:stopYudi()
+    end
+    self:setEnemyAvoidSwitch(1)
+    self:sysMsg("不遇敌已经开启")
+end
+
+function MyPlayer:stopAvoid()
+    self:setEnemyAvoidSwitch(0)
+    self:sysMsg("不遇敌已经关闭")
 end
 
 function MyPlayer:isBuYudi()

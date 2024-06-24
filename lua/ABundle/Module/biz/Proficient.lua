@@ -6,8 +6,8 @@ local proficientKill = { 99, 399, 999, 2999}
 local proficientWnd = nil
 
 function initProficientContent()
-    for i=1, #raceTitle do
-        local infoArr = strSplit(proficientInfo[i], "|")
+    for i, info in pairs(proficientInfo) do
+        local infoArr = strSplit(info, "|")
         local raceLevel = tonumber(infoArr[1])
         local nextLevel = raceLevel + 1
         local raceNum = tonumber(infoArr[2])

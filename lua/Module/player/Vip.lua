@@ -122,18 +122,18 @@ end
 function openAvoid(player, arg)
     local info = vipInfo[player:getRegistNumber()]
     if info["avoid"] <= 0 then
-        player:sysMsg("您已经驱魔时间可使用！");
+        player:sysMsg("您已经无驱魔时间可使用！");
         return 1
     end
 
-    player:setEnemyAvoidSwitch(1)
+    player:startAvoid()
     info["avoidFlag"] = 1
     info["avoidTime"] = os.time()
     local sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values (" ..
             player:getRegistNumber() .. ",1,1,'',unix_timestamp() + " .. info["avoid"] .. ", UNIX_TIMESTAMP());"
     SQL.Run(sql);
     Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
-    player:sysMsg("您已经成功开启驱魔功能，开始不遇敌！");
+    player:sysMsg("您已经成功开启驱魔功能！");
     return 1
 end
 
@@ -143,7 +143,7 @@ function closeAvoid(player)
         return 1
     end
 
-    player:setEnemyAvoidSwitch(0)
+    player:stopAvoid()
     info["avoid"] = info["avoid"] + info["avoidTime"] - os.time()
     if info["avoid"] < 0 then
         info["avoid"] = 0
@@ -160,7 +160,7 @@ function userCloseAvoid(player, arg)
     closeAvoid(player)
     local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and RegNum =" .. player:getRegistNumber()
     SQL.Run(sql1)
-    player:sysMsg("您已经停止驱魔功能，关闭不遇敌！");
+    player:sysMsg("您已经停止驱魔功能！");
 end
 
 function sysCloseAvoid(regNum, info)

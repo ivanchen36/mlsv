@@ -59,7 +59,7 @@ function getVipClient(player, arg)
             ["high"] = 39,
             ["type"] = "lab",
             ["title"] = "#vipTitle$Text",
-            ["x"] = 89,
+            ["x"] = 95,
             ["y"] = 151,
             ["text"] = "#vipTextVal",
         },
