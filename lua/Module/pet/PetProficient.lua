@@ -43,7 +43,7 @@ function showProficient(player)
     end
     local len = countKeys(rs)
     for i = 0, (len / 3) - 1  do
-        proficientInfo[rs[i .. "_0"]] = rs[i .. "_1"] .. "|" .. rs[i .. "_2"]
+        proficientInfo[tonumber(rs[i .. "_0"])] = rs[i .. "_1"] .. "|" .. rs[i .. "_2"]
     end
 
     Protocol.PowerSend(player:getObj(),"SHOW_PROFICIENT", proficientInfo)

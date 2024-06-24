@@ -18,11 +18,14 @@ function initProficientContent()
 
         if nextLevel > 4 then
             nextLevel = 4
+            info:setText("参战回合:" .. infoArr[2] .. "/" .. proficientKill[nextLevel])
+        else
+            info:setText("参战回合:" .. infoArr[2] .. "/--")
         end
         level:setText("等级" .. infoArr[1])
         info:setText("参战回合:" .. infoArr[2] .. "/" .. proficientKill[nextLevel])
 
-        if raceNum >= proficientKill[nextLevel] then
+        if raceLevel < 4 and raceNum >= proficientKill[nextLevel] then
             up:setEnabled(true)
             up:clicked(function(widget)
                 Cli.Send("up_proficient|" .. i)
