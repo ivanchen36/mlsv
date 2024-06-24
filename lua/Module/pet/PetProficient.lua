@@ -25,12 +25,13 @@ local raceName = {
 local proficientKill = { 99, 399, 999, 2999}
 
 function showProficient(player)
+    logPrint("showProficient")
     local sql = "select Race, Level, KillNum from tbl_pet_proficient where RegNum = " .. player:getRegistNumber();
     local rs = SQL.Run(sql);
     local proficientInfo = {};
     if(type(rs) ~= "table")then
         logPrint("proficientInfo not found, id:" .. player:getRegistNumber());
-        for i = raceHuman, raceDemonic + 1 do
+        for i = raceHuman, raceDemonic do
             sql = "INSERT INTO `tbl_pet_proficient`(`RegNum`, `Race`, `Level`, `KillNum`, `CreateTime`) VALUES ("
                     .. player:getRegistNumber() .. ", " .. i .. ", 0, 0, unix_timestamp());"
             SQL.Run(sql);
@@ -41,11 +42,12 @@ function showProficient(player)
         return
     end
     local len = countKeys(rs)
-    for i = 0, (len / 34) - 1  do
+    for i = 0, (len / 3) - 1  do
         proficientInfo[rs[i .. "_0"]] = rs[i .. "_1"] .. "|" .. rs[i .. "_2"]
     end
 
     Protocol.PowerSend(player:getObj(),"SHOW_PROFICIENT", proficientInfo)
+    logPrint("showProficient1")
 end
 
 function upProficient(player, arg)
@@ -64,7 +66,7 @@ function upProficient(player, arg)
     else
         player:sysMsg(raceName[race] .. "专精提失败，击杀数据量不足！");
     end
-    Protocol.PowerSend(player:getObj(),"SHOW_PROFICIENT", {
+    Protocol.PowerSend(player:getObj(),"FLUSH_PROFICIENT", {
         [race] = level .. "|" .. killNum
     })
 end
@@ -89,7 +91,7 @@ end
 
 function Event.RegGetExpEvent.updateProficientKill(index, exp)
     logPrint("updateProficientKill", index, exp);
-    if exp < 100 then
+    if exp < 10 then
         return
     end
     local myPlayer = MyPlayer:new(index)

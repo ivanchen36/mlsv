@@ -1,7 +1,7 @@
-local proficientInfo = {}
-local raceTitle = {"race1", "race2", "race3", "race4", "race5", "race6", "race7", "race8", "race9", "race10"}
-local raceTitleVal = {"人形系", "龙系", "不死系", "飞行系", "昆虫系", "植物系", "野兽系", "特殊系", "金属系", "邪魔系"}
+raceTitle = {"race1", "race2", "race3", "race4", "race5", "race6", "race7", "race8", "race9", "race10"}
+raceTitleVal = {"人形系", "龙系", "不死系", "飞行系", "昆虫系", "植物系", "野兽系", "特殊系", "金属系", "邪魔系"}
 
+local proficientInfo = {}
 local proficientKill = { 99, 399, 999, 2999}
 local proficientWnd = nil
 
@@ -9,16 +9,20 @@ function initProficientContent()
     for i=1, #raceTitle do
         local infoArr = strSplit(proficientInfo[i], "|")
         local raceLevel = tonumber(infoArr[1])
+        local nextLevel = raceLevel + 1
         local raceNum = tonumber(infoArr[2])
         local level = proficientWnd:getWidget(raceTitle[i] .. "Level");
         local info = proficientWnd:getWidget(raceTitle[i] .. "Info");
         local up = proficientWnd:getWidget(raceTitle[i] .. "Up");
         local challenge = proficientWnd:getWidget(raceTitle[i] .. "Challenge");
 
+        if nextLevel > 4 then
+            nextLevel = 4
+        end
         level:setText("等级" .. infoArr[1])
-        info:setText(raceTitleVal[i] .. "宠物参战回合:" .. infoArr[2] .. "/" .. proficientKill[raceLevel + 1])
+        info:setText("参战回合:" .. infoArr[2] .. "/" .. proficientKill[nextLevel])
 
-        if raceNum >= proficientKill[raceLevel + 1] then
+        if raceNum >= proficientKill[nextLevel] then
             up:setEnabled(true)
             up:clicked(function(widget)
                 Cli.Send("up_proficient|" .. i)

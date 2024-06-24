@@ -10,6 +10,7 @@ end
 
 function test(player)
     getVipClient(player, "")
+    getProficientClient(player, "")
 end
 
 TalkEvent["/test"] = test

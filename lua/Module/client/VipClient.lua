@@ -21,13 +21,6 @@ function getVipClient(player, arg)
         },
         {
             ["type"] = "img",
-            ["title"] = "num",
-            ["x"] = 42,
-            ["y"] = 98,
-            ["img"] = "n0.bmp",
-        },
-        {
-            ["type"] = "img",
             ["title"] = "mask",
             ["x"] = 203,
             ["y"] = 34,
@@ -36,8 +29,8 @@ function getVipClient(player, arg)
         {
             ["type"] = "img",
             ["title"] = "me",
-            ["x"] = 248,
-            ["y"] = 89,
+            ["x"] = 218,
+            ["y"] = 48,
             ["img"] = player:getFace(),
         },
         {
@@ -87,8 +80,8 @@ function getVipClient(player, arg)
         {
             ["type"] = "btn",
             ["title"] = "upVip",
-            ["x"] = 150,
-            ["y"] = 96,
+            ["x"] = 297,
+            ["y"] = 143,
             ["img"] = "y1.bmp",
             ["active"] = "y2.bmp",
             ["disable"] = "y3.bmp",
@@ -98,12 +91,12 @@ function getVipClient(player, arg)
         {
             ["type"] = "btn",
             ["title"] = "upGift",
-            ["x"] = 407,
-            ["y"] = 96,
+            ["x"] = 397,
+            ["y"] = 143,
             ["img"] = "y1.bmp",
             ["active"] = "y2.bmp",
             ["disable"] = "y3.bmp",
-            ["text"] = "ÁìÈ¡",
+            ["text"] = "Àñ°ü",
             ["click"] = "upGift",
         }
     }

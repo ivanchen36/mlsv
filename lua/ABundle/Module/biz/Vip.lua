@@ -1,9 +1,9 @@
 
-vipTitle = {"value", "damage", "luck", "exp", "avoid", "bank", "gift"}
-vipTitleVal = {"会员经验:", "增伤减伤:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
-vipTextVal = {"", "", "", "", "", "VIP7可使用", "VIP8可使用"}
-vipBtn = {"valueBtn", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
-vipBtnText = {"领取", "", "", "开启", "开启", "开启", "开启"}
+vipTitle = {"value", "", "damage", "luck", "exp", "avoid", "bank", "gift"}
+vipTitleVal = {"会员经验:", "", "增伤减伤:", "幸运值数:", "经验加成:", "驱魔时间:", "远程银行:", "天降礼包:"}
+vipTextVal = {"", "", "", "", "", "", "VIP7可使用", "VIP8可使用"}
+vipBtn = {"valueBtn", "", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
+vipBtnText = {"领取", "", "", "", "开启", "开启", "开启", "开启"}
 
 local vipWnd = nil
 local vipInfo = {}
@@ -51,7 +51,7 @@ function upVip(widget)
     Cli.Send("up_vip")
 end
 
-vipEvents = {collectVip, nil, nil, addExp, openAvoid, openBank, godGift}
+vipEvents = {collectVip, nil, nil, nil, addExp, openAvoid, openBank, godGift}
 
 function showExp(level, text, op)
     local nextLevel = level + 1
@@ -143,27 +143,27 @@ function showLuck(level, text, op)
     text:setText(tostring(vipInfo["luck"]))
 end
 
-local showEvents = {showExp, showDamage, showLuck, showAddExp, showAvoid, showBank, showGift}
+local showEvents = {showExp, nil, showDamage, showLuck, showAddExp, showAvoid, showBank, showGift}
 
 function initVipContent()
     local level = vipInfo["level"]
     local vip = vipWnd:getWidget("aLevel")
-    local vip1 = vipWnd:getWidget("num")
     local upVip = vipWnd:getWidget("upVip");
     local upGift = vipWnd:getWidget("upGift");
 
     vip:setImg("vip" .. level .. ".bmp")
-    vip1:setImg("n" .. level .. ".bmp")
     for i=1, #vipTitle do
-        local op = nil
-        local text = vipWnd:getWidget(vipTitle[i] .. "Text");
+        if vipTitleVal[i] ~= "" then
+            local op = nil
+            local text = vipWnd:getWidget(vipTitle[i] .. "Text");
 
-        if vipBtnText[i] ~= "" then
-            op = vipWnd:getWidget(vipBtn[i])
-        end
-        local func = showEvents[i]
-        if nil ~= func then
-            func(level, text, op)
+            if vipBtnText[i] ~= "" then
+                op = vipWnd:getWidget(vipBtn[i])
+            end
+            local func = showEvents[i]
+            if nil ~= func then
+                func(level, text, op)
+            end
         end
     end
     local nextLevel = level + 1

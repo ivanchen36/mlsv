@@ -10,7 +10,7 @@ function Event.RegLoginEvent.registInit(player)
 
     -- ÒµÎñÄ£¿é
     Client.RunABundle(player, "Vip.lua")
---Client.RunABundle(player, "Proficient.lua")
+    Client.RunABundle(player, "Proficient.lua")
 --Client.RunABundle(player, "Synthesis.lua")
 --Client.RunABundle(player, "Pk.lua")
 --Client.RunABundle(player, "Awakening.lua")
