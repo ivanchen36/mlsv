@@ -143,3 +143,21 @@ CREATE TABLE `tbl_tax_info` (
                                       `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                       PRIMARY KEY (`RegNum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='角色税务表';
+
+-- tbl_user_limit
+DROP TABLE IF EXISTS `tbl_user_limit`;
+CREATE TABLE `tbl_user_limit` (
+                                `UserId` int NOT NULL COMMENT 'id reqnum 或者 mac',
+                                `Type` int NOT NULL DEFAULT 0 COMMENT '类型',
+                                `Count` int NOT NULL DEFAULT 0 COMMENT '总次数',
+                                `Used` int NOT NULL DEFAULT 0 COMMENT '金币上缴税收金额',
+                                `Cycle` INT NOT NULL COMMENT '周期',
+                                `CreateTime` int NOT NULL,
+                                `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                PRIMARY KEY (`UserId`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='用户限制表';
+
+
+
+
+

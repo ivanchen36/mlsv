@@ -48,9 +48,11 @@ TBL_AllOCEV["ScriptCall"] = 1;       -- luac.lua可以分别注册了
 
 dofile("lua/System/BaseModule/Base.lua");
 
+dofile("lua/System/OtherModule/Const.lua");
 dofile("lua/System/OtherModule/Util.lua");
 dofile("lua/System/OtherModule/MyPlayer.lua");
 dofile("lua/System/OtherModule/MyPet.lua");
+dofile("lua/System/OtherModule/MyLimit.lua");
 
 dofile("lua/System/BaseModule/luac.lua");
 

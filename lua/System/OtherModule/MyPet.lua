@@ -32,6 +32,10 @@ function MyPet:isValid()
     return VaildChar(self._pet)
 end
 
+function MyPet:getOwner()
+    return Pet.GetOwner(self._pet)
+end
+
 function MyPet:getId()
     return self:get(57)
 end

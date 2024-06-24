@@ -40,7 +40,7 @@ end
 function initVip(player)
     local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
     local rs = SQL.Run(sql);
-    if(type(rs) ~= "table")then
+    if(type(rs) ~= "table") then
         logPrint("vipInfo not found, id:" .. player:getRegistNumber());
         sql = "INSERT INTO tbl_vip_info (RegNum,VipLevel,VipExp,LastExp,LastTime,CreateTime,LuckVal,EnemyAvoidSec,RemoteBank) VALUES ("
                 .. player:getRegistNumber() .. ",0,0,0,0,unix_timestamp(),0,0,0)";
