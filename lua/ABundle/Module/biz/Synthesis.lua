@@ -30,7 +30,7 @@ function showSynthesisInfo(index, petInfo)
     local quick = synthesisWnd:getWidget(petTitle[index] .. "Q");
     local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
 
-    name:setText(petInfo.name)
+    name:setText(string.sub(petInfo.name, 1, 16))
     img:setImg(petInfo.img)
     vital:setText("体力: " .. petInfo.vital)
     str:setText("力量: " .. petInfo.str)
@@ -95,12 +95,19 @@ function initSynthesisContent()
     for i=1, #petTitle do
         if nil ~= select[i] then
             showSynthesisInfo(i, synthesisInfo[select[i]])
+        else
+            local name = synthesisWnd:getWidget(petTitle[i]);
+            name:setText("无可合成宠物")
         end
         local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
         local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")
 
         next.clicked(function()
             local select1 = select[i]
+            if nil == select1 then
+                return
+            end
+
             if select1 >= petNum then
                 initSelectButton()
                 return
@@ -127,6 +134,9 @@ function initSynthesisContent()
         end)
         prev.clicked(function()
             local select1 = select[i]
+            if nil == select1 then
+                return
+            end
             if select1 <= 1 then
                 initSelectButton()
                 return
