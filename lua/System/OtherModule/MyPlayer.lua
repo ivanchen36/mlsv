@@ -49,10 +49,14 @@ function MyPlayer:getPartyNum()
 end
 
 function MyPlayer:getPartyMember(slot)
-    return self:new(Char.GetPartyMember(self._player, slot))
+    return MyPlayer:new(Char.GetPartyMember(self._player, slot))
 end
 
 function MyPlayer:havePet(petId)
+    return Char.HavePet(self._player, petId)
+end
+
+function MyPlayer:havePet(self, petId)
     return Char.HavePet(self._player, petId)
 end
 
@@ -1261,4 +1265,209 @@ function MyPlayer:getIncenseStepCount()
 end
 function MyPlayer:setIncenseStepCount(val)
     return self:set(8152, val)
+end
+
+--%BOUNS_DEFENCE% 20000
+function MyPlayer:getBounsDefence()
+    return self:get(20000)
+end
+function MyPlayer:setBounsDefence(val)
+    return self:set(20000, val - (self:getBounsDefence() or 0))
+end
+
+--%BOUNS_ATTACK% 20001
+function MyPlayer:getBounsAttack()
+    return self:get(20001)
+end
+function MyPlayer:setBounsAttack(val)
+    return self:set(20001, val - (self:getBounsAttack() or 0))
+end
+
+--%BOUNS_AGILITY% 20002
+function MyPlayer:getBounsAgility()
+    return self:get(20002)
+end
+function MyPlayer:setBounsAgility(val)
+    return self:set(20002, val - (self:getBounsAgility() or 0))
+end
+
+--%BOUNS_MAGIC% 20003
+function MyPlayer:getBounsMagic()
+    return self:get(20003)
+end
+function MyPlayer:setBounsMagic(val)
+    return self:set(20003, val - (self:getBounsMagic() or 0))
+end
+
+--%BOUNS_RECOVERY% 20004
+function MyPlayer:getBounsRecovery()
+    return self:get(20004)
+end
+function MyPlayer:setBounsRecovery(val)
+    return self:set(20004, val - (self:getBounsRecovery() or 0))
+end
+
+--%BOUNS_HP% 20005
+function MyPlayer:getBounsHp()
+    return self:get(20005)
+end
+function MyPlayer:setBounsHp(val)
+    return self:set(20005, val - (self:getBounsHp() or 0))
+end
+
+--%BOUNS_FORCEPOINT% 20006
+function MyPlayer:getBounsForcepoint()
+    return self:get(20006)
+end
+function MyPlayer:setBounsForcepoint(val)
+    return self:set(20006, val - (self:getBounsForcepoint() or 0))
+end
+
+--%BOUNS_LUCK% 20007
+function MyPlayer:getBounsLuck()
+    return self:get(20007)
+end
+function MyPlayer:setBounsLuck(val)
+    return self:set(20007, val - (self:getBounsLuck() or 0))
+end
+
+--%BOUNS_CHARM% 20008
+function MyPlayer:getBounsCharm()
+    return self:get(20008)
+end
+function MyPlayer:setBounsCharm(val)
+    return self:set(20008, val - (self:getBounsCharm() or 0))
+end
+
+--%BOUNS_POISON% 20009
+function MyPlayer:getBounsPoison()
+    return self:get(20009)
+end
+function MyPlayer:setBounsPoison(val)
+    return self:set(20009, val - (self:getBounsPoison() or 0))
+end
+
+--%BOUNS_SLEEP% 20010
+function MyPlayer:getBounsSleep()
+    return self:get(20010)
+end
+function MyPlayer:setBounsSleep(val)
+    return self:set(20010, val - (self:getBounsSleep() or 0))
+end
+
+--%BOUNS_STONE% 20011
+function MyPlayer:getBounsStone()
+    return self:get(20011)
+end
+function MyPlayer:setBounsStone(val)
+    return self:set(20011, val - (self:getBounsStone() or 0))
+end
+
+--%BOUNS_DRUNK% 20012
+function MyPlayer:getBounsDrunk()
+    return self:get(20012)
+end
+function MyPlayer:setBounsDrunk(val)
+    return self:set(20012, val - (self:getBounsDrunk() or 0))
+end
+
+--%BOUNS_CONFUSION% 20013
+function MyPlayer:getBounsConfusion()
+    return self:get(20013)
+end
+function MyPlayer:setBounsConfusion(val)
+    return self:set(20013, val - (self:getBounsConfusion() or 0))
+end
+
+--%BOUNS_AMNESIA% 20014
+function MyPlayer:getBounsAmnesia()
+    return self:get(20014)
+end
+function MyPlayer:setBounsAmnesia(val)
+    return self:set(20014, val - (self:getBounsAmnesia() or 0))
+end
+
+--%BOUNS_CRITICAL% 20015
+function MyPlayer:getBounsCritical()
+    return self:get(20015)
+end
+function MyPlayer:setBounsCritical(val)
+    return self:set(20015, val - (self:getBounsCritical() or 0))
+end
+
+--%BOUNS_COUNTER% 20016
+function MyPlayer:getBounsCounter()
+    return self:get(20016)
+end
+function MyPlayer:setBounsCounter(val)
+    return self:set(20016, val - (self:getBounsCounter() or 0))
+end
+
+--%BOUNS_HITRATE% 20017
+function MyPlayer:getBounsHitrate()
+    return self:get(20017)
+end
+function MyPlayer:setBounsHitrate(val)
+    return self:set(20017, val - (self:getBounsHitrate() or 0))
+end
+
+--%BOUNS_AVOID% 20018
+function MyPlayer:getBounsAvoid()
+    return self:get(20018)
+end
+function MyPlayer:setBounsAvoid(val)
+    return self:set(20018, val - (self:getBounsAvoid() or 0))
+end
+
+--%BOUNS_STAMINA% 20019
+function MyPlayer:getBounsStamina()
+    return self:get(20019)
+end
+function MyPlayer:setBounsStamina(val)
+    return self:set(20019, val - (self:getBounsStamina() or 0))
+end
+
+--%BOUNS_DEX% 20020
+function MyPlayer:getBounsDex()
+    return self:get(20020)
+end
+function MyPlayer:setBounsDex(val)
+    return self:set(20020, val - (self:getBounsDex() or 0))
+end
+
+--%BOUNS_INTELLIGENCE% 20021
+function MyPlayer:getBounsIntelligence()
+    return self:get(20021)
+end
+function MyPlayer:setBounsIntelligence(val)
+    return self:set(20021, val - (self:getBounsIntelligence() or 0))
+end
+
+--%BOUNS_ADM% 20022
+function MyPlayer:getBounsAdm()
+    return self:get(20022)
+end
+function MyPlayer:setBounsAdm(val)
+    return self:set(20022, val - (self:getBounsAdm() or 0))
+end
+
+--%BOUNS_RSS% 20023
+function MyPlayer:getBounsRss()
+    return self:get(20023)
+end
+function MyPlayer:setBounsRss(val)
+    return self:set(20023, val - (self:getBounsRss() or 0))
+end
+
+--%BOUNS_LOYALTY% 20024
+function MyPlayer:getBounsLoyalty()
+    return self:get(20024)
+end
+function MyPlayer:setBounsLoyalty(val)
+    return self:set(20024, val - (self:getBounsLoyalty() or 0))
+end
+
+
+    function MyPlayer:getOwner()
+    return Pet.GetOwner(self._player)
 end

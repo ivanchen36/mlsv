@@ -37,6 +37,6 @@ function showPk(info)
 end
 
 Cli.Send().wait["FLUSH_PK"] = flushPkInfo
-cli.send().wait["SHOW_PK"] = showPk
+Cli.Send().wait["SHOW_PK"] = showPk
 Cli.Send().wait["PK_CLIENT"] = loadPkClient
 Cli.Send("pk_client")

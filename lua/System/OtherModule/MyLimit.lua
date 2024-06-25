@@ -10,21 +10,26 @@ function MyLimit:new(idStr, type)
 end
 
 function MyLimit:init(cycle, count)
-    local sql = string.format("insert into  tbl_user_limit (UserId,Type,Count,Used,Cycle,CreateTime) VALUES ('?',?,?,0,?, UNIX_TIMESTAMP())",
+    local sql = string.format("insert into  tbl_user_limit (UserId,Type,Count,Used,Cycle,CreateTime) VALUES ('%s',%d,%d,0,%d, UNIX_TIMESTAMP())",
             self._idStr, self._type, count, cycle)
-    Sql.RUN(sql)
+    SQL.Run(sql)
 end
 
 function MyLimit:deduct(count)
-    local sql = string.format("update tbl_user_limit set Used = IF(FLOOR((UNIX_TIMESTAMP(UpdateTime) + 28800) / Cycle) * Cycle - 28800 < FLOOR((UNIX_TIMESTAMP() + 28800) / Cycle) * Cycle - 28800, 1, Used + 1) where UserId = '?' and Type = ? and ((FLOOR((UNIX_TIMESTAMP(UpdateTime) + 28800) / Cycle) * Cycle - 28800) < (FLOOR((UNIX_TIMESTAMP() + 28800) / Cycle) * Cycle - 28800) or Used < Count);",
+    if self:getAvailable() <= 0 then
+        return 0
+    end
+
+    local sql = string.format("update tbl_user_limit set Used = IF(FLOOR((UNIX_TIMESTAMP(UpdateTime) + 28800) / Cycle) * Cycle - 28800 < FLOOR((UNIX_TIMESTAMP() + 28800) / Cycle) * Cycle - 28800, 1, Used + 1) where UserId = '%s' and Type = %d and ((FLOOR((UNIX_TIMESTAMP(UpdateTime) + 28800) / Cycle) * Cycle - 28800) < (FLOOR((UNIX_TIMESTAMP() + 28800) / Cycle) * Cycle - 28800) or Used < Count);",
             self._idStr, self._type)
-    Sql.RUN(sql)
+    SQL.Run(sql)
+    return 1
 end
 
-function MyLimit:getAvailable(idStr, type)
-    local sql = string.format("select IF(FLOOR((UNIX_TIMESTAMP(UpdateTime) + 28800) / Cycle) * Cycle - 28800 < FLOOR((UNIX_TIMESTAMP() + 28800) / Cycle) * Cycle - 28800, Count, Count - Used) from  tbl_user_limit where UserId = '?' and Type = ?",
-            idStr, type)
-    local rs = Sql.RUN(sql)
+function MyLimit:getAvailable()
+    local sql = string.format("select IF(FLOOR((UNIX_TIMESTAMP(UpdateTime) + 28800) / Cycle) * Cycle - 28800 < FLOOR((UNIX_TIMESTAMP() + 28800) / Cycle) * Cycle - 28800, Count, Count - Used) from  tbl_user_limit where UserId = '%s' and Type = %d",
+            self._idStr, self._type)
+    local rs = SQL.Run(sql)
     if type(rs) ~= "table" then
         return nil
     end

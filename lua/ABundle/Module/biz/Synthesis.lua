@@ -12,11 +12,10 @@ function getShowInfo()
         if synthesisInfo[i] ~= nil then
             if nil == select1 then
                 select1 = i
-            end
-            if nil == select2 then
+            elseif nil == select2 then
                 select2 = i
+                return {select1, select2}
             end
-            return {select1, select2}
         end
     end
     return {select1, select2}
@@ -29,8 +28,6 @@ function showSynthesisInfo(index, petInfo)
     local str = synthesisWnd:getWidget(petTitle[index] .. "S");
     local tough = synthesisWnd:getWidget(petTitle[index] .. "T");
     local quick = synthesisWnd:getWidget(petTitle[index] .. "Q");
-    local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
-    local next = synthesisWnd:getWidget(petTitle[index] .. "M");
     local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
 
     name:setText(petInfo.name)
@@ -199,6 +196,6 @@ function showSynthesis(info)
 end
 
 Cli.Send().wait["FLUSH_SYNTHESIS"] = flushSynthesisInfo
-cli.send().wait["SHOW_SYNTHESIS"] = showSynthesis
+Cli.Send().wait["SHOW_SYNTHESIS"] = showSynthesis
 Cli.Send().wait["SYNTHESIS_CLIENT"] = loadSynthesisClient
 Cli.Send("synthesis_client")

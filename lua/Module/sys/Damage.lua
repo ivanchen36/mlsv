@@ -5,7 +5,7 @@ function addPersonDamage(player, rate)
 end
 
 function addPetDamage(player, rate)
-    return rate + 100
+    return rate
 end
 
 function subPersonDamage(player, rate)
@@ -13,7 +13,7 @@ function subPersonDamage(player, rate)
 end
 
 function subPetDamage(player, rate)
-    return rate - 50
+    return rate
 end
 
 function subPersonDefDamage(player, rate)
@@ -22,7 +22,7 @@ function subPersonDefDamage(player, rate)
 end
 
 function subPetDefDamage(player, rate)
-    return rate - 50
+    return rate
 end
 
 DamageEvent[1] = addPersonDamage

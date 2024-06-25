@@ -13,7 +13,7 @@ end
 
 -- %³èÎï×´Ì¬_Õ½¶·% 2
 function MyPet:getBattlePet(player)
-    return self:new(player,  Char.GetData(self.player, 62))
+    return MyPet:new(player,  Char.GetData(self.player, 62))
 end
 
 function MyPet:getByUuid(player, uuid)

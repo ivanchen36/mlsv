@@ -56,8 +56,8 @@ function receiveTask(player, arg)
     local cycleDate = os.date(cycleFormat[cycleType])
 
     -- 检查玩家在指定周期是否已经领取了任务
-    local query = string.format("SELECT COUNT(1) as count FROM tbl_player_task WHERE RegNum = ? AND Cycle = ? AND CycleDate = ?", regNum, cycleType, cycleDate)
-    local existingTaskCount = Sql.RUN(query)
+    local query = string.format("SELECT COUNT(1) as count FROM tbl_player_task WHERE RegNum = %d AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
+    local existingTaskCount = SQL.Run(query)
     if existingTaskCount["0_0"] > 0 then
         player:sysMsg("您已经领取了本周期的任务")
         return
@@ -65,9 +65,9 @@ function receiveTask(player, arg)
 
     for i = 1, taskCount do
         local typeIndex, item = getRandomTaskAndItem()
-        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime, UpdateTime) VALUES (?, ?, ?, ?, ?, ?, '未开始', 0, ?, ?)",
+        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime, UpdateTime) VALUES (%d, %d, %d, %d, %d, %d, '未开始', 0, %d, %d)",
                 playerId, cycleType, cycleDate, typeIndex, item, 1, os.time(), os.time())
-        Sql.RUN(sql)
+        SQL.Run(sql)
     end
 
     player:sysMsg("任务领取成功")
@@ -80,8 +80,8 @@ function queryTaskByType(regNum, cycleType)
     local cycleDate = os.date(cycleFormat[cycleType])
 
     -- 从数据库获取任务信息
-    local query = string.format("SELECT Id, Type, Item, Count, Progress, Status, Cycle FROM tbl_player_task WHERE RegNum = ? AND Cycle = ? AND CycleDate = ?", regNum, cycleType, cycleDate)
-    local result = Sql.RUN(query)
+    local query = string.format("SELECT Id, Type, Item, Count, Progress, Status, Cycle FROM tbl_player_task WHERE RegNum = %d AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
+    local result = SQL.Run(query)
     if(type(result) ~= "table")then
         return
     end
@@ -143,8 +143,8 @@ end
 function submitTask(player, arg)
     local regNum = player:getRegistNumber()
     local taskId = tonumber(arg)
-    local query = string.format("SELECT Cycle, Type, Item, Count, Progress, Status FROM tbl_player_task WHERE RegNum = ? AND Id = ?", regNum, taskId)
-    local result = Sql.RUN(query)
+    local query = string.format("SELECT Cycle, Type, Item, Count, Progress, Status FROM tbl_player_task WHERE RegNum = %d AND Id = %d", regNum, taskId)
+    local result = SQL.Run(query)
     if(type(result) ~= "table")then
         Protocol.PowerSend(player:getObj(),"SUBMIT_RS", 0)
         player:sysMsg("查询任务失败，无法提交任务")
@@ -170,8 +170,8 @@ function submitTask(player, arg)
     handleTask(regNum, playerTask)
     if playerTask.progress >= playerTask.count then
         -- 更新任务状态为已完成
-        local sql = string.format("UPDATE tbl_player_task SET Status = 2, Progress = ? WHERE RegNum = ? AND Id = ?", playerTask.progress, regNum, taskId)
-        Sql.RUN(sql)
+        local sql = string.format("UPDATE tbl_player_task SET Status = 2, Progress = %d WHERE RegNum = %d AND Id = %d", playerTask.progress, regNum, taskId)
+        SQL.Run(sql)
 
         -- 领取奖励
         local reward = rewardList[playerTask.cycle][playerTask.type]

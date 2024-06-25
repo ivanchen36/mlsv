@@ -32,6 +32,6 @@ function showTask(info)
 end
 
 Cli.Send().wait["FLUSH_TASK"] = flushTaskInfo
-cli.send().wait["SHOW_TASK"] = showTask
+Cli.send().wait["SHOW_TASK"] = showTask
 Cli.Send().wait["TASK_CLIENT"] = loadTaskClient
 Cli.Send("task_client")

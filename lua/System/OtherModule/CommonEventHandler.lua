@@ -259,7 +259,7 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
     else
         realDamage = realDamage + math.floor(Damage * (atkRate / 100) * (defRate / 100))
     end
-    logPrint("RealDamage2 ", realDamage)
+    logPrint("RealDamage2 ", realDamage, atkRate, defRate)
     return realDamage
 end
 
