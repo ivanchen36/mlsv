@@ -1,5 +1,5 @@
 petTitle = {"pet1", "pet2"}
-
+petFrame = {"k1.bmp", "k2.bmp"}
 local synthesisInfo = {}
 local petNum = 0
 local select = {nil, nil}
@@ -164,11 +164,11 @@ function initSynthesisContent()
     end
     initSelectButton()
     local confirm = synthesisWnd:getWidget("confirm")
-    local amount = synthesisWnd:getWidget("amount")
+    local check = synthesisWnd:getWidget("check")
     if synthesisInfo["amount"] == 1 then
-        amount:setImg("true.bmp")
+        check:setImg("true.bmp")
     else
-        amount:setImg("false.bmp")
+        check:setImg("false.bmp")
     end
     if synthesisInfo["amount"] == 1 and petNum >= 2 then
         confirm:setEnable(true)
@@ -188,11 +188,12 @@ function loadSynthesisClient(client)
     logPrint("loadSynthesisClient")
     logPrintTbl(client)
     synthesisWnd = createWindow("synthesis", client)
+    logPrint("loadSynthesisClient2")
 end
 
 function showSynthesis(info)
     if (synthesisWnd == nil) then
-        Cli.Send("Synthesis_client")
+        Cli.Send("synthesis_client")
         Cli.SysMessage("[系统提示] synthesis系统功能正在加载中，请稍后！",4,3)
         return
     end

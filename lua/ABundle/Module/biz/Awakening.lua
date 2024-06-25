@@ -34,6 +34,6 @@ function showAwakening(info)
 end
 
 Cli.Send().wait["FLUSH_AWAKENING"] = flushAwakeningInfo
-Cli.send().wait["SHOW_AWAKENING"] = showAwakening
+Cli.Send().wait["SHOW_AWAKENING"] = showAwakening
 Cli.Send().wait["AWAKENING_CLIENT"] = loadAwakeningClient
 Cli.Send("awakening_client")

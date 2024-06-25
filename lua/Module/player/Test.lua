@@ -11,6 +11,7 @@ end
 function test(player)
     getVipClient(player, "")
     getProficientClient(player, "")
+    getSynthesisClient(player, "")
 end
 
 TalkEvent["/test"] = test

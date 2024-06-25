@@ -154,7 +154,7 @@ CREATE TABLE `tbl_user_limit` (
                                 `Cycle` INT NOT NULL COMMENT '周期',
                                 `CreateTime` int NOT NULL,
                                 `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                                PRIMARY KEY (`UserId`)
+                                PRIMARY KEY (`UserId`, `Type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='用户限制表';
 
 
