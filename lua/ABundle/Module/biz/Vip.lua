@@ -213,7 +213,7 @@ function sendTax(param)
 end
 
 Cli.Send().wait["VIP_CLIENT"] = loadVipClient
-Cli.Send().wait["UPDATE_VIP"] = flushVipInfo
+Cli.Send().wait["FLUSH_VIP"] = flushVipInfo
 Cli.Send().wait["SHOW_VIP"] = showVip
 Cli.Send().wait["SEND_TAX"] = sendTax
 Cli.Send("vip_client")

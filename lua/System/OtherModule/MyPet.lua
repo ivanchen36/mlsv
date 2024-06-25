@@ -40,6 +40,10 @@ function MyPet:getId()
     return self:get(57)
 end
 
+function MyPet:setId(id)
+    return self:set(57, id)
+end
+
 function MyPet:getUuid()
     return Pet.GetUUID(self._pet)
 end

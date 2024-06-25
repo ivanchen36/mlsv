@@ -61,7 +61,7 @@ end
 function createSingleWidget(widget)
     local tmp = nil
     if "btn" == widget.type then
-        tmp = Button:new(widget.title, widget.img, widget.text)
+        tmp = Button:new(widget.title, widget.img, widget.text or "")
         tmp:setActiveImg(widget.active)
         tmp:setDisableImg(widget.disable)
         if rawget(widget, "click") ~= nil then
@@ -79,7 +79,7 @@ function createSingleWidget(widget)
             tmp:setFont(widget.font)
         end
     elseif "img" == widget.type then
-        tmp = Image:new(widget.title, widget.img)
+        tmp = Image:new(widget.title, widget.img or "")
         if rawget(widget, "out") ~= nil then
             tmp:setOutImg(widget.out)
         end
@@ -132,10 +132,10 @@ function createMulWidget(rows, columns, w, h, widget)
     local titles = _G[getTitleField(widget.title)]
 
     if rows == 0 then
-        rows = #titles / columns + 1
+        rows = math.ceil((#titles - 1) / columns) + 1
     end
     if columns == 0 then
-        columns = #titles / rows + 1
+        columns = math.ceil((#titles - 1) / rows) + 1
     end
     local pos = 1
     for i = 1, rows do
@@ -144,7 +144,7 @@ function createMulWidget(rows, columns, w, h, widget)
             if nil ~=titles[pos] and "" ~= titles[pos] then
                 local tmp = nil
                 if "btn" == widget.type then
-                    tmp = Button:new(getGlobVal(widget.title, pos), getGlobVal(widget.img, pos), getGlobVal(widget.text, pos))
+                    tmp = Button:new(getGlobVal(widget.title, pos), getGlobVal(widget.img, pos), getGlobVal(widget.text or "", pos))
                     tmp:setActiveImg(widget.active)
                     tmp:setDisableImg(widget.disable)
                     if rawget(widget, "click") ~= nil then
@@ -154,7 +154,7 @@ function createMulWidget(rows, columns, w, h, widget)
                         tmp:setColor(getGlobVal(widget.color, pos))
                     end
                 elseif "lab" == widget.type then
-                    tmp = Label:new(getGlobVal(widget.title, pos), getGlobVal(widget.text, pos))
+                    tmp = Label:new(getGlobVal(widget.title, pos), getGlobVal(widget.text or "", pos))
                     if rawget(widget, "color") ~= nil then
                         tmp:setColor(getGlobVal(widget.color, pos))
                     end
@@ -162,7 +162,7 @@ function createMulWidget(rows, columns, w, h, widget)
                         tmp:setFont(getGlobVal(widget.font, pos))
                     end
                 elseif "img" == widget.type then
-                    tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img, pos))
+                    tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or "", pos))
                     if rawget(widget, "out") ~= nil then
                         tmp:setOutImg(getGlobVal(widget.out, pos))
                     end
@@ -215,7 +215,7 @@ function createWindow(title, wndConfig)
     return wnd
 end
 
-function addCharAttr(wnd, attrTitle, earth, water, fire, wind)
+function addCharAttr(wnd, attrTitle)
     local attr = wnd:getWidget(attrTitle)
     local x = attr:getPosX()
     local y = attr:getPosY()
@@ -232,6 +232,33 @@ function addCharAttr(wnd, attrTitle, earth, water, fire, wind)
     wnd:addWidget(tmp2)
     wnd:addWidget(tmp3)
     wnd:addWidget(tmp4)
+end
+
+function showCharAttr(wnd, attrTitle, earth, water, fire, wind)
+    local tmp1 = wnd:getWidget(attrTitle .. "Earth", 0)
+    local tmp2 = wnd:getWidget(attrTitle .. "Water", 0)
+    local tmp3 = wnd:getWidget(attrTitle .. "Fire", 0)
+    local tmp4 = wnd:getWidget(attrTitle .. "Wind", 0)
+    tmp1:setVisible(false)
+    tmp2:setVisible(false)
+    tmp3:setVisible(false)
+    tmp4:setVisible(false)
+    if earth > 0 then
+        tmp1:setVisible(true)
+        tmp1:setImg("d_" .. earth .. ".bmp")
+    end
+    if water > 0 then
+        tmp1:setVisible(true)
+        tmp1:setImg("s_" .. water .. ".bmp")
+    end
+    if fire > 0 then
+        tmp1:setVisible(true)
+        tmp1:setImg("h_" .. fire .. ".bmp")
+    end
+    if wind > 0 then
+        tmp1:setVisible(true)
+        tmp1:setImg("f_" .. wind .. ".bmp")
+    end
 end
 
 function Event.ViewInit.PrintV(view)

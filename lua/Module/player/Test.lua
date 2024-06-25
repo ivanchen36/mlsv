@@ -16,10 +16,6 @@ end
 
 TalkEvent["/test"] = test
 
-function test(player)
-    getVipClient(player, "")
-end
-
 TalkEvent["/test1"] = function (player)
     player:recoverHp()
 end

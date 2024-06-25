@@ -23,7 +23,7 @@ class PK:
         date = datetime.fromtimestamp(ts)
         pkType = 1
         desc = str(date.year) + "年" + str(date.month) + "月第" + str(int(date.day - 1 / 7) + 1) + "周个人积分赛"
-        sql = "insert into tbl_pk_info (PkDate, PkType, Round, count, EventDescription, ParticipantCount, Status, CreateTime) values ('%s', %ld, 0, 0, '%s', 0, 1, %ld);" \
+        sql = "insert into tbl_pk_info (PkDate, PkType, Round, count, EventDescription, ParticipantCount, Status, CreateTime) values ('%s', %ld, 0, 0, '%s', 0, 0, %ld);" \
               % (date.strftime("%Y年%m月%d日"), pkType, desc, ts)
         self.mysqlClient.execute(sql)
 
@@ -47,7 +47,7 @@ class PK:
             desc = desc + "第" + str(int(date.day - 1 / 3) + 1) + "季度季赛"
         elif PkType == 5:
             desc = desc + "年年赛"
-        sql = "insert into tbl_pk_info (PkDate, PkType, Round, count, EventDescription, ParticipantCount, Status, CreateTime) values ('%s', %ld, 0, 0, '%s', 0, 1, %ld);" \
+        sql = "insert into tbl_pk_info (PkDate, PkType, Round, count, EventDescription, ParticipantCount, Status, CreateTime) values ('%s', %ld, 0, 0, '%s', 0, 0, %ld);" \
               % (date.strftime("%Y年%m月%d日"), PkType, desc, ts)
         self.mysqlClient.execute(sql)
 
@@ -160,4 +160,6 @@ class PK:
             self.mysqlClient.execute(sql)
 
     def noticePk(self):
-        self.sysMsg("[PK系统] 尊敬的参赛者们，请抓紧时间入场，比赛即将开始，期待你们的精彩表现！")
+        self.sysMsg("[PK系统] 尊敬的参赛者们，请抓紧时间入场，比赛正式开始，期待你们的精彩表现！")
+        sql =  "update tbl_pk_info set Status = 1 where PkType = 1 and Status = 0;"
+        self.mysqlClient.execute(sql)

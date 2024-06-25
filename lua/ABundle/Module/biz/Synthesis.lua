@@ -31,7 +31,7 @@ function showSynthesisInfo(index, petInfo)
     local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
 
     name:setText(string.sub(petInfo.name, 1, 16))
-    img:setImg(petInfo.img)
+    img:setOutImg(petInfo.img)
     vital:setText("体力: " .. petInfo.vital)
     str:setText("力量: " .. petInfo.str)
     tough:setText("强度: " .. petInfo.tough)

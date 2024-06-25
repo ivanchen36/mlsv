@@ -3,24 +3,23 @@ local startSinglePk = false
 local winnerVal = 3
 local loserVal = 1
 
-function joinSinglePk(player)
+function joinSinglePk(player, arg)
     if player:getPartyNum() ~= -1 then
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {1,0})
         player:sysMsg("[PK系统]请解散队伍再来参战。")
         return
     end
 
-    local sql = "select Id from tbl_pk_info where Status = 1 and PkType = 1";
+    local sql = "select Id from tbl_pk_info where Status = 0 and PkType = 1";
     local rs = SQL.Run(sql)
     if type(rs) ~= "table" then
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {1,0})
         player:sysMsg("[PK系统]当前没有举办PK比赛")
         return
     end
     local pkId = tonumber(rs["0_0"])
-    local mac = player:getMac()
-    sql = string.format("select Id from tbl_pk_team where (RegNum = %d or Mac = '%s') and PkId = %d",
-            player:getRegistNumber(), mac, pkId)
-    rs = SQL.Run(sql)
-    if type(rs) == "table" then
+    if isJoinPk(player, pkId) > 0 then
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {1,1})
         player:sysMsg("[PK系统]您已经报名PK比赛！")
         return
     end
@@ -29,6 +28,7 @@ function joinSinglePk(player)
             player:getRegistNumber(), player:getName(), pkId, '', player:getMac())
     SQL.Run(sql)
     player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
+    Protocol.PowerSend(player:getObj(),"FLUSH_PK", {1,1})
 end
 
 function setSinglePkResult(rid, winnerRegNum, loserRegNum, winnerName, loserName, winnerStatus, loserStatus)
@@ -159,3 +159,4 @@ function singlePkSummary(battleIndex)
 end
 
 DeinitEvent["battle"] = singlePkSummary
+ClientEvent["join_single_pk"] = joinSinglePk

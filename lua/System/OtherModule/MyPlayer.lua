@@ -430,6 +430,9 @@ function MyPlayer:getHp()
     return self:get(9)
 end
 function MyPlayer:setHp(val)
+    if val < 1 then
+        val = 1
+    end
     return self:set(9, val)
 end
 --%¶ÔÏó_Ä§% 10
@@ -437,6 +440,9 @@ function MyPlayer:getMp()
     return self:get(10)
 end
 function MyPlayer:setMp(val)
+    if val < 1 then
+        val = 1
+    end
     return self:set(10, val)
 end
 
@@ -1296,7 +1302,8 @@ function MyPlayer:getBounsMagic()
     return self:get(20003)
 end
 function MyPlayer:setBounsMagic(val)
-    return self:set(20003, val - (self:getBounsMagic() or 0))
+    self:set(20003, val - (self:getBounsMagic() or 0))
+    return self:setMp(self:getMp() + val)
 end
 
 --%BOUNS_RECOVERY% 20004
@@ -1312,7 +1319,8 @@ function MyPlayer:getBounsHp()
     return self:get(20005)
 end
 function MyPlayer:setBounsHp(val)
-    return self:set(20005, val - (self:getBounsHp() or 0))
+    self:set(20005, val - (self:getBounsHp() or 0))
+    return self:setHp(self:getHp() + val)
 end
 
 --%BOUNS_FORCEPOINT% 20006

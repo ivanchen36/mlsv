@@ -1,41 +1,56 @@
 local waitBattleIndex = {}
 local startPk = false
 
-function joinPk(player)
+function isJoinPk(player, pkId)
+    local mac = player:getMac()
+    local reqNum = player:getRegistNumber()
+    local sql = string.format("select Id from tbl_pk_team where (RegNum = %d or Mac = '%s' or TeamInfo like '%|%d|%') and PkId = %d",
+            reqNum, mac, reqNum, pkId)
+    local rs = SQL.Run(sql)
+
+    if type(rs) == "table" then
+        return 1
+    end
+
+    return 0
+end
+
+function joinPk(player, arg)
     if player:isLeader() then
         player:sysMsg("[PK系统]你不是对队长，没有报名的资格")
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {2,0})
         return
     end
 
     if player:getPartyNum() ~= 5 then
         player:sysMsg("[PK系统]请组满5人队伍再来参战。")
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {2,0})
         return
     end
 
-    local sql = "select Id from tbl_pk_info where Status = 1 and PkType <> 1";
+    local sql = "select Id from tbl_pk_info where Status = 0 and PkType <> 1";
     local rs = SQL.Run(sql)
     if type(rs) ~= "table" then
         player:sysMsg("[PK系统]当前没有举办PK比赛")
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {2,0})
         return
     end
     local pkId = tonumber(rs["0_0"])
-    local mac = player:getMac()
-    sql = string.format("select Id from tbl_pk_team where (RegNum = %d or Mac = '%s') and PkId = %d",
-        player:getRegistNumber(), mac, pkId)
-    rs = SQL.Run(sql)
-    if type(rs) == "table" then
+    if isJoinPk(player, pkId) > 0 then
         player:sysMsg("[PK系统]您已经报名PK比赛！")
+        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {2,1})
         return
     end
-    local teamInfo = tostring(player:getPartyMember(1):getRegistNumber())
+    local teamInfo = "|" .. player:getPartyMember(1):getRegistNumber() .. "|"
     for i = 2, 4 do
-        teamInfo = teamInfo .. "|" .. player:getPartyMember(i):getRegistNumber()
+        teamInfo = teamInfo .. player:getPartyMember(i):getRegistNumber() .. "|"
     end
 
     sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values (%d, %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
             player:getRegistNumber(), player:getName(), pkId, teamInfo, player:getMac())
     SQL.Run(sql)
     player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
+    Protocol.PowerSend(player:getObj(),"FLUSH_PK", {2,1})
 end
 
 function setPkResult(pid, rid, round, winnerRegNum, loserRegNum, winnerName, loserName)
@@ -198,6 +213,33 @@ function pkSummary(battleIndex)
     end
 end
 
-DeinitEvent["battle"] = pkSummary
+function showVip(player)
+    local pkInfo = {}
+    local sql1 = "select Id, EventDescription, Status from tbl_pk_info where PkType = 1 and CreateTime >= UNIX_TIMESTAMP() - 604800 limit 1";
+    local sql2 = "select Id, EventDescription, Status from tbl_pk_info where PkType IN (2, 3, 4, 5) and CreateTime >= UNIX_TIMESTAMP() - 604800 limit 1";
+    local rs1 = SQL.Run(sql1)
+    local rs2 = SQL.Run(sql2)
+    if type(rs1) ~= "table" then
+        pkInfo[1] = nil
+    else
+        local pid = tonumber(rs1["0_0"])
+        pkInfo[1] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
+    end
+    if type(rs2) ~= "table" then
+        pkInfo[2] = nil
+    else
+        local pid = tonumber(rs1["0_0"])
+        pkInfo[2] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
+    end
+    Protocol.PowerSend(player:getObj(),"SHOW_PK", info)
+end
 
+function warpPk(player, arg)
+
+end
+
+
+DeinitEvent["battle"] = pkSummary
 TalkEvent["[pk]"] = showPk
+ClientEvent["warp_pk"] = warpPk
+ClientEvent["join_team_pk"] = joinPk

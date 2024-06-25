@@ -121,7 +121,7 @@ function collectVip(player, arg)
     SQL.Run(sql);
     player:sysMsg("领取" .. exp .."会员经验！");
 
-    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
 end
 
 function openAvoid(player, arg)
@@ -137,7 +137,7 @@ function openAvoid(player, arg)
     local sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values (" ..
             player:getRegistNumber() .. ",1,1,'',unix_timestamp() + " .. info["avoid"] .. ", UNIX_TIMESTAMP());"
     SQL.Run(sql);
-    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
     player:sysMsg("您已经成功开启驱魔功能！");
     return 1
 end
@@ -157,7 +157,7 @@ function closeAvoid(player)
     info["avoidFlag"] = 0
     info["avoidTime"] = 0
     SQL.Run(sql)
-    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
     return 1
 end
 
@@ -207,7 +207,7 @@ function godGift(player, arg)
     local sql = "UPDATE tbl_vip_info SET GodGift = 0 WHERE GodGift = 1 and RegNum = " .. player:getRegistNumber()
     SQL.Run(sql)
     startGift(vipGiftInfo)
-    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
 end
 
 function upGift(player, arg)
@@ -222,7 +222,7 @@ function upGift(player, arg)
     player:getItem(vipGift[info["level"]])
     player:sysMsg("恭喜您领取会员礼包！")
     info["upGift"] = 0
-    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
 end
 
 function upVip(player, arg)
@@ -265,7 +265,7 @@ function upVip(player, arg)
     sql = sql .. " WHERE RegNum=" .. player:getRegistNumber();
     SQL.Run(sql);
     player:sysMsg("会员等级提升至" .. level .."级！");
-    Protocol.PowerSend(player:getObj(), "UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
 end
 
 function vipWarp(player, arg)
@@ -294,7 +294,7 @@ function openExp(player, arg)
     info["addExp"] = 0
     local sql = "UPDATE tbl_vip_info SET AddExp = 0 WHERE AddExp = 1 and RegNum = " .. player:getRegistNumber()
     SQL.Run(sql)
-    Protocol.PowerSend(player:getObj(),"UPDATE_VIP", info)
+    Protocol.PowerSend(player:getObj(),"FLUSH_VIP", info)
 end
 
 --vip

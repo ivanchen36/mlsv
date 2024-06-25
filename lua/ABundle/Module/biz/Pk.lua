@@ -5,14 +5,52 @@ pkInfo = {"单人参赛，获取积分兑换奖励", "队伍参赛，根据名次发放奖励"}
 
 local pkInfo = {}
 local pkWnd = nil
-function initPkContent()
-    local level = pkInfo["level"]
+local statusDesc = {
+    [0] = "报名中",
+    [1] = "PK进行中",
+    [2] = "PK进行中",
+    [3] = "发放奖品中",
+    [4] = "已经结束",
+}
 
+function warpPk()
+    Cli.Send("warp_pk")
+end
+
+function joinSinglePk()
+    Cli.Send("join_single_pk")
+end
+function joinTeamPk()
+    Cli.Send("join_team_pk")
+end
+
+pkFunc = {joinSinglePk, joinTeamPk}
+function initPkContent()
+    for i = 1, #pkTitle do
+        local info = pkInfo[i]
+        if info ~= nil then
+            local title = pkTitle[i]
+            local desc = pkWnd:getWidget(title .. "Cur")
+            local status = pkWnd:getWidget(title .. "Status")
+            local join = pkWnd:getWidget(title .. "Join")
+            local warp = pkWnd:getWidget(title .. "Warp")
+            desc:setText(info[1])
+            status:setText(statusDesc[info[2]])
+            join:setEnable(false)
+            warp:setEnable(false)
+            if 0 == info[2] and 0 == info[3] then
+                join:setEnable(true)
+            end
+            if 1 == info[3] then
+                warp:setEnable(true)
+            end
+        end
+    end
 end
 
 function flushPkInfo(info)
     logPrintTbl(info)
-    pkInfo = info;
+    pkInfo[info[1]][3] = info[2];
     initPkContent()
 end
 
