@@ -22,6 +22,7 @@ function getShowInfo()
 end
 
 function showSynthesisInfo(index, petInfo)
+    logPrint("222")
     local name = synthesisWnd:getWidget(petTitle[index]);
     local img = synthesisWnd:getWidget(petTitle[index] .. "Img");
     local vital = synthesisWnd:getWidget(petTitle[index] .. "V");
@@ -37,7 +38,8 @@ function showSynthesisInfo(index, petInfo)
     tough:setText("强度: " .. petInfo.tough)
     quick:setText("速度: " .. petInfo.quick)
     magic:setText("魔法: " .. petInfo.magic)
-    addCharAttr(synthesisWnd, petTitle[index] .. "Attr", petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+    logPrint("333")
+    --addCharAttr(synthesisWnd, petTitle[index] .. "Attr", petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
 end
 
 function synthesis(widget)
@@ -93,6 +95,7 @@ function initSynthesisContent()
     select = getShowInfo()
 
     for i=1, #petTitle do
+        logPrint("111")
         if nil ~= select[i] then
             showSynthesisInfo(i, synthesisInfo[select[i]])
         else
@@ -188,6 +191,8 @@ function loadSynthesisClient(client)
     logPrint("loadSynthesisClient")
     logPrintTbl(client)
     synthesisWnd = createWindow("synthesis", client)
+    --addCharAttr(synthesisWnd, "pet1Attr")
+    --addCharAttr(synthesisWnd, "pet2Attr")
     logPrint("loadSynthesisClient2")
 end
 
