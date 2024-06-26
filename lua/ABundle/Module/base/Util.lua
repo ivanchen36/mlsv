@@ -217,7 +217,7 @@ end
 
 function addAttr(wnd, preTitle, attr)
     local tmp1 = wnd:getWidget(preTitle .. attr)
-    local img1 = Image:new(preTitle .. attr .. "V", 0)
+    local img1 = Image:new(preTitle .. string.sub(attr, 1, 2), 0)
     local x = tmp1:getPosX()
     local y = tmp1:getPosY()
     img1:setPos(x, y)
@@ -232,7 +232,7 @@ function addCharAttr(wnd, preTitle)
 end
 
 function showAttr(wnd, preTitle, attr, imgPrev, val)
-    local tmp1 = wnd:getWidget(preTitle .. attr .. "V")
+    local tmp1 = wnd:getWidget(preTitle .. string.sub(attr, 1, 2))
     val = math.ceil(val / 10) * 10
     if val > 0 then
         tmp1:setImg(imgPrev .. val .. ".bmp")
@@ -243,9 +243,9 @@ end
 
 function showCharAttr(wnd, preTitle, earth, water, fire, wind)
     showAttr(wnd, preTitle, "Earth", "d_", earth)
-    showAttr(wnd, preTitle, "Earth", "s_", earth)
-    showAttr(wnd, preTitle, "Earth", "f_", earth)
-    showAttr(wnd, preTitle, "Earth", "f_", earth)
+    showAttr(wnd, preTitle, "Water", "s_", earth)
+    showAttr(wnd, preTitle, "Fire", "h_", earth)
+    showAttr(wnd, preTitle, "Wind", "f_", earth)
 end
 
 function Event.ViewInit.PrintV(view)

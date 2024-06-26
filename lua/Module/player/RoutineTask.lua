@@ -25,57 +25,52 @@ local monthlyReward = {
 local rewardList = {dailyReward, weeklyReward, monthlyReward}
 
 local sealItemList = {1, 2, 3, 4}
+local sealItemNumList = {5, 5, 5, 5}
 local huntItemList = {1, 2, 3, 4}
+local huntItemNumList = {5, 5, 5, 5}
 local searchItemList = {1, 2, 3, 4}
+local searchItemNumList = {5, 5, 5, 5}
 local challengeItemList = {1, 2, 3, 4}
-local taskList = {sealItemList, huntItemList, searchItemList, challengeItemList}
+local challengeItemNumList = {5, 5, 5, 5}
+local routineTaskList = {sealItemList, huntItemList, searchItemList, challengeItemList}
+local routineTaskNumList = {sealItemNumList, huntItemNumList, searchItemNumList, challengeItemNumList}
 
 local cycleFormat = {'%j', '%W', '%m'}
 local dailyType = 1
 local weeklyType = 2
-local monthlyType = 2
-local taskNum = {6, 6, 10}
+local monthlyType = 3
+local taskNum = {6, 6, 6}
 
 function getRandomTaskAndItem()
     -- 随机选择一个任务
-    local type = math.random(#taskList)
-    local selectedItemList = taskList[type]
+    local type = math.random(#routineTaskList)
+    local selectedItemList = routineTaskList[type]
+    local selectedItemNumList = routineTaskNumList[type]
 
     -- 从选定的任务中随机选择一个item
     local itemIndex = math.random(#selectedItemList)
-    local item = selectedItemList[itemIndex]
-
-    return type, item
+    return type, selectedItemList[itemIndex], selectedItemNumList[itemIndex]
 end
 
 -- 玩家领取任务
-function receiveTask(player, arg)
+function receiveTask(player, cycleType)
     local regNum = player:getRegistNumber()
-    local cycleType = tonumber(arg)
     local taskCount = taskNum[cycleType]
     local cycleDate = os.date(cycleFormat[cycleType])
 
-    -- 检查玩家在指定周期是否已经领取了任务
-    local query = string.format("SELECT COUNT(1) as count FROM tbl_player_task WHERE RegNum = %d AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
-    local existingTaskCount = SQL.Run(query)
-    if existingTaskCount["0_0"] > 0 then
-        player:sysMsg("您已经领取了本周期的任务")
-        return
-    end
-
     for i = 1, taskCount do
-        local typeIndex, item = getRandomTaskAndItem()
-        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime, UpdateTime) VALUES (%d, %d, %d, %d, %d, %d, '未开始', 0, %d, %d)",
-                playerId, cycleType, cycleDate, typeIndex, item, 1, os.time(), os.time())
+        local typeIndex, item, count = getRandomTaskAndItem()
+        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime) VALUES (%d, %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
+                regNum, cycleType, cycleDate, typeIndex, item, count)
         SQL.Run(sql)
     end
 
-    player:sysMsg("任务领取成功")
     return
 end
 
 -- 查询玩家的任务
-function queryTaskByType(regNum, cycleType)
+function queryTaskByType(player, cycleType)
+    local regNum = player:getRegistNumber()
     -- 计算当前周期日期
     local cycleDate = os.date(cycleFormat[cycleType])
 
@@ -83,9 +78,14 @@ function queryTaskByType(regNum, cycleType)
     local query = string.format("SELECT Id, Type, Item, Count, Progress, Status, Cycle FROM tbl_player_task WHERE RegNum = %d AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
     local result = SQL.Run(query)
     if(type(result) ~= "table")then
-        return
+        receiveTask(player, cycleType)
+        result = SQL.Run(query)
+        if(type(result) ~= "table")then
+            player:sysMsg("查询任务失败，请稍后再试")
+            return
+        end
     end
-
+    local taskList = {}
     for i = 1, (#result) / 5 do
         local task = {
             ["id"] = tonumber(result[i .. "_0"]),
@@ -146,7 +146,6 @@ function submitTask(player, arg)
     local query = string.format("SELECT Cycle, Type, Item, Count, Progress, Status FROM tbl_player_task WHERE RegNum = %d AND Id = %d", regNum, taskId)
     local result = SQL.Run(query)
     if(type(result) ~= "table")then
-        Protocol.PowerSend(player:getObj(),"SUBMIT_RS", 0)
         player:sysMsg("查询任务失败，无法提交任务")
         return
     end
@@ -162,7 +161,6 @@ function submitTask(player, arg)
 
     -- 检查任务状态
     if playerTask.status == 2 then
-        Protocol.PowerSend(player:getObj(),"SUBMIT_RS", 0)
         player:sysMsg("任务已完成，无需重复提交")
         return
     end
@@ -185,18 +183,15 @@ function submitTask(player, arg)
 end
 
 function showRoutine(player)
-    local regNum = player:getRegistNumber()
-    local taskList = queryTaskByType(regNum, dailyType)
+    local taskList = queryTaskByType(player, dailyType)
     Protocol.PowerSend(player:getObj(),"SHOW_ROUTINE", taskList)
 end
 
 function queryTask(player, arg)
-    local regNum = player:getRegistNumber()
-    local taskList = queryTaskByType(regNum, tonumber(arg))
+    local taskList = queryTaskByType(player, tonumber(arg))
     Protocol.PowerSend(player:getObj(),"FLUSH_TASK", taskList)
 end
 
 TalkEvent["[routine]"] = showRoutine
 ClientEvent["query_task"] = queryTask
-ClientEvent["receive_task"] = receiveTask
 ClientEvent["submit_task"] = submitTask

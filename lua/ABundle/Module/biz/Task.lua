@@ -1,6 +1,13 @@
 local taskInfo = {}
 local taskWnd = nil
 
+local dailyType = 1
+local weeklyType = 2
+local monthlyType = 3
+local taskDesc = {
+    [1] = ""
+}
+
 function initTaskContent()
     local level = taskInfo["level"]
 end

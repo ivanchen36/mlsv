@@ -1,4 +1,5 @@
 TaskHandler = {}
+local timerTask = {}
 -- type
 -- 1 关闭驱魔
 -- 2 开启pk
@@ -13,10 +14,6 @@ TaskHandler = {}
 -- 100 发放物品
 
 local taskHandlerIndex = nil;
-function initTaskHandlerNpc(_index)
-    print("initTaskHandlerNpc")
-    return true;
-end
 
 function initTaskHandler()
     if (taskHandlerIndex ~= nil) then
@@ -31,7 +28,7 @@ function initTaskHandler()
     myPlayer:setY(21)
     myPlayer:setMapId(777)
     myPlayer:setDirection(4)
-    myPlayer:setName("定时任务处理")
+    myPlayer:setName("彩虹使者")
     Char.SetLoopEvent(nil, "doTask", taskHandlerIndex, 3000);
 end
 
@@ -58,15 +55,24 @@ function doTask(index)
             SQL.Run(sql1);
         end
     end
+
+    for _, func in ipairs(timerTask) do
+        func()
+    end
 end
 
-function sysNotice (regNum, info)
+function addTimerTask(func)
+    table.insert(timerTask, func)
+end
+
+function sysNotice(regNum, info)
     NLG.SystemMessage(-1 , info)
     return 1
 end
 
-function sendItem (regNum, info)
-    MyPlayer:new(vipInfo[regNum]["index"]):getItem(tonumber(info))
+function sendItem(regNum, info)
+    local player = MyPlayer:new(vipInfo[regNum]["index"])
+    player:getItem(tonumber(info))
     return 1
 end
 

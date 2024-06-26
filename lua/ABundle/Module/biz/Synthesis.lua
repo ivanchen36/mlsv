@@ -86,8 +86,23 @@ function initSelectButton()
 end
 
 function initSynthesisContent()
+    petNum = #synthesisInfo
     select = getShowInfo()
-
+    logPrint("888")
+    initSelectButton()
+    logPrint("999")
+    local confirm = synthesisWnd:getWidget("confirm")
+    local check = synthesisWnd:getWidget("check")
+    if synthesisInfo["amount"] == 1 then
+        check:setImg("t.bmp")
+    else
+        check:setImg("f.bmp")
+    end
+    if synthesisInfo["amount"] == 1 and petNum >= 2 then
+        confirm:setEnable(true)
+    else
+        confirm:setEnable(false)
+    end
     for i=1, #petTitle do
         logPrint("111")
         if nil ~= select[i] then
@@ -157,27 +172,11 @@ function initSynthesisContent()
             end
         end)
     end
-    logPrint("888")
-    initSelectButton()
-    logPrint("999")
-    local confirm = synthesisWnd:getWidget("confirm")
-    local check = synthesisWnd:getWidget("check")
-    if synthesisInfo["amount"] == 1 then
-        check:setImg("t.bmp")
-    else
-        check:setImg("f.bmp")
-    end
-    if synthesisInfo["amount"] == 1 and petNum >= 2 then
-        confirm:setEnable(true)
-    else
-        confirm:setEnable(false)
-    end
 end
 
 function flushSynthesisInfo(info)
     logPrintTbl(info)
     synthesisInfo = info;
-    petNum = #synthesisInfo
     initSynthesisContent()
 end
 
@@ -185,8 +184,8 @@ function loadSynthesisClient(client)
     logPrint("loadSynthesisClient")
     logPrintTbl(client)
     synthesisWnd = createWindow("synthesis", client)
-    addCharAttr(synthesisWnd, "pet1")
-    addCharAttr(synthesisWnd, "pet2")
+    addCharAttr(synthesisWnd, petTitle[1])
+    addCharAttr(synthesisWnd, petTitle[2])
     logPrint("loadSynthesisClient2")
 end
 
