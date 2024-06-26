@@ -39,7 +39,8 @@ function showSynthesisInfo(index, petInfo)
     quick:setText("ËÙ¶È: " .. petInfo.quick)
     magic:setText("Ä§·¨: " .. petInfo.magic)
     logPrint("333")
-    --addCharAttr(synthesisWnd, petTitle[index] .. "Attr", petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+    showCharAttr(synthesisWnd, petTitle[index], petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+    logPrint("4444")
 end
 
 function synthesis(widget)
@@ -55,13 +56,6 @@ function initSelectButton()
     local prev1 = synthesisWnd:getWidget(petTitle[1] .. "Prev")
     local next2 = synthesisWnd:getWidget(petTitle[2] .. "Next")
     local prev2 = synthesisWnd:getWidget(petTitle[2] .. "Prev")
-    if select1 == nil then
-        next1:setEnable(false)
-        prev1:setEnable(false)
-        next2:setEnable(false)
-        prev2:setEnable(false)
-        return
-    end
     if select2 == nil then
         next1:setEnable(false)
         prev1:setEnable(false)
@@ -191,8 +185,8 @@ function loadSynthesisClient(client)
     logPrint("loadSynthesisClient")
     logPrintTbl(client)
     synthesisWnd = createWindow("synthesis", client)
-    --addCharAttr(synthesisWnd, "pet1Attr")
-    --addCharAttr(synthesisWnd, "pet2Attr")
+    addCharAttr(synthesisWnd, "pet1")
+    addCharAttr(synthesisWnd, "pet2")
     logPrint("loadSynthesisClient2")
 end
 

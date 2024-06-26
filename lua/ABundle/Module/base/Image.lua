@@ -44,7 +44,7 @@ function Image:new(title, bg)
         _posX = 0,
         _posY = 0,
         _lastEvent = -1,
-        _outImgId = nil,
+        _outImgId = 0,
         _outImg = nil,
     }
     setmetatable(newObj, self)
@@ -52,6 +52,9 @@ function Image:new(title, bg)
 end
 
 function Image:setImgId(img, imgId)
+    if imgId == 0 then
+        return
+    end
     if nil ~= img then
         img.imageID = imgId
         if imgId < 9990000 then
@@ -87,7 +90,12 @@ end
 function Image:setImg(image)
     self._imgId = getImgId(image)
     if nil ~= self._img then
-        self:setImgId(self._img, self._imgId)
+        if 0 == self._imgId then
+            self._img.enable = 0
+        else
+            self._img.enable = 1
+            self:setImgId(self._img, self._imgId)
+        end
     end
 end
 
@@ -95,10 +103,15 @@ function Image:setOutImg(image)
     self._outImgId = getImgId(image)
 
     if nil ~= self._outImg then
-        self:setImgId(self._outImg, self._outImgId)
-        local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
-        self._outImg.xpos = x
-        self._outImg.ypos = y
+        if 0 == self._outImgId then
+            self._outImg.enable = 0
+        else
+            self._outImg.enable = 1
+            self:setImgId(self._outImg, self._outImgId)
+            local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
+            self._outImg.xpos = x
+            self._outImg.ypos = y
+        end
     end
 end
 
@@ -142,8 +155,7 @@ function Image:show(view)
     self._img.ypos = self._posY
 
     self:setImgId(self._img, self._imgId)
-    self._sizeX, self._sizeY = getSize(self._imgId)
-    if nil == self._outImgId then
+    if 0 == self._outImgId then
         return
     end
     self:setImgId(self._outImg, self._outImgId)

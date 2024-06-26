@@ -64,7 +64,7 @@ function getSynthesisClient(player, arg)
             ["title"] = "#petTitle$V",
             ["x"] = 76,
             ["y"] = 270,
-            ["text"] = "0",
+            ["text"] = "体力: 0",
         },
         {
             ["table"] = "1,0",
@@ -74,7 +74,7 @@ function getSynthesisClient(player, arg)
             ["title"] = "#petTitle$S",
             ["x"] = 137,
             ["y"] = 270,
-            ["text"] = "0",
+            ["text"] = "力量: 0",
         },
         {
             ["table"] = "1,0",
@@ -84,7 +84,7 @@ function getSynthesisClient(player, arg)
             ["title"] = "#petTitle$T",
             ["x"] = 76,
             ["y"] = 285,
-            ["text"] = "0",
+            ["text"] = "强度: 0",
         },
         {
             ["table"] = "1,0",
@@ -94,7 +94,7 @@ function getSynthesisClient(player, arg)
             ["title"] = "#petTitle$Q",
             ["x"] = 137,
             ["y"] = 285,
-            ["text"] = "0",
+            ["text"] = "速度: 0",
         },
         {
             ["table"] = "1,0",
@@ -104,7 +104,7 @@ function getSynthesisClient(player, arg)
             ["title"] = "#petTitle$M",
             ["x"] = 76,
             ["y"] = 300,
-            ["text"] = "0",
+            ["text"] = "魔法: 0",
         },
         {
             ["table"] = "1,0",
@@ -151,15 +151,14 @@ function getSynthesisClient(player, arg)
             ["title"] = "amount",
             ["x"] = 208,
             ["y"] = 218,
-            ["text"] = "满足条件:50000魔币",
+            ["text"] = "消耗:50000魔币",
         },
         {
-            ["type"] = "lab",
+            ["type"] = "img",
             ["title"] = "check",
             ["x"] = 289,
             ["y"] = 238,
-            ["text"] = "×",
-            ["color"] = 6,
+            ["img"] = "f.bmp",
         },
         {
             ["type"] = "btn",

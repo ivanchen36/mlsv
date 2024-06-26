@@ -215,50 +215,37 @@ function createWindow(title, wndConfig)
     return wnd
 end
 
-function addCharAttr(wnd, attrTitle)
-    local attr = wnd:getWidget(attrTitle)
-    local x = attr:getPosX()
-    local y = attr:getPosY()
-
-    local tmp1 = Image:new(attrTitle .. "Earth", 243481)
-    local tmp2 = Image:new(attrTitle .. "Water", 243481)
-    local tmp3 = Image:new(attrTitle .. "Fire", 243481)
-    local tmp4 = Image:new(attrTitle .. "Wind", 243481)
-    tmp1:setPos(x, y)
-    tmp2:setPos(x, y)
-    tmp3:setPos(x, y)
-    tmp4:setPos(x, y)
-    wnd:addWidget(tmp1)
-    wnd:addWidget(tmp2)
-    wnd:addWidget(tmp3)
-    wnd:addWidget(tmp4)
+function addAttr(wnd, preTitle, attr)
+    local tmp1 = wnd:getWidget(preTitle .. attr)
+    local img1 = Image:new(preTitle .. attr .. "V", 0)
+    local x = tmp1:getPosX()
+    local y = tmp1:getPosY()
+    img1:setPos(x, y)
+    wnd:addWidget(img1)
 end
 
-function showCharAttr(wnd, attrTitle, earth, water, fire, wind)
-    local tmp1 = wnd:getWidget(attrTitle .. "Earth")
-    local tmp2 = wnd:getWidget(attrTitle .. "Water")
-    local tmp3 = wnd:getWidget(attrTitle .. "Fire")
-    local tmp4 = wnd:getWidget(attrTitle .. "Wind")
-    tmp1:setVisible(false)
-    tmp2:setVisible(false)
-    tmp3:setVisible(false)
-    tmp4:setVisible(false)
-    if earth > 0 then
-        tmp1:setVisible(true)
-        tmp1:setImg("d_" .. earth .. ".bmp")
+function addCharAttr(wnd, preTitle)
+    addAttr(wnd, preTitle, "Earth")
+    addAttr(wnd, preTitle, "Water")
+    addAttr(wnd, preTitle, "Fire")
+    addAttr(wnd, preTitle, "Wind")
+end
+
+function showAttr(wnd, preTitle, attr, imgPrev, val)
+    local tmp1 = wnd:getWidget(preTitle .. attr .. "V")
+    val = math.ceil(val / 10) * 10
+    if val > 0 then
+        tmp1:setImg(imgPrev .. val .. ".bmp")
+    else
+        tmp1:setImg(0)
     end
-    if water > 0 then
-        tmp1:setVisible(true)
-        tmp1:setImg("s_" .. water .. ".bmp")
-    end
-    if fire > 0 then
-        tmp1:setVisible(true)
-        tmp1:setImg("h_" .. fire .. ".bmp")
-    end
-    if wind > 0 then
-        tmp1:setVisible(true)
-        tmp1:setImg("f_" .. wind .. ".bmp")
-    end
+end
+
+function showCharAttr(wnd, preTitle, earth, water, fire, wind)
+    showAttr(wnd, preTitle, "Earth", "d_", earth)
+    showAttr(wnd, preTitle, "Earth", "s_", earth)
+    showAttr(wnd, preTitle, "Earth", "f_", earth)
+    showAttr(wnd, preTitle, "Earth", "f_", earth)
 end
 
 function Event.ViewInit.PrintV(view)
