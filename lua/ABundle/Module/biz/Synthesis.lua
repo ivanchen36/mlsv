@@ -92,13 +92,11 @@ function initSynthesisContent()
         logPrint("111")
         if nil ~= select[i] then
             showSynthesisInfo(i, synthesisInfo[select[i]])
-        else
-            local name = synthesisWnd:getWidget(petTitle[i]);
-            name:setText("无可合成宠物")
         end
+        logPrint("6666")
         local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
         local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")
-
+        logPrint("777")
         next.clicked(function()
             local select1 = select[i]
             if nil == select1 then
@@ -159,13 +157,15 @@ function initSynthesisContent()
             end
         end)
     end
+    logPrint("888")
     initSelectButton()
+    logPrint("999")
     local confirm = synthesisWnd:getWidget("confirm")
     local check = synthesisWnd:getWidget("check")
     if synthesisInfo["amount"] == 1 then
-        check:setImg("true.bmp")
+        check:setImg("t.bmp")
     else
-        check:setImg("false.bmp")
+        check:setImg("f.bmp")
     end
     if synthesisInfo["amount"] == 1 and petNum >= 2 then
         confirm:setEnable(true)
