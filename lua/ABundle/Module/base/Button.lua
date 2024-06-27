@@ -34,11 +34,17 @@ end
 function Button:setImgId(imgId)
     if nil ~= self._showImg then
         self._showImg.imageID = imgId
+        self._showImg.item_xpos = 0
+        self._showImg.item_ypos = 0
+
         if imgId < 9990000 then
             return
         end
-        self._showImg.sizex = self._sizeX
-        self._showImg.sizey = self._sizeY
+        local x, y = getSize(imgId)
+        self._showImg.sizex = x
+        self._showImg.sizey = y
+        self._sizeX = self._showImg.sizex
+        self._sizeY = self._showImg.sizey
     end
 end
 
@@ -200,20 +206,12 @@ function Button:show(view)
         self._showText = view.find(self._title .. "Text")
     end
     self:setVisible(true)
-    self._showImg.imageID = self._normalImg
+    self:setImgId(self._normalImg)
     self._showImg.xpos = self._posX
     self._showImg.ypos = self._posY
 
     if "" == self._btnText then
         return
-    end
-    self._sizeX, self._sizeY = getSize(self._normalImg)
-    if 0 ~= self._showImg.sizex then
-        self._sizeX = self._showImg.sizex
-        self._sizeY = self._showImg.sizey
-    else
-        self._showImg.sizex = self._sizeX
-        self._showImg.sizey = self._sizeY
     end
     local fontSize, posX, posY = self:getFontInfo(self._sizeX, self._sizeY)
     if posX < 0 then

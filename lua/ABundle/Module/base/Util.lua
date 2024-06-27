@@ -58,7 +58,7 @@ function strSplit(src, sep)
     return result
 end
 
-function createSingleWidget(widget)
+function createSingleWidget(widgetMap, widget)
     local tmp = nil
     if "btn" == widget.type then
         tmp = Button:new(widget.title, widget.img, widget.text or "")
@@ -78,10 +78,15 @@ function createSingleWidget(widget)
         if rawget(widget, "font") ~= nil then
             tmp:setFont(widget.font)
         end
+    elseif "ani" == widget.type then
+        tmp = Animation:new(widget.title, widget.img or 0)
+        if rawget(widget, "bg") ~= nil then
+            tmp:setBg(widgetMap[widget.bg])
+        end
     elseif "img" == widget.type then
-        tmp = Image:new(widget.title, widget.img or "")
-        if rawget(widget, "out") ~= nil then
-            tmp:setOutImg(widget.out)
+        tmp = Image:new(widget.title, widget.img or 0)
+        if rawget(widget, "bg") ~= nil then
+            tmp:setBg(widgetMap[widget.bg])
         end
     elseif "radio" == widget.type then
         tmp = Radio:new(widget.title, widget.img1, widget.img2, strSplit(widget.texts, ","), strSplit(widget.values, ","), widget.align, widget.width, widget.high)
@@ -125,7 +130,7 @@ function getTitleField(titleStr)
     end
 end
 
-function createMulWidget(rows, columns, w, h, widget)
+function createMulWidget(widgetMap, rows, columns, w, h, widget)
     local widgets = {}
     local posX = widget.x
     local posY = widget.y
@@ -161,10 +166,15 @@ function createMulWidget(rows, columns, w, h, widget)
                     if rawget(widget, "font") ~= nil then
                         tmp:setFont(getGlobVal(widget.font, pos))
                     end
+                elseif "ani" == widget.type then
+                    tmp = Animation:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or 0, pos))
+                    if rawget(widget, "bg") ~= nil then
+                        tmp:setBg(widgetMap[getGlobVal(widget.bg or "", pos)])
+                    end
                 elseif "img" == widget.type then
-                    tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or "", pos))
-                    if rawget(widget, "out") ~= nil then
-                        tmp:setOutImg(getGlobVal(widget.out, pos))
+                    tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or 0, pos))
+                    if rawget(widget, "bg") ~= nil then
+                        tmp:setBg(widgetMap[getGlobVal(widget.bg or "", pos)])
                     end
                 end
                 tmp:setPos(posX + (j - 1) * w, posY + (i - 1) * h)
@@ -173,7 +183,6 @@ function createMulWidget(rows, columns, w, h, widget)
         end
     end
     return widgets
-
 end
 
 function createWindow(title, wndConfig)
@@ -197,20 +206,20 @@ function createWindow(title, wndConfig)
             if rawget(widget, "high") ~= nil then
                 high = widget.high
             end
-            tmpArr = createMulWidget(tonumber(arr[1]), tonumber(arr[2]), width, high, widget)
+            tmpArr = createMulWidget(widgets, tonumber(arr[1]), tonumber(arr[2]), width, high, widget)
             for i = 1, #tmpArr do
-                table.insert(widgets, tmpArr[i])
+                widgets[tmpArr[i]:getTitle()] = tmpArr[i]
             end
         else
-            table.insert(widgets, createSingleWidget(widget))
+            local tmp = createSingleWidget(widgets, widget)
+            widgets[tmp:getTitle()] = tmp
         end
     end
+
     wnd = Window:new(title, bgImg)
     wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
-    for i = 1, #widgets do
-        if widgets[i] ~= nil then
-            wnd:addWidget(widgets[i])
-        end
+    for _, val in pairs(widgets) do
+        wnd:addWidget(val)
     end
     return wnd
 end
@@ -218,10 +227,11 @@ end
 function addAttr(wnd, preTitle, attr)
     local tmp1 = wnd:getWidget(preTitle .. attr)
     local img1 = Image:new(preTitle .. string.sub(attr, 1, 2), 0)
-    local x = tmp1:getPosX()
-    local y = tmp1:getPosY()
-    img1:setPos(x, y)
+    local pos = tmp1:getPos()
+    logPrintTbl(pos)
+    img1:setPos(pos[1] + 33, pos[2])
     wnd:addWidget(img1)
+    logPrintTbl(tmp1:getPos())
 end
 
 function addCharAttr(wnd, preTitle)
@@ -243,9 +253,17 @@ end
 
 function showCharAttr(wnd, preTitle, earth, water, fire, wind)
     showAttr(wnd, preTitle, "Earth", "d_", earth)
-    showAttr(wnd, preTitle, "Water", "s_", earth)
-    showAttr(wnd, preTitle, "Fire", "h_", earth)
-    showAttr(wnd, preTitle, "Wind", "f_", earth)
+    showAttr(wnd, preTitle, "Water", "s_", water)
+    showAttr(wnd, preTitle, "Fire", "h_", fire)
+    showAttr(wnd, preTitle, "Wind", "f_", wind)
+end
+
+function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
+    if sizeYA >= sizeYB then
+        return {posXA + (sizeXA - sizeXB) / 2, posYA + (sizeYA - sizeYB) / 2}
+    end
+
+    return {posXA + (sizeXA - sizeXB) / 2, posYA + sizeYA - sizeYB}
 end
 
 function Event.ViewInit.PrintV(view)

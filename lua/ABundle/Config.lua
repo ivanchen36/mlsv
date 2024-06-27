@@ -1,5 +1,6 @@
 LoadABundle("loading.lua");
 LoadABundle("base/Image.lua");
+LoadABundle("base/Animation.lua");
 LoadABundle("base/StaticText.lua");
 LoadABundle("base/Button.lua");
 LoadABundle("base/Radio.lua");

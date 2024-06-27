@@ -36,16 +36,14 @@ function getImgId(imgFile)
     return 0
 end
 
-function Image:new(title, bg)
+function Image:new(title, imgId)
     local newObj = {
         _title = title,
-        _imgId = getImgId(bg),
+        _imgId = getImgId(imgId),
         _img = nil,
         _posX = 0,
         _posY = 0,
-        _lastEvent = -1,
-        _outImgId = 0,
-        _outImg = nil,
+        _bg = nil,
     }
     setmetatable(newObj, self)
     return newObj
@@ -57,6 +55,8 @@ function Image:setImgId(img, imgId)
     end
     if nil ~= img then
         img.imageID = imgId
+        img.item_xpos = 0
+        img.item_ypos = 0
         if imgId < 9990000 then
             return
         end
@@ -72,19 +72,28 @@ end
 
 function Image:getControls()
     self._img = nil
-    self._outImg = nil
-
     local img = new.image(self._title)
-    local img1 = new.image("a" .. self._title)
 
     img.callbackfunc = {}
-    img1.callbackfunc = {}
-    return {img, img1}
+    return {img}
 end
 
 function Image:setVisible(isVisible)
     self._img.enable = (isVisible and 1) or 0
-    self._outImg.enable = (isVisible and 1) or 0
+end
+
+function Image:setBg(bg)
+    self._bg = bg
+end
+
+function Image:setPosByBg()
+    local bgSize = self._bg:getSize()
+    local bgPos = self._bg:getPos()
+    local pos = getOutPos(bgPos[1], bgPos[2], bgSize[1], bgSize[2], self._img.sizex, self._img.sizey)
+    self._img.xpos = pos[1]
+    self._img.ypos = pos[2]
+    self._posX = pos[1]
+    self._posY = pos[2]
 end
 
 function Image:setImg(image)
@@ -95,22 +104,9 @@ function Image:setImg(image)
         else
             self._img.enable = 1
             self:setImgId(self._img, self._imgId)
-        end
-    end
-end
-
-function Image:setOutImg(image)
-    self._outImgId = getImgId(image)
-
-    if nil ~= self._outImg then
-        if 0 == self._outImgId then
-            self._outImg.enable = 0
-        else
-            self._outImg.enable = 1
-            self:setImgId(self._outImg, self._outImgId)
-            local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
-            self._outImg.xpos = x
-            self._outImg.ypos = y
+            if self._bg ~= nil then
+                self:setPosByBg()
+            end
         end
     end
 end
@@ -121,45 +117,36 @@ function Image:setPos(x, y)
     if nil ~= self._img then
         self._img.xpos = self._posX
         self._img.ypos = self._posY
-        if nil == self._outImg then
-            return
-        end
-
-        local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
-        self._outImg.xpos = x
-        self._outImg.ypos = y
     end
 end
 
-function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
-    if sizeYA >= sizeYB then
-        return posXA + (sizeXA - sizeXB) / 2, posYA + (sizeYA - sizeYB) / 2
+function Image:getPos()
+    return {self._posX, self._posY}
+end
+
+function Image:getSize()
+    if nil ~= self._img then
+        return {self._img.sizex, self._img.sizey}
     end
 
-    return posXA + (sizeXA - sizeXB) / 2, posYA + sizeYA - sizeYB
-end
-
-function Image:getPosX()
-    return self._posX
-end
-
-function Image:getPosY()
-    return self._posY
+    return {0, 0}
 end
 
 function Image:show(view)
     self._img = view.find(self._title)
-    self._outImg = view.find("a" .. self._title)
     self:setVisible(true)
-    self._img.xpos = self._posX
-    self._img.ypos = self._posY
-
     self:setImgId(self._img, self._imgId)
-    if 0 == self._outImgId then
+    if 0 == self._imgId then
         return
     end
-    self:setImgId(self._outImg, self._outImgId)
-    local x,y = getOutPos(self._posX, self._posY, self._img.sizex, self._img.sizey, self._outImg.sizex, self._outImg.sizey)
-    self._outImg.xpos = x
-    self._outImg.ypos = y
+    if self._bg == nil then
+        logPrint("set pos32", self._img.xpos, self._img.ypos)
+        logPrint("set pos1", self._posX, self._posY)
+        self._img.xpos = self._posX
+        self._img.ypos = self._posY
+        logPrint("set pos2", self._img.xpos, self._img.ypos)
+    else
+        logPrint("set pos by bg")
+        self:setPosByBg()
+    end
 end

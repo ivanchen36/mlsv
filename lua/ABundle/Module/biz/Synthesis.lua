@@ -22,7 +22,7 @@ function getShowInfo()
 end
 
 function showSynthesisInfo(index, petInfo)
-    logPrint("222")
+    logPrint("2221")
     local name = synthesisWnd:getWidget(petTitle[index]);
     local img = synthesisWnd:getWidget(petTitle[index] .. "Img");
     local vital = synthesisWnd:getWidget(petTitle[index] .. "V");
@@ -30,17 +30,21 @@ function showSynthesisInfo(index, petInfo)
     local tough = synthesisWnd:getWidget(petTitle[index] .. "T");
     local quick = synthesisWnd:getWidget(petTitle[index] .. "Q");
     local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
+    logPrint("2222")
 
     name:setText(string.sub(petInfo.name, 1, 16))
-    img:setOutImg(petInfo.img)
+    logPrint("2223")
+    --img:setImg(petInfo.img)
+    logPrintTbl(img)
     vital:setText("体力: " .. petInfo.vital)
     str:setText("力量: " .. petInfo.str)
     tough:setText("强度: " .. petInfo.tough)
     quick:setText("速度: " .. petInfo.quick)
     magic:setText("魔法: " .. petInfo.magic)
-    logPrint("333")
     showCharAttr(synthesisWnd, petTitle[index], petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
-    logPrint("4444")
+    logPrint("222")
+    logPrintTbl(synthesisWnd:getWidget(petTitle[index] .. "Earth"))
+    logPrintTbl(synthesisWnd:getWidget(petTitle[index] .. "Ea"))
 end
 
 function synthesis(widget)
@@ -57,40 +61,38 @@ function initSelectButton()
     local next2 = synthesisWnd:getWidget(petTitle[2] .. "Next")
     local prev2 = synthesisWnd:getWidget(petTitle[2] .. "Prev")
     if select2 == nil then
-        next1:setEnable(false)
-        prev1:setEnable(false)
-        next2:setEnable(false)
-        prev2:setEnable(false)
+        next1:setEnabled(false)
+        prev1:setEnabled(false)
+        next2:setEnabled(false)
+        prev2:setEnabled(false)
         return
     end
-    next1:setEnable(true)
-    prev1:setEnable(true)
-    next2:setEnable(true)
-    prev2:setEnable(true)
+    next1:setEnabled(true)
+    prev1:setEnabled(true)
+    next2:setEnabled(true)
+    prev2:setEnabled(true)
 
     if select1 == 1 then
-        prev1:setEnable(false)
+        prev1:setEnabled(false)
     end
 
     if select2 == 1 then
-        prev2:setEnable(false)
+        prev2:setEnabled(false)
     end
 
     if select1 == petNum then
-        next1:setEnable(false)
+        next1:setEnabled(false)
     end
 
     if select2 == petNum then
-        next2:setEnable(false)
+        next2:setEnabled(false)
     end
 end
 
 function initSynthesisContent()
     petNum = #synthesisInfo
     select = getShowInfo()
-    logPrint("888")
     initSelectButton()
-    logPrint("999")
     local confirm = synthesisWnd:getWidget("confirm")
     local check = synthesisWnd:getWidget("check")
     if synthesisInfo["amount"] == 1 then
@@ -99,33 +101,28 @@ function initSynthesisContent()
         check:setImg("f.bmp")
     end
     if synthesisInfo["amount"] == 1 and petNum >= 2 then
-        confirm:setEnable(true)
+        confirm:setEnabled(true)
     else
-        confirm:setEnable(false)
+        confirm:setEnabled(false)
     end
+    logPrint("111")
     for i=1, #petTitle do
-        logPrint("111")
         if nil ~= select[i] then
             showSynthesisInfo(i, synthesisInfo[select[i]])
         end
-        logPrint("6666")
         local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
         local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")
-        logPrint("777")
-        next.clicked(function()
+        next:clicked(function()
             local select1 = select[i]
             if nil == select1 then
                 return
             end
-
             if select1 >= petNum then
                 initSelectButton()
                 return
             end
-
             local other = (1 == i) and 2 or 1
             local select2 = select[other]
-
             for j = select1 + 1, petNum do
                 if j ~= select2 then
                     select[i] = j
@@ -142,7 +139,8 @@ function initSynthesisContent()
                 end
             end
         end)
-        prev.clicked(function()
+        logPrint("3344")
+        prev:clicked(function()
             local select1 = select[i]
             if nil == select1 then
                 return
@@ -171,6 +169,7 @@ function initSynthesisContent()
                 end
             end
         end)
+        logPrint("33144")
     end
 end
 
@@ -186,6 +185,7 @@ function loadSynthesisClient(client)
     synthesisWnd = createWindow("synthesis", client)
     addCharAttr(synthesisWnd, petTitle[1])
     addCharAttr(synthesisWnd, petTitle[2])
+    logPrintTbl(synthesisWnd)
     logPrint("loadSynthesisClient2")
 end
 
@@ -200,6 +200,7 @@ function showSynthesis(info)
     logPrintTbl(info)
     synthesisInfo = info;
     synthesisWnd:show()
+    logPrintTbl(synthesisWnd)
     initSynthesisContent()
     logPrint( 'showSynthesis2')
 end
@@ -207,4 +208,4 @@ end
 Cli.Send().wait["FLUSH_SYNTHESIS"] = flushSynthesisInfo
 Cli.Send().wait["SHOW_SYNTHESIS"] = showSynthesis
 Cli.Send().wait["SYNTHESIS_CLIENT"] = loadSynthesisClient
-Cli.Send("synthesis_client")
+--Cli.Send("synthesis_client")

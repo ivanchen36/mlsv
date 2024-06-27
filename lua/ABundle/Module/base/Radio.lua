@@ -77,7 +77,9 @@ end
 
 function Radio:setImgId(index, imgId)
     if nil ~= self._showImg then
-        self._showImg.imageID = imgId
+        self._showImg[index].imageID = imgId
+        self._showImg[index].item_xpos = 0
+        self._showImg[index].item_ypos = 0
         if imgId < 9990000 then
             return
         end
@@ -134,19 +136,9 @@ function Radio:show(view)
         for c = 1, columns do
             i = (r - 1) * columns + c
             if i == self._selected then
-                self._showImg[i].imageID = self._selectImg
+                self:setImgId(i, self._selectImg)
             else
-                self._showImg[i].imageID = self._normalImg
-            end
-            if 1 == i then
-                if 0 ~= self._showImg[i].sizex then
-                    self._btnSizeX = self._showImg[i].sizex
-                    self._btnSizeY = self._showImg[i].sizey
-                end
-            end
-            if 0 == self._showImg[i].sizex then
-                self._showImg[i].sizex = self._btnSizeX
-                self._showImg[i].sizey = self._btnSizeY
+                self:setImgId(i, self._normalImg)
             end
             self._showText[i].fontsize = self._font
             self._showText[i].text = self._texts[i]

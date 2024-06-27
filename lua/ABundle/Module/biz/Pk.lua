@@ -36,13 +36,13 @@ function initPkContent()
             local warp = pkWnd:getWidget(title .. "Warp")
             desc:setText(info[1])
             status:setText(statusDesc[info[2]])
-            join:setEnable(false)
-            warp:setEnable(false)
+            join:setEnabled(false)
+            warp:setEnabled(false)
             if 0 == info[2] and 0 == info[3] then
-                join:setEnable(true)
+                join:setEnabled(true)
             end
             if 1 == info[3] then
-                warp:setEnable(true)
+                warp:setEnabled(true)
             end
         end
     end

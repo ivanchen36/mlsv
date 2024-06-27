@@ -2,6 +2,7 @@
 function Event.RegLoginEvent.registInit(player)
     -- »ù´¡Ä£¿é
     Client.RunABundle(player, "Image.lua")
+    Client.RunABundle(player, "Animation.lua")
     Client.RunABundle(player, "StaticText.lua")
     Client.RunABundle(player, "Button.lua")
     Client.RunABundle(player, "Radio.lua")
