@@ -12,7 +12,6 @@ useModule("user")--登录直接注册,mac会写在tbl_user的IP字段,修改密码参考All_canshu
 useModule("animesps");--图档授权(仅限用于免费版)
 useModule("xzdzd_can");--自动战斗相关
 useModule("xzdzd");--自动战斗相关
-useModule("t");--队长踢人
 useModule("Login_can");--原地登录相关
 useModule("Login");--原地登录相关
 useModule("getpetBp");--宠物算档 配合按钮

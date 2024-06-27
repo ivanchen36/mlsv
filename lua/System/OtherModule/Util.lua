@@ -92,6 +92,33 @@ function getRandObj(objList)
     return defObj
 end
 
+function copyList(list)
+    local tmp = {}
+    for _, v in ipairs(list) do
+        table.insert(tmp, v)
+    end
+    return tmp
+end
+
+function extendClass(child, parent)
+    if nil == parent._extend then
+        child._extend = {parent, child}
+    else
+        child._extend = copyList(parent._extend)
+        table.insert(child._extend, child)
+    end
+
+    child.__index = function(tbl, key)
+        local list = child._extend
+        for i = #list, 1, -1 do
+            local class = list[i]
+            if nil ~= class[key] then
+                return class[key]
+            end
+        end
+    end
+end
+
 function getMulRandObj(objList, count)
     local function isInArr(arr, key)
         for i = 1, #arr do

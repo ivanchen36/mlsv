@@ -23,7 +23,11 @@ function Button:new(title, image, text)
         _isDisable = false,
     }
     setmetatable(newObj, self)
-
+    if self._normalImg >= 9990000 then
+        local x, y = getSize(self._normalImg)
+        self._sizeX = x
+        self._sizeY = y
+    end
     return newObj
 end
 
@@ -40,11 +44,8 @@ function Button:setImgId(imgId)
         if imgId < 9990000 then
             return
         end
-        local x, y = getSize(imgId)
-        self._showImg.sizex = x
-        self._showImg.sizey = y
-        self._sizeX = self._showImg.sizex
-        self._sizeY = self._showImg.sizey
+        self._showImg.sizex = self._sizeX
+        self._showImg.sizey = self._sizeY
     end
 end
 
@@ -213,7 +214,7 @@ function Button:show(view)
     if "" == self._btnText then
         return
     end
-    local fontSize, posX, posY = self:getFontInfo(self._sizeX, self._sizeY)
+    local fontSize, posX, posY = self:getFontInfo(self._showImg.sizex, self._showImg.sizey)
     if posX < 0 then
         posX = 0
     end

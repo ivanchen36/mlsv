@@ -6,7 +6,7 @@ vipBtn = {"valueBtn", "", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
 vipBtnText = {"领取", "", "", "", "开启", "开启", "开启", "开启"}
 
 local vipWnd = nil
-local vipInfo = {}
+local vipInfo = nil
 local vipExp = {120, 1020, 3360, 6720, 13880, 23880, 33600, 67200, 201600}
 
 function collectVip(widget)
@@ -191,18 +191,24 @@ end
 function loadVipClient(client)
     logPrint("loadVipClient")
     logPrintTbl(client)
+    local needShow = false
+    if nil == vipWnd and nil ~= vipInfo then
+        needShow = true
+    end
     vipWnd = createWindow("vip", client)
+    if needShow then
+        showVip(vipInfo)
+    end
 end
 
 function showVip(info)
+    vipInfo = info;
     if (vipWnd == nil) then
         Cli.Send("vip_client")
-        Cli.SysMessage("[系统提示] VIP功能正在加载中，请稍后！",4,3)
         return
     end
     logPrint( 'showVip1')
     logPrintTbl(info)
-    vipInfo = info;
     vipWnd:show()
     initVipContent()
     logPrint( 'showVip2')
@@ -216,4 +222,3 @@ Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["FLUSH_VIP"] = flushVipInfo
 Cli.Send().wait["SHOW_VIP"] = showVip
 Cli.Send().wait["SEND_TAX"] = sendTax
-Cli.Send("vip_client")

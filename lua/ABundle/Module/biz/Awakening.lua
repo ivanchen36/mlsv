@@ -1,5 +1,5 @@
-awakeningInfo = {}
 
+local awakeningInfo = nil
 local awakeningWnd = nil
 
 function initAwakeningContent()
@@ -16,18 +16,26 @@ end
 function loadAwakeningClient(client)
     logPrint("loadAwakeningClient")
     logPrintTbl(client)
+
+    local needShow = false
+    if nil == awakeningWnd and nil ~= awakeningInfo then
+        needShow = true
+    end
     awakeningWnd = createWindow("awakening", client)
+    if needShow then
+        showAwakening(awakeningInfo)
+    end
 end
 
 function showAwakening(info)
+    awakeningInfo = info;
     if (awakeningWnd == nil) then
         Cli.Send("Awakening_client")
-        Cli.SysMessage("[系统提示] awakening系统功能正在加载中，请稍后！",4,3)
         return
     end
+
     logPrint( 'showAwakening1')
     logPrintTbl(info)
-    awakeningInfo = info;
     awakeningWnd:show()
     initAwakeningContent()
     logPrint( 'showAwakening2')
@@ -36,4 +44,3 @@ end
 Cli.Send().wait["FLUSH_AWAKENING"] = flushAwakeningInfo
 Cli.Send().wait["SHOW_AWAKENING"] = showAwakening
 Cli.Send().wait["AWAKENING_CLIENT"] = loadAwakeningClient
-Cli.Send("awakening_client")

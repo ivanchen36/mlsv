@@ -14,6 +14,59 @@ function test(player)
     getSynthesisClient(player, "")
 end
 
+
+MyChar = {}
+MyChar.__index = MyChar
+function MyChar:new(player)
+    local newObj = {_obj = player}
+    setmetatable(newObj, self)
+    return newObj
+end
+
+function MyChar:get()
+    logPrint("get")
+end
+
+function MyChar:set()
+    logPrint(self._obj)
+end
+
+MyPet1 = {}
+extendClass(MyPet1, MyChar)
+function MyPet1:new(player, slot)
+    local newObj = MyChar:new(player)
+    setmetatable(newObj, self)
+    newObj._player = slot
+    return newObj
+end
+
+function MyPet1:test1()
+    logPrint("123", self)
+    logPrint(self._player)
+end
+
+MyPlayer1 = {}
+extendClass(MyPlayer1, MyChar)
+function MyPlayer1:new(player)
+    local newObj = MyChar:new(player)
+    setmetatable(newObj, self)
+    return newObj
+end
+
+function test2()
+    logPrint(MyChar)
+    logPrint(MyPet1)
+    logPrint(MyPlayer1)
+    logPrint("111111111111")
+    local tmp1 = MyPet1:new(1, 2)
+    local tmp2 = MyPlayer1:new(1)
+
+    logPrint("111", tmp1)
+    tmp1:set()
+    tmp2:get()
+    tmp1:test1()
+end
+
 TalkEvent["/test"] = test
 
 TalkEvent["/test1"] = function (player)
@@ -25,6 +78,7 @@ function testRecv(fd,head,packet)
     return 0
 end
 
+--InitEvent["server"] = test2
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 1);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 2);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 3);

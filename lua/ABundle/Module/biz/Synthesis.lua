@@ -1,6 +1,6 @@
 petTitle = {"pet1", "pet2"}
 petFrame = {"k1.bmp", "k2.bmp"}
-local synthesisInfo = {}
+local synthesisInfo = nil
 local petNum = 0
 local select = {nil, nil}
 local synthesisWnd = nil
@@ -34,7 +34,7 @@ function showSynthesisInfo(index, petInfo)
 
     name:setText(string.sub(petInfo.name, 1, 16))
     logPrint("2223")
-    --img:setImg(petInfo.img)
+    img:setImg(petInfo.img)
     logPrintTbl(img)
     vital:setText("体力: " .. petInfo.vital)
     str:setText("力量: " .. petInfo.str)
@@ -182,23 +182,31 @@ end
 function loadSynthesisClient(client)
     logPrint("loadSynthesisClient")
     logPrintTbl(client)
+
+    local needShow = false
+    if nil == synthesisWnd and nil ~= synthesisInfo then
+        needShow = true
+    end
     synthesisWnd = createWindow("synthesis", client)
     addCharAttr(synthesisWnd, petTitle[1])
     addCharAttr(synthesisWnd, petTitle[2])
     logPrintTbl(synthesisWnd)
+    if needShow then
+        showSynthesis(synthesisInfo)
+    end
     logPrint("loadSynthesisClient2")
 end
 
 function showSynthesis(info)
+    synthesisInfo = info;
     if (synthesisWnd == nil) then
         Cli.Send("synthesis_client")
-        Cli.SysMessage("[系统提示] synthesis系统功能正在加载中，请稍后！",4,3)
         return
     end
+
     select = {nil, nil}
     logPrint( 'showSynthesis1')
     logPrintTbl(info)
-    synthesisInfo = info;
     synthesisWnd:show()
     logPrintTbl(synthesisWnd)
     initSynthesisContent()
@@ -208,4 +216,3 @@ end
 Cli.Send().wait["FLUSH_SYNTHESIS"] = flushSynthesisInfo
 Cli.Send().wait["SHOW_SYNTHESIS"] = showSynthesis
 Cli.Send().wait["SYNTHESIS_CLIENT"] = loadSynthesisClient
---Cli.Send("synthesis_client")

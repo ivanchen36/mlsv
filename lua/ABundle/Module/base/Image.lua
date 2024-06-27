@@ -140,13 +140,9 @@ function Image:show(view)
         return
     end
     if self._bg == nil then
-        logPrint("set pos32", self._img.xpos, self._img.ypos)
-        logPrint("set pos1", self._posX, self._posY)
         self._img.xpos = self._posX
         self._img.ypos = self._posY
-        logPrint("set pos2", self._img.xpos, self._img.ypos)
     else
-        logPrint("set pos by bg")
         self:setPosByBg()
     end
 end

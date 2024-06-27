@@ -1,6 +1,7 @@
 
 local wndMgr = {}
 local wndIdMgr = {}
+local lastWnd = nil
 
 function showWnd(view)
     local wnd = wndMgr[view.vid]
@@ -38,7 +39,6 @@ function Window:new(title, img)
         _view = nil,
         _widgets = {},
         _widgetList = {},
-        _isOpen = false
     }
     setmetatable(newObj, self)
     wndMgr[newObj._id] = newObj
@@ -91,17 +91,18 @@ function Window:showUi()
 end
 
 function Window:show()
-    self._view = nil
-    if self._isOpen then
-        self:close()
+    if lastWnd ~= nil then
+        lastWnd:close()
     end
-    self._isOpen = true
+    lastWnd = self
+    self._view = nil
     new.ShowView(self._id, showWnd)
 end
 
 function Window:close()
     View.Close(self._id)
     Audio.Bell(54,320)
+    lastWnd = nil
 end
 
 function Window:getView()

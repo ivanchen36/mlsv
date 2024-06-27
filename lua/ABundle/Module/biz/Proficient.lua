@@ -1,7 +1,7 @@
 raceTitle = {"race1", "race2", "race3", "race4", "race5", "race6", "race7", "race8", "race9", "race10"}
 raceTitleVal = {"人形系", "龙系", "不死系", "飞行系", "昆虫系", "植物系", "野兽系", "特殊系", "金属系", "邪魔系"}
 
-local proficientInfo = {}
+local proficientInfo = nil
 local proficientKill = { 99, 399, 999, 2999}
 local proficientWnd = nil
 
@@ -54,18 +54,26 @@ end
 function loadProficientClient(client)
     logPrint("loadProficientClient")
     logPrintTbl(client)
+
+    local needShow = false
+    if nil == proficientWnd and nil ~= proficientInfo then
+        needShow = true
+    end
     proficientWnd = createWindow("proficient", client)
+    if needShow then
+        showProficient(proficientInfo)
+    end
 end
 
 function showProficient(info)
+    proficientInfo = info;
     if (proficientWnd == nil) then
         Cli.Send("proficient_client")
-        Cli.SysMessage("[系统提示] 种族专精功能正在加载中，请稍后！",4,3)
         return
     end
+
     logPrint( 'showProficient1')
     logPrintTbl(info)
-    proficientInfo = info;
     proficientWnd:show()
     initProficientContent()
     logPrint( 'showProficient2')
@@ -74,4 +82,3 @@ end
 Cli.Send().wait["FLUSH_PROFICIENT"] = flushProficientInfo
 Cli.Send().wait["SHOW_PROFICIENT"] = showProficient
 Cli.Send().wait["PROFICIENT_CLIENT"] = loadProficientClient
-Cli.Send("proficient_client")

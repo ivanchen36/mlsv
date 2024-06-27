@@ -1,4 +1,6 @@
-local taskInfo = {}
+taskTitle = {"title1", "title2", "title3", "title4", "title5", "title6"}
+
+local taskInfo = nil
 local taskWnd = nil
 
 local dailyType = 1
@@ -21,18 +23,26 @@ end
 function loadTaskClient(client)
     logPrint("loadTaskClient")
     logPrintTbl(client)
+    local needShow = false
+    if nil == taskWnd and nil ~= taskInfo then
+        needShow = true
+    end
     taskWnd = createWindow("task", client)
+    if needShow then
+        showTask(taskInfo)
+    end
 end
 
 function showTask(info)
+    taskInfo = info;
+
     if (taskWnd == nil) then
         Cli.Send("Task_client")
-        Cli.SysMessage("[系统提示] task系统功能正在加载中，请稍后！",4,3)
         return
     end
     logPrint( 'showTask1')
     logPrintTbl(info)
-    taskInfo = info;
+
     taskWnd:show()
     initTaskContent()
     logPrint( 'showTask2')
@@ -41,4 +51,3 @@ end
 Cli.Send().wait["FLUSH_TASK"] = flushTaskInfo
 Cli.Send().wait["SHOW_TASK"] = showTask
 Cli.Send().wait["TASK_CLIENT"] = loadTaskClient
-Cli.Send("task_client")
