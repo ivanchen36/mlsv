@@ -16,5 +16,7 @@ function Event.RegLoginEvent.registInit(player)
     Client.RunABundle(player, "Pk.lua")
     Client.RunABundle(player, "Awakening.lua")
     Client.RunABundle(player, "Task.lua")
+
+    Client.RunABundle(player, "PartyBuff.lua")
 end
 ?>

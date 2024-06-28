@@ -214,11 +214,6 @@ function showVip(info)
     logPrint( 'showVip2')
 end
 
-function sendTax(param)
-    Cli.Send("pay_tax")
-end
-
 Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["FLUSH_VIP"] = flushVipInfo
 Cli.Send().wait["SHOW_VIP"] = showVip
-Cli.Send().wait["SEND_TAX"] = sendTax

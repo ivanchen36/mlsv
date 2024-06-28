@@ -38,6 +38,7 @@ function addBuff(buffList, members, desc)
         end
         member:flush()
         member:sysMsg("获得队伍加成：" .. desc)
+        Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", desc)
     end
 end
 
@@ -49,6 +50,7 @@ function subBuff(buffList, members)
             local method = MyPlayer[funcName]
             method(member, -val)
         end
+        Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", "")
     end
 end
 
@@ -85,7 +87,7 @@ end
 
 function showPartyBuff(player, arg)
     local member = player:getPartyMember(0)
-    Protocol.PowerSend(player:getObj(),"PARTY_BUFF", partyBuffInfo[member:getObj()])
+
 end
 
 function addPartyBuff(index)
@@ -136,4 +138,3 @@ function handlePartyBuff()
 end
 
 addTimerTask(handlePartyBuff)
-ClientEvent["[party_buff]"] = showPartyBuff

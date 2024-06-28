@@ -189,6 +189,7 @@ function createWindow(title, wndConfig)
     local widgets = {}
     local bgImg = ""
     local close = nil
+    local wnd = nil
     for i = 1, #wndConfig do
         local widget = wndConfig[i]
         local width = 0
@@ -215,9 +216,12 @@ function createWindow(title, wndConfig)
             widgets[tmp:getTitle()] = tmp
         end
     end
-
-    wnd = Window:new(title, bgImg)
-    wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
+    if type(title) == "number" then
+        wnd = Window:reView(title)
+    else
+        wnd = Window:new(title, bgImg)
+        wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
+    end
     for _, val in pairs(widgets) do
         wnd:addWidget(val)
     end
@@ -276,11 +280,8 @@ end
 
 function Event.ViewInit.PrintV(view)
     if view.IsInit == false then
-        --logPrint("open view vid " .. view.vid)
-        return
+        logPrint("open view vid " .. view.vid)
     end
-    --logPrintTbl(view)
-    --logPrint("init view vid " .. view.vid)
 end
 
 -- function Event.Recv.PrintP(player, packet)

@@ -13,5 +13,6 @@ LoadABundle("biz/Synthesis.lua");
 LoadABundle("biz/Pk.lua");
 LoadABundle("biz/Awakening.lua");
 LoadABundle("biz/Task.lua");
+LoadABundle("biz/PartyBuff.lua");
 
 LoadABundle("ClientCfg.lua");
