@@ -59,7 +59,7 @@ function startsWith(str, prefix)
 end
 
 function logPrintTbl(tbl)
-    logPrint(tblToString(tbl))
+    logPrint(MyJson.tblToJson(tbl))
 end
 
 -- Íò·Ö±È

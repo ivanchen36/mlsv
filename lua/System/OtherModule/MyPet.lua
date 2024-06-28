@@ -123,6 +123,26 @@ function MyPet:getMagic()
     return Pet.GetArtRank(self._player, 5)
 end
 
+function MyPet:setVital(val)
+    return Pet.SetArtRank(self._player, 1, val)
+end
+
+function MyPet:setStr(val)
+    return Pet.SetArtRank(self._player, 2, val)
+end
+
+function MyPet:setTough(val)
+    return Pet.SetArtRank(self._player, 3, val)
+end
+
+function MyPet:setQuick(val)
+    return Pet.SetArtRank(self._player, 4, val)
+end
+
+function MyPet:setMagic(val)
+    return Pet.SetArtRank(self._player, 5, val)
+end
+
 function MyPet:getFullVital()
     return Pet.FullArtRank(self._player, 1)
 end

@@ -10,9 +10,7 @@ function showWnd(view)
         return
     end
 
-    if wnd:getView() == nil then
-        wnd:setView(view)
-    end
+    wnd:setView(view)
     if wnd:needSetupUi() then
         wnd:setupUi()
     else
@@ -47,6 +45,7 @@ function Window:new(title, img)
         _bgId = bgId,
         _title = title,
         _view = nil,
+        _onInit = nil,
         _onShow = nil,
         _widgets = {},
         _widgetList = {},
@@ -63,6 +62,7 @@ function Window:reView(id)
         _bgId = 0,
         _title = nil,
         _view = nil,
+        _onInit = nil,
         _onShow = nil,
         _widgets = {},
         _widgetList = {},
@@ -73,8 +73,12 @@ function Window:reView(id)
     return newObj
 end
 
-function Window:onShow(onShow)
-    self._onShow = onShow
+function Window:onInit(initFunc)
+    self._onInit = initFunc
+end
+
+function Window:onShow(showFunc)
+    self._onShow = showFunc
 end
 
 function Window:needSetupUi()
@@ -94,6 +98,9 @@ function Window:setupUi()
     end
     if self._id >= minId then
         self._view.add(new.image(self._title .. "bg"))
+    end
+    if nil ~= self._onInit then
+        self._onInit()
     end
 end
 

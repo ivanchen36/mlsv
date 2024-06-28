@@ -61,7 +61,14 @@ function Radio:onClick(selectIndex)
 
     self:setImgId(self._selected, self._normalImg)
     self._selected = selectIndex
+    if nil ~= self._onChange then
+        self._onChange(self)
+    end
     self:setImgId(self._selected, self._selectImg)
+end
+
+function Radio:getValue()
+    return self._values[self._selected]
 end
 
 function Radio:setVisible(isVisible)
@@ -126,10 +133,10 @@ function Radio:show(view)
     local rows = tonumber(arr[1])
     local columns = tonumber(arr[2])
     if rows == 0 then
-        rows = #self._texts / columns + 1
+        rows = math.ceil((#self._texts - 1) / columns) + 1
     end
     if columns == 0 then
-        columns = #self._texts / rows + 1
+        columns = math.ceil((#self._texts - 1) / rows) + 1
     end
     local i = 1
     for r = 1, rows do

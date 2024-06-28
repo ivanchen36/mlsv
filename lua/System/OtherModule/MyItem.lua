@@ -9,8 +9,8 @@ function MyItem:new(itemIndex)
     return newObj
 end
 
-function MyItem:create(itemIndex)
-    return MyItem:new(Data.ItemsetGetIndex(itemIndex))
+function MyItem:create(itemID)
+    return MyItem:new(Data.ItemsetGetIndex(itemID))
 end
 
 function MyItem:getObj()

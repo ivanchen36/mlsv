@@ -60,9 +60,7 @@ end
 function Event.RegPartyEvent.PartyBuff(index, target, pType)
     local player = MyPlayer:new(index)
     local now = os.time()
-    logPrint("1111")
     if player:isLeader() then
-        logPrint("11112")
         local oldList = partyMemberInfo[target]
         local oldBuffList = partyBuffInfo[target]
         if rawget(waitHandleList, index) ~= nil then
@@ -85,12 +83,10 @@ function Event.RegPartyEvent.PartyBuff(index, target, pType)
         end
         return
     end
-    logPrint("222")
     waitHandleList[target] = os.time() + 20
 end
 
 function addPartyBuff(index)
-    logPrint("333")
     local player = MyPlayer:new(index)
     local oldList = partyMemberInfo[index]
     local oldBuffList = partyBuffInfo[index]
@@ -99,18 +95,15 @@ function addPartyBuff(index)
         partyBuffInfo[index] = nil
         partyMemberInfo[index] = nil
     end
-    logPrint("444")
     if not player:isLeader() then
         return
     end
-    logPrint("555")
     local newList = {player}
     local num = player:getPartyNum()
     for i = 1, num - 1 do
         local member = player:getPartyMember(i)
         table.insert(newList, member)
     end
-    logPrint("666")
     local newBuffList = {}
     local partyDesc = ""
     for _, member in ipairs(newList) do

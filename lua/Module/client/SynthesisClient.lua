@@ -181,12 +181,6 @@ function getSynthesisClient(player, arg)
             ["disable"] = "y3.bmp",
             ["text"] = "ºÏ³É",
             ["click"] = "synthesis",
-        },{
-            ["type"] = "img",
-            ["title"] = "a",
-            ["x"] = 0,
-            ["y"] = 0,
-            ["img"] = 244439,
         }
     }
     logPrint(player:getObj())
