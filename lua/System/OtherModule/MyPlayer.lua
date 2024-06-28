@@ -130,7 +130,7 @@ function MyPlayer:subMoney(amount)
 end
 
 function MyPlayer:isLeader()
-    return Char.GetPartyMember(self._player, 0) == self._player
+    return Char.GetPartyMember(self._player, 0) == self._player and self:getPartyNum() > 1
 end
 
 function MyPlayer:isGm()

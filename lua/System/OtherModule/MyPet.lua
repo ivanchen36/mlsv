@@ -34,11 +34,11 @@ function MyPet:getOwner()
 end
 
 function MyPet:getId()
-    return self:get(57)
+    return self:get(68)
 end
 
 function MyPet:setId(id)
-    return self:set(57, id)
+    return self:set(68, id)
 end
 
 function MyPet:getUuid()

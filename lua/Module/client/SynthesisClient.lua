@@ -189,6 +189,7 @@ function getSynthesisClient(player, arg)
             ["img"] = 244439,
         }
     }
+    logPrint(player:getObj())
     Protocol.PowerSend(player:getObj(), "SYNTHESIS_CLIENT", client)
 end
 

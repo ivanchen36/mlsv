@@ -11,13 +11,14 @@ function loadPartyWnd()
             ["text"] = "",
         }
     }
-    partyWnd = createWindow(11, client)
+    partyWnd = createWindow(723, client)
     partyWnd:onShow(function()
         partyWnd:getWidget("partyBuff"):setText(partyBuff)
     end)
 end
 
 function flushPartyBuff(info)
+    logPrint("flushPartyBuff", info)
     partyBuff = info
     if partyWnd == nil then
         loadPartyWnd()

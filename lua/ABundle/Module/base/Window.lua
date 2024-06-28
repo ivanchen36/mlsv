@@ -1,4 +1,5 @@
-local wndId = 1001
+local minId = 1001
+local wndId = minId
 local wndMgr = {}
 local wndIdMgr = {}
 local lastWnd = nil
@@ -20,7 +21,7 @@ function showWnd(view)
 end
 
 function Event.ViewInit.ReviewWnd(view)
-    if view.vid >= wndId then
+    if view.vid >= minId then
         return
     end
     showWnd(view)
@@ -81,7 +82,7 @@ function Window:needSetupUi()
 end
 
 function Window:setupUi()
-    if self._id >= wndId then
+    if self._id >= minId then
         self._view.settop();
     end
     for __, item in pairs(self._widgetList) do
@@ -91,13 +92,13 @@ function Window:setupUi()
             self._view.add(controls[i])
         end
     end
-    if self._id >= wndId then
+    if self._id >= minId then
         self._view.add(new.image(self._title .. "bg"))
     end
 end
 
 function Window:showUi()
-    if self._id >= wndId then
+    if self._id >= minId then
         local screenWidth = 640
         local screenHeight = 480
         if Cli.GetHD() then

@@ -50,7 +50,7 @@ function EnemyExtension_s_BattleEvent(BattleIndex)
 					_tbl["Ä§¹¥"] =	%BOUNS_ADM%
 					_tbl["Ä§¿¹"] =	%BOUNS_RSS%
 					local name = Char.GetData(player,2000)
-					local id = Char.GetData(player,57);
+					local id = Char.GetData(player,68);
 		
 					if EnemyExtension_s[id] then
 						for q = 1,#EnemyExtension_s[id] do 

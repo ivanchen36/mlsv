@@ -30,14 +30,25 @@ function showSynthesisInfo(index, petInfo)
     local quick = synthesisWnd:getWidget(petTitle[index] .. "Q");
     local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
 
-    name:setText(string.sub(petInfo.name, 1, 16))
-    img:setImg(petInfo.img)
-    vital:setText("体力: " .. petInfo.vital)
-    str:setText("力量: " .. petInfo.str)
-    tough:setText("强度: " .. petInfo.tough)
-    quick:setText("速度: " .. petInfo.quick)
-    magic:setText("魔法: " .. petInfo.magic)
-    showCharAttr(synthesisWnd, petTitle[index], petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+    if nil ~= petInfo then
+        name:setText(string.sub(petInfo.name, 1, 16))
+        img:setImg(petInfo.img)
+        vital:setText("体力: " .. petInfo.vital)
+        str:setText("力量: " .. petInfo.str)
+        tough:setText("强度: " .. petInfo.tough)
+        quick:setText("速度: " .. petInfo.quick)
+        magic:setText("魔法: " .. petInfo.magic)
+        showCharAttr(synthesisWnd, petTitle[index], petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+    else
+        name:setText("无可选择宠物")
+        img:setImg(0)
+        vital:setText("体力: 0")
+        str:setText("力量: 0")
+        tough:setText("强度: 0")
+        quick:setText("速度: 0")
+        magic:setText("魔法: 0")
+        showCharAttr(synthesisWnd, petTitle[index], 0, 0, 0, 0)
+    end
 end
 
 function synthesis(widget)
@@ -101,6 +112,8 @@ function initSynthesisContent()
     for i=1, #petTitle do
         if nil ~= select[i] then
             showSynthesisInfo(i, synthesisInfo[select[i]])
+        else
+            showSynthesisInfo(i, nil)
         end
         local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
         local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")
@@ -156,7 +169,7 @@ function initSynthesisContent()
                     select[other] = j + 1
                     select[i] = j
                     showSynthesisInfo(i, synthesisInfo[j])
-                    showSynthesisInfo(other, synthesisInfo[select[j + 1]])
+                    showSynthesisInfo(other, synthesisInfo[j + 1])
                     initSelectButton()
                     return
                 end

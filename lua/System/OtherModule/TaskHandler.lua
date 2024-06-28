@@ -33,6 +33,10 @@ function initTaskHandler()
 end
 
 function doTask(index)
+    for _, func in ipairs(timerTask) do
+        func()
+    end
+
     local sql = "SELECT Id, RegNum, Type, Info FROM tbl_task WHERE Status = 1 and ExeTime <= UNIX_TIMESTAMP()"
     local rs = SQL.Run(sql);
 
@@ -47,17 +51,13 @@ function doTask(index)
         local info = rs[i .. "_3"]
         if rawget(TaskHandler, type) == nil then
             logPrint("TaskHandler[" .. type .. "] is not function")
-            return
+        else
+            local rs = TaskHandler[type](regNum, info)
+            if 1 == rs then
+                local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Id = " .. id
+                SQL.Run(sql1);
+            end
         end
-        local rs = TaskHandler[type](regNum, info)
-        if 1 == rs then
-            local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Id = " .. id
-            SQL.Run(sql1);
-        end
-    end
-
-    for _, func in ipairs(timerTask) do
-        func()
     end
 end
 
