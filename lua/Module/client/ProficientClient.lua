@@ -6,8 +6,8 @@ function getProficientClient(player, arg)
         },
         {
             ["type"] = "close",
-            ["x"] = 466,
-            ["y"] = 14,
+            ["x"] = 461,
+            ["y"] = 8,
             ["img"] = 243000,
             ["active"] = 243002,
             ["disable"] = 243001,

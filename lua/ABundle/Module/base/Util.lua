@@ -226,12 +226,12 @@ end
 
 function addAttr(wnd, preTitle, attr)
     local tmp1 = wnd:getWidget(preTitle .. attr)
-    local img1 = Image:new(preTitle .. string.sub(attr, 1, 2), 0)
     local pos = tmp1:getPos()
-    logPrintTbl(pos)
-    img1:setPos(pos[1] + 33, pos[2])
-    wnd:addWidget(img1)
-    logPrintTbl(tmp1:getPos())
+    for i = 1, 10 do
+        local img1 = Image:new(preTitle ..  string.sub(attr,1, 2) .. i, 0)
+        img1:setPos(pos[1] + 26 + i * 8, pos[2])
+        wnd:addWidget(img1)
+    end
 end
 
 function addCharAttr(wnd, preTitle)
@@ -242,28 +242,36 @@ function addCharAttr(wnd, preTitle)
 end
 
 function showAttr(wnd, preTitle, attr, imgPrev, val)
-    local tmp1 = wnd:getWidget(preTitle .. string.sub(attr, 1, 2))
-    val = math.ceil(val / 10) * 10
-    if val > 0 then
-        tmp1:setImg(imgPrev .. val .. ".bmp")
-    else
-        tmp1:setImg(0)
+    val = math.ceil(val / 10)
+    for i = 1, 10 do
+        local tmp1 = wnd:getWidget(preTitle .. string.sub(attr, 1, 2) .. i)
+        if i > val then
+            tmp1:setImg(0)
+        elseif 1 == val then
+            tmp1:setImg(imgPrev + 3)
+        elseif 1 == i then
+            tmp1:setImg(imgPrev + 4)
+        elseif val == i then
+            tmp1:setImg(imgPrev + 2)
+        else
+            tmp1:setImg(imgPrev + 1)
+        end
     end
 end
 
 function showCharAttr(wnd, preTitle, earth, water, fire, wind)
-    showAttr(wnd, preTitle, "Earth", "d_", earth)
-    showAttr(wnd, preTitle, "Water", "s_", water)
-    showAttr(wnd, preTitle, "Fire", "h_", fire)
-    showAttr(wnd, preTitle, "Wind", "f_", wind)
+    showAttr(wnd, preTitle, "Earth", 244422, earth)
+    showAttr(wnd, preTitle, "Water", 244427, water)
+    showAttr(wnd, preTitle, "Fire", 244432, fire)
+    showAttr(wnd, preTitle, "Wind", 244437, wind)
 end
 
 function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
-    if sizeYA >= sizeYB then
-        return {posXA + (sizeXA - sizeXB) / 2, posYA + (sizeYA - sizeYB) / 2}
+    if sizeYB > 0 and sizeYA >= sizeYB then
+        return {math.ceil(posXA + (sizeXA - sizeXB) / 2), math.ceil(posYA + (sizeYA - sizeYB) / 2)}
     end
 
-    return {posXA + (sizeXA - sizeXB) / 2, posYA + sizeYA - sizeYB}
+    return {math.ceil(posXA + (sizeXA - sizeXB) / 2), math.ceil(posYA + sizeYA - sizeYB)}
 end
 
 function Event.ViewInit.PrintV(view)

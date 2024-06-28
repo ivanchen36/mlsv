@@ -50,6 +50,7 @@ dofile("lua/System/BaseModule/Base.lua");
 
 dofile("lua/System/OtherModule/Const.lua");
 dofile("lua/System/OtherModule/Util.lua");
+dofile("lua/System/OtherModule/MyChar.lua");
 dofile("lua/System/OtherModule/MyPlayer.lua");
 dofile("lua/System/OtherModule/MyPet.lua");
 dofile("lua/System/OtherModule/MyLimit.lua");

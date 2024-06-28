@@ -2,11 +2,12 @@ randFy = 15;		--最高修正/抗性
 
 -- 定义一个名为 MyPet 的表
 MyPet = {}
-MyPet.__index = MyPet
+extendClass(MyPet, MyChar)
 
 -- 定义构造函数 new
 function MyPet:new(player, slot)
-    local newObj = { _player = player, _pet = Char.GetPet(player, slot) }  -- 创建一个新的对象，包含一个名为 data 的字段，其值为 pet
+    local newObj = MyChar:new(Char.GetPet(player, slot))
+    newObj._owner = player
     setmetatable(newObj, self)       -- 设置新对象的元表为 MyPet
     return newObj
 end
@@ -18,7 +19,7 @@ end
 
 function MyPet:getByUuid(player, uuid)
     for i = 0, 4 do
-        local pet = MyPet:new(player:getObj(), i)
+        local pet = MyPet:new(player, i)
         if pet:isValid() then
             if uuid == pet:getUuid() then
                 return pet
@@ -28,12 +29,8 @@ function MyPet:getByUuid(player, uuid)
     return nil
 end
 
-function MyPet:isValid()
-    return VaildChar(self._pet)
-end
-
 function MyPet:getOwner()
-    return Pet.GetOwner(self._pet)
+    return Pet.GetOwner(self._player)
 end
 
 function MyPet:getId()
@@ -45,43 +42,33 @@ function MyPet:setId(id)
 end
 
 function MyPet:getUuid()
-    return Pet.GetUUID(self._pet)
+    return Pet.GetUUID(self._player)
 end
 
 function MyPet:getSkill(slot)
-    return Pet.GetSkill(self._pet, slot)
+    return Pet.GetSkill(self._player, slot)
 end
 
 function MyPet:delSkill(slot)
-    return Pet.DelSkill(self._pet, slot)
+    return Pet.DelSkill(self._player, slot)
 end
 
 function MyPet:addSkill(skillId)
-    return Pet.AddSkill(self._pet, skillId)
+    return Pet.AddSkill(self._player, skillId)
 end
 
 function MyPet:delete()
     local uuid = self:getUuid()
     for i = 0, 4 do
-        local pet = MyPet:new(self._player:getObj(), i)
+        local pet = MyPet:new(self._owner, i)
         if pet:isValid() then
             if uuid == pet:getUuid() then
-                return Char.DelSlotPet(self._player:getObj(), i)
+                return Char.DelSlotPet(self._owner, i)
             end
         end
     end
 
     return 0
-end
-
--- 定义 get 方法，用于获取玩家数据
-function MyPet:get(key)
-    return Char.GetData(self._pet, key)  -- 使用 Char.GetData 函数获取玩家数据
-end
-
--- 定义 set 方法，用于设置玩家数据
-function MyPet:set(key, val)
-    Char.SetData(self._pet, key, val)  -- 使用 Char.SetData 函数设置玩家数据
 end
 
 --%对象_抗毒%	22
@@ -117,23 +104,43 @@ function MyPet:initXz()
 end
 
 function MyPet:getVital()
-    return Pet.FullArtRank(self._pet, 1)
+    return Pet.GetArtRank(self._player, 1)
 end
 
 function MyPet:getStr()
-    return Pet.FullArtRank(self._pet, 2)
+    return Pet.GetArtRank(self._player, 2)
 end
 
 function MyPet:getTough()
-    return Pet.FullArtRank(self._pet, 3)
+    return Pet.GetArtRank(self._player, 3)
 end
 
 function MyPet:getQuick()
-    return Pet.FullArtRank(self._pet, 4)
+    return Pet.GetArtRank(self._player, 4)
 end
 
 function MyPet:getMagic()
-    return Pet.FullArtRank(self._pet, 5)
+    return Pet.GetArtRank(self._player, 5)
+end
+
+function MyPet:getFullVital()
+    return Pet.FullArtRank(self._player, 1)
+end
+
+function MyPet:getFullStr()
+    return Pet.FullArtRank(self._player, 2)
+end
+
+function MyPet:getFullTough()
+    return Pet.FullArtRank(self._player, 3)
+end
+
+function MyPet:getFullQuick()
+    return Pet.FullArtRank(self._player, 4)
+end
+
+function MyPet:getFullMagic()
+    return Pet.FullArtRank(self._player, 5)
 end
 
 --%宠档_体成% 1
@@ -142,29 +149,29 @@ end
 --%宠档_敏成% 4
 --%宠档_魔成% 5
 function MyPet:initDang(art1, art2, art3, art4, art5)
-    Pet.SetArtRank(self._pet,1,Pet.FullArtRank(self._pet,1) - art1);
-    Pet.SetArtRank(self._pet,2,Pet.FullArtRank(self._pet,2) - art2);
-    Pet.SetArtRank(self._pet,3,Pet.FullArtRank(self._pet,3) - art3);
-    Pet.SetArtRank(self._pet,4,Pet.FullArtRank(self._pet,4) - art4);
-    Pet.SetArtRank(self._pet,5,Pet.FullArtRank(self._pet,5) - art5);
-    Pet.UpPet(self._player,self._pet);
-    Pet.ReBirth(self._player,self._pet);
+    Pet.SetArtRank(self._player,1,Pet.FullArtRank(self._player,1) - art1);
+    Pet.SetArtRank(self._player,2,Pet.FullArtRank(self._player,2) - art2);
+    Pet.SetArtRank(self._player,3,Pet.FullArtRank(self._player,3) - art3);
+    Pet.SetArtRank(self._player,4,Pet.FullArtRank(self._player,4) - art4);
+    Pet.SetArtRank(self._player,5,Pet.FullArtRank(self._player,5) - art5);
+    Pet.UpPet(self._owner,self._player);
+    Pet.ReBirth(self._owner,self._player);
     NLG.SystemMessage(player,"[洗档成功]掉档:"..art1..","..art2..","..art3..","..art4..","..art5
             ..",总计:-"..art1 + art2 + art3 + art4 + art5.."档");
 end
 
 function MyPet:reinitDang(art1, art2, art3, art4, art5)
     if not self:isValid() then
-        NLG.SystemMessage(self._player,"[宠物洗档]洗档失败，宠物栏第一栏没有宠物");
+        NLG.SystemMessage(self._owner,"[宠物洗档]洗档失败，宠物无效");
         return 0
     end
 
     if self:getLevel() > 1 then
-        NLG.SystemMessage(self._player,"[宠物洗档]宠物并非一级，无法洗档");
+        NLG.SystemMessage(self._owner,"[宠物洗档]宠物并非一级，无法洗档");
         return 0
     end
 
-    initDang(self, art1, art2, art3, art4, art5)
+    self:initDang(art1, art2, art3, art4, art5)
     return 1
 end
 
@@ -175,111 +182,13 @@ function MyPet:changeIamge(image)
     self:setImage(image)
     self:setOriginalForm(image)
     self:setOriginalImage(image)
-    Pet.UpPet(self._player, self._pet);
-    NLG.UpChar(self._player);
-    NLG.SystemMessage(self._player,"[宠物系统]宠物形象更改成功");
+    Pet.UpPet(self._owner, self._player);
+    NLG.UpChar(self._owner);
+    NLG.SystemMessage(self._owner,"[宠物系统]宠物形象更改成功");
     return 1
 end
 
-function MyPet:isValid()
-    return VaildChar(self._pet)
-end
-
-function MyPet:getObj()
-    return self._pet
-end
-
 function MyPet:flush()
-    Pet.UpPet(self._player, self._pet)
-    NLG.UpChar(self._pet)
-end
-
-function MyPet:getLevel()
-    return self:get(8)
-end
-function MyPet:setLevel(val)
-    -- 可以在这里添加一些验证逻辑，比如确保等级不会低于0
-    if val < 0 then
-        return false, "等级不能低于0"
-    end
-    return self:set(8, val)
-end
-
---%对象_形象% 1
-function MyPet:getImage()
-    return self:get(1)
-end
-function MyPet:setImage(val)
-    return self:set(1, val)
-end
-
---%对象_可视% 1
-function MyPet:isVisible()
-    return self:get(1)
-end
-function MyPet:setVisible(val)
-    return self:set(1, val)
-end
-
---%对象_原形% 2
-function MyPet:getOriginalForm()
-    return self:get(2)
-end
-function MyPet:setOriginalForm(val)
-    return self:set(2, val)
-end
-
---%对象_原始图档% 178
-function MyPet:getOriginalImage()
-    return self:get(178)
-end
-function MyPet:setOriginalImage(val)
-    return self:set(178, val)
-end
-
---%对象_种族% 17
-function MyPet:getRace()
-    return self:get(17)
-end
-function MyPet:setRace(val)
-    return self:set(17, val)
-end
-
---%对象_名字% 2000
-function MyPet:getName()
-    return self:get(2000)
-end
-function MyPet:setName(val)
-    return self:set(2000, val)
-end
---%对象_地属性% 18
-function MyPet:getEarthAttribute()
-    return self:get(18)
-end
-function MyPet:setEarthAttribute(val)
-    return self:set(18, val)
-end
-
---%对象_水属性% 19
-function MyPet:getWaterAttribute()
-    return self:get(19)
-end
-function MyPet:setWaterAttribute(val)
-    return self:set(19, val)
-end
-
---%对象_火属性% 20
-function MyPet:getFireAttribute()
-    return self:get(20)
-end
-function MyPet:setFireAttribute(val)
-    return self:set(20, val)
-end
-
---%对象_风属性% 21
-function MyPet:getWindAttribute()
-    return self:get(21)
-end
-function MyPet:setWindAttribute(val)
-    return self:set(21, val)
+    Pet.UpPet(self._owner, self._player)
+    NLG.UpChar(self._player)
 end

@@ -22,34 +22,27 @@ function getShowInfo()
 end
 
 function showSynthesisInfo(index, petInfo)
-    logPrint("2221")
     local name = synthesisWnd:getWidget(petTitle[index]);
-    local img = synthesisWnd:getWidget(petTitle[index] .. "Img");
+    local img = synthesisWnd:getWidget(petTitle[index] .. "ZImg");
     local vital = synthesisWnd:getWidget(petTitle[index] .. "V");
     local str = synthesisWnd:getWidget(petTitle[index] .. "S");
     local tough = synthesisWnd:getWidget(petTitle[index] .. "T");
     local quick = synthesisWnd:getWidget(petTitle[index] .. "Q");
     local magic = synthesisWnd:getWidget(petTitle[index] .. "M");
-    logPrint("2222")
 
     name:setText(string.sub(petInfo.name, 1, 16))
-    logPrint("2223")
     img:setImg(petInfo.img)
-    logPrintTbl(img)
     vital:setText("体力: " .. petInfo.vital)
     str:setText("力量: " .. petInfo.str)
     tough:setText("强度: " .. petInfo.tough)
     quick:setText("速度: " .. petInfo.quick)
     magic:setText("魔法: " .. petInfo.magic)
     showCharAttr(synthesisWnd, petTitle[index], petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
-    logPrint("222")
-    logPrintTbl(synthesisWnd:getWidget(petTitle[index] .. "Earth"))
-    logPrintTbl(synthesisWnd:getWidget(petTitle[index] .. "Ea"))
 end
 
 function synthesis(widget)
     if nil ~= select[1] and nil ~= select[2] then
-        Cli.Send("pet_synthesis|" .. select[1] .. "," .. select[2])
+        Cli.Send("pet_synthesis|" .. synthesisInfo[select[1]]["uuid"] .. "," .. synthesisInfo[select[2]]["uuid"])
     end
 end
 
@@ -105,7 +98,6 @@ function initSynthesisContent()
     else
         confirm:setEnabled(false)
     end
-    logPrint("111")
     for i=1, #petTitle do
         if nil ~= select[i] then
             showSynthesisInfo(i, synthesisInfo[select[i]])
@@ -126,20 +118,20 @@ function initSynthesisContent()
             for j = select1 + 1, petNum do
                 if j ~= select2 then
                     select[i] = j
-                    showSynthesisInfo(i, synthesisInfo[select[i]])
+                    showSynthesisInfo(i, synthesisInfo[j])
                     initSelectButton()
                     return
                 end
                 if j == petNum then
                     select[other] = j - 1
-                    showSynthesisInfo(i, synthesisInfo[select[i]])
-                    showSynthesisInfo(other, synthesisInfo[select[other]])
+                    select[i] = j
+                    showSynthesisInfo(i, synthesisInfo[j])
+                    showSynthesisInfo(other, synthesisInfo[j - 1])
                     initSelectButton()
                     return
                 end
             end
         end)
-        logPrint("3344")
         prev:clicked(function()
             local select1 = select[i]
             if nil == select1 then
@@ -156,20 +148,20 @@ function initSynthesisContent()
             for j = select1 - 1, 1, -1 do
                 if j ~= select2 then
                     select[i] = j
-                    showSynthesisInfo(i, synthesisInfo[select[i]])
+                    showSynthesisInfo(i, synthesisInfo[j])
                     initSelectButton()
                     return
                 end
                 if j == 1 then
                     select[other] = j + 1
-                    showSynthesisInfo(i, synthesisInfo[select[i]])
-                    showSynthesisInfo(other, synthesisInfo[select[other]])
+                    select[i] = j
+                    showSynthesisInfo(i, synthesisInfo[j])
+                    showSynthesisInfo(other, synthesisInfo[select[j + 1]])
                     initSelectButton()
                     return
                 end
             end
         end)
-        logPrint("33144")
     end
 end
 
@@ -190,7 +182,6 @@ function loadSynthesisClient(client)
     synthesisWnd = createWindow("synthesis", client)
     addCharAttr(synthesisWnd, petTitle[1])
     addCharAttr(synthesisWnd, petTitle[2])
-    logPrintTbl(synthesisWnd)
     if needShow then
         showSynthesis(synthesisInfo)
     end
@@ -208,7 +199,6 @@ function showSynthesis(info)
     logPrint( 'showSynthesis1')
     logPrintTbl(info)
     synthesisWnd:show()
-    logPrintTbl(synthesisWnd)
     initSynthesisContent()
     logPrint( 'showSynthesis2')
 end

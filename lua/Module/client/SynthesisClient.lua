@@ -6,8 +6,8 @@ function getSynthesisClient(player, arg)
         },
         {
             ["type"] = "close",
-            ["x"] = 466,
-            ["y"] = 14,
+            ["x"] = 461,
+            ["y"] = 8,
             ["img"] = 243000,
             ["active"] = 243002,
             ["disable"] = 243001,
@@ -61,7 +61,7 @@ function getSynthesisClient(player, arg)
             ["width"] = 220,
             ["high"] = 39,
             ["type"] = "ani",
-            ["title"] = "#petTitle$Img",
+            ["title"] = "#petTitle$ZImg",
             ["x"] = 0,
             ["y"] = 0,
             ["img"] = 0,
@@ -181,6 +181,12 @@ function getSynthesisClient(player, arg)
             ["disable"] = "y3.bmp",
             ["text"] = "ºÏ³É",
             ["click"] = "synthesis",
+        },{
+            ["type"] = "img",
+            ["title"] = "a",
+            ["x"] = 0,
+            ["y"] = 0,
+            ["img"] = 244439,
         }
     }
     Protocol.PowerSend(player:getObj(), "SYNTHESIS_CLIENT", client)

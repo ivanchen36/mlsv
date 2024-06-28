@@ -1,3 +1,31 @@
+
+function copyList(list)
+    local tmp = {}
+    for _, v in ipairs(list) do
+        table.insert(tmp, v)
+    end
+    return tmp
+end
+
+function extendClass(child, parent)
+    if nil == parent._extend then
+        child._extend = {parent, child}
+    else
+        child._extend = copyList(parent._extend)
+        table.insert(child._extend, child)
+    end
+
+    child.__index = function(tbl, key)
+        local list = child._extend
+        for i = #list, 1, -1 do
+            local class = list[i]
+            if nil ~= class[key] then
+                return class[key]
+            end
+        end
+    end
+end
+
 Image = {}
 Image.__index = Image
 
@@ -87,6 +115,10 @@ function Image:setBg(bg)
 end
 
 function Image:setPosByBg()
+    if 0 == self._imgId then
+        return
+    end
+
     local bgSize = self._bg:getSize()
     local bgPos = self._bg:getPos()
     local pos = getOutPos(bgPos[1], bgPos[2], bgSize[1], bgSize[2], self._img.sizex, self._img.sizey)
@@ -136,9 +168,6 @@ function Image:show(view)
     self._img = view.find(self._title)
     self:setVisible(true)
     self:setImgId(self._img, self._imgId)
-    if 0 == self._imgId then
-        return
-    end
     if self._bg == nil then
         self._img.xpos = self._posX
         self._img.ypos = self._posY
