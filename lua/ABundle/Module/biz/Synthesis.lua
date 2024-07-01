@@ -21,14 +21,14 @@ function getShowInfo()
     return {select1, select2}
 end
 
-function showPetInfo(wnd, index, petInfo)
-    local name = wnd:getWidget(petTitle[index]);
-    local img = wnd:getWidget(petTitle[index] .. "ZImg");
-    local vital = wnd:getWidget(petTitle[index] .. "V");
-    local str = wnd:getWidget(petTitle[index] .. "S");
-    local tough = wnd:getWidget(petTitle[index] .. "T");
-    local quick = wnd:getWidget(petTitle[index] .. "Q");
-    local magic = wnd:getWidget(petTitle[index] .. "M");
+function showPetInfo(wnd, petNameTitle, petInfo)
+    local name = wnd:getWidget(petNameTitle);
+    local img = wnd:getWidget(petNameTitle .. "ZImg");
+    local vital = wnd:getWidget(petNameTitle .. "V");
+    local str = wnd:getWidget(petNameTitle .. "S");
+    local tough = wnd:getWidget(petNameTitle .. "T");
+    local quick = wnd:getWidget(petNameTitle .. "Q");
+    local magic = wnd:getWidget(petNameTitle .. "M");
 
     if nil ~= petInfo then
         name:setText(string.sub(petInfo.name, 1, 16))
@@ -38,7 +38,7 @@ function showPetInfo(wnd, index, petInfo)
         tough:setText("强度: " .. petInfo.tough)
         quick:setText("速度: " .. petInfo.quick)
         magic:setText("魔法: " .. petInfo.magic)
-        showCharAttr(wnd, petTitle[index], petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
+        showCharAttr(wnd, petNameTitle, petInfo.earth, petInfo.water, petInfo.fire, petInfo.wind)
     else
         name:setText("无可选择宠物")
         img:setImg(0)
@@ -47,7 +47,7 @@ function showPetInfo(wnd, index, petInfo)
         tough:setText("强度: 0")
         quick:setText("速度: 0")
         magic:setText("魔法: 0")
-        showCharAttr(wnd, petTitle[index], 0, 0, 0, 0)
+        showCharAttr(wnd, petNameTitle, 0, 0, 0, 0)
     end
 end
 
@@ -111,9 +111,9 @@ function initSynthesisContent()
     end
     for i=1, #petTitle do
         if nil ~= select[i] then
-            showPetInfo(synthesisWnd, i, synthesisInfo[select[i]])
+            showPetInfo(synthesisWnd, petTitle[i], synthesisInfo[select[i]])
         else
-            showPetInfo(synthesisWnd, i, nil)
+            showPetInfo(synthesisWnd, petTitle[i], nil)
         end
         local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
         local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")

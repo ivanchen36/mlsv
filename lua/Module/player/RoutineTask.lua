@@ -60,7 +60,7 @@ function receiveTask(player, cycleType)
 
     for i = 1, taskCount do
         local typeIndex, item, count = getRandomTaskAndItem()
-        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime) VALUES ('%s', %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
+        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Process, CreateTime) VALUES ('%s', %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
                 regNum, cycleType, cycleDate, typeIndex, item, count)
         SQL.Run(sql)
     end
@@ -75,7 +75,7 @@ function queryTaskByType(player, cycleType)
     local cycleDate = os.date(cycleFormat[cycleType])
 
     -- 从数据库获取任务信息
-    local query = string.format("SELECT Id, Type, Item, Count, Progress, Status, Cycle FROM tbl_player_task WHERE RegNum = '%s' AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
+    local query = string.format("SELECT Id, Type, Item, Count, Process, Status, Cycle FROM tbl_player_task WHERE RegNum = '%s' AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
     local result = SQL.Run(query)
     if(type(result) ~= "table")then
         receiveTask(player, cycleType)
@@ -92,10 +92,20 @@ function queryTaskByType(player, cycleType)
             ["type"] = tonumber(result[i .. "_1"]),
             ["item"] = tonumber(result[i .. "_2"]),
             ["count"] = tonumber(result[i .. "_3"]),
-            ["progress"] = tonumber(result[i .. "_4"]),
+            ["process"] = tonumber(result[i .. "_4"]),
             ["status"] = tonumber(result[i .. "_5"]),
             ["cycle"] = tonumber(result[i .. "_6"]),
         }
+        if task.status ~= 2 then
+            if 3 == task.type then
+                task.process = player:getItemNum(task.item)
+                if task.process > task.count then
+                    task.process = task.count
+                end
+            elseif 4 == task.type and player:havePet(task.item) >= 0 then
+                task.process = 1
+            end
+        end
         table.insert(taskList, task)
     end
 
@@ -143,7 +153,7 @@ end
 function submitTask(player, arg)
     local regNum = player:getRegistNumber()
     local taskId = tonumber(arg)
-    local query = string.format("SELECT Cycle, Type, Item, Count, Progress, Status FROM tbl_player_task WHERE RegNum = '%s' AND Id = %d", regNum, taskId)
+    local query = string.format("SELECT Cycle, Type, Item, Count, Process, Status FROM tbl_player_task WHERE RegNum = '%s' AND Id = %d", regNum, taskId)
     local result = SQL.Run(query)
     if(type(result) ~= "table")then
         player:sysMsg("查询任务失败，无法提交任务")
@@ -168,13 +178,14 @@ function submitTask(player, arg)
     handleTask(regNum, playerTask)
     if playerTask.progress >= playerTask.count then
         -- 更新任务状态为已完成
-        local sql = string.format("UPDATE tbl_player_task SET Status = 2, Progress = %d WHERE RegNum = '%s' AND Id = %d", playerTask.progress, regNum, taskId)
+        local sql = string.format("UPDATE tbl_player_task SET Status = 2, Process = %d WHERE RegNum = '%s' AND Id = %d", playerTask.progress, regNum, taskId)
         SQL.Run(sql)
 
         -- 领取奖励
         local reward = rewardList[playerTask.cycle][playerTask.type]
         player:getItem(reward)
         player:sysMsg("任务完成，奖励已领取")
+        Protocol.PowerSend(player:getObj(),"SUBMIT_TASK", taskList)
         return
     else
         player:sysMsg("提交失败，请稍后重试")
@@ -184,7 +195,7 @@ end
 
 function showRoutine(player)
     local taskList = queryTaskByType(player, dailyType)
-    Protocol.PowerSend(player:getObj(),"SHOW_ROUTINE", taskList)
+    Protocol.PowerSend(player:getObj(),"SHOW_ROUTINE", taskId)
 end
 
 function queryTask(player, arg)

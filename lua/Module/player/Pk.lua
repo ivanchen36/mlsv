@@ -57,7 +57,7 @@ function setPkResult(pid, rid, round, winnerRegNum, loserRegNum, winnerName, los
     local sql = "update tbl_pk_info set Count = Count - Count, Status = if(Count == 0, 1, Status) where Id = " .. pid;
     SQL.Run(sql)
     if 0 == round then
-        local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = '' where Id = " .. rid;
+        local sql1 = string.format("update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = '' where Id = %d", rid);
         SQL.Run(sql1)
         if 0 ~= winnerRegNum then
             local sql2 = "update tbl_pk_team set Status = 2 where RegNum = '" .. winnerRegNum .. "' and Status = 1;"
@@ -121,7 +121,7 @@ function startPk(regNum, info)
         pkNotice()
     end
 
-    local sql = "select Id,TeamARegNum, TeamBRegNum, TeamAName, TeamBName,Round, PkId from tbl_pk_record where Status = 0"
+    local sql = "select Id, TeamARegNum, TeamBRegNum, TeamAName, TeamBName,Round, PkId from tbl_pk_record where Status = 0"
     local rs = SQL.Run(sql)
     local round = tonumber(rs["0_5"])
     local pkId = tonumber(rs["0_6"])

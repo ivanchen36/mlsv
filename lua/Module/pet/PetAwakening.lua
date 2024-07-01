@@ -56,8 +56,19 @@ function getSynthesisInfo(player)
                 petAwake["fire"] = tonumber(rs["0_3"])
                 petAwake["wind"] = tonumber(rs["0_4"])
             end
-            petAwake["itemImg"] = itemImgList[petAwake["level"]]
-            petAwake["itemNum"] = player:getItemNum(itemList[petAwake["level"]])
+            local level = petAwake["level"] + 1
+            if petAwake["level"] > 3 then
+                petAwake["itemImg"] = 0
+                petAwake["itemNum"] = 0
+            else
+                petAwake["itemImg"] = itemImgList[level]
+                if  petAwake["itemImg"] == 0 then
+                    petAwake["itemNum"] = 0
+                else
+                    petAwake["itemNum"] = player:getItemNum(itemList[level])
+                end
+            end
+
             petArr[index] = petAwake
             index = index + 1
         end
@@ -119,7 +130,8 @@ function upAwakening(player, arg)
                 pet:setQuick(pet:getQuick() + addArt)
             end
             pet:flush()
-            local sql1 = "update tbl_pet_info set " .. attrField[attr] .. " = " .. attrField[attr] .. " + 1 where uuid = " .. pet:getUuid() .. " and ".. attrField[attr] .. " < 3";
+            local sql1 = string.format("update tbl_pet_info set %s = %s + 1 where uuid = '%s' and %s < 3",
+                attrField[attr], attrField[attr], pet:getUuid(), attrField[attr])
             SQL.Run(sql1);
             player:sysMsg("宠物" .. level .."完成第" .. level .."次觉醒");
             Protocol.PowerSend(player:getObj(),"FLUSH_AWAKENING", getSynthesisInfo(player))

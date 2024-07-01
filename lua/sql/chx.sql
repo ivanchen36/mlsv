@@ -124,7 +124,7 @@ CREATE TABLE `tbl_player_task` (
                                    `Type` INT NOT NULL COMMENT '任务类型（封印、猎杀、搜寻、挑战）',
                                    `Item` INT NOT NULL COMMENT '任务物品对应的宠物id、物品id或者怪物id',
                                    `Count` int NOT NULL COMMENT '任务物品数量',
-                                   `Progress` INT NOT NULL DEFAULT 0 COMMENT '当前进度（例如已击杀的怪物数量）',
+                                   `Process` INT NOT NULL DEFAULT 0 COMMENT '当前进度（例如已击杀的怪物数量）',
                                    `Status` int NOT NULL DEFAULT 0 COMMENT '状态（1-进行中，2-已完成）',
                                    `CreateTime` INT NOT NULL COMMENT '创建时间',
                                    `UpdateTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
