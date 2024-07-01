@@ -27,7 +27,7 @@ function loadTaskClient(client)
     if nil == taskWnd and nil ~= taskInfo then
         needShow = true
     end
-    taskWnd = createWindow("task", client)
+    taskWnd = createWindow(1009,"task", client)
     if needShow then
         showTask(taskInfo)
     end

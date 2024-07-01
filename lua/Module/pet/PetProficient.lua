@@ -27,14 +27,14 @@ local proficientKill = { 99, 399, 999, 2999}
 
 function showProficient(player)
     logPrint("showProficient")
-    local sql = "select Race, Level, KillNum from tbl_pet_proficient where RegNum = " .. player:getRegistNumber();
+    local sql = "select Race, Level, KillNum from tbl_pet_proficient where RegNum = '" .. player:getRegistNumber() .. "'";
     local rs = SQL.Run(sql);
     local info = {};
     if(type(rs) ~= "table")then
         logPrint("proficientInfo not found, id:" .. player:getRegistNumber());
         for i = raceHuman, raceDemonic do
-            sql = "INSERT INTO `tbl_pet_proficient`(`RegNum`, `Race`, `Level`, `KillNum`, `CreateTime`) VALUES ("
-                    .. player:getRegistNumber() .. ", " .. i .. ", 0, 0, unix_timestamp());"
+            sql = "INSERT INTO `tbl_pet_proficient`(`RegNum`, `Race`, `Level`, `KillNum`, `CreateTime`) VALUES ('"
+                    .. player:getRegistNumber() .. "', " .. i .. ", 0, 0, unix_timestamp());"
             SQL.Run(sql);
             info[i] = "0|0"
         end
@@ -53,13 +53,13 @@ end
 
 function upProficient(player, arg)
     local race = tonumber(arg);
-    local sql = "select Level, KillNum from tbl_pet_proficient where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race;
+    local sql = "select Level, KillNum from tbl_pet_proficient where RegNum = '" .. player:getRegistNumber() .."' and Race = " .. race;
     local rs = SQL.Run(sql);
     local level = tonumber(rs[0 .. "_0"]);
     local killNum = tonumber(rs[0 .. "_1"]);
     if proficientKill[level + 1] < killNum then
         sql = "update tbl_pet_proficient set Level = Level + 1, KillNum = KillNum - " .. proficientKill[level + 1]
-                .. " where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race .. " and KillNum >= " .. proficientKill[level + 1];
+                .. " where RegNum = '" .. player:getRegistNumber() .. "' and Race = " .. race .. " and KillNum >= " .. proficientKill[level + 1];
         SQL.Run(sql);
         killNum = killNum - proficientKill[level + 1];
         level = level + 1;
@@ -97,14 +97,14 @@ function Event.RegGetExpEvent.updateProficientKill(index, exp)
         local pet = MyPet:getBattlePet(player:getObj())
         if pet:isValid() then
             local race = pet:getRace() + 1;
-            local sql = "update tbl_pet_proficient set KillNum = KillNum + 1 where RegNum = " .. player:getRegistNumber() .. " and Race = " .. race;
+            local sql = "update tbl_pet_proficient set KillNum = KillNum + 1 where RegNum = '" .. player:getRegistNumber() .. "' and Race = " .. race;
             SQL.Run(sql);
         end
     end
 end
 
 function initProficient(player)
-    local sql = "select Race, Level from tbl_pet_proficient where Level > 0 And RegNum = " .. player:getRegistNumber();
+    local sql = "select Race, Level from tbl_pet_proficient where Level > 0 And RegNum = '" .. player:getRegistNumber() .. "'"
     local rs = SQL.Run(sql);
     local info = {}
 

@@ -43,12 +43,12 @@ function initVip(player)
     logPrint("BounsHp", player:getBounsHp())
     player:setBounsHp(999)
     player:flush()
-    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = " .. player:getRegistNumber();
+    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = '" .. player:getRegistNumber() .."'";
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table") then
         logPrint("vipInfo not found, id:" .. player:getRegistNumber());
-        sql = "INSERT INTO tbl_vip_info (RegNum,VipLevel,VipExp,LastExp,LastTime,CreateTime,LuckVal,EnemyAvoidSec,RemoteBank) VALUES ("
-                .. player:getRegistNumber() .. ",0,0,0,0,unix_timestamp(),0,0,0)";
+        sql = "INSERT INTO tbl_vip_info (RegNum,VipLevel,VipExp,LastExp,LastTime,CreateTime,LuckVal,EnemyAvoidSec,RemoteBank) VALUES ('"
+                .. player:getRegistNumber() .. "',0,0,0,0,unix_timestamp(),0,0,0)";
         SQL.Run(sql);
         vipInfo[player:getRegistNumber()] = {
             ["level"] = 0,
@@ -117,7 +117,7 @@ function collectVip(player, arg)
     info["lastTime"] = os.time()
     info["exp"] = info["exp"] + exp
     local sql = "UPDATE tbl_vip_info SET VipExp=" .. info["exp"] .. ",LastTime=unix_timestamp(),LastExp=" ..
-            info["lastExp"] .. " WHERE RegNum=" .. player:getRegistNumber();
+            info["lastExp"] .. " WHERE RegNum='" .. player:getRegistNumber() .."'";
     SQL.Run(sql);
     player:sysMsg("领取" .. exp .."会员经验！");
 
@@ -134,8 +134,8 @@ function openAvoid(player, arg)
     player:startAvoid()
     info["avoidFlag"] = 1
     info["avoidTime"] = os.time()
-    local sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values (" ..
-            player:getRegistNumber() .. ",1,1,'',unix_timestamp() + " .. info["avoid"] .. ", UNIX_TIMESTAMP());"
+    local sql = "insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values ('" ..
+            player:getRegistNumber() .. "',1,1,'',unix_timestamp() + " .. info["avoid"] .. ", UNIX_TIMESTAMP());"
     SQL.Run(sql);
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
     player:sysMsg("您已经成功开启驱魔功能！");
@@ -153,7 +153,7 @@ function closeAvoid(player)
     if info["avoid"] < 0 then
         info["avoid"] = 0
     end
-    local sql = "UPDATE tbl_vip_info SET EnemyAvoidSec = " .. info["avoid"] .. " WHERE RegNum = " .. player:getRegistNumber()
+    local sql = "UPDATE tbl_vip_info SET EnemyAvoidSec = " .. info["avoid"] .. " WHERE RegNum = '" .. player:getRegistNumber() .."'"
     info["avoidFlag"] = 0
     info["avoidTime"] = 0
     SQL.Run(sql)
@@ -163,7 +163,7 @@ end
 
 function userCloseAvoid(player, arg)
     closeAvoid(player)
-    local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and RegNum =" .. player:getRegistNumber()
+    local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and RegNum ='" .. player:getRegistNumber() .. "'"
     SQL.Run(sql1)
     player:sysMsg("您已经停止驱魔功能！");
 end
@@ -204,7 +204,7 @@ function godGift(player, arg)
 
     NLG.SystemMessage(-1 , "感谢尊贵的VIP玩家【" ..  player:getName() .. "】，您开启的【天降礼包】闪耀全场，好运与您同在！")
     info["gift"] = 0
-    local sql = "UPDATE tbl_vip_info SET GodGift = 0 WHERE GodGift = 1 and RegNum = " .. player:getRegistNumber()
+    local sql = "UPDATE tbl_vip_info SET GodGift = 0 WHERE GodGift = 1 and RegNum = '" .. player:getRegistNumber() .."'"
     SQL.Run(sql)
     startGift(vipGiftInfo)
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
@@ -217,7 +217,7 @@ function upGift(player, arg)
         return
     end
 
-    local sql = "UPDATE tbl_vip_info SET UpGift = 0 WHERE UpGift = 1 and RegNum = " .. player:getRegistNumber()
+    local sql = "UPDATE tbl_vip_info SET UpGift = 0 WHERE UpGift = 1 and RegNum = '" .. player:getRegistNumber() .."'"
     SQL.Run(sql)
     player:getItem(vipGift[info["level"]])
     player:sysMsg("恭喜您领取会员礼包！")
@@ -262,7 +262,7 @@ function upVip(player, arg)
     info["avoid"] = info["avoid"] + vipAvoid[level] - vipAvoid[info["level"]]
     info["level"] = level
     sql = sql .. ",VipLevel=" .. info["level"] .. ",LuckVal=" .. info["luck"] .. ",EnemyAvoidSec=" .. info["avoid"]
-    sql = sql .. " WHERE RegNum=" .. player:getRegistNumber();
+    sql = sql .. " WHERE RegNum='" .. player:getRegistNumber() .."'"
     SQL.Run(sql);
     player:sysMsg("会员等级提升至" .. level .."级！");
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
@@ -292,7 +292,7 @@ function openExp(player, arg)
     end
     setCharExp(addRate, 7200)
     info["addExp"] = 0
-    local sql = "UPDATE tbl_vip_info SET AddExp = 0 WHERE AddExp = 1 and RegNum = " .. player:getRegistNumber()
+    local sql = "UPDATE tbl_vip_info SET AddExp = 0 WHERE AddExp = 1 and RegNum = '" .. player:getRegistNumber() .. "'"
     SQL.Run(sql)
     Protocol.PowerSend(player:getObj(),"FLUSH_VIP", info)
 end

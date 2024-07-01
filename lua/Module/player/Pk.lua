@@ -4,7 +4,7 @@ local startPk = false
 function isJoinPk(player, pkId)
     local mac = player:getMac()
     local reqNum = player:getRegistNumber()
-    local sql = string.format("select Id from tbl_pk_team where (RegNum = %d or Mac = '%s' or TeamInfo like '%|%d|%') and PkId = %d",
+    local sql = string.format("select Id from tbl_pk_team where (RegNum = '%s' or Mac = '%s' or TeamInfo like '%|%d|%') and PkId = %d",
             reqNum, mac, reqNum, pkId)
     local rs = SQL.Run(sql)
 
@@ -46,7 +46,7 @@ function joinPk(player, arg)
         teamInfo = teamInfo .. player:getPartyMember(i):getRegistNumber() .. "|"
     end
 
-    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values (%d, %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
+    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values ('%s', %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
             player:getRegistNumber(), player:getName(), pkId, teamInfo, player:getMac())
     SQL.Run(sql)
     player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
@@ -57,24 +57,24 @@ function setPkResult(pid, rid, round, winnerRegNum, loserRegNum, winnerName, los
     local sql = "update tbl_pk_info set Count = Count - Count, Status = if(Count == 0, 1, Status) where Id = " .. pid;
     SQL.Run(sql)
     if 0 == round then
-        local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. 0 .. " where Id = " .. rid;
+        local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = '' where Id = " .. rid;
         SQL.Run(sql1)
         if 0 ~= winnerRegNum then
-            local sql2 = "update tbl_pk_team set Status = 2 where RegNum = " .. winnerRegNum .. " and Status = 1;"
+            local sql2 = "update tbl_pk_team set Status = 2 where RegNum = '" .. winnerRegNum .. "' and Status = 1;"
             SQL.Run(sql2)
         end
         if 0 ~= loserRegNum then
-            local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loserRegNum .. " and Status = 1;"
+            local sql3 = "update tbl_pk_team set Status = 2 where RegNum = '" .. loserRegNum .. "' and Status = 1;"
             SQL.Run(sql3)
         end
         return
     end
 
-    local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = "
-            .. winnerRegNum .. " where Id = " .. rid;
+    local sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = '"
+            .. winnerRegNum .. "' where Id = " .. rid;
     SQL.Run(sql1)
 
-    local sql2 = "update tbl_pk_team set Status = 0 where RegNum = " .. winnerRegNum .. " and Status = 1;"
+    local sql2 = "update tbl_pk_team set Status = 0 where RegNum = '" .. winnerRegNum .. "' and Status = 1;"
     SQL.Run(sql2)
 
     if 0 == loserRegNum then
@@ -82,7 +82,7 @@ function setPkResult(pid, rid, round, winnerRegNum, loserRegNum, winnerName, los
         return
     end
 
-    local sql3 = "update tbl_pk_team set Status = 2 where RegNum = " .. loserRegNum .. " and Status = 1;"
+    local sql3 = "update tbl_pk_team set Status = 2 where RegNum = '" .. loserRegNum .. "' and Status = 1;"
     SQL.Run(sql3)
 
     if round == 4 then
@@ -140,8 +140,8 @@ function startPk(regNum, info)
     local len = countKeys(rs)
     for i = 1, (len / 7) do
         local rid = rs[i .. "_0"]
-        local aRegNum = tonumber(rs[i .. "_1"])
-        local bRegNum = tonumber(rs[i .. "_2"])
+        local aRegNum = rs[i .. "_1"]
+        local bRegNum = rs[i .. "_2"]
         local playerA = nil
         local playerB = nil
         local playerAName = rs[i .. "_3"]
@@ -192,15 +192,15 @@ function pkSummary(battleIndex)
     end
 
     -- 确定胜者注册号
-    local winnerRegNum = tonumber(rs["0_2"]) -- 默认胜者为TeamB
+    local winnerRegNum = rs["0_2"] -- 默认胜者为TeamB
     local winnerName = rs["0_6"]
-    local loserRegNum = tonumber(rs["0_1"])
+    local loserRegNum = rs["0_1"]
     local loserName = rs["0_5"]
     local round = tonumber(rs["0_3"])
     if winner == 1 then
-        winnerRegNum = tonumber(rs["0_1"]) -- 如果TeamA胜利，则更新胜者注册号
+        winnerRegNum = rs["0_1"] -- 如果TeamA胜利，则更新胜者注册号
         winnerName = rs["0_5"]
-        loserRegNum = tonumber(rs["0_2"])
+        loserRegNum = rs["0_2"]
         loserName = rs["0_6"]
     end
 

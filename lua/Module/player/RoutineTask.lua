@@ -60,7 +60,7 @@ function receiveTask(player, cycleType)
 
     for i = 1, taskCount do
         local typeIndex, item, count = getRandomTaskAndItem()
-        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime) VALUES (%d, %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
+        local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Progress, CreateTime) VALUES ('%s', %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
                 regNum, cycleType, cycleDate, typeIndex, item, count)
         SQL.Run(sql)
     end
@@ -75,7 +75,7 @@ function queryTaskByType(player, cycleType)
     local cycleDate = os.date(cycleFormat[cycleType])
 
     -- 从数据库获取任务信息
-    local query = string.format("SELECT Id, Type, Item, Count, Progress, Status, Cycle FROM tbl_player_task WHERE RegNum = %d AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
+    local query = string.format("SELECT Id, Type, Item, Count, Progress, Status, Cycle FROM tbl_player_task WHERE RegNum = '%s' AND Cycle = %d AND CycleDate = %d", regNum, cycleType, cycleDate)
     local result = SQL.Run(query)
     if(type(result) ~= "table")then
         receiveTask(player, cycleType)
@@ -143,7 +143,7 @@ end
 function submitTask(player, arg)
     local regNum = player:getRegistNumber()
     local taskId = tonumber(arg)
-    local query = string.format("SELECT Cycle, Type, Item, Count, Progress, Status FROM tbl_player_task WHERE RegNum = %d AND Id = %d", regNum, taskId)
+    local query = string.format("SELECT Cycle, Type, Item, Count, Progress, Status FROM tbl_player_task WHERE RegNum = '%s' AND Id = %d", regNum, taskId)
     local result = SQL.Run(query)
     if(type(result) ~= "table")then
         player:sysMsg("查询任务失败，无法提交任务")
@@ -168,7 +168,7 @@ function submitTask(player, arg)
     handleTask(regNum, playerTask)
     if playerTask.progress >= playerTask.count then
         -- 更新任务状态为已完成
-        local sql = string.format("UPDATE tbl_player_task SET Status = 2, Progress = %d WHERE RegNum = %d AND Id = %d", playerTask.progress, regNum, taskId)
+        local sql = string.format("UPDATE tbl_player_task SET Status = 2, Progress = %d WHERE RegNum = '%s' AND Id = %d", playerTask.progress, regNum, taskId)
         SQL.Run(sql)
 
         -- 领取奖励

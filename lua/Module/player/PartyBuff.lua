@@ -1,5 +1,5 @@
 local jobBuff = {
-    [0] = {"hp", 1000}
+    [1] = {"hp", 1000}
 }
 
 local buffFunc = {
@@ -28,39 +28,46 @@ local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
 
-function addBuff(buffList, members, desc)
-    logPrintTbl(buffList)
-    logPrintTbl(members)
-    logPrint(desc)
+function addBuff(members, buffList, desc)
+    logPrint("addBuff")
     for _, member in ipairs(members) do
-        for _, buff in ipairs(buffList) do
-            local funcName = buff[1]
-            local val = buff[2]
-            local method = MyPlayer[buffFunc[funcName]]
-            method(member, val)
+        if member:isValid() then
+            for _, buff in ipairs(buffList) do
+                logPrintTbl(buff)
+                local funcName = buff[1]
+                local val = buff[2]
+                local method = MyChar[buffFunc[funcName]]
+                method(member, val)
+            end
+            member:flush()
+            member:sysMsg("获得队伍加成：" .. desc)
+            Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", desc)
         end
-        member:flush()
-        member:sysMsg("获得队伍加成：" .. desc)
-        Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", desc)
     end
 end
 
-function subBuff(buffList, members)
+function subBuff(members, buffList)
+    logPrint("subBuff")
     for _, member in ipairs(members) do
-        for _, buff in ipairs(buffList) do
-            local funcName = buff[1]
-            local val = buff[2]
-            local method = MyPlayer[funcName]
-            method(member, -val)
+        logPrint(member:isValid())
+        if member:isValid() then
+            for _, buff in ipairs(buffList) do
+                logPrintTbl(buff)
+                local funcName = buff[1]
+                local val = buff[2]
+                local method = MyChar[buffFunc[funcName]]
+                method(member, -val)
+            end
+            member:flush()
+            Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", "")
         end
-        Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", "")
     end
 end
 
 function Event.RegPartyEvent.PartyBuff(index, target, pType)
     local player = MyPlayer:new(index)
     local now = os.time()
-    if player:isLeader() then
+    if player:isLeader() and index ~= target then
         local oldList = partyMemberInfo[target]
         local oldBuffList = partyBuffInfo[target]
         if rawget(waitHandleList, index) ~= nil then
@@ -119,7 +126,7 @@ function addPartyBuff(index)
     if #newBuffList > 0 then
         partyBuffInfo[index] = newBuffList
         partyMemberInfo[index] = newList
-        addBuff(newBuffList, newList, partyDesc)
+        addBuff(newList, newBuffList, partyDesc)
     end
 end
 

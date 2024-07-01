@@ -24,7 +24,7 @@ function joinSinglePk(player, arg)
         return
     end
 
-    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values (%d, %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
+    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values ('%s', %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
             player:getRegistNumber(), player:getName(), pkId, '', player:getMac())
     SQL.Run(sql)
     player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
@@ -34,26 +34,26 @@ end
 function setSinglePkResult(rid, winnerRegNum, loserRegNum, winnerName, loserName, winnerStatus, loserStatus)
     local sql1 = ""
     if 0 == winnerStatus then
-        sql1 = "update tbl_pk_team set Status = 2 where RegNum = " .. winnerRegNum .. " and Status = 1;"
+        sql1 = "update tbl_pk_team set Status = 2 where RegNum = '" .. winnerRegNum .. "' and Status = 1;"
         SQL.Run(sql1)
     else
-        sql1 = "update tbl_pk_team set CurrentRanking = CurrentRanking + " .. winnerVal .. " where RegNum = " .. winnerRegNum .. " and Status = 1;"
+        sql1 = "update tbl_pk_team set CurrentRanking = CurrentRanking + " .. winnerVal .. " where RegNum = '" .. winnerRegNum .. "' and Status = 1;"
         SQL.Run(sql1)
     end
     if 0 == loserStatus then
-        sql1 = "update tbl_pk_team set Status = 2 where RegNum = " .. loserRegNum .. " and Status = 1;"
+        sql1 = "update tbl_pk_team set Status = 2 where RegNum = '" .. loserRegNum .. "' and Status = 1;"
         SQL.Run(sql1)
     else
-        sql1 = "update tbl_pk_team set CurrentRanking = CurrentRanking + " .. loserVal .. " where RegNum = " .. loserRegNum .. " and Status = 1;"
+        sql1 = "update tbl_pk_team set CurrentRanking = CurrentRanking + " .. loserVal .. " where RegNum = '" .. loserRegNum .. "' and Status = 1;"
         SQL.Run(sql1)
     end
 
     if 0 == winnerStatus then
-        sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = " .. 0 .. " where Id = " .. rid;
+        sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = '' where Id = " .. rid;
         SQL.Run(sql1)
     else
-        sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = "
-                .. winnerRegNum .. " where Id = " .. rid;
+        sql1 = "update tbl_pk_record set Status = 2, EndTime = UNIX_TIMESTAMP(), WinnerRegNum = '"
+                .. winnerRegNum .. "' where Id = " .. rid;
         SQL.Run(sql1)
         if 1 == loserStatus then
             NLG.SystemMessage(-1, "[PK系统] 恭喜玩家 " .. winnerName.. " 在个人积分赛比赛中战胜了 " .. loserName .. "！")
@@ -89,8 +89,8 @@ function startSinglePk(regNum, info)
     local len = countKeys(rs)
     for i = 1, (len / 7) do
         local rid = rs[i .. "_0"]
-        local aRegNum = tonumber(rs[i .. "_1"])
-        local bRegNum = tonumber(rs[i .. "_2"])
+        local aRegNum = rs[i .. "_1"]
+        local bRegNum = rs[i .. "_2"]
         local playerA = nil
         local playerB = nil
         local playerAName = rs[i .. "_3"]
@@ -141,14 +141,14 @@ function singlePkSummary(battleIndex)
     end
 
     -- 确定胜者注册号
-    local winnerRegNum = tonumber(rs["0_2"]) -- 默认胜者为TeamB
+    local winnerRegNum = rs["0_2"] -- 默认胜者为TeamB
     local winnerName = rs["0_6"]
-    local loserRegNum = tonumber(rs["0_1"])
+    local loserRegNum = rs["0_1"]
     local loserName = rs["0_5"]
     if winner == 1 then
-        winnerRegNum = tonumber(rs["0_1"]) -- 如果TeamA胜利，则更新胜者注册号
+        winnerRegNum = rs["0_1"] -- 如果TeamA胜利，则更新胜者注册号
         winnerName = rs["0_5"]
-        loserRegNum = tonumber(rs["0_2"])
+        loserRegNum = rs["0_2"]
         loserName = rs["0_6"]
     end
 

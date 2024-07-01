@@ -1,12 +1,10 @@
-local minId = 1001
-local wndId = minId
 local wndMgr = {}
-local wndIdMgr = {}
 local lastWnd = nil
 
 function showWnd(view)
     local wnd = wndMgr[view.vid]
     if nil == wnd then
+        logPrint("open view vid " .. view.vid)
         return
     end
 
@@ -19,16 +17,26 @@ function showWnd(view)
 end
 
 function Event.ViewInit.ReviewWnd(view)
-    if view.vid >= minId then
+    local wnd = wndMgr[view.vid]
+    if nil == wnd then
+        logPrint("open view vid " .. view.vid)
         return
     end
-    showWnd(view)
+
+    if nil == wnd._title then
+        wnd:setView(view)
+        if wnd:needSetupUi() then
+            wnd:setupUi()
+        else
+            wnd:showUi()
+        end
+    end
 end
 
 Window = {}
 Window.__index = Window
 
-function Window:new(title, img)
+function Window:new(id, title, img)
     local bgId = 0
 
     if type(img) == "number" then
@@ -36,12 +44,8 @@ function Window:new(title, img)
     else
         bgId = getImgId(img)
     end
-    if rawget(wndIdMgr, title) == nil then
-        wndIdMgr[title] = wndId
-        wndId = wndId + 2
-    end
     local newObj = {
-        _id = wndIdMgr[title],
+        _id = id,
         _bgId = bgId,
         _title = title,
         _view = nil,
@@ -86,7 +90,7 @@ function Window:needSetupUi()
 end
 
 function Window:setupUi()
-    if self._id >= minId then
+    if nil ~= self._title then
         self._view.settop();
     end
     for __, item in pairs(self._widgetList) do
@@ -96,7 +100,7 @@ function Window:setupUi()
             self._view.add(controls[i])
         end
     end
-    if self._id >= minId then
+    if nil ~= self._title then
         self._view.add(new.image(self._title .. "bg"))
     end
     if nil ~= self._onInit then
@@ -105,7 +109,7 @@ function Window:setupUi()
 end
 
 function Window:showUi()
-    if self._id >= minId then
+    if nil ~= self._title then
         local screenWidth = 640
         local screenHeight = 480
         if Cli.GetHD() then

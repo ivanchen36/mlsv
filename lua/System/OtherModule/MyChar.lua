@@ -42,7 +42,7 @@ function MyChar:recoverHurt()
 end
 
 function MyChar:isValid()
-    return VaildChar(self._player)
+    return VaildChar(self._player) and (self:getType() ~= nil)
 end
 
 --%对象_战死% 4000
@@ -537,11 +537,7 @@ end
 
 --%对象_RegistNumber% 48
 function MyChar:getRegistNumber()
-    return self:get(48)
-end
-
-function MyChar:setRegistNumber(val)
-    return self:set(48, val)
+    return self:get(48) .. self:getCdk();
 end
 
 --%对象_职业% 49
@@ -1103,7 +1099,7 @@ function MyChar:getBounsDefence()
     return self:get(20000)
 end
 function MyChar:setBounsDefence(val)
-    return self:set(20000, val - (self:getBounsDefence() or 0))
+    return self:set(20000, val + (self:getBounsDefence() or 0))
 end
 
 --%BOUNS_ATTACK% 20001
@@ -1111,7 +1107,7 @@ function MyChar:getBounsAttack()
     return self:get(20001)
 end
 function MyChar:setBounsAttack(val)
-    return self:set(20001, val - (self:getBounsAttack() or 0))
+    return self:set(20001, val + (self:getBounsAttack() or 0))
 end
 
 --%BOUNS_AGILITY% 20002
@@ -1119,7 +1115,7 @@ function MyChar:getBounsAgility()
     return self:get(20002)
 end
 function MyChar:setBounsAgility(val)
-    return self:set(20002, val - (self:getBounsAgility() or 0))
+    return self:set(20002, val + (self:getBounsAgility() or 0))
 end
 
 --%BOUNS_MAGIC% 20003
@@ -1127,7 +1123,7 @@ function MyChar:getBounsMagic()
     return self:get(20003)
 end
 function MyChar:setBounsMagic(val)
-    self:set(20003, val - (self:getBounsMagic() or 0))
+    self:set(20003, val + (self:getBounsMagic() or 0))
     return self:setMp(self:getMp() + val)
 end
 
@@ -1136,7 +1132,7 @@ function MyChar:getBounsRecovery()
     return self:get(20004)
 end
 function MyChar:setBounsRecovery(val)
-    return self:set(20004, val - (self:getBounsRecovery() or 0))
+    return self:set(20004, val + (self:getBounsRecovery() or 0))
 end
 
 --%BOUNS_HP% 20005
@@ -1144,7 +1140,7 @@ function MyChar:getBounsHp()
     return self:get(20005)
 end
 function MyChar:setBounsHp(val)
-    self:set(20005, val - (self:getBounsHp() or 0))
+    self:set(20005, val + (self:getBounsHp() or 0))
     return self:setHp(self:getHp() + val)
 end
 
@@ -1153,7 +1149,7 @@ function MyChar:getBounsForcepoint()
     return self:get(20006)
 end
 function MyChar:setBounsForcepoint(val)
-    return self:set(20006, val - (self:getBounsForcepoint() or 0))
+    return self:set(20006, val + (self:getBounsForcepoint() or 0))
 end
 
 --%BOUNS_LUCK% 20007
@@ -1161,7 +1157,7 @@ function MyChar:getBounsLuck()
     return self:get(20007)
 end
 function MyChar:setBounsLuck(val)
-    return self:set(20007, val - (self:getBounsLuck() or 0))
+    return self:set(20007, val + (self:getBounsLuck() or 0))
 end
 
 --%BOUNS_CHARM% 20008
@@ -1169,7 +1165,7 @@ function MyChar:getBounsCharm()
     return self:get(20008)
 end
 function MyChar:setBounsCharm(val)
-    return self:set(20008, val - (self:getBounsCharm() or 0))
+    return self:set(20008, val + (self:getBounsCharm() or 0))
 end
 
 --%BOUNS_POISON% 20009
@@ -1177,7 +1173,7 @@ function MyChar:getBounsPoison()
     return self:get(20009)
 end
 function MyChar:setBounsPoison(val)
-    return self:set(20009, val - (self:getBounsPoison() or 0))
+    return self:set(20009, val + (self:getBounsPoison() or 0))
 end
 
 --%BOUNS_SLEEP% 20010
@@ -1185,7 +1181,7 @@ function MyChar:getBounsSleep()
     return self:get(20010)
 end
 function MyChar:setBounsSleep(val)
-    return self:set(20010, val - (self:getBounsSleep() or 0))
+    return self:set(20010, val + (self:getBounsSleep() or 0))
 end
 
 --%BOUNS_STONE% 20011
@@ -1193,7 +1189,7 @@ function MyChar:getBounsStone()
     return self:get(20011)
 end
 function MyChar:setBounsStone(val)
-    return self:set(20011, val - (self:getBounsStone() or 0))
+    return self:set(20011, val + (self:getBounsStone() or 0))
 end
 
 --%BOUNS_DRUNK% 20012
@@ -1201,7 +1197,7 @@ function MyChar:getBounsDrunk()
     return self:get(20012)
 end
 function MyChar:setBounsDrunk(val)
-    return self:set(20012, val - (self:getBounsDrunk() or 0))
+    return self:set(20012, val + (self:getBounsDrunk() or 0))
 end
 
 --%BOUNS_CONFUSION% 20013
@@ -1209,7 +1205,7 @@ function MyChar:getBounsConfusion()
     return self:get(20013)
 end
 function MyChar:setBounsConfusion(val)
-    return self:set(20013, val - (self:getBounsConfusion() or 0))
+    return self:set(20013, val + (self:getBounsConfusion() or 0))
 end
 
 --%BOUNS_AMNESIA% 20014
@@ -1217,7 +1213,7 @@ function MyChar:getBounsAmnesia()
     return self:get(20014)
 end
 function MyChar:setBounsAmnesia(val)
-    return self:set(20014, val - (self:getBounsAmnesia() or 0))
+    return self:set(20014, val + (self:getBounsAmnesia() or 0))
 end
 
 --%BOUNS_CRITICAL% 20015
@@ -1225,7 +1221,7 @@ function MyChar:getBounsCritical()
     return self:get(20015)
 end
 function MyChar:setBounsCritical(val)
-    return self:set(20015, val - (self:getBounsCritical() or 0))
+    return self:set(20015, val + (self:getBounsCritical() or 0))
 end
 
 --%BOUNS_COUNTER% 20016
@@ -1233,7 +1229,7 @@ function MyChar:getBounsCounter()
     return self:get(20016)
 end
 function MyChar:setBounsCounter(val)
-    return self:set(20016, val - (self:getBounsCounter() or 0))
+    return self:set(20016, val + (self:getBounsCounter() or 0))
 end
 
 --%BOUNS_HITRATE% 20017
@@ -1241,7 +1237,7 @@ function MyChar:getBounsHitrate()
     return self:get(20017)
 end
 function MyChar:setBounsHitrate(val)
-    return self:set(20017, val - (self:getBounsHitrate() or 0))
+    return self:set(20017, val + (self:getBounsHitrate() or 0))
 end
 
 --%BOUNS_AVOID% 20018
@@ -1249,7 +1245,7 @@ function MyChar:getBounsAvoid()
     return self:get(20018)
 end
 function MyChar:setBounsAvoid(val)
-    return self:set(20018, val - (self:getBounsAvoid() or 0))
+    return self:set(20018, val + (self:getBounsAvoid() or 0))
 end
 
 --%BOUNS_STAMINA% 20019
@@ -1257,7 +1253,7 @@ function MyChar:getBounsStamina()
     return self:get(20019)
 end
 function MyChar:setBounsStamina(val)
-    return self:set(20019, val - (self:getBounsStamina() or 0))
+    return self:set(20019, val + (self:getBounsStamina() or 0))
 end
 
 --%BOUNS_DEX% 20020
@@ -1265,7 +1261,7 @@ function MyChar:getBounsDex()
     return self:get(20020)
 end
 function MyChar:setBounsDex(val)
-    return self:set(20020, val - (self:getBounsDex() or 0))
+    return self:set(20020, val + (self:getBounsDex() or 0))
 end
 
 --%BOUNS_INTELLIGENCE% 20021
@@ -1273,7 +1269,7 @@ function MyChar:getBounsIntelligence()
     return self:get(20021)
 end
 function MyChar:setBounsIntelligence(val)
-    return self:set(20021, val - (self:getBounsIntelligence() or 0))
+    return self:set(20021, val + (self:getBounsIntelligence() or 0))
 end
 
 --%BOUNS_ADM% 20022
@@ -1281,7 +1277,7 @@ function MyChar:getBounsAdm()
     return self:get(20022)
 end
 function MyChar:setBounsAdm(val)
-    return self:set(20022, val - (self:getBounsAdm() or 0))
+    return self:set(20022, val + (self:getBounsAdm() or 0))
 end
 
 --%BOUNS_RSS% 20023
@@ -1289,7 +1285,7 @@ function MyChar:getBounsRss()
     return self:get(20023)
 end
 function MyChar:setBounsRss(val)
-    return self:set(20023, val - (self:getBounsRss() or 0))
+    return self:set(20023, val + (self:getBounsRss() or 0))
 end
 
 --%BOUNS_LOYALTY% 20024
@@ -1297,5 +1293,5 @@ function MyChar:getBounsLoyalty()
     return self:get(20024)
 end
 function MyChar:setBounsLoyalty(val)
-    return self:set(20024, val - (self:getBounsLoyalty() or 0))
+    return self:set(20024, val + (self:getBounsLoyalty() or 0))
 end

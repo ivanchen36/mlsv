@@ -183,7 +183,6 @@ function getSynthesisClient(player, arg)
             ["click"] = "synthesis",
         }
     }
-    logPrint(player:getObj())
     Protocol.PowerSend(player:getObj(), "SYNTHESIS_CLIENT", client)
 end
 

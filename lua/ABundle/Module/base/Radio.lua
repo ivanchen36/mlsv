@@ -1,8 +1,6 @@
 Radio = {}
 Radio.__index = Radio
 
---local fontPixels = { 16, 13 }
-local fontPixels = { 13 }
 function Radio:new(title, image1, image2, texts, values, layout, width, high)
     local newObj = {
         _title = title,
@@ -25,7 +23,11 @@ function Radio:new(title, image1, image2, texts, values, layout, width, high)
         _onChange = nil
     }
     setmetatable(newObj, self)
-
+    if newObj._normalImg >= 9990000 then
+        local x, y = getSize(newObj._normalImg)
+        newObj._btnSizeX = x
+        newObj._btnSizeY = y
+    end
     return newObj
 end
 
@@ -110,7 +112,7 @@ function Radio:setColor(color)
     end
 end
 
-function Label:setFont(font)
+function Radio:setFont(font)
     self._font = font
     if 0 == #self._showText then
         return
@@ -118,6 +120,15 @@ function Label:setFont(font)
     for i = 1, #self._texts do
         self._showText[i].fontsize = self._font
     end
+end
+
+function Radio:getFonSize(fontPixel)
+    for i = 1, #fontPixels do
+        if fontPixel >= fontPixels[i] then
+            return i
+        end
+    end
+    return #fontPixels
 end
 
 function Radio:show(view)
@@ -128,7 +139,6 @@ function Radio:show(view)
         self._showText[i] = text
     end
     self:setVisible(true)
-    self._btnSizeX, self._btnSizeY = getSize(self._normalImg)
     local arr = strSplit(self._layout, ",")
     local rows = tonumber(arr[1])
     local columns = tonumber(arr[2])
@@ -147,13 +157,17 @@ function Radio:show(view)
             else
                 self:setImgId(i, self._normalImg)
             end
+            if 0 == self._btnSizeX then
+                self._btnSizeX = self._showImg[i].sizex
+                self._btnSizeY = self._showImg[i].sizey
+            end
             self._showText[i].fontsize = self._font
             self._showText[i].text = self._texts[i]
             self._showText[i].color = self._color
 
             self._showText[i].xpos = self._posX + (c - 1) * self._width
-            self._showText[i].ypos = self._posY + (r - 1) * self._high
-            self._showImg[i].xpos = self._posX + (c - 1) * self._width + self._width - self._btnSizeX
+            self._showText[i].ypos = self._posY + (r - 1) * self._high + math.ceil((self._btnSizeY - 13) / 2)
+            self._showImg[i].xpos = self._posX + (c - 1) * self._width + self._width - self._btnSizeX - 20
             self._showImg[i].ypos = self._posY + (r - 1) * self._high
         end
     end

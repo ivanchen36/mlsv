@@ -103,10 +103,6 @@ function MyPlayer:recoverHurt()
     NLG.SendGraphEvent(player, 45, 0);
 end
 
-function MyPlayer:isValid()
-    return VaildChar(self._player)
-end
-
 --%¶ÔÏó_½ð±Ò% 53
 function MyPlayer:addMoney(amount)
     self:setGold( self:getGold() + amount)

@@ -5,6 +5,7 @@ LoadABundle("base/StaticText.lua");
 LoadABundle("base/Button.lua");
 LoadABundle("base/Radio.lua");
 LoadABundle("base/Window.lua");
+LoadABundle("base/MyJson.lua");
 LoadABundle("base/Util.lua");
 
 LoadABundle("biz/Vip.lua");

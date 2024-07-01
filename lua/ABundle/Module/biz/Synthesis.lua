@@ -192,7 +192,7 @@ function loadSynthesisClient(client)
     if nil == synthesisWnd and nil ~= synthesisInfo then
         needShow = true
     end
-    synthesisWnd = createWindow("synthesis", client)
+    synthesisWnd = createWindow(1007, "synthesis", client)
     addCharAttr(synthesisWnd, petTitle[1])
     addCharAttr(synthesisWnd, petTitle[2])
     if needShow then
@@ -213,6 +213,7 @@ function showSynthesis(info)
     logPrintTbl(info)
     synthesisWnd:show()
     initSynthesisContent()
+    logPrintTbl(synthesisWnd)
     logPrint( 'showSynthesis2')
 end
 

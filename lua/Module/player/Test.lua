@@ -12,6 +12,7 @@ function test(player)
     getVipClient(player, "")
     getProficientClient(player, "")
     getSynthesisClient(player, "")
+    getAwakeningClient(player, "")
 end
 
 function test2()
@@ -20,7 +21,7 @@ end
 
 TalkEvent["/test"] = test
 
-TalkEvent["/test1"] = function (player)
+TalkEvent["/test2"] = function (player)
     player:recoverHp()
 end
 

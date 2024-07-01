@@ -6,7 +6,7 @@ local petNum1 = 0
 
 function awakening(widget)
     if nil ~= select1 then
-        Cli.Send("up_awakening|" .. awakeningInfo[select1]["uuid"] .. "," .. awakeningWnd:getWidget("type").getValue())
+        Cli.Send("up_awakening|" .. awakeningInfo[select1]["uuid"] .. "," .. awakeningWnd:getWidget("attrType").getValue())
     end
 end
 
@@ -33,7 +33,7 @@ function selectAttrChanged(widget)
 end
 
 function showAwakeningInfo()
-    local attr = awakeningWnd:getWidget("type")
+    local attr = awakeningWnd:getWidget("attrType")
 
     initAwakeningSelect()
     showPetInfo(awakeningWnd,1, awakeningInfo[select1])
@@ -42,20 +42,7 @@ function showAwakeningInfo()
 end
 
 function awakeningPrev(widget)
-    if nil == select1 then
-        return
-    end
-    if select1 >= petNum1 then
-        initAwakeningSelect()
-        return
-    end
-    select1 = select1 + 1
-    showAwakeningInfo()
-end
-
-function awakeningNext(widget)
-    local attr = awakeningWnd:getWidget("type")
-
+    logPrint("awakeningPrev")
     if nil == select1 then
         return
     end
@@ -67,22 +54,38 @@ function awakeningNext(widget)
     showAwakeningInfo()
 end
 
+function awakeningNext(widget)
+    logPrint("awakeningNext")
+    if nil == select1 then
+        return
+    end
+    if select1 >= petNum1 then
+        initAwakeningSelect()
+        return
+    end
+    select1 = select1 + 1
+    showAwakeningInfo()
+end
+
 function initAwakeningContent()
+    logPrint("initAwakeningContent")
     select1 = nil
     petNum1 = #awakeningInfo
     if petNum1 >= 1 then
         select1 = 1
     end
-    initAwakeningSelect()
+    logPrint("initAwakeningContent111")
     local confirm = awakeningWnd:getWidget("confirm")
     local check = awakeningWnd:getWidget("check")
-
+    logPrint("111")
     if nil ~= select1 then
         showAwakeningInfo()
     else
-        showAwakeningInfo(1, nil)
-        showAwakeningInfo(2, nil)
+        initAwakeningSelect()
+        showPetInfo(awakeningWnd, 1, nil)
+        showPetInfo(awakeningWnd, 2, nil)
     end
+    logPrint("222")
 end
 
 function flushAwakeningInfo(info)
@@ -99,10 +102,14 @@ function loadAwakeningClient(client)
     if nil == awakeningWnd and nil ~= awakeningInfo then
         needShow = true
     end
-    awakeningWnd = createWindow("awakening", client)
+    awakeningWnd = createWindow(1001, "awakening", client)
+    addCharAttr(awakeningWnd, petTitle[1])
+    addCharAttr(awakeningWnd, petTitle[2])
     if needShow then
         showAwakening(awakeningInfo)
     end
+
+    logPrint("loadAwakeningClient111")
 end
 
 function showAwakening(info)
@@ -115,7 +122,7 @@ function showAwakening(info)
     logPrint( 'showAwakening1')
     logPrintTbl(info)
     awakeningWnd:show()
-    initAwakeningContent()
+    safeCall(initAwakeningContent)
     logPrint( 'showAwakening2')
 end
 

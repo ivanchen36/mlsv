@@ -11,7 +11,7 @@ function loadPartyWnd()
             ["text"] = "",
         }
     }
-    partyWnd = createWindow(723, client)
+    partyWnd = createWindow(723, "", client)
     partyWnd:onShow(function()
         partyWnd:getWidget("partyBuff"):setText(partyBuff)
     end)

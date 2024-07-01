@@ -59,7 +59,7 @@ function loadProficientClient(client)
     if nil == proficientWnd and nil ~= proficientInfo then
         needShow = true
     end
-    proficientWnd = createWindow("proficient", client)
+    proficientWnd = createWindow(1005, "proficient", client)
     if needShow then
         showProficient(proficientInfo)
     end

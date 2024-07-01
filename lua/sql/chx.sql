@@ -2,7 +2,7 @@
 -- tbl_vip_info
 DROP TABLE IF EXISTS `tbl_vip_info`;
 CREATE TABLE `tbl_vip_info` (
-                                      `RegNum` int NOT NULL COMMENT '角色id',
+                                      `RegNum` varchar(64) NOT NULL COMMENT '角色id',
                                       `VipLevel` int NOT NULL DEFAULT 0 COMMENT '会员等级',
                                       `VipExp` int NOT NULL DEFAULT 0 COMMENT 'vip经验',
                                       `LastExp` int NOT NULL DEFAULT 0 COMMENT '上次领取的vip',
@@ -23,7 +23,7 @@ CREATE TABLE `tbl_vip_info` (
 DROP TABLE IF EXISTS `tbl_task`;
 CREATE TABLE `tbl_task` (
                                 `Id` int NOT NULL AUTO_INCREMENT COMMENT '自增id',
-                                `RegNum` int NOT NULL COMMENT '角色id',
+                                `RegNum` varchar(64) NOT NULL COMMENT '角色id',
                                 `Type` int NOT NULL DEFAULT 0 COMMENT '任务类型',
                                 `Status` int NOT NULL DEFAULT 0 COMMENT '状态',
                                 `Info` Varchar(512) NOT NULL DEFAULT '' COMMENT '任务信息',
@@ -54,7 +54,7 @@ CREATE TABLE `tbl_pk_info` (
 DROP TABLE IF EXISTS `tbl_pk_team`;
 CREATE TABLE `tbl_pk_team` (
                                         `Id` int NOT NULL AUTO_INCREMENT COMMENT '自增ID',
-                                        `RegNum` int NOT NULL COMMENT '队长角色ID',
+                                        `RegNum` varchar(64) NOT NULL COMMENT '队长角色ID',
                                         `Name` int NOT NULL COMMENT '队长角色名',
                                         `PkId` int NOT NULL COMMENT '所属于赛事ID',
                                         `Status` int NOT NULL DEFAULT 0 COMMENT '当前参与状态（0-未开始，1-进行中，2-待发奖品， 3-已结束）',
@@ -73,13 +73,13 @@ CREATE TABLE `tbl_pk_record` (
                                   `Id` int NOT NULL AUTO_INCREMENT COMMENT '比赛ID',
                                   `PkId` int NOT NULL COMMENT '所属于赛事ID',
                                   `Round` int NOT NULL COMMENT '当前轮次',
-                                  `TeamARegNum` int NOT NULL COMMENT '对战双方A队队长角色ID',
-                                  `TeamBRegNum` int NOT NULL COMMENT '对战双方B队队长角色ID',
+                                  `TeamARegNum` varchar(64) NOT NULL COMMENT '对战双方A队队长角色ID',
+                                  `TeamBRegNum` varchar(64) NOT NULL COMMENT '对战双方B队队长角色ID',
                                   `TeamAName` int NOT NULL COMMENT '对战双方A队队长角色名',
                                   `TeamBName` int NOT NULL COMMENT '对战双方B队队长角色名',
                                   `Status` int NOT NULL DEFAULT 0 COMMENT '战斗状态（0-未开始，1-进行中，2-已完成）',
                                   `BattleIndex` int NOT NULL COMMENT '战斗序号',
-                                  `WinnerRegNum` int COMMENT '胜方队长角色ID',
+                                  `WinnerRegNum` varchar(64) COMMENT '胜方队长角色ID',
                                   `StartTime` int NOT NULL COMMENT '比赛开始时间',
                                   `EndTime` int NOT NULL COMMENT '比赛结束时间',
                                   `CreateTime` int NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE `tbl_pk_record` (
 -- tbl_pet_proficient
 DROP TABLE IF EXISTS `tbl_pet_proficient`;
 CREATE TABLE `tbl_pet_proficient` (
-                                      `RegNum` int NOT NULL COMMENT '角色id',
+                                      `RegNum` varchar(64) NOT NULL COMMENT '角色id',
                                       `Race` int NOT NULL DEFAULT '-1' COMMENT '种族',
                                       `Level` int NOT NULL DEFAULT 0 COMMENT '精通等级',
                                       `KillNum` int NOT NULL DEFAULT 0 COMMENT '当前击杀数',
@@ -117,8 +117,8 @@ CREATE TABLE `tbl_pet_info` (
 -- tbl_player_task
 DROP TABLE IF EXISTS `tbl_player_task`;
 CREATE TABLE `tbl_player_task` (
-                                   `Id` int NOT NULL AUTO_INCREMENT COMMENT '任务ID',
-                                   `RegNum` int NOT NULL COMMENT '角色id',
+                                   `Id` varchar(64) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
+                                   `RegNum` varchar(64) NOT NULL COMMENT '角色id',
                                    `Cycle` INT NOT NULL COMMENT '任务周期（日常、周常、月常）',
                                    `CycleDate` INT NOT NULL COMMENT '当年的第几日/周/月',
                                    `Type` INT NOT NULL COMMENT '任务类型（封印、猎杀、搜寻、挑战）',
@@ -135,7 +135,7 @@ CREATE TABLE `tbl_player_task` (
 -- tbl_tax_info
 DROP TABLE IF EXISTS `tbl_tax_info`;
 CREATE TABLE `tbl_tax_info` (
-                                      `RegNum` int NOT NULL COMMENT '角色id',
+                                      `RegNum` varchar(64) NOT NULL COMMENT '角色id',
                                       `Amount` int NOT NULL DEFAULT 0 COMMENT '金币收入金额',
                                       `TaxAmount` int NOT NULL DEFAULT 0 COMMENT '金币上缴税收金额',
                                       `Cycle` INT NOT NULL COMMENT '周期-当日0点时间戳',
@@ -147,7 +147,7 @@ CREATE TABLE `tbl_tax_info` (
 -- tbl_user_limit
 DROP TABLE IF EXISTS `tbl_user_limit`;
 CREATE TABLE `tbl_user_limit` (
-                                `UserId` int NOT NULL COMMENT 'id reqnum 或者 mac',
+                                `UserId` varchar(64) NOT NULL COMMENT 'id reqnum 或者 mac',
                                 `Type` int NOT NULL DEFAULT 0 COMMENT '类型',
                                 `Count` int NOT NULL DEFAULT 0 COMMENT '总次数',
                                 `Used` int NOT NULL DEFAULT 0 COMMENT '金币上缴税收金额',

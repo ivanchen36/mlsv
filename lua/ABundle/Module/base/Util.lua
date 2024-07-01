@@ -21,20 +21,8 @@ function logPrint(...)
     end
 end
 
-function tblToString(tbl)
-    local str = ""
-    for i, v in pairs(tbl) do
-        if type(v) == "table" then
-            str = str .. " { " .. i .. " :{" .. tblToString(v) .. "}},"
-        else
-            str = str .. " { " .. i .. " : " .. tostring(v) .. "},"
-        end
-    end
-    return str
-end
-
 function logPrintTbl(tbl)
-    logPrint(tblToString(tbl))
+    logPrint(MyJson.objToJson(tbl))
 end
 
 function truncDay(t1)
@@ -89,7 +77,7 @@ function createSingleWidget(widgetMap, widget)
             tmp:setBg(widgetMap[widget.bg])
         end
     elseif "radio" == widget.type then
-        tmp = Radio:new(widget.title, widget.img1, widget.img2, strSplit(widget.texts, ","), strSplit(widget.values, ","), widget.align, widget.width, widget.high)
+        tmp = Radio:new(widget.title, widget.img1, widget.img2, strSplit(widget.texts, ","), strSplit(widget.values, ","), widget.layout, widget.width, widget.high)
     end
     tmp:setPos(widget.x, widget.y)
     return tmp
@@ -185,9 +173,9 @@ function createMulWidget(widgetMap, rows, columns, w, h, widget)
     return widgets
 end
 
-function createWindow(title, wndConfig)
+function createWindow(id, title, wndConfig)
     local widgets = {}
-    local bgImg = ""
+    local bgImg = nil
     local close = nil
     local wnd = nil
     for i = 1, #wndConfig do
@@ -216,10 +204,10 @@ function createWindow(title, wndConfig)
             widgets[tmp:getTitle()] = tmp
         end
     end
-    if type(title) == "number" then
-        wnd = Window:reView(title)
+    if bgImg == nil or close == nil then
+        wnd = Window:reView(id)
     else
-        wnd = Window:new(title, bgImg)
+        wnd = Window:new(id, title, bgImg)
         wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
     end
     for _, val in pairs(widgets) do
@@ -278,26 +266,27 @@ function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
     return {math.ceil(posXA + (sizeXA - sizeXB) / 2), math.ceil(posYA + sizeYA - sizeYB)}
 end
 
-function Event.ViewInit.PrintV(view)
-    if view.IsInit == false then
-        logPrint("open view vid " .. view.vid)
-    end
+--function Event.Recv.PrintP(player, packet)
+--    logPrint("Recv " .. packet)
+--end
+
+function errorHandler(err)
+    -- 这是一个错误处理函数，它会被 xpcall 调用，当 func 抛出错误时
+    logPrint("An error occurred:", err)
+    -- 你可以在这里进行更复杂的错误处理，比如记录日志、清理资源等
+    -- 然后返回一个值，这个值会被 xpcall 返回给 safeCall 的调用者
+    return nil, err
 end
 
--- function Event.Recv.PrintP(player, packet)
-    -- logPrint("Recv " .. packet)
--- end
-
 function safeCall(func, ...)
-    logPrint("safeCall" .. tostring(func))
-    sracetry {
-        func(...)
-    }
-    catch {
-        -- 发生异常后，被执行
-        function (errors)
-            logPrint("catch")
-            logPrint("[错误]"..os.date().." "..errors)
-        end
-    }
+    -- 使用 xpcall 调用函数，并提供一个错误处理函数
+    local status, resultOrError = xpcall(func, errorHandler, ...)
+    if status then
+        -- 函数调用成功，返回结果
+        return resultOrError
+    else
+        -- 函数调用失败，此时 resultOrError 包含了 errorHandler 返回的值
+        -- 在这个例子中，它是 nil 和一个错误字符串
+        return nil, resultOrError
+    end
 end

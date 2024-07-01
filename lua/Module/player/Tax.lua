@@ -18,16 +18,16 @@ function payTax(player, arg)
     local amount = player:getGold() - playerGold[player:getObj()]
 
     playerGold[player:getObj()] = nil
-    local sql = string.format( "SELECT Amount, TaxAmount, Cycle, CreateTime FROM tbl_tax_info WHERE RegNum = %d and Cycle = %d", playerRegNum, cycle);
+    local sql = string.format( "SELECT Amount, TaxAmount, Cycle, CreateTime FROM tbl_tax_info WHERE RegNum = '%s' and Cycle = %d", playerRegNum, cycle);
     local rs = SQL.Run(sql);
     if type(rs) ~= "table" then
-        sql = string.format("INSERT INTO tbl_tax_info (RegNum, Amount, TaxAmount, Cycle, CreateTime) VALUES (%d, %d, 0, %d, unix_timestamp())",
+        sql = string.format("INSERT INTO tbl_tax_info (RegNum, Amount, TaxAmount, Cycle, CreateTime) VALUES ('%s', %d, 0, %d, unix_timestamp())",
                 playerRegNum, amount, cycle);
         SQL.Run(sql);
 
         return;
     end
-    sql = string.format("UPDATE tbl_tax_info set Amount = Amount + %d, TaxAmount = TaxAmount + %d WHERE RegNum = %d and Cycle = %d",
+    sql = string.format("UPDATE tbl_tax_info set Amount = Amount + %d, TaxAmount = TaxAmount + %d WHERE RegNum = '%s' and Cycle = %d",
             amount, amount, playerRegNum, cycle);
     SQL.Run(sql);
 end

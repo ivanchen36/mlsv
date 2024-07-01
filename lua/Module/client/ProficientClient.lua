@@ -52,7 +52,7 @@ function getProficientClient(player, arg)
             ["table"] = "0,1",
             ["high"] = 25,
             ["type"] = "img",
-            ["title"] = "#raceTitle$AL",
+            ["title"] = "#raceTitle$a",
             ["x"] = 137,
             ["y"] = 59,
             ["img"] = "lab1.bmp",

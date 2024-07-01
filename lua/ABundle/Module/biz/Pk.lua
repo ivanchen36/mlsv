@@ -62,7 +62,7 @@ function loadPkClient(client)
     if nil == pkWnd and nil ~= pkInfo then
         needShow = true
     end
-    pkWnd = createWindow("pk", client)
+    pkWnd = createWindow(1003, "pk", client)
     if needShow then
         showPk(pkInfo)
     end

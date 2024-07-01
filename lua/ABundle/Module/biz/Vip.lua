@@ -195,7 +195,7 @@ function loadVipClient(client)
     if nil == vipWnd and nil ~= vipInfo then
         needShow = true
     end
-    vipWnd = createWindow("vip", client)
+    vipWnd = createWindow(1011, "vip", client)
     if needShow then
         showVip(vipInfo)
     end

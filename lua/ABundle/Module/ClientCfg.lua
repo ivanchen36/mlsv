@@ -7,6 +7,7 @@ function Event.RegLoginEvent.registInit(player)
     Client.RunABundle(player, "Button.lua")
     Client.RunABundle(player, "Radio.lua")
     Client.RunABundle(player, "Window.lua")
+    Client.RunABundle(player, "MyJson.lua")
     Client.RunABundle(player, "Util.lua")
 
     -- ÒµÎñÄ£¿é

@@ -133,7 +133,6 @@ function VERSION()
 end
 
 function VaildChar(index)
-
 	if(index == nil) then
 		return false;
 	end
