@@ -181,8 +181,15 @@ local function isArrayTable(t)
         return false
     end
 
-    if t[1] == nil then
-        return false
+    local n = #t
+    for i, v in pairs(t) do
+        if type(i) ~= "number" then
+            return false
+        end
+
+        if i > n then
+            return false
+        end
     end
     return true
 end

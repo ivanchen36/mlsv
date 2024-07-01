@@ -104,7 +104,7 @@ CREATE TABLE `tbl_pet_proficient` (
 -- tbl_pet_info
 DROP TABLE IF EXISTS `tbl_pet_info`;
 CREATE TABLE `tbl_pet_info` (
-                                      `uuid` int NOT NULL COMMENT '宠物uuid',
+                                      `uuid` varchar(64) NOT NULL COMMENT '宠物uuid',
                                       `EarthLevel` int NOT NULL DEFAULT 0 COMMENT '地属性觉醒等级',
                                       `WaterLevel` int NOT NULL DEFAULT 0 COMMENT '水属性觉醒等级',
                                       `FireLevel` int NOT NULL DEFAULT 0 COMMENT '火属性觉醒等级',

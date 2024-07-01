@@ -3,8 +3,22 @@ local waterAttr = 2
 local fireAttr = 3
 local windAttr = 4
 
-local itemList = {18310, 18311, 18312, 18313}
-local itemNum = {99, 399, 999}
+local attrList = {18310, 18311, 18312, 18313}
+local attrImgList = {
+    MyItem:create(attrList[1]):getImage(),
+    MyItem:create(attrList[2]):getImage(),
+    MyItem:create(attrList[3]):getImage(),
+    MyItem:create(attrList[4]):getImage()
+}
+
+local itemList = {18310, 18311, 18312}
+local itemImgList = {
+    MyItem:create(itemList[1]):getImage() or 0,
+    MyItem:create(itemList[2]):getImage() or 0,
+    MyItem:create(itemList[3]):getImage() or 0
+}
+
+local attrNum = {99, 399, 999}
 local attrField = {"EarthLevel", "WaterLevel", "FireLevel", "WindLevel"}
 
 function getSynthesisInfo(player)
@@ -27,7 +41,7 @@ function getSynthesisInfo(player)
                 ["wind"] = pet:getWindAttribute(),
                 ["img"] = pet:getImage(),
             }
-            local sql = "select EarthLevel + WaterLevel + FireLevel+ WindLevel, EarthLevel,WaterLevel,FireLevel,WindLevel from tbl_pet_info where uuid = " .. pet:getUuid();
+            local sql = string.format("select EarthLevel + WaterLevel + FireLevel+ WindLevel, EarthLevel,WaterLevel,FireLevel,WindLevel from tbl_pet_info where uuid = '%s'", pet:getUuid())
             local rs = SQL.Run(sql);
             if(type(rs) ~= "table")then
                 petAwake["level"] = 0
@@ -42,10 +56,20 @@ function getSynthesisInfo(player)
                 petAwake["fire"] = tonumber(rs["0_3"])
                 petAwake["wind"] = tonumber(rs["0_4"])
             end
+            petAwake["itemImg"] = itemImgList[petAwake["level"]]
+            petAwake["itemNum"] = player:getItemNum(itemList[petAwake["level"]])
             petArr[index] = petAwake
             index = index + 1
         end
     end
+    petArr["attrImg"] = attrImgList
+    petArr["attrNum"] = {
+        player:getItemNum(attrList[1]),
+        player:getItemNum(attrList[2]),
+        player:getItemNum(attrList[3]),
+        player:getItemNum(attrList[4]),
+    }
+    
     return petArr
 end
 
@@ -54,16 +78,16 @@ function showAwakening(player, arg)
 end
 
 function upAwakening(player, arg)
-    local param = strSplit(arg, "|")
-    local uuid = tonumber(param[1]);
-    local attr = tonumber(param[2]);
-    local itemId = itemList[attr]
+    local param = strSplit(arg, ",")
+    local uuid = param[1];
+    local attr = param[2];
+    local attrId = attrList[attr]
     local pet = MyPet:getByUuid(player:getObj(), uuid)
     if nil == pet then
         player:sysMsg("需要觉醒的宠物不存在，宠物觉醒失败");
         return
     end
-    local sql = "select EarthLevel + WaterLevel + FireLevel+ WindLevel, " .. attrField[attr] .. " from tbl_pet_info where uuid = " .. pet:getUuid();
+    local sql = string.format("select EarthLevel + WaterLevel + FireLevel+ WindLevel, %s from tbl_pet_info where uuid = '%s'", attrField[attr], pet:getUuid());
     local rs = SQL.Run(sql);
     local level = tonumber(rs["0_0"])
     local attrLevel = tonumber(rs["0_1"])
@@ -75,8 +99,8 @@ function upAwakening(player, arg)
         return
     end
 
-    if player:getItemNum(itemId) < itemNum[level] then
-        if player:delNum(itemId, itemNum[level]) > 0 then
+    if player:getItemNum(attrId) < attrNum[level] then
+        if player:delNum(attrId, attrNum[level]) > 0 then
             if 2 == attrLevel then
                 addAttr = 20
                 addArt = 4

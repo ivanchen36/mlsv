@@ -3,6 +3,7 @@ local awakeningInfo = nil
 local awakeningWnd = nil
 local select1 = nil
 local petNum1 = 0
+local itemNum = {99, 399, 999}
 
 function awakening(widget)
     if nil ~= select1 then
@@ -34,10 +35,17 @@ end
 
 function showAwakeningInfo()
     local attr = awakeningWnd:getWidget("attrType")
+    local confirm = awakeningWnd:getWidget("confirm")
+    local check = awakeningWnd:getWidget("check")
 
     initAwakeningSelect()
-    showPetInfo(awakeningWnd,1, awakeningInfo[select1])
-    showPetInfo(awakeningWnd,2, awakeningInfo[select1])
+    if nil ~= select1 then
+        showPetInfo(awakeningWnd,1, awakeningInfo[select1])
+        showPetInfo(awakeningWnd,2, awakeningInfo[select1])
+    else
+        showPetInfo(awakeningWnd, 1, nil)
+        showPetInfo(awakeningWnd, 2, nil)
+    end
     selectAttrChanged(attr)
 end
 
@@ -74,17 +82,8 @@ function initAwakeningContent()
     if petNum1 >= 1 then
         select1 = 1
     end
-    logPrint("initAwakeningContent111")
-    local confirm = awakeningWnd:getWidget("confirm")
-    local check = awakeningWnd:getWidget("check")
-    logPrint("111")
-    if nil ~= select1 then
-        showAwakeningInfo()
-    else
-        initAwakeningSelect()
-        showPetInfo(awakeningWnd, 1, nil)
-        showPetInfo(awakeningWnd, 2, nil)
-    end
+
+    showAwakeningInfo()
     logPrint("222")
 end
 
@@ -105,6 +104,8 @@ function loadAwakeningClient(client)
     awakeningWnd = createWindow(1001, "awakening", client)
     addCharAttr(awakeningWnd, petTitle[1])
     addCharAttr(awakeningWnd, petTitle[2])
+    addItem(awakeningWnd, "item1")
+    addItem(awakeningWnd, "item2")
     if needShow then
         showAwakening(awakeningInfo)
     end

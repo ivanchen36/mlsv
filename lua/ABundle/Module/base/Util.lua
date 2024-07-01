@@ -266,6 +266,45 @@ function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
     return {math.ceil(posXA + (sizeXA - sizeXB) / 2), math.ceil(posYA + sizeYA - sizeYB)}
 end
 
+function addItem(wnd, preTitle)
+    local frameWidget = wnd:getWidget(preTitle .. "F")
+    local pos = frameWidget:getPos()
+    local posX = pos[1]
+    local posY = pos[2]
+
+    local numWidget = Label:new(preTitle .. "N", "¡Á0")
+    local itemWidget = Image:new(preTitle .. "D", 0)
+    local checkWidget = Image:new(preTitle .. "C", "f.bmp")
+    itemWidget:setBg(frameWidget)
+    checkWidget:setPos(posX + 8, posY + 12)
+    numWidget:setPos(posX + 10, posY + 50)
+    wnd:addWidget(itemWidget)
+    wnd:addWidget(checkWidget)
+    wnd:addWidget(numWidget)
+end
+
+function showItem(wnd, preTitle, itemImg, need, num)
+    local frameWidget = wnd:getWidget(preTitle .. "F")
+    local numWidget = wnd:getWidget(preTitle .. "N")
+    local itemWidget = wnd:getWidget(preTitle .. "D")
+    local checkWidget = wnd:getWidget(preTitle .. "C")
+    if 0 == itemImg then
+        frameWidget:setImg(0)
+        checkWidget:setImg(0)
+        itemWidget:setImg(0)
+        numWidget:setText("")
+    else
+        frameWidget:setImg(244284)
+        numWidget:setText("¡Á" .. num)
+        if need <= num then
+            checkWidget:setImg("t.bmp")
+        else
+            checkWidget:setImg("f.bmp")
+        end
+        itemWidget:setImg(itemImg)
+    end
+end
+
 --function Event.Recv.PrintP(player, packet)
 --    logPrint("Recv " .. packet)
 --end

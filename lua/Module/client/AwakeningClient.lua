@@ -186,52 +186,10 @@ function getAwakeningClient(player, arg)
         },
         {
             ["type"] = "img",
-            ["title"] = "item1D",
-            ["x"] = 0,
-            ["y"] = 0,
-            ["img"] = 0,
-        },
-        {
-            ["type"] = "img",
-            ["title"] = "item1Check",
-            ["x"] = 201,
-            ["y"] = 249,
-            ["img"] = "t.bmp",
-        },
-        {
-            ["type"] = "lab",
-            ["title"] = "item1Num",
-            ["x"] = 203,
-            ["y"] = 287,
-            ["text"] = "¡Á999",
-        },
-        {
-            ["type"] = "img",
             ["title"] = "item2F",
             ["x"] = 245,
             ["y"] = 237,
             ["img"] = 244284,
-        },
-        {
-            ["type"] = "img",
-            ["title"] = "item2D",
-            ["x"] = 0,
-            ["y"] = 0,
-            ["img"] = 0,
-        },
-        {
-            ["type"] = "img",
-            ["title"] = "item2Check",
-            ["x"] = 253,
-            ["y"] = 249,
-            ["img"] = "f.bmp",
-        },
-        {
-            ["type"] = "lab",
-            ["title"] = "item2Num",
-            ["x"] = 255,
-            ["y"] = 287,
-            ["text"] = "¡Á999",
         }
     }
     Protocol.PowerSend(player:getObj(), "AWAKENING_CLIENT", client)
