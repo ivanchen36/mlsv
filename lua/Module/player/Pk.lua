@@ -213,25 +213,26 @@ function pkSummary(battleIndex)
     end
 end
 
-function showVip(player)
+function showPk(player)
     local pkInfo = {}
     local sql1 = "select Id, EventDescription, Status from tbl_pk_info where PkType = 1 and CreateTime >= UNIX_TIMESTAMP() - 604800 limit 1";
     local sql2 = "select Id, EventDescription, Status from tbl_pk_info where PkType IN (2, 3, 4, 5) and CreateTime >= UNIX_TIMESTAMP() - 604800 limit 1";
     local rs1 = SQL.Run(sql1)
     local rs2 = SQL.Run(sql2)
     if type(rs1) ~= "table" then
-        pkInfo[1] = nil
+        pkInfo[1] = {0, "当前无个人积分赛", 0}
     else
         local pid = tonumber(rs1["0_0"])
         pkInfo[1] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
     end
     if type(rs2) ~= "table" then
-        pkInfo[2] = nil
+        pkInfo[2] = {0, "当前无团队淘汰赛", 0}
     else
         local pid = tonumber(rs1["0_0"])
         pkInfo[2] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
     end
-    Protocol.PowerSend(player:getObj(),"SHOW_PK", info)
+    logPrintTbl(pkInfo)
+    Protocol.PowerSend(player:getObj(),"SHOW_PK", pkInfo)
 end
 
 function warpPk(player, arg)

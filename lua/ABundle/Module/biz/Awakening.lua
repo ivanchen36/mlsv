@@ -7,11 +7,12 @@ local awakeningWnd = nil
 local select1 = nil
 local petNum1 = 0
 local itemNum = {99, 399, 999}
-local attrField = {"earth", "water", "fire", "wind"}
+local attrField = {"eLevel", "wLevel", "fLevel", "wLevel"}
 
 function awakening(widget)
+
     if nil ~= select1 then
-        Cli.Send("up_awakening|" .. awakeningInfo[select1]["uuid"] .. "," .. awakeningWnd:getWidget("attrType").getValue())
+        Cli.Send("up_awakening|" .. awakeningInfo[select1]["uuid"] .. "," .. awakeningWnd:getWidget("attrType"):getValue())
     end
 end
 
@@ -44,33 +45,55 @@ function showUpAttr(level, attr, curLevel)
     local cur = awakeningInfo[select1]
     if earthAttr == attr then
         awakeningWnd:getWidget(upPet .. "M"):setText("魔法: " .. (cur.magic + addArt));
+        awakeningWnd:getWidget(upPet .. "V"):setText("体力: " .. (cur.vital));
+        awakeningWnd:getWidget(upPet .. "S"):setText("力量: " .. (cur.str));
+        awakeningWnd:getWidget(upPet .. "Q"):setText("速度: " .. (cur.quick));
         showCharAttr(awakeningWnd, upPet, cur.earth + addAttr, cur.water, cur.fire, cur.wind)
     elseif waterAttr == attr then
         awakeningWnd:getWidget(upPet .. "V"):setText("体力: " .. (cur.vital + addArt));
+        awakeningWnd:getWidget(upPet .. "M"):setText("魔法: " .. (cur.magic));
+        awakeningWnd:getWidget(upPet .. "S"):setText("力量: " .. (cur.str));
+        awakeningWnd:getWidget(upPet .. "Q"):setText("速度: " .. (cur.quick));
         showCharAttr(awakeningWnd, upPet, cur.earth, cur.water + addAttr, cur.fire, cur.wind)
     elseif fireAttr == attr then
         awakeningWnd:getWidget(upPet .. "S"):setText("力量: " .. (cur.str + addArt));
+        awakeningWnd:getWidget(upPet .. "M"):setText("魔法: " .. (cur.magic));
+        awakeningWnd:getWidget(upPet .. "V"):setText("体力: " .. (cur.vital));
+        awakeningWnd:getWidget(upPet .. "Q"):setText("速度: " .. (cur.quick));
         showCharAttr(awakeningWnd, upPet, cur.earth, cur.water, cur.fire + addAttr, cur.wind)
     elseif windAttr == attr then
         awakeningWnd:getWidget(upPet .. "Q"):setText("速度: " .. (cur.quick + addArt));
+        awakeningWnd:getWidget(upPet .. "S"):setText("力量: " .. (cur.str));
+        awakeningWnd:getWidget(upPet .. "M"):setText("魔法: " .. (cur.magic));
+        awakeningWnd:getWidget(upPet .. "V"):setText("体力: " .. (cur.vital));
         showCharAttr(awakeningWnd, upPet, cur.earth, cur.water, cur.fire, cur.wind + addAttr)
     end
 end
 
 function selectAttrChanged(widget)
-    local attr = widget:getValue()
+    local attr = tonumber(widget:getValue())
+    logPrint("selectAttrChanged " .. attr)
+    logPrintTbl(awakeningInfo["attrNum"])
+    logPrintTbl(awakeningInfo["attrImg"])
+    logPrint(awakeningInfo["attrImg"][attr])
+    logPrint(awakeningInfo["attrNum"][attr])
     local nextLevel = 0
     if select1 ~= nil then
         local cur = awakeningInfo[select1]
         nextLevel = cur["level"] + 1
         if nextLevel <=  3 then
-            showItem(awakeningWnd, "item1", awakeningInfo["attrImg"][attr][nextLevel], itemNum[nextLevel],  awakeningInfo["attrNum"][attr][nextLevel])
+            showItem(awakeningWnd, "item1", awakeningInfo["attrImg"][attr], itemNum[nextLevel],  awakeningInfo["attrNum"][attr])
             showItem(awakeningWnd, "item2", cur["itemImg"], 1, cur["itemNum"])
-            showAttrBounds(cur["level"], attr, cur[attrField[attr]])
+            showUpAttr(cur["level"], attr, cur[attrField[attr]])
+            if (cur["itemImg"] ~= 0 and cur["itemNum"] < 1) or (awakeningInfo["attrNum"][attr] < itemNum[nextLevel]) then
+                awakeningWnd:getWidget("confirm"):setEnabled(false)
+            else
+                awakeningWnd:getWidget("confirm"):setEnabled(true)
+            end
             return
         end
     end
-
+    awakeningWnd:getWidget("confirm"):setEnabled(false)
     showItem(awakeningWnd, "item1", 0, 0, 0)
     showItem(awakeningWnd, "item2", 0, 0, 0)
 end
@@ -82,12 +105,17 @@ function showAwakeningInfo()
     initAwakeningSelect()
     if nil ~= select1 then
         showPetInfo(awakeningWnd, "pet1", awakeningInfo[select1])
-        showPetInfo(awakeningWnd,"pet2", awakeningInfo[select1])
+        if awakeningInfo[select1]["level"] < 3 then
+            showPetInfo(awakeningWnd,"pet2", awakeningInfo[select1])
+        else
+            showPetInfo(awakeningWnd, "pet2", nil)
+        end
     else
-        showPetInfo(awakeningWnd, 1, nil)
-        showPetInfo(awakeningWnd, 2, nil)
+        showPetInfo(awakeningWnd, "pet1", nil)
+        showPetInfo(awakeningWnd, "pet2", nil)
     end
     selectAttrChanged(attr)
+    awakeningWnd:getWidget("pet2"):setText("觉醒后属性")
 end
 
 function awakeningPrev(widget)
@@ -151,7 +179,6 @@ function loadAwakeningClient(client)
     if needShow then
         showAwakening(awakeningInfo)
     end
-
     logPrint("loadAwakeningClient111")
 end
 

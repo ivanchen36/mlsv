@@ -131,15 +131,15 @@ function initSynthesisContent()
             for j = select1 + 1, petNum do
                 if j ~= select2 then
                     select[i] = j
-                    showSynthesisInfo(i, synthesisInfo[j])
+                    showPetInfo(synthesisWnd, petTitle[i], synthesisInfo[j])
                     initSelectButton()
                     return
                 end
                 if j == petNum then
                     select[other] = j - 1
                     select[i] = j
-                    showSynthesisInfo(i, synthesisInfo[j])
-                    showSynthesisInfo(other, synthesisInfo[j - 1])
+                    showPetInfo(synthesisWnd, petTitle[i], synthesisInfo[j])
+                    showPetInfo(synthesisWnd, petTitle[other], synthesisInfo[j - 1])
                     initSelectButton()
                     return
                 end
@@ -161,15 +161,15 @@ function initSynthesisContent()
             for j = select1 - 1, 1, -1 do
                 if j ~= select2 then
                     select[i] = j
-                    showSynthesisInfo(i, synthesisInfo[j])
+                    showPetInfo(synthesisWnd, petTitle[i], synthesisInfo[j])
                     initSelectButton()
                     return
                 end
                 if j == 1 then
                     select[other] = j + 1
                     select[i] = j
-                    showSynthesisInfo(i, synthesisInfo[j])
-                    showSynthesisInfo(other, synthesisInfo[j + 1])
+                    showPetInfo(synthesisWnd, petTitle[i], synthesisInfo[j])
+                    showPetInfo(synthesisWnd, petTitle[other], synthesisInfo[j + 1])
                     initSelectButton()
                     return
                 end

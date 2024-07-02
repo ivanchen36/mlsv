@@ -69,9 +69,10 @@ function loadPkClient(client)
 end
 
 function showPk(info)
+    logPrintTbl(info)
     pkInfo = info;
     if (pkWnd == nil) then
-        Cli.Send("Pk_client")
+        Cli.Send("pk_client")
         return
     end
 

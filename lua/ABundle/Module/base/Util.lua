@@ -221,7 +221,7 @@ function addAttr(wnd, preTitle, attr)
     local pos = tmp1:getPos()
     for i = 1, 10 do
         local img1 = Image:new(preTitle ..  string.sub(attr,1, 2) .. i, 0)
-        img1:setPos(pos[1] + 26 + i * 8, pos[2])
+        img1:setPos(pos[1] + 27 + i * 8, pos[2])
         wnd:addWidget(img1)
     end
 end
@@ -276,7 +276,7 @@ function addItem(wnd, preTitle)
     local itemWidget = Image:new(preTitle .. "D", 0)
     local checkWidget = Image:new(preTitle .. "C", "f.bmp")
     itemWidget:setBg(frameWidget)
-    checkWidget:setPos(posX + 8, posY + 12)
+    checkWidget:setPos(posX + 18, posY + 27)
     numWidget:setPos(posX + 10, posY + 50)
     wnd:addWidget(itemWidget)
     wnd:addWidget(checkWidget)
@@ -295,7 +295,7 @@ function showItem(wnd, preTitle, itemImg, need, num)
         numWidget:setText("")
     else
         frameWidget:setImg(244284)
-        numWidget:setText("¡Á" .. num)
+        numWidget:setText("¡Á" .. need)
         if need <= num then
             checkWidget:setImg("t.bmp")
         else

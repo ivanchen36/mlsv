@@ -134,9 +134,11 @@ function MyPlayer:isGm()
 end
 
 function MyPlayer:warp(mapID, floorID, x, y)
-    if not self:isLeader() then
-        self:sysMsg("不是队长，不能够传送")
-        return
+    if self:getPartyNum() > 1 then
+        if not self:isLeader() then
+            self:sysMsg("不是队长，不能够传送")
+            return
+        end
     end
 
     Char.Warp(self._player, mapID, floorID, x, y)

@@ -163,7 +163,7 @@ function getAwakeningClient(player, arg)
             ["layout"] = "0,1",
             ["width"] = 102,
             ["high"] = 22,
-            ["texts"] = "地属性觉醒,火属性觉醒,水属性觉醒,风属性觉醒",
+            ["texts"] = "地属性觉醒,水属性觉醒,火属性觉醒,风属性觉醒",
             ["values"] = "1,2,3,4",
         },
         {

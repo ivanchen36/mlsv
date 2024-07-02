@@ -117,7 +117,7 @@ CREATE TABLE `tbl_pet_info` (
 -- tbl_player_task
 DROP TABLE IF EXISTS `tbl_player_task`;
 CREATE TABLE `tbl_player_task` (
-                                   `Id` varchar(64) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
+                                   `Id` int NOT NULL AUTO_INCREMENT COMMENT '任务ID',
                                    `RegNum` varchar(64) NOT NULL COMMENT '角色id',
                                    `Cycle` INT NOT NULL COMMENT '任务周期（日常、周常、月常）',
                                    `CycleDate` INT NOT NULL COMMENT '当年的第几日/周/月',

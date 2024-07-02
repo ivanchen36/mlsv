@@ -54,6 +54,8 @@ dofile("lua/System/OtherModule/Util.lua");
 dofile("lua/System/OtherModule/MyChar.lua");
 dofile("lua/System/OtherModule/MyPlayer.lua");
 dofile("lua/System/OtherModule/MyPet.lua");
+dofile("lua/System/OtherModule/MyItem.lua");
+dofile("lua/System/OtherModule/MyDataItem.lua");
 dofile("lua/System/OtherModule/MyLimit.lua");
 
 dofile("lua/System/BaseModule/luac.lua");

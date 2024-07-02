@@ -151,3 +151,8 @@ function countKeys(t)
     end
     return count
 end
+
+function getItemImg(itemId)
+    local item = MyDataItem:new(itemId)
+    return item:getImage()
+end
