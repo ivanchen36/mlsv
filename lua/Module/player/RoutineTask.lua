@@ -195,7 +195,7 @@ end
 
 function showRoutine(player)
     local taskList = queryTaskByType(player, dailyType)
-    Protocol.PowerSend(player:getObj(),"SHOW_ROUTINE", taskId)
+    Protocol.PowerSend(player:getObj(),"SHOW_ROUTINE", taskList)
 end
 
 function queryTask(player, arg)

@@ -10,6 +10,7 @@ function Event.RegLoginEvent.registInit(player)
     Client.RunABundle(player, "MyJson.lua")
     Client.RunABundle(player, "Util.lua")
 
+
     -- ÒµÎñÄ£¿é
     Client.RunABundle(player, "Vip.lua")
     Client.RunABundle(player, "Proficient.lua")
@@ -17,6 +18,7 @@ function Event.RegLoginEvent.registInit(player)
     Client.RunABundle(player, "Pk.lua")
     Client.RunABundle(player, "Awakening.lua")
     Client.RunABundle(player, "Task.lua")
+    Client.RunABundle(player, "Recover.lua")
 
     Client.RunABundle(player, "PartyBuff.lua")
 end

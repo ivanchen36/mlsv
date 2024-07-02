@@ -23,7 +23,6 @@ useModule("laba");--喇叭
 useModule("wgfy");--王宫封印师查询配合wgfy.php
 useModule("TitleChange");--称号附加属性
 useModule("phb");--排行榜
-useModule("petfy");--封印宠物带随机修正
 --形象变身
 --做一个npc 玩家对话可以永久变身为npc形象
 --[[

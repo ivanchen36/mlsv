@@ -1,34 +1,44 @@
 taskTitle = {"title1", "title2", "title3", "title4", "title5", "title6"}
-taskBtn = {"dailyBtn", "weekly", "monthly"}
+taskBtn = {"daily", "weekly", "monthly"}
 
 local dailyType = 1
 local weeklyType = 2
 local monthlyType = 3
-
-cycleTaskType = {
-    dailyType,
-    weeklyType,
-    monthlyType
-}
+local curCycleType = dailyType
 
 local typeImg = {
-    [1] = "bmp",
-    [2] = "bmp",
-    [3] = "bmp",
-    [4] = "bmp"
+    [1] = "fy.bmp",
+    [2] = "ls.bmp",
+    [3] = "sx.bmp",
+    [4] = "tz.bmp"
 }
 local taskDescFormat = {
     [1] = "封印%d只%s: %d/%d",
     [2] = "猎杀%d只%s: %d/%d",
-    [3] = "上交%d个%s: %d/%d",
-    [4] = "战胜%d次%s: %d/%d"
+    [3] = "搜寻%d个%s: %d/%d",
+    [4] = "挑战%d次%s: %d/%d"
 }
 
 local itemName = {
-
+    [1] = "测试1",
+    [2] = "测试2",
+    [3] = "测试3",
+    [4] = "测试4",
 }
+
 local taskInfo = nil
 local taskWnd = nil
+
+function showSelectBtn(cycleType)
+    for i = 1, #taskBtn do
+        local btn = taskWnd:getWidget(taskBtn[i])
+        if cycleType == i then
+            btn:setEnabled(false)
+        else
+            btn:setEnabled(true)
+        end
+    end
+end
 
 function initTaskContent()
     for i = 1, #taskInfo do
@@ -53,6 +63,7 @@ function initTaskContent()
             Cli.Send("submit_task|" .. task.id)
         end)
     end
+    showSelectBtn(curCycleType)
 end
 
 function flushtaskInfo(info)
@@ -71,6 +82,16 @@ function loadTaskClient(client)
     taskWnd = createWindow(1009,"task", client)
     if needShow then
         showTask(taskInfo)
+    end
+end
+
+function addCycleEvent()
+    for i = 1, #taskBtn do
+        local btn = taskWnd:getWidget(taskBtn[i])
+        btn:clicked(function()
+            curCycleType = i
+            Cli.Send("query_task|" .. i)
+        end)
     end
 end
 
