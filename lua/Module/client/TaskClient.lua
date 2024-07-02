@@ -42,6 +42,18 @@ function getTaskClient(player, arg)
             ["disable"] = "y3.bmp",
             ["text"] = "提交",
             ["click"] = "",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "btn",
+            ["title"] = "#taskBtn",
+            ["x"] = 228,
+            ["y"] = 123,
+            ["img"] = "task1.bmp",
+            ["active"] = "task2.bmp",
+            ["disable"] = "task3.bmp",
+            ["text"] = "提交",
         }
     }
     Protocol.PowerSend(player:getObj(), "TASK_CLIENT", taskClient)

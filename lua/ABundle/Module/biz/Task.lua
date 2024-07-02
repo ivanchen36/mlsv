@@ -1,19 +1,23 @@
 taskTitle = {"title1", "title2", "title3", "title4", "title5", "title6"}
+taskBtn = {"dailyBtn", "weekly", "monthly"}
+
 local dailyType = 1
 local weeklyType = 2
 local monthlyType = 3
+
 cycleTaskType = {
     dailyType,
     weeklyType,
     monthlyType
 }
+
 local typeImg = {
     [1] = "bmp",
     [2] = "bmp",
     [3] = "bmp",
     [4] = "bmp"
 }
-local taskDesc = {
+local taskDescFormat = {
     [1] = "封印%d只%s: %d/%d",
     [2] = "猎杀%d只%s: %d/%d",
     [3] = "上交%d个%s: %d/%d",
@@ -26,8 +30,6 @@ local itemName = {
 local taskInfo = nil
 local taskWnd = nil
 
-
-
 function initTaskContent()
     for i = 1, #taskInfo do
         local task = taskInfo[i]
@@ -37,7 +39,7 @@ function initTaskContent()
         local submit = taskWnd:getWidget(title .. "Submit")
         local itemName = itemName[task["item"]] or "未知"
         local taskType = task["type"]
-        local desc = string.format(taskDesc[taskType], task.count, itemName,
+        local desc = string.format(taskDescFormat[taskType], task.count, itemName,
                                    task.process, task.count)
 
         task:setImg(typeImg[task["type"]])

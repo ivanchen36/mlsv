@@ -220,13 +220,13 @@ function showPk(player)
     local rs1 = SQL.Run(sql1)
     local rs2 = SQL.Run(sql2)
     if type(rs1) ~= "table" then
-        pkInfo[1] = {0, "当前无个人积分赛", 0}
+        pkInfo[1] = {"当前无个人积分赛", 9, 0}
     else
         local pid = tonumber(rs1["0_0"])
         pkInfo[1] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
     end
     if type(rs2) ~= "table" then
-        pkInfo[2] = {0, "当前无团队淘汰赛", 0}
+        pkInfo[2] = {"当前无团队淘汰赛", 99, 0}
     else
         local pid = tonumber(rs1["0_0"])
         pkInfo[2] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}

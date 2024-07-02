@@ -1,7 +1,8 @@
 pkTitle = {"single", "team"}
 pkTime = {"每周五晚上8点", "每周六晚上8点"}
+pkCond = {"等级80级以上", "队伍满5人,等级80级以上"}
 pkRule = {"积分制", "淘汰制"}
-pkInfo = {"单人参赛，获取积分兑换奖励", "队伍参赛，根据名次发放奖励"}
+pkRuleInfo = {"单人参赛，获取积分兑换奖励", "队伍参赛，根据名次发放奖励"}
 
 local pkInfo = nil
 local pkWnd = nil
@@ -11,6 +12,7 @@ local statusDesc = {
     [2] = "PK进行中",
     [3] = "发放奖品中",
     [4] = "已经结束",
+    [99] = "未开始",
 }
 
 function warpPk()
