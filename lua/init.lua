@@ -76,7 +76,6 @@ gadofile("lua/Module/client/SynthesisClient.lua");
 gadofile("lua/Module/client/PkClient.lua");
 gadofile("lua/Module/client/AwakeningClient.lua");
 gadofile("lua/Module/client/TaskClient.lua");
-gadofile("lua/Module/client/RecoverClient.lua");
 
 --业务功能
 gadofile("lua/Module/pet/PetAwakening.lua"); -- 宠物觉醒

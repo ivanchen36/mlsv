@@ -54,6 +54,7 @@ end
 
 -- 玩家领取任务
 function receiveTask(player, cycleType)
+    logPrint("receiveTask")
     local regNum = player:getRegistNumber()
     local taskCount = taskNum[cycleType]
     local cycleDate = os.date(cycleFormat[cycleType])
@@ -86,7 +87,11 @@ function queryTaskByType(player, cycleType)
         end
     end
     local taskList = {}
-    for i = 1, (#result) / 5 do
+    local len = countKeys(result)
+    logPrintTbl(result)
+    len = len / 7 - 1
+    for i = 0, len do
+
         local task = {
             ["id"] = tonumber(result[i .. "_0"]),
             ["type"] = tonumber(result[i .. "_1"]),
@@ -106,6 +111,7 @@ function queryTaskByType(player, cycleType)
                 task.process = 1
             end
         end
+        logPrintTbl(task)
         table.insert(taskList, task)
     end
 
@@ -194,8 +200,10 @@ function submitTask(player, arg)
 end
 
 function showRoutine(player)
+    logPrint("showRoutine")
     local taskList = queryTaskByType(player, dailyType)
-    Protocol.PowerSend(player:getObj(),"SHOW_ROUTINE", taskList)
+    logPrintTbl(taskList)
+    Protocol.PowerSend(player:getObj(),"SHOW_TASK", taskList)
 end
 
 function queryTask(player, arg)

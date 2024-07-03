@@ -13,17 +13,17 @@ local typeImg = {
     [4] = "tz.bmp"
 }
 local taskDescFormat = {
-    [1] = "å°å°%dåª%s: %d/%d",
-    [2] = "çŒæ€%dåª%s: %d/%d",
-    [3] = "æœå¯»%dä¸ª%s: %d/%d",
-    [4] = "æŒ‘æˆ˜%dæ¬¡%s: %d/%d"
+    [1] = "·âÓ¡%dÖ»%s",
+    [2] = "ÁÔÉ±%dÖ»%s",
+    [3] = "ËÑÑ°%d¸ö%s",
+    [4] = "ÌôÕ½%d´Î%s"
 }
 
 local itemName = {
-    [1] = "æµ‹è¯•1",
-    [2] = "æµ‹è¯•2",
-    [3] = "æµ‹è¯•3",
-    [4] = "æµ‹è¯•4",
+    [1] = "²âÊÔ1",
+    [2] = "²âÊÔ2",
+    [3] = "²âÊÔ3",
+    [4] = "²âÊÔ4",
 }
 
 local taskInfo = nil
@@ -44,21 +44,22 @@ function initTaskContent()
     for i = 1, #taskInfo do
         local task = taskInfo[i]
         local title = taskTitle[i]
-        local taskImg = taskWnd:getWidget(title)
+        local taskImg = taskWnd:getWidget(title .. "Z")
         local taskDesc = taskWnd:getWidget(title .. "Desc")
+        local taskProcess = taskWnd:getWidget(title .. "Process")
         local submit = taskWnd:getWidget(title .. "Submit")
-        local itemName = itemName[task["item"]] or "æœªçŸ¥"
+        local itemName = itemName[task["item"]] or "Î´Öª"
         local taskType = task["type"]
-        local desc = string.format(taskDescFormat[taskType], task.count, itemName,
-                                   task.process, task.count)
-
-        task:setImg(typeImg[task["type"]])
+        local desc = string.format(taskDescFormat[taskType], task.count, itemName)
+        taskImg:setImg(typeImg[task["type"]])
         taskDesc:setText(desc)
+        taskProcess:setText(string.format("%d / %d", task.process, task.count))
         if task.process >= task.count and task.status ~= 2 then
             submit:setEnabled(true)
         else
             submit:setEnabled(false)
         end
+        logPrintTbl(submit)
         submit:clicked(function()
             Cli.Send("submit_task|" .. task.id)
         end)
@@ -99,7 +100,7 @@ function showTask(info)
     taskInfo = info;
 
     if (taskWnd == nil) then
-        Cli.Send("Task_client")
+        Cli.Send("task_client")
         return
     end
     logPrint( 'showTask1')

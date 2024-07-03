@@ -9,10 +9,7 @@ function test1()
 end
 
 function test(player)
-    getVipClient(player, "")
-    getProficientClient(player, "")
-    getSynthesisClient(player, "")
-    getAwakeningClient(player, "")
+    getTaskClient(player, "")
 end
 
 function test2()

@@ -47,4 +47,4 @@ function useAnsha(fd,head,packet)
 	end
 end
 
---Protocol.OnRecv(nil, "useAnsha", 7)
+Protocol.OnRecv(nil, "useAnsha", 7)

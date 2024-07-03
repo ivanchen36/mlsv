@@ -4,7 +4,7 @@ local startPk = false
 function isJoinPk(player, pkId)
     local mac = player:getMac()
     local reqNum = player:getRegistNumber()
-    local sql = string.format("select Id from tbl_pk_team where (RegNum = '%s' or Mac = '%s' or TeamInfo like '%|%d|%') and PkId = %d",
+    local sql = string.format("select Id from tbl_pk_team where (RegNum = '%s' or Mac = '%s' or TeamInfo like '%%|%s|%%') and PkId = %d",
             reqNum, mac, reqNum, pkId)
     local rs = SQL.Run(sql)
 
@@ -214,29 +214,32 @@ function pkSummary(battleIndex)
 end
 
 function showPk(player)
+    logPrint("showPk")
     local pkInfo = {}
     local sql1 = "select Id, EventDescription, Status from tbl_pk_info where PkType = 1 and CreateTime >= UNIX_TIMESTAMP() - 604800 limit 1";
     local sql2 = "select Id, EventDescription, Status from tbl_pk_info where PkType IN (2, 3, 4, 5) and CreateTime >= UNIX_TIMESTAMP() - 604800 limit 1";
     local rs1 = SQL.Run(sql1)
     local rs2 = SQL.Run(sql2)
     if type(rs1) ~= "table" then
-        pkInfo[1] = {"当前无个人积分赛", 9, 0}
+        pkInfo[1] = {"当前无个人积分赛", 99, 0}
     else
+        logPrintTbl(rs1)
         local pid = tonumber(rs1["0_0"])
         pkInfo[1] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
     end
     if type(rs2) ~= "table" then
         pkInfo[2] = {"当前无团队淘汰赛", 99, 0}
     else
-        local pid = tonumber(rs1["0_0"])
-        pkInfo[2] = {rs1["0_1"], tonumber(rs1["0_2"]),isJoinPk(player, pid)}
+        logPrintTbl(rs2)
+        local pid = tonumber(rs2["0_0"])
+        pkInfo[2] = {rs2["0_1"], tonumber(rs2["0_2"]),isJoinPk(player, pid)}
     end
     logPrintTbl(pkInfo)
     Protocol.PowerSend(player:getObj(),"SHOW_PK", pkInfo)
 end
 
 function warpPk(player, arg)
-
+    return
 end
 
 

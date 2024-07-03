@@ -4,12 +4,6 @@ local winnerVal = 3
 local loserVal = 1
 
 function joinSinglePk(player, arg)
-    if player:getPartyNum() ~= -1 then
-        Protocol.PowerSend(player:getObj(),"FLUSH_PK", {1,0})
-        player:sysMsg("[PK系统]请解散队伍再来参战。")
-        return
-    end
-
     local sql = "select Id from tbl_pk_info where Status = 0 and PkType = 1";
     local rs = SQL.Run(sql)
     if type(rs) ~= "table" then
@@ -24,8 +18,8 @@ function joinSinglePk(player, arg)
         return
     end
 
-    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values ('%s', %d, 0, 0, '%s', UNIX_TIMESTAMP(), %s);",
-            player:getRegistNumber(), player:getName(), pkId, '', player:getMac())
+    sql = string.format("insert into tbl_pk_team (RegNum, Name, PkId, Status, CurrentRanking, TeamInfo, CreateTime, Mac) values ('%s', '%s', %d, 0, 0, '', UNIX_TIMESTAMP(), '%s');",
+            player:getRegistNumber(), player:getName(), pkId, player:getMac())
     SQL.Run(sql)
     player:sysMsg("[PK系统]您已经报名PK比赛成功，请准时参加比赛！")
     Protocol.PowerSend(player:getObj(),"FLUSH_PK", {1,1})

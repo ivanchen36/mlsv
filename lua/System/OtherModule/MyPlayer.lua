@@ -42,10 +42,6 @@ function MyPlayer:havePet(petId)
     return Char.HavePet(self._player, petId)
 end
 
-function MyPlayer:havePet(self, petId)
-    return Char.HavePet(self._player, petId)
-end
-
 function MyPlayer:getItemNum(itemId)
     return Char.ItemNum(self._player, itemId)
 end

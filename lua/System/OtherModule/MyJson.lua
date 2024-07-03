@@ -172,8 +172,10 @@ local function array2json(value)
     for _, v in pairs(value) do
         str = str .. MyJson.objToJson(v) .. ","
     end
-    str = string.sub(str, 1, string.len(str) - 1) .. "]"
-    return string.format("%s", str)
+    if string.len(str) > 1 then
+        str = string.sub(str, 1, string.len(str) - 1)
+    end
+    return str .. "]"
 end
 
 local function isArrayTable(t)

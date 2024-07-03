@@ -90,12 +90,12 @@ class PK:
                 teamB = 0
                 teamBName = ""
             sql = "insert into tbl_pk_record (PkId, Round, TeamARegNum, TeamBRegNum, TeamAName, TeamBName, CreateTime) values " \
-                  "(%ld, %ld, %ld, %ld, %s, %s, UNIX_TIMESTAMP())" % (
+                  "(%ld, %ld, '%s', '%s', %s, %s, UNIX_TIMESTAMP())" % (
                   pkInfo["Id"], 0, teamA, teamB, teamAName, teamBName)
             self.mysqlClient.execute(sql)
 
         sql = "update tbl_pk_info set Status = 2, Count = %ld, Round = %ld where Id = %ld" % (
-        pkRecord, pkRecord, pkInfo["Id"])
+            pkRecord, pkRecord, pkInfo["Id"])
         self.mysqlClient.execute(sql)
 
     def stopSinglePk(self):
@@ -137,7 +137,7 @@ class PK:
                 teamB = 0
                 teamBName = ""
             sql = "insert into tbl_pk_record (PkId, Round, TeamARegNum, TeamBRegNum, TeamAName, TeamBName, CreateTime) values " \
-                  "(%ld, %ld, %ld, %ld, %s, %s, UNIX_TIMESTAMP())" % (pkInfo["Id"], pkRound, teamA, teamB, teamAName, teamBName)
+                  "(%ld, %ld, '%s', '%s', %s, %s, UNIX_TIMESTAMP())" % (pkInfo["Id"], pkRound, teamA, teamB, teamAName, teamBName)
             self.mysqlClient.execute(sql)
 
         sql = "update tbl_pk_info set Status = 2, Count = %ld, Round = %ld where Id = %ld" % (pkRecord, pkRecord, pkInfo["Id"])
@@ -152,10 +152,10 @@ class PK:
             return
         for team in teams:
             if team["WinnerRegNum"] == team["TeamBRegNum"]:
-                sql = "update tbl_pk_team set CurrentRanking = 0 where RegNum = %ld and PkId = %ld;"\
+                sql = "update tbl_pk_team set CurrentRanking = 0 where RegNum = '%s' and PkId = %ld;"\
                       % (team["TeamARegNum"], pkId)
             else:
-                sql = "update tbl_pk_team set CurrentRanking = 0 where RegNum = %ld and PkId = %ld;" \
+                sql = "update tbl_pk_team set CurrentRanking = 0 where RegNum = '%s' and PkId = %ld;" \
                       % (team["TeamBRegNum"], pkId)
             self.mysqlClient.execute(sql)
 
