@@ -84,7 +84,7 @@ block Trialflg == 8 && Job == 1
 					Window_ok
 						GiveLeak1Item (40113%1$1,40114%1$1,40115%1$1,40116%1$1,40117%1$1,40118%1$1,40119%1$1)
 						LeaveGroup
-						Warp 0,1531,44,10
+						Warp 0,11015,53,2
 
 				Window_NO
 
@@ -140,7 +140,7 @@ block Item 18218 >= 1
 	EndEvent 0 = 1
 
 	LeaveGroup
-	Warp 0,1511,9,17
+	Warp 0,1511,7,4
 
 
 ########## 韶樊及隙挎毛当匀化中卅中桦宁 ##########

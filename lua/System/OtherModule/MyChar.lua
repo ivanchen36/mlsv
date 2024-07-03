@@ -1124,6 +1124,9 @@ function MyChar:getBounsMagic()
 end
 function MyChar:setBounsMagic(val)
     self:set(20003, val + (self:getBounsMagic() or 0))
+    if self:getMp() + val < 1 then
+        return self:setMp(1)
+    end
     return self:setMp(self:getMp() + val)
 end
 
@@ -1141,6 +1144,9 @@ function MyChar:getBounsHp()
 end
 function MyChar:setBounsHp(val)
     self:set(20005, val + (self:getBounsHp() or 0))
+    if self:getHp() + val < 1 then
+        return self:setHp(1)
+    end
     return self:setHp(self:getHp() + val)
 end
 

@@ -191,7 +191,7 @@ function submitTask(player, arg)
         local reward = rewardList[playerTask.cycle][playerTask.type]
         player:getItem(reward)
         player:sysMsg("任务完成，奖励已领取")
-        Protocol.PowerSend(player:getObj(),"SUBMIT_TASK", taskList)
+        Protocol.PowerSend(player:getObj(),"SUBMIT_TASK", taskId)
         return
     else
         player:sysMsg("提交失败，请稍后重试")

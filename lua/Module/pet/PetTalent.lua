@@ -15,25 +15,25 @@ local reInitItemId = 1
 function initTalent(player, slot)
     local pet = MyPet:new(player:getObj(), slot)
     if player:getItemNum(initItemId) < 0 then
-        player:sysMsg("道具不足,无法觉醒天赋")
+        player:sysMsg("道具不足,无法领悟天赋")
         return
     end
 
     for i = 1, 10 do
         local skillId = pet:getSkill(i)
         if skillId > 0 and rawget(allSkill, skillId) ~= nil then
-            player:sysMsg("宠物觉醒天赋, 无法重新觉醒")
+            player:sysMsg("宠物领悟天赋, 无法重新领悟")
             return
         end
     end
 
     if player:delNum(initItemId, 1) > 0 then
         pet:addSkill(allSkill[math.random(#allSkill)])
-        player:sysMsg("宠物天赋觉醒成功");
+        player:sysMsg("宠物天赋领悟成功");
         return
     end
 
-    player:sysMsg("道具不足,无法觉醒天赋")
+    player:sysMsg("道具不足,无法领悟天赋")
 end
 
 function reInitTalent(player, slot, level)
@@ -67,5 +67,5 @@ function reInitTalent(player, slot, level)
         end
     end
 
-    player:sysMsg("宠物没有觉醒天赋, 无法进行重置")
+    player:sysMsg("宠物没有领悟天赋, 无法进行重置")
 end

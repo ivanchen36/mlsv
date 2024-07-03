@@ -1,5 +1,5 @@
 local jobBuff = {
-    [1] = {"hp", 1000}
+    [1] = {"hp", 50}
 }
 
 local buffFunc = {
@@ -32,12 +32,9 @@ function addBuff(members, buffList, desc)
     logPrint("addBuff")
     for _, member in ipairs(members) do
         if member:isValid() then
-            for _, buff in ipairs(buffList) do
-                logPrintTbl(buff)
-                local funcName = buff[1]
-                local val = buff[2]
-                local method = MyChar[buffFunc[funcName]]
-                method(member, val)
+            for attr, buff in pairs(buffList) do
+                local method = MyChar[buffFunc[attr]]
+                method(member, buff)
             end
             member:flush()
             member:sysMsg("获得队伍加成：" .. desc)
@@ -51,12 +48,9 @@ function subBuff(members, buffList)
     for _, member in ipairs(members) do
         logPrint(member:isValid())
         if member:isValid() then
-            for _, buff in ipairs(buffList) do
-                logPrintTbl(buff)
-                local funcName = buff[1]
-                local val = buff[2]
-                local method = MyChar[buffFunc[funcName]]
-                method(member, -val)
+            for attr, buff in pairs(buffList) do
+                local method = MyChar[buffFunc[attr]]
+                method(member, -buff)
             end
             member:flush()
             Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", "")
@@ -116,12 +110,18 @@ function addPartyBuff(index)
     for _, member in ipairs(newList) do
         local buff = jobBuff[member:getJob()]
         if nil ~= buff then
-            table.insert(newBuffList, buff)
-            if 0 ~= #partyDesc then
-                partyDesc = partyDesc .. ", "
+            if rawget(newBuffList, buff[1]) == nil then
+                newBuffList[buff[1]] = buff[2]
+            elseif buff[2] > newBuffList[buff[1]] then
+                newBuffList[buff[1]] = buff[2]
             end
-            partyDesc = partyDesc .. buffDesc[buff[1]] .. " +" .. buff[2]
         end
+    end
+    for attr, buff in pairs(newBuffList) do
+        if 0 ~= string.len(partyDesc) then
+            partyDesc = partyDesc .. ", "
+        end
+        partyDesc = partyDesc .. buffDesc[attr] .. " +" .. buff
     end
     if #newBuffList > 0 then
         partyBuffInfo[index] = newBuffList
