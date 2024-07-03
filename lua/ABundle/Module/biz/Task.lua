@@ -1,6 +1,6 @@
 taskTitle = {"title1", "title2", "title3", "title4", "title5", "title6"}
 taskBtn = {"daily", "weekly", "monthly"}
-
+cycleName = {"日常", "周常", "月常"}
 local dailyType = 1
 local weeklyType = 2
 local monthlyType = 3
