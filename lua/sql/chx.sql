@@ -150,7 +150,7 @@ CREATE TABLE `tbl_user_limit` (
                                 `UserId` varchar(64) NOT NULL COMMENT 'id reqnum 或者 mac',
                                 `Type` int NOT NULL DEFAULT 0 COMMENT '类型',
                                 `Count` int NOT NULL DEFAULT 0 COMMENT '总次数',
-                                `Used` int NOT NULL DEFAULT 0 COMMENT '金币上缴税收金额',
+                                `Used` int NOT NULL DEFAULT 0 COMMENT '已用次数',
                                 `Cycle` INT NOT NULL COMMENT '周期',
                                 `CreateTime` int NOT NULL,
                                 `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

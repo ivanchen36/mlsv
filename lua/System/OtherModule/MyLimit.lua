@@ -31,7 +31,7 @@ function MyLimit:getAvailable()
             self._idStr, self._type)
     local rs = SQL.Run(sql)
     if type(rs) ~= "table" then
-        return nil
+        return 0
     end
 
     return tonumber(rs["0_0"])
