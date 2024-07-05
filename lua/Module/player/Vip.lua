@@ -311,5 +311,3 @@ ClientEvent["up_vip"] = upVip
 InitEvent["char"] = initVip
 DeinitEvent["char"] = deinitVip
 TaskHandler[1] = sysCloseAvoid
-DamageEvent[1] = addVipDamage
-DamageEvent[11] = subVipDamage
