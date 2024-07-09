@@ -117,19 +117,27 @@ function Window:showUi()
             screenHeight =  720;
         end
 
-        local sizeX,sizeY = getSize(self._bgId)
+
         local wndBg = self._view.find(self._title .. "bg")
         wndBg.enable = 1
         wndBg.imageID = self._bgId
+        wndBg.item_xpos = 0
+        wndBg.item_ypos = 0
         wndBg.xpos = 0
         wndBg.ypos = 0
-        wndBg.sizex = sizeX
-        wndBg.sizey = sizeY
-
-        self._view.xpos = math.floor((screenWidth - sizeX) / 2);
-        self._view.ypos =  math.floor((screenHeight - sizeY) / 2);
+        local sizeX = 0
+        local sizeY = 0
+        if wndBg.sizex <= 0 then
+            sizeX,sizeY = getSize(self._bgId)
+        else
+            sizeX = wndBg.sizex
+            sizeY = wndBg.sizey
+        end
         self._view.sizex = sizeX
         self._view.sizey = sizeY
+        self._view.xpos = math.floor((screenWidth - sizeX) / 2);
+        self._view.ypos =  math.floor((screenHeight - sizeY) / 2);
+
         self._view.pxpos = 0
         self._view.pypos = 0
     end
