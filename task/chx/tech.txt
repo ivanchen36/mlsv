@@ -1,0 +1,6 @@
+Á÷ÐÇ¼ýÓê	TECH_RandomShot	AN:12,AM:12,	30000	130095	95	10	1	97			100	1		
+²Ôñ·Ò»»÷	TECH_FirstAttack	AS:30,TR:78,	30100	3007193	1006	3	1	1141			26	1		
+À×öªÕòÓü	TECH_FirstAttack	AS:46,TR:96,	30101	3007193	1006	5	1	1141			42	1		
+É±Â¾²Ã¾ö	TECH_FirstAttack	AS:60,TR:113,	30102	3007193	1006	7	1	1141			58	1		
+ÁúÖ®ÊØ»¤	TECH_FullBodyGuard	SR:74,AS:0,DR:50,	30200	3007192	1005	5	1	72			26	1
+À×öª±ÚÀÝ	TECH_FullBodyGuard	SR:76,AS:0,DR:70,	30201	3007192	1005	7	1	72			34	1	
