@@ -2,7 +2,7 @@ local gift = nil
 local giftMapId = 1
 local giftSwitch = false
 local giftEndTime = 0
-local rate = 20
+local rate = 2000
 local gitRate = {}
 local nextRate = 0
 

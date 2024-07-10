@@ -81,101 +81,43 @@ msg2 = 95 #右键
 identify = 96 #被鉴定率
 adm = 99 #魔攻
 adm1 = 100
+itemFieldNum = 0
 
-def parseTemplate():
-    keuMap = {
-        "111": "id",
-        "1": "unknown",
-        "222" : "img",
-        "2": "name",
-        "3": "type",
-        "4": "price",
-        "5": "obj",
-        "6": "level",
-        "7": "battle",
-        "8": "identify",
-        "9": "num",
-        "10": "msg1",
-        "11": "msg2",
-        "12": "atk",
-        "13": "atk1",
-        "14": "def",
-        "15": "def1",
-        "16": "agi",
-        "17": "agi1",
-        "18": "spirit",
-        "19": "spirit1",
-        "20": "recover",
-        "21": "recover1",
-        "22": "hp",
-        "23": "hp1",
-        "24": "mp",
-        "25": "mp1",
-        "26": "luck",
-        "27": "luck1",
-        "28": "endurance",
-        "29": "endurance1",
-        "30": "remain",
-        "31": "remain1",
-        "32": "crit",
-        "33": "crit1",
-        "34": "counter",
-        "35": "counter1",
-        "36": "hit",
-        "37": "hit1",
-        "38": "avoid",
-        "39": "avoid1",
-        "40": "atkNum",
-        "41": "atkNum1",
-        "42": "charm",
-        "43": "charm1",
-        "44": "rss",
-        "45": "rss1",
-        "46": "adm",
-        "47": "adm1",
-        "48": "dex",
-        "49": "dex1",
-        "50": "poison",
-        "51": "poison1",
-        "52": "sleep",
-        "53": "sleep1",
-        "54": "stone",
-        "55": "stone1",
-        "56": "drunk",
-        "57": "drunk1",
-        "58": "confusion",
-        "59": "confusion1",
-        "60": "amnesia",
-        "61": "amnesia",
-        "89": "attr1",
-        "90": "attr2",
-        "62": "attr1Val",
-        "63": "attr2Val",
-        "64": "intel",
-        "65": "intel1",
-        "68": "special",
-        "69": "param1",
-        "70": "param2",
-        "71": "jewel1",
-        "72": "jewel2",
-        "73": "jewel3",
-        "74": "collect1",
-        "75": "collect2",
-        "txt": "script",
-        "ITEM_useMystery": "menu"
-    }
-    tempFile = FileUtil("./template.txt", "gbk")
-    for line in tempFile.readLines():
-        if len(line.strip()) == 0:
-            continue
-        print(line)
-        arr = line.split("\t")
-        print(arr)
+techArr = ["百毒不侵","悬梁刺股","镜盾反射","众人皆醉","乱中有序","永生难忘","生命脉动","魔力共鸣","防御壁垒","迅捷疾风","致命打击","心灵之眼","生命不息","致命绽放","混沌波动","永恒之壁"]
+def generateTech(path):
+    template = "name	TECH_Breed	AR:0,	id1	130070	70	10	1	1141			0	1		"
+    arr = template.split("\t")
+    techFile = FileUtil(path + "/tech.txt", "gbk")
+    if not techFile.isBlankLineEnd():
+        techFile.writeLine("")
+    for i in range(len(techArr)):
+        for j in range(3):
+            id = 30401 + i + j * 30
+            arr[0] = "%sLv%d"% (techArr[i], + (j + 1))
+            arr[3] = str(id)
+            print ('\t'.join(arr))
+            techFile.writeLine('\t'.join(arr))
+def generateEnemy(path):
+    name = 0
+    id1 = 2
+    od2 = 3
+    template = "name	at:10;1;1|gu:1|es:1|wa:0;0;0;0;0;0;0;	id1	id2	1	1	1	1	0	-1	-1	0	1																															0	0			0"
+    arr = template.split("\t")
+    print('\t'.join(arr))
+    print(len(arr))
+    print(path + "/enemybase.txt")
+    baseFile = FileUtil(path + "/enemybase.txt", "gbk")
+    enemyFile = FileUtil(path + "/enemy.txt", "gbk")
+    if not enemyFile.isBlankLineEnd():
+        enemyFile.writeLine("")
+    for line in baseFile.readLines():
+        line = line.strip()
+        arr1 = line.split("\t")
+        arr[name] = arr1[0]
+        arr[id1] = arr1[1]
+        arr[od2] = arr1[1]
         print('\t'.join(arr))
-    for i in range(len(arr)):
-        if arr[i] in  keuMap:
-            print(f"{keuMap[arr[i]]} = {i}")
-            print(f"{keuMap[arr[i]]} = {arr[i]}")
+        #enemyFile.writeLine('\t'.join(arr))
 
 if __name__ == "__main__":
-    parseTemplate()
+    generateTech("../../task/chx")

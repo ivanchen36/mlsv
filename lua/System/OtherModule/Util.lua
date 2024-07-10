@@ -68,6 +68,7 @@ function isOccur(permyriad)
     return rand <= permyriad
 end
 
+-- 万分比
 function getRandObj(objList)
     -- 生成一个0到1之间的随机数
     local randVal = math.random() * 10000
@@ -129,12 +130,12 @@ function getMulRandObj(objList, count)
         return false
     end
 
-    local num = #count * 2
+    local num = #count * 3
     local rs = {}
     local tmp = nil
     for i = 1, num do
         tmp = getRandObj(objList)
-        if not isInTable(tmp) then
+        if not isInArr(rs, tmp) then
             table.insert(rs, tmp)
             if #rs == count then
                 return rs

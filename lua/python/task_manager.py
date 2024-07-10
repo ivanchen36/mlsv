@@ -135,5 +135,5 @@ def uninstallTask(gameDir, task):
 
 
 if __name__ == "__main__":
-    installTask("../../", "羁绊系列任务1-5章")
-    uninstallTask("../../", "羁绊系列任务1-5章")
+    uninstallTask("../../", "chx")
+    #installTask("../../", "chx")
