@@ -5,14 +5,22 @@ MyPet = {}
 extendClass(MyPet, MyChar)
 
 -- 定义构造函数 new
-function MyPet:new(player, slot)
-    local newObj = MyChar:new(Char.GetPet(player, slot))
+function MyPet:create(player, pet)
+    local newObj = MyChar:new(pet)
     newObj._owner = player
     setmetatable(newObj, self)       -- 设置新对象的元表为 MyPet
     return newObj
 end
 
--- %宠物状态_战斗% 2
+function MyPet:new(player, slot)
+    return MyChar:create(player, Char.GetPet(player, slot))
+end
+
+function MyPet:new1(pet)
+    return MyChar:create(Pet.GetOwner(pet), pet)
+end
+
+-- %对象_战宠% 62
 function MyPet:getBattlePet(player)
     return MyPet:new(player,  Char.GetData(self.player, 62))
 end
@@ -30,7 +38,7 @@ function MyPet:getByUuid(player, uuid)
 end
 
 function MyPet:getOwner()
-    return Pet.GetOwner(self._player)
+    return self._owner
 end
 
 function MyPet:getId()

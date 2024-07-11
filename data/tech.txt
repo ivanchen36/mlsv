@@ -26,7 +26,7 @@
 ÖîÈÐLV7	TECH_Parameter	AS:0,TR:49,DR:-35,MR:-35,	106	130001	1	7	1	1141			58	1		
 ÖîÈÐLV8	TECH_Parameter	AS:0,TR:56,DR:-40,MR:-40,	107	130001	1	8	1	1141			66	1		
 ÖîÈÐLV9	TECH_Parameter	AS:0,TR:63,DR:-45,MR:-45,	108	130001	1	9	1	1141			74	1		
-ÖîÈÐÍ»»÷	TECH_Parameter	AS:0,TR:70,DR:-50,MR:-50,	109	130001	1	10	1	1141			82	1		
+ÖîÈÐÍ»Ï®	TECH_Parameter	AS:0,TR:70,DR:-50,MR:-50,	109	130001	1	10	1	1141			82	1		
 ÖîÈÐ-¢ñ	TECH_Parameter	AS:0,TR:5,DR:-10,MR:-10,	130	130001	1	30	1	1141	200		10	0		
 ÖîÈÐ-¢ò	TECH_Parameter	AS:0,TR:15,DR:-30,MR:-30,	132	130001	1	30	1	1141	1000		30	0		
 ÖîÈÐ-¢ó	TECH_Parameter	AS:0,TR:25,DR:-50,MR:-50,	134	130001	1	30	1	1141	4000		50	0		
@@ -64,6 +64,11 @@
 Æø¹¦µ¯LV8	TECH_SpiracleShot	AS:0,AN:8,AM:8,DD:125,	407	130004	4	8	1	117			40	1		
 Æø¹¦µ¯LV9	TECH_SpiracleShot	AS:0,AN:8,AM:9,DD:125,	408	130004	4	9	1	117			45	1		
 »îÉ±Æø¹¦µ¯	TECH_SpiracleShot	AS:0,AN:8,AM:10,DD:125,	409	130004	4	10	1	117			50	1		
+Æø¹¦µ¯-¢ñ	TECH_SpiracleShot	AS:0,AN:2,AM:2,DD:75,	420	130004	4	30	1	117	200		5	1		
+Æø¹¦µ¯-¢ò	TECH_SpiracleShot	AS:0,AN:3,AM:3,DD:80,	422	130004	4	30	1	117	1000		10	1		
+Æø¹¦µ¯-¢ó	TECH_SpiracleShot	AS:0,AN:4,AM:4,DD:85,	424	130004	4	30	1	117	4000		15	1		
+Æø¹¦µ¯-¢ô	TECH_SpiracleShot	AS:0,AN:5,AM:5,DD:90,	426	130004	4	30	1	117	9000		20	1		
+Æø¹¦µ¯-¢õ	TECH_SpiracleShot	AS:0,AN:6,AM:6,DD:100,	428	130004	4	30	1	117	16000		25	1		
 Æø¹¦µ¯E1	TECH_SpiracleShot	AS:0,AN:10,AM:10,DD:125,	450	130004	4	50	1	117			0	0		
 Æø¹¦µ¯-EX	TECH_SpiracleShot	AS:0,AN:10,AM:10,DD:140,	451	130004	4	50	1	117			0	0		
 ±À»÷LV1	TECH_GuardBreak	AS:0,DD:10,	500	130005	5	1	1	1141			5	1		
@@ -189,96 +194,96 @@
 Ã÷¾µÖ¹Ë®-¢õ	TECH_Consentration	AS:0,D1:5,D2:50,	1238	130012	12	30	1	72	27000		135	0		
 Ã÷¾µÖ¹Ë®E1	TECH_Consentration	AS:0,D1:20,D2:30,	1250	130012	12	50	1	72			0	0		
 Ã÷¾µÖ¹Ë®E2	TECH_Consentration	AS:0,D1:10,D2:20,	1251	130012	12	50	1	72			0	0		
-¿¹¶¾LV1	TECH_StatusResistance	PO:4,AC:-6,	1300	130013	13	1	1	125			0	1		
-¿¹¶¾LV2	TECH_StatusResistance	PO:8,AC:-12,	1301	130013	13	2	1	125			0	1		
-¿¹¶¾LV3	TECH_StatusResistance	PO:12,AC:-18,	1302	130013	13	3	1	125			0	1		
-¿¹¶¾LV4	TECH_StatusResistance	PO:16,AC:-24,	1303	130013	13	4	1	125			0	1		
-¿¹¶¾LV5	TECH_StatusResistance	PO:20,AC:-30,	1304	130013	13	5	1	125			0	1		
-¿¹¶¾LV6	TECH_StatusResistance	PO:24,AC:-36,	1305	130013	13	6	1	125			0	1		
-¿¹¶¾LV7	TECH_StatusResistance	PO:28,AC:-42,	1306	130013	13	7	1	125			0	1		
-¿¹¶¾LV8	TECH_StatusResistance	PO:32,AC:-48,	1307	130013	13	8	1	125			0	1		
-¿¹¶¾LV9	TECH_StatusResistance	PO:36,AC:-54,	1308	130013	13	9	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV1	TECH_StatusResistance	PO:4,AC:-6,	1300	130013	13	1	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV2	TECH_StatusResistance	PO:8,AC:-12,	1301	130013	13	2	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV3	TECH_StatusResistance	PO:12,AC:-18,	1302	130013	13	3	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV4	TECH_StatusResistance	PO:16,AC:-24,	1303	130013	13	4	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV5	TECH_StatusResistance	PO:20,AC:-30,	1304	130013	13	5	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV6	TECH_StatusResistance	PO:24,AC:-36,	1305	130013	13	6	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV7	TECH_StatusResistance	PO:28,AC:-42,	1306	130013	13	7	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV8	TECH_StatusResistance	PO:32,AC:-48,	1307	130013	13	8	1	125			0	1		
+ÖÐ¶¾µÖ¿¹ LV9	TECH_StatusResistance	PO:36,AC:-54,	1308	130013	13	9	1	125			0	1		
 °Ù¶¾²»ÇÖ	TECH_StatusResistance	PO:40,AC:-60,	1309	130013	13	10	1	125			0	1		
-¿¹¶¾-¢ñ	TECH_StatusResistance	PO:4,AC:-6,	1330	130013	13	30	1	125	100		0	0		
-¿¹¶¾-¢ò	TECH_StatusResistance	PO:12,AC:-18,	1332	130013	13	30	1	125	900		0	0		
-¿¹¶¾-¢ó	TECH_StatusResistance	PO:20,AC:-30,	1334	130013	13	30	1	125	2500		0	0		
-¿¹¶¾-¢ô	TECH_StatusResistance	PO:28,AC:-42,	1336	130013	13	30	1	125	4900		0	0		
-¿¹¶¾-¢õ	TECH_StatusResistance	PO:36,AC:-54,	1338	130013	13	30	1	125	8100		0	0		
-¿¹»èË¯LV1	TECH_StatusResistance	SL:4,AC:-6,	1400	130014	14	1	1	125			0	1		
-¿¹»èË¯LV2	TECH_StatusResistance	SL:8,AC:-12,	1401	130014	14	2	1	125			0	1		
-¿¹»èË¯LV3	TECH_StatusResistance	SL:12,AC:-18,	1402	130014	14	3	1	125			0	1		
-¿¹»èË¯LV4	TECH_StatusResistance	SL:16,AC:-24,	1403	130014	14	4	1	125			0	1		
-¿¹»èË¯LV5	TECH_StatusResistance	SL:20,AC:-30,	1404	130014	14	5	1	125			0	1		
-¿¹»èË¯LV6	TECH_StatusResistance	SL:24,AC:-36,	1405	130014	14	6	1	125			0	1		
-¿¹»èË¯LV7	TECH_StatusResistance	SL:28,AC:-42,	1406	130014	14	7	1	125			0	1		
-¿¹»èË¯LV8	TECH_StatusResistance	SL:32,AC:-48,	1407	130014	14	8	1	125			0	1		
-¿¹»èË¯LV9	TECH_StatusResistance	SL:36,AC:-54,	1408	130014	14	9	1	125			0	1		
+ÖÐ¶¾µÖ¿¹-¢ñ	TECH_StatusResistance	PO:4,AC:-6,	1330	130013	13	30	1	125	100		0	0		
+ÖÐ¶¾µÖ¿¹-¢ò	TECH_StatusResistance	PO:12,AC:-18,	1332	130013	13	30	1	125	900		0	0		
+ÖÐ¶¾µÖ¿¹-¢ó	TECH_StatusResistance	PO:20,AC:-30,	1334	130013	13	30	1	125	2500		0	0		
+ÖÐ¶¾µÖ¿¹-¢ô	TECH_StatusResistance	PO:28,AC:-42,	1336	130013	13	30	1	125	4900		0	0		
+ÖÐ¶¾µÖ¿¹-¢õ	TECH_StatusResistance	PO:36,AC:-54,	1338	130013	13	30	1	125	8100		0	0		
+»èË¯µÖ¿¹ LV1	TECH_StatusResistance	SL:4,AC:-6,	1400	130014	14	1	1	125			0	1		
+»èË¯µÖ¿¹ LV2	TECH_StatusResistance	SL:8,AC:-12,	1401	130014	14	2	1	125			0	1		
+»èË¯µÖ¿¹ LV3	TECH_StatusResistance	SL:12,AC:-18,	1402	130014	14	3	1	125			0	1		
+»èË¯µÖ¿¹ LV4	TECH_StatusResistance	SL:16,AC:-24,	1403	130014	14	4	1	125			0	1		
+»èË¯µÖ¿¹ LV5	TECH_StatusResistance	SL:20,AC:-30,	1404	130014	14	5	1	125			0	1		
+»èË¯µÖ¿¹ LV6	TECH_StatusResistance	SL:24,AC:-36,	1405	130014	14	6	1	125			0	1		
+»èË¯µÖ¿¹ LV7	TECH_StatusResistance	SL:28,AC:-42,	1406	130014	14	7	1	125			0	1		
+»èË¯µÖ¿¹ LV8	TECH_StatusResistance	SL:32,AC:-48,	1407	130014	14	8	1	125			0	1		
+»èË¯µÖ¿¹ LV9	TECH_StatusResistance	SL:36,AC:-54,	1408	130014	14	9	1	125			0	1		
 ÐüÁº´Ì¹É	TECH_StatusResistance	SL:40,AC:-60,	1409	130014	14	10	1	125			0	1		
-¿¹»èË¯-¢ñ	TECH_StatusResistance	SL:4,AC:-6,	1430	130014	14	30	1	125	100		0	0		
-¿¹»èË¯-¢ò	TECH_StatusResistance	SL:12,AC:-18,	1432	130014	14	30	1	125	900		0	0		
-¿¹»èË¯-¢ó	TECH_StatusResistance	SL:20,AC:-30,	1434	130014	14	30	1	125	2500		0	0		
-¿¹»èË¯-¢ô	TECH_StatusResistance	SL:28,AC:-42,	1436	130014	14	30	1	125	4900		0	0		
-¿¹»èË¯-¢õ	TECH_StatusResistance	SL:36,AC:-54,	1438	130014	14	30	1	125	8100		0	0		
-¿¹Ê¯»¯LV1	TECH_StatusResistance	ST:4,AC:-6,	1500	130015	15	1	1	125			0	1		
-¿¹Ê¯»¯LV2	TECH_StatusResistance	ST:8,AC:-12,	1501	130015	15	2	1	125			0	1		
-¿¹Ê¯»¯LV3	TECH_StatusResistance	ST:12,AC:-18,	1502	130015	15	3	1	125			0	1		
-¿¹Ê¯»¯LV4	TECH_StatusResistance	ST:16,AC:-24,	1503	130015	15	4	1	125			0	1		
-¿¹Ê¯»¯LV5	TECH_StatusResistance	ST:20,AC:-30,	1504	130015	15	5	1	125			0	1		
-¿¹Ê¯»¯LV6	TECH_StatusResistance	ST:24,AC:-36,	1505	130015	15	6	1	125			0	1		
-¿¹Ê¯»¯LV7	TECH_StatusResistance	ST:28,AC:-42,	1506	130015	15	7	1	125			0	1		
-¿¹Ê¯»¯LV8	TECH_StatusResistance	ST:32,AC:-48,	1507	130015	15	8	1	125			0	1		
-¿¹Ê¯»¯LV9	TECH_StatusResistance	ST:36,AC:-54,	1508	130015	15	9	1	125			0	1		
+»èË¯µÖ¿¹-¢ñ	TECH_StatusResistance	SL:4,AC:-6,	1430	130014	14	30	1	125	100		0	0		
+»èË¯µÖ¿¹-¢ò	TECH_StatusResistance	SL:12,AC:-18,	1432	130014	14	30	1	125	900		0	0		
+»èË¯µÖ¿¹-¢ó	TECH_StatusResistance	SL:20,AC:-30,	1434	130014	14	30	1	125	2500		0	0		
+»èË¯µÖ¿¹-¢ô	TECH_StatusResistance	SL:28,AC:-42,	1436	130014	14	30	1	125	4900		0	0		
+»èË¯µÖ¿¹-¢õ	TECH_StatusResistance	SL:36,AC:-54,	1438	130014	14	30	1	125	8100		0	0		
+Ê¯»¯µÖ¿¹ LV1	TECH_StatusResistance	ST:4,AC:-6,	1500	130015	15	1	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV2	TECH_StatusResistance	ST:8,AC:-12,	1501	130015	15	2	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV3	TECH_StatusResistance	ST:12,AC:-18,	1502	130015	15	3	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV4	TECH_StatusResistance	ST:16,AC:-24,	1503	130015	15	4	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV5	TECH_StatusResistance	ST:20,AC:-30,	1504	130015	15	5	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV6	TECH_StatusResistance	ST:24,AC:-36,	1505	130015	15	6	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV7	TECH_StatusResistance	ST:28,AC:-42,	1506	130015	15	7	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV8	TECH_StatusResistance	ST:32,AC:-48,	1507	130015	15	8	1	125			0	1		
+Ê¯»¯µÖ¿¹ LV9	TECH_StatusResistance	ST:36,AC:-54,	1508	130015	15	9	1	125			0	1		
 ¾µ¶Ü·´Éä	TECH_StatusResistance	ST:40,AC:-60,	1509	130015	15	10	1	125			0	1		
-¿¹Ê¯»¯-¢ñ	TECH_StatusResistance	ST:4,AC:-6,	1530	130015	15	30	1	125	100		0	0		
-¿¹Ê¯»¯-¢ò	TECH_StatusResistance	ST:12,AC:-18,	1532	130015	15	30	1	125	900		0	0		
-¿¹Ê¯»¯-¢ó	TECH_StatusResistance	ST:20,AC:-30,	1534	130015	15	30	1	125	2500		0	0		
-¿¹Ê¯»¯-¢ô	TECH_StatusResistance	ST:28,AC:-42,	1536	130015	15	30	1	125	4900		0	0		
-¿¹Ê¯»¯-¢õ	TECH_StatusResistance	ST:36,AC:-54,	1538	130015	15	30	1	125	8100		0	0		
-¿¹×íLV1	TECH_StatusResistance	YO:4,AC:-6,	1600	130016	16	1	1	125			0	1		
-¿¹×íLV2	TECH_StatusResistance	YO:8,AC:-12,	1601	130016	16	2	1	125			0	1		
-¿¹×íLV3	TECH_StatusResistance	YO:12,AC:-18,	1602	130016	16	3	1	125			0	1		
-¿¹×íLV4	TECH_StatusResistance	YO:16,AC:-24,	1603	130016	16	4	1	125			0	1		
-¿¹×íLV5	TECH_StatusResistance	YO:20,AC:-30,	1604	130016	16	5	1	125			0	1		
-¿¹×íLV6	TECH_StatusResistance	YO:24,AC:-36,	1605	130016	16	6	1	125			0	1		
-¿¹×íLV7	TECH_StatusResistance	YO:28,AC:-42,	1606	130016	16	7	1	125			0	1		
-¿¹×íLV8	TECH_StatusResistance	YO:32,AC:-48,	1607	130016	16	8	1	125			0	1		
-¿¹×íLV9	TECH_StatusResistance	YO:36,AC:-54,	1608	130016	16	9	1	125			0	1		
+Ê¯»¯µÖ¿¹-¢ñ	TECH_StatusResistance	ST:4,AC:-6,	1530	130015	15	30	1	125	100		0	0		
+Ê¯»¯µÖ¿¹-¢ò	TECH_StatusResistance	ST:12,AC:-18,	1532	130015	15	30	1	125	900		0	0		
+Ê¯»¯µÖ¿¹-¢ó	TECH_StatusResistance	ST:20,AC:-30,	1534	130015	15	30	1	125	2500		0	0		
+Ê¯»¯µÖ¿¹-¢ô	TECH_StatusResistance	ST:28,AC:-42,	1536	130015	15	30	1	125	4900		0	0		
+Ê¯»¯µÖ¿¹-¢õ	TECH_StatusResistance	ST:36,AC:-54,	1538	130015	15	30	1	125	8100		0	0		
+¾Æ×íµÖ¿¹ LV1	TECH_StatusResistance	YO:4,AC:-6,	1600	130016	16	1	1	125			0	1		
+¾Æ×íµÖ¿¹ LV2	TECH_StatusResistance	YO:8,AC:-12,	1601	130016	16	2	1	125			0	1		
+¾Æ×íµÖ¿¹ LV3	TECH_StatusResistance	YO:12,AC:-18,	1602	130016	16	3	1	125			0	1		
+¾Æ×íµÖ¿¹ LV4	TECH_StatusResistance	YO:16,AC:-24,	1603	130016	16	4	1	125			0	1		
+¾Æ×íµÖ¿¹ LV5	TECH_StatusResistance	YO:20,AC:-30,	1604	130016	16	5	1	125			0	1		
+¾Æ×íµÖ¿¹ LV6	TECH_StatusResistance	YO:24,AC:-36,	1605	130016	16	6	1	125			0	1		
+¾Æ×íµÖ¿¹ LV7	TECH_StatusResistance	YO:28,AC:-42,	1606	130016	16	7	1	125			0	1		
+¾Æ×íµÖ¿¹ LV8	TECH_StatusResistance	YO:32,AC:-48,	1607	130016	16	8	1	125			0	1		
+¾Æ×íµÖ¿¹ LV9	TECH_StatusResistance	YO:36,AC:-54,	1608	130016	16	9	1	125			0	1		
 ÖÚÈË½Ô×íÎÒ¶ÀÐÑ	TECH_StatusResistance	YO:40,AC:-60,	1609	130016	16	10	1	125			0	1		
-¿¹×í-¢ñ	TECH_StatusResistance	YO:4,AC:-6,	1630	130016	16	30	1	125	100		0	0		
-¿¹×í-¢ò	TECH_StatusResistance	YO:12,AC:-18,	1632	130016	16	30	1	125	900		0	0		
-¿¹×í-¢ó	TECH_StatusResistance	YO:20,AC:-30,	1634	130016	16	30	1	125	2500		0	0		
-¿¹×í-¢ô	TECH_StatusResistance	YO:28,AC:-42,	1636	130016	16	30	1	125	4900		0	0		
-¿¹×í-¢õ	TECH_StatusResistance	YO:36,AC:-54,	1638	130016	16	30	1	125	8100		0	0		
-¿¹»ìÂÒLV1	TECH_StatusResistance	CN:4,AC:-6,	1700	130017	17	1	1	125			0	1		
-¿¹»ìÂÒLV2	TECH_StatusResistance	CN:8,AC:-12,	1701	130017	17	2	1	125			0	1		
-¿¹»ìÂÒLV3	TECH_StatusResistance	CN:12,AC:-18,	1702	130017	17	3	1	125			0	1		
-¿¹»ìÂÒLV4	TECH_StatusResistance	CN:16,AC:-24,	1703	130017	17	4	1	125			0	1		
-¿¹»ìÂÒLV5	TECH_StatusResistance	CN:20,AC:-30,	1704	130017	17	5	1	125			0	1		
-¿¹»ìÂÒLV6	TECH_StatusResistance	CN:24,AC:-36,	1705	130017	17	6	1	125			0	1		
-¿¹»ìÂÒLV7	TECH_StatusResistance	CN:28,AC:-42,	1706	130017	17	7	1	125			0	1		
-¿¹»ìÂÒLV8	TECH_StatusResistance	CN:32,AC:-48,	1707	130017	17	8	1	125			0	1		
-¿¹»ìÂÒLV9	TECH_StatusResistance	CN:36,AC:-54,	1708	130017	17	9	1	125			0	1		
+¾Æ×íµÖ¿¹-¢ñ	TECH_StatusResistance	YO:4,AC:-6,	1630	130016	16	30	1	125	100		0	0		
+¾Æ×íµÖ¿¹-¢ò	TECH_StatusResistance	YO:12,AC:-18,	1632	130016	16	30	1	125	900		0	0		
+¾Æ×íµÖ¿¹-¢ó	TECH_StatusResistance	YO:20,AC:-30,	1634	130016	16	30	1	125	2500		0	0		
+¾Æ×íµÖ¿¹-¢ô	TECH_StatusResistance	YO:28,AC:-42,	1636	130016	16	30	1	125	4900		0	0		
+¾Æ×íµÖ¿¹-¢õ	TECH_StatusResistance	YO:36,AC:-54,	1638	130016	16	30	1	125	8100		0	0		
+»ìÂÒµÖ¿¹ LV1	TECH_StatusResistance	CN:4,AC:-6,	1700	130017	17	1	1	125			0	1		
+»ìÂÒµÖ¿¹ LV2	TECH_StatusResistance	CN:8,AC:-12,	1701	130017	17	2	1	125			0	1		
+»ìÂÒµÖ¿¹ LV3	TECH_StatusResistance	CN:12,AC:-18,	1702	130017	17	3	1	125			0	1		
+»ìÂÒµÖ¿¹ LV4	TECH_StatusResistance	CN:16,AC:-24,	1703	130017	17	4	1	125			0	1		
+»ìÂÒµÖ¿¹ LV5	TECH_StatusResistance	CN:20,AC:-30,	1704	130017	17	5	1	125			0	1		
+»ìÂÒµÖ¿¹ LV6	TECH_StatusResistance	CN:24,AC:-36,	1705	130017	17	6	1	125			0	1		
+»ìÂÒµÖ¿¹ LV7	TECH_StatusResistance	CN:28,AC:-42,	1706	130017	17	7	1	125			0	1		
+»ìÂÒµÖ¿¹ LV8	TECH_StatusResistance	CN:32,AC:-48,	1707	130017	17	8	1	125			0	1		
+»ìÂÒµÖ¿¹ LV9	TECH_StatusResistance	CN:36,AC:-54,	1708	130017	17	9	1	125			0	1		
 ÂÒÖÐÓÐÐò	TECH_StatusResistance	CN:40,AC:-60,	1709	130017	17	10	1	125			0	1		
-¿¹»ìÂÒ-¢ñ	TECH_StatusResistance	CN:4,AC:-6,	1730	130017	17	30	1	125	100		0	0		
-¿¹»ìÂÒ-¢ò	TECH_StatusResistance	CN:12,AC:-18,	1732	130017	17	30	1	125	900		0	0		
-¿¹»ìÂÒ-¢ó	TECH_StatusResistance	CN:20,AC:-30,	1734	130017	17	30	1	125	2500		0	0		
-¿¹»ìÂÒ-¢ô	TECH_StatusResistance	CN:28,AC:-42,	1736	130017	17	30	1	125	4900		0	0		
-¿¹»ìÂÒ-¢õ	TECH_StatusResistance	CN:36,AC:-54,	1738	130017	17	30	1	125	8100		0	0		
-¿¹ÒÅÍüLV1	TECH_StatusResistance	AA:4,AC:-6,	1800	130018	18	1	1	125			0	1		
-¿¹ÒÅÍüLV2	TECH_StatusResistance	AA:8,AC:-12,	1801	130018	18	2	1	125			0	1		
-¿¹ÒÅÍüLV3	TECH_StatusResistance	AA:12,AC:-18,	1802	130018	18	3	1	125			0	1		
-¿¹ÒÅÍüLV4	TECH_StatusResistance	AA:16,AC:-24,	1803	130018	18	4	1	125			0	1		
-¿¹ÒÅÍüLV5	TECH_StatusResistance	AA:20,AC:-30,	1804	130018	18	5	1	125			0	1		
-¿¹ÒÅÍüLV6	TECH_StatusResistance	AA:24,AC:-36,	1805	130018	18	6	1	125			0	1		
-¿¹ÒÅÍüLV7	TECH_StatusResistance	AA:28,AC:-42,	1806	130018	18	7	1	125			0	1		
-¿¹ÒÅÍüLV8	TECH_StatusResistance	AA:32,AC:-48,	1807	130018	18	8	1	125			0	1		
-¿¹ÒÅÍüLV9	TECH_StatusResistance	AA:36,AC:-54,	1808	130018	18	9	1	125			0	1		
+»ìÂÒµÖ¿¹-¢ñ	TECH_StatusResistance	CN:4,AC:-6,	1730	130017	17	30	1	125	100		0	0		
+»ìÂÒµÖ¿¹-¢ò	TECH_StatusResistance	CN:12,AC:-18,	1732	130017	17	30	1	125	900		0	0		
+»ìÂÒµÖ¿¹-¢ó	TECH_StatusResistance	CN:20,AC:-30,	1734	130017	17	30	1	125	2500		0	0		
+»ìÂÒµÖ¿¹-¢ô	TECH_StatusResistance	CN:28,AC:-42,	1736	130017	17	30	1	125	4900		0	0		
+»ìÂÒµÖ¿¹-¢õ	TECH_StatusResistance	CN:36,AC:-54,	1738	130017	17	30	1	125	8100		0	0		
+ÒÅÍüµÖ¿¹ LV1	TECH_StatusResistance	AA:4,AC:-6,	1800	130018	18	1	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV2	TECH_StatusResistance	AA:8,AC:-12,	1801	130018	18	2	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV3	TECH_StatusResistance	AA:12,AC:-18,	1802	130018	18	3	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV4	TECH_StatusResistance	AA:16,AC:-24,	1803	130018	18	4	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV5	TECH_StatusResistance	AA:20,AC:-30,	1804	130018	18	5	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV6	TECH_StatusResistance	AA:24,AC:-36,	1805	130018	18	6	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV7	TECH_StatusResistance	AA:28,AC:-42,	1806	130018	18	7	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV8	TECH_StatusResistance	AA:32,AC:-48,	1807	130018	18	8	1	125			0	1		
+ÒÅÍüµÖ¿¹ LV9	TECH_StatusResistance	AA:36,AC:-54,	1808	130018	18	9	1	125			0	1		
 ÓÀÉúÄÑÍü	TECH_StatusResistance	AA:40,AC:-60,	1809	130018	18	10	1	125			0	1		
-¿¹ÒÅÍü-¢ñ	TECH_StatusResistance	AA:4,AC:-6,	1830	130018	18	30	1	125	100		0	0		
-¿¹ÒÅÍü-¢ò	TECH_StatusResistance	AA:12,AC:-18,	1832	130018	18	30	1	125	900		0	0		
-¿¹ÒÅÍü-¢ó	TECH_StatusResistance	AA:20,AC:-30,	1834	130018	18	30	1	125	2500		0	0		
-¿¹ÒÅÍü-¢ô	TECH_StatusResistance	AA:28,AC:-42,	1836	130018	18	30	1	125	4900		0	0		
-¿¹ÒÅÍü-¢õ	TECH_StatusResistance	AA:36,AC:-54,	1838	130018	18	30	1	125	8100		0	0		
+ÒÅÍüµÖ¿¹-¢ñ	TECH_StatusResistance	AA:4,AC:-6,	1830	130018	18	30	1	125	100		0	0		
+ÒÅÍüµÖ¿¹-¢ò	TECH_StatusResistance	AA:12,AC:-18,	1832	130018	18	30	1	125	900		0	0		
+ÒÅÍüµÖ¿¹-¢ó	TECH_StatusResistance	AA:20,AC:-30,	1834	130018	18	30	1	125	2500		0	0		
+ÒÅÍüµÖ¿¹-¢ô	TECH_StatusResistance	AA:28,AC:-42,	1836	130018	18	30	1	125	4900		0	0		
+ÒÅÍüµÖ¿¹-¢õ	TECH_StatusResistance	AA:36,AC:-54,	1838	130018	18	30	1	125	8100		0	0		
 ÔÉÊ¯Ä§·¨LV1	TECH_Attack_Magic	AR:95,	1900	130019	19	1	1	125			10	1		
 ÔÉÊ¯Ä§·¨LV2	TECH_Attack_Magic	AR:171,	1901	130019	19	2	1	125			20	1		
 ÔÉÊ¯Ä§·¨LV3	TECH_Attack_Magic	AR:239,	1902	130019	19	3	1	125			30	1		
@@ -310,16 +315,16 @@
 ±ù¶³Ä§·¨LV8	TECH_Attack_Magic	AR:570,	2007	130020	20	8	1	125			80	1		
 ±ù¶³Ä§·¨LV9	TECH_Attack_Magic	AR:646,	2008	130020	20	9	1	125			90	1		
 ¾ø¶ÔÁã¶È	TECH_Attack_Magic	AR:722,	2009	130020	20	10	1	125			100	1		
-±ù±¢Ä§·¨-¢ñ	TECH_Attack_Magic	AR:86,	2030	130020	20	30	1	125	500		10	0		
-±ù±¢Ä§·¨-¢ò	TECH_Attack_Magic	AR:154,	2031	130020	20	30	1	125	2000		20	0		
-±ù±¢Ä§·¨-¢ó	TECH_Attack_Magic	AR:215,	2032	130020	20	30	1	125	4500		30	0		
-±ù±¢Ä§·¨-¢ô	TECH_Attack_Magic	AR:273,	2033	130020	20	30	1	125	8000		40	0		
-±ù±¢Ä§·¨-¢õ	TECH_Attack_Magic	AR:331,	2034	130020	20	30	1	125	12500		50	0		
-±ù±¢Ä§·¨-¢ö	TECH_Attack_Magic	AR:389,	2035	130020	20	30	1	125	18000		60	0		
-±ù±¢Ä§·¨-¢÷	TECH_Attack_Magic	AR:447,	2036	130020	20	30	1	125	24500		70	0		
-±ù±¢Ä§·¨-¢ø	TECH_Attack_Magic	AR:513,	2037	130020	20	30	1	125	32000		80	0		
-±ù±¢Ä§·¨-¢ù	TECH_Attack_Magic	AR:581,	2038	130020	20	30	1	125	40500		90	0		
-±ù±¢Ä§·¨-¢ú	TECH_Attack_Magic	AR:650,	2039	130020	20	30	1	125	50000		100	0		
+±ù¶³Ä§·¨-¢ñ	TECH_Attack_Magic	AR:86,	2030	130020	20	30	1	125	500		10	0		
+±ù¶³Ä§·¨-¢ò	TECH_Attack_Magic	AR:154,	2031	130020	20	30	1	125	2000		20	0		
+±ù¶³Ä§·¨-¢ó	TECH_Attack_Magic	AR:215,	2032	130020	20	30	1	125	4500		30	0		
+±ù¶³Ä§·¨-¢ô	TECH_Attack_Magic	AR:273,	2033	130020	20	30	1	125	8000		40	0		
+±ù¶³Ä§·¨-¢õ	TECH_Attack_Magic	AR:331,	2034	130020	20	30	1	125	12500		50	0		
+±ù¶³Ä§·¨-¢ö	TECH_Attack_Magic	AR:389,	2035	130020	20	30	1	125	18000		60	0		
+±ù¶³Ä§·¨-¢÷	TECH_Attack_Magic	AR:447,	2036	130020	20	30	1	125	24500		70	0		
+±ù¶³Ä§·¨-¢ø	TECH_Attack_Magic	AR:513,	2037	130020	20	30	1	125	32000		80	0		
+±ù¶³Ä§·¨-¢ù	TECH_Attack_Magic	AR:581,	2038	130020	20	30	1	125	40500		90	0		
+±ù¶³Ä§·¨-¢ú	TECH_Attack_Magic	AR:650,	2039	130020	20	30	1	125	50000		100	0		
 »ðÑæÄ§·¨LV1	TECH_Attack_Magic	AR:95,	2100	130021	21	1	1	125			10	1		
 »ðÑæÄ§·¨LV2	TECH_Attack_Magic	AR:171,	2101	130021	21	2	1	125			20	1		
 »ðÑæÄ§·¨LV3	TECH_Attack_Magic	AR:239,	2102	130021	21	3	1	125			30	1		
@@ -329,7 +334,7 @@
 »ðÑæÄ§·¨LV7	TECH_Attack_Magic	AR:497,	2106	130021	21	7	1	125			70	1		
 »ðÑæÄ§·¨LV8	TECH_Attack_Magic	AR:570,	2107	130021	21	8	1	125			80	1		
 »ðÑæÄ§·¨LV9	TECH_Attack_Magic	AR:646,	2108	130021	21	9	1	125			90	1		
-×ÆÈÈ±¬Ñ×	TECH_Attack_Magic	AR:722,	2109	130021	21	10	1	125			100	1		
+ÖËÈÈ±©Ñ×	TECH_Attack_Magic	AR:722,	2109	130021	21	10	1	125			100	1		
 »ðÑæÄ§·¨-¢ñ	TECH_Attack_Magic	AR:86,	2130	130021	21	30	1	125	500		10	0		
 »ðÑæÄ§·¨-¢ò	TECH_Attack_Magic	AR:154,	2131	130021	21	30	1	125	2000		20	0		
 »ðÑæÄ§·¨-¢ó	TECH_Attack_Magic	AR:215,	2132	130021	21	30	1	125	4500		30	0		
@@ -449,7 +454,7 @@
 ³¬Ç¿ÔÉÊ¯Ä§·¨LV7	TECH_Attack_Magic	AR:199,	2706	130027	27	7	1	317			280	1		
 ³¬Ç¿ÔÉÊ¯Ä§·¨LV8	TECH_Attack_Magic	AR:228,	2707	130027	27	8	1	317			320	1		
 ³¬Ç¿ÔÉÊ¯Ä§·¨LV9	TECH_Attack_Magic	AR:258,	2708	130027	27	9	1	317			360	1		
-»öº¦µÄ½µÁÙ	TECH_Attack_Magic	AR:289,	2709	130027	27	10	1	317			400	1		
+ÔÖ»öµÄ½µÁÙ	TECH_Attack_Magic	AR:289,	2709	130027	27	10	1	317			400	1		
 ³¬Ç¿±ù¶³Ä§·¨LV1	TECH_Attack_Magic	AR:38,	2800	130028	28	1	1	317			40	1		
 ³¬Ç¿±ù¶³Ä§·¨LV2	TECH_Attack_Magic	AR:68,	2801	130028	28	2	1	317			80	1		
 ³¬Ç¿±ù¶³Ä§·¨LV3	TECH_Attack_Magic	AR:96,	2802	130028	28	3	1	317			120	1		
@@ -460,6 +465,16 @@
 ³¬Ç¿±ù¶³Ä§·¨LV8	TECH_Attack_Magic	AR:228,	2807	130028	28	8	1	317			320	1		
 ³¬Ç¿±ù¶³Ä§·¨LV9	TECH_Attack_Magic	AR:258,	2808	130028	28	9	1	317			360	1		
 ÎÞÇéµÄ±ùÓê	TECH_Attack_Magic	AR:289,	2809	130028	28	10	1	317			400	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ñ	TECH_Attack_Magic	AR:38,	2820	130028	28	30	1	317	2000		40	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ò	TECH_Attack_Magic	AR:68,	2821	130028	28	30	1	317	8000		80	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ó	TECH_Attack_Magic	AR:96,	2822	130028	28	30	1	317	18000		120	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ô	TECH_Attack_Magic	AR:121,	2823	130028	28	30	1	317	32000		160	1		
+³¬Ç¿±ù¶³Ä§·¨-¢õ	TECH_Attack_Magic	AR:147,	2824	130028	28	30	1	317	50000		200	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ö	TECH_Attack_Magic	AR:173,	2825	130028	28	30	1	317	72000		240	1		
+³¬Ç¿±ù¶³Ä§·¨-¢÷	TECH_Attack_Magic	AR:199,	2826	130028	28	30	1	317	98000		280	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ø	TECH_Attack_Magic	AR:228,	2827	130028	28	30	1	317	128000		320	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ù	TECH_Attack_Magic	AR:258,	2828	130028	28	30	1	317	162000		360	1		
+³¬Ç¿±ù¶³Ä§·¨-¢ú	TECH_Attack_Magic	AR:350,	2829	130028	28	30	1	317	200000		400	1		
 ³¬Ç¿»ðÑæÄ§·¨LV1	TECH_Attack_Magic	AR:38,	2900	130029	29	1	1	317			40	1		
 ³¬Ç¿»ðÑæÄ§·¨LV2	TECH_Attack_Magic	AR:68,	2901	130029	29	2	1	317			80	1		
 ³¬Ç¿»ðÑæÄ§·¨LV3	TECH_Attack_Magic	AR:96,	2902	130029	29	3	1	317			120	1		
@@ -470,6 +485,16 @@
 ³¬Ç¿»ðÑæÄ§·¨LV8	TECH_Attack_Magic	AR:228,	2907	130029	29	8	1	317			320	1		
 ³¬Ç¿»ðÑæÄ§·¨LV9	TECH_Attack_Magic	AR:258,	2908	130029	29	9	1	317			360	1		
 »ÙÃðµÄºË±¬	TECH_Attack_Magic	AR:289,	2909	130029	29	10	1	317			400	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ñ	TECH_Attack_Magic	AR:38,	2920	130029	29	30	1	317	2000		40	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ò	TECH_Attack_Magic	AR:68,	2921	130029	29	30	1	317	8000		80	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ó	TECH_Attack_Magic	AR:96,	2922	130029	29	30	1	317	18000		120	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ô	TECH_Attack_Magic	AR:121,	2923	130029	29	30	1	317	32000		160	1		
+³¬Ç¿»ðÑæÄ§·¨-¢õ	TECH_Attack_Magic	AR:147,	2924	130029	29	30	1	317	50000		200	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ö	TECH_Attack_Magic	AR:173,	2925	130029	29	30	1	317	72000		240	1		
+³¬Ç¿»ðÑæÄ§·¨-¢÷	TECH_Attack_Magic	AR:199,	2926	130029	29	30	1	317	98000		280	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ø	TECH_Attack_Magic	AR:228,	2927	130029	29	30	1	317	128000		320	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ù	TECH_Attack_Magic	AR:258,	2928	130029	29	30	1	317	162000		360	1		
+³¬Ç¿»ðÑæÄ§·¨-¢ú	TECH_Attack_Magic	AR:350,	2929	130029	29	30	1	317	200000		400	1		
 ³¬Ç¿·çÈÐÄ§·¨LV1	TECH_Attack_Magic	AR:38,	3000	130030	30	1	1	317			40	1		
 ³¬Ç¿·çÈÐÄ§·¨LV2	TECH_Attack_Magic	AR:68,	3001	130030	30	2	1	317			80	1		
 ³¬Ç¿·çÈÐÄ§·¨LV3	TECH_Attack_Magic	AR:96,	3002	130030	30	3	1	317			120	1		
@@ -480,6 +505,16 @@
 ³¬Ç¿·çÈÐÄ§·¨LV8	TECH_Attack_Magic	AR:228,	3007	130030	30	8	1	317			320	1		
 ³¬Ç¿·çÈÐÄ§·¨LV9	TECH_Attack_Magic	AR:258,	3008	130030	30	9	1	317			360	1		
 ÁÝÙýµÄ¿ñ·ç	TECH_Attack_Magic	AR:289,	3009	130030	30	10	1	317			400	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ñ	TECH_Attack_Magic	AR:38,	3020	130030	30	30	1	317	2000		40	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ò	TECH_Attack_Magic	AR:68,	3021	130030	30	30	1	317	8000		80	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ó	TECH_Attack_Magic	AR:96,	3022	130030	30	30	1	317	18000		120	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ô	TECH_Attack_Magic	AR:121,	3023	130030	30	30	1	317	32000		160	1		
+³¬Ç¿·çÈÐÄ§·¨-¢õ	TECH_Attack_Magic	AR:147,	3024	130030	30	30	1	317	50000		200	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ö	TECH_Attack_Magic	AR:173,	3025	130030	30	30	1	317	72000		240	1		
+³¬Ç¿·çÈÐÄ§·¨-¢÷	TECH_Attack_Magic	AR:199,	3026	130030	30	30	1	317	98000		280	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ø	TECH_Attack_Magic	AR:228,	3027	130030	30	30	1	317	128000		320	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ù	TECH_Attack_Magic	AR:258,	3028	130030	30	30	1	317	162000		360	1		
+³¬Ç¿·çÈÐÄ§·¨-¢ú	TECH_Attack_Magic	AR:350,	3029	130030	30	30	1	317	200000		400	1		
 ÎüÑªÄ§·¨LV1	TECH_Dorain	D1:63,D2:63,	3100	130031	31	1	1	125			20	1		
 ÎüÑªÄ§·¨LV2	TECH_Dorain	D1:114,D2:114,	3101	130031	31	2	1	125			40	1		
 ÎüÑªÄ§·¨LV3	TECH_Dorain	D1:159,D2:159,	3102	130031	31	3	1	125			60	1		
@@ -908,15 +943,15 @@
 µ÷½ÌLV8	TECH_Train	AR:400,CH:90,	7107	130071	71	8	1	1141			0	1		
 µ÷½ÌLV9	TECH_Train	AR:325,CH:95,	7108	130071	71	9	1	1141			0	1		
 ÈÕÒ¹±Þ²ß	TECH_Train	AR:250,CH:100,	7109	130071	71	10	1	1141			0	1		
-ÇÔµÁLV1	TECH_Steal	AR:50,	7200	130072	72	1	1	97			10	1		
-ÇÔµÁLV2	TECH_Steal	AR:50,	7201	130072	72	2	1	97			10	1		
-ÇÔµÁLV3	TECH_Steal	AR:50,	7202	130072	72	3	1	97			10	1		
-ÇÔµÁLV4	TECH_Steal	AR:50,	7203	130072	72	4	1	97			10	1		
-ÇÔµÁLV5	TECH_Steal	AR:50,	7204	130072	72	5	1	97			10	1		
-ÇÔµÁLV6	TECH_Steal	AR:50,	7205	130072	72	6	1	97			10	1		
-ÇÔµÁLV7	TECH_Steal	AR:50,	7206	130072	72	7	1	97			10	1		
-ÇÔµÁLV8	TECH_Steal	AR:50,	7207	130072	72	8	1	97			10	1		
-ÇÔµÁLV9	TECH_Steal	AR:50,	7208	130072	72	9	1	97			10	1		
+ÍµÇÔLV1	TECH_Steal	AR:50,	7200	130072	72	1	1	97			10	1		
+ÍµÇÔLV2	TECH_Steal	AR:50,	7201	130072	72	2	1	97			10	1		
+ÍµÇÔLV3	TECH_Steal	AR:50,	7202	130072	72	3	1	97			10	1		
+ÍµÇÔLV4	TECH_Steal	AR:50,	7203	130072	72	4	1	97			10	1		
+ÍµÇÔLV5	TECH_Steal	AR:50,	7204	130072	72	5	1	97			10	1		
+ÍµÇÔLV6	TECH_Steal	AR:50,	7205	130072	72	6	1	97			10	1		
+ÍµÇÔLV7	TECH_Steal	AR:50,	7206	130072	72	7	1	97			10	1		
+ÍµÇÔLV8	TECH_Steal	AR:50,	7207	130072	72	8	1	97			10	1		
+ÍµÇÔLV9	TECH_Steal	AR:50,	7208	130072	72	9	1	97			10	1		
 ½Ù¸»¼ÃÆ¶	TECH_Steal	AR:50,	7209	130072	72	10	1	97			10	1		
 ¹¥»÷	TECH_NormalAttack	AN:1,	7300	107300	73	30	1	1141	100		0	0		
 ·ÀÓù	TECH_NormalGuard		7400	107400	74	30	1	72	100		0	0		
@@ -1086,28 +1121,28 @@
 ½ðÇ®¹¥»÷LV8	TECH_GoldAttack	DD:80,	8707		87	50	1	1149			0	0		
 ½ðÇ®¹¥»÷LV9	TECH_GoldAttack	DD:90,	8708		87	50	1	1149			0	0		
 ½ðÇ®¹¥»÷LV10	TECH_GoldAttack	DD:100,	8709		87	50	1	1149			0	0		
-Ä§·â¹¥»÷LV1	TECH_Treat_Type	AN:2,	8800		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV2	TECH_Treat_Type	AN:3,	8801		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV3	TECH_Treat_Type	AN:4,	8802		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV4	TECH_Treat_Type	AN:5,	8803		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV5	TECH_Treat_Type	AN:6,	8804		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV6	TECH_Treat_Type	AN:7,	8805		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV7	TECH_Treat_Type	AN:8,	8806		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV8	TECH_Treat_Type	AN:9,	8807		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV9	TECH_Treat_Type	AN:10,	8808		88	50	1	120			0	0		
-Ä§·â¹¥»÷LV10	TECH_Treat_Type	AN:11,	8809		88	50	1	120			0	0		
-Ä§·â¹¥»÷E1	TECH_Treat_Type	AN:1,	8850		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV1	TECH_Treat_Type	AN:2,	8800		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV2	TECH_Treat_Type	AN:3,	8801		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV3	TECH_Treat_Type	AN:4,	8802		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV4	TECH_Treat_Type	AN:5,	8803		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV5	TECH_Treat_Type	AN:6,	8804		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV6	TECH_Treat_Type	AN:7,	8805		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV7	TECH_Treat_Type	AN:8,	8806		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV8	TECH_Treat_Type	AN:9,	8807		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV9	TECH_Treat_Type	AN:10,	8808		88	50	1	120			0	0		
+Ä§·¨·âÓ¡LV10	TECH_Treat_Type	AN:11,	8809		88	50	1	120			0	0		
+Ä§·¨·âÓ¡E1	TECH_Treat_Type	AN:1,	8850		88	50	1	120			0	0		
 ³èÎïÓÊ¼þ		240|0|0	8900	108900	89	30	3	64	10000		0	0		
-ÕÙ»½LV1	TECH_Summon	AR:1,	9300		93	50	1	112			0	0		
-ÕÙ»½LV2	TECH_Summon	AR:2,	9301		93	50	1	112			0	0		
-ÕÙ»½LV3	TECH_Summon	AR:3,	9302		93	50	1	112			0	0		
-ÕÙ»½LV4	TECH_Summon	AR:4,	9303		93	50	1	112			0	0		
-ÕÙ»½LV5	TECH_Summon	AR:5,	9304		93	50	1	112			0	0		
-ÕÙ»½LV6	TECH_Summon	AR:6,	9305		93	50	1	112			0	0		
-ÕÙ»½LV7	TECH_Summon	AR:7,	9306		93	50	1	112			0	0		
-ÕÙ»½LV8	TECH_Summon	AR:8,	9307		93	50	1	112			0	0		
-ÕÙ»½LV9	TECH_Summon	AR:9,	9308		93	50	1	112			0	0		
-ÕÙ»½LV10	TECH_Summon	AR:10,	9309		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV1	TECH_Summon	AR:1,	9300		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV2	TECH_Summon	AR:2,	9301		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV3	TECH_Summon	AR:3,	9302		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV4	TECH_Summon	AR:4,	9303		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV5	TECH_Summon	AR:5,	9304		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV6	TECH_Summon	AR:6,	9305		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV7	TECH_Summon	AR:7,	9306		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV8	TECH_Summon	AR:8,	9307		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV9	TECH_Summon	AR:9,	9308		93	50	1	112			0	0		
+ÕÙ»½Ä§·¨LV10	TECH_Summon	AR:10,	9309		93	50	1	112			0	0		
 »ìÂÒ¹¥»÷LV1	TECH_PanicAttack	SR:30,	9400	130094	94	1	1	1141			10	1		
 »ìÂÒ¹¥»÷LV2	TECH_PanicAttack	SR:35,	9401	130094	94	2	1	1141			20	1		
 »ìÂÒ¹¥»÷LV3	TECH_PanicAttack	SR:40,	9402	130094	94	3	1	1141			30	1		
@@ -1116,13 +1151,8 @@
 »ìÂÒ¹¥»÷LV6	TECH_PanicAttack	SR:55,	9405	130094	94	6	1	1141			60	1		
 »ìÂÒ¹¥»÷LV7	TECH_PanicAttack	SR:60,	9406	130094	94	7	1	1141			70	1		
 »ìÂÒ¹¥»÷LV8	TECH_PanicAttack	SR:65,	9407	130094	94	8	1	1141			80	1		
-»ìÂÒ¹¥»÷LV9	TECH_PanicAttack	SR:70,	9408	130094	94	9	1	1141			90	1		
-Ê¨×Ó·ÜÑ¸	TECH_PanicAttack	SR:80,	9409	130094	94	10	1	1141			100	1		
-Ê¨×Ó·ÜÑ¸	TECH_PanicAttack	SR:80,	9410	130094	94	11	1	1141			100	1		
-Ê¨×Ó·ÜÑ¸	TECH_PanicAttack	SR:80,	9411	130094	94	12	1	1141			100	1		
-Ê¨×Ó·ÜÑ¸	TECH_PanicAttack	SR:80,	9412	130094	94	13	1	1141			100	1		
-Ê¨×Ó·ÜÑ¸	TECH_PanicAttack	SR:80,	9413	130094	94	14	1	1141			100	1		
-Ê¨×Ó·ÜÑ¸	TECH_PanicAttack	SR:80,	9414	130094	94	15	1	1141			100	1		
+»ìÂÒ¹¥»÷ LV9	TECH_PanicAttack	SR:70,	9408	130094	94	9	1	1141			90	1		
+Ê¨×ÓÑ¸À×»÷	TECH_PanicAttack	SR:80,	9409	130094	94	10	1	1141			100	1		
 »ìÂÒ¹¥»÷E1	TECH_PanicAttack	SR:50,	9450	130094	94	50	1	1141			0	0		
 »ìÂÒ¹¥»÷(Àî±´ÁôË¹)	TECH_PanicAttack	SR:90,	9458	130094	94	50	1	1141			0	0		
 ÂÒÉäLV1	TECH_RandomShot	AN:3,AM:3,	9500	130095	95	1	1	97			10	1		
@@ -1135,11 +1165,6 @@
 ÂÒÉäLV8	TECH_RandomShot	AN:10,AM:10,	9507	130095	95	8	1	97			80	1		
 ÂÒÉäLV9	TECH_RandomShot	AN:11,AM:11,	9508	130095	95	9	1	97			90	1		
 ¼²·çÑ¸À×	TECH_RandomShot	AN:12,AM:12,	9509	130095	95	10	1	97			100	1		
-¼²·çÑ¸À×	TECH_RandomShot	AN:12,AM:12,	9510	130095	95	11	1	97			100	1		
-¼²·çÑ¸À×	TECH_RandomShot	AN:12,AM:12,	9511	130095	95	12	1	97			100	1		
-¼²·çÑ¸À×	TECH_RandomShot	AN:12,AM:12,	9512	130095	95	13	1	97			100	1		
-¼²·çÑ¸À×	TECH_RandomShot	AN:12,AM:12,	9513	130095	95	14	1	97			100	1		
-¼²·çÑ¸À×	TECH_RandomShot	AN:12,AM:12,	9514	130095	95	15	1	97			100	1		
 ÂÒÉäEX	TECH_RandomShot	AN:20,AM:20,	9551	130095	95	50	1	97			0	1		
 °µÉ±LV1	TECH_Assassin	SR:250,	9600	130096	96	1	1	97			0	1		
 °µÉ±LV2	TECH_Assassin	SR:250,	9601	130096	96	2	1	97			0	1		
@@ -1151,11 +1176,6 @@
 °µÉ±LV8	TECH_Assassin	SR:250,	9607	130096	96	8	1	97			0	1		
 °µÉ±LV9	TECH_Assassin	SR:250,	9608	130096	96	9	1	97			0	1		
 Ë®ÔÂ	TECH_Assassin	SR:250,	9609	130096	96	10	1	97			0	1		
-Ë®ÔÂ	TECH_Assassin	SR:250,	9610	130096	96	11	1	97			0	1		
-Ë®ÔÂ	TECH_Assassin	SR:250,	9611	130096	96	12	1	97			0	1		
-Ë®ÔÂ	TECH_Assassin	SR:250,	9612	130096	96	13	1	97			0	1		
-Ë®ÔÂ	TECH_Assassin	SR:250,	9613	130096	96	14	1	97			0	1		
-Ë®ÔÂ	TECH_Assassin	SR:250,	9614	130096	96	15	1	97			0	1		
 °µÉ±E1	TECH_Assassin	SR:100,	9650	130096	96	50	1	97			0	0		
 °µÉ±E2	TECH_Assassin	SR:200,	9651	130096	96	50	1	97			0	0		
 °µÉ±(Àî±´ÁôË¹)	TECH_Assassin	SR:300,	9658	130096	96	50	1	97			0	0		
@@ -1550,11 +1570,6 @@
 ½ä½¾½äÔêLV8	TECH_DelayAttack	CR:54,DD:40,	25707	3007166	1001	8	1	1141			66	1		
 ½ä½¾½äÔêLV9	TECH_DelayAttack	CR:56,DD:45,	25708	3007166	1001	9	1	1141			74	1		
 Õæ¡¤½ä½¾½äÔê	TECH_DelayAttack	CR:58,DD:50,	25709	3007166	1001	10	1	1141			82	1		
-Õæ¡¤½ä½¾½äÔê	TECH_DelayAttack	CR:58,DD:50,	25710	3007166	1001	11	1	1141			82	1		
-Õæ¡¤½ä½¾½äÔê	TECH_DelayAttack	CR:58,DD:50,	25711	3007166	1001	12	1	1141			82	1		
-Õæ¡¤½ä½¾½äÔê	TECH_DelayAttack	CR:58,DD:50,	25712	3007166	1001	13	1	1141			82	1		
-Õæ¡¤½ä½¾½äÔê	TECH_DelayAttack	CR:58,DD:50,	25713	3007166	1001	14	1	1141			82	1		
-Õæ¡¤½ä½¾½äÔê	TECH_DelayAttack	CR:58,DD:50,	25714	3007166	1001	15	1	1141			82	1		
 Ò»»÷±ØÖÐLV1	TECH_DelayAttack	CR:30,DD:1,	25800	3007166	1002	1	1	1141			10	1		
 Ò»»÷±ØÖÐLV2	TECH_DelayAttack	CR:31,DD:3,	25801	3007166	1002	2	1	1141			16	1		
 Ò»»÷±ØÖÐLV3	TECH_DelayAttack	CR:32,DD:6,	25802	3007166	1002	3	1	1141			22	1		
@@ -1565,11 +1580,6 @@
 Ò»»÷±ØÖÐLV8	TECH_DelayAttack	CR:44,DD:26,	25807	3007166	1002	8	1	1141			52	1		
 Ò»»÷±ØÖÐLV9	TECH_DelayAttack	CR:46,DD:29,	25808	3007166	1002	9	1	1141			58	1		
 Ò»»÷±ØÃð	TECH_DelayAttack	CR:48,DD:40,	25809	3007166	1002	10	1	1141			64	1		
-Ò»»÷±ØÃð	TECH_DelayAttack	CR:48,DD:40,	25810	3007166	1002	11	1	1141			64	1		
-Ò»»÷±ØÃð	TECH_DelayAttack	CR:48,DD:40,	25811	3007166	1002	12	1	1141			64	1		
-Ò»»÷±ØÃð	TECH_DelayAttack	CR:48,DD:40,	25812	3007166	1002	13	1	1141			64	1		
-Ò»»÷±ØÃð	TECH_DelayAttack	CR:48,DD:40,	25813	3007166	1002	14	1	1141			64	1		
-Ò»»÷±ØÃð	TECH_DelayAttack	CR:48,DD:40,	25814	3007166	1002	15	1	1141			64	1		
 ¶¾»÷LV1	TECH_StatusAttack	SR:40,TR:-30,CH:2,	25900	3007190	1003	1	1	1141			10	1		
 ¶¾»÷LV2	TECH_StatusAttack	SR:45,TR:-36,CH:2,	25901	3007190	1003	2	1	1141			20	1		
 ¶¾»÷LV3	TECH_StatusAttack	SR:40,TR:-42,CH:3,	25902	3007190	1003	3	1	1141			30	1		
@@ -1649,7 +1659,7 @@
 Æï³ËLV7	TECH_Rider	CH:550,	26506	3007196	1009	7	0	64			34	1		
 Æï³ËLV8	TECH_Rider	CH:650,	26507	3007196	1009	8	0	64			38	1		
 Æï³ËLV9	TECH_Rider	CH:700,	26508	3007196	1009	9	0	64			42	1		
-¶¥¼¶Æï³Ë	TECH_Rider	CH:800,	26509	3007196	1009	10	0	64			46	1		
+ÉñÆïÊõ	TECH_Rider	CH:800,	26509	3007196	1009	10	0	64			46	1		
 Òò¹û±¨Ó¦LV1	TECH_Madmax	DD:40,AR:15,	26600	3007236	1010	1	1	1141			10	1		
 Òò¹û±¨Ó¦LV2	TECH_Madmax	DD:50,AR:16,	26601	3007236	1010	2	1	1141			14	1		
 Òò¹û±¨Ó¦LV3	TECH_Madmax	DD:60,AR:17,	26602	3007236	1010	3	1	1141			18	1		

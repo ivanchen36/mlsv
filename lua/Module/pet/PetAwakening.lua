@@ -11,7 +11,7 @@ local attrImgList = {
     getItemImg(attrList[4])
 }
 
-local itemList = {0, 18311, 18312}
+local itemList = {0, 40101, 40102}
 local itemImgList = {
     0,
     getItemImg(itemList[2]) or 0,

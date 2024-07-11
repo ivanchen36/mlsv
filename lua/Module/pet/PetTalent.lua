@@ -1,14 +1,6 @@
-local beginnerSkill = {
+local skillName = {
+    "百毒不侵","悬梁刺股","镜盾反射","众人皆醉","乱中有序","永生难忘","生命脉动","魔力共鸣","防御壁垒","迅捷疾风","致命打击","心灵之眼","生命不息","致命绽放","混沌波动","永恒之壁"
 }
-local intermediateSkill = {
-}
-local advancedSkill = {
-}
-
-local allSkill = {
-
-}
-
 local skillRate = {
     [30401] = 700,
     [30402] = 700,
@@ -28,31 +20,26 @@ local skillRate = {
     [30416] = 300,
 }
 
-local initItemId = 1
-local reInitItemId = 1
+local talentItemId = {
+    [1] = 1,
+    [2] = 1,
+    [3] = 1
+}
 
-function initTalent(player, slot)
+function initTalent(player, slot, level)
+    local level = 1
     local pet = MyPet:new(player:getObj(), slot)
-    if player:getItemNum(initItemId) < 0 then
-        player:sysMsg("道具不足,无法领悟天赋")
-        return
-    end
-
     for i = 1, 10 do
         local skillId = pet:getSkill(i)
-        if skillId > 0 and rawget(allSkill, skillId) ~= nil then
+        if skillId > 30401 and skillId < 30499 then
             player:sysMsg("宠物领悟天赋, 无法重新领悟")
             return
         end
     end
 
-    if player:delNum(initItemId, 1) > 0 then
-        pet:addSkill(allSkill[math.random(#allSkill)])
-        player:sysMsg("宠物天赋领悟成功");
-        return
-    end
-
-    player:sysMsg("道具不足,无法领悟天赋")
+    local skillId = getRandObj(skillRate)
+    pet:addSkill(skillId)
+    player:sysMsg("宠物成功领悟天赋【" .. skillName[skillId - 30400] .. "LV1】");
 end
 
 function reInitTalent(player, slot, level)
@@ -62,29 +49,19 @@ function reInitTalent(player, slot, level)
         return
     end
 
+    if player:delNum(talentItemId[level], 1) <= 0 then
+        player:sysMsg("道具不足,无法重置天赋")
+        return
+    end
+
     for i = 1, 10 do
         local skillId = pet:getSkill(i)
-        if skillId > 0 and rawget(allSkill, skillId) ~= nil then
+        if skillId > 30401 and skillId < 30499 then
             pet:delSkill(i)
-            if player:delNum(initItemId, 1) <= 0 then
-                player:sysMsg("道具不足,无法重置天赋")
-                return
-            end
-
-            if level == 1 then
-                local skillId = beginnerSkill[math.random(#beginnerSkill)]
-                pet:addSkill(skillId)
-            elseif level == 2 then
-                local skillId = intermediateSkill[math.random(#intermediateSkill)]
-                pet:addSkill(skillId)
-            elseif level == 3 then
-                local skillId = advancedSkill[math.random(#advancedSkill)]
-                pet:addSkill(skillId)
-            end
-            player:sysMsg("宠物天赋重置成功");
-            return
         end
     end
 
-    player:sysMsg("宠物没有领悟天赋, 无法进行重置")
+    local skillId = getRandObj(skillRate)
+    pet:addSkill(skillId + (level - 1) * 30)
+    player:sysMsg("宠物重置天赋成功，获得新天赋【" .. skillName[skillId - 30400] .. "LV" .. level .. "】");
 end

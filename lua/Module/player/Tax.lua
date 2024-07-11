@@ -34,10 +34,11 @@ end
 
 --subMoney
 function checkSellAmount(fd, head, packet)
+    logPrint("OnRecv ", head, packet)
     local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
     local arr = strSplit(packet, ":")
-    logPrint("checkSellAmount ", arr[3], "  ", myPlayer:getGold())
     if arr[3] == "5o" then
+        logPrint("checkSellAmount ", arr[3], "  ", myPlayer:getGold())
         playerGold[myPlayer:getObj()] = myPlayer:getGold()
         Protocol.PowerSend(myPlayer:getObj(), "SEND_TAX", "")
     end
