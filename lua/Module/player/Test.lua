@@ -9,7 +9,8 @@ function test1()
 end
 
 function test(player)
-    getTaskClient(player, "")
+    Char.AddPet(player:getObj(), 8030)
+    Char.GivePet(player:getObj(), 8030, 1)
 end
 
 function test2()

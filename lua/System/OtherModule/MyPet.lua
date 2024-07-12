@@ -13,11 +13,11 @@ function MyPet:create(player, pet)
 end
 
 function MyPet:new(player, slot)
-    return MyChar:create(player, Char.GetPet(player, slot))
+    return MyPet:create(player, Char.GetPet(player, slot))
 end
 
 function MyPet:new1(pet)
-    return MyChar:create(Pet.GetOwner(pet), pet)
+    return MyPet:create(Pet.GetOwner(pet), pet)
 end
 
 -- %¶ÔÏó_Õ½³è% 62
