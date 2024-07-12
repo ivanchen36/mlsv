@@ -1,6 +1,6 @@
 tbl_daily = {};
 
-local scriptEvent = {}
+scriptEvent = {}
 
 --%道具_最大耐久% 13
 --%道具_耐久% 65
@@ -9,22 +9,6 @@ function itemreb(npc, player, s)
 	local nj = Item.GetData(this_item, 13);
 	Item.SetData(this_item, 65,nj);
 	Item.UpItem(player, 8);
-end
-
-function daily(npc, player, s)
-	local sv = string.gsub(s, "daily", "");
-	local playerkeyname = Playerkey(player)..sv;
-	if(tbl_daily[playerkeyname] == nil)then
-		tbl_daily[playerkeyname] = os.time();
-		return 1;
-	end
-
-	if (os.date("%d",tbl_daily[playerkeyname]) ~= os.date("%d",os.time())) then
-		tbl_daily[playerkeyname] = os.time();
-		return 1;
-	end
-
-	return 0;
 end
 
 function setdy(npc, player, s)
@@ -87,49 +71,6 @@ function petme(npc, player, s)
 	pet:changeImage(player1:getImage());
 end
 
-function setmj(npc, player, s)
-	local sv = string.gsub(s, "setmj", "");
-	if (sv ~= nil) then
-		local svA = Split(sv, ",");
-		local num1 = tonumber(Field.Get(player, "MKTZ_" .. svA[1]));
-		if num1 ~= nil and num1 < tonumber(svA[2]) then
-			Field.Set(player, "MKTZ_" .. svA[1], tostring(svA[2]));
-			return 1;
-		end
-	end
-	return 0;
-end
-
-function showmj(npc, player, s)
-	local retbl1 = {
-		["res"] = Char.ItemNum(player, tiaozhuanjuanID);
-	}
-	Protocol.PowerSend(player, "MIKING_RET1", retbl1)
-
-	local tbl_mj2 = tbl_copy(tbl_mj)
-
-	for i = 1, #tbl_mj do
-
-		local dqcs = Field.Get(player, "MKTZ_" .. i);
-
-		if tonumber(dqcs) == nil then
-			if i == 1 then
-				Field.Set(player, "MKTZ_" .. i, "1");
-			else
-				Field.Set(player, "MKTZ_" .. i, "0");
-			end
-			-- tbl_mj2[i]["dqcs"] = tonumber(dqcs);
-			-- NLG.SystemMessage(player, dqcs)
-		else
-			-- NLG.SystemMessage(player, dqcs)
-			tbl_mj2[i]["dqcs"] = tonumber(dqcs);
-		end
-	end
-
-	Protocol.PowerSend(player, "MIKING_RET2", tbl_mj2)
-	return 1;
-end
-
 function peth(npc, player, s)
 	local pet = MyPet:new(player, 0)
 	return pet:reinitDang(math.random(0,4), math.random(0,4), math.random(0,4), math.random(0,4), math.random(0,4))
@@ -151,7 +92,6 @@ function wudangxidangjuan(npc, player, s)
 end
 
 scriptEvent["itemreb"] = itemreb
-scriptEvent["daily"] = daily
 scriptEvent["setdy"] = setdy
 scriptEvent["setskilllv"] = setskilllv
 scriptEvent["getflg"] = getflg;
@@ -160,7 +100,6 @@ scriptEvent["delflg"] = delflg;
 scriptEvent["likeme"] = likeme;
 scriptEvent["petme"] = petme;
 scriptEvent["setmj"] = setmj;
-scriptEvent["showmj"] = showmj;
 scriptEvent["peth"] = peth;
 scriptEvent["mandang"] = mandang;
 scriptEvent["shidangxidangjuan"] = shidangxidangjuan;
@@ -170,17 +109,20 @@ function ScriptCall(npc, player, s)
 	if rawget(scriptEvent, s) ~= nil then
 		return scriptEvent[s](npc, player, s)
 	end
-	if(string.find(s,"daily"))then
-        return daily(npc, player, s)
-    end
 	if(string.find(s,"setdy"))then
         return setdy(npc, player, s)
     end
 	if(string.find(s,"setskilllv"))then
 		return setskilllv(npc, player, s)
 	end
-	if(string.find(s,"setmj"))then
-		return setmj(npc, player, s)
+	if(string.find(s,"getflg"))then
+		return getflg(npc, player, s)
+	end
+	if(string.find(s,"setflg"))then
+		return setflg(npc, player, s)
+	end
+	if(string.find(s,"delflg"))then
+		return delflg(npc, player, s)
 	end
 
 	return 0;

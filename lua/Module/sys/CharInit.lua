@@ -11,7 +11,6 @@ function skillSet(player)
     local skillset = "481_111055&111252,6381_110085&111154,6681_111019&111199,6681_110168&111019,"
 
     Protocol.SendLuaCustomPacket(player:getObj(), "diyskill", skillset);
-
 end
 
 function chibangSet(player)

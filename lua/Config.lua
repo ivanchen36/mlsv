@@ -49,23 +49,6 @@ useModule("sellpet");--宠物贩卖价格
 101-满级，等级*500魔币
 ]]--
 
-useModule("DailyEvent")--每日任务多次版
-
---每日任务特殊接口
---[[
-block
-luac daily richang1
-if localcount 31 == 0
-endwindow"\n\n\n\n\n@c 今天完成了!"
-endif
-
-if localcount 31 == 1
-endwindow"\n\n\n\n\n@c 这是你今天的任务!"
-endif
-
-]]
-
-
 --[[无限endevent扩展,用法跟官方一样 最大数量65535   可以从1000开始避免重复]]
 --[[
 block endevent 1001 == 1
