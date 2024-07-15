@@ -108,7 +108,11 @@ function addPartyBuff(index)
     local newBuffList = {}
     local partyDesc = ""
     for _, member in ipairs(newList) do
-        local buff = jobBuff[member:getJob()]
+        local jobId = member:getJob()
+        if rawget(jobBuff, jobId) == nil then
+            jobId = 1
+        end
+        local buff = jobBuff[jobId]
         if nil ~= buff then
             if rawget(newBuffList, buff[1]) == nil then
                 newBuffList[buff[1]] = buff[2]

@@ -106,8 +106,12 @@ scriptEvent["shidangxidangjuan"] = shidangxidangjuan;
 scriptEvent["wudangxidangjuan"] = wudangxidangjuan;
 
 function ScriptCall(npc, player, s)
-	if rawget(scriptEvent, s) ~= nil then
-		return scriptEvent[s](npc, player, s)
+	logPrint("ScriptCall: ", npc, player, s)
+	local parts = strSplit(s, "|")
+	local command = parts[1]
+	local arg = #parts > 1 and parts[2] or ""
+	if rawget(scriptEvent, command) ~= nil then
+		return scriptEvent[s](npc, player, arg)
 	end
 	if(string.find(s,"setdy"))then
         return setdy(npc, player, s)

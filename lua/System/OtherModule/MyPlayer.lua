@@ -121,6 +121,10 @@ function MyPlayer:subMoney(amount)
     return 0
 end
 
+function MyPlayer:canWarp()
+    return Char.GetPartyMember(self._player, 0) == self._player
+end
+
 function MyPlayer:isLeader()
     return Char.GetPartyMember(self._player, 0) == self._player and self:getPartyNum() > 1
 end
@@ -130,11 +134,9 @@ function MyPlayer:isGm()
 end
 
 function MyPlayer:warp(mapID, floorID, x, y)
-    if self:getPartyNum() > 1 then
-        if not self:isLeader() then
-            self:sysMsg("不是队长，不能够传送")
-            return
-        end
+    if not self:canWarp() then
+        self:sysMsg("不是队长，不能够传送")
+        return
     end
 
     Char.Warp(self._player, mapID, floorID, x, y)
