@@ -31,6 +31,7 @@ def handleInstallDir(dataDir, taskDir, task):
             handleUninstallFile(dataFile, task)
             handleInstallFile(dataFile, taskFile, task)
             continue
+        print(dataFile)
         shutil.copy2(taskFile, dataFile)
 
 def handleInstallFile(dataFilePath, taskFilePath, task):
@@ -70,6 +71,7 @@ def handleUninstallDir(dataDir, taskDir, task):
             handleUninstallFile(dataFile, task)
             continue
         if os.path.exists(dataFile):
+            print(dataFile)
             os.remove(dataFile)
 
 
@@ -136,4 +138,4 @@ def uninstallTask(gameDir, task):
 
 if __name__ == "__main__":
     uninstallTask("../../", "chx")
-    #installTask("../../", "chx")
+    installTask("../../", "chx")

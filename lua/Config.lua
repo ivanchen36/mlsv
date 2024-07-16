@@ -79,8 +79,8 @@ useModule("Team_Service");--组队T人界面
 useModule("actioninfonpc");--全局掉落 可以限定时间 限定个数 几率 等级(服务器人数高于800不要使用)
 
 useModule("SG_Pet_Shop2_can");--宠物自售配置文件
-useModule("ShopQuery_can");--宠物自售配置文件
 useModule("SG_Pet_Shop2");--宠物自售
+useModule("ShopQuery_can");--宠物自售配置文件
 useModule("ShopQuery");--宠物自售
 
 useModule("Battle_eryebeibao_can") -- 扩展背包
