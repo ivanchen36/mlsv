@@ -329,3 +329,78 @@ function safeCall(func, ...)
         return nil, resultOrError
     end
 end
+
+function copyTable(orig, copies)
+    copies = copies or {}  -- Table to store copies of tables
+    local orig_type = type(orig)
+    local copy
+
+    if orig_type == 'table' then
+        if copies[orig] then
+            return copies[orig]
+        end
+
+        copy = {}
+        copies[orig] = copy
+
+        for orig_key, orig_value in pairs(orig) do
+            copy[orig_key] = copyTable(orig_value, copies)
+        end
+
+        if getmetatable(orig) then
+            setmetatable(copy, copyTable(getmetatable(orig), copies))
+        end
+    else
+        copy = orig
+    end
+
+    return copy
+end
+
+ClientGen = {}
+ClientGen.__index = ClientGen
+
+-- 定义构造函数 new
+function ClientGen:new(bg, pL, pR, pT, pB)
+    local client = {
+        {
+            ["type"] = "bg",
+            ["img"] = bg,
+        },
+        {
+            ["type"] = "close",
+            ["x"] = 461,
+            ["y"] = 8,
+            ["img"] = 243000,
+            ["active"] = 243002,
+            ["disable"] = 243001,
+        }
+    }
+    local newObj = {
+        _client = client,
+        _player = player,
+        _width = 504,
+        _high = 327,
+        _pL = pL,
+        _pR = pR,
+        _pT = pT,
+        _pB = pB,
+        _list = {}
+    }  -- 创建一个新的对象，包含一个名为 data 的字段，其值为 player
+    setmetatable(newObj, self)       -- 设置新对象的元表为 MyChar
+    return newObj                    -- 返回新创建的对象
+end
+
+function ClientGen:addText(row, col, text)
+    if self._list[row] == nil then
+        self._list[row] = {}
+    end
+    self._list[row][col] = { "text", text }
+end
+
+function ClientGen:addBtn(row, col, text)
+    if self._list[row] == nil then
+        self._list[row] = {}
+    end
+    self._list[row][col] = { "btn", text }
+end
