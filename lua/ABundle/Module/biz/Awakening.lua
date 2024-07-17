@@ -72,11 +72,6 @@ end
 
 function selectAttrChanged(widget)
     local attr = tonumber(widget:getValue())
-    logPrint("selectAttrChanged " .. attr)
-    logPrintTbl(awakeningInfo["attrNum"])
-    logPrintTbl(awakeningInfo["attrImg"])
-    logPrint(awakeningInfo["attrImg"][attr])
-    logPrint(awakeningInfo["attrNum"][attr])
     local nextLevel = 0
     if select1 ~= nil then
         local cur = awakeningInfo[select1]
@@ -119,7 +114,6 @@ function showAwakeningInfo()
 end
 
 function awakeningPrev(widget)
-    logPrint("awakeningPrev")
     if nil == select1 then
         return
     end
@@ -132,7 +126,6 @@ function awakeningPrev(widget)
 end
 
 function awakeningNext(widget)
-    logPrint("awakeningNext")
     if nil == select1 then
         return
     end
@@ -154,7 +147,6 @@ function initAwakeningContent()
     end
 
     showAwakeningInfo()
-    logPrint("222")
 end
 
 function flushAwakeningInfo(info)
@@ -164,9 +156,6 @@ function flushAwakeningInfo(info)
 end
 
 function loadAwakeningClient(client)
-    logPrint("loadAwakeningClient")
-    logPrintTbl(client)
-
     local needShow = false
     if nil == awakeningWnd and nil ~= awakeningInfo then
         needShow = true
@@ -190,7 +179,6 @@ function showAwakening(info)
     end
 
     logPrint( 'showAwakening1')
-    logPrintTbl(info)
     awakeningWnd:show()
     safeCall(initAwakeningContent)
     logPrint( 'showAwakening2')

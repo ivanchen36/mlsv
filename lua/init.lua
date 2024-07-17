@@ -92,6 +92,7 @@ gadofile("lua/Module/player/Vip.lua");--vip系统
 gadofile("lua/Module/player/Tax.lua");--税务系统
 gadofile("lua/Module/player/PartyBuff.lua");--组队加成
 gadofile("lua/Module/player/Recover.lua");--组队加成
+gadofile("lua/Module/player/Warp.lua");--传送
 gadofile("lua/Module/player/Test.lua");
 
 --系统通用事件

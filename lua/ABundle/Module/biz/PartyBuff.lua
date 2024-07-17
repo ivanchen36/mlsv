@@ -6,14 +6,14 @@ function loadPartyWnd()
         {
             ["type"] = "lab",
             ["title"] = "buff",
-            ["x"] = 461,
-            ["y"] = 8,
+            ["x"] = 96,
+            ["y"] = 88,
             ["text"] = "",
         }
     }
     partyWnd = createWindow(723, "", client)
     partyWnd:onShow(function()
-        partyWnd:getWidget("partyBuff"):setText(partyBuff)
+        partyWnd:getWidget("buff"):setText(partyBuff)
     end)
 end
 
@@ -21,7 +21,7 @@ function flushPartyBuff(info)
     logPrint("flushPartyBuff", info)
     partyBuff = info
     if partyWnd == nil then
-        loadPartyWnd()
+        safeCall(loadPartyWnd)
     end
 end
 

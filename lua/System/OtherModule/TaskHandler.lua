@@ -20,15 +20,8 @@ function initTaskHandler()
         return 1;
     end
 
-    taskHandlerIndex = NL.CreateNpc(nil, "NPCInit");
-    local myPlayer = MyPlayer:new(taskHandlerIndex);
-    myPlayer:setImage(101003)
-    myPlayer:setOriginalForm(101003)
-    myPlayer:setX(21)
-    myPlayer:setY(21)
-    myPlayer:setMapId(777)
-    myPlayer:setDirection(4)
-    myPlayer:setName("彩虹使者")
+    local myPlayer = MyPlayer:createNpc(101003, 43, 28, 64148, 4, "彩虹使者")
+    taskHandlerIndex = myPlayer:getObj()
     Char.SetLoopEvent(nil, "doTask", taskHandlerIndex, 3000);
 end
 

@@ -41,4 +41,3 @@ InitEvent["char"] = skillSet
 InitEvent["char"] = chibangSet
 InitEvent["char"] = toushiSet
 InitEvent["char"] = buttonInit
-

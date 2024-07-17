@@ -27,31 +27,31 @@ local warpList = {
     [33] = {24068,21,19},
 }
 local warpInfo = {
-    [1] = { "ä¼Šå°”æ‘", 0, 100 },
-    [2] = { "åœ£æ‹‰é²å¡æ‘", 0, 100 },
-    [3] = { "äºšç•™ç‰¹æ‘", 10, 200 },
-    [4] = { "ç»´è¯ºäºšé•‡", 15, 300 },
-    [5] = { "ä¹Œå…‹å…°æ‘", 15, 300 },
-    [6] = { "å¥‡åˆ©æ‘", 20, 400 },
-    [7] = { "åŠ çº³æ‘", 25, 500 },
-    --[8] = {"å“ˆè´é²æ‘", 30, 1000},
-    --[9] = {"æ¯ç­ä¹‹æ‘", 30, 1000},
-    [10] = { "æ°è¯ºç“¦é•‡", 30, 700 },
-    [11] = { "è’‚å¨œæ‘", 40, 900 },
-    [12] = { "é˜¿å·´å°¼æ–¯æ‘", 40, 900 },
-    [14] = { "å°¼ç»´å°”æµ·æ‘", 60, 1500 },
-    [15] = { "æ‘©é¡¿æ‘", 60, 1500 },
-    [16] = { "å…‹ç‘žæ‘", 60, 1500 },
-    [17] = { "é›·æ¬§å¨œæ‘", 60, 1500 },
-    [18] = {"é˜¿å‡¯é²æ³•æ‘", 30, 700},
-    [19] = {"åŽé‚£è´æ‹‰æ‘", 35, 900},
-    [20] = {"å“¥æ‹‰å°”åŸŽ", 40, 900},
-    [21] = {"é²ç±³é‚£æ–¯æ‘", 40, 900},
-    [22] = {"ç±³è¯ºåŸºäºšæ‘", 40, 900},
-    [23] = {"é›·å…‹å¡”å°”é•‡", 40, 900},
-    [31] = {"æ ‘ç²¾é•¿è€", 0, 100},
-    [32] = {"ç¥žå…½", 0, 100},
-    [33] = {"åŒçŽ‹", 0, 100},
+    [1] = { "ÒÁ¶û´å", 0, 100 },
+    [2] = { "Ê¥À­Â³¿¨´å", 0, 100 },
+    [3] = { "ÑÇÁôÌØ´å", 10, 200 },
+    [4] = { "Î¬ÅµÑÇÕò", 15, 300 },
+    [5] = { "ÎÚ¿ËÀ¼´å", 15, 300 },
+    [6] = { "ÆæÀû´å", 20, 400 },
+    [7] = { "¼ÓÄÉ´å", 25, 500 },
+    --[8] = {"¹þ±´Â³´å", 30, 1000},
+    --[9] = {"»ÙÃðÖ®´å", 30, 1000},
+    [10] = { "½ÜÅµÍßÕò", 30, 700 },
+    [11] = { "µÙÄÈ´å", 40, 900 },
+    [12] = { "°¢°ÍÄáË¹´å", 40, 900 },
+    [14] = { "ÄáÎ¬¶ûº£´å", 60, 1500 },
+    [15] = { "Ä¦¶Ù´å", 60, 1500 },
+    [16] = { "¿ËÈð´å", 60, 1500 },
+    [17] = { "À×Å·ÄÈ´å", 60, 1500 },
+    [18] = {"°¢¿­Â³·¨´å", 30, 700},
+    [19] = {"¿²ÄÇ±´À­´å", 35, 900},
+    [20] = {"¸çÀ­¶û³Ç", 40, 900},
+    [21] = {"Â³Ã×ÄÇË¹´å", 40, 900},
+    [22] = {"Ã×Åµ»ùÑÇ´å", 40, 900},
+    [23] = {"À×¿ËËþ¶ûÕò", 40, 900},
+    [31] = {"Ê÷¾«³¤ÀÏ", 0, 100},
+    [32] = {"ÉñÊÞ", 0, 100},
+    [33] = {"Ë«Íõ", 0, 100},
 }
 
 function showWarp(npc, player, s)
@@ -67,14 +67,14 @@ function playerWarp(npc, player, arg)
     local myPlayer = MyPlayer:new(player)
     local mapId = tonumber(arg)
     if player:canWarp() then
-        myPlayer:sysMsg("æ‚¨ä¸æ˜¯é˜Ÿé•¿æ— æ³•ä¼ é€")
+        myPlayer:sysMsg("Äú²»ÊÇ¶Ó³¤ÎÞ·¨´«ËÍ")
         return
     end
     local amount = player:getGold()
     local num = player:getPartyNum()
     local need = num * warpInfo[mapId][3]
     if amount < need then
-        myPlayer:sysMsg("é­”å¸ä¸è¶³ï¼Œæ— æ³•ä¼ é€")
+        myPlayer:sysMsg("Ä§±Ò²»×ã£¬ÎÞ·¨´«ËÍ")
     end
     myPlayer:subMoney(need)
     local mapInfo = warpList[mapId]
@@ -83,3 +83,46 @@ end
 
 scriptEvent["show_warp"] = showWarp;
 scriptEvent["warp"] = playerWarp;
+
+local needLoadHomeNpc = true
+local homeWarpList = {
+    {64148,39,28},
+    {64121,34,31},
+    {64124,10,23},
+    {64125,18,32},
+    {64126,18,39}
+}
+local zzzzb = {{40,28,64148},{34,31,64121},{10,23,64124},{18,32,64125},{19,39,64126}}
+function homeCreate()
+    if needLoadHomeNpc then
+        needLoadHomeNpc = false
+        for i = 1, 5 do
+            local myPlayer = MyPlayer:createNpc(110083, zzzzb[i][1], zzzzb[i][2], zzzzb[i][3], 0, "²Êºç´óÌüµçÌÝ")
+            NLG.UpChar(myPlayer:getObj());
+            Char.SetTalkedEvent(nil, "homeTalk", myPlayer:getObj());
+            Char.SetWindowTalkedEvent(nil, "homeEvent", myPlayer:getObj());
+        end
+    end
+end
+
+function homeTalk(_NpcIndex,_PlayerIndex)
+    if (NLG.CanTalk(_NpcIndex,_PlayerIndex) == true) then
+        WindowMsg = "2\\n$4ÇëÑ¡ÔñÒªÇ°ÍùµÄµØµã\\n------------------------------------------\\n$2[Ò»Â¥]×ÛºÏ´óÌü\\n[¶þÂ¥]Ö°Òµ¼¼ÄÜ´óÌü\\n$0[ÈýÂ¥]ÑÐ¾¿´óÌü\\n[ËÄÂ¥]»î¶¯´óÌü\\n[ÎåÂ¥]Ìì¿ÕÖ®¾º¼¼³¡";
+        NLG.ShowWindowTalked(_PlayerIndex,_NpcIndex,2,2,1,WindowMsg);
+    end
+    return;
+end
+
+function homeEvent(_NpcIndex,_PlayerIndex,_SqeNo,_select,_data)
+    if ((_select == 0 or _select == "0") and (_data ~= "")) then
+        local select = tonumber(_data);
+        if Char.GetPartyMember(_PlayerIndex, 0) ~= _PlayerIndex then
+            NLG.SystemMessage(_PlayerIndex,"¶Ô²»Æð£¬Ö»ÓÐ¶Ó³¤¿ÉÒÔÊ¹ÓÃ£¡");
+            return
+        end
+        local warpMap = homeWarpList[select];
+        Char.Warp(_PlayerIndex,0,warpMap[1],warpMap[2],warpMap[3]);
+    end
+end
+
+InitEvent["server"] = homeCreate

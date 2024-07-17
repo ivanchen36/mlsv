@@ -10,6 +10,18 @@ function MyPlayer:new(player)
     return newObj                    -- 返回新创建的对象
 end
 
+function MyPlayer:createNpc(image, x, y, mapId, direction, name)
+    local myPlayer = MyPlayer:new(NL.CreateNpc(nil, "NPCInit"));
+    myPlayer:setImage(image)
+    myPlayer:setOriginalForm(image)
+    myPlayer:setX(x)
+    myPlayer:setY(y)
+    myPlayer:setMapId(mapId)
+    myPlayer:setDirection(direction)
+    myPlayer:setName(name)
+    return myPlayer
+end
+
 function MyPlayer:flush()
     NLG.UpChar(self._player)
 end

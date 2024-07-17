@@ -46,7 +46,6 @@ end
 function subBuff(members, buffList)
     logPrint("subBuff")
     for _, member in ipairs(members) do
-        logPrint(member:isValid())
         if member:isValid() then
             for attr, buff in pairs(buffList) do
                 local method = MyChar[buffFunc[attr]]
@@ -121,13 +120,14 @@ function addPartyBuff(index)
             end
         end
     end
+    logPrintTbl(newBuffList)
     for attr, buff in pairs(newBuffList) do
         if 0 ~= string.len(partyDesc) then
             partyDesc = partyDesc .. ", "
         end
         partyDesc = partyDesc .. buffDesc[attr] .. " +" .. buff
     end
-    if #newBuffList > 0 then
+    if countKeys(newBuffList) > 0 then
         partyBuffInfo[index] = newBuffList
         partyMemberInfo[index] = newList
         addBuff(newList, newBuffList, partyDesc)

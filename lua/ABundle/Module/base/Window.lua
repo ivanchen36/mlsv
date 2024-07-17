@@ -4,7 +4,7 @@ local lastWnd = nil
 function showWnd(view)
     local wnd = wndMgr[view.vid]
     if nil == wnd then
-        logPrint("open view vid " .. view.vid)
+        logPrint("open1 view vid " .. view.vid)
         return
     end
 
@@ -19,7 +19,7 @@ end
 function Event.ViewInit.ReviewWnd(view)
     local wnd = wndMgr[view.vid]
     if nil == wnd then
-        logPrint("open view vid " .. view.vid)
+        logPrint("open2 view vid " .. view.vid)
         return
     end
 
@@ -56,7 +56,6 @@ function Window:new(id, title, img)
     }
     setmetatable(newObj, self)
     wndMgr[newObj._id] = newObj
-
     return newObj
 end
 
