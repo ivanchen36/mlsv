@@ -55,6 +55,9 @@ function getImgId(imgFile)
     if type(imgFile) == "number" then
         return imgFile
     end
+    if "" == imgFile then
+        return 0
+    end
     bmp.load(imgFile)
     for i = 1,#tbl_bmp2 do
         if tbl_bmp2[i].id == imgFile then

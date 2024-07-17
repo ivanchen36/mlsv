@@ -74,7 +74,7 @@ function playerWarp(npc, player, arg)
     local num = player:getPartyNum()
     local need = num * warpInfo[mapId][3]
     if amount < need then
-        myPlayer:sysMsg("魔币不足，无法传送")
+        myPlayer:sysMsg("传送失败，魔币不足！")
     end
     myPlayer:subMoney(need)
     local mapInfo = warpList[mapId]
