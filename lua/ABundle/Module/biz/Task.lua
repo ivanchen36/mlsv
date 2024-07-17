@@ -60,7 +60,7 @@ function initTaskContent()
             submit:setEnabled(false)
         end
         logPrintTbl(submit)
-        submit:clicked(function()
+        submit:clicked(function(w)
             Cli.Send("submit_task|" .. task.id)
         end)
     end
@@ -89,7 +89,7 @@ end
 function addCycleEvent()
     for i = 1, #taskBtn do
         local btn = taskWnd:getWidget(taskBtn[i])
-        btn:clicked(function()
+        btn:clicked(function(w)
             curCycleType = i
             Cli.Send("query_task|" .. i)
         end)

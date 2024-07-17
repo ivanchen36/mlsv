@@ -357,15 +357,55 @@ function copyTable(orig, copies)
     return copy
 end
 
+function createText(title, x, y, text)
+    return {
+        ["type"] = "lab",
+        ["title"] = title,
+        ["x"] = x,
+        ["y"] = y,
+        ["text"] = text,
+    }
+end
+
+function createBtn(title, x, y, text)
+    return {
+        ["type"] = "btn",
+        ["title"] = title,
+        ["x"] = x,
+        ["y"] = y,
+        ["img"] = "b1.bmp",
+        ["active"] = "b2.bmp",
+        ["disable"] = "b3.bmp",
+        ["text"] = text,
+    }
+end
+
+function createImg(title, x, y, img)
+    return {
+        ["type"] = "img",
+        ["title"] = title,
+        ["x"] = x,
+        ["y"] = y,
+        ["img"] = img,
+    }
+end
+
+local createFunc = {
+    ["text"] = createText,
+    ["btn"] = createBtn,
+    ["img"] = createImg,
+}
+
 ClientGen = {}
 ClientGen.__index = ClientGen
 
 -- 定义构造函数 new
-function ClientGen:new(bg, pL, pR, pT, pB)
+function ClientGen:new(bg, row, col, pL, pR, pT, pB)
+    local imgId = getImgId(bg)
     local client = {
         {
             ["type"] = "bg",
-            ["img"] = bg,
+            ["img"] = imgId,
         },
         {
             ["type"] = "close",
@@ -376,11 +416,13 @@ function ClientGen:new(bg, pL, pR, pT, pB)
             ["disable"] = 243001,
         }
     }
+    local x, y = getSize(imgId)
     local newObj = {
         _client = client,
-        _player = player,
-        _width = 504,
-        _high = 327,
+        _row = row,
+        _col = col,
+        _width = x,
+        _high = y,
         _pL = pL,
         _pR = pR,
         _pT = pT,
@@ -403,4 +445,33 @@ function ClientGen:addBtn(row, col, text)
         self._list[row] = {}
     end
     self._list[row][col] = { "btn", text }
+end
+
+function ClientGen:addImg(row, col, img)
+    if self._list[row] == nil then
+        self._list[row] = {}
+    end
+    self._list[row][col] = { "btn", img }
+end
+
+function ClientGen:getClient()
+    local w = math.floor((self._width - (self._pL + self._pR))/ self._col)
+    local h = math.floor((self._high - (self._pT + self._pB))/ self._row)
+    local startX = self._pL
+    local startY = self._pT
+
+    for i = 1, self._row do
+        for j = 1, self._col do
+            if self._list[i] ~= nil then
+                if self._list[i][j] ~= nil then
+                    local info = self._list[i][j]
+                    if rawget(createFunc, info[1]) ~= nil then
+                        table.insert(self._client,
+                                createFunc[info[1]]("r" .. i .."c" .. j, startX + (j - 1) * w, startY + (i - 1) * h, info[2]))
+                    end
+                end
+            end
+        end
+    end
+    return self._client
 end

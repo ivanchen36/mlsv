@@ -117,7 +117,7 @@ function initSynthesisContent()
         end
         local next = synthesisWnd:getWidget(petTitle[i] .. "Next")
         local prev = synthesisWnd:getWidget(petTitle[i] .. "Prev")
-        next:clicked(function()
+        next:clicked(function(w)
             local select1 = select[i]
             if nil == select1 then
                 return
@@ -145,7 +145,7 @@ function initSynthesisContent()
                 end
             end
         end)
-        prev:clicked(function()
+        prev:clicked(function(w)
             local select1 = select[i]
             if nil == select1 then
                 return

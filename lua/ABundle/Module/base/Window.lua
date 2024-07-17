@@ -205,5 +205,10 @@ function Window:addWidget(widget)
 end
 
 function Window:getWidget(title)
-    return self._widgets[title]
+    local widget = self._widgets[title]
+    if nil ~= widget then
+        return widget
+    end
+    logPrint("widget " .. title .. " not found")
+    return nil
 end

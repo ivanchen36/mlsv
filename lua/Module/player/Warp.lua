@@ -27,31 +27,31 @@ local warpList = {
     [33] = {24068,21,19},
 }
 local warpInfo = {
-    [1] = { "������", 0, 100 },
-    [2] = { "ʥ��³����", 0, 100 },
-    [3] = { "�����ش�", 10, 200 },
-    [4] = { "άŵ����", 15, 300 },
-    [5] = { "�ڿ�����", 15, 300 },
-    [6] = { "������", 20, 400 },
-    [7] = { "���ɴ�", 25, 500 },
-    --[8] = {"����³��", 30, 1000},
-    --[9] = {"����֮��", 30, 1000},
-    [10] = { "��ŵ����", 30, 700 },
-    [11] = { "���ȴ�", 40, 900 },
-    [12] = { "������˹��", 40, 900 },
-    [14] = { "��ά������", 60, 1500 },
-    [15] = { "Ħ�ٴ�", 60, 1500 },
-    [16] = { "�����", 60, 1500 },
-    [17] = { "��ŷ�ȴ�", 60, 1500 },
-    [18] = {"����³����", 30, 700},
-    [19] = {"���Ǳ�����", 35, 900},
-    [20] = {"��������", 40, 900},
-    [21] = {"³����˹��", 40, 900},
-    [22] = {"��ŵ���Ǵ�", 40, 900},
-    [23] = {"�׿�������", 40, 900},
-    [31] = {"��������", 0, 100},
-    [32] = {"����", 0, 100},
-    [33] = {"˫��", 0, 100},
+    [1] = { "伊尔村", 0, 100 },
+    [2] = { "圣拉鲁卡村", 0, 100 },
+    [3] = { "亚留特村", 10, 200 },
+    [4] = { "维诺亚镇", 15, 300 },
+    [5] = { "乌克兰村", 15, 300 },
+    [6] = { "奇利村", 20, 400 },
+    [7] = { "加纳村", 25, 500 },
+    --[8] = {"哈贝鲁村", 30, 1000},
+    --[9] = {"毁灭之村", 30, 1000},
+    [10] = { "杰诺瓦镇", 30, 700 },
+    [11] = { "蒂娜村", 40, 900 },
+    [12] = { "阿巴尼斯村", 40, 900 },
+    [14] = { "尼维尔海村", 60, 1500 },
+    [15] = { "摩顿村", 60, 1500 },
+    [16] = { "克瑞村", 60, 1500 },
+    [17] = { "雷欧娜村", 60, 1500 },
+    [18] = {"阿凯鲁法村", 30, 700},
+    [19] = {"坎那贝拉村", 35, 900},
+    [20] = {"哥拉尔城", 40, 900},
+    [21] = {"鲁米那斯村", 40, 900},
+    [22] = {"米诺基亚村", 40, 900},
+    [23] = {"雷克塔尔镇", 40, 900},
+    [31] = {"树精长老", 0, 100},
+    [32] = {"神兽", 0, 100},
+    [33] = {"双王", 0, 100},
 }
 
 function showWarp(npc, player, s)
@@ -67,14 +67,14 @@ function playerWarp(npc, player, arg)
     local myPlayer = MyPlayer:new(player)
     local mapId = tonumber(arg)
     if player:canWarp() then
-        myPlayer:sysMsg("�����Ƕӳ��޷�����")
+        myPlayer:sysMsg("您不是队长无法传送")
         return
     end
     local amount = player:getGold()
     local num = player:getPartyNum()
     local need = num * warpInfo[mapId][3]
     if amount < need then
-        myPlayer:sysMsg("ħ�Ҳ��㣬�޷�����")
+        myPlayer:sysMsg("传送失败，魔币不足！")
     end
     myPlayer:subMoney(need)
     local mapInfo = warpList[mapId]
@@ -97,7 +97,7 @@ function homeCreate()
     if needLoadHomeNpc then
         needLoadHomeNpc = false
         for i = 1, 5 do
-            local myPlayer = MyPlayer:createNpc(110083, zzzzb[i][1], zzzzb[i][2], zzzzb[i][3], 0, "�ʺ��������")
+            local myPlayer = MyPlayer:createNpc(110083, zzzzb[i][1], zzzzb[i][2], zzzzb[i][3], 0, "彩虹大厅电梯")
             NLG.UpChar(myPlayer:getObj());
             Char.SetTalkedEvent(nil, "homeTalk", myPlayer:getObj());
             Char.SetWindowTalkedEvent(nil, "homeEvent", myPlayer:getObj());
@@ -107,7 +107,7 @@ end
 
 function homeTalk(_NpcIndex,_PlayerIndex)
     if (NLG.CanTalk(_NpcIndex,_PlayerIndex) == true) then
-        WindowMsg = "2\\n$4��ѡ��Ҫǰ���ĵص�\\n------------------------------------------\\n$2[һ¥]�ۺϴ���\\n[��¥]ְҵ���ܴ���\\n$0[��¥]�о�����\\n[��¥]�����\\n[��¥]���֮������";
+        WindowMsg = "2\\n$4请选择要前往的地点\\n------------------------------------------\\n$2[一楼]综合大厅\\n[二楼]职业技能大厅\\n$0[三楼]研究大厅\\n[四楼]活动大厅\\n[五楼]天空之竞技场";
         NLG.ShowWindowTalked(_PlayerIndex,_NpcIndex,2,2,1,WindowMsg);
     end
     return;
@@ -117,7 +117,7 @@ function homeEvent(_NpcIndex,_PlayerIndex,_SqeNo,_select,_data)
     if ((_select == 0 or _select == "0") and (_data ~= "")) then
         local select = tonumber(_data);
         if Char.GetPartyMember(_PlayerIndex, 0) ~= _PlayerIndex then
-            NLG.SystemMessage(_PlayerIndex,"�Բ���ֻ�жӳ�����ʹ�ã�");
+            NLG.SystemMessage(_PlayerIndex,"对不起，只有队长可以使用！");
             return
         end
         local warpMap = homeWarpList[select];

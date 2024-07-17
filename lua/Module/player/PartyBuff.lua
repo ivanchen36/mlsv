@@ -4,13 +4,21 @@ local jobBuff = {
 
 local buffFunc = {
     ["hp"] = "setBounsHp",
-    ["mp"] = "setBounsMagic",
+    ["mp"] = "setBounsForcepoint",
     ["atk"] = "setBounsAttack",
     ["def"] = "setBounsDefence",
     ["agi"] = "setBounsAgility",
     ["crit"] = "setBounsCritical",
     ["avoid"] = "setBounsAvoid",
     ["hit"] = "setBounsHitrate",
+    ["spirit"] = "setBounsMagic",
+    ["recover"] = "setBounsRecovery",
+    ["poison"] = "setBounsPoison",
+    ["sleep"] = "setBounsSleep",
+    ["stone"] = "setBounsStone",
+    ["drunk"] = "setBounsDrunk",
+    ["confusion"] = "setBounsConfusion",
+    ["amnesia"] = "setBounsAmnesia",
 }
 
 local buffDesc = {
@@ -22,13 +30,31 @@ local buffDesc = {
     ["crit"] = "±ØÉ±",
     ["avoid"] = "¶ãÉÁ",
     ["hit"] = "ÃüÖÐ",
+    ["spirit"] = "¾«Éñ",
+    ["recover"] = "»Ø¸´",
+    ["poison"] = "¿¹¶¾",
+    ["sleep"] = "¿¹Ë¯Ãß",
+    ["stone"] = "¿¹Ê¯»¯",
+    ["drunk"] = "¿¹×í¾Æ",
+    ["confusion"] = "¿¹»ìÂÒ",
+    ["amnesia"] = "¿¹ÒÅÍü",
 }
 
 local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
 
-function addBuff(members, buffList, desc)
+function addBuff(player, buffList)
+    if player:isValid() then
+        for attr, buff in pairs(buffList) do
+            local method = MyChar[buffFunc[attr]]
+            method(player, buff)
+        end
+        player:flush()
+    end
+end
+
+function addPartyBuff(members, buffList, desc)
     logPrint("addBuff")
     for _, member in ipairs(members) do
         if member:isValid() then
@@ -43,7 +69,7 @@ function addBuff(members, buffList, desc)
     end
 end
 
-function subBuff(members, buffList)
+function subPartyBuff(members, buffList)
     logPrint("subBuff")
     for _, member in ipairs(members) do
         if member:isValid() then
@@ -86,12 +112,12 @@ function Event.RegPartyEvent.PartyBuff(index, target, pType)
     waitHandleList[target] = os.time() + 20
 end
 
-function addPartyBuff(index)
+function setPartyBuff(index)
     local player = MyPlayer:new(index)
     local oldList = partyMemberInfo[index]
     local oldBuffList = partyBuffInfo[index]
     if nil ~= oldBuffList then
-        subBuff(oldList, oldBuffList)
+        subPartyBuff(oldList, oldBuffList)
         partyBuffInfo[index] = nil
         partyMemberInfo[index] = nil
     end
@@ -130,7 +156,7 @@ function addPartyBuff(index)
     if countKeys(newBuffList) > 0 then
         partyBuffInfo[index] = newBuffList
         partyMemberInfo[index] = newList
-        addBuff(newList, newBuffList, partyDesc)
+        addPartyBuff(newList, newBuffList, partyDesc)
     end
 end
 
@@ -141,7 +167,7 @@ function handlePartyBuff()
         logPrint("exe1")
         if exeTime <= now then
             logPrint("exe2")
-            addPartyBuff(index)
+            setPartyBuff(index)
             table.insert(deleteList, index)
         end
     end

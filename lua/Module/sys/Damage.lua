@@ -62,7 +62,7 @@ function subPersonDamage(player, rate)
 end
 
 function subPetDamage(player, rate)
-    return rate
+    return rate - getDefTalent(player)
 end
 
 function subPersonDefDamage(player, rate)
