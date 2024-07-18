@@ -77,11 +77,12 @@ function playerWarp(npc, player, arg)
         myPlayer:sysMsg("传送失败，魔币不足！")
     end
     myPlayer:subMoney(need)
+    player:flush()
     local mapInfo = warpList[mapId]
     myPlayer:warp(0, mapInfo[1], mapInfo[2], mapInfo[3])
 end
 
-scriptEvent["show_warp"] = showWarp;
+npcDialog[109399] = showWarp;
 ClientEvent["warp"] = playerWarp;
 
 local needLoadHomeNpc = true

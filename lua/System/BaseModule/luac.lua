@@ -1,6 +1,7 @@
 tbl_daily = {};
 
 scriptEvent = {}
+npcDialog = {}
 
 --%道具_最大耐久% 13
 --%道具_耐久% 65
@@ -58,7 +59,6 @@ function delflg(npc, player, s)
 	return ret;
 end
 
-
 function likeme(npc, player, s)
 	local player = MyPlayer:new(player)
 	local player1 = MyPlayer:new(npc)
@@ -91,6 +91,13 @@ function wudangxidangjuan(npc, player, s)
 	return pet:reinitDang(math.random(0,1), math.random(0,1), math.random(0,1), math.random(0,1), math.random(0,1))
 end
 
+function showNpc(npc, player, arg)
+	local imgId = MyPlayer:new(npc):getImage()
+	if rawget(npcDialog, imgId) ~= nil then
+		npcDialog[imgId](npc, player, arg)
+	end
+end
+
 scriptEvent["itemreb"] = itemreb
 scriptEvent["setdy"] = setdy
 scriptEvent["setskilllv"] = setskilllv
@@ -104,6 +111,8 @@ scriptEvent["peth"] = peth;
 scriptEvent["mandang"] = mandang;
 scriptEvent["shidangxidangjuan"] = shidangxidangjuan;
 scriptEvent["wudangxidangjuan"] = wudangxidangjuan;
+
+scriptEvent["show_npc"] = showNpc;
 
 function ScriptCall(npc, player, s)
 	logPrint("ScriptCall: ", npc, player, s)

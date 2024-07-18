@@ -51,5 +51,5 @@ function showRecover(npc, player, s)
     getRecoverClient(player)
 end
 
-scriptEvent["show_recover"] = showRecover
+npcDialog[14152] = showRecover
 ClientEvent["party_recover"] = partyRecover

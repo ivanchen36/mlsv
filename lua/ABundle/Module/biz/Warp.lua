@@ -112,7 +112,7 @@ local function loadWarpClient()
         gen:addText(i + 1, 2, "")
         gen:addText(i + 1, 3, "")
         gen:addText(i + 1, 4, "")
-        gen:addText(i + 1, 5, "´«ËÍ")
+        gen:addBtn(i + 1, 5, "´«ËÍ")
     end
 
     local client = gen:getClient()
@@ -134,7 +134,7 @@ local function loadWarpClient()
             ["disable"] = "task3.bmp",
             ["text"] = name,
             ["click"] = function()
-                warpPage = i
+                curWarpPage = i
                 initWarpContent()
             end,
         })

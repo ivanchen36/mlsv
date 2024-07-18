@@ -27,7 +27,8 @@ def handleInstallDir(dataDir, taskDir, task):
         dataFile = os.path.join(dataDir, fileName)
         if os.path.isdir(taskFile):
             continue
-        if ".txt" in fileName:
+        if (".txt" in fileName) and ("\\npc\\" not in dataFile):
+            print("111  " + dataFile)
             handleUninstallFile(dataFile, task)
             handleInstallFile(dataFile, taskFile, task)
             continue
@@ -41,12 +42,12 @@ def handleInstallFile(dataFilePath, taskFilePath, task):
     dataFile = FileUtil(dataFilePath, "gbk")
     if not dataFile.isBlankLineEnd():
         dataFile.writeLine("")
-    dataFile.writeLine(f"#TASK_START{task}")
+    dataFile.writeLine(f"#TASK_START_{task}")
     for line in taskFile.readLines():
         if len(line.strip()) == 0:
             continue
         dataFile.writeLine(line.replace("\n", ""))
-    dataFile.writeLine(f"#TASK_END{task}")
+    dataFile.writeLine(f"#TASK_END_{task}")
 
 def handleInstall(dataDir, taskDir, task):
     for fileName in os.listdir(taskDir):
@@ -67,7 +68,7 @@ def handleUninstallDir(dataDir, taskDir, task):
         dataFile = os.path.join(dataDir, fileName)
         if os.path.isdir(taskFile):
             continue
-        if ".txt" in fileName:
+        if (".txt" in fileName) and ("\\npc\\" not in dataFile):
             handleUninstallFile(dataFile, task)
             continue
         if os.path.exists(dataFile):
@@ -80,10 +81,10 @@ def handleUninstallFile(dataFilePath,  task):
         return
     dataFile = FileUtil(dataFilePath, "gbk")
     print(dataFilePath)
-    startLine = dataFile.findLine(f"#TASK_START{task}")
+    startLine = dataFile.findLine(f"#TASK_START_{task}")
     if startLine <= 0:
         return
-    endLine = dataFile.findLine(f"#TASK_END{task}")
+    endLine = dataFile.findLine(f"#TASK_END_{task}")
     dataFile.deleteLine(startLine, endLine - startLine + 1)
     if dataFile.isBlankFile():
         del dataFile
@@ -138,4 +139,4 @@ def uninstallTask(gameDir, task):
 
 if __name__ == "__main__":
     uninstallTask("../../", "chx")
-    installTask("../../", "chx")
+    #installTask("../../", "chx")
