@@ -136,7 +136,6 @@ def uninstallTask(gameDir, task):
     taskList.deleteLine(lineNum)
     print(f"任务{task}卸载成功")
 
-
 if __name__ == "__main__":
     uninstallTask("../../", "chx")
     #installTask("../../", "chx")

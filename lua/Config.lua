@@ -91,8 +91,6 @@ useModule("ChiBang3_can");--翅膀配置文件
 useModule("ChiBang3");--翅膀
 useModule("zuoqi2_can");--虚拟坐骑配置文件
 useModule("zuoqi2");--虚拟坐骑
-useModule("EnemyBase_can");--怪物能力设置
-useModule("EnemyBase");--怪物能力
 useModule("qiandao2_can");--签到
 useModule("qiandao2");--签到
 useModule("shuxing_can");--职业BP切换

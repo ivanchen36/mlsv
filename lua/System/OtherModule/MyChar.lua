@@ -1020,15 +1020,7 @@ function MyChar:setAgility(val)
     return self:set(8019, val)
 end
 
---%对象_魔法攻击力% 8020
-function MyChar:getMagicAttackPower()
-    return self:get(8020)
-end
-function MyChar:setMagicAttackPower(val)
-    return self:set(8020, val)
-end
-
---%对象_魔强% 8020 (与魔法攻击力似乎是同一个属性，因此使用相同的函数)
+--%对象_魔强% 8020 精神
 function MyChar:getMagicStrength()
     return self:get(8020)
 end

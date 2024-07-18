@@ -157,3 +157,30 @@ function getItemImg(itemId)
     local item = MyDataItem:new(itemId)
     return item:getImage()
 end
+
+function copyTable(orig, copies)
+    copies = copies or {}  -- Table to store copies of tables
+    local orig_type = type(orig)
+    local copy
+
+    if orig_type == 'table' then
+        if copies[orig] then
+            return copies[orig]
+        end
+
+        copy = {}
+        copies[orig] = copy
+
+        for orig_key, orig_value in pairs(orig) do
+            copy[orig_key] = copyTable(orig_value, copies)
+        end
+
+        if getmetatable(orig) then
+            setmetatable(copy, copyTable(getmetatable(orig), copies))
+        end
+    else
+        copy = orig
+    end
+
+    return copy
+end

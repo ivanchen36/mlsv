@@ -17,7 +17,7 @@ function lvOnePet(battle)
     end
 end
 
-function newbieBlessByPlayer(player)
+local function newbieBlessByPlayer(player)
     if not player:isValid() or player:getLevel() > 30 or not player:needHp() then
         return
     end

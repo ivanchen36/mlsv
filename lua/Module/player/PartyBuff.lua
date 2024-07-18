@@ -2,6 +2,19 @@ local jobBuff = {
     [1] = {"hp", 50}
 }
 
+local attrFunc = {
+    ["hp"] = "getMaxHp",
+    ["mp"] = "getMaxMp",
+    ["atk"] = "getAttackPower",
+    ["def"] = "getDefensePower",
+    ["agi"] = "getAgility",
+    ["crit"] = "getCriticalHitChance",
+    ["avoid"] = "getDodgeRate",
+    ["hit"] = "getHitRate",
+    ["spirit"] = "getMagicStrength",
+    ["recover"] = "getRecoveryRate",
+}
+
 local buffFunc = {
     ["hp"] = "setBounsHp",
     ["mp"] = "setBounsForcepoint",
@@ -44,6 +57,11 @@ local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
 
+function getAttr(player, attr)
+    local method = MyChar[attrFunc[attr]]
+    return method(player)
+end
+
 function addBuff(player, buffList)
     if player:isValid() then
         for attr, buff in pairs(buffList) do
@@ -54,7 +72,31 @@ function addBuff(player, buffList)
     end
 end
 
-function addPartyBuff(members, buffList, desc)
+function subBuff(player, buffList)
+    if player:isValid() then
+        for attr, buff in pairs(buffList) do
+            local method = MyChar[buffFunc[attr]]
+            method(player, -buff)
+        end
+        player:flush()
+    end
+end
+
+function changeBuff(player, oldBuff, newBuff)
+    if player:isValid() then
+        for attr, buff in pairs(oldBuff) do
+            local method = MyChar[buffFunc[attr]]
+            method(player, -buff)
+        end
+        for attr, buff in pairs(newBuff) do
+            local method = MyChar[buffFunc[attr]]
+            method(player, buff)
+        end
+        player:flush()
+    end
+end
+
+local function addPartyBuff(members, buffList, desc)
     logPrint("addBuff")
     for _, member in ipairs(members) do
         if member:isValid() then
@@ -69,7 +111,7 @@ function addPartyBuff(members, buffList, desc)
     end
 end
 
-function subPartyBuff(members, buffList)
+local function subPartyBuff(members, buffList)
     logPrint("subBuff")
     for _, member in ipairs(members) do
         if member:isValid() then
@@ -112,7 +154,7 @@ function Event.RegPartyEvent.PartyBuff(index, target, pType)
     waitHandleList[target] = os.time() + 20
 end
 
-function setPartyBuff(index)
+local function setPartyBuff(index)
     local player = MyPlayer:new(index)
     local oldList = partyMemberInfo[index]
     local oldBuffList = partyBuffInfo[index]

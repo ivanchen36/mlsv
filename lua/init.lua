@@ -78,6 +78,7 @@ gadofile("lua/Module/client/AwakeningClient.lua");
 gadofile("lua/Module/client/TaskClient.lua");
 
 --业务功能
+gadofile("lua/Module/player/PartyBuff.lua");--组队加成
 gadofile("lua/Module/pet/PetAwakening.lua"); -- 宠物觉醒
 gadofile("lua/Module/pet/PetProficient.lua"); -- 种族专精&秘境
 gadofile("lua/Module/pet/PetSynthesis.lua"); -- 宠物融合
@@ -90,7 +91,6 @@ gadofile("lua/Module/player/Pk.lua");--团队淘汰赛
 gadofile("lua/Module/player/SinglePk.lua");--个人积分赛
 gadofile("lua/Module/player/Vip.lua");--vip系统
 gadofile("lua/Module/player/Tax.lua");--税务系统
-gadofile("lua/Module/player/PartyBuff.lua");--组队加成
 gadofile("lua/Module/player/Recover.lua");--组队加成
 gadofile("lua/Module/player/Warp.lua");--传送
 gadofile("lua/Module/player/Test.lua");

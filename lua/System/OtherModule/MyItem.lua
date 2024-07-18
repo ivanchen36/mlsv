@@ -9,12 +9,20 @@ function MyItem:new(itemIndex)
     return newObj
 end
 
+function MyItem:getItem(player, slot)
+    return MyItem:new(Char.GetItemIndex(player, slot))
+end
+
 function MyItem:create(itemID)
     return MyItem:new(Data.ItemsetGetIndex(itemID))
 end
 
 function MyItem:getObj()
     return self._item
+end
+
+function MyItem:isValid()
+    return VaildChar(self._item)
 end
 
 function MyItem:get(key)
@@ -504,6 +512,14 @@ function MyItem:getDurability()
 end
 function MyItem:setDurability(val)
     return self:set(65, val)
+end
+
+--%道具_魔攻% 72
+function MyItem:getAdm()
+    return self:get(72)
+end
+function MyItem:setAdm(val)
+    return self:set(72, val)
 end
 
 --%道具_Obj索引% 4000
