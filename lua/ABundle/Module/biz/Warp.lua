@@ -103,7 +103,7 @@ end
 
 local function loadWarpClient()
     logPrint("loadWarpClient")
-    local gen = ClientGen:new("bg.bmp", 11, 5, 0, 0, 0, 0)
+    local gen = ClientGen:new("bg.bmp", 11, 5, 60, 70, 60, 30)
     for i, title in ipairs(warpTitle) do
         gen:addText(1, i, title)
     end
