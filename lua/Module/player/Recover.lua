@@ -34,7 +34,7 @@ function partyRecover(player, arg)
     end
 end
 
-function showRecover(player)
+function showRecover(npc, player, s)
     local info = {}
     local num = player:getPartyNum()
     info[1] = {"名字", "生命", "魔力", "恢复价格"}
@@ -51,5 +51,5 @@ function showRecover(player)
     getRecoverClient(player)
 end
 
+scriptEvent["show_recover"] = showRecover
 ClientEvent["party_recover"] = partyRecover
-TalkEvent["[recover]"] = showRecover

@@ -82,7 +82,7 @@ function playerWarp(npc, player, arg)
 end
 
 scriptEvent["show_warp"] = showWarp;
-scriptEvent["warp"] = playerWarp;
+ClientEvent["warp"] = playerWarp;
 
 local needLoadHomeNpc = true
 local homeWarpList = {

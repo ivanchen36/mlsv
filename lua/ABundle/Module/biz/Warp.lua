@@ -116,6 +116,13 @@ local function loadWarpClient()
     end
 
     local client = gen:getClient()
+    table.insert(client, {
+        ["type"] = "lab",
+        ["title"] = "title",
+        ["x"] = 190,
+        ["y"] = 35,
+        ["text"] = "ÍòÄÜ´«ËÍ",
+    })
     for i, name in ipairs(warpTypeName) do
         table.insert(client, {
             ["type"] = "btn",
