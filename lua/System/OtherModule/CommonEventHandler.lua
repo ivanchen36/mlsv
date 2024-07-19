@@ -13,6 +13,7 @@ ProductExpEvent = {}
 DamageEvent = {}
 OtherDamageName = {}
 OtherDamageEvent = {}
+SkillDamageEvent = {}
 
 personAddDamage = {}
 petAddDamage = {}
@@ -227,6 +228,14 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
     local atkRate = 100
     local defRate = 100
     local atkType =  Char.GetData(CharIndex, 0)
+    if atkType ~= 2 then
+        local skillId = math.floor(Com3 / 10)
+        local level = math.mod(Com3,  10) + 1
+        if rawget(SkillDamageEvent, skillId) ~= nil then
+            Damage = SkillDamageEvent(skillId, level, Damage, CharIndex, DefCharIndex)
+        end
+    end
+
     if rawget(damageTable, atkType) ~= nil then
         local myPlayer1 = MyPlayer:new(CharIndex);
         for i, func in ipairs(damageTable[atkType]) do

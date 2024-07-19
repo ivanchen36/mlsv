@@ -1,7 +1,7 @@
-local spirit = {123,143,162,182,202,222,242,262,282,302}
-local adm = {14,48,82,116,150,184,218,252,286,320}
-local baseSpirit = spirit[10]
-local baseAdm = adm[10]
+local spiritList = {123,143,162,182,202,222,242,262,282,302}
+local admList = {14,48,82,116,150,184,218,252,286,320}
+local baseSpirit = spiritList[10]
+local baseAdm = admList[10]
 
 function addPersonDamage(player, rate)
     local info = vipInfo[player:getRegistNumber()]
@@ -47,12 +47,38 @@ function subPetDefDamage(player, rate)
     return rate
 end
 
+function magicAtkDamage(skillId, level, damage, atkIndex, defIndex)
+    local atkPlayer = MyPlayer:new(atkIndex)
+    local maxSpirit = spiritList[level]
+    local spirit = atkPlayer:getMagicStrength()
+    if spirit <= maxSpirit then
+        return damage
+    end
+
+    local newDamage = damage + math.floor(damage * (spirit - maxSpirit) / baseSpirit)
+    if atkPlayer:getType() == 3 then
+        return newDamage
+    end
+    if rawget(admMap, atkIndex) == nil then
+        return newDamage
+    end
+
+    local maxAdm = admList[level]
+    return newDamage + math.floor(damage * (admMap[atkIndex] - maxAdm) / baseAdm)
+end
+
+function modifyMaxDamage()
+    logPrint("modifyMaxDamage")
+    for i = 19, 31 do
+        SkillDamageEvent[i * 10] = magicAtkDamage
+        SkillDamageEvent[i * 10 + 3] = magicAtkDamage
+    end
+end
+
 DamageEvent[1] = addPersonDamage
 DamageEvent[3] = addPetDamage
 DamageEvent[11] = subPersonDamage
 DamageEvent[13] = subPetDamage
 DamageEvent[21] = subPersonDefDamage
 DamageEvent[23] = subPetDefDamage
-
-InitEvent["char"] = loadAdm
-DeinitEvent["char"] = unloadAdm
+modifyMaxDamage()

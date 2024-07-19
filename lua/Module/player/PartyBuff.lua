@@ -53,18 +53,18 @@ local buffDesc = {
     ["amnesia"] = "øπ“≈Õ¸",
 }
 
-local admMap = {}
+admMap = {}
 local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
+local equipmentChangeHandle = {}
 
 function getAttr(player, attr)
     local method = MyChar[attrFunc[attr]]
     return method(player)
 end
 
-
-local function getAdm(player)
+local function calAdm(player)
     local adm = 0;
     for i = 0, 7 do
         local item = MyItem:getItem(player:getObj(), i);
@@ -79,7 +79,7 @@ local function getAdm(player)
 end
 
 function loadAdm(player)
-    admMap[player:getObj()] = getAdm(player)
+    admMap[player:getObj()] = calAdm(player)
 end
 
 function unloadAdm(player)
@@ -87,9 +87,9 @@ function unloadAdm(player)
 end
 
 function equipmentChange(fd, head, packet)
-    logPrint("OnRecv ", head, packet)
+    logPrint("equipmentChange OnRecv ", head, packet)
     local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
-    admMap[myPlayer:getObj()] = getAdm(myPlayer)
+    admMap[myPlayer:getObj()] = os.time() + 2
     return 0
 end
 
@@ -186,6 +186,7 @@ function Event.RegPartyEvent.PartyBuff(index, target, pType)
 end
 
 local function setPartyBuff(index)
+    logPrint("setPartyBuff", index)
     local player = MyPlayer:new(index)
     local oldList = partyMemberInfo[index]
     local oldBuffList = partyBuffInfo[index]
@@ -237,9 +238,7 @@ function handlePartyBuff()
     local now = os.time()
     local deleteList = {}
     for index, exeTime in pairs(waitHandleList) do
-        logPrint("exe1")
         if exeTime <= now then
-            logPrint("exe2")
             setPartyBuff(index)
             table.insert(deleteList, index)
         end
@@ -250,7 +249,25 @@ function handlePartyBuff()
     end
 end
 
+function handleEquipmentChange()
+    local now = os.time()
+    local deleteList = {}
+    for index, exeTime in pairs(equipmentChangeHandle) do
+        if exeTime <= now then
+            local player = MyPlayer:new(index)
+            loadAdm(player)
+            table.insert(deleteList, index)
+        end
+    end
+
+    for _, index in ipairs(deleteList) do
+        equipmentChangeHandle[index] = nil
+    end
+end
 
 Protocol.OnRecv(nil, "equipmentChange", 8);
 Protocol.OnRecv(nil, "equipmentChange", 14);
+InitEvent["char"] = loadAdm
+DeinitEvent["char"] = unloadAdm
 addTimerTask(handlePartyBuff)
+addTimerTask(handleEquipmentChange)
