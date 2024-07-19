@@ -25,6 +25,14 @@ function partyRecover(player, arg)
         if player:subMoney(amount) > 0 then
             player:setHp(player:getMaxHp())
             player:setMp(player:getMaxMp())
+            for i = 0, 4 do
+                local pet = MyPet:new(player:getObj(), i)
+                if pet:isValid() then
+                    pet:setHp(player:getMaxHp())
+                    pet:setMp(player:getMaxMp())
+                    pet:flush()
+                end
+            end
             player:flush()
             player:sysMsg("恢复成功，您的生命和魔力已经恢复。")
             return
