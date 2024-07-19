@@ -92,8 +92,10 @@ function wudangxidangjuan(npc, player, s)
 end
 
 function showNpc(npc, player, arg)
+	logPrint("showNpc: ", npc, player, arg)
 	local imgId = MyPlayer:new(npc):getImage()
 	if rawget(npcDialog, imgId) ~= nil then
+		logPrint("showNpc: npcDialog[imgId]", imgId)
 		npcDialog[imgId](npc, player, arg)
 	end
 end
@@ -112,7 +114,7 @@ scriptEvent["mandang"] = mandang;
 scriptEvent["shidangxidangjuan"] = shidangxidangjuan;
 scriptEvent["wudangxidangjuan"] = wudangxidangjuan;
 
-scriptEvent["show_npc"] = showNpc;
+scriptEvent["shownpc"] = showNpc;
 
 function ScriptCall(npc, player, s)
 	logPrint("ScriptCall: ", npc, player, s)

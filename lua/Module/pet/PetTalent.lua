@@ -87,7 +87,7 @@ end
 local function setTalentBuff(pet, skillId)
     local index = skillId - 30400
     local level = math.floor(index / 30) + 1
-    index = index % 30
+    index = math.mod(index, 30)
     if index >= 14 then
         local uuid = pet:getUuid()
         if rawget(petTalentMap, uuid) ~= nil then

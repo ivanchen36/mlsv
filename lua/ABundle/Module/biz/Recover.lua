@@ -11,8 +11,8 @@ function recover(widget)
 end
 
 function initRecoverContent()
-    for i=1, #recoverTitle do
-        local title = recoverTitle[i]
+    for i=1, #partyTitle do
+        local title = partyTitle[i]
         local name = recoverWnd:getWidget(title)
         local health = recoverWnd:getWidget(title .. "H")
         local magic = recoverWnd:getWidget(title .. "M")

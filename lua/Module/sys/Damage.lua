@@ -1,28 +1,7 @@
 local spirit = {123,143,162,182,202,222,242,262,282,302}
 local adm = {14,48,82,116,150,184,218,252,286,320}
-local admMap = {}
-
-local function getAdm(player)
-    local adm = 0;
-    for i = 0, 7 do
-        local item = MyItem:getItem(player:getObj(), i);
-        if item:isValid() then
-            local tmp = item:getAdm()
-            if tmp > 0 then
-                adm = adm + tmp
-            end
-        end
-    end
-    return adm;
-end
-
-function loadAdm(player)
-    admMap[player:getObj()] = getAdm(player)
-end
-
-function unloadAdm(player)
-    admMap[player:getObj()] = nil
-end
+local baseSpirit = spirit[10]
+local baseAdm = adm[10]
 
 function addPersonDamage(player, rate)
     local info = vipInfo[player:getRegistNumber()]

@@ -20,7 +20,7 @@ function initTaskHandler()
         return 1;
     end
 
-    local myPlayer = MyPlayer:createNpc(101003, 43, 28, 64148, 4, "彩虹使者")
+    local myPlayer = MyPlayer:createNpc(0, 0, 0, 0, 4, "彩虹使者")
     taskHandlerIndex = myPlayer:getObj()
     Char.SetLoopEvent(nil, "doTask", taskHandlerIndex, 3000);
 end

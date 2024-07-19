@@ -9,8 +9,9 @@ function test1()
 end
 
 function test(player)
-    Char.AddPet(player:getObj(), 8030)
-    Char.GivePet(player:getObj(), 8030, 1)
+    local index = 30413 - 30400
+    index = math.mod(index, 30)
+    logPrint(index)
 end
 
 function test2()

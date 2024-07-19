@@ -53,6 +53,7 @@ local buffDesc = {
     ["amnesia"] = "¿¹ÒÅÍü",
 }
 
+local admMap = {}
 local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
@@ -60,6 +61,36 @@ local waitHandleList = {}
 function getAttr(player, attr)
     local method = MyChar[attrFunc[attr]]
     return method(player)
+end
+
+
+local function getAdm(player)
+    local adm = 0;
+    for i = 0, 7 do
+        local item = MyItem:getItem(player:getObj(), i);
+        if item:isValid() then
+            local tmp = item:getAdm()
+            if tmp > 0 then
+                adm = adm + tmp
+            end
+        end
+    end
+    return adm;
+end
+
+function loadAdm(player)
+    admMap[player:getObj()] = getAdm(player)
+end
+
+function unloadAdm(player)
+    admMap[player:getObj()] = nil
+end
+
+function equipmentChange(fd, head, packet)
+    logPrint("OnRecv ", head, packet)
+    local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
+    admMap[myPlayer:getObj()] = getAdm(myPlayer)
+    return 0
 end
 
 function addBuff(player, buffList)
@@ -219,4 +250,7 @@ function handlePartyBuff()
     end
 end
 
+
+Protocol.OnRecv(nil, "equipmentChange", 8);
+Protocol.OnRecv(nil, "equipmentChange", 14);
 addTimerTask(handlePartyBuff)
