@@ -193,5 +193,15 @@ function reInitTalent(player, slot, level)
     player:sysMsg("宠物重置天赋成功，获得新天赋【" .. skillName[skillId - 30400] .. "LV" .. level .. "】");
 end
 
+function Event.RegPetLevelUpEvent.doPetLevelUp(index)
+    local pet = MyPet:new1(index)
+    if pet:isValid() then
+        local skillId = getTalent(pet)
+        if skillId > 0 then
+            setTalentBuff(pet, skillId)
+        end
+    end
+end
+
 InitEvent["char"] = loadTalent
 DeinitEvent["char"] = unloadTalent

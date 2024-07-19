@@ -38,11 +38,6 @@ function getVipLevel(exp)
 end
 
 function initVip(player)
-    logPrint("BounsAttack", player:getBounsAttack())
-    player:setBounsAttack(999)
-    logPrint("BounsHp", player:getBounsHp())
-    player:setBounsHp(999)
-    player:flush()
     local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = '" .. player:getRegistNumber() .."'";
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table") then

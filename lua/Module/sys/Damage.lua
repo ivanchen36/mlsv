@@ -1,7 +1,7 @@
 local spiritList = {123,143,162,182,202,222,242,262,282,302}
 local admList = {14,48,82,116,150,184,218,252,286,320}
-local baseSpirit = spiritList[10]
-local baseAdm = admList[10]
+local baseSpirit = spiritList[10] * 2
+local baseAdm = admList[10] * 2
 
 function addPersonDamage(player, rate)
     local info = vipInfo[player:getRegistNumber()]

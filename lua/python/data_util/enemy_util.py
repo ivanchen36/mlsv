@@ -17,6 +17,7 @@ def generateEnemy(path):
     if not enemyFile.isBlankLineEnd():
         enemyFile.writeLine("")
     for line in baseFile.readLines():
+        line = line.replace("\n", "")
         arr1 = line.split("\t")
         arr[name] = arr1[0]
         arr[id1] = arr1[1]

@@ -6,7 +6,7 @@ unknown = 0 #未鉴定
 name = 1 #名称
 script = 2 #使用效果
 menu = 5 #道具功能
-id = 11 #编号
+iid = 11 #编号
 img = 12 #图档
 price = 13 #卖价
 type = 14 #种类
@@ -81,7 +81,66 @@ msg2 = 95 #右键
 identify = 96 #被鉴定率
 adm = 99 #魔攻
 adm1 = 100
-itemFieldNum = 0
+itemFieldNum = 102
+
+def generateItem(path):
+    baseFile = FileUtil("./tmp.txt", "gbk")
+    itemFile = FileUtil(path + "/itemset.txt", "gbk")
+    if not itemFile.isBlankLineEnd():
+        itemFile.writeLine("")
+    lineNum = 1
+    baseId = 40200
+    for line in baseFile.readLines():
+        level = int((lineNum - 1) / 8) + 1
+        index = lineNum % 8
+        if index == 0:
+            index = 8
+        tmpId = (level - 1) * 10 + baseId + index
+        line = line.replace("\n", "")
+        arr1 = line.split("\t")
+        arr1[iid] = tmpId
+        arr1[remain] = 233
+        arr1[remain1] = 399
+        if index == 1 or index == 2:
+            arr1[atk] = 30 * level
+            arr1[atk1] = 50 * level
+        else:
+            arr1[atk] = 0
+            arr1[atk1] = 0
+        if index == 4:
+            arr1[deff] = 9 * level
+            arr1[deff1] = 15 * level
+        else:
+            arr1[deff] = 0
+            arr1[deff1] = 0
+        if index == 5:
+            arr1[agi] = 17 * level
+            arr1[agi1] = 29 * level
+        else:
+            arr1[agi] = 0
+            arr1[agi1] = 0
+        if index == 3:
+            arr1[spirit] = 12 * level
+            arr1[spirit1] = 20 * level
+        else:
+            arr1[spirit] = 0
+            arr1[spirit1] = 0
+        if index == 6:
+            arr1[hp] = 60 * level
+            arr1[hp1] = 100 * level
+        else:
+            arr1[hp] = 0
+            arr1[hp1] = 0
+        if index == 7:
+            arr1[mp] = 60 * level
+            arr1[mp1] = 100 * level
+        else:
+            arr1[mp] = 0
+            arr1[mp1] = 0
+        arr1 = [str(item) for item in arr1]
+        print('\t'.join(arr1))
+        lineNum = lineNum + 1
+        itemFile.writeLine('\t'.join(arr1))
 
 if __name__ == "__main__":
-    print("../../task/chx")
+    generateItem("../../../task/chx")

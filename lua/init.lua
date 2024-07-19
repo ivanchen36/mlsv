@@ -93,7 +93,11 @@ gadofile("lua/Module/player/Vip.lua");--vip系统
 gadofile("lua/Module/player/Tax.lua");--税务系统
 gadofile("lua/Module/player/Recover.lua");--组队加成
 gadofile("lua/Module/player/Warp.lua");--传送
+gadofile("lua/Module/player/Clan.lua");--家族帮派
 gadofile("lua/Module/player/Test.lua");
+
+gadofile("lua/Module/product/AutoProduct.lua");--自动制造
+gadofile("lua/Module/product/ProductEquip.lua");--制造装备
 
 --系统通用事件
 gadofile("lua/Module/sys/Damage.lua");
