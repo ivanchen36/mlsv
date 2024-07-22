@@ -65,7 +65,7 @@ end
 
 function sendItem(regNum, info)
     local player = MyPlayer:new(vipInfo[regNum]["index"])
-    player:addItem(tonumber(info))
+    player:addItem(tonumber(info), 1)
     return 1
 end
 

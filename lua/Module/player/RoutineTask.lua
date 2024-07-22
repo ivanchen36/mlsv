@@ -189,7 +189,7 @@ function submitTask(player, arg)
 
         -- 领取奖励
         local reward = rewardList[playerTask.cycle][playerTask.type]
-        player:addItem(reward)
+        player:addItem(reward, 1)
         player:sysMsg("任务完成，奖励已领取")
         Protocol.PowerSend(player:getObj(),"SUBMIT_TASK", taskId)
         return

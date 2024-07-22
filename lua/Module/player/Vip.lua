@@ -222,7 +222,7 @@ function upGift(player, arg)
 
     local sql = "UPDATE tbl_vip_info SET UpGift = 0 WHERE UpGift = 1 and RegNum = '" .. player:getRegistNumber() .."'"
     SQL.Run(sql)
-    player:addItem(vipGift[info["level"]])
+    player:addItem(vipGift[info["level"]], 1)
     player:sysMsg("恭喜您领取会员礼包！")
     info["upGift"] = 0
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)

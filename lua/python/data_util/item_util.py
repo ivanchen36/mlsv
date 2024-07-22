@@ -142,5 +142,38 @@ def generateItem(path):
         lineNum = lineNum + 1
         itemFile.writeLine('\t'.join(arr1))
 
+def generateItem1(path):
+    baseFile = FileUtil("./tmp.txt", "gbk")
+    itemFile = FileUtil(path + "/itemset.txt", "gbk")
+    if not itemFile.isBlankLineEnd():
+        itemFile.writeLine("")
+    lineNum = 1
+    baseId = 40299
+    for line in baseFile.readLines():
+        line = line.replace("\n", "")
+        arr1 = line.split("\t")
+        arr1[iid] = baseId
+        baseId = baseId - 1
+        arr1 = [str(item) for item in arr1]
+        print('\t'.join(arr1))
+        lineNum = lineNum + 1
+        itemFile.writeLine('\t'.join(arr1))
+
+def pringArrStr():
+    tmpList = ["青铜","白银","黄金","钻石","星耀","王者","荣耀"]
+    index = -1
+    for line in tmpList:
+        index = index + 1
+        print(f'["{line}"] = {{')
+        for i in range(8):
+            if i == 2:
+                print(f'[{40201 + index * 10 + i}] = {{{40299 - index * 2}, 20}},')
+            elif i <= 2:
+                print(f'[{40201 + index * 10 + i}] = {{{40299 - index * 2}, 10}},')
+            else:
+                print(f'[{40201 + index * 10 + i}] = {{{40299 - index * 2 - 1}, 10}},')
+        print('},')
+
 if __name__ == "__main__":
-    generateItem("../../../task/chx")
+    #generateItem1("../../../task/chx")
+    pringArrStr()

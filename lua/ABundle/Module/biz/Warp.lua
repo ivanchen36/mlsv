@@ -50,7 +50,8 @@ local levelWarpInfo = {
     [48] = {"Ë®¶´", 45, 1200},
 }
 
-local warpList = {faWarpInfo, aiWarpInfo, suWarpInfo, yaWarpInfo, levelWarpInfo}
+local mapWarpInfo = {faWarpInfo, aiWarpInfo, suWarpInfo, yaWarpInfo, levelWarpInfo}
+local mapWarpList = {}
 
 local function showSelectWarp()
     for i = 1, #warpTypeName do
@@ -72,8 +73,10 @@ local function initWarpContent()
     local index = 2
 
     showSelectWarp()
-    local warpList = warpList[curWarpPage]
-    for wid, info in pairs(warpList) do
+    local warpList = mapWarpList[curWarpPage]
+    local mapInfo = mapWarpInfo[curWarpPage]
+    for wid in ipairs(warpList) do
+        local info = mapInfo[wid]
         local name = warpWnd:getWidget("r" .. index .."c" .. 1)
         local levelCond = warpWnd:getWidget("r" .. index .."c" .. 2)
         local price = warpWnd:getWidget("r" .. index .."c" .. 3)
@@ -161,6 +164,14 @@ end
 function showWarp(info)
     warpInfo = info;
     if (warpWnd == nil) then
+        for _, mapInfo in ipairs(mapWarpInfo) do
+            local tmpList = {}
+            for k in pairs(mapInfo) do
+                table.insert(tmpList, k)
+            end
+            table.sort(tmpList)
+            table.insert(mapWarpList, tmpList)
+        end
         loadWarpClient()
     end
 

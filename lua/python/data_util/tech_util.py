@@ -5,6 +5,8 @@ import shutil
 NAME = 0
 TECH_ID = 3
 SKILL_ID = 5
+LEVEL = 6
+LEN = 15
 
 def readTech(path, func):
     techFile = FileUtil(path + "/../../data/tech.txt", "gbk")
@@ -68,5 +70,26 @@ def modifyTechNo(path):
     os.remove(path + "/tech.txt")
     os.rename(path + "/tech_tmp.txt", path + "/tech.txt")
 
+def getString(arr):
+    cur = len(arr)
+    if len(arr) < LEN:
+        for i in range(cur, LEN):
+            arr.append("")
+    return '\t'.join(arr)
+
+def modifyTechLevel(path):
+    tmpFile = FileUtil("./tmp.txt", "gbk")
+    techFile = FileUtil(path + "/tech.txt", "gbk")
+    if not tmpFile.isBlankLineEnd():
+        techFile.writeLine("")
+    for line in tmpFile.readLines():
+        line = line.replace("\r", "").replace("\n", "")
+        arr = line.split("\t")
+        arr[LEVEL] = "30"
+        str = getString(arr)
+        print(len((str).split("\t")))
+        techFile.writeLine(getString(arr))
+
 if __name__ == "__main__":
-    modifyTechNo("../../../task/chx")
+    #modifyTechNo("../../../task/chx")
+    modifyTechLevel("../../../task/chx")

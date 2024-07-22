@@ -159,6 +159,11 @@ function getItemImg(itemId)
     return item:getImage()
 end
 
+function getItemName(itemId)
+    local item = MyDataItem:new(itemId)
+    return item:getName()
+end
+
 function copyTable(orig, copies)
     copies = copies or {}  -- Table to store copies of tables
     local orig_type = type(orig)

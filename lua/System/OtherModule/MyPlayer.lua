@@ -58,6 +58,10 @@ function MyPlayer:isPerson()
     return false
 end
 
+function MyPlayer:freeBagNum()
+    return 20 - Char.ItemSlot(self._player)
+end
+
 function MyPlayer:getIp()
     return NLG.GetIp(self._player)
 end
@@ -82,8 +86,8 @@ function MyPlayer:getItemNum(itemId)
     return Char.ItemNum(self._player, itemId)
 end
 
-function MyPlayer:addItem(itemId)
-    return Char.GiveItem(self._player, itemId, 1)
+function MyPlayer:addItem(itemId, num)
+    return Char.GiveItem(self._player, itemId, num)
 end
 
 function MyPlayer:delItem(itemId, count)

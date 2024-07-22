@@ -94,6 +94,7 @@ gadofile("lua/Module/player/Tax.lua");--税务系统
 gadofile("lua/Module/player/Recover.lua");--组队加成
 gadofile("lua/Module/player/Warp.lua");--传送
 gadofile("lua/Module/player/Clan.lua");--家族帮派
+gadofile("lua/Module/player/Seller.lua");--售卖商人
 gadofile("lua/Module/player/Test.lua");
 
 gadofile("lua/Module/product/AutoProduct.lua");--自动制造

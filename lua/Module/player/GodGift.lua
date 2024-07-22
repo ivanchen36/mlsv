@@ -78,7 +78,7 @@ function distributeGiftByPlayer(player)
         return
     end
 
-    player:addItem(item["id"])
+    player:addItem(item["id"], 1)
     NLG.SystemMessage(player,"[天降活动] 恭喜" .. player:getName()  .. "获得" .. item["name"] .. ",剩余" .. item["count"] .. "个");
     if not giftSwitch then
         NLG.SystemMessage(-1, "[天降活动] 物品发放完毕，天降活动结束，祝大家游戏开心!")
