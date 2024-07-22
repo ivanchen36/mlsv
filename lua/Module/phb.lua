@@ -15,7 +15,7 @@ function phb_Init()
 		Char.SetData(phbSelectNPC,%对象_形象%,11424);
 		Char.SetData(phbSelectNPC,%对象_原形%,11424);
 		Char.SetData(phbSelectNPC,%对象_X%,247);
-		Char.SetData(phbSelectNPC,%对象_Y%,76);
+		Char.SetData(phbSelectNPC,%对象_Y%,85);
 		Char.SetData(phbSelectNPC,%对象_地图%,1000);
 		Char.SetData(phbSelectNPC,%对象_方向%,4);
 		Char.SetData(phbSelectNPC,%对象_原名%,"玩家排行榜");

@@ -65,6 +65,7 @@ end
 -- Íò·Ö±È
 function isOccur(permyriad)
     local rand = math.random() * 10000
+    logPrint("isOccur ", rand, permyriad)
     return rand <= permyriad
 end
 

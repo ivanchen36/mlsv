@@ -1,13 +1,13 @@
-Á¬»÷¡¤Îè LV1	TECH_ContinuationAttack	AS:0,AN:2,AM:2,DD:-50,	0	130000	0	1	1	1141			10	1		
-Á¬»÷¡¤ÆÆ LV1	TECH_ContinuationAttack	AS:0,AN:2,AM:2,DD:-50,	1	130000	0	2	1	1141			15	1		
-Á¬»÷¡¤Îè LV2	TECH_ContinuationAttack	AS:0,AN:3,AM:3,DD:-66,	2	130000	0	3	1	1141			20	1		
-Á¬»÷¡¤ÆÆ LV2	TECH_ContinuationAttack	AS:0,AN:3,AM:3,DD:-66,	3	130000	0	4	1	1141			25	1		
-Á¬»÷¡¤Îè LV3	TECH_ContinuationAttack	AS:0,AN:4,AM:4,DD:-75,	4	130000	0	5	1	1141			30	1		
-Á¬»÷¡¤ÆÆ LV3	TECH_ContinuationAttack	AS:0,AN:4,AM:4,DD:-75,	5	130000	0	6	1	1141			35	1		
-Á¬»÷¡¤Îè LV4	TECH_ContinuationAttack	AS:0,AN:5,AM:5,DD:-80,	6	130000	0	7	1	1141			40	1		
-Á¬»÷¡¤ÆÆ LV4	TECH_ContinuationAttack	AS:0,AN:5,AM:5,DD:-80,	7	130000	0	8	1	1141			45	1		
-Á¬»÷ ÂÒÎè	TECH_ContinuationAttack	AS:0,AN:6,AM:6,DD:-84,	8	130000	0	9	1	1141			50	1		
-Á¬»÷ ÆÆËé	TECH_ContinuationAttack	AS:0,AN:6,AM:6,DD:-84,	9	130000	0	10	1	1141			55	1		
+Á¬»÷¡¤ÎèLV1	TECH_ContinuationAttack	AS:0,AN:2,AM:2,DD:-50,	0	130000	0	1	1	1141			10	1		
+Á¬»÷¡¤ÆÆLV1	TECH_ContinuationAttack	AS:0,AN:2,AM:2,DD:-50,	1	130000	0	2	1	1141			15	1		
+Á¬»÷¡¤ÎèLV2	TECH_ContinuationAttack	AS:0,AN:3,AM:3,DD:-66,	2	130000	0	3	1	1141			20	1		
+Á¬»÷¡¤ÆÆLV2	TECH_ContinuationAttack	AS:0,AN:3,AM:3,DD:-66,	3	130000	0	4	1	1141			25	1		
+Á¬»÷¡¤ÎèLV3	TECH_ContinuationAttack	AS:0,AN:4,AM:4,DD:-75,	4	130000	0	5	1	1141			30	1		
+Á¬»÷¡¤ÆÆLV3	TECH_ContinuationAttack	AS:0,AN:4,AM:4,DD:-75,	5	130000	0	6	1	1141			35	1		
+Á¬»÷¡¤ÎèLV4	TECH_ContinuationAttack	AS:0,AN:5,AM:5,DD:-80,	6	130000	0	7	1	1141			40	1		
+Á¬»÷¡¤ÆÆLV4	TECH_ContinuationAttack	AS:0,AN:5,AM:5,DD:-80,	7	130000	0	8	1	1141			45	1		
+Á¬»÷¡¤ÂÒÎè	TECH_ContinuationAttack	AS:0,AN:6,AM:6,DD:-84,	8	130000	0	9	1	1141			50	1		
+Á¬»÷¡¤ÆÆËé	TECH_ContinuationAttack	AS:0,AN:6,AM:6,DD:-84,	9	130000	0	10	1	1141			55	1		
 Á¬»÷-¢ñ	TECH_ContinuationAttack	AS:0,AN:1,AM:2,DD:-45,	30	130000	0	30	1	1141	200		10	0		
 Á¬»÷-¢ò	TECH_ContinuationAttack	AS:0,AN:1,AM:2,DD:-35,	32	130000	0	30	1	1141	1000		30	0		
 Á¬»÷-¢ó	TECH_ContinuationAttack	AS:0,AN:1,AM:3,DD:-50,	34	130000	0	30	1	1141	4000		50	0		

@@ -92,6 +92,10 @@ function Window:setupUi()
     if nil ~= self._title then
         self._view.settop();
     end
+    if 723 == self._id then
+        self._view.settop();
+    end
+    self._view.settop();
     for __, item in pairs(self._widgetList) do
         local widget = item.value
         local controls = widget:getControls()

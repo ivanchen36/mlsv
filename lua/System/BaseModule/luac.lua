@@ -66,28 +66,33 @@ function likeme(npc, player, s)
 end
 
 function petme(npc, player, s)
-	local pet = MyPet:new(player, 0)
-	local player1 = MyPlayer:new(npc)
-	pet:changeImage(player1:getImage());
+	local player1 = MyPlayer:new(player)
+	local pet = player1:getPet(0)
+	local player2 = MyPlayer:new(npc)
+	pet:changeImage(player2:getImage());
 end
 
 function peth(npc, player, s)
-	local pet = MyPet:new(player, 0)
+	local player1 = MyPlayer:new(player)
+	local pet = player1:getPet(0)
 	return pet:reinitDang(math.random(0,4), math.random(0,4), math.random(0,4), math.random(0,4), math.random(0,4))
 end
 
 function mandang(npc, player, s)
-	local pet = MyPet:new(player, 0)
+	local player1 = MyPlayer:new(player)
+	local pet = player1:getPet(0)
 	return pet:reinitDang(0, 0, 0, 0, 0)
 end
 
 function shidangxidangjuan(npc, player, s)
-	local pet = MyPet:new(player, 0)
+	local player1 = MyPlayer:new(player)
+	local pet = player1:getPet(0)
 	return pet:reinitDang(math.random(0,2), math.random(0,2), math.random(0,2), math.random(0,2), math.random(0,2))
 end
 
 function wudangxidangjuan(npc, player, s)
-	local pet = MyPet:new(player, 0)
+	local player1 = MyPlayer:new(player)
+	local pet = player1:getPet(0)
 	return pet:reinitDang(math.random(0,1), math.random(0,1), math.random(0,1), math.random(0,1), math.random(0,1))
 end
 
@@ -96,7 +101,8 @@ function showNpc(npc, player, arg)
 	local imgId = MyPlayer:new(npc):getImage()
 	if rawget(npcDialog, imgId) ~= nil then
 		logPrint("showNpc: npcDialog[imgId]", imgId)
-		npcDialog[imgId](npc, player, arg)
+		local player1 = MyPlayer:new(player)
+		npcDialog[imgId](npc, player1, arg)
 	end
 end
 

@@ -94,7 +94,7 @@ function Event.RegGetExpEvent.updateProficientKill(index, exp)
     end
     local player = MyPlayer:new(index)
     if player:isPerson() then
-        local pet = MyPet:getBattlePet(player:getObj())
+        local pet = player:getBattlePet()
         if pet:isValid() then
             local race = pet:getRace() + 1;
             local sql = "update tbl_pet_proficient set KillNum = KillNum + 1 where RegNum = '" .. player:getRegistNumber() .. "' and Race = " .. race;
@@ -123,10 +123,11 @@ function deinitProficient(player)
     proficientInfo[player:getRegistNumber()] = nil
 end
 
-function addProficientDamage(pet, rate)
+function addProficientDamage(player, rate)
+    local pet = MyPet:new1(player:getObj())
     local race = pet:getRace() + 1
-    local player = MyPlayer:new(pet:getOwner())
-    local info = proficientInfo[player:getRegistNumber()]
+    local owner = MyPlayer:new(pet:getOwner())
+    local info = proficientInfo[owner:getRegistNumber()]
     if nil == info then
         return rate
     end

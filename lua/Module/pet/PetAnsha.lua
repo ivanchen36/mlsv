@@ -1,50 +1,81 @@
-anshaEnemy = {
-	[4] = 1500,
-	[12] = 2000,
+local anshaEnemy = {
+	[30004] = 900,
+	[30008] = 1200,
 }
-triggerAnshaSkill = {5,5,5,5,5,5,5,5,5,100};
-attackPos = {["0"]=0, ["1"]=1, ["2"]=2, ["3"]=3, ["4"]=4, ["5"]=5, ["6"]=6, ["7"]=7, ["8"]=8, ["9"]=9, ["A"]=10, ["B"]=11, ["C"]=12, ["D"]=13, ["E"]=14, ["F"]=15, ["10"]=16, ["11"]=17, ["12"]=18, ["13"]=19};
-isAnshaBoss = true
-anshaSkillId = 9609
+local triggerAnshaSkill = {
+ 	[1] = 1, -- 诸刃
+	[3] = 1, -- 乾坤
+	[5] = 1, -- 崩击
+	[73] = 1, -- 攻击
+	[262] = 1, -- 迅速
+	[257] = 1, -- 戒骄戒躁
+};
+local attackPos = {["0"]=0, ["1"]=1, ["2"]=2, ["3"]=3, ["4"]=4, ["5"]=5, ["6"]=6, ["7"]=7, ["8"]=8, ["9"]=9, ["A"]=10, ["B"]=11, ["C"]=12, ["D"]=13, ["E"]=14, ["F"]=15, ["10"]=16, ["11"]=17, ["12"]=18, ["13"]=19};
+local isAnshaBoss = true
+local anshaSkillId = 9609
 
-function isUseAnsha(pet)
+function isUseAnsha(pet, slot)
 	local petId = pet:getId()
 	if rawget(anshaEnemy, petId) == nil then
 		return false
 	end
-	local skillId = pet:getSkill(slot)
-	for _, v in ipairs(triggerAnshaSkill) do
-		if v == skillId then
-			return isOccur(anshaEnemy[petId])
-		end
+	local skillId = math.floor(pet:getSkill(slot) / 100)
+	logPrint("useansha ", skillId)
+	if rawget(triggerAnshaSkill, skillId) then
+		return isOccur(anshaEnemy[petId])
 	end
 
 	return false
 end
 
 function useAnsha(fd,head,packet)
-	logPrint("useAnsha")
+	logPrint("useAnsha",  head, packet)
 	local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
-	local SplitArray = Split(packet,"|");
-	if SplitArray[1] == "W" and  SplitArray[2] ~= "FF" then -- 宠物技能 非什么都不做
-		logPrint("useAnsha1")
-		local pet = MyPet:getBattlePet(myPlayer:getObj())
 
-		if not isUseAnsha(pet) then
-			return 0
-		end
-		logPrint("useAnsha2")
-		if not isAnshaBoss and Battle.IsBossBattle(myPlayer:getBattleIndex()) == 1 then
-			return 0
-		end
-		logPrint("useAnsha3")
-		if Battle.IsWaitingCommand(pet:getObj()) ~= 1 then
-			return 0
-		end
-		logPrint("useAnsha4")
-		Battle.ActionSelect(pet:getObj(), 26, attackPos[SplitArray[3]], anshaSkillId)
-		return 1;
+	local SplitArray = Split(packet,"|");
+	if SplitArray[1] ~= "W" or  SplitArray[2] == "FF" then -- 宠物技能 非什么都不做
+		return 0
 	end
+
+	local pet = myPlayer:getBattlePet()
+	if not pet:isValid() then
+		return 0
+	end
+	if Battle.IsWaitingCommand(pet:getObj()) ~= 1 then
+		return 0
+	end
+
+	local battle = myPlayer:getBattleIndex()
+	if not isAnshaBoss and Battle.IsBossBattle(battle) == 1 then
+		return 0
+	end
+
+	if not isUseAnsha(pet, tonumber(SplitArray[2])) then
+		return 0
+	end
+
+	local pos = attackPos[string.gsub(SplitArray[3], "::", "")]
+	logPrint("useAnsha", 26, SplitArray[3], pos, anshaSkillId)
+	local tmpPlayer = MyPlayer:new(Battle.GetPlayer(battle, pos))
+	if tmpPlayer:isValid() then
+		if tmpPlayer:getHp() > pet:getMaxHp() * 2 then
+			return 0
+		end
+
+		Battle.ActionSelect(pet:getObj(), 26, pos, anshaSkillId)
+		return 1
+	end
+
+	for i = 10, 19 do
+		local tmpPlayer = MyPlayer:new(Battle.GetPlayer(battle, i))
+		if tmpPlayer:isValid() then
+			if tmpPlayer:getHp() <= pet:getMaxHp() * 2 then
+				Battle.ActionSelect(pet:getObj(), 26, i, anshaSkillId)
+				return 1
+			end
+		end
+	end
+	return 0;
 end
 
 Protocol.OnRecv(nil, "useAnsha", 7)

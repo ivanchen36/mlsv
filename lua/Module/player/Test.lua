@@ -7,11 +7,22 @@ function test1()
     logPrint(response)
     client:close()
 end
-
+local userInfo1 = {}
 function test(player)
-    local index = 30413 - 30400
-    index = math.mod(index, 30)
-    logPrint(index)
+    local pet1 = player:getPet(3)
+    local pet2 = player:getPet(4)
+    for i = 0, 200 do
+        --logPrint(i, pet1:get(i), pet2:get(i))
+        --if pet1:get(i) ~= pet2:get(i) then
+        --logPrint(i)
+        --end
+        if userInfo1[i] ~= nil then
+            if player:get(i) ~= userInfo1[i] then
+                logPrint(i, player:get(i), userInfo1[i])
+            end
+        end
+        userInfo1[i] = player:get(i)
+    end
 end
 
 function test2()
@@ -66,8 +77,7 @@ Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 33);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 34);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 35); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 36); 
-Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 37); 
-Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 38); 
+Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 38);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 39); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 40); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 41); 

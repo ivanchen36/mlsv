@@ -10,8 +10,10 @@ useModule("SG_ga");--默认支持库
 useModule("All_canshu");--部分脚本配置参数-傻瓜版
 useModule("user")--登录直接注册,mac会写在tbl_user的IP字段,修改密码参考All_canshu.lua
 useModule("animesps");--图档授权(仅限用于免费版)
-useModule("xzdzd_can");--自动战斗相关
-useModule("xzdzd");--自动战斗相关
+useModule("zdzd_can");--自动战斗相关
+useModule("zdzd");--自动战斗相关
+--useModule("xzdzd_can");--自动战斗相关
+--useModule("xzdzd");--自动战斗相关
 useModule("Login_can");--原地登录相关
 useModule("Login");--原地登录相关
 useModule("getpetBp");--宠物算档 配合按钮
@@ -86,7 +88,6 @@ useModule("ShopQuery");--宠物自售
 useModule("Battle_eryebeibao_can") -- 扩展背包
 useModule("Battle_eryebeibao") -- 扩展背包
 --20210618更新
-useModule("SG_ChuanSong");--万能传送
 useModule("ChiBang3_can");--翅膀配置文件
 useModule("ChiBang3");--翅膀
 useModule("zuoqi2_can");--虚拟坐骑配置文件

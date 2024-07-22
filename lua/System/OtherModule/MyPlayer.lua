@@ -26,6 +26,30 @@ function MyPlayer:flush()
     NLG.UpChar(self._player)
 end
 
+function MyPlayer:getPetStatus(slot)
+    return Pet.GetStatus(self._player, slot)
+end
+
+function MyPlayer:getPet(slot)
+    return MyPet:new(self._player, Char.GetPet(self._player, slot))
+end
+
+function MyPlayer:getBattlePet()
+    return self:getPet(self:getBattlePetSlot())
+end
+
+function MyPlayer:getPetByUuid(uuid)
+    for i = 0, 4 do
+        local pet = self:getPet(i)
+        if pet:isValid() then
+            if uuid == pet:getUuid() then
+                return pet
+            end
+        end
+    end
+    return MyPet:new(self._player, -1)
+end
+
 function MyPlayer:isPerson()
     if (self:getType() == 1) then
         return true
@@ -58,7 +82,7 @@ function MyPlayer:getItemNum(itemId)
     return Char.ItemNum(self._player, itemId)
 end
 
-function MyPlayer:getItem(itemId)
+function MyPlayer:addItem(itemId)
     return Char.GiveItem(self._player, itemId, 1)
 end
 
@@ -109,6 +133,14 @@ function MyPlayer:recoverHurt()
     NLG.UpdateParty(player);
     self:flush()
     NLG.SendGraphEvent(player, 45, 0);
+end
+
+--%对象_战宠% 62
+function MyPlayer:getBattlePetSlot()
+    return self:get(62)
+end
+function MyPlayer:setBattlePetSlot(val)
+    return self:set(62, val)
 end
 
 --%对象_金币% 53

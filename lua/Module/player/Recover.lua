@@ -26,10 +26,10 @@ function partyRecover(player, arg)
             player:setHp(player:getMaxHp())
             player:setMp(player:getMaxMp())
             for i = 0, 4 do
-                local pet = MyPet:new(player:getObj(), i)
+                local pet = player:getPet(i)
                 if pet:isValid() then
-                    pet:setHp(player:getMaxHp())
-                    pet:setMp(player:getMaxMp())
+                    pet:setHp(pet:getMaxHp())
+                    pet:setMp(pet:getMaxMp())
                     pet:flush()
                 end
             end
@@ -45,11 +45,10 @@ end
 function showRecover(npc, player, s)
     logPrint("showRecover: ", npc, player, s)
     local info = {}
-    local player1 = MyPlayer:new(player)
-    local num = player1:getPartyNum()
+    local num = player:getPartyNum()
     info[1] = {"名字", "生命", "魔力", "恢复价格"}
     for i = 1, num do
-        local member = player1:getPartyMember(i - 1)
+        local member = player:getPartyMember(i - 1)
         info[i + 1] = {
             member:getName(),
             member:getHp() .. "/" .. member:getMaxHp(),
@@ -58,7 +57,7 @@ function showRecover(npc, player, s)
         }
     end
     logPrintTbl(info)
-    Protocol.PowerSend(player,"SHOW_RECOVER", info)
+    Protocol.PowerSend(player:getObj(), "SHOW_RECOVER", info)
 end
 
 npcDialog[14152] = showRecover

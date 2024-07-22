@@ -38,6 +38,7 @@ function getVipLevel(exp)
 end
 
 function initVip(player)
+    logPrint("initVip")
     local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = '" .. player:getRegistNumber() .."'";
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table") then
@@ -83,6 +84,11 @@ function initVip(player)
         ["index"] = player:getObj(),
     }
     logPrintTbl(vipInfo[player:getRegistNumber()])
+end
+
+function setVip(player, arg)
+    local info = vipInfo[player:getRegistNumber()]
+    Protocol.PowerSend(player:getObj(), "SET_VIP", info["level"])
 end
 
 function deinitVip(player)
@@ -142,8 +148,10 @@ function closeAvoid(player)
     if info["avoidFlag"] == 0 then
         return 1
     end
+    if player:isValid() then
+        player:stopAvoid()
+    end
 
-    player:stopAvoid()
     info["avoid"] = info["avoid"] + info["avoidTime"] - os.time()
     if info["avoid"] < 0 then
         info["avoid"] = 0
@@ -214,7 +222,7 @@ function upGift(player, arg)
 
     local sql = "UPDATE tbl_vip_info SET UpGift = 0 WHERE UpGift = 1 and RegNum = '" .. player:getRegistNumber() .."'"
     SQL.Run(sql)
-    player:getItem(vipGift[info["level"]])
+    player:addItem(vipGift[info["level"]])
     player:sysMsg("恭喜您领取会员礼包！")
     info["upGift"] = 0
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
@@ -254,12 +262,17 @@ function upVip(player, arg)
 
     info["upGift"] = 1
     info["luck"] = vipLuck[level]
-    info["avoid"] = info["avoid"] + vipAvoid[level] - vipAvoid[info["level"]]
+    if info["level"] == 0 then
+        info["avoid"] = vipAvoid[level]
+    else
+        info["avoid"] = info["avoid"] + vipAvoid[level] - vipAvoid[info["level"]]
+    end
     info["level"] = level
     sql = sql .. ",VipLevel=" .. info["level"] .. ",LuckVal=" .. info["luck"] .. ",EnemyAvoidSec=" .. info["avoid"]
     sql = sql .. " WHERE RegNum='" .. player:getRegistNumber() .."'"
     SQL.Run(sql);
     player:sysMsg("会员等级提升至" .. level .."级！");
+    Protocol.PowerSend(player:getObj(), "SET_VIP", level)
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
 end
 
@@ -303,6 +316,7 @@ ClientEvent["god_gift"] = godGift
 ClientEvent["vip_warp"] = vipWarp
 ClientEvent["open_exp"] = openExp
 ClientEvent["up_vip"] = upVip
+ClientEvent["set_vip"] = setVip
 InitEvent["char"] = initVip
 DeinitEvent["char"] = deinitVip
 TaskHandler[1] = sysCloseAvoid

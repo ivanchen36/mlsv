@@ -4,7 +4,7 @@ function getSynthesisInfo(player)
     local petArr = {}
     local index = 1
     for i = 0, 4 do
-        local pet = MyPet:new(player:getObj(), i)
+        local pet = player:getPet(i)
         if pet:isValid() and pet:getLevel() == 1 then
             petArr[index] = {
                 ["name"] = pet:getName(),
@@ -39,8 +39,8 @@ function petSynthesis(player, arg)
     local param = strSplit(arg, ",")
     local uuid1 = param[1];
     local uuid2 = param[2];
-    local pet1 = MyPet:getByUuid(player:getObj(), uuid1)
-    local pet2 = MyPet:getByUuid(player:getObj(), uuid2)
+    local pet1 = player:getPetByUuid(uuid1)
+    local pet2 = player:getPetByUuid(uuid2)
     if nil == pet1 or nil == pet2 then
         player:sysMsg("需要合成的宠物不存在，宠物合成失败");
         Protocol.PowerSend(player:getObj(),"UPDATE_SYNTHESIS", getSynthesisInfo(player))

@@ -58,6 +58,7 @@ local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
 local equipmentChangeHandle = {}
+local waitInterval = 10
 
 function getAttr(player, attr)
     local method = MyChar[attrFunc[attr]]
@@ -129,6 +130,12 @@ end
 
 local function addPartyBuff(members, buffList, desc)
     logPrint("addBuff")
+    local vipList = {}
+    for i, member in ipairs(members) do
+        local vip = vipInfo[member:getRegistNumber()]
+        vipList[tostring(i)] = vip["level"]
+    end
+
     for _, member in ipairs(members) do
         if member:isValid() then
             for attr, buff in pairs(buffList) do
@@ -137,9 +144,13 @@ local function addPartyBuff(members, buffList, desc)
             end
             member:flush()
             member:sysMsg("获得队伍加成：" .. desc)
-            Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", desc)
+
         end
     end
+    Protocol.PowerSend(members[1]:getObj(), "FLUSH_PARTY_BUFF", {
+        ["buff"] = desc,
+        ["vip"] = vipList
+    })
 end
 
 local function subPartyBuff(members, buffList)
@@ -151,7 +162,9 @@ local function subPartyBuff(members, buffList)
                 method(member, -buff)
             end
             member:flush()
-            Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", "")
+            Protocol.PowerSend(member:getObj(), "FLUSH_PARTY_BUFF", {
+                ["buff"] = "",
+            })
         end
     end
 end
@@ -164,8 +177,8 @@ function Event.RegPartyEvent.PartyBuff(index, target, pType)
         local oldBuffList = partyBuffInfo[target]
         if rawget(waitHandleList, index) ~= nil then
             if waitHandleList[index] < now + 2 then
-                waitHandleList[index] = now - 20
-                waitHandleList[target] = now + 20
+                waitHandleList[index] = now - waitInterval
+                waitHandleList[target] = now + waitInterval
             else
                 partyBuffInfo[target] = oldBuffList
                 partyMemberInfo[target] = oldList
@@ -182,7 +195,7 @@ function Event.RegPartyEvent.PartyBuff(index, target, pType)
         end
         return
     end
-    waitHandleList[target] = os.time() + 20
+    waitHandleList[target] = os.time() + waitInterval
 end
 
 local function setPartyBuff(index)

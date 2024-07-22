@@ -1,4 +1,4 @@
-local recoverHurtAmount = {100, 300, 700, 1200}
+local recoverHurtAmount = {1000, 2000, 3000, 4000}
 
 TalkEvent["/dk"] = function (player)
     if 1 == player:getCheckIn() then
@@ -51,7 +51,7 @@ end
 
 TalkEvent["[petfy]"] = function (player)
     for i=0,4 do
-        myPet = MyPet:new(player:getObj(), pet, i)
+        local myPet = player:getPet(i)
         if not myPet:isValid() then
             return;
         end

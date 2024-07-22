@@ -1,4 +1,4 @@
-local zdwqcs_pos = {8091,41,36,6,14511,"快速制作"}		--npc{地图,x,y,方向,造型,名字}
+local zdwqcs_pos = {1000,231,83,4,14511,"快速制作"}		--npc{地图,x,y,方向,造型,名字}
 
 local zdwqcs_zzjg = 100 			--单个制作所需的魔币(不扣除写0)
 
@@ -7,23 +7,23 @@ local zdwqcs_zzsl = 10 	 			--每次最多可以制作的数量
 local zdwqcs_zy = {200,6005}			--能制作的职业id范围{最低职业id,最高职业id}
 
 local zdwqcs_jy = {}				--使用该技能时每个增加的技能经验(不增加写0)
-zdwqcs_jy[200] = 100;				--zdwqcs_jy[技能编号]=技能经验
-zdwqcs_jy[201] = 100;
-zdwqcs_jy[202] = 100;
-zdwqcs_jy[203] = 100;
-zdwqcs_jy[204] = 100;
-zdwqcs_jy[205] = 100;
-zdwqcs_jy[206] = 100;
-zdwqcs_jy[207] = 100;
-zdwqcs_jy[208] = 100;
-zdwqcs_jy[209] = 100;
-zdwqcs_jy[210] = 100;
-zdwqcs_jy[211] = 100;
-zdwqcs_jy[212] = 100;
-zdwqcs_jy[213] = 100;
-zdwqcs_jy[214] = 100;
-zdwqcs_jy[215] = 100;
-zdwqcs_jy[216] = 100;
+zdwqcs_jy[200] = 100;				--zdwqcs_jy[技能编号]=技能经验		
+zdwqcs_jy[201] = 100;			
+zdwqcs_jy[202] = 100;			
+zdwqcs_jy[203] = 100;			
+zdwqcs_jy[204] = 100;			
+zdwqcs_jy[205] = 100;			
+zdwqcs_jy[206] = 100;			
+zdwqcs_jy[207] = 100;			
+zdwqcs_jy[208] = 100;			
+zdwqcs_jy[209] = 100;			
+zdwqcs_jy[210] = 100;			
+zdwqcs_jy[211] = 100;			
+zdwqcs_jy[212] = 100;			
+zdwqcs_jy[213] = 100;			
+zdwqcs_jy[214] = 100;			
+zdwqcs_jy[215] = 100;			
+zdwqcs_jy[216] = 100;			
 
 -------------------------------------------------------------
 --以下内容非专业人员不建议修改
@@ -379,37 +379,37 @@ zzwpid[330] = {"金条",9615,10,"奥利哈钢条",9620,8,"誓言之证",18451,3,"魔族的水晶
 -----------------------------------------------
 zdwqcs_index = zdwqcs_index or nil;
 -----------------------------------------------
-Global_Reg.RegInit("zdwqcs_Init");
+Delegate.RegInit("zdwqcs_Init");
 
 function zdwqcsMyinit(index)
     return 1;
 end
 
 function initzdwqcsNpc()
-    if (zdwqcs_index == nil) then
-        zdwqcs_index = NL.CreateNpc(nil, "zdwqcsMyinit");
-        Char.SetData(zdwqcs_index,%对象_形象%,zdwqcs_pos[5]);
-    Char.SetData(zdwqcs_index,%对象_原形%,zdwqcs_pos[5]);
-    Char.SetData(zdwqcs_index,%对象_X%,zdwqcs_pos[2]);
-    Char.SetData(zdwqcs_index,%对象_Y%,zdwqcs_pos[3]);
-    Char.SetData(zdwqcs_index,%对象_地图%,zdwqcs_pos[1]);
-    Char.SetData(zdwqcs_index,%对象_方向%,zdwqcs_pos[4]);
-    Char.SetData(zdwqcs_index,%对象_原名%,zdwqcs_pos[6]);
-    NLG.UpChar(zdwqcs_index);
-    Char.SetWindowTalkedEvent(nil,"zdwqcsTalked",zdwqcs_index);
-        Char.SetTalkedEvent(nil,"zdwqcsMsg",zdwqcs_index);
-    end
+	if (zdwqcs_index == nil) then
+		zdwqcs_index = NL.CreateNpc(nil, "zdwqcsMyinit");
+		Char.SetData(zdwqcs_index,%对象_形象%,zdwqcs_pos[5]);
+		Char.SetData(zdwqcs_index,%对象_原形%,zdwqcs_pos[5]);
+		Char.SetData(zdwqcs_index,%对象_X%,zdwqcs_pos[2]);
+		Char.SetData(zdwqcs_index,%对象_Y%,zdwqcs_pos[3]);
+		Char.SetData(zdwqcs_index,%对象_地图%,zdwqcs_pos[1]);
+		Char.SetData(zdwqcs_index,%对象_方向%,zdwqcs_pos[4]);
+		Char.SetData(zdwqcs_index,%对象_原名%,zdwqcs_pos[6]);
+		NLG.UpChar(zdwqcs_index);
+		Char.SetWindowTalkedEvent(nil,"zdwqcsTalked",zdwqcs_index);
+		Char.SetTalkedEvent(nil,"zdwqcsMsg",zdwqcs_index);
+	end
 end
 
 function zdwqcsMsg( _MeIndex, _PlayerIndex,_Mode)
 
-    if(NLG.CheckInFront(_PlayerIndex, _MeIndex, 2) == false and _Mode==nil) then
-        return 0;
-    end
+	if(NLG.CheckInFront(_PlayerIndex, _MeIndex, 2) == false and _Mode==nil) then
+		return 0;
+	end
 
     str_ChangeWindow = "  请输入要制作的序号\\n  注意:自动制造的装备无法添加宝石，自动制作每次制作10个，请准备好材料\\n\\n"
     str_ChangeWindow = str_ChangeWindow.."  【1制药】\\n"
-    str_ChangeWindow = str_ChangeWindow.."  【2料理】\\n"
+	str_ChangeWindow = str_ChangeWindow.."  【2料理】\\n"
     str_ChangeWindow = str_ChangeWindow.."  【3造剑】\\n"
     str_ChangeWindow = str_ChangeWindow.."  【4造斧】\\n"
     str_ChangeWindow = str_ChangeWindow.."  【5造枪】\\n"
@@ -426,23 +426,23 @@ function zdwqcsMsg( _MeIndex, _PlayerIndex,_Mode)
     str_ChangeWindow = str_ChangeWindow.."  【16制鞋】\\n"
     str_ChangeWindow = str_ChangeWindow.."  【17造盾】\\n";
 
-    NLG.ShowWindowTalked(_PlayerIndex,11,3,0,str_ChangeWindow,_MeIndex);
+	NLG.ShowWindowTalked(_PlayerIndex,11,3,0,str_ChangeWindow,_MeIndex);
 
 end
 
 function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
+	
+	if ((_select == 1) and (type(tonumber(_data)) == "number")) then
 
-    if ((_select == 1) and (type(tonumber(_data)) == "number")) then
-
-        if ((tonumber(_data) < 0) and (tonumber(_data) > 20)) then
-            NLG.SystemMessage(_PlayerIndex,"[系统]请正确填写制作编号");
-            return;
-        end
+		if ((tonumber(_data) < 0) and (tonumber(_data) > 20)) then
+	    	NLG.SystemMessage(_PlayerIndex,"[系统]请正确填写制作编号");
+			return;
+		end
 
         if ((_seqno == 0) and (tonumber(_data) == 1)) then
-            local str_ChangeWindow = "  请输入要制作的药品编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的药品编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1生命力回复药（100）】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2生命力回复药（150）】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2生命力回复药（150）】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3生命力回复药（200）】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4生命力回复药（250）】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5生命力回复药（300）】\\n"
@@ -454,12 +454,12 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
 
             NLG.ShowWindowTalked(_PlayerIndex,11,3,1,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 2)) then
-            local str_ChangeWindow = "  请输入要制作的料理编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的料理编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1蕃茄酱】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2面包】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2面包】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3蛋包饭】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4法国面包】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5炒面】\\n"
@@ -481,12 +481,12 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
 
             NLG.ShowWindowTalked(_PlayerIndex,11,3,2,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 3)) then
-            local str_ChangeWindow = "  请输入要制作的剑编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的剑编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1长剑】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2阔剑】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2阔剑】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3突刺剑】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4火舌剑】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5面包剑】\\n"
@@ -508,12 +508,12 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
 
             NLG.ShowWindowTalked(_PlayerIndex,11,3,3,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 4)) then
-            local str_ChangeWindow = "  请输入要制作的斧编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的斧编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1手斧】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2勇气之斧】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2勇气之斧】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3宽手斧】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4战斗手斧】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5格斗手斧】\\n"
@@ -533,14 +533,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19金属重斧】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20处刑斧】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,4,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,4,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 5)) then
-            local str_ChangeWindow = "  请输入要制作的枪编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的枪编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1短矛】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2攻城枪】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2攻城枪】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3刺枪】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4金属枪】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5长柄弯枪】\\n"
@@ -560,14 +560,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19三叉战戟】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20异型枪】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,5,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,5,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 6)) then
-            local str_ChangeWindow = "  请输入要制作的弓编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的弓编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1轻型弓】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2威力短弓】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2威力短弓】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3短战弓】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4猎弓】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5强弓】\\n"
@@ -587,14 +587,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19摘星之弓】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20魔弹】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,6,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,6,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 7)) then
-            local str_ChangeWindow = "  请输入要制作的杖编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的杖编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1短杖】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2权杖】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2权杖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3大地之杖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4激流权杖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5魔之手杖】\\n"
@@ -614,14 +614,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19圣者之杖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20星屑短杖】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,7,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,7,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 8)) then
-            local str_ChangeWindow = "  请输入要制作的回力镖编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的回力镖编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1木制大型回力镖】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2青铜回力镖】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2青铜回力镖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3追迹者】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4彩光回力镖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5暗杀回力镖】\\n"
@@ -641,14 +641,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19治愈回力镖】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20天秤回力镖】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,8,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,8,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 9)) then
-            local str_ChangeWindow = "  请输入要制作的小刀编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的小刀编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1小刀】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2锐刃小刀】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2锐刃小刀】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3圆盘小刀】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4细刃掷刀】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5滑翔小刀】\\n"
@@ -668,14 +668,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19勾爪掷刀】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20幻之匕首】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,9,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,9,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 10)) then
-            local str_ChangeWindow = "  请输入要制作的头盔编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的头盔编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1硬皮头盔】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2铜制头盔】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2铜制头盔】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3铁板布盔】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4铜铁皮盔】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5金属护额】\\n"
@@ -695,14 +695,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19白金头盔】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20圣龙头盔】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,10,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,10,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 11)) then
-            local str_ChangeWindow = "  请输入要制作的帽子编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的帽子编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1麻布帽】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2硬帽】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2硬帽】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3轻帽】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4皮帽】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5硬皮帽】\\n"
@@ -722,14 +722,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19黄昏之帽】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20妖精之帽】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,11,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,11,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 12)) then
-            local str_ChangeWindow = "  请输入要制作的铠甲编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的铠甲编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1软皮甲】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2护心甲】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2护心甲】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3青铜铠甲】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4轻型铠甲】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5轻型锁炼甲】\\n"
@@ -749,14 +749,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19漆黑之铠】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20骑士铠甲】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,12,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,12,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 0) and (tonumber(_data) == 13)) then
-            local str_ChangeWindow = "  请输入要制作的衣服编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的衣服编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1旅人之服】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2保护衣】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2保护衣】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3羽毛装】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4皮装】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5硬皮服】\\n"
@@ -776,14 +776,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19不死鸟之服】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20灵魂之服】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,13,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,13,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 14)) then
-            local str_ChangeWindow = "  请输入要制作的袍编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的袍编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1羽毛袍】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2轻皮袍】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2轻皮袍】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3网袍】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4风袍】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5硬皮袍】\\n"
@@ -803,14 +803,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19灵魂之袍】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20奇迹之袍】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,14,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,14,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 15)) then
-            local str_ChangeWindow = "  请输入要制作的靴编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的靴编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1软皮靴】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2皮靴】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2皮靴】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3硬皮靴】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4长靴】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5厚底靴】\\n"
@@ -830,14 +830,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19秘密之靴】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20龙之靴】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,15,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,15,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 16)) then
-            local str_ChangeWindow = "  请输入要制作的鞋编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的鞋编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1运动鞋】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2马车鞋】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2马车鞋】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3皮鞋】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4安全鞋】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5光之鞋】\\n"
@@ -857,14 +857,14 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19黄金鞋】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20龙之鞋】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,16,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,16,str_ChangeWindow,_MeIndex);
             return;
-        end
+	    end
 
         if ((_seqno == 0) and (tonumber(_data) == 17)) then
-            local str_ChangeWindow = "  请输入要制作的盾编号\\n"
+	        local str_ChangeWindow = "  请输入要制作的盾编号\\n"
             str_ChangeWindow = str_ChangeWindow.."  【1小圆盾】\\n"
-            str_ChangeWindow = str_ChangeWindow.."  【2小型盾】\\n"
+		    str_ChangeWindow = str_ChangeWindow.."  【2小型盾】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【3板盾】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【4鸢盾】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【5漩涡重盾】\\n"
@@ -884,221 +884,221 @@ function zdwqcsTalked(_MeIndex,_PlayerIndex,_seqno,_select,_data)
             str_ChangeWindow = str_ChangeWindow.."  【19黑暗之盾】\\n"
             str_ChangeWindow = str_ChangeWindow.."  【20勇者之盾】\\n";
 
-            NLG.ShowWindowTalked(_PlayerIndex,11,3,17,str_ChangeWindow,_MeIndex);
+		    NLG.ShowWindowTalked(_PlayerIndex,11,3,17,str_ChangeWindow,_MeIndex);
             return;
-        end
-
+	    end
+		
         if ((_seqno == 1) and (tonumber(_data) ~= "")) then
-            local scbh = tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,216)
-            return;
-        end
+		    local scbh = tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,216)
+		    return;
+		end
 
         if ((_seqno == 2) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,215)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,215)
+		    return;
+		end
 
         if ((_seqno == 3) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,200)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,200)
+		    return;
+		end
 
         if ((_seqno == 4) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,201)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,201)
+		    return;
+		end
 
         if ((_seqno == 5) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,202)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,202)
+		    return;
+		end
 
         if ((_seqno == 6) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,203)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,203)
+		    return;
+		end
 
         if ((_seqno == 7) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,204)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,204)
+		    return;
+		end
 
         if ((_seqno == 8) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,205)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,205)
+		    return;
+		end
 
         if ((_seqno == 9) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,206)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,206)
+		    return;
+		end
 
         if ((_seqno == 10) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,207)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,207)
+		    return;
+		end
 
         if ((_seqno == 11) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,208)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,208)
+		    return;
+		end
 
         if ((_seqno == 12) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,209)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,209)
+		    return;
+		end
 
         if ((_seqno == 13) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,210)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,210)
+		    return;
+		end
 
         if ((_seqno == 14) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,211)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,211)
+		    return;
+		end
 
         if ((_seqno == 15) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,212)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,212)
+		    return;
+		end
 
         if ((_seqno == 16) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,213)
-            return;
-        end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,213)
+		    return;
+		end
 
         if ((_seqno == 17) and (tonumber(_data) ~= "")) then
-            local scbh = (_seqno * 20) - 30 + tonumber(_data)
-            zdwqcsgndf(_PlayerIndex,scbh,214)
-            return;
-        end
-    end
+		    local scbh = (_seqno * 20) - 30 + tonumber(_data)
+		    zdwqcsgndf(_PlayerIndex,scbh,214)
+		    return;
+		end
+	end
 end
 
 function zdwqcsgndf(player,scbh2,jn2)
     local dxzy = Char.GetData(player,%对象_职业%)
-
-    if (dxzy < zdwqcs_zy[1] or dxzy > zdwqcs_zy[2]) then
-    NLG.SystemMessage(player,"[系统]只有制作系职业才能使用");
-    return;
-    end
+ 
+	if (dxzy < zdwqcs_zy[1] or dxzy > zdwqcs_zy[2]) then
+		NLG.SystemMessage(player,"[系统]只有制作系职业才能使用");
+		return;
+	end
 
     local jcsskw = Char.FindEmptyItemBox(player);
     if (jcsskw < zdwqcs_zzsl) then
-    NLG.SystemMessage(player,"[系统]背包无空间，无法制作");
-    return;
-    end
-
+		NLG.SystemMessage(player,"[系统]背包无空间，无法制作");
+		return;
+	end
+   
     local ckssmb = Char.GetData(player,%对象_金币%)
     local zhsxf = zdwqcs_zzjg * zdwqcs_zzsl
 
     if zhsxf > 0 and ckssmb < zhsxf then
-    NLG.SystemMessage(player,"[系统]手续费不够");
-    return;
-    end
+		NLG.SystemMessage(player,"[系统]手续费不够");
+		return;
+	end	
 
-    local ckzjjn = Char.HaveSkill(player,jn2)
+	local ckzjjn = Char.HaveSkill(player,jn2)
 
-    if (ckzjjn < 0) then
-    NLG.SystemMessage(player,"[系统]生产技能等级不够，无法生产");
-    return;
-    end
+	if (ckzjjn < 0) then
+		NLG.SystemMessage(player,"[系统]生产技能等级不够，无法生产");
+		return;
+	end
     local ckzjjndj = Char.GetSkillLevel(player,ckzjjn)
 
-    if (ckzjjndj < zzwpid[scbh2][#zzwpid[scbh2]]) then
-    NLG.SystemMessage(player,"[系统]生产技能等级不够，无法生产");
-    return;
-    end
+	if (ckzjjndj < zzwpid[scbh2][#zzwpid[scbh2]]) then
+		NLG.SystemMessage(player,"[系统]生产技能等级不够，无法生产");
+		return;
+	end
 
-    local cyjg = (#zzwpid[scbh2] / 3) - 1
+	local cyjg = (#zzwpid[scbh2] / 3) - 1
+	
+	for i = 1,cyjg do
+		local cxjg = Char.FindItemId(player,zzwpid[scbh2][(i*3)-1])
 
-    for i = 1,cyjg do
-    local cxjg = Char.FindItemId(player,zzwpid[scbh2][(i*3)-1])
+		if (cxjg <= 0) then
+			NLG.SystemMessage(player,"[系统]缺少制作的材料");
+	        return;
+		end
+			
+		local cxclsl = Char.ItemNum(player,zzwpid[scbh2][(i*3)-1])
+		local zhclsl = zdwqcs_zzsl * zzwpid[scbh2][i*3]
 
-    if (cxjg <= 0) then
-    NLG.SystemMessage(player,"[系统]缺少制作的材料");
-    return;
-    end
+		if (cxclsl < zhclsl) then
+			NLG.SystemMessage(player,"[系统]制作的材料数量不够");
+	        return;
+		end
+	end
 
-    local cxclsl = Char.ItemNum(player,zzwpid[scbh2][(i*3)-1])
-    local zhclsl = zdwqcs_zzsl * zzwpid[scbh2][i*3]
-
-    if (cxclsl < zhclsl) then
-    NLG.SystemMessage(player,"[系统]制作的材料数量不够");
-    return;
-    end
-    end
-
-    if ckzjjndj < 10 then
-    local zdwqcs_jnjy = 0;
-    if zdwqcs_jy[jn2] then
-    zdwqcs_jnjy = zdwqcs_jy[jn2];
-    end
-    local zhjyy = zdwqcs_zzsl * zdwqcs_jnjy
-    if zhjyy > 0 then
-    Char.Setskillexp(player, ckzjjn, zhjyy);
-    NLG.UpChar(player);
-    end
-    end
-
-    for z = 1,cyjg do
-    local scsl = zzwpid[scbh2][z*3] * zdwqcs_zzsl
-    NLG.DelItem(player,zzwpid[scbh2][(z*3)-1],scsl)
-    end
-
-    local wqid = zzwpid[scbh2][#zzwpid[scbh2]-1]
+	if ckzjjndj < 10 then
+		local zdwqcs_jnjy = 0;
+		if zdwqcs_jy[jn2] then
+			zdwqcs_jnjy = zdwqcs_jy[jn2];
+		end
+		local zhjyy = zdwqcs_zzsl * zdwqcs_jnjy
+		if zhjyy > 0 then
+			Char.Setskillexp(player, ckzjjn, zhjyy);
+			NLG.UpChar(player);
+		end
+	end
+		
+	for z = 1,cyjg do
+		local scsl = zzwpid[scbh2][z*3] * zdwqcs_zzsl
+        NLG.DelItem(player,zzwpid[scbh2][(z*3)-1],scsl)
+	end
+        
+	local wqid = zzwpid[scbh2][#zzwpid[scbh2]-1]
 
     if (scbh2 >= 31) then
 
-    for v = 1,zdwqcs_zzsl do
-    local gddjdex = NLG.GiveItem(player,wqid,1);
-    Item.SetData(gddjdex, %道具_鉴定%, 1)
-    end
-    Item.UpItem(player,-1)
-    if zhsxf > 0 then
-    Char.SetData(player,%对象_金币%,ckssmb - zhsxf)
-    NLG.SystemMessage(player,"[系统]制作完毕，扣除手续费"..zhsxf.."G");
-    else
-    NLG.SystemMessage(player,"[系统]制作完毕.");
-    end
-    NLG.UpChar(player);
-    return;
-    end
+		for v = 1,zdwqcs_zzsl do
+			local gddjdex = Char.GiveItem(player,wqid,1);
+			Item.SetData(gddjdex, %道具_已鉴定%, 1);
+		end
+		Item.UpItem(player,-1)
+		if zhsxf > 0 then
+			Char.SetData(player,%对象_金币%,ckssmb - zhsxf)
+			NLG.SystemMessage(player,"[系统]制作完毕，扣除手续费"..zhsxf.."G");
+		else
+			NLG.SystemMessage(player,"[系统]制作完毕.");
+		end
+		NLG.UpChar(player);
+		return;
+	end
 
     if (scbh2 <= 30) then
 
-    NLG.GiveItem(player,wqid,zdwqcs_zzsl);
-    if zhsxf > 0 then
-    Char.SetData(player,%对象_金币%,ckssmb - zhsxf)
-    NLG.SystemMessage(player,"[系统]制作完毕，扣除手续费"..zhsxf.."G");
-    else
-    NLG.SystemMessage(player,"[系统]制作完毕.");
-    end
-    NLG.UpChar(player);
-    return;
-    end
-
+		Char.GiveItem(player,wqid,zdwqcs_zzsl);
+		if zhsxf > 0 then
+			Char.SetData(player,%对象_金币%,ckssmb - zhsxf)
+			NLG.SystemMessage(player,"[系统]制作完毕，扣除手续费"..zhsxf.."G");
+		else
+			NLG.SystemMessage(player,"[系统]制作完毕.");
+		end
+		NLG.UpChar(player);
+		return;
+	end
+	
     return;
 end
 
 function zdwqcs_Init()
-    zdwqcs = nil;
-    initzdwqcsNpc();
+	zdwqcs = nil;
+	initzdwqcsNpc();
 end

@@ -138,4 +138,4 @@ def uninstallTask(gameDir, task):
 
 if __name__ == "__main__":
     uninstallTask("../../", "chx")
-    installTask("../../", "chx")
+    #installTask("../../", "chx")

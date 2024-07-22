@@ -29,6 +29,17 @@ damageTable = {
     [21] = personDefSubDamage,
     [23]  = petDefSubDamage,
 }
+
+local funcName = {}
+
+local function setFuncName(func)
+    for key, val in pairs(_G) do
+        if val == func then
+            funcName[func] = key
+        end
+    end
+end
+
 -- 创建并设置metatable
 setmetatable(DamageEvent, {
     __index = function(t, key)
@@ -37,6 +48,7 @@ setmetatable(DamageEvent, {
     end,
     __newindex = function(t, key, val)
         table.insert(damageTable[key], val)
+        setFuncName(val)
         logPrint("DamageEvent set: ", key, #damageTable[key])
     end,
 })
@@ -58,6 +70,7 @@ setmetatable(InitEvent, {
     end,
     __newindex = function(t, key, val)
         table.insert(initTable[key], val)
+        setFuncName(val)
         logPrint("InitEvent set: ", key, #initTable[key])
     end,
 })
@@ -79,6 +92,7 @@ setmetatable(DeinitEvent, {
     end,
     __newindex = function(t, key, val)
         table.insert(deinitTable[key], val)
+        setFuncName(val)
         logPrint("DeinitEvent set: ", key, #deinitTable[key])
     end,
 })
@@ -106,6 +120,8 @@ function Event.RegLoginEvent.doCharInitEvent(player)
     logPrint("doCharInitEvent: ", player)
     local myPlayer = MyPlayer:new(player);
     for i, func in ipairs(charInitEvent) do
+        print("char init " .. funcName[func])
+        logPrint("char init ", funcName[func])
         func(myPlayer)
     end
 end
@@ -114,6 +130,8 @@ function Event.RegAllOutEvent.doCharDeinitEvent(player)
     logPrint("doCharDeinitEvent: ", player)
     local myPlayer = MyPlayer:new(player);
     for i, func in ipairs(charDeinitEvent) do
+        print("char deinit " .. funcName[func])
+        logPrint("char deinit ", funcName[func])
         func(myPlayer)
     end
 end
@@ -238,19 +256,23 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
 
     if rawget(damageTable, atkType) ~= nil then
         local myPlayer1 = MyPlayer:new(CharIndex);
-        for i, func in ipairs(damageTable[atkType]) do
+        for _, func in ipairs(damageTable[atkType]) do
+            logPrint(funcName[func])
             atkRate = func(myPlayer1, atkRate)
         end
         atkType = atkType + 10
-        for i, func in ipairs(damageTable[atkType]) do
+        for _, func in ipairs(damageTable[atkType]) do
+            logPrint(funcName[func])
             defRate = func(myPlayer1, defRate)
         end
     end
+
     if defRate == 100 then
         local defType =  Char.GetData(DefCharIndex, 0) + 20
         if rawget(damageTable, defType) ~= nil then
             local myPlayer1 = MyPlayer:new(DefCharIndex);
             for i, func in ipairs(damageTable[defType]) do
+                logPrint(funcName[func])
                 defRate = func(myPlayer1, defRate)
             end
             if defRate < 0 then
@@ -258,10 +280,14 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
             end
         end
     end
+
     local realDamage = 0
-    for i, func in ipairs(OtherDamageEvent) do
-        realDamage = realDamage + func(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg) - Damage
+    if atkType ~= 2 then
+        for i, func in ipairs(OtherDamageEvent) do
+            realDamage = realDamage + func(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg) - Damage
+        end
     end
+
     logPrint("RealDamage1 ", realDamage)
     if defRate == 100 then
         realDamage = realDamage + math.ceil(Damage * (atkRate / 100) * (defRate / 100))

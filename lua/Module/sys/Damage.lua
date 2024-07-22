@@ -17,6 +17,7 @@ local function getAtkTalent(player)
 end
 
 local function getDefTalent(player)
+    logPrint("getDefTalent", player:getName())
     local pet = MyPet:new1(player:getObj())
     if rawget(petTalentDefMap, pet:getUuid()) then
         return petTalentDefMap[pet:getUuid()]
@@ -34,7 +35,7 @@ function subPersonDamage(player, rate)
 end
 
 function subPetDamage(player, rate)
-    return rate - getDefTalent(player)
+    return rate
 end
 
 function subPersonDefDamage(player, rate)
@@ -43,7 +44,7 @@ function subPersonDefDamage(player, rate)
 end
 
 function subPetDefDamage(player, rate)
-    rate = rate - addPetDamage(player)
+    rate = rate - getDefTalent(player)
     return rate
 end
 

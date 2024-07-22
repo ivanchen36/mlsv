@@ -16,5 +16,5 @@ LoadABundle("biz/Awakening.lua");
 LoadABundle("biz/Task.lua");
 LoadABundle("biz/PartyBuff.lua");
 LoadABundle("biz/Recover.lua");
-
+LoadABundle("biz/Warp.lua");
 LoadABundle("ClientCfg.lua");

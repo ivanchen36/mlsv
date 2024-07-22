@@ -5,36 +5,15 @@ MyPet = {}
 extendClass(MyPet, MyChar)
 
 -- 定义构造函数 new
-function MyPet:create(player, pet)
+function MyPet:new(player, pet)
     local newObj = MyChar:new(pet)
     newObj._owner = player
     setmetatable(newObj, self)       -- 设置新对象的元表为 MyPet
     return newObj
 end
 
-function MyPet:new(player, slot)
-    return MyPet:create(player, Char.GetPet(player, slot))
-end
-
 function MyPet:new1(pet)
-    return MyPet:create(Pet.GetOwner(pet), pet)
-end
-
--- %对象_战宠% 62
-function MyPet:getBattlePet(player)
-    return MyPet:new(player,  Char.GetData(self.player, 62))
-end
-
-function MyPet:getByUuid(player, uuid)
-    for i = 0, 4 do
-        local pet = MyPet:new(player, i)
-        if pet:isValid() then
-            if uuid == pet:getUuid() then
-                return pet
-            end
-        end
-    end
-    return nil
+    return MyPet:new(Pet.GetOwner(pet), pet)
 end
 
 function MyPet:getOwner()
@@ -68,7 +47,7 @@ end
 function MyPet:delete()
     local uuid = self:getUuid()
     for i = 0, 4 do
-        local pet = MyPet:new(self._owner, i)
+        local pet = MyPet:new(self._owner, Char.GetPet(self._owner, i))
         if pet:isValid() then
             if uuid == pet:getUuid() then
                 return Char.DelSlotPet(self._owner, i)

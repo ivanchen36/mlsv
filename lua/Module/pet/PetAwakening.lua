@@ -26,7 +26,7 @@ function getAwakeningInfo(player)
     local petArr = {}
     local index = 1
     for i = 0, 4 do
-        local pet = MyPet:new(player:getObj(), i)
+        local pet = player:getPet(i)
         if pet:isValid() then
             local petAwake = {
                 ["name"] = pet:getName(),
@@ -118,7 +118,7 @@ function upAwakening(player, arg)
     local param = strSplit(arg, ",")
     local uuid = param[1];
     local attr = tonumber(param[2]);
-    local pet = MyPet:getByUuid(player:getObj(), uuid)
+    local pet = player:getPetByUuid(uuid)
     if nil == pet then
         player:sysMsg("需要觉醒的宠物不存在，宠物觉醒失败");
         return

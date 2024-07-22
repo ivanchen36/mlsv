@@ -105,7 +105,8 @@ local function setTalentBuff(pet, skillId)
 end
 
 local function getTalent(pet)
-    for i = 1, 10 do
+    local slots = pet:getSkillSlots() - 1
+    for i = 0, slots do
         local skillId = pet:getSkill(i)
         if skillId > 30400 and skillId < 30499 then
             return skillId
@@ -115,10 +116,12 @@ local function getTalent(pet)
 end
 
 function loadTalent(player)
+    logPrint("getTalent ", player:getObj())
     for i = 0, 4 do
-        local pet = MyPet:new(player, i)
+        local pet = player:getPet(i)
         if pet:isValid() then
             local skillId = getTalent(pet)
+            logPrint("loadTalent ", skillId)
             if skillId > 0 then
                 setTalentBuff(pet, skillId)
             end
@@ -128,7 +131,7 @@ end
 
 function unloadTalent(player)
     for i = 0, 4 do
-        local pet = MyPet:new(player, i)
+        local pet = player:getPet(i)
         if pet:isValid() then
             local skillId = getTalent(pet)
             if skillId > 0 then
@@ -142,7 +145,7 @@ function unloadTalent(player)
 end
 
 function initTalent(player)
-    local pet = MyPet:new(player:getObj(), 0)
+    local pet = player:getPet(0)
     if not pet:isValid() then
         player:sysMsg("宠物第一栏没有宠物，无法领悟天赋")
         return
@@ -151,7 +154,8 @@ function initTalent(player)
         player:sysMsg("宠物等级不足70级，无法领悟天赋")
         return
     end
-    for i = 1, 10 do
+    local slots = pet:getSkillSlots() - 1
+    for i = 0, slots do
         local skillId = pet:getSkill(i)
         if skillId > 30400 and skillId < 30499 then
             player:sysMsg("宠物领悟天赋, 无法重新领悟")
@@ -166,7 +170,7 @@ function initTalent(player)
 end
 
 function reInitTalent(player, slot, level)
-    local pet = MyPet:new(player:getObj(), slot)
+    local pet = player:getPet(slot)
     if pet:getLevel() < 70 then
         player:sysMsg("宠物等级不足70级，无法重置天赋")
         return
@@ -177,7 +181,8 @@ function reInitTalent(player, slot, level)
     end
 
     local oldSkillId = 0
-    for i = 1, 10 do
+    local slots = pet:getSkillSlots() - 1
+    for i = 0, slots do
         local skillId = pet:getSkill(i)
         if skillId > 30400 and skillId < 30499 then
             oldSkillId = skillId
@@ -203,5 +208,18 @@ function Event.RegPetLevelUpEvent.doPetLevelUp(index)
     end
 end
 
+function setPetStatus(fd, head, packet)
+    logPrint("OnRecv ", head, packet)
+    local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
+    local arr = strSplit(packet, ":")
+    for i, val in ipairs(arr) do
+        if val == "2" then
+            logPrint("atk ", i)
+        end
+    end
+    return 0
+end
+
 InitEvent["char"] = loadTalent
 DeinitEvent["char"] = unloadTalent
+Protocol.OnRecv(nil, "setPetStatus", 37)

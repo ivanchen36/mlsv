@@ -644,14 +644,6 @@ function MyChar:setRecordPoint(val)
     return self:set(61, val)
 end
 
---%对象_战宠% 62
-function MyChar:getBattlePet()
-    return self:get(62)
-end
-function MyChar:setBattlePet(val)
-    return self:set(62, val)
-end
-
 --%对象_聊天距离% 63
 function MyChar:getChatDistance()
     return self:get(63)

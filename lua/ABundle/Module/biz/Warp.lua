@@ -1,6 +1,5 @@
 local warpTitle = {"地点", "等级要求", "价格", "金额"}
-local warpBtn = {"daily", "weekly", "monthly"}
-local warpTypeName = {"法兰", "艾国", "苏国", "亚诺"}
+local warpTypeName = {"法兰", "艾国", "苏国", "亚国", "练级"}
 local curWarpPage = 1
 local warpSize = 10
 local warpInfo = nil
@@ -39,7 +38,19 @@ local aiWarpInfo = {
     [22] = {"米诺基亚村", 40, 900},
     [23] = {"雷克塔尔镇", 40, 900},
 }
-local warpList = {faWarpInfo, aiWarpInfo, suWarpInfo, yaWarpInfo}
+
+local levelWarpInfo = {
+    [41] = {"哈洞", 0, 0},
+    [42] = {"灵堂", 0, 100},
+    [43] = {"深绿", 15, 500},
+    [44] = {"海底", 15, 500},
+    [45] = {"魔法大学", 25, 800},
+    [46] = {"炎洞", 35, 900},
+    [47] = {"雪山", 40, 1000},
+    [48] = {"水洞", 45, 1200},
+}
+
+local warpList = {faWarpInfo, aiWarpInfo, suWarpInfo, yaWarpInfo, levelWarpInfo}
 
 local function showSelectWarp()
     for i = 1, #warpTypeName do
@@ -53,15 +64,16 @@ local function showSelectWarp()
 end
 
 local function initWarpContent()
-    local warpInfo = warpList[curWarpPage]
-    local canWarp = warpInfo[1]
-    local num = warpInfo[2]
-    local gold = warpInfo[3]
-    local level = warpInfo[4]
-    local index = 1
+    logPrintTbl(warpInfo)
+    local canWarp = warpInfo.can
+    local num = warpInfo.num
+    local gold = warpInfo.gold
+    local level = warpInfo.level
+    local index = 2
 
     showSelectWarp()
-    for wid, info in pairs(warpInfo) do
+    local warpList = warpList[curWarpPage]
+    for wid, info in pairs(warpList) do
         local name = warpWnd:getWidget("r" .. index .."c" .. 1)
         local levelCond = warpWnd:getWidget("r" .. index .."c" .. 2)
         local price = warpWnd:getWidget("r" .. index .."c" .. 3)
@@ -74,6 +86,7 @@ local function initWarpContent()
         amount:setText((info[3] * num) .. "G")
         warpBtn:setVisible(true)
         if canWarp and level >= info[2] and  gold >= info[3] * num then
+            warpBtn:setEnabled(true)
             warpBtn:clicked(function(w)
                 Cli.Send("warp|" .. wid)
                 warpWnd:close()
@@ -83,10 +96,10 @@ local function initWarpContent()
         end
         index = index + 1
     end
-    if index > warpSize then
+    if index > warpSize + 1 then
         return
     end
-    for i = index, warpSize do
+    for i = index, warpSize + 1 do
         local name = warpWnd:getWidget("r" .. i .."c" .. 1)
         local levelCond = warpWnd:getWidget("r" .. i .."c" .. 2)
         local price = warpWnd:getWidget("r" .. i .."c" .. 3)
@@ -103,7 +116,7 @@ end
 
 local function loadWarpClient()
     logPrint("loadWarpClient")
-    local gen = ClientGen:new("bg.bmp", 11, 5, 60, 70, 60, 30)
+    local gen = ClientGen:new("bg.bmp", 11, 5, 70, 60, 65, 30)
     for i, title in ipairs(warpTitle) do
         gen:addText(1, i, title)
     end
@@ -119,9 +132,10 @@ local function loadWarpClient()
     table.insert(client, {
         ["type"] = "lab",
         ["title"] = "title",
-        ["x"] = 190,
+        ["x"] = 210,
         ["y"] = 35,
         ["text"] = "万能传送",
+        ["font"] = 10,
     })
     for i, name in ipairs(warpTypeName) do
         table.insert(client, {
@@ -133,12 +147,14 @@ local function loadWarpClient()
             ["active"] = "task2.bmp",
             ["disable"] = "task3.bmp",
             ["text"] = name,
-            ["click"] = function()
+            ["click"] = function(w)
+                logPrint("click ", i)
                 curWarpPage = i
                 initWarpContent()
             end,
         })
     end
+    logPrintTbl(client)
     warpWnd = createWindow(1013,"warp", client)
 end
 
@@ -147,11 +163,10 @@ function showWarp(info)
     if (warpWnd == nil) then
         loadWarpClient()
     end
-    logPrintTbl(info)
 
     warpWnd:show()
     initWarpContent()
     logPrint( 'showWarp2')
 end
 
-Cli.Send().wait["SHOW_TASK"] = showWarp
+Cli.Send().wait["SHOW_WARP"] = showWarp

@@ -1,7 +1,7 @@
 import os
 
 
-def renameBmpFiles(directory):
+def renameBmpFiles(directory, path):
     # 确保传入的directory是字符串且存在
     if not isinstance(directory, str) or not os.path.exists(directory):
         raise ValueError("The provided directory is not valid.")
@@ -29,9 +29,9 @@ def renameBmpFiles(directory):
             # 检查新文件名是否与旧文件名不同
             if newFilename != filename:
                 # 如果不同，则重命名文件
-                newFilePath = os.path.join(directory, newFilename)
+                newFilePath = os.path.join(path, newFilename)
                 os.rename(filePath, newFilePath)
                 print(f"Renamed '{filename}' to '{newFilename}'")
 
 if __name__ == "__main__":
-    renameBmpFiles("../client/image/")
+    renameBmpFiles("../psd/", "../client/image/")

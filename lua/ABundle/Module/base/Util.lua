@@ -53,7 +53,7 @@ function createSingleWidget(widgetMap, widget)
         tmp:setActiveImg(widget.active)
         tmp:setDisableImg(widget.disable)
         if rawget(widget, "click") ~= nil then
-            tmp:clicked(_G[widget.click])
+            tmp:clicked(getFunc(widget.click))
         end
         if rawget(widget, "color") ~= nil then
             tmp:setColor(widget.color)
@@ -101,8 +101,18 @@ function getGlobVal(tblStr, index)
     return tblStr
 end
 
-function getGlobFunc(tblStr, index)
-    if tblStr:sub(1, 1) == '#' then
+function getFunc(funcStr)
+    if type(funcStr) == "function" then
+        return funcStr
+    else
+        return _G[funcStr]
+    end
+end
+
+function getFunc1(tblStr, index)
+    if type(tblStr) == "function" then
+        return tblStr
+    elseif tblStr:sub(1, 1) == '#' then
         return _G[tblStr:sub(2)][index]
     else
         return _G[tblStr]
@@ -141,7 +151,7 @@ function createMulWidget(widgetMap, rows, columns, w, h, widget)
                     tmp:setActiveImg(widget.active)
                     tmp:setDisableImg(widget.disable)
                     if rawget(widget, "click") ~= nil then
-                        tmp:clicked(getGlobFunc(widget.click, pos))
+                        tmp:clicked(getFunc1(widget.click, pos))
                     end
                     if rawget(widget, "color") ~= nil then
                         tmp:setColor(getGlobVal(widget.color, pos))

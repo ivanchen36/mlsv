@@ -1,7 +1,7 @@
-block item 40021 >= 1
+block item 20021 >= 1
 window "\n\n全图鉴礼包能使您快速拥有所有的图鉴，\n　单击【是】，就会帮你记录所有的图鉴。",yes,no
-window yes item 40021 >= 1
-killitem 40021,1
+window yes item 20021 >= 1
+killitem 20021,1
 mysetplayer 0,-1,129,-1
 mysetplayer 0,-1,130,-1
 mysetplayer 0,-1,131,-1

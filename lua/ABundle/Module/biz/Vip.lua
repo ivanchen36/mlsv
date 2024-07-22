@@ -5,7 +5,9 @@ vipTextVal = {"", "", "", "", "", "", "VIP7可使用", "VIP8可使用"}
 vipBtn = {"valueBtn", "", "", "", "expBtn", "avoidBtn", "bankBtn", "giftBtn"}
 vipBtnText = {"领取", "", "", "", "开启", "开启", "开启", "开启"}
 
+local vipLevel = 0
 local vipWnd = nil
+local userInfoWnd = nil
 local vipInfo = nil
 local vipExp = {120, 1020, 3360, 6720, 13880, 23880, 33600, 67200, 201600}
 
@@ -214,6 +216,28 @@ function showVip(info)
     logPrint( 'showVip2')
 end
 
+function setVip(vip)
+    logPrint("setVip", vip)
+    vipLevel = vip
+    if userInfoWnd == nil then
+        local client = {
+            {
+                ["type"] = "img",
+                ["title"] = "level",
+                ["x"] = 183,
+                ["y"] = 7,
+                ["img"] = 0,
+            }
+        }
+        userInfoWnd = createWindow(7, "", client)
+        userInfoWnd:onShow(function()
+            userInfoWnd:getWidget("level"):setImg("v" .. vipLevel .. ".bmp")
+        end)
+    end
+    logPrintTbl(userInfoWnd)
+end
+
 Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["FLUSH_VIP"] = flushVipInfo
 Cli.Send().wait["SHOW_VIP"] = showVip
+Cli.Send("set_vip").wait["SET_VIP"] = setVip
