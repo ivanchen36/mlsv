@@ -3,14 +3,6 @@ local anshaEnemy = {
 	[30008] = 1200,
 }
 
-local remoteForbiddenSkill = {
-	[0] = 1, -- Á¬»÷
-};
-
-local meleeForbiddenSkill = {
-	[95] = 1, -- ÂÒÉä
-};
-
 local triggerAnshaSkill = {
  	[1] = 1, -- ÖîÈÐ
 	[3] = 1, -- Ç¬À¤
@@ -50,17 +42,6 @@ local function isTriggerAnsha(pet, skillId, battle)
 end
 
 local function getNewTechId(player, pet, skillId, battle)
-	if pet:getId() >= remoteBaseId then
-		if rawget(remoteForbiddenSkill, skillId) then
-			return baseAtkSkillId
-		end
-		return 0
-	end
-
-	if rawget(meleeForbiddenSkill, skillId) then
-		return baseAtkSkillId
-	end
-
 	if isTriggerAnsha(pet, skillId, battle) then
 		return anshaSkillId
 	end

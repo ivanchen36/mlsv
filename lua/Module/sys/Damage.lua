@@ -76,6 +76,9 @@ function modifyMaxDamage()
     end
 end
 
+
+
+
 DamageEvent[1] = addPersonDamage
 DamageEvent[3] = addPetDamage
 DamageEvent[11] = subPersonDamage

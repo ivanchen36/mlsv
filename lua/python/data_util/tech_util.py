@@ -4,6 +4,7 @@ import shutil
 
 NAME = 0
 TECH_ID = 3
+MSG_ID = 4
 SKILL_ID = 5
 LEVEL = 6
 LEN = 15
@@ -71,6 +72,7 @@ def modifyTechNo(path):
     os.rename(path + "/tech_tmp.txt", path + "/tech.txt")
 
 def getString(arr):
+    arr = [str(item) for item in arr]
     cur = len(arr)
     if len(arr) < LEN:
         for i in range(cur, LEN):
@@ -90,6 +92,39 @@ def modifyTechLevel(path):
         print(len((str).split("\t")))
         techFile.writeLine(getString(arr))
 
+def genDisableTech(path):
+    template = "name	TECH_Breed	AR:0,	30401	16004	70	30	1	1141			0	1		"
+    arr = template.split("\t")
+    tmpFile = FileUtil("./tmp.txt", "gbk")
+    techFile = FileUtil(path + "/tech.txt", "gbk")
+    if not tmpFile.isBlankLineEnd():
+        techFile.writeLine("")
+    for line in tmpFile.readLines():
+        line = line.replace("\r", "").replace("\n", "")
+        arr1 = line.split("\t")
+        arr[TECH_ID] = int(arr1[TECH_ID]) + 1000000
+        arr[MSG_ID] = arr1[MSG_ID]
+        arr[NAME] = arr1[NAME]
+        tmp = getString(arr)
+        print(tmp)
+        techFile.writeLine(tmp)
+
+def genDisableTech(path):
+    tmpFile = FileUtil("./tmp.txt", "gbk")
+    techFile = FileUtil(path + "/petweapon.txt", "gbk")
+    if not tmpFile.isBlankLineEnd():
+        techFile.writeLine("")
+    for line in tmpFile.readLines():
+        line = line.replace("\r", "").replace("\n", "")
+        arr1 = line.split("\t")
+        tmp = f'{int(arr1[2]) + 1000000} 4'
+        print(tmp)
+        techFile.writeLine(tmp)
+    for i in range(30001, 30100):
+        tmp = f'{1000000 + i} 4'
+        print(tmp)
+        techFile.writeLine(tmp)
+
 if __name__ == "__main__":
     #modifyTechNo("../../../task/chx")
-    modifyTechLevel("../../../task/chx")
+    genDisableTech("../../../task/chx")

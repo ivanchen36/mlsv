@@ -20,6 +20,64 @@ function MyPet:getOwner()
     return self._owner
 end
 
+function MyPet:changeRemote()
+    if self:getId() > Const.RemoteId then
+        return 0
+    end
+
+    self:setId(self:getId() + Const.RemoteId)
+    local slots = self:getSkillSlots() - 2
+    for i = 0, slots do
+        local techId = self:getSkill(i)
+        if techId >= Const.RemoteId then
+            techId = techId - Const.RemoteId
+        end
+        local skillId = math.floor(techId / 100)
+        if rawget(Const.remoteForbiddenSkill, skillId) ~= nil then
+            techId = techId + Const.RemoteId
+        end
+        if techId ~= self:getSkill(i) then
+            self:setSkill(i, techId)
+        end
+    end
+    return 1
+end
+
+function MyPet:changeMelee()
+    if self:getId() < Const.RemoteId then
+        return 0
+    end
+
+    self:setId(self:getId() - Const.RemoteId)
+    local slots = self:getSkillSlots() - 2
+    for i = 0, slots do
+        local techId = self:getSkill(i)
+        if techId >= Const.RemoteId then
+            techId = techId - Const.RemoteId
+        end
+        local skillId = math.floor(techId / 100)
+        if rawget(Const.meleeForbiddenSkill, skillId) ~= nil then
+            techId = techId + Const.RemoteId
+        end
+        if techId ~= self:getSkill(i) then
+            self:setSkill(i, techId)
+        end
+    end
+    return 1
+end
+
+function MyPet:flushAtkModeAndSkill()
+    for i = 0, 4 do
+        local item = MyItem:new(Char.GetItemIndex(self._player, i))
+        if item:isValid() then
+            if (rawget(Const.RemotePetEquip, item:ggetId())) ~= nil then
+                return self:changeRemote()
+            end
+        end
+    end
+    return self:changeMelee()
+end
+
 function MyPet:getId()
     return self:get(68)
 end

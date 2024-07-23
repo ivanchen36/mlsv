@@ -83,6 +83,57 @@ adm = 99 #魔攻
 adm1 = 100
 itemFieldNum = 102
 
+
+eAttr = [{
+    atk: 800,
+    crit: 30,
+    agi:200
+},
+{
+    atk: 800,
+    hit: 30,
+    agi:200
+},
+{
+    spirit: 320,
+    avoid: 30,
+    agi:200
+},
+{
+    deff: 120,
+    hp: 300,
+    mp: 300,
+    recover: 120,
+    hit: 20,
+},
+{
+    deff: 120,
+    hp: 300,
+    avoid: 20,
+    agi:200,
+},
+{
+    mp: 300,
+    deff: 170,
+    rss: 200,
+    crit: 20
+},
+{
+    hp: 1000,
+    deff: 150,
+    recover: 120,
+    avoid: 20,
+},
+{
+    mp: 1000,
+    deff: 150,
+    recover: 120,
+    avoid: 20,
+}
+]
+
+eRate = [0.23, 0.13, 0.32, 0.5, 0.6, 0.75, 1]
+
 def generateItem(path):
     baseFile = FileUtil("./tmp.txt", "gbk")
     itemFile = FileUtil(path + "/itemset.txt", "gbk")
@@ -95,48 +146,27 @@ def generateItem(path):
         index = lineNum % 8
         if index == 0:
             index = 8
-        tmpId = (level - 1) * 10 + baseId + index
         line = line.replace("\n", "")
         arr1 = line.split("\t")
-        arr1[iid] = tmpId
         arr1[remain] = 233
         arr1[remain1] = 399
-        if index == 1 or index == 2:
-            arr1[atk] = 30 * level
-            arr1[atk1] = 50 * level
-        else:
-            arr1[atk] = 0
-            arr1[atk1] = 0
-        if index == 4:
-            arr1[deff] = 9 * level
-            arr1[deff1] = 15 * level
-        else:
-            arr1[deff] = 0
-            arr1[deff1] = 0
-        if index == 5:
-            arr1[agi] = 17 * level
-            arr1[agi1] = 29 * level
-        else:
-            arr1[agi] = 0
-            arr1[agi1] = 0
-        if index == 3:
-            arr1[spirit] = 12 * level
-            arr1[spirit1] = 20 * level
-        else:
-            arr1[spirit] = 0
-            arr1[spirit1] = 0
-        if index == 6:
-            arr1[hp] = 60 * level
-            arr1[hp1] = 100 * level
-        else:
-            arr1[hp] = 0
-            arr1[hp1] = 0
-        if index == 7:
-            arr1[mp] = 60 * level
-            arr1[mp1] = 100 * level
-        else:
-            arr1[mp] = 0
-            arr1[mp1] = 0
+        arr1[atk] = 0
+        arr1[atk1] = 0
+        arr1[deff] = 0
+        arr1[deff1] = 0
+        arr1[agi] = 0
+        arr1[agi1] = 0
+        arr1[spirit] = 0
+        arr1[spirit1] = 0
+        arr1[hp] = 0
+        arr1[hp1] = 0
+        arr1[mp] = 0
+        arr1[mp1] = 0
+        baseAttr = eAttr[index - 1]
+        baseRate = eRate[level - 1]
+        for key in baseAttr:
+            arr1[key] = int(baseAttr[key] * baseRate * 0.7)
+            arr1[key + 1] = int(baseAttr[key] * baseRate)
         arr1 = [str(item) for item in arr1]
         print('\t'.join(arr1))
         lineNum = lineNum + 1
@@ -148,15 +178,16 @@ def generateItem1(path):
     if not itemFile.isBlankLineEnd():
         itemFile.writeLine("")
     lineNum = 1
-    baseId = 40299
     for line in baseFile.readLines():
         line = line.replace("\n", "")
         arr1 = line.split("\t")
+        if len(arr1) < 20:
+            itemFile.writeLine(line)
+            continue
         arr1[iid] = baseId
         baseId = baseId - 1
         arr1 = [str(item) for item in arr1]
         print('\t'.join(arr1))
-        lineNum = lineNum + 1
         itemFile.writeLine('\t'.join(arr1))
 
 def pringArrStr():
@@ -174,6 +205,23 @@ def pringArrStr():
                 print(f'[{40201 + index * 10 + i}] = {{{40299 - index * 2 - 1}, 10}},')
         print('},')
 
+def modifyItemUse(path):
+    baseFile = FileUtil("./tmp.txt", "gbk")
+    itemFile = FileUtil(path + "/itemset.txt", "gbk")
+    if not itemFile.isBlankLineEnd():
+        itemFile.writeLine("")
+    for line in baseFile.readLines():
+        line = line.replace("\n", "")
+        arr1 = line.split("\t")
+        if len(arr1) < 20:
+            itemFile.writeLine(line)
+            continue
+        itemId = int(arr1[iid])
+        if itemId % 10 == 2:
+            arr1[menu] = "LUA_detPetEquip"
+        arr1 = [str(item) for item in arr1]
+        print('\t'.join(arr1))
+        itemFile.writeLine('\t'.join(arr1))
+
 if __name__ == "__main__":
-    #generateItem1("../../../task/chx")
-    pringArrStr()
+    generateItem("../../../task/chx")

@@ -113,7 +113,9 @@ function delUpItem(player, attr, level)
 
     return 1
 end
-
+local addBpFunc = {
+    "addHealthStamina", "addStrength", "addIntensity", "addSpeed", "addMagic"
+}
 function upAwakening(player, arg)
     local param = strSplit(arg, ",")
     local uuid = param[1];
@@ -161,8 +163,35 @@ function upAwakening(player, arg)
         pet:setQuick(pet:getQuick() + addArt)
     end
     local exp = pet:getExperience()
+    local oldBp = {pet:getHealthStamina(), pet:getStrength(), pet:getIntensity(), pet:getSpeed(), pet:getMagic()}
     pet:reBirth()
     pet:setExperience(exp)
+    pet:flush()
+    local upBp = pet:getUpgradePoints()
+    local newBp = {pet:getHealthStamina(), pet:getStrength(), pet:getIntensity(), pet:getSpeed(), pet:getMagic()}
+    local maxBp = 0
+    local maxIndex = 0
+    pet:setUpgradePoints(0)
+    for i = 1, #newBp do
+        if upBp > 0 then
+            local diff = math.floor((oldBp[i] - newBp[i]) / 100)
+            if diff > upBp then
+                diff = upBp
+            end
+            if diff > 0 then
+                local method = MyChar[addBpFunc[i]](pet, diff * 100)
+                method(pet, diff * 100)
+                upBp = upBp - diff
+            end
+            if oldBp[i] > maxBp then
+                maxIndex = i
+                maxBp = oldBp[i]
+            end
+        end
+    end
+    if upBp > 0 then
+        MyChar[addBpFunc[maxIndex]](pet, upBp * 100)
+    end
     pet:flush()
     if level == 1 then
         local sql1 = string.format("insert into tbl_pet_info (`uuid`, `EarthLevel`, `WaterLevel`, `FireLevel`, `WindLevel`, `CreateTime`) values ('%s', 0, 0, 0, 0, UNIX_TIMESTAMP())", pet:getUuid())

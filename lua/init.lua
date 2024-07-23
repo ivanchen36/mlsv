@@ -77,6 +77,7 @@ gadofile("lua/Module/client/PkClient.lua");
 gadofile("lua/Module/client/AwakeningClient.lua");
 gadofile("lua/Module/client/TaskClient.lua");
 
+gadofile("lua/Module/sys/CharEquip.lua");
 --业务功能
 gadofile("lua/Module/player/PartyBuff.lua");--组队加成
 gadofile("lua/Module/pet/PetAwakening.lua"); -- 宠物觉醒
