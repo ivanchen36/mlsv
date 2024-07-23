@@ -49,16 +49,6 @@ TalkEvent["/4"] = function (player)
     player:switchZhizao()
 end
 
-TalkEvent["[petfy]"] = function (player)
-    for i=0,4 do
-        local myPet = player:getPet(i)
-        if not myPet:isValid() then
-            return;
-        end
-        myPet:initXz()
-    end
-end
-
 TalkEvent["[bianjie]"] = function (player)
     Protocol.SendLuaCustomPacket(player:getObj(),"khd_bianjie", "会员系统,[vip]|签到,[qiandao2]|日常任务,[routine]|pk系统,[pk]|种族专精,[proficient]|宠物合成,[synthesis]|宠物觉醒,[awakening]|强化,[QiangHua]|坐骑,[zuoqi2]|翅膀,[#ChiBang]");
 end

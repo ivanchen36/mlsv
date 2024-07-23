@@ -271,10 +271,10 @@ function MyChar:setMp(val)
 end
 
 --%对象_体力% 11
-function MyChar:getStamina()
+function MyChar:getHealthStamina()
     return self:get(11)
 end
-function MyChar:setStamina(val)
+function MyChar:setHealthStamina(val)
     return self:set(11, val)
 end
 
@@ -302,7 +302,14 @@ function MyChar:setSpeed(val)
     return self:set(14, val)
 end
 
---%对象_魔法% 15 (与对象_魔重复，考虑重命名或删除一个)
+--%对象_魔法% 15
+function MyChar:getMagic()
+    return self:get(15)
+end
+function MyChar:setMagic(val)
+
+    return self:set(15, val)
+end
 
 --%对象_运% 16
 function MyChar:getLuck()
@@ -437,14 +444,6 @@ function MyChar:getItemSlots()
 end
 function MyChar:setItemSlots(val)
     return self:set(32, val)
-end
-
---%对象_技能栏% 33
-function MyChar:getSkillSlots()
-    return self:get(33)
-end
-function MyChar:setSkillSlots(val)
-    return self:set(33, val)
 end
 
 --%对象_死亡数% 34

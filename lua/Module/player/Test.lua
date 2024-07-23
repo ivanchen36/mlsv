@@ -9,20 +9,17 @@ function test1()
 end
 local userInfo1 = {}
 function test(player)
-    local pet1 = player:getPet(3)
-    local pet2 = player:getPet(4)
-    for i = 0, 200 do
-        --logPrint(i, pet1:get(i), pet2:get(i))
-        --if pet1:get(i) ~= pet2:get(i) then
-        --logPrint(i)
-        --end
-        if userInfo1[i] ~= nil then
-            if player:get(i) ~= userInfo1[i] then
-                logPrint(i, player:get(i), userInfo1[i])
-            end
-        end
-        userInfo1[i] = player:get(i)
-    end
+    local pet1 = player:getPet(0)
+    pet1:reBirth()
+    pet1:setExperience(10000)
+    pet1:flush()
+    logPrint(pet1:getStrength())
+    pet1:setStrength(pet1:getStrength() + 900)
+    logPrint(pet1:getStrength())
+    logPrint(pet1:getUpgradePoints())
+    pet1:setUpgradePoints(pet1:getUpgradePoints() - 9)
+    logPrint(pet1:getUpgradePoints())
+    pet1:flush()
 end
 
 function test2()
@@ -96,8 +93,7 @@ Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 53);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 54); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 55); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 56); 
-Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 57); 
-Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 58); 
+Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 57);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 59); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 60); 
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 62);

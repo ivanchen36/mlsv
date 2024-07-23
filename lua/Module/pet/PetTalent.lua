@@ -1,5 +1,5 @@
 local skillName = {
-    "ç™¾æ¯’ä¸ä¾µ","æ‚¬æ¢åˆºè‚¡","é•œç›¾åå°„","ä¼—äººçš†é†‰","ä¹±ä¸­æœ‰åº","æ°¸ç”Ÿéš¾å¿˜","ç”Ÿå‘½è„‰åŠ¨","é­”åŠ›å…±é¸£","é˜²å¾¡å£å’","è¿…æ·ç–¾é£","è‡´å‘½æ‰“å‡»","å¿ƒçµä¹‹çœ¼","ç”Ÿå‘½ä¸æ¯","è‡´å‘½ç»½æ”¾","æ··æ²Œæ³¢åŠ¨","æ°¸æ’ä¹‹å£"
+    "°Ù¶¾²»ÇÖ","ĞüÁº´Ì¹É","¾µ¶Ü·´Éä","ÖÚÈË½Ô×í","ÂÒÖĞÓĞĞò","ÓÀÉúÄÑÍü","ÉúÃüÂö¶¯","Ä§Á¦¹²Ãù","·ÀÓù±ÚÀİ","Ñ¸½İ¼²·ç","ÖÂÃü´ò»÷","ĞÄÁéÖ®ÑÛ","ÉúÃü²»Ï¢","ÖÂÃüÕÀ·Å","»ìãç²¨¶¯","ÓÀºãÖ®±Ú"
 }
 
 local skillRate = {
@@ -67,6 +67,7 @@ local talentItemId = {
 local petTalentMap = {}
 petTalentAtkMap = {}
 petTalentDefMap = {}
+skillPetSlot = {}
 
 local function setTalentAttr(pet, index, level)
     local tmp = petSkillBuff[index]
@@ -142,23 +143,24 @@ function unloadTalent(player)
             end
         end
     end
+    skillPetSlot[player:getObj()] = nil
 end
 
 function initTalent(player)
     local pet = player:getPet(0)
     if not pet:isValid() then
-        player:sysMsg("å® ç‰©ç¬¬ä¸€æ æ²¡æœ‰å® ç‰©ï¼Œæ— æ³•é¢†æ‚Ÿå¤©èµ‹")
+        player:sysMsg("³èÎïµÚÒ»À¸Ã»ÓĞ³èÎï£¬ÎŞ·¨ÁìÎòÌì¸³")
         return
     end
     if pet:getLevel() < 70 then
-        player:sysMsg("å® ç‰©ç­‰çº§ä¸è¶³70çº§ï¼Œæ— æ³•é¢†æ‚Ÿå¤©èµ‹")
+        player:sysMsg("³èÎïµÈ¼¶²»×ã70¼¶£¬ÎŞ·¨ÁìÎòÌì¸³")
         return
     end
     local slots = pet:getSkillSlots() - 1
     for i = 0, slots do
         local skillId = pet:getSkill(i)
         if skillId > 30400 and skillId < 30499 then
-            player:sysMsg("å® ç‰©é¢†æ‚Ÿå¤©èµ‹, æ— æ³•é‡æ–°é¢†æ‚Ÿ")
+            player:sysMsg("³èÎïÁìÎòÌì¸³, ÎŞ·¨ÖØĞÂÁìÎò")
             return
         end
     end
@@ -166,17 +168,17 @@ function initTalent(player)
     local skillId = getRandObj(skillRate)
     pet:addSkill(skillId)
     setTalentAttr(pet, skillId)
-    player:sysMsg("å® ç‰©æˆåŠŸé¢†æ‚Ÿå¤©èµ‹ã€" .. skillName[skillId - 30400] .. "LV1ã€‘");
+    player:sysMsg("³èÎï³É¹¦ÁìÎòÌì¸³¡¾" .. skillName[skillId - 30400] .. "LV1¡¿");
 end
 
 function reInitTalent(player, slot, level)
     local pet = player:getPet(slot)
     if pet:getLevel() < 70 then
-        player:sysMsg("å® ç‰©ç­‰çº§ä¸è¶³70çº§ï¼Œæ— æ³•é‡ç½®å¤©èµ‹")
+        player:sysMsg("³èÎïµÈ¼¶²»×ã70¼¶£¬ÎŞ·¨ÖØÖÃÌì¸³")
         return
     end
     if player:delNum(talentItemId[level], 1) <= 0 then
-        player:sysMsg("é“å…·ä¸è¶³,æ— æ³•é‡ç½®å¤©èµ‹")
+        player:sysMsg("µÀ¾ß²»×ã,ÎŞ·¨ÖØÖÃÌì¸³")
         return
     end
 
@@ -195,7 +197,7 @@ function reInitTalent(player, slot, level)
     if oldSkillId ~= skillId then
         setTalentBuff(pet, skillId)
     end
-    player:sysMsg("å® ç‰©é‡ç½®å¤©èµ‹æˆåŠŸï¼Œè·å¾—æ–°å¤©èµ‹ã€" .. skillName[skillId - 30400] .. "LV" .. level .. "ã€‘");
+    player:sysMsg("³èÎïÖØÖÃÌì¸³³É¹¦£¬»ñµÃĞÂÌì¸³¡¾" .. skillName[skillId - 30400] .. "LV" .. level .. "¡¿");
 end
 
 function Event.RegPetLevelUpEvent.doPetLevelUp(index)
@@ -220,6 +222,20 @@ function setPetStatus(fd, head, packet)
     return 0
 end
 
+function changeSkill(fd, head, packet)
+    logPrint("OnRecv ", head, packet)
+    local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
+    local arr = strSplit(packet, ":")
+    local pet = myPlayer:getPet(tonumber(arr[1]))
+    local slots = pet:getSkillSlots() - 1
+    if tonumber(arr[2]) == slots or tonumber(arr[3]) == slots then
+        myPlayer:sysMsg("Ìì¸³¼¼ÄÜ²»ÔÊĞí½»»»Î»ÖÃ¡£")
+        return 1
+    end
+    return 0
+end
+
 InitEvent["char"] = loadTalent
 DeinitEvent["char"] = unloadTalent
 Protocol.OnRecv(nil, "setPetStatus", 37)
+Protocol.OnRecv(nil, "changeSkill", 58);

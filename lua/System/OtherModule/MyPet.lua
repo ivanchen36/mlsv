@@ -1,4 +1,4 @@
-randFy = 15;		--最高修正/抗性
+randFy = 10;		--最高修正/抗性
 
 -- 定义一个名为 MyPet 的表
 MyPet = {}
@@ -44,6 +44,28 @@ function MyPet:addSkill(skillId)
     return Pet.AddSkill(self._player, skillId)
 end
 
+function MyPet:setSkill(slot, skillId)
+    local neeDelSlot = {}
+    local slots = self:getSkillSlots() - 1
+    for i = 0, slots do
+        if i == slot then
+            if self:getSkill(i) > 0 then
+                self:delSkill(i)
+            end
+            self:addSkill(skillId)
+            for _, index in ipairs(neeDelSlot) do
+                self:delSkill(index)
+            end
+            return
+        else
+            if self:getSkill(i) <= 0 then
+                self:addSkill(skillId)
+                table.insert(neeDelSlot, i)
+            end
+        end
+    end
+end
+
 function MyPet:delete()
     local uuid = self:getUuid()
     for i = 0, 4 do
@@ -85,9 +107,14 @@ function MyPet:initXz()
     self:set(29,NLG.Rand(0, randFy))
     self:set(30,NLG.Rand(0, randFy))
     self:set(31,NLG.Rand(0, randFy))
+end
 
-    self:flush()
-    self:sysMsg("宠物属性修正初始化")
+--%宠物_技能栏% 51
+function MyPet:getSkillSlots()
+    return self:get(51)
+end
+function MyPet:setSkillSlots(val)
+    return self:set(51, val)
 end
 
 function MyPet:getVital()
@@ -144,6 +171,10 @@ end
 
 function MyPet:getFullQuick()
     return Pet.FullArtRank(self._player, 4)
+end
+
+function MyPet:reBirth()
+    return Pet.ReBirth(self._owner, self._player)
 end
 
 function MyPet:getFullMagic()

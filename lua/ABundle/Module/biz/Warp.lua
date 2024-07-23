@@ -75,7 +75,7 @@ local function initWarpContent()
     showSelectWarp()
     local warpList = mapWarpList[curWarpPage]
     local mapInfo = mapWarpInfo[curWarpPage]
-    for wid in ipairs(warpList) do
+    for _, wid in ipairs(warpList) do
         local info = mapInfo[wid]
         local name = warpWnd:getWidget("r" .. index .."c" .. 1)
         local levelCond = warpWnd:getWidget("r" .. index .."c" .. 2)

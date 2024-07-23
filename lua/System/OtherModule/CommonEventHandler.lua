@@ -298,10 +298,5 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
     return realDamage
 end
 
-function Event.RegTechOptionEvent.doTechOptionEvent(CharIndex, Option, TechID, Val)
-    logPrint("doTechOptionEvent ", CharIndex, Option, TechID, Val)
-    return Val
-end
-
 Delegate.RegInit("doServerInitEvent")
 InitEvent["server"] = initTaskHandler

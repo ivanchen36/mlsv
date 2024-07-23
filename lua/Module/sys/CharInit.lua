@@ -36,8 +36,30 @@ function buttonInit(player)
     Protocol.SendLuaCustomPacket(player:getObj(), "diy6", "显示隐藏地上的宠物&|组队T人&[TEAM]|宠物算档&[1]|宠物自售&[2]|发送观战代码&[3]|离线挂机&[5]|test&[t3]|test&[t4]|test&[t5]|test&[t6]|在线商城&[shop]|联系客服&[6]|加入QQ群&[7]");
 end
 
+function petInit(player, arg)
+    for i = 0, 4 do
+        local myPet = player:getPet(i)
+        if myPet:isValid() then
+            if 0 == myPet:getNameColor() then
+                local slots = myPet:getSkillSlots()
+                if slots < 10 then
+                    slots = slots + 1
+                    myPet:setSkillSlots(slots)
+                end
+                myPet:setSkill(slots - 1, 30400)
+                myPet:initXz()
+                myPet:setNameColor(1)
+                myPet:flush()
+            end
+        end
+    end
+end
+
+ClientEvent["pet_init"] = petInit;
 InitEvent["char"] = welcome
 InitEvent["char"] = skillSet
 InitEvent["char"] = chibangSet
 InitEvent["char"] = toushiSet
 InitEvent["char"] = buttonInit
+
+

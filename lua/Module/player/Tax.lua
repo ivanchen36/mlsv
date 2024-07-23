@@ -41,6 +41,24 @@ function checkSellAmount(fd, head, packet)
         logPrint("checkSellAmount ", arr[3], "  ", myPlayer:getGold())
         playerGold[myPlayer:getObj()] = myPlayer:getGold()
         Protocol.PowerSend(myPlayer:getObj(), "SEND_TAX", "")
+    elseif arr[3] == "5w" and arr[5] == "0" then --5v 选择宠物 5w 选择位置 0是选择 2是取消
+        if arr[5] == "2" then
+            skillPetSlot[myPlayer:getObj()] = nil
+        elseif arr[5] == "0" then
+            local petSlot = skillPetSlot[myPlayer:getObj()]
+            if petSlot ~= nil then
+                local pet = myPlayer:getPet(petSlot)
+                logPrint("skillPetSlot2 ", arr[6], pet:getSkillSlots())
+                if tonumber(arr[6]) == pet:getSkillSlots() - 1 then
+                    myPlayer:sysMsg("当前位置已存在天赋技能，学习失败")
+                    skillPetSlot[myPlayer:getObj()] = nil
+                    return 1
+                end
+            end
+            skillPetSlot[myPlayer:getObj()] = nil
+        end
+    elseif arr[3] == "5v" and arr[5] == "0" then
+        skillPetSlot[myPlayer:getObj()] = tonumber(arr[6])
     end
     return 0
 end

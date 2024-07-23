@@ -160,6 +160,9 @@ function upAwakening(player, arg)
         pet:setWindAttribute(pet:getWindAttribute() + addAttr)
         pet:setQuick(pet:getQuick() + addArt)
     end
+    local exp = pet:getExperience()
+    pet:reBirth()
+    pet:setExperience(exp)
     pet:flush()
     if level == 1 then
         local sql1 = string.format("insert into tbl_pet_info (`uuid`, `EarthLevel`, `WaterLevel`, `FireLevel`, `WindLevel`, `CreateTime`) values ('%s', 0, 0, 0, 0, UNIX_TIMESTAMP())", pet:getUuid())

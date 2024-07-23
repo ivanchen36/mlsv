@@ -89,6 +89,10 @@ function SG_PetSkill_Npc_Window(  _npc, _PlayerIndex, _seqno, _select, _data )
 				return
 			end	
 			local SkillName = tbl_Techset[tostring(skill)][1]
+			if tonumber(_data) == Char.GetData(PetIndex, 51) then
+				NLG.SystemMessage(_PlayerIndex, "[系统提示]天赋技能不能删除！")
+				return
+			end
 			local delete_slot = Pet.DelSkill(PetIndex,tonumber(_data)-1) 
     		if delete_slot >= 0 then
 	    		NLG.UpChar(_PlayerIndex)

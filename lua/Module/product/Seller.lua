@@ -1,3 +1,4 @@
+local petSellerId = 111
 local petEquipSeller = {
     ["1"] = {
         ["name"] = "วเอญ",
@@ -79,7 +80,7 @@ local petEquipSeller = {
 }
 
 local sellerList = {
-    [222] = petEquipSeller
+    [petSellerId] = petEquipSeller
 }
 
 local function getSellAndPayItem(seller)
@@ -196,4 +197,4 @@ function buyNpcItem(player, arg)
 end
 
 ClientEvent["buy_item"] = buyNpcItem;
-npcDialog[104890] = showSeller;
+npcDialog[petSellerId] = showSeller;

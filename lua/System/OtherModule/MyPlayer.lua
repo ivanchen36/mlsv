@@ -103,7 +103,7 @@ function MyPlayer:changeIamge(image)
     self:setOriginalForm(image)
     self:setOriginalImage(image)
     NLG.UpChar(self._player);
-    sysMsg("人物形象更改成功");
+    self:sysMsg("人物形象更改成功");
     return 1
 end
 
@@ -137,6 +137,14 @@ function MyPlayer:recoverHurt()
     NLG.UpdateParty(player);
     self:flush()
     NLG.SendGraphEvent(player, 45, 0);
+end
+
+--%对象_技能栏% 33
+function MyPlayer:getSkillSlots()
+    return self:get(33)
+end
+function MyPlayer:setSkillSlots(val)
+    return self:set(33, val)
 end
 
 --%对象_战宠% 62

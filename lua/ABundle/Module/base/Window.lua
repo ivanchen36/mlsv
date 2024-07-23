@@ -19,6 +19,11 @@ end
 function Event.ViewInit.ReviewWnd(view)
     local wnd = wndMgr[view.vid]
     if nil == wnd then
+        if 15 == view.vid then
+            if view.IsInit then
+                Cli.Send("pet_init")
+            end
+        end
         logPrint("open2 view vid " .. view.vid)
         return
     end
