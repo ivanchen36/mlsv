@@ -10,16 +10,8 @@ end
 local userInfo1 = {}
 function test(player)
     local pet1 = player:getPet(0)
-    pet1:reBirth()
-    pet1:setExperience(10000)
-    pet1:flush()
-    logPrint(pet1:getStrength())
-    pet1:setStrength(pet1:getStrength() + 900)
-    logPrint(pet1:getStrength())
-    logPrint(pet1:getUpgradePoints())
-    pet1:setUpgradePoints(pet1:getUpgradePoints() - 9)
-    logPrint(pet1:getUpgradePoints())
-    pet1:flush()
+    local item = MyItem:new(Char.GetItemIndex(player:getObj(), 8))
+    logPrint(item:isTwoHanded())
 end
 
 function test2()
@@ -45,13 +37,11 @@ Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 4);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 5);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 6);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 7);
-Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 8);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 9);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 10);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 11);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 12);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 13);
-Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 14);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 15);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 16);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 17);

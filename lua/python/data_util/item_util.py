@@ -190,6 +190,16 @@ def generateItem1(path):
         print('\t'.join(arr1))
         itemFile.writeLine('\t'.join(arr1))
 
+def pringArrStr1():
+    for i in range(65, 150):
+        print(f'["{chr(i)}"] = {i - 29},')
+    for i in range(0, 10):
+        print(f'["{i}"] = {i},')
+
+    for i in range(97, 150):
+        print(f'["{chr(i)}"] = {i - 87},')
+
+
 def pringArrStr():
     tmpList = ["青铜","白银","黄金","钻石","星耀","王者","荣耀"]
     index = -1
@@ -224,4 +234,5 @@ def modifyItemUse(path):
         itemFile.writeLine('\t'.join(arr1))
 
 if __name__ == "__main__":
-    generateItem("../../../task/chx")
+    #generateItem("../../../task/chx")
+    pringArrStr1()

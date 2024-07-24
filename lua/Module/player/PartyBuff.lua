@@ -57,7 +57,6 @@ local buffDesc = {
 local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
-local equipmentChangeHandle = {}
 local waitInterval = 10
 
 function getAttr(player, attr)

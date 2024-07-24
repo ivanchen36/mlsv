@@ -125,6 +125,7 @@ function startDistributeGift(regNum, info)
 
     NLG.SystemMessage(-1 , "感谢玩家支持，即将天降礼包，回馈你我，共享喜悦，天降礼包因你们的热情而更加璀璨！")
     startGift(itemInfos)
+    return 1
 end
 
 DeinitEvent["battle"] = distributeGift

@@ -24,6 +24,9 @@ function MyChar:set(key, val)
     Char.SetData(self._player, key, val)  -- 使用 Char.SetData 函数设置玩家数据
 end
 
+function MyChar:getItem(slot)
+    return MyItem:new(Char.GetItemIndex(self._player, slot))
+end
 
 function MyChar:needHp()
     return self:getHp() < self:getMaxHp()

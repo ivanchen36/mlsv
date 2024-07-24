@@ -9,9 +9,7 @@ function MyItem:new(itemIndex)
     return newObj
 end
 
-function MyItem:getItem(player, slot)
-    return MyItem:new(Char.GetItemIndex(player, slot))
-end
+
 
 function MyItem:create(itemID)
     return MyItem:new(Data.ItemsetGetIndex(itemID))
@@ -74,19 +72,11 @@ function MyItem:setEngraverPlayer(val)
     return self:set(2004, val)
 end
 
---%道具_序%	0
-function MyItem:getOrder()
-    return self:get(0)
-end
-function MyItem:setOrder(val)
-    return self:set(0, val)
-end
-
 --%道具_ID%	0
-function MyItem:getID()
+function MyItem:getId()
     return self:get(0)
 end
-function MyItem:setID(val)
+function MyItem:setId(val)
     return self:set(0, val)
 end
 

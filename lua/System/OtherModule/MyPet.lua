@@ -24,7 +24,6 @@ function MyPet:changeRemote()
     if self:getId() > Const.RemoteId then
         return 0
     end
-
     self:setId(self:getId() + Const.RemoteId)
     local slots = self:getSkillSlots() - 2
     for i = 0, slots do
@@ -47,7 +46,6 @@ function MyPet:changeMelee()
     if self:getId() < Const.RemoteId then
         return 0
     end
-
     self:setId(self:getId() - Const.RemoteId)
     local slots = self:getSkillSlots() - 2
     for i = 0, slots do
@@ -70,7 +68,7 @@ function MyPet:flushAtkModeAndSkill()
     for i = 0, 4 do
         local item = MyItem:new(Char.GetItemIndex(self._player, i))
         if item:isValid() then
-            if (rawget(Const.RemotePetEquip, item:ggetId())) ~= nil then
+            if (rawget(Const.RemotePetEquip, item:getId())) ~= nil then
                 return self:changeRemote()
             end
         end
