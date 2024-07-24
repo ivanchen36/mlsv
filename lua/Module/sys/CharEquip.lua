@@ -1,6 +1,18 @@
-admMap = {}
-local function calAdm(player, addItem, replaceItems)
+charEquipInfo = {}
+
+function getCharEquipInfo(player, eType)
+    local charEquip = charEquipInfo[player:getObj()]
+    if nil == charEquip then
+        return 0
+    end
+    local val = charEquip[eType]
+    return val ~= nil and val or 0
+end
+
+local function initEquipInfo(player, addItem, replaceItems)
     local adm = 0;
+    local personExp = 0
+    local petExp = 0
     for i = 0, 7 do
         local item = player:getItem(i);
         if item:isValid() then
@@ -8,6 +20,12 @@ local function calAdm(player, addItem, replaceItems)
                 local tmp = item:getAdm()
                 if tmp > 0 then
                     adm = adm + tmp
+                end
+                if Const.PersonExp == item:getId() then
+                    personExp = Const.EquipExp
+                end
+                if Const.PetExp == item:getId() then
+                    petExp = Const.EquipExp
                 end
             end
         end
@@ -17,16 +35,26 @@ local function calAdm(player, addItem, replaceItems)
         if tmp > 0 then
             adm = adm + tmp
         end
+        if Const.PersonExp == addItem:getId() then
+            personExp = Const.EquipExp
+        end
+        if Const.PetExp == addItem:getId() then
+            petExp = Const.EquipExp
+        end
     end
-    return adm;
+    charEquipInfo[player:getObj()] = {
+        [Const.E_ADM] = adm,
+        [Const.E_PERSON_EXP] = personExp,
+        [Const.E_PET_EXP] = petExp,
+    }
 end
 
-function loadAdm(player)
-    admMap[player:getObj()] = calAdm(player, nil, {})
+function initEquipInfo(player)
+    initEquipInfo(player, nil, {})
 end
 
-function unloadAdm(player)
-    admMap[player:getObj()] = nil
+function deinitEquipInfo(player)
+    initEquipInfo[player:getObj()] = nil
 end
 
 local function getReplaceItem(player, item, attachPos)
@@ -77,6 +105,9 @@ local function personAttach(player, item, attachPos)
     local replaceItems = getReplaceItem(player, item, attachPos)
     if nil == replaceItems then
         return
+    end
+    if item:getId() == item:getId() then
+
     end
     admMap[player:getObj()] = calAdm(player, item, replaceItems)
 end
@@ -156,13 +187,17 @@ end
 function detachEquip(fd, head, packet)
     logPrint("attachEquip OnRecv ", head, packet)
     local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
-    equipmentChangeHandle[myPlayer:getObj()] = os.time() + 2
+    local arr = strSplit(packet, ":")
+    local pos = tonumber(arr[1])
+    if pos > 7 then
+        return 0
+    end
+
+    admMap[player:getObj()] = calAdm(player, nil, {pos})
     return 0
 end
 
-
 Protocol.OnRecv(nil, "attachEquip", 8);
 Protocol.OnRecv(nil, "detachEquip", 14);
-InitEvent["char"] = loadAdm
-DeinitEvent["char"] = unloadAdm
---NL.RegPetEquipCheckEvent(nil, "checkPetEquip")
+InitEvent["char"] = initEquipInfo
+DeinitEvent["char"] = deinitEquipInfo

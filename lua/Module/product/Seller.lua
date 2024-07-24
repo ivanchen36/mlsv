@@ -119,9 +119,8 @@ local function getPayItemNum(player, payList)
     for itemId in ipairs(payList) do
         payNumList[itemId] = {
             ["c"] = player:getItemNum(itemId),
-            ["n"] = getItemName(itemId),
+            ["i"] = getItemImg(itemId),
         }
-
     end
     return payNumList
 end

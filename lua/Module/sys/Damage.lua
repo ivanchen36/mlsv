@@ -60,12 +60,16 @@ function magicAtkDamage(skillId, level, damage, atkIndex, defIndex)
     if atkPlayer:getType() == 3 then
         return newDamage
     end
-    if rawget(admMap, atkIndex) == nil then
+    local adm = getCharEquipInfo(atkPlayer, Const.E_ADM)
+    if adm == 0 then
         return newDamage
     end
 
     local maxAdm = admList[level]
-    return newDamage + math.floor(damage * (admMap[atkIndex] - maxAdm) / baseAdm)
+    if adm <= maxAdm then
+        return newDamage
+    end
+    return newDamage + math.floor(damage * (adm - maxAdm) / baseAdm)
 end
 
 function modifyMaxDamage()

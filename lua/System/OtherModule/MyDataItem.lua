@@ -107,7 +107,7 @@ function MyDataItem:isTwoHanded()
     return self:get(5) == 1
 end
 function MyDataItem:setTwoHanded(val)
-    return self:set(5, val and 1 or 0)
+    return self:set(5, val ~= nil and val ~= 0 and 1 or 0)
 end
 
 --%道具_双击%	6
@@ -115,7 +115,7 @@ function MyDataItem:isDoubleClick()
     return self:get(6) == 1
 end
 function MyDataItem:setDoubleClick(val)
-    return self:set(6, val and 1 or 0)
+    return self:set(6, val ~= nil and val ~= 0 and 1 or 0)
 end
 
 --%道具_可双击%	6
@@ -123,7 +123,7 @@ function MyDataItem:isDoubleClickable()
     return self:get(6) == 1
 end
 function MyDataItem:setDoubleClickable(val)
-    return self:set(6, val and 1 or 0)
+    return self:set(6, val ~= nil and val ~= 0 and 1 or 0)
 end
 
 --%道具_战斗可用%	7
@@ -131,7 +131,7 @@ function MyDataItem:isBattleUsable()
     return self:get(7) == 1
 end
 function MyDataItem:setBattleUsable(val)
-    return self:set(7, val and 1 or 0)
+    return self:set(7, val ~= nil and val ~= 0 and 1 or 0)
 end
 
 --%道具_堆叠数%	9

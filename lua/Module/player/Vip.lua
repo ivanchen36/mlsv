@@ -21,7 +21,7 @@ local vipGiftInfo = {
 }
 local bankIndex = -1
 local vipGift = {
-    111, 222, 333, 444
+    20000, 222, 333, 444
 }
 
 function getVipLevel(exp)
@@ -213,6 +213,17 @@ function godGift(player, arg)
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)
 end
 
+local vipGiftInfo = {
+    {[0] = 10000, [20001] = 1, [72141] = 1},
+    {[0] = 20000, [20002] = 1, [72141] = 1},
+    {[0] = 30000, [20003] = 1, [72141] = 1},
+    {[0] = 40000, [20004] = 1, [72143] = 1},
+    {[0] = 50000, [20005] = 1, [72143] = 1},
+    {[0] = 60000, [20006] = 1, [72143] = 1},
+    {[0] = 70000, [20007] = 1, [72144] = 1},
+    {[0] = 80000, [20008] = 1, [72144] = 1},
+    {[0] = 90000, [20009] = 1, [72142] = 1}
+}
 function upGift(player, arg)
     local info = vipInfo[player:getRegistNumber()]
     if info["upGift"] ~= 1 then
@@ -222,7 +233,7 @@ function upGift(player, arg)
 
     local sql = "UPDATE tbl_vip_info SET UpGift = 0 WHERE UpGift = 1 and RegNum = '" .. player:getRegistNumber() .."'"
     SQL.Run(sql)
-    player:addItem(vipGift[info["level"]], 1)
+    player:addItemList(vipGiftInfo[info["level"]])
     player:sysMsg("恭喜您领取会员礼包！")
     info["upGift"] = 0
     Protocol.PowerSend(player:getObj(), "FLUSH_VIP", info)

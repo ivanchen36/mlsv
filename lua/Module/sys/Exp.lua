@@ -9,20 +9,6 @@ local charEndTime = 0
 local charSkillTime = 0
 local charProductTime = 0
 
--- µÀ¾ß_ID 0
-function pequipitem(index,itemid)
- for k=0,7 do
-    local itemindex = Char.GetItemIndex(index,k);
-	if(itemindex >= 0)then
-	    if(itemid == Item.GetData(itemindex, 0))then
-			return true;
-		end
-	end
-
- end
- return false;
-end
-
 GetSysExpRate = function (player)
 	local lv = player:getLevel();
 
@@ -114,17 +100,11 @@ CharExpEvent["sys"] = function(player, rate)
 	end
 	
 	if player:isPerson() then
-		local player = Pet.GetOwner(index);
-		if(pequipitem(player,73465))then
-			exp = exp * (1 + 1);
-		end
-		return rate - 100 + exp;
+		return rate - 100 + exp + getCharEquipInfo(player, Const.PersonExp);
 	end
 	
 	if not player:isPerson() then
-		if(pequipitem(index,598274))then
-			exp = exp * (1 + 1);
-		end
+		return rate - 100 + exp + getCharEquipInfo(player, Const.PetExp);
 	end
 	
 	return rate - 100 + exp;

@@ -26,6 +26,20 @@ function MyPlayer:flush()
     NLG.UpChar(self._player)
 end
 
+function MyPlayer:addItemList(list)
+    for key, val in ipairs(list) do
+        if key > 0 then
+            Char.GiveItem(self._player, key, val)
+        elseif key == 0 then
+            if val > 0 then
+                self:setGold( self:getGold() + val)
+                self:sysMsg("»ñµÃ" .. val .. "Ä§±Ò¡£")
+            end
+        end
+    end
+    NLG.UpChar(self._player)
+end
+
 function MyPlayer:getPetStatus(slot)
     return Pet.GetStatus(self._player, slot)
 end

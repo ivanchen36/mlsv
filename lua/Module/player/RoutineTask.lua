@@ -5,22 +5,46 @@ local taskType = {
     [4] = "挑战"
 }
 local dailyReward = {
-    [1] = reward1,
-    [2] = reward2,
-    [3] = reward3,
-    [4] = reward4
+    [1] = {
+        [29999] = 5,
+    },
+    [2] = {
+        [29999] = 5,
+    },
+    [3] = {
+        [29999] = 5,
+    },
+    [4] = {
+        [29999] = 5,
+    }
 }
 local weeklyReward = {
-    [1] = reward1,
-    [2] = reward2,
-    [3] = reward3,
-    [4] = reward4
+    [1] = {
+        [29999] = 5,
+    },
+    [2] = {
+        [29999] = 5,
+    },
+    [3] = {
+        [29999] = 5,
+    },
+    [4] = {
+        [29999] = 5,
+    }
 }
 local monthlyReward = {
-    [1] = reward1,
-    [2] = reward2,
-    [3] = reward3,
-    [4] = reward4
+    [1] = {
+        [29999] = 5,
+    },
+    [2] = {
+        [29999] = 5,
+    },
+    [3] = {
+        [29999] = 5,
+    },
+    [4] = {
+        [29999] = 5,
+    }
 }
 local rewardList = {dailyReward, weeklyReward, monthlyReward}
 
@@ -189,7 +213,7 @@ function submitTask(player, arg)
 
         -- 领取奖励
         local reward = rewardList[playerTask.cycle][playerTask.type]
-        player:addItem(reward, 1)
+        player:addItemList(reward)
         player:sysMsg("任务完成，奖励已领取")
         Protocol.PowerSend(player:getObj(),"SUBMIT_TASK", taskId)
         return

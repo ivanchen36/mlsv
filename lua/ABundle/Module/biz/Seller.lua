@@ -66,6 +66,7 @@ local function loadSellerClient()
                 curCat = i
                 btn = sellerWnd:getWidget("seller" .. curCat)
                 btn:setEnabled(false)
+                initSellerContent()
             end,
         })
     end
@@ -94,6 +95,7 @@ function showSeller(info)
     end
 
     sellerWnd:show()
+    showSellerTab()
     initSellerContent()
     logPrint( 'showSeller2')
 end

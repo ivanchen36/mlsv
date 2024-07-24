@@ -65,12 +65,10 @@ function MyPet:changeMelee()
 end
 
 function MyPet:flushAtkModeAndSkill()
-    for i = 0, 4 do
-        local item = MyItem:new(Char.GetItemIndex(self._player, i))
-        if item:isValid() then
-            if (rawget(Const.RemotePetEquip, item:getId())) ~= nil then
-                return self:changeRemote()
-            end
+    local item = self:getItem(0)
+    if item:isValid() then
+        if (rawget(Const.RemotePetEquip, item:getId())) ~= nil then
+            return self:changeRemote()
         end
     end
     return self:changeMelee()

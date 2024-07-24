@@ -16,10 +16,11 @@ end
 function Event.RegMakeItemStringEvent.genItemStr(index, itemSlot, itemIndex, itemText, textLen, textMaxLen)
     logPrint("genItemStr", index, itemSlot, itemIndex)
     local item = MyItem:new(itemIndex)
+    logPrint(item:getName())
     if item:getId() < 20201 or item:getId() > 20299 then
         return
     end
-    logPrint(item:getName())
+
     local eIndex = math.floor(item:getId() / 10)
     if eIndex < 4 then
         local player = MyPlayer:new(index)
