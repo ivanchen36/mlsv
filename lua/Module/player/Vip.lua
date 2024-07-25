@@ -106,6 +106,10 @@ end
 
 function collectVip(player, arg)
     local info = vipInfo[player:getRegistNumber()]
+    if player:getLevel() < 60 then
+        player:sysMsg("等级60级以上才能领取会员经验！");
+        return
+    end
     if(isToday(info["lastTime"])) then
         player:sysMsg("今日已经领取过会员经验！");
         return

@@ -281,7 +281,7 @@ function MyChar:setHealthStamina(val)
     return self:set(11, val)
 end
 function MyChar:addHealthStamina(val)
-    return self:set(11, self:set(11) + val)
+    return self:set(11, self:get(11) + val)
 end
 
 --%对象_力量% 12
@@ -292,7 +292,7 @@ function MyChar:setStrength(val)
     return self:set(12, val)
 end
 function MyChar:addStrength(val)
-    return self:set(12, self:set(12) + val)
+    return self:set(12, self:get(12) + val)
 end
 
 --%对象_强度% 13
@@ -303,7 +303,7 @@ function MyChar:setIntensity(val)
     return self:set(13, val)
 end
 function MyChar:addIntensity(val)
-    return self:set(13, self:set(13) + val)
+    return self:set(13, self:get(13) + val)
 end
 
 --%对象_速度% 14
@@ -314,7 +314,7 @@ function MyChar:setSpeed(val)
     return self:set(14, val)
 end
 function MyChar:addSpeed(val)
-    return self:set(14, self:set(14) + val)
+    return self:set(14, self:get(14) + val)
 end
 
 --%对象_魔法% 15
@@ -326,7 +326,7 @@ function MyChar:setMagic(val)
     return self:set(15, val)
 end
 function MyChar:addMagic(val)
-    return self:set(15, self:set(15) + val)
+    return self:set(15, self:get(15) + val)
 end
 
 --%对象_运% 16

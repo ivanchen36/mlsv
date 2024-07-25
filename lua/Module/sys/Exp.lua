@@ -100,14 +100,10 @@ CharExpEvent["sys"] = function(player, rate)
 	end
 	
 	if player:isPerson() then
-		return rate - 100 + exp + getCharEquipInfo(player, Const.PersonExp);
+		return rate - 100 + exp + getCharEquipInfo(player, Const.E_PERSON_EXP);
 	end
-	
-	if not player:isPerson() then
-		return rate - 100 + exp + getCharEquipInfo(player, Const.PetExp);
-	end
-	
-	return rate - 100 + exp;
+
+	return rate - 100 + exp + getCharEquipInfo(MyPlayer:new(MyPet:new1(player:getObj()):getOwner()), Const.E_PET_EXP);
 end
 
 function sysCharExp (regNum, info)

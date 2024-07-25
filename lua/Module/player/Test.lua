@@ -9,9 +9,9 @@ function test1()
 end
 local userInfo1 = {}
 function test(player)
-    local pet1 = player:getPet(0)
-    local item = MyItem:new(Char.GetItemIndex(player:getObj(), 8))
-    logPrint(item:isTwoHanded())
+    logPrint(player:getPetStatus(0))
+    logPrint(player:getPetStatus(1))
+    logPrint(player:getPetStatus(4))
 end
 
 function test2()

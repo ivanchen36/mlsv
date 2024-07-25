@@ -203,7 +203,7 @@ end
 function Event.RegBattleSkillExpEvent.doSkillExpEvent(index, skill, exp)
     local rate = 100
     local sysRate = 4
-    for i, func in ipairs(SkillExpEvent) do
+    for i, func in pairs(SkillExpEvent) do
         rate = func(index, skill, rate)
     end
 
@@ -213,7 +213,7 @@ end
 function Event.RegProductSkillExpEvent.doProductExpEvent(index, skill, exp)
     local rate = 100
     local sysRate = 4
-    for i, func in ipairs(ProductExpEvent) do
+    for i, func in pairs(ProductExpEvent) do
         rate = func(index, skill, rate)
     end
 
@@ -224,19 +224,19 @@ GetSysExpRate = nil
 
 function Event.RegGetExpEvent.doCharExpEvent(index, exp)
     local rate = 100
-
     local myPlayer = MyPlayer:new(index);
+    if exp <= 0 then
+        return exp
+    end
     local sysRate = 1
-
     if GetSysExpRate ~= nil then
         sysRate = GetSysExpRate(myPlayer);
-        logPrint("GetSysExpRate ", sysRate)
     end
 
-    for i, func in ipairs(CharExpEvent) do
+    for i, func in pairs(CharExpEvent) do
         rate = func(myPlayer, rate)
     end
-
+    logPrint("doCharExpEvent: ", rate)
     return math.floor(exp * sysRate * rate / 100)
 end
 

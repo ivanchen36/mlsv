@@ -1,4 +1,14 @@
 charEquipInfo = {}
+local petReplace = {
+    [1] = {"宠物晶石", "剑"},
+    [2] = {"宠物晶石", "弓"},
+    [3] = {"宠物晶石", "仗"},
+    [4] = {"宠物饰品", "盔"},
+    [5] = {"宠物饰品", "靴"},
+    [6] = {"宠物轻装", "盾"},
+    [7] = {"宠物项圈", "铠"},
+    [8] = {"宠物项圈", "袍"},
+}
 
 function getCharEquipInfo(player, eType)
     local charEquip = charEquipInfo[player:getObj()]
@@ -9,7 +19,7 @@ function getCharEquipInfo(player, eType)
     return val ~= nil and val or 0
 end
 
-local function initEquipInfo(player, addItem, replaceItems)
+local function calEquipInfo(player, addItem, replaceItems)
     local adm = 0;
     local personExp = 0
     local petExp = 0
@@ -50,11 +60,11 @@ local function initEquipInfo(player, addItem, replaceItems)
 end
 
 function initEquipInfo(player)
-    initEquipInfo(player, nil, {})
+    calEquipInfo(player, nil, {})
 end
 
 function deinitEquipInfo(player)
-    initEquipInfo[player:getObj()] = nil
+    charEquipInfo[player:getObj()] = nil
 end
 
 local function getReplaceItem(player, item, attachPos)
@@ -109,7 +119,7 @@ local function personAttach(player, item, attachPos)
     if item:getId() == item:getId() then
 
     end
-    admMap[player:getObj()] = calAdm(player, item, replaceItems)
+    charEquipInfo[player:getObj()] = calEquipInfo(player, item, replaceItems)
 end
 
 local function petAttach(pet, item, attachPos)
@@ -186,15 +196,39 @@ end
 --8 14 1:d:-1:: 第1格是脱下装备的位置 第2格是放装备的位置
 function detachEquip(fd, head, packet)
     logPrint("attachEquip OnRecv ", head, packet)
-    local myPlayer = MyPlayer:new(Protocol.GetCharByFd(fd))
+    local player = MyPlayer:new(Protocol.GetCharByFd(fd))
     local arr = strSplit(packet, ":")
-    local pos = tonumber(arr[1])
+    local pos = Const.dataBitMap[arr[1]]
     if pos > 7 then
         return 0
     end
 
-    admMap[player:getObj()] = calAdm(player, nil, {pos})
+    charEquipInfo[player:getObj()] = calEquipInfo(player, nil, {pos})
     return 0
+end
+
+function Event.RegMakeItemStringEvent.genItemStr(index, itemSlot, itemIndex, itemText, textLen, textMaxLen)
+    local item = MyItem:new(itemIndex)
+    if item:getId() < 20201 or item:getId() > 20299 then
+        return
+    end
+
+    local eIndex = math.fmod(item:getId(), 10)
+    if eIndex < 4 then
+        local player = MyPlayer:new(index)
+        for i = 0, 4 do
+            local pet = player:getPet(i)
+            if pet:isValid() then
+                if pet:flushAtkModeAndSkill() > 0 then
+                    pet:flush()
+                end
+            end
+        end
+    end
+    if rawget(petReplace, eIndex) == nil then
+        return
+    end
+    return itemText:gsub(petReplace[eIndex][1], petReplace[eIndex][2])
 end
 
 Protocol.OnRecv(nil, "attachEquip", 8);

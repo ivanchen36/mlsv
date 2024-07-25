@@ -179,8 +179,7 @@ function upAwakening(player, arg)
                 diff = upBp
             end
             if diff > 0 then
-                local method = MyChar[addBpFunc[i]](pet, diff * 100)
-                method(pet, diff * 100)
+                MyChar[addBpFunc[i]](pet, diff * 100)
                 upBp = upBp - diff
             end
             if oldBp[i] > maxBp then

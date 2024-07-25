@@ -27,7 +27,7 @@ function MyPlayer:flush()
 end
 
 function MyPlayer:addItemList(list)
-    for key, val in ipairs(list) do
+    for key, val in pairs(list) do
         if key > 0 then
             Char.GiveItem(self._player, key, val)
         elseif key == 0 then
