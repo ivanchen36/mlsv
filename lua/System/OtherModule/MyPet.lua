@@ -20,6 +20,17 @@ function MyPet:getOwner()
     return self._owner
 end
 
+function MyPet:getStatus()
+    for i = 0, 4 do
+        local petIndex = Char.GetPet(self._owner, i)
+        if petIndex == self._player then
+            return Pet.GetStatus(self._owner, i)
+        end
+    end
+
+    return -1
+end
+
 function MyPet:changeRemote()
     if self:getId() > Const.RemoteId then
         return 0
@@ -121,13 +132,10 @@ function MyPet:setSkill(slot, skillId)
 end
 
 function MyPet:delete()
-    local uuid = self:getUuid()
     for i = 0, 4 do
-        local pet = MyPet:new(self._owner, Char.GetPet(self._owner, i))
-        if pet:isValid() then
-            if uuid == pet:getUuid() then
-                return Char.DelSlotPet(self._owner, i)
-            end
+        local petIndex = Char.GetPet(self._owner, i)
+        if petIndex == self._player then
+            return Char.DelSlotPet(self._owner, i)
         end
     end
 

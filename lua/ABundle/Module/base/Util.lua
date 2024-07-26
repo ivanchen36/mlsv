@@ -48,6 +48,13 @@ end
 
 function createSingleWidget(widgetMap, widget)
     local tmp = nil
+    if nil == widget.x then
+        widget.x = 0
+    end
+    if nil == widget.y then
+        widget.y = 0
+    end
+
     if "btn" == widget.type then
         tmp = Button:new(widget.title, widget.img, widget.text or "")
         tmp:setActiveImg(widget.active)
@@ -76,14 +83,36 @@ function createSingleWidget(widgetMap, widget)
         if rawget(widget, "bg") ~= nil then
             tmp:setBg(widgetMap[widget.bg])
         end
+        if widget.cx ~= nil and widget.cy ~= nil then
+            tmp:setCenter(widget.cx, widget.cy)
+        end
     elseif "radio" == widget.type then
         tmp = Radio:new(widget.title, widget.img1, widget.img2, strSplit(widget.texts, ","), strSplit(widget.values, ","), widget.layout, widget.width, widget.high)
     end
+
     tmp:setPos(widget.x, widget.y)
     return tmp
 end
 
 function getGlobVal(tblStr, index)
+    if type(tblStr) == "number" then
+        return tblStr
+    end
+    if #tblStr >= 2 then
+        if tblStr:sub(1, 1) == '#' then
+            local arr = strSplit(tblStr, "$")
+            if #arr > 1 then
+                return _G[arr[1]:sub(2)][index] .. arr[2]
+            else
+                return _G[tblStr:sub(2)][index]
+            end
+        end
+    end
+
+    return tblStr
+end
+
+function getTitle(tblStr, index)
     if type(tblStr) == "number" then
         return tblStr
     end
@@ -130,9 +159,23 @@ end
 
 function createMulWidget(widgetMap, rows, columns, w, h, widget)
     local widgets = {}
+    if nil == widget.x then
+        widget.x = 0
+    end
+    if nil == widget.y then
+        widget.y = 0
+    end
     local posX = widget.x
     local posY = widget.y
-    local titles = _G[getTitleField(widget.title)]
+    local titles = {}
+    if rows > 0 and columns > 0 and (string.find(widget.title,"&")) then
+        for i = 1, rows * columns do
+            titles[i] = widget.title:gsub("&", tostring(i))
+        end
+        widget.title = titles
+    else
+        titles = _G[getTitleField(widget.title)]
+    end
 
     if rows == 0 then
         rows = math.ceil((#titles - 1) / columns) + 1
@@ -169,12 +212,19 @@ function createMulWidget(widgetMap, rows, columns, w, h, widget)
                     if rawget(widget, "bg") ~= nil then
                         tmp:setBg(widgetMap[getGlobVal(widget.bg or "", pos)])
                     end
+                    if widget.cx ~= nil and widget.cy ~= nil then
+                        tmp:setCenter(widget.cx + (j - 1) * w, widget.cy + (i - 1) * h)
+                    end
                 elseif "img" == widget.type then
                     tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or 0, pos))
                     if rawget(widget, "bg") ~= nil then
                         tmp:setBg(widgetMap[getGlobVal(widget.bg or "", pos)])
                     end
+                    if widget.cx ~= nil and widget.cy ~= nil then
+                        tmp:setCenter(widget.cx + (j - 1) * w, widget.cy + (i - 1) * h)
+                    end
                 end
+
                 tmp:setPos(posX + (j - 1) * w, posY + (i - 1) * h)
                 table.insert(widgets, tmp)
             end
@@ -268,12 +318,16 @@ function showCharAttr(wnd, preTitle, earth, water, fire, wind)
     showAttr(wnd, preTitle, "Wind", 244437, wind)
 end
 
-function getOutPos(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
+function getPosByOut(posXA, posYA, sizeXA, sizeYA, sizeXB, sizeYB)
     if sizeYB > 0 and sizeYA >= sizeYB then
         return {math.ceil(posXA + (sizeXA - sizeXB) / 2), math.ceil(posYA + (sizeYA - sizeYB) / 2)}
     end
 
     return {math.ceil(posXA + (sizeXA - sizeXB) / 2), math.ceil(posYA + sizeYA - sizeYB)}
+end
+
+function getPosByCenter(centerX, centerY, sizeX, sizeY)
+    return {math.ceil(centerX - sizeX / 2), math.ceil(centerY - sizeY / 2)}
 end
 
 function addItem(wnd, preTitle)

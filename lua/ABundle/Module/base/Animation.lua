@@ -28,7 +28,7 @@ end
 function Animation:setPosByBg()
     local bgSize = self._bg:getSize()
     local bgPos = self._bg:getPos()
-    local pos = getOutPos(bgPos[1], bgPos[2], bgSize[1], bgSize[2], self._img.sizex, self._img.sizey)
+    local pos = getPosByOut(bgPos[1], bgPos[2], bgSize[1], bgSize[2], self._img.sizex, self._img.sizey)
     self._img.xpos = pos[1]
     self._img.ypos = pos[2] - 20
     self._posX = pos[1]

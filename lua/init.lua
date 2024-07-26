@@ -76,6 +76,7 @@ gadofile("lua/Module/client/SynthesisClient.lua");
 gadofile("lua/Module/client/PkClient.lua");
 gadofile("lua/Module/client/AwakeningClient.lua");
 gadofile("lua/Module/client/TaskClient.lua");
+gadofile("lua/Module/client/SellerClient.lua");
 
 gadofile("lua/Module/sys/CharEquip.lua");
 --业务功能

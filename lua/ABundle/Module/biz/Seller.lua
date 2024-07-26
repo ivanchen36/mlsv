@@ -6,94 +6,151 @@ local wndName = ""
 local sellerInfo = {}
 local payInfo = {}
 local freeBagNum = 0
-local imgInfo = {}
+local goodDetail = {}
 local maxCatNum = 10
 local maxGoodsNum = 8
+local maxPayNum = 3
+local buyList = {}
+local payList = {}
+
+local function flushPayInfo()
+    local payInfo = {}
+    local catGoodList = sellerInfo[tostring(curCat)]
+    for itemId, buyNum in ipairs(buyList) do
+        local payDetail = catGoodList[itemId]
+        for payId, num in pairs(payDetail) do
+            if rawget(payInfo, payId) == nil then
+                payInfo[payId] = num * buyNum
+            else
+                payInfo[payId] = payInfo[payId] + num * buyNum
+            end
+        end
+    end
+    local index = 1
+    for item, num in pairs(payInfo) do
+        local imgW = sellerWnd:getWidget("payI" .. index)
+        local numW = sellerWnd:getWidget("payN" .. index)
+        imgW:setImg(goodDetail[item]["i"])
+        numW:setText("x " .. num)
+    end
+end
+
+local function setGoodsImg(index, itemId, pay)
+    local img = sellerWnd:getWidget("goodI" .. index)
+    local name = sellerWnd:getWidget("goodN" .. index)
+    local add = sellerWnd:getWidget("goodA" .. index)
+    local sub = sellerWnd:getWidget("goodS" .. index)
+    local count = sellerWnd:getWidget("goodC" .. index)
+    local detail = goodDetail[itemId]
+
+    img:setImg(detail["i"])
+    name:setText(detail["n"])
+    count:setText("0")
+    add:clicked(function(w)
+        local count = sellerWnd:getWidget("goodC" .. index)
+        local num = tonumber(count:getText())
+        if num < 99 then
+            num = num + 1
+            count:setText(tostring(num))
+            buyList[itemId] = num
+            flushPayInfo()
+        end
+    end)
+    sub:clicked(function(w)
+        local count = sellerWnd:getWidget("goodC" .. index)
+        local num = tonumber(count:getText())
+        if num > 1 then
+            num = num - 1
+            count:setText(tostring(num))
+            if num == 0 then
+                buyList[itemId] = nil
+            end
+            flushPayInfo()
+        end
+    end)
+    if imgId == 0 then
+        add:setEnabled(false)
+        sub:setEnabled(false)
+    end
+end
+
+local function initSellerContent()
+    buyList = {}
+    payList = {}
+    local curGoodList = sellerInfo[tostring(curCat)]
+    local i = 0
+    for key, val in pairs(curGoodList) do
+        i = i + 1
+    end
+    for i = 1, maxGoodsNum do
+
+    end
+    for i = 1, maxPayNum do
+        local img = sellerWnd:getWidget("payI" .. i)
+        local num = sellerWnd:getWidget("payN" .. i)
+        img:setImg(0)
+        num:setText("x 0")
+        flushPayInfo()
+    end
+end
 
 local function showSellerTab()
+    curCat = 1
     for i = 1, maxCatNum do
-        local btn = sellerWnd:getWidget("seller" .. i)
-        if sellerCat[i] ~= nil then
-            btn:setText(sellerCat[i])
+        local btn = sellerWnd:getWidget("cat" .. i)
+        local catGoodList = sellerInfo[tostring(i)]
+        if catGoodList ~= nil then
+            btn:setText(catGoodList["name"])
+            btn:clicked(function(w)
+                local btn = sellerWnd:getWidget("cat" .. curCat)
+                btn:setEnabled(true)
+                curCat = i
+                w:setEnabled(false)
+                initSellerContent()
+            end)
+
             if curCat == i then
                 btn:setEnabled(false)
             else
                 btn:setEnabled(true)
             end
+            btn:setVisible(true)
         else
             btn:setVisible(false)
         end
     end
 end
 
-local function initSellerContent()
-
-end
-
-local function loadSellerClient()
-    logPrint("loadSellerClient")
-    local gen = ClientGen:new("bg.bmp", 11, 5, 70, 60, 65, 30)
-    for i = 1, maxGoodsNum do
-        gen:addText(i + 1, 1, "")
-        gen:addText(i + 1, 2, "")
-        gen:addText(i + 1, 3, "")
-        gen:addText(i + 1, 4, "")
-        gen:addBtn(i + 1, 5, "´«ËÍ")
-    end
-
-    local client = gen:getClient()
-    table.insert(client, {
-        ["type"] = "lab",
-        ["title"] = "title",
-        ["x"] = 210,
-        ["y"] = 35,
-        ["text"] = "",
-        ["font"] = 10,
-    })
-    for i = 1, maxCatNum do
-        table.insert(client, {
-            ["type"] = "btn",
-            ["title"] = "seller" .. i,
-            ["x"] = 20,
-            ["y"] = 70 + 26 * (i - 1),
-            ["img"] = "task1.bmp",
-            ["active"] = "task2.bmp",
-            ["disable"] = "task3.bmp",
-            ["text"] = "",
-            ["click"] = function(w)
-                local btn = sellerWnd:getWidget("seller" .. curCat)
-                btn:setEnabled(true)
-                curCat = i
-                btn = sellerWnd:getWidget("seller" .. curCat)
-                btn:setEnabled(false)
-                initSellerContent()
-            end,
-        })
-    end
+function loadSellerClient(client)
     logPrintTbl(client)
-    sellerWnd = createWindow(1015,"seller", client)
+
+    local needShow = false
+    if nil == sellerWnd and nil ~= sellerInfo then
+        needShow = true
+    end
+    sellerWnd = createWindow(1015, "seller", client)
+    if needShow then
+        sellerWnd:getWidget("title"):setText(wndName)
+        sellerWnd:show()
+        showSellerTab()
+        initSellerContent()
+    end
+    logPrint('loadSellerClient')
 end
 
 function showSeller(info)
-    sellerInfo = info;
     wndName = info["name"]
     sellerId = info["id"]
-    sellerInfo = info[sellerId]
+    sellerInfo = info["good"]
     freeBagNum = info["free"]
     payInfo = info["pay"]
-    imgInfo = info["img"]
-    for i = 1, maxCatNum do
-        local key = tostring(i)
-        if rawget(sellerInfo, key) ~= nil then
-            sellerCat[i] = sellerInfo[key]["name"]
-        else
-            sellerCat[i] = nil
-        end
-    end
+    goodDetail = info["img"]
     if (sellerWnd == nil) then
-        loadSellerClient()
+        Cli.Send("seller_client")
+        return
     end
 
+    sellerWnd:getWidget("title"):setText(wndName)
     sellerWnd:show()
     showSellerTab()
     initSellerContent()
@@ -101,3 +158,4 @@ function showSeller(info)
 end
 
 Cli.Send().wait["SHOW_SELLER"] = showSeller
+Cli.Send().wait["SELLER_CLIENT"] = loadSellerClient

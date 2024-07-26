@@ -61,6 +61,7 @@ function MyPlayer:getPetByUuid(uuid)
             end
         end
     end
+
     return MyPet:new(self._player, -1)
 end
 

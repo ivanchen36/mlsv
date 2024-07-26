@@ -75,6 +75,8 @@ function Image:new(title, imgId)
         _posX = 0,
         _posY = 0,
         _bg = nil,
+        _centerX = 0,
+        _centerY = 0,
     }
     setmetatable(newObj, self)
     return newObj
@@ -117,6 +119,26 @@ function Image:setBg(bg)
     self._bg = bg
 end
 
+function Image:setCenter(x, y)
+    self._centerX = x
+    self._centerY = y
+    if self._img ~= nil then
+        self:setPosByCenter()
+    end
+end
+
+function Image:setPosByCenter()
+    if 0 == self._imgId then
+        return
+    end
+
+    local pos = getPosByCenter(self._centerX, self._centerY, self._img.sizex, self._img.sizey)
+    self._img.xpos = pos[1]
+    self._img.ypos = pos[2]
+    self._posX = pos[1]
+    self._posY = pos[2]
+end
+
 function Image:setPosByBg()
     if 0 == self._imgId then
         return
@@ -124,7 +146,7 @@ function Image:setPosByBg()
 
     local bgSize = self._bg:getSize()
     local bgPos = self._bg:getPos()
-    local pos = getOutPos(bgPos[1], bgPos[2], bgSize[1], bgSize[2], self._img.sizex, self._img.sizey)
+    local pos = getPosByOut(bgPos[1], bgPos[2], bgSize[1], bgSize[2], self._img.sizex, self._img.sizey)
     self._img.xpos = pos[1]
     self._img.ypos = pos[2]
     self._posX = pos[1]
@@ -141,6 +163,8 @@ function Image:setImg(image)
             self:setImgId(self._img, self._imgId)
             if self._bg ~= nil then
                 self:setPosByBg()
+            elseif self._centerX > 0 then
+                self:setPosByCenter()
             end
         end
     end
@@ -172,8 +196,12 @@ function Image:show(view)
     self:setVisible(true)
     self:setImgId(self._img, self._imgId)
     if self._bg == nil then
-        self._img.xpos = self._posX
-        self._img.ypos = self._posY
+        if self._centerX > 0 then
+            self:setPosByCenter()
+        else
+            self._img.xpos = self._posX
+            self._img.ypos = self._posY
+        end
     else
         self:setPosByBg()
     end

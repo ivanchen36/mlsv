@@ -146,9 +146,9 @@ local function loadWarpClient()
             ["title"] = "warp" .. i,
             ["x"] = 20,
             ["y"] = 70 + 26 * (i - 1),
-            ["img"] = "task1.bmp",
-            ["active"] = "task2.bmp",
-            ["disable"] = "task3.bmp",
+            ["img"] = "menu1.bmp",
+            ["active"] = "menu2.bmp",
+            ["disable"] = "menu3.bmp",
             ["text"] = name,
             ["click"] = function(w)
                 logPrint("click ", i)

@@ -72,9 +72,9 @@ function getTaskClient(player, arg)
             ["title"] = "#taskBtn",
             ["x"] = 20,
             ["y"] = 70,
-            ["img"] = "task1.bmp",
-            ["active"] = "task2.bmp",
-            ["disable"] = "task3.bmp",
+            ["img"] = "menu1.bmp",
+            ["active"] = "menu2.bmp",
+            ["disable"] = "menu3.bmp",
             ["text"] = "#cycleName",
         }
     }
