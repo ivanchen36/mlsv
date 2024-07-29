@@ -31,44 +31,57 @@ local function flushPayInfo()
         local imgW = sellerWnd:getWidget("payI" .. index)
         local numW = sellerWnd:getWidget("payN" .. index)
         imgW:setImg(goodDetail[item]["i"])
-        numW:setText("x " .. num)
+        numW:setText("¡Á " .. num)
+    end
+    if  index >= maxPayNum then
+        return
+    end
+    for i = index, maxPayNum do
+        local imgW = sellerWnd:getWidget("payI" .. i)
+        local numW = sellerWnd:getWidget("payN" .. i)
+        imgW:setImg(0)
+        numW:setText("")
     end
 end
 
-local function setGoodsImg(index, itemId, pay)
+local function setGoodsImg(index, itemId)
     local img = sellerWnd:getWidget("goodI" .. index)
     local name = sellerWnd:getWidget("goodN" .. index)
     local add = sellerWnd:getWidget("goodA" .. index)
     local sub = sellerWnd:getWidget("goodS" .. index)
     local count = sellerWnd:getWidget("goodC" .. index)
-    local detail = goodDetail[itemId]
 
-    img:setImg(detail["i"])
-    name:setText(detail["n"])
-    count:setText("0")
-    add:clicked(function(w)
-        local count = sellerWnd:getWidget("goodC" .. index)
-        local num = tonumber(count:getText())
-        if num < 99 then
-            num = num + 1
-            count:setText(tostring(num))
-            buyList[itemId] = num
-            flushPayInfo()
-        end
-    end)
-    sub:clicked(function(w)
-        local count = sellerWnd:getWidget("goodC" .. index)
-        local num = tonumber(count:getText())
-        if num > 1 then
-            num = num - 1
-            count:setText(tostring(num))
-            if num == 0 then
-                buyList[itemId] = nil
+    if 0 == itemId then
+        local detail = goodDetail[itemId]
+        img:setImg(detail["i"])
+        name:setText(detail["n"])
+        count:setText("¡Á 0")
+        add:clicked(function(w)
+            local count = sellerWnd:getWidget("goodC" .. index)
+            local num = tonumber(count:getText())
+            if num < 99 then
+                num = num + 1
+                count:setText("¡Á " .. num)
+                buyList[itemId] = num
+                flushPayInfo()
             end
-            flushPayInfo()
-        end
-    end)
-    if imgId == 0 then
+        end)
+        sub:clicked(function(w)
+            local count = sellerWnd:getWidget("goodC" .. index)
+            local num = tonumber(count:getText())
+            if num > 1 then
+                num = num - 1
+                count:setText("¡Á " .. num)
+                if num == 0 then
+                    buyList[itemId] = nil
+                end
+                flushPayInfo()
+            end
+        end)
+    else
+        img:setImg(0)
+        name:setText("")
+        count:setText("¡Á 0")
         add:setEnabled(false)
         sub:setEnabled(false)
     end
@@ -78,19 +91,13 @@ local function initSellerContent()
     buyList = {}
     payList = {}
     local curGoodList = sellerInfo[tostring(curCat)]
-    local i = 0
-    for key, val in pairs(curGoodList) do
-        i = i + 1
+    local index = 1
+    for key, _ in pairs(curGoodList) do
+        setGoodsImg(index, key)
+        index = index + 1
     end
-    for i = 1, maxGoodsNum do
-
-    end
-    for i = 1, maxPayNum do
-        local img = sellerWnd:getWidget("payI" .. i)
-        local num = sellerWnd:getWidget("payN" .. i)
-        img:setImg(0)
-        num:setText("x 0")
-        flushPayInfo()
+    for i = index, maxGoodsNum do
+        setGoodsImg(i, 0)
     end
 end
 
@@ -129,13 +136,14 @@ function loadSellerClient(client)
         needShow = true
     end
     sellerWnd = createWindow(1015, "seller", client)
+    logPrintTbl(sellerWnd)
     if needShow then
         sellerWnd:getWidget("title"):setText(wndName)
         sellerWnd:show()
         showSellerTab()
         initSellerContent()
     end
-    logPrint('loadSellerClient')
+    logPrint('loadSellerClient1')
 end
 
 function showSeller(info)

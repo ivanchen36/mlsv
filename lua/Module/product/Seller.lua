@@ -1,4 +1,4 @@
-local petSellerId = 111
+local petSellerId = 104387
 local petEquipSeller = {
     ["1"] = {
         ["name"] = "วเอญ",
@@ -78,7 +78,7 @@ local petEquipSeller = {
         [40268] = {{40286, 10}, {0, 30000}},
     },
 }
-local goldImgId = 0
+local goldImgId = 27402
 local sellerList = {
     [petSellerId] = petEquipSeller
 }
@@ -139,7 +139,7 @@ function showSeller(npc, player, s)
     resp["free"] = player:freeBagNum()
     resp["pay"] = getPayItemNum(player, payList)
 
-    Protocol.PowerSend(player:getObj(), "SHOW_WARP", resp)
+    Protocol.PowerSend(player:getObj(), "SHOW_SELLER", resp)
 end
 
 function buyNpcItem(player, arg)

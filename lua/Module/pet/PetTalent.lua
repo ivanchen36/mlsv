@@ -130,7 +130,7 @@ function loadTalent(player)
     if pet:isValid() then
         local skillId = pet:getSkill(pet:getSkillSlots() - 1)
         logPrint("loadTalent ", skillId)
-        if skillId > 0 then
+        if skillId > 30400 and skillId < 30500 then
             setTalentBuff(pet, skillId)
         end
     end

@@ -136,12 +136,12 @@ CREATE TABLE `tbl_player_task` (
 DROP TABLE IF EXISTS `tbl_tax_info`;
 CREATE TABLE `tbl_tax_info` (
                                       `RegNum` varchar(64) NOT NULL COMMENT '角色id',
+                                      `Cycle` INT NOT NULL COMMENT '周期-当日0点时间戳',
                                       `Amount` int NOT NULL DEFAULT 0 COMMENT '金币收入金额',
                                       `TaxAmount` int NOT NULL DEFAULT 0 COMMENT '金币上缴税收金额',
-                                      `Cycle` INT NOT NULL COMMENT '周期-当日0点时间戳',
                                       `CreateTime` int NOT NULL,
                                       `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                                      PRIMARY KEY (`RegNum`)
+                                      PRIMARY KEY (`RegNum`, `Cycle`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='角色税务表';
 
 -- tbl_user_limit

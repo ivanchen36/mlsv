@@ -98,23 +98,8 @@ function getGlobVal(tblStr, index)
     if type(tblStr) == "number" then
         return tblStr
     end
-    if #tblStr >= 2 then
-        if tblStr:sub(1, 1) == '#' then
-            local arr = strSplit(tblStr, "$")
-            if #arr > 1 then
-                return _G[arr[1]:sub(2)][index] .. arr[2]
-            else
-                return _G[tblStr:sub(2)][index]
-            end
-        end
-    end
-
-    return tblStr
-end
-
-function getTitle(tblStr, index)
-    if type(tblStr) == "number" then
-        return tblStr
+    if type(tblStr) == "table" then
+        return tblStr[index]
     end
     if #tblStr >= 2 then
         if tblStr:sub(1, 1) == '#' then

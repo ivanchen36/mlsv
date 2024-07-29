@@ -35,7 +35,7 @@ function getSellerClient(player, arg)
         {
             ["table"] = "1,10",
             ["width"] = 161,
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "img",
             ["title"] = "goodI&",
             ["cx"] = 97,
@@ -45,7 +45,7 @@ function getSellerClient(player, arg)
         {
             ["table"] = "1,10",
             ["width"] = 161,
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "lab",
             ["title"] = "goodN&",
             ["x"] = 139,
@@ -55,7 +55,7 @@ function getSellerClient(player, arg)
         {
             ["table"] = "1,10",
             ["width"] = 161,
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "btn",
             ["title"] = "goodA&",
             ["x"] = 160,
@@ -68,7 +68,7 @@ function getSellerClient(player, arg)
         {
             ["table"] = "1,10",
             ["width"] = 161,
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "btn",
             ["title"] = "goodS&",
             ["x"] = 175,
@@ -81,7 +81,7 @@ function getSellerClient(player, arg)
         {
             ["table"] = "1,10",
             ["width"] = 161,
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "lab",
             ["title"] = "goodC&",
             ["x"] = 130,
@@ -90,7 +90,7 @@ function getSellerClient(player, arg)
         },
         {
             ["table"] = "1,3",
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "img",
             ["title"] = "payI&",
             ["cx"] = 430,
@@ -99,7 +99,7 @@ function getSellerClient(player, arg)
         },
         {
             ["table"] = "1,3",
-            ["high"] = 59,
+            ["high"] = 60,
             ["type"] = "img",
             ["title"] = "payN&",
             ["cx"] = 407,
@@ -117,7 +117,7 @@ function getSellerClient(player, arg)
             ["text"] = "È·¶¨",
         }
     }
-    Protocol.PowerSend(player:getObj(), "TASK_CLIENT", sellerClient)
+    Protocol.PowerSend(player:getObj(), "SELLER_CLIENT", sellerClient)
 end
 
-ClientEvent["task_client"] = getSellerClient
+ClientEvent["seller_client"] = getSellerClient
