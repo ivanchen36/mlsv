@@ -1,6 +1,5 @@
 import os
 from file_util import FileUtil
-import shutil
 
 NAME = 0
 TECH_ID = 3

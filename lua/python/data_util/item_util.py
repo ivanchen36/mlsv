@@ -1,6 +1,5 @@
 import os
 from file_util import FileUtil
-import shutil
 
 unknown = 0 #未鉴定
 name = 1 #名称
@@ -133,6 +132,7 @@ eAttr = [{
 ]
 
 eRate = [0.23, 0.13, 0.32, 0.5, 0.6, 0.75, 1]
+itemEquipField = [atk, crit, agi, hit, spirit, avoid, deff, hp, mp, recover, rss,adm]
 
 def generateItem(path):
     baseFile = FileUtil("./tmp.txt", "gbk")
@@ -190,6 +190,36 @@ def generateItem1(path):
         print('\t'.join(arr1))
         itemFile.writeLine('\t'.join(arr1))
 
+def generateItem2(path):
+    baseFile = FileUtil("./tmp.txt", "gbk")
+    itemFile = FileUtil(path + "/itemset.txt", "gbk")
+    if not itemFile.isBlankLineEnd():
+        itemFile.writeLine("")
+    lineNum = 0
+    baseId = 20050
+    for line in baseFile.readLines():
+        line = line.replace("\n", "")
+        arr1 = line.split("\t")
+        if len(arr1) < 20:
+            itemFile.writeLine(line)
+            continue
+        lineNum = lineNum + 1
+        for attrF in itemEquipField:
+            if len(arr1[attrF]) <= 0:
+                continue
+            tmp = int(arr1[attrF])
+            if tmp < 4 and tmp > -4:
+                continue
+            arr1[attrF] = int(tmp / 4)
+            arr1[attrF+1] = int(int(arr1[attrF+1]) / 4)
+        arr1[remain] = 166
+        arr1[remain1] = 199
+        arr1[name] = arr1[name].replace("无名", "新手")
+        arr1[iid] = baseId + lineNum
+        arr1 = [str(item) for item in arr1]
+        print('\t'.join(arr1))
+        itemFile.writeLine('\t'.join(arr1))
+
 def pringArrStr1():
     for i in range(65, 150):
         print(f'["{chr(i)}"] = {i - 29},')
@@ -234,5 +264,5 @@ def modifyItemUse(path):
         itemFile.writeLine('\t'.join(arr1))
 
 if __name__ == "__main__":
-    #generateItem("../../../task/chx")
-    pringArrStr1()
+    generateItem2("../../../task/chx")
+    #pringArrStr1()

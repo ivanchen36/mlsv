@@ -1,6 +1,5 @@
 import os
 from file_util import FileUtil
-import shutil
 
 
 def generateNpc(path):
