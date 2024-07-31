@@ -203,9 +203,6 @@ end
 
 function Button:show(view)
     self._showImg = view.find(self._title)
-    if "" ~= self._btnText then
-        self._showText = view.find(self._title .. "Text")
-    end
     self:setVisible(true)
     self:setImgId(self._normalImg)
     self._showImg.xpos = self._posX
@@ -217,6 +214,7 @@ function Button:show(view)
     if "" == self._btnText then
         return
     end
+    self._showText = view.find(self._title .. "Text")
     local fontSize, posX, posY = self:getFontInfo(self._showImg.sizex, self._showImg.sizey)
     if posX < 0 then
         posX = 0

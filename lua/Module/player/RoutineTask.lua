@@ -64,8 +64,10 @@ local dailyType = 1
 local weeklyType = 2
 local monthlyType = 3
 local taskNum = {6, 6, 6}
+local waitKillEnemy = {}
+local battleEnemy = {}
 
-function getRandomTaskAndItem()
+function getRandomTaskAndItem(cycleType)
     -- 随机选择一个任务
     local type = math.random(#routineTaskList)
     local selectedItemList = routineTaskList[type]
@@ -84,10 +86,15 @@ function receiveTask(player, cycleType)
     local cycleDate = os.date(cycleFormat[cycleType])
 
     for i = 1, taskCount do
-        local typeIndex, item, count = getRandomTaskAndItem()
+        local typeIndex, item, count = getRandomTaskAndItem(cycleType)
         local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Process, CreateTime) VALUES ('%s', %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
                 regNum, cycleType, cycleDate, typeIndex, item, count)
         SQL.Run(sql)
+        if rawget(waitKillEnemy, player:getObj()) == nil then
+            waitKillEnemy[player:getObj()] = {item}
+        else
+            table.insert(waitKillEnemy[player:getObj()], item)
+        end
     end
 
     return
@@ -235,6 +242,37 @@ function queryTask(player, arg)
     Protocol.PowerSend(player:getObj(),"FLUSH_TASK", taskList)
 end
 
+function preRoutineEnemy(battleIndex)
+    local needStatsEnemy = {}
+    local statsNum = 0
+    for i = 0, 1 do
+        local player = MyPlayer:new(Battle.GetPlayer(battleIndex, i))
+        if player:isPerson() then
+            if rawget(waitKillEnemy, player:getObj()) == nil then
+                for _, item in ipairs(waitKillEnemy[player:getObj()]) do
+                    needStatsEnemy[item] = 1
+                    statsNum = statsNum + 1
+                end
+            end
+            local num = player:getPartyNum()
+            for j = 1, num - 1 do
+                local member = player:getPartyMember(j)
+            end
+        end
+    end
+    if rawget(waitKillEnemy, player:getObj()) == nil then
+        waitKillEnemy[player:getObj()] = {item}
+    else
+        table.insert(waitKillEnemy[player:getObj()], item)
+    end
+end
+
+function confirmRoutineEnemy(battleIndex)
+
+end
+
 TalkEvent["[routine]"] = showRoutine
 ClientEvent["query_task"] = queryTask
 ClientEvent["submit_task"] = submitTask
+--InitEvent["battle"] = preRoutineEnemy()
+--DeinitEvent["battle"] = confirmRoutineEnemy()

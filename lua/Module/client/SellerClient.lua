@@ -30,7 +30,7 @@ function getSellerClient(player, arg)
             ["img"] = "menu1.bmp",
             ["active"] = "menu2.bmp",
             ["disable"] = "menu3.bmp",
-            ["text"] = "",
+            ["text"] = "·ÖÀà",
         },
         {
             ["table"] = "4,2",

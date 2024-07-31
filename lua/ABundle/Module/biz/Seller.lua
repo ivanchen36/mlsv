@@ -85,6 +85,10 @@ local function setGoodsImg(index, itemId)
     local sub = sellerWnd:getWidget("goodS" .. index)
     local count = sellerWnd:getWidget("goodC" .. index)
 
+    if img == nil then
+        return
+    end
+
     if 0 == itemId then
         local detail = goodDetail[itemId]
         img:setImg(detail["i"])
@@ -128,8 +132,14 @@ local function initSellerContent()
     local curGoodList = sellerInfo[tostring(curCat)]
     local index = 1
     for key, _ in pairs(curGoodList) do
+        if index >= maxGoodsNum then
+            return
+        end
         setGoodsImg(index, key)
         index = index + 1
+    end
+    if index >= maxGoodsNum then
+        return
     end
     for i = index, maxGoodsNum do
         setGoodsImg(i, 0)
