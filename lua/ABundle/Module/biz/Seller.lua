@@ -55,7 +55,7 @@ local function flushPayInfo()
         local imgW = sellerWnd:getWidget("payI" .. index)
         local numW = sellerWnd:getWidget("payN" .. index)
         imgW:setImg(payItem["i"])
-        numW:setText("¡Á " .. num)
+        numW:setText("¡Á" .. num)
         if num > payItem["c"] and canBuy then
             canBuy = false
             sellerWnd:getWidget("confirm"):setEnabled(false)
@@ -93,13 +93,13 @@ local function setGoodsImg(index, itemId)
         local detail = goodDetail[itemId]
         img:setImg(detail["i"])
         name:setText(detail["n"])
-        count:setText("¡Á 0")
+        count:setText("¡Á0")
         add:clicked(function(w)
             local count = sellerWnd:getWidget("goodC" .. index)
             local num = tonumber(count:getText())
             if num < 99 then
                 num = num + 1
-                count:setText("¡Á " .. num)
+                count:setText("¡Á" .. num)
                 buyList[itemId] = num
                 flushPayInfo()
             end
@@ -109,7 +109,7 @@ local function setGoodsImg(index, itemId)
             local num = tonumber(count:getText())
             if num > 1 then
                 num = num - 1
-                count:setText("¡Á " .. num)
+                count:setText("¡Á" .. num)
                 if num == 0 then
                     buyList[itemId] = nil
                 end
@@ -119,7 +119,7 @@ local function setGoodsImg(index, itemId)
     else
         img:setImg(0)
         name:setText("")
-        count:setText("¡Á 0")
+        count:setText("¡Á0")
         add:setEnabled(false)
         sub:setEnabled(false)
     end
@@ -131,6 +131,7 @@ local function initSellerContent()
     payList = {}
     local curGoodList = sellerInfo[tostring(curCat)]
     local index = 1
+    logPrintTbl(curGoodList)
     for key, _ in pairs(curGoodList) do
         if index >= maxGoodsNum then
             return
@@ -153,7 +154,6 @@ local function showSellerTab()
         local btn = sellerWnd:getWidget("cat" .. i)
         local catGoodList = sellerInfo[tostring(i)]
         if catGoodList ~= nil then
-            logPrint(catGoodList["name"])
             btn:setText(catGoodList["name"])
             btn:clicked(function(w)
                 local btn = sellerWnd:getWidget("cat" .. curCat)
@@ -182,14 +182,10 @@ function loadSellerClient(client)
         needShow = true
     end
     sellerWnd = createWindow(1015, "seller", client)
-    logPrintTbl(sellerWnd)
     if needShow then
-        logPrintTbl(sellerInfo)
-        logPrintTbl(payInfo)
-        logPrintTbl(goodDetail)
         sellerWnd:getWidget("title"):setText(wndName)
         sellerWnd:show()
-        safeCall(showSellerTab)
+        showSellerTab()
         safeCall(initSellerContent)
     end
     logPrint('loadSellerClient1')

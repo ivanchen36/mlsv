@@ -49,7 +49,7 @@ function getSellerClient(player, arg)
             ["type"] = "lab",
             ["title"] = "goodN&",
             ["x"] = 139,
-            ["y"] = 91,
+            ["y"] = 88,
             ["text"] = "",
         },
         {
