@@ -9,9 +9,8 @@ function test1()
 end
 local userInfo1 = {}
 function test(player)
-    logPrint(player:getPetStatus(0))
-    logPrint(player:getPetStatus(1))
-    logPrint(player:getPetStatus(4))
+    --getSellerClient(player, "")
+    logPrint(getItemImg(20287))
 end
 
 function test2()

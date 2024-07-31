@@ -184,14 +184,27 @@ local function isArrayTable(t)
     end
 
     local n = #t
+    local len = 0
+    local min = 99
+    local max = 0
     for i, v in pairs(t) do
         if type(i) ~= "number" then
             return false
+        end
+        len = len + 1
+        if i < min then
+            min = i
+        end
+        if i > max then
+            max = i
         end
 
         if i > n then
             return false
         end
+    end
+    if min ~= 1 or max ~= len then
+        return false
     end
     return true
 end

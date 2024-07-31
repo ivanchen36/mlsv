@@ -98,9 +98,10 @@ function getGlobVal(tblStr, index)
     if type(tblStr) == "number" then
         return tblStr
     end
-    if type(tblStr) == "table" then
-        return tblStr[index]
+    if string.find(tblStr,"&") then
+        return tblStr:gsub("&", tostring(index))
     end
+
     if #tblStr >= 2 then
         if tblStr:sub(1, 1) == '#' then
             local arr = strSplit(tblStr, "$")
@@ -157,7 +158,6 @@ function createMulWidget(widgetMap, rows, columns, w, h, widget)
         for i = 1, rows * columns do
             titles[i] = widget.title:gsub("&", tostring(i))
         end
-        widget.title = titles
     else
         titles = _G[getTitleField(widget.title)]
     end

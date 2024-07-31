@@ -1,6 +1,5 @@
 local sellerWnd = nil
 local sellerId = 0
-local sellerCat = {}
 local curCat = 1
 local wndName = ""
 local sellerInfo = {}
@@ -13,27 +12,59 @@ local maxPayNum = 3
 local buyList = {}
 local payList = {}
 
+function buyNpcItem()
+    logPrintTbl(buyList)
+
+    local buyLen = 0
+    local sendData = "buy_item|" .. sellerId
+    for itemId, buyNum in pairs(buyList) do
+        sendData = sendData .. "|" .. itemId .. "," .. buyNum
+        buyLen = buyLen + 1
+    end
+    if buyLen == 0 then
+        Cli.SysMessage("请先选择商品",4,3);
+        return
+    end
+    Cli.Send()
+end
+
 local function flushPayInfo()
-    local payInfo = {}
+    local payItems = {}
+    local canBuy = true
     local catGoodList = sellerInfo[tostring(curCat)]
-    for itemId, buyNum in ipairs(buyList) do
+    local buyLen = 0
+    for itemId, buyNum in pairs(buyList) do
+        buyLen = buyLen + 1
         local payDetail = catGoodList[itemId]
-        for payId, num in pairs(payDetail) do
-            if rawget(payInfo, payId) == nil then
-                payInfo[payId] = num * buyNum
+        logPrintTbl(payDetail)
+        for payId, payNum in pairs(payDetail) do
+            if rawget(payItems, payId) == nil then
+                payItems[payId] = payNum * buyNum
             else
-                payInfo[payId] = payInfo[payId] + num * buyNum
+                payItems[payId] = payItems[payId] + payNum * buyNum
             end
         end
     end
+    if buyLen > freeBagNum then
+        canBuy = false
+        sellerWnd:getWidget("confirm"):setEnabled(false)
+    end
     local index = 1
-    for item, num in pairs(payInfo) do
+    for itemId, num in pairs(payItems) do
+        local payItem = payInfo[itemId]
         local imgW = sellerWnd:getWidget("payI" .. index)
         local numW = sellerWnd:getWidget("payN" .. index)
-        imgW:setImg(goodDetail[item]["i"])
+        imgW:setImg(payItem["i"])
         numW:setText("× " .. num)
+        if num > payItem["c"] and canBuy then
+            canBuy = false
+            sellerWnd:getWidget("confirm"):setEnabled(false)
+        end
     end
-    if  index >= maxPayNum then
+    if canBuy then
+        sellerWnd:getWidget("confirm"):setEnabled(true)
+    end
+    if index >= maxPayNum then
         return
     end
     for i = index, maxPayNum do
@@ -41,6 +72,9 @@ local function flushPayInfo()
         local numW = sellerWnd:getWidget("payN" .. i)
         imgW:setImg(0)
         numW:setText("")
+    end
+    if buyLen == 0 then
+        sellerWnd:getWidget("confirm"):setEnabled(false)
     end
 end
 
@@ -88,6 +122,7 @@ local function setGoodsImg(index, itemId)
 end
 
 local function initSellerContent()
+    logPrint("initSellerContent")
     buyList = {}
     payList = {}
     local curGoodList = sellerInfo[tostring(curCat)]
@@ -102,11 +137,13 @@ local function initSellerContent()
 end
 
 local function showSellerTab()
+    logPrint("showSellerTab")
     curCat = 1
     for i = 1, maxCatNum do
         local btn = sellerWnd:getWidget("cat" .. i)
         local catGoodList = sellerInfo[tostring(i)]
         if catGoodList ~= nil then
+            logPrint(catGoodList["name"])
             btn:setText(catGoodList["name"])
             btn:clicked(function(w)
                 local btn = sellerWnd:getWidget("cat" .. curCat)
@@ -130,7 +167,6 @@ end
 
 function loadSellerClient(client)
     logPrintTbl(client)
-
     local needShow = false
     if nil == sellerWnd and nil ~= sellerInfo then
         needShow = true
@@ -138,15 +174,19 @@ function loadSellerClient(client)
     sellerWnd = createWindow(1015, "seller", client)
     logPrintTbl(sellerWnd)
     if needShow then
+        logPrintTbl(sellerInfo)
+        logPrintTbl(payInfo)
+        logPrintTbl(goodDetail)
         sellerWnd:getWidget("title"):setText(wndName)
         sellerWnd:show()
-        showSellerTab()
-        initSellerContent()
+        safeCall(showSellerTab)
+        safeCall(initSellerContent)
     end
     logPrint('loadSellerClient1')
 end
 
 function showSeller(info)
+    logPrintTbl(info)
     wndName = info["name"]
     sellerId = info["id"]
     sellerInfo = info["good"]
