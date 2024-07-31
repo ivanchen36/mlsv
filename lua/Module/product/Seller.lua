@@ -138,7 +138,13 @@ end
 function showSeller(npc, player, s)
     logPrint("showSeller")
 
-    local imgId = MyPlayer:new(npc):getImage()
+    Protocol.PowerSend(player:getObj(), "INIT_SELLER", MyPlayer:new(npc):getImage())
+end
+
+function initSeller(player, arg)
+    logPrint("initSeller")
+
+    local imgId = tonumber(arg)
     local seller = sellerList[imgId]
     local resp = {}
     local sellList, payList = getSellAndPayItem(seller)
@@ -209,4 +215,5 @@ function buyNpcItem(player, arg)
 end
 
 ClientEvent["buy_item"] = buyNpcItem;
+ClientEvent["init_seller"] = initSeller;
 npcDialog[petSellerId] = showSeller;

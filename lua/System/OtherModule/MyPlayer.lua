@@ -58,6 +58,7 @@ function MyPlayer:getPetByUuid(uuid)
         if pet:isValid() then
             if uuid == pet:getUuid() then
                 return pet
+
             end
         end
     end

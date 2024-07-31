@@ -64,8 +64,9 @@ local dailyType = 1
 local weeklyType = 2
 local monthlyType = 3
 local taskNum = {6, 6, 6}
-local waitKillEnemy = {}
-local battleEnemy = {}
+local waitKillEnemyMap = {}
+local waitKillBossMap = {}
+local battleEnemyMap = {}
 
 function getRandomTaskAndItem(cycleType)
     -- 随机选择一个任务
@@ -90,10 +91,16 @@ function receiveTask(player, cycleType)
         local sql = string.format("INSERT INTO tbl_player_task (RegNum, Cycle, CycleDate, Type, Item, Count, Status, Process, CreateTime) VALUES ('%s', %d, %d, %d, %d, %d, 1, 0, UNIX_TIMESTAMP())",
                 regNum, cycleType, cycleDate, typeIndex, item, count)
         SQL.Run(sql)
-        if rawget(waitKillEnemy, player:getObj()) == nil then
-            waitKillEnemy[player:getObj()] = {item}
-        else
-            table.insert(waitKillEnemy[player:getObj()], item)
+        if typeIndex == 2 then
+            if rawget(waitKillEnemyMap, player:getObj()) == nil then
+                waitKillEnemyMap[player:getObj()] = {}
+            end
+            waitKillEnemyMap[player:getObj()][item] = 1
+        elseif typeIndex == 4 then
+            if rawget(waitKillBossMap, player:getObj()) == nil then
+                waitKillBossMap[player:getObj()] = {}
+            end
+            waitKillBossMap[player:getObj()][item] = 1
         end
     end
 
@@ -243,36 +250,128 @@ function queryTask(player, arg)
 end
 
 function preRoutineEnemy(battleIndex)
+    if Battle.GetType(battleIndex) ~= Const.BT_ENEMY then
+        return
+    end
+
     local needStatsEnemy = {}
     local statsNum = 0
-    for i = 0, 1 do
+    local killEnemyMap = waitKillEnemyMap
+    if Battle.IsBossBattle(battleIndex) then
+        killEnemyMap = waitKillBossMap
+    end
+    for i = 0, 4 do
         local player = MyPlayer:new(Battle.GetPlayer(battleIndex, i))
         if player:isPerson() then
-            if rawget(waitKillEnemy, player:getObj()) == nil then
-                for _, item in ipairs(waitKillEnemy[player:getObj()]) do
+            if rawget(killEnemyMap, player:getObj()) ~= nil then
+                for _, item in ipairs(killEnemyMap[player:getObj()]) do
                     needStatsEnemy[item] = 1
                     statsNum = statsNum + 1
                 end
             end
-            local num = player:getPartyNum()
-            for j = 1, num - 1 do
-                local member = player:getPartyMember(j)
+        end
+    end
+    if 0 == statsNum then
+        return
+    end
+    local battleStatsMap = {}
+    for i = 10, 19 do
+        local enemy = MyEnemy:new(Battle.GetPlayer(battleIndex, i))
+        if enemy:isValid() then
+            local enemyId = enemy:getId()
+            if rawget(needStatsEnemy, enemyId) ~= nil then
+                if rawget(battleStatsMap, enemyId) == nil then
+                    battleStatsMap[enemyId] = 1
+                else
+                    battleStatsMap[enemyId] = battleStatsMap[enemyId] + 1
+                end
             end
         end
     end
-    if rawget(waitKillEnemy, player:getObj()) == nil then
-        waitKillEnemy[player:getObj()] = {item}
-    else
-        table.insert(waitKillEnemy[player:getObj()], item)
+
+    battleEnemyMap[battleIndex] = battleStatsMap
+end
+
+local function statsKillEnemyNum(player, enemyId, num)
+    local regNum = player:getRegistNumber()
+    local query = string.format("SELECT Id, Count, Process FROM tbl_player_task WHERE RegNum = '%s' AND Item = %d and Status = 1 and Count > Process", regNum, enemyId)
+    local rs = SQL.Run(query);
+
+    if(type(rs) ~= "table")then
+        return 1
     end
+
+    local len = countKeys(rs)
+    for i = 0, (len / 3) - 1  do
+        local taskId = rs[i .. "_0"]
+        local count = tonumber(rs[i .. "_1"])
+        local process = tonumber(rs[i .. "_2"])
+        local need = count - process
+        local isEnough = num <= need
+        if isEnough then
+            process = count
+            num = num - need
+        else
+            process = process + num
+            num = 0
+        end
+        local sql = string.format("UPDATE tbl_player_task SET Process = %d WHERE RegNum = '%s' AND Id = %s", process, regNum, taskId)
+        SQL.Run(sql)
+        if num <= 0 then
+            return 0
+        end
+    end
+    return 1
 end
 
 function confirmRoutineEnemy(battleIndex)
+    if rawget(battleEnemyMap, battleIndex) == nil then
+        return
+    end
 
+    local killEnemyMap = waitKillEnemyMap
+    if Battle.IsBossBattle(battleIndex) then
+        killEnemyMap = waitKillBossMap
+    end
+
+    local finishInfo = {}
+    local battleStatsMap = battleEnemyMap[battleIndex]
+    for enemyId, num in ipairs(battleStatsMap) do
+        for i = 0, 4 do
+            local player = MyPlayer:new(Battle.GetPlayer(battleIndex, i))
+            if player:isPerson() then
+                if rawget(killEnemyMap, player:getObj()) ~= nil then
+                    local needKillMap = killEnemyMap[player:getObj()]
+                    if rawget(needKillMap, enemyId) ~= nil then
+                        if statsKillEnemyNum(player, enemyId, num) > 0 then
+                            if rawget(finishInfo, player:getObj()) == nil then
+                                finishInfo[player:getObj()] = {enemyId}
+                            else
+                                table.insert(finishInfo[player:getObj()], enemyId)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    for playerIndex, enemyList in pairs(finishInfo) do
+        local needKillMap = killEnemyMap[playerIndex]
+        for _, enemyId in ipairs(enemyList) do
+            needKillMap[enemyId] = nil
+        end
+        local isFinish = isEmpty(needKillMap)
+        if isFinish then
+            killEnemyMap[playerIndex] = nil
+        end
+    end
+
+    battleEnemyMap[battleIndex] = nil
 end
 
 TalkEvent["[routine]"] = showRoutine
 ClientEvent["query_task"] = queryTask
 ClientEvent["submit_task"] = submitTask
---InitEvent["battle"] = preRoutineEnemy()
---DeinitEvent["battle"] = confirmRoutineEnemy()
+InitEvent["battle"] = preRoutineEnemy()
+DeinitEvent["battle"] = confirmRoutineEnemy()

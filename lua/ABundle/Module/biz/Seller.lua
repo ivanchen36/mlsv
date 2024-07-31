@@ -1,4 +1,5 @@
 local sellerWnd = nil
+local sellerMap = {}
 local sellerId = 0
 local curCat = 1
 local wndName = ""
@@ -79,6 +80,7 @@ local function flushPayInfo()
 end
 
 local function setGoodsImg(index, itemId)
+    logPrint("setGoodsImg", index, itemId)
     local img = sellerWnd:getWidget("goodI" .. index)
     local name = sellerWnd:getWidget("goodN" .. index)
     local add = sellerWnd:getWidget("goodA" .. index)
@@ -199,6 +201,9 @@ function showSeller(info)
     freeBagNum = info["free"]
     payInfo = info["pay"]
     goodDetail = info["img"]
+    if rawget(sellerMap, sellerId) == nil then
+        sellerMap[sellerId] = info
+    end
     if (sellerWnd == nil) then
         Cli.Send("seller_client")
         return
@@ -211,5 +216,15 @@ function showSeller(info)
     logPrint( 'showSeller2')
 end
 
+function initSeller(sellerId)
+    logPrint("initSeller")
+    if rawget(sellerMap, sellerId) == nil then
+        Cli.Send("init_seller|" .. sellerId)
+        return
+    end
+    showSeller(sellerMap[sellerId])
+end
+
+Cli.Send().wait["INIT_SELLER"] = initSeller
 Cli.Send().wait["SHOW_SELLER"] = showSeller
 Cli.Send().wait["SELLER_CLIENT"] = loadSellerClient

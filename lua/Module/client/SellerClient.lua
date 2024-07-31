@@ -114,7 +114,7 @@ function getSellerClient(player, arg)
             ["img"] = "b1.bmp",
             ["active"] = "b2.bmp",
             ["disable"] = "b3.bmp",
-            ["text"] = "È·¶¨",
+            ["text"] = "¹ºÂò",
             ["click"] = "buyItem",
         }
     }

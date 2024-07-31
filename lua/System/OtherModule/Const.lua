@@ -5,6 +5,9 @@ Const.PetWait = 2
 Const.PetFree = 1
 Const.PetNone = 0
 
+Const.BT_ENEMY = 1
+Const.BT_PVP = 2
+
 Const.DaySecond = 86400
 Const.RemoteId = 1000000
 Const.PetWeapon = 59

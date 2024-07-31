@@ -54,6 +54,7 @@ dofile("lua/System/OtherModule/Util.lua");
 dofile("lua/System/OtherModule/MyChar.lua");
 dofile("lua/System/OtherModule/MyPet.lua");
 dofile("lua/System/OtherModule/MyPlayer.lua");
+dofile("lua/System/OtherModule/MyEnemy.lua");
 dofile("lua/System/OtherModule/MyItem.lua");
 dofile("lua/System/OtherModule/MyDataItem.lua");
 dofile("lua/System/OtherModule/MyLimit.lua");
@@ -96,6 +97,7 @@ gadofile("lua/Module/player/Tax.lua");--税务系统
 gadofile("lua/Module/player/Recover.lua");--组队加成
 gadofile("lua/Module/player/Warp.lua");--传送
 gadofile("lua/Module/player/Clan.lua");--家族帮派
+gadofile("lua/Module/player/Challenge.lua");--家族帮派
 gadofile("lua/Module/player/Test.lua");
 
 gadofile("lua/Module/product/AutoProduct.lua");--自动制造

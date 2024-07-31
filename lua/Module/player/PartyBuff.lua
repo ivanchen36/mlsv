@@ -53,7 +53,6 @@ local buffDesc = {
     ["amnesia"] = "ฟนาลอü",
 }
 
-
 local partyBuffInfo = {}
 local partyMemberInfo = {}
 local waitHandleList = {}
@@ -192,7 +191,7 @@ local function setPartyBuff(index)
     local newBuffList = {}
     local partyDesc = ""
     for _, member in ipairs(newList) do
-        local jobId = member:getJob()
+        local jobId = member:getJobClassId()
         if rawget(jobBuff, jobId) == nil then
             jobId = 1
         end

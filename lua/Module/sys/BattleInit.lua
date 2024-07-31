@@ -1,13 +1,20 @@
-function lvOnePet(battle)
+function showLvOne(battleIndex)
+    if Battle.GetType(battleIndex) ~= Const.BT_ENEMY then
+        return
+    end
+    if Battle.IsBossBattle(battleIndex) then
+        return
+    end
+
     for i = 10, 19 do
-        local player = MyPlayer:new(Battle.GetPlayer(battle, i))
-        if player:isValid() then
-            local name = player:getName()
-            if player:getLevel() == 1 and name ~= "哥布林" and name ~= "迷你蝙蝠" then
-                local xue = player:getHp()
+        local enemy = MyEnemy:new(Battle.GetPlayer(battleIndex, i))
+        if enemy:isValid() then
+            local name = enemy:getName()
+            if enemy:getLevel() == 1 and name ~= "哥布林" and name ~= "迷你蝙蝠" then
+                local xue = enemy:getHp()
                 local msg = "[★☆★一级宠物★☆★]发现一级宠物「" .. name .. "」出现！生命值「" .. xue .. "」"
                 for j = 0, 4 do
-                    local player1 = MyPlayer:new(Battle.GetPlayer(battle, j));
+                    local player1 = MyPlayer:new(Battle.GetPlayer(battleIndex, j));
                     if player1:isPerson() then
                         NLG.TalkToCli(player1:getObj(), -1, msg, 5, 0);
                     end
@@ -37,5 +44,5 @@ function newbieBless(battle)
     return 1;
 end
 
-InitEvent["battle"] = lvOnePet
+InitEvent["battle"] = startEnemyBattle
 DeinitEvent["battle"] = newbieBless

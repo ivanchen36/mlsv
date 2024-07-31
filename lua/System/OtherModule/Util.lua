@@ -164,6 +164,13 @@ function getItemName(itemId)
     return item:getName()
 end
 
+function isEmpty(tbl)
+    for _ in pairs(tbl) do
+        return false
+    end
+    return true
+end
+
 function copyTable(orig, copies)
     copies = copies or {}  -- Table to store copies of tables
     local orig_type = type(orig)
