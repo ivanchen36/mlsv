@@ -18,7 +18,7 @@ function getSellerClient(player, arg)
             ["x"] = 210,
             ["y"] = 35,
             ["text"] = "",
-            ["font"] = 10,
+            ["font"] = 3,
         },
         {
             ["table"] = "10,1",
@@ -48,7 +48,7 @@ function getSellerClient(player, arg)
             ["high"] = 59,
             ["type"] = "lab",
             ["title"] = "goodN&",
-            ["x"] = 139,
+            ["x"] = 123,
             ["y"] = 88,
             ["text"] = "",
         },
@@ -58,8 +58,8 @@ function getSellerClient(player, arg)
             ["high"] = 59,
             ["type"] = "btn",
             ["title"] = "goodA&",
-            ["x"] = 160,
-            ["y"] = 108,
+            ["x"] = 165,
+            ["y"] = 107,
             ["img"] = 243003,
             ["active"] = 243005,
             ["disable"] = 243004,
@@ -71,8 +71,8 @@ function getSellerClient(player, arg)
             ["high"] = 59,
             ["type"] = "btn",
             ["title"] = "goodS&",
-            ["x"] = 175,
-            ["y"] = 108,
+            ["x"] = 185,
+            ["y"] = 107,
             ["img"] = 243006,
             ["active"] = 243008,
             ["disable"] = 243007,
@@ -85,12 +85,12 @@ function getSellerClient(player, arg)
             ["type"] = "lab",
             ["title"] = "goodC&",
             ["x"] = 130,
-            ["y"] = 110,
-            ["text"] = "",
+            ["y"] = 107,
+            ["text"] = "¡Á0",
         },
         {
-            ["table"] = "1,3",
-            ["high"] = 59,
+            ["table"] = "3,1",
+            ["high"] = 71,
             ["type"] = "img",
             ["title"] = "payI&",
             ["cx"] = 430,
@@ -98,13 +98,13 @@ function getSellerClient(player, arg)
             ["img"] = 0,
         },
         {
-            ["table"] = "1,3",
-            ["high"] = 59,
-            ["type"] = "img",
+            ["table"] = "3,1",
+            ["high"] = 71,
+            ["type"] = "lab",
             ["title"] = "payN&",
-            ["cx"] = 407,
-            ["cy"] = 130,
-            ["img"] = 0,
+            ["x"] = 407,
+            ["y"] = 125,
+            ["text"] = "¡Á0",
         },
         {
             ["type"] = "btn",
@@ -117,7 +117,7 @@ function getSellerClient(player, arg)
             ["text"] = "¹ºÂò",
             ["click"] = "buyItem",
         }
-    }
+    }--244317 216 149 60 50
     Protocol.PowerSend(player:getObj(), "SELLER_CLIENT", sellerClient)
 end
 

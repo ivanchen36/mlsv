@@ -11,7 +11,6 @@ local maxCatNum = 10
 local maxGoodsNum = 8
 local maxPayNum = 3
 local buyList = {}
-local payList = {}
 
 function buyNpcItem()
     logPrintTbl(buyList)
@@ -36,8 +35,8 @@ local function flushPayInfo()
     local buyLen = 0
     for itemId, buyNum in pairs(buyList) do
         buyLen = buyLen + 1
+        logPrint("buyNum" .. itemId .. ":" .. buyNum)
         local payDetail = catGoodList[itemId]
-        logPrintTbl(payDetail)
         for payId, payNum in pairs(payDetail) do
             if rawget(payItems, payId) == nil then
                 payItems[payId] = payNum * buyNum
@@ -50,16 +49,21 @@ local function flushPayInfo()
         canBuy = false
         sellerWnd:getWidget("confirm"):setEnabled(false)
     end
-    local index = 1
+    local index = 0
+    logPrintTbl(payItems)
     for itemId, num in pairs(payItems) do
-        local payItem = payInfo[itemId]
-        local imgW = sellerWnd:getWidget("payI" .. index)
-        local numW = sellerWnd:getWidget("payN" .. index)
-        imgW:setImg(payItem["i"])
-        numW:setText("¡Á" .. num)
-        if num > payItem["c"] and canBuy then
-            canBuy = false
-            sellerWnd:getWidget("confirm"):setEnabled(false)
+        logPrint("payItems", itemId, num)
+        index = index + 1
+        if index <= maxPayNum then
+            local payItem = payInfo[itemId]
+            local imgW = sellerWnd:getWidget("payI" .. index)
+            local numW = sellerWnd:getWidget("payN" .. index)
+            imgW:setImg(payItem["i"])
+            numW:setText("¡Á" .. num)
+            if num > payItem["c"] and canBuy then
+                canBuy = false
+                sellerWnd:getWidget("confirm"):setEnabled(false)
+            end
         end
     end
     if canBuy then
@@ -68,7 +72,8 @@ local function flushPayInfo()
     if index >= maxPayNum then
         return
     end
-    for i = index, maxPayNum do
+    for i = index + 1, maxPayNum do
+        logPrint("payI" .. i)
         local imgW = sellerWnd:getWidget("payI" .. i)
         local numW = sellerWnd:getWidget("payN" .. i)
         imgW:setImg(0)
@@ -80,7 +85,6 @@ local function flushPayInfo()
 end
 
 local function setGoodsImg(index, itemId)
-    logPrint("setGoodsImg", index, itemId)
     local img = sellerWnd:getWidget("goodI" .. index)
     local name = sellerWnd:getWidget("goodN" .. index)
     local add = sellerWnd:getWidget("goodA" .. index)
@@ -91,14 +95,18 @@ local function setGoodsImg(index, itemId)
         return
     end
 
-    if 0 == itemId then
+    if 0 ~= itemId then
         local detail = goodDetail[itemId]
         img:setImg(detail["i"])
         name:setText(detail["n"])
         count:setText("¡Á0")
         add:clicked(function(w)
             local count = sellerWnd:getWidget("goodC" .. index)
-            local num = tonumber(count:getText())
+            local num = 0
+            if rawget(buyList, itemId) ~= nil then
+                num = buyList[itemId]
+            end
+            logPrint("add", num)
             if num < 99 then
                 num = num + 1
                 count:setText("¡Á" .. num)
@@ -108,12 +116,18 @@ local function setGoodsImg(index, itemId)
         end)
         sub:clicked(function(w)
             local count = sellerWnd:getWidget("goodC" .. index)
-            local num = tonumber(count:getText())
-            if num > 1 then
+            local num = 0
+            if rawget(buyList, itemId) ~= nil then
+                num = buyList[itemId]
+            end
+            logPrint("sub", num)
+            if num > 0 then
                 num = num - 1
                 count:setText("¡Á" .. num)
                 if num == 0 then
                     buyList[itemId] = nil
+                else
+                    buyList[itemId] = num
                 end
                 flushPayInfo()
             end
@@ -130,21 +144,29 @@ end
 local function initSellerContent()
     logPrint("initSellerContent")
     buyList = {}
-    payList = {}
     local curGoodList = sellerInfo[tostring(curCat)]
-    local index = 1
     logPrintTbl(curGoodList)
+    local index = 0
+    local tmpList = {}
     for key, _ in pairs(curGoodList) do
-        if index >= maxGoodsNum then
-            return
+        logPrint("curGoodList", key)
+        if index < maxGoodsNum then
+            if type(key) == "number" then
+                table.insert(tmpList, key)
+                table.sort(tmpList)
+                index = index + 1
+            end
         end
-        setGoodsImg(index, key)
-        index = index + 1
     end
+    for k, v in ipairs(tmpList) do
+        logPrint("tmpList", k, v)
+        setGoodsImg(k, v)
+    end
+    flushPayInfo()
     if index >= maxGoodsNum then
         return
     end
-    for i = index, maxGoodsNum do
+    for i = index + 1, maxGoodsNum do
         setGoodsImg(i, 0)
     end
 end
@@ -185,8 +207,8 @@ function loadSellerClient(client)
     end
     sellerWnd = createWindow(1015, "seller", client)
     if needShow then
-        sellerWnd:getWidget("title"):setText(wndName)
         sellerWnd:show()
+        sellerWnd:getWidget("title"):setText(wndName .. "\n" .. "test")
         showSellerTab()
         safeCall(initSellerContent)
     end
@@ -209,10 +231,10 @@ function showSeller(info)
         return
     end
 
-    sellerWnd:getWidget("title"):setText(wndName)
     sellerWnd:show()
+    sellerWnd:getWidget("title"):setText(wndName .. "\n" .. "test")
     showSellerTab()
-    initSellerContent()
+    safeCall(initSellerContent)
     logPrint( 'showSeller2')
 end
 

@@ -373,5 +373,5 @@ end
 TalkEvent["[routine]"] = showRoutine
 ClientEvent["query_task"] = queryTask
 ClientEvent["submit_task"] = submitTask
-InitEvent["battle"] = preRoutineEnemy()
-DeinitEvent["battle"] = confirmRoutineEnemy()
+InitEvent["battle"] = preRoutineEnemy
+DeinitEvent["battle"] = confirmRoutineEnemy
