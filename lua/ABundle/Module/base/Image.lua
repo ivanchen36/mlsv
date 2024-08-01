@@ -77,6 +77,9 @@ function Image:new(title, imgId)
         _bg = nil,
         _centerX = 0,
         _centerY = 0,
+        _onActive = nil,
+        _onUnActive = nil,
+        _isActive = false,
     }
     setmetatable(newObj, self)
     return newObj
@@ -107,7 +110,28 @@ function Image:getControls()
     self._img = nil
     local img = new.image(self._title)
 
-    img.callbackfunc = {}
+    img.callbackfunc = function(object, event)
+        if self._onActive == nil then
+            return
+        end
+        if 0 == event then
+            if not self._isActive then
+                return
+            end
+
+            self._isActive = false
+            self._onUnActive(self)
+            return
+        end
+        if 1 == event then
+            if self._isActive then
+                return
+            end
+            self._isActive = true
+            self._onActive(self)
+            return
+        end
+    end
     return {img}
 end
 
@@ -117,6 +141,23 @@ end
 
 function Image:setBg(bg)
     self._bg = bg
+end
+
+function Image:activated(func1, func2)
+    self._onActive = func1
+    self._onUnActive = func2
+end
+
+function Image:getCenter()
+    if self._centerX > 0 then
+        return self._centerX, self._centerY
+    end
+
+    if self._img == nil then
+        return 0,0
+    end
+
+    return self._posX + math.floor(self._img.sizex / 2), self._posX + math.floor(self._img.sizey / 2)
 end
 
 function Image:setCenter(x, y)

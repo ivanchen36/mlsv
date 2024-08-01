@@ -17,7 +17,7 @@ function getSellerClient(player, arg)
             ["title"] = "title",
             ["x"] = 210,
             ["y"] = 35,
-            ["text"] = "",
+            ["text"] = "…ÃµÍ±ÍÃ‚",
             ["font"] = 3,
         },
         {

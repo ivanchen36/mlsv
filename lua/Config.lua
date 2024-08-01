@@ -21,10 +21,10 @@ useModule("shop_canshu");--道具商城配置文件
 useModule("shop");--道具商城主文件
 
 useModule("fram");--声望查询
-useModule("laba");--喇叭
-useModule("wgfy");--王宫封印师查询配合wgfy.php
-useModule("TitleChange");--称号附加属性
-useModule("phb");--排行榜
+--useModule("laba");--喇叭
+--useModule("wgfy");--王宫封印师查询配合wgfy.php
+--useModule("TitleChange");--称号附加属性
+--useModule("phb");--排行榜
 --形象变身
 --做一个npc 玩家对话可以永久变身为npc形象
 --[[
@@ -69,7 +69,7 @@ titlename.txt
 
 --界面lua
 useModule("ac");--综合 家族频道 聊天框内切换
-useModule("mijing");--秘境挑战
+--useModule("mijing");--秘境挑战
 --[[block
  showmj
  ]] --其他参数参考 lua/System/BaseModule/luac.lua
@@ -78,7 +78,7 @@ useModule("astarsive");--自动寻路F3
 useModule("Team_Service");--组队T人界面
 --itemset.txt内,宠物洗挡卷指定档位,配置在lua/System/BaseModule/luac.lua
 
-useModule("actioninfonpc");--全局掉落 可以限定时间 限定个数 几率 等级(服务器人数高于800不要使用)
+--useModule("actioninfonpc");--全局掉落 可以限定时间 限定个数 几率 等级(服务器人数高于800不要使用)
 
 useModule("SG_Pet_Shop2_can");--宠物自售配置文件
 useModule("SG_Pet_Shop2");--宠物自售

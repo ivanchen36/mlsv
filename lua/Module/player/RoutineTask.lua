@@ -260,14 +260,23 @@ function preRoutineEnemy(battleIndex)
     if Battle.IsBossBattle(battleIndex) then
         killEnemyMap = waitKillBossMap
     end
-    for i = 0, 4 do
-        local player = MyPlayer:new(Battle.GetPlayer(battleIndex, i))
-        if player:isPerson() then
-            if rawget(killEnemyMap, player:getObj()) ~= nil then
-                for _, item in ipairs(killEnemyMap[player:getObj()]) do
-                    needStatsEnemy[item] = 1
-                    statsNum = statsNum + 1
-                end
+    local player = MyPlayer:new(Battle.GetPlayer(battle,0))
+    if not player:isValid() or not player:isPerson() then
+        player = MyPlayer:new(Battle.GetPlayer(battle,5))
+    end
+    if rawget(killEnemyMap, player:getObj()) ~= nil then
+        for _, item in ipairs(killEnemyMap[player:getObj()]) do
+            needStatsEnemy[item] = 1
+            statsNum = statsNum + 1
+        end
+    end
+    local num = player:getPartyNum()
+    for i = 1, num - 1 do
+        local player1 = player:getPartyMember(i)
+        if rawget(killEnemyMap, player1:getObj()) ~= nil then
+            for _, item in ipairs(killEnemyMap[player1:getObj()]) do
+                needStatsEnemy[item] = 1
+                statsNum = statsNum + 1
             end
         end
     end

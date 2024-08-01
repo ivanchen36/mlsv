@@ -9,10 +9,8 @@ function MyItem:new(itemIndex)
     return newObj
 end
 
-
-
-function MyItem:create(itemID)
-    return MyItem:new(Data.ItemsetGetIndex(itemID))
+function MyItem:create(itemId)
+    return MyItem:new(Item.MakeItemAndRegist(itemId, 1))
 end
 
 function MyItem:getObj()
@@ -269,22 +267,6 @@ function MyItem:getMP()
     return self:get(28)
 end
 function MyItem:setMP(val)
-    return self:set(28, val)
-end
-
---%道具_生命%	27
-function MyItem:getLife()
-    return self:get(27)
-end
-function MyItem:setLife(val)
-    return self:set(27, val)
-end
-
---%道具_魔力%	28
-function MyItem:getMana()
-    return self:get(28)
-end
-function MyItem:setMana(val)
     return self:set(28, val)
 end
 

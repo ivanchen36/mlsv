@@ -315,6 +315,147 @@ function getPosByCenter(centerX, centerY, sizeX, sizeY)
     return {math.ceil(centerX - sizeX / 2), math.ceil(centerY - sizeY / 2)}
 end
 
+function addItemTip(wnd)
+    local bgWidget = Image:new("ATip", 0)
+    local attrWidget = Label:new("ANum1", "")
+    wnd:addWidget(bgWidget)
+    wnd:addWidget(attrWidget)
+    attrWidget = Label:new("ANum8", "")
+    wnd:addWidget(attrWidget)
+    attrWidget = Label:new("ANum91", "")
+    wnd:addWidget(attrWidget)
+    attrWidget = Label:new("ANum92", "")
+    wnd:addWidget(attrWidget)
+    for i = 2, 7 do
+        for j = 1, 3 do
+            attrWidget = Label:new("ANum".. i .. j, "")
+            wnd:addWidget(attrWidget)
+        end
+    end
+end
+
+local function getItemTipPos(item)
+    local itemCenterX, itemCenterY = item:getCenter()
+    local disX = 60
+    local disY = 50
+    local tipSizeX = 216
+    local tipSizeY = 149
+    local centerX = 320
+    local centerY = 240
+    if Cli.GetHD() then
+        centerX =  480;
+        centerY =  360;
+    end
+    if itemCenterX <= centerX then
+        if itemCenterY <= centerY then
+            return itemCenterX + disX, itemCenterY + disY
+        else
+            return itemCenterX + disX, itemCenterY - disY - tipSizeY
+        end
+    else
+        if itemCenterY <= centerY then
+            return itemCenterX - disX - tipSizeX, itemCenterY + disY
+        else
+            return itemCenterX - disX - tipSizeX, itemCenterY - disY - tipSizeY
+        end
+    end
+end
+
+local attr1 = {
+    ["atk"] = "π•ª˜",
+    ["def"] = "∑¿”˘",
+    ["agi"] = "√ÙΩ›",
+    ["spirit"] = "æ´…Ò",
+    ["recover"] = "ªÿ∏¥",
+    ["adm"] = "ƒßπ•"
+}
+
+local attr2 = {
+    ["poison"] = "øπ∂æ",
+    ["sleep"] = "øπÀØ",
+    ["stone"] = "øπ Ø",
+    ["drunk"] = "øπ◊Ì",
+    ["confusion"] = "øπªÏ",
+    ["amnesia"] = "øπÕ¸",
+    ["rss"] = "øπƒß"
+}
+
+local attr3 = {
+    ["crit"] = "±ÿ…±",
+    ["counter"] = "∑¥ª˜",
+    ["hit"] = "√¸÷–",
+    ["avoid"] = "∂„…¡",
+    ["hp"] = "…˙√¸",
+    ["mp"] = "ƒß¡¶"
+}
+
+local allAttr = {
+    [1] = attr1,
+    [2] = attr2,
+    [8] = attr3
+}
+local itemCatMap = {
+    [0] = "Ω£",
+}
+function showItemTip(wnd, item, attrMap)
+    local posX, posY = getItemTipPos(item)
+    local bgWidget = wnd:getWidget("ATip")
+    bgWidget:setImg(244317)
+    bgWidget:setPos(posX, posY)
+
+    local name = wnd:getWidget("ANum1")
+    local top = 5
+    local left = 5
+    local curLine = 2
+    local curIndex = 1
+    name:setText(attrMap["name"])
+    bgWidget:setPos(posX + left, posY + top)
+    for color, attrList in pairs(allAttr) do
+        for attr, desc in pairs(attrList) do
+            local attrWidget = wnd:getWidget("ANum".. curLine .. curIndex)
+            attrWidget:setText(desc .. " " .. attrMap[attr])
+            attrWidget:setPos(posX + left + (curIndex - 1) * 56, posY + top + (curLine - 1) * 15)
+            attrWidget:setColor(color)
+            curIndex = curIndex + 1
+            if curIndex > 3 then
+                curIndex = 1
+                curLine = curLine + 1
+            end
+        end
+    end
+    if curIndex ~= 1 then
+        curLine = curLine + 1
+        curIndex = 1
+    end
+    local attrWidget = wnd:getWidget("ANum8")
+    attrWidget:setText("µ»º∂ " .. attrMap["level"])
+    attrWidget:setPos(posX + left, posY + top + (curLine - 1) * 15)
+    attrWidget:setColor(4)
+    curLine = curLine + 1
+    local remain = string.format("%04d", attrMap["remain"])
+    attrWidget = wnd:getWidget("ANum91")
+    attrWidget:setText("ƒÕæ√" .. remain .. "/" .. remain)
+    attrWidget:setPos(posX + left, posY + top + (curLine - 1) * 15)
+    attrWidget:setColor(4)
+    attrWidget = wnd:getWidget("ANum92")
+    attrWidget:setText("÷÷¿‡ " .. itemCatMap[attrMap["type"]])
+    attrWidget:setPos(posX + left, posY + top + (curLine - 1) * 15)
+    attrWidget:setColor(26)
+end
+
+function closeItemTip(wnd)
+    wnd:getWidget("ATip"):setImg(0)
+    wnd:getWidget("ANum1"):setText("")
+    wnd:getWidget("ANum8"):setText("")
+    wnd:getWidget("ANum91"):setText("")
+    wnd:getWidget("ANum92"):setText("")
+    for i = 2, 7 do
+        for j = 1, 3 do
+            wnd:getWidget("ANum".. i .. j):setText("")
+        end
+    end
+end
+
 function addItem(wnd, preTitle)
     local frameWidget = wnd:getWidget(preTitle .. "F")
     local pos = frameWidget:getPos()

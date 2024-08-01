@@ -23,13 +23,13 @@ function partyRecover(player, arg)
         local member = player:getPartyMember(i - 1)
         local amount = getRecoverAmount(member)
         if player:subMoney(amount) > 0 then
-            player:setHp(player:getMaxHp())
-            player:setMp(player:getMaxMp())
+            player:recoverHp()
+            player:recoverMp()
             for i = 0, 4 do
                 local pet = player:getPet(i)
                 if pet:isValid() then
-                    pet:setHp(pet:getMaxHp())
-                    pet:setMp(pet:getMaxMp())
+                    pet:recoverHp()
+                    pet:recoverMp()
                     pet:flush()
                 end
             end

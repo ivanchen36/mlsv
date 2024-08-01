@@ -87,24 +87,27 @@ end
 
 function distributeGift(battle)
     if not giftSwitch then
-        return 1
+        return
     end
 
     if giftEndTime < os.time() then
         giftSwitch = false
-        return 1
+        return
     end
 
     logPrint("distributeGift")
-    for i=0,9 do
-        local player = MyPlayer:new(Battle.GetPlayer(battle,i))
-        if player:isPerson() and player:getMapId() ~= giftMapId then
-            return 1
-        end
-        distributeGiftByPlayer(player)
+    local player = MyPlayer:new(Battle.GetPlayer(battleIndex,0))
+    if not player:isValid() or not player:isPerson() then
+        player = MyPlayer:new(Battle.GetPlayer(battleIndex,5))
     end
-
-    return 1;
+    if player:getMapId() ~= giftMapId then
+        return
+    end
+    distributeGiftByPlayer(player)
+    local num = player:getPartyNum()
+    for i = 1, num - 1 do
+        distributeGiftByPlayer(player:getPartyMember(i))
+    end
 end
 
 function startDistributeGift(regNum, info)

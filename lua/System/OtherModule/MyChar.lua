@@ -34,14 +34,14 @@ end
 
 function MyChar:recoverHp()
     self:setHp(self:getMaxHp())
-    self:flush()
+end
+
+function MyChar:recoverMp()
+    self:setMp(self:getMaxMp())
 end
 
 function MyChar:recoverHurt()
     self:setHurtStatus(0)
-    NLG.UpdateParty(player);
-    self:flush()
-    NLG.SendGraphEvent(player, 45, 0);
 end
 
 function MyChar:isValid()

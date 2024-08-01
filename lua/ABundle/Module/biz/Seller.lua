@@ -1,5 +1,6 @@
 local sellerWnd = nil
 local sellerMap = {}
+local goodInfoMap = {}
 local sellerId = 0
 local curCat = 1
 local wndName = ""
@@ -25,7 +26,8 @@ function buyNpcItem()
         Cli.SysMessage("请先选择商品",4,3);
         return
     end
-    Cli.Send()
+    Cli.Send(sendData)
+    sellerWnd:close()
 end
 
 local function flushPayInfo()
@@ -84,6 +86,13 @@ local function flushPayInfo()
     end
 end
 
+local function showGoodTip(widget, itemId)
+    if rawget(goodInfoMap, itemId) == nil then
+        return
+    end
+    showItemTip(sellerWnd, widget, goodInfoMap[itemId])
+end
+
 local function setGoodsImg(index, itemId)
     local img = sellerWnd:getWidget("goodI" .. index)
     local name = sellerWnd:getWidget("goodN" .. index)
@@ -100,6 +109,11 @@ local function setGoodsImg(index, itemId)
         img:setImg(detail["i"])
         name:setText(detail["n"])
         count:setText("×0")
+        img:activated(function(w)
+            showGoodTip(w, itemId)
+        end,function(w)
+            closeItemTip(sellerWnd)
+        end)
         add:clicked(function(w)
             local count = sellerWnd:getWidget("goodC" .. index)
             local num = 0
@@ -206,6 +220,7 @@ function loadSellerClient(client)
         needShow = true
     end
     sellerWnd = createWindow(1015, "seller", client)
+    addItemTip(sellerWnd)
     if needShow then
         sellerWnd:show()
         sellerWnd:getWidget("title"):setText(wndName .. "\n" .. "test")
@@ -225,6 +240,11 @@ function showSeller(info)
     goodDetail = info["img"]
     if rawget(sellerMap, sellerId) == nil then
         sellerMap[sellerId] = info
+        for _, v in pairs(sellerInfo) do
+            for itemId, _ in pairs(v) do
+                Cli.Send("item_info|INIT_GOOD," .. itemId)
+            end
+        end
     end
     if (sellerWnd == nil) then
         Cli.Send("seller_client")
@@ -247,6 +267,13 @@ function initSeller(sellerId)
     showSeller(sellerMap[sellerId])
 end
 
+function initSellGood(info)
+    local itemId = info["id"]
+    info["id"] = nil
+    goodInfoMap[itemId] = info
+end
+
 Cli.Send().wait["INIT_SELLER"] = initSeller
 Cli.Send().wait["SHOW_SELLER"] = showSeller
+Cli.Send().wait["INIT_GOOD"] = initSellGood
 Cli.Send().wait["SELLER_CLIENT"] = loadSellerClient

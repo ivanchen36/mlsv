@@ -1,3 +1,19 @@
+local function notifyPlayer(battleIndex, msg)
+    local player = MyPlayer:new(Battle.GetPlayer(battleIndex,0))
+    if not player:isValid() or not player:isPerson() then
+        player = MyPlayer:new(Battle.GetPlayer(battleIndex,5))
+    end
+    NLG.TalkToCli(player:getObj(), -1, msg, 5, 0);
+    local num = player:getPartyNum()
+    if num <= 1 then
+        return
+    end
+
+    for i = 1, num - 1 do
+        NLG.TalkToCli(player:getPartyMember(i):getObj(), -1, msg, 5, 0);
+    end
+end
+
 function showLvOne(battleIndex)
     if Battle.GetType(battleIndex) ~= Const.BT_ENEMY then
         return
@@ -13,35 +29,39 @@ function showLvOne(battleIndex)
             if enemy:getLevel() == 1 and name ~= "哥布林" and name ~= "迷你蝙蝠" then
                 local xue = enemy:getHp()
                 local msg = "[★☆★一级宠物★☆★]发现一级宠物「" .. name .. "」出现！生命值「" .. xue .. "」"
-                for j = 0, 4 do
-                    local player1 = MyPlayer:new(Battle.GetPlayer(battleIndex, j));
-                    if player1:isPerson() then
-                        NLG.TalkToCli(player1:getObj(), -1, msg, 5, 0);
-                    end
-                end
+                notifyPlayer(battleIndex, msg)
             end
         end
     end
 end
 
 local function newbieBlessByPlayer(player)
-    if not player:isValid() or player:getLevel() > 30 or not player:needHp() then
+    if player:getLevel() > 30 or not player:needHp() then
         return
     end
 
+    local pet = player:getBattlePet()
+    pet:recoverHp()
+    pet:flush()
     player:recoverHp()
     player:flush()
-    if player:isPerson() then
-        NLG.SystemMessage(player,"[天使庇护]"..player:getName().."受到了天使的祝福,生命值恢复全满.");
-    end
+    NLG.SystemMessage(player:getObj(), "[天使庇护]"..player:getName().."受到了天使的祝福,生命值恢复全满.");
 end
 
 function newbieBless(battle)
-    for i=0,9 do
-        local player = MyPlayer:new(Battle.GetPlayer(battle,i))
-        newbieBlessByPlayer(player)
+    local player = MyPlayer:new(Battle.GetPlayer(battle,0))
+    if not player:isValid() or not player:isPerson() then
+        player = MyPlayer:new(Battle.GetPlayer(battle,5))
     end
-    return 1;
+    newbieBlessByPlayer(player)
+    local num = player:getPartyNum()
+    if num <= 1 then
+        return
+    end
+
+    for i = 1, num - 1 do
+        newbieBlessByPlayer(player:getPartyMember(i))
+    end
 end
 
 InitEvent["battle"] = startEnemyBattle

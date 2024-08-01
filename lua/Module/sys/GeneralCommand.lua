@@ -25,6 +25,9 @@ TalkEvent["/zl"] = function (player)
     local amount = recoverHurtAmount[health]
     if player:subMoney(amount) > 0 then
         player:recoverHurt()
+        NLG.UpdateParty(player:getObj());
+        player:flush()
+        NLG.SendGraphEvent(player:getObj(), 45, 0);
         player:sysMsg("治疗成功，您已经恢复健康。")
         return
     end

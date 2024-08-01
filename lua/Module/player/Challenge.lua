@@ -2,6 +2,12 @@ local bossMap = {
     [1] = 1
 }
 
+local addBossAttrList = { }
+
+local function modifyAttr(enemyList)
+
+end
+
 function modifyBossAttr(battleIndex)
     if not Battle.IsBossBattle(battleIndex) then
         return
@@ -18,8 +24,8 @@ function modifyBossAttr(battleIndex)
             end
         end
     end
-    if not isFind then
-        return
+    if isFind then
+        modifyAttr(enemyList)
     end
 end
 
