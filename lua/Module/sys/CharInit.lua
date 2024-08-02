@@ -5,8 +5,8 @@ function welcome(player)
     local skillset = "481_111055&111252,6381_110085&111154,6681_111019&111199,6681_110168&111019,"
 
     Protocol.SendLuaCustomPacket(player:getObj(), "diyskill", skillset);
-    local chibangset = "119750,119751,"
 
+    local chibangset = "119750,119751,"
     Protocol.SendLuaCustomPacket(player:getObj(), "diychibang", chibangset);
     --设置无数据默认偏移-65_-1为默认, -200_119751为单独设置 如果打算新增称号图档 直接后面 偏移_编号
     local toushiset = "-65_-1,-200_119751,"

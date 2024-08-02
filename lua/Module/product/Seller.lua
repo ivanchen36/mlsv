@@ -1,4 +1,3 @@
-local petSellerId = 104387
 local petEquipSeller = {
     ["1"] = {
         ["name"] = "ÇàÍ­",
@@ -78,10 +77,10 @@ local petEquipSeller = {
         [20268] = {[20386] = 10, [0] = 30000},
     },
 }
-local goldImgId = 27402
 local sellerList = {
-    [petSellerId] = petEquipSeller
+    [104387] = petEquipSeller
 }
+local goldImgId = 27402
 
 local function getSellAndPayItem(seller)
     local sellList = {}
@@ -233,6 +232,12 @@ function buyNpcItem(player, arg)
     player:sysMsg("¹ºÂò³É¹¦");
 end
 
+local function registerSeller()
+    for sellerId, _ in pairs(sellerList) do
+        npcDialog[sellerId] = showSeller;
+    end
+end
+
 ClientEvent["buy_item"] = buyNpcItem;
 ClientEvent["init_seller"] = initSeller;
-npcDialog[petSellerId] = showSeller;
+registerSeller()
