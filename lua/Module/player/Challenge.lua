@@ -3,7 +3,7 @@ local bossMap = {
 }
 
 local encountTpl = "3|0,0,0,0||0|||||0|%d|||||||||"
-local addBossAttrList = { }
+local addBossAttrList = {"hp","atk","def","agi","mp","recover","spirit"}
 local bossBattleMap = {}
 local bossAddRate = {0, 100 ,200}
 
