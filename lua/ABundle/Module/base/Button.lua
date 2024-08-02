@@ -49,6 +49,11 @@ function Button:setImgId(imgId)
     end
 end
 
+function Button:close()
+    self._showImg = nil
+    self._showText = nil
+end
+
 function Button:getControls()
     self._showImg = nil
     self._showText = nil
@@ -59,12 +64,18 @@ function Button:getControls()
         end
 
         if 0 == event then
+            if nil == self._showImg then
+                return
+            end
             if self._normalImg ~= self._showImg.imageID then
                 self:setImgId(self._normalImg)
             end
             return
         end
         if 1 == event then
+            if nil == self._showImg then
+                return
+            end
             if self._activeImg ~= self._showImg.imageID then
                 self:setImgId(self._activeImg)
             end

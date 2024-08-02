@@ -315,7 +315,8 @@ function getPosByCenter(centerX, centerY, sizeX, sizeY)
     return {math.ceil(centerX - sizeX / 2), math.ceil(centerY - sizeY / 2)}
 end
 
-function addItemTip(wnd)
+function addItemTip(mainWnd)
+    local wnd = mainWnd:createSubWindow(244317)
     local bgWidget = Image:new("ATip", 0)
     local attrWidget = Label:new("ANum1", "")
     wnd:addWidget(bgWidget)
@@ -334,10 +335,11 @@ function addItemTip(wnd)
     end
 end
 
-local function getItemTipPos(item)
+local function getItemTipPos(wnd, item)
+    local tmpX, tmpY = wnd:getPos()
     local itemCenterX, itemCenterY = item:getCenter()
-    local disX = 60
-    local disY = 50
+    local disX = 30
+    local disY = 30
     local tipSizeX = 216
     local tipSizeY = 149
     local centerX = 320
@@ -346,6 +348,8 @@ local function getItemTipPos(item)
         centerX =  480;
         centerY =  360;
     end
+    itemCenterX = itemCenterX + tmpX
+    itemCenterY = itemCenterY + tmpY
     if itemCenterX <= centerX then
         if itemCenterY <= centerY then
             return itemCenterX + disX, itemCenterY + disY
@@ -390,37 +394,111 @@ local attr3 = {
 }
 
 local allAttr = {
-    [1] = attr1,
-    [2] = attr2,
-    [8] = attr3
+    1, attr1, 2, attr2,8, attr3
 }
 local itemCatMap = {
     [0] = "剑",
+    [1] = "斧",
+    [2] = "枪",
+    [3] = "杖",
+    [4] = "弓",
+    [5] = "小刀",
+    [6] = "回力",
+    [7] = "盾牌",
+    [8] = "头盔",
+    [9] = "帽子",
+    [10] = "铠甲",
+    [11] = "衣服",
+    [12] = "长袍",
+    [13] = "靴子",
+    [14] = "鞋子",
+    [15] = "手环",
+    [16] = "乐器",
+    [17] = "项链",
+    [18] = "戒指",
+    [19] = "头带",
+    [20] = "耳环",
+    [21] = "护身符",
+    [22] = "水晶",
+    [23] = "料理",
+    [24] = "家具",
+    [25] = "谜之皮",
+    [26] = "不明",
+    [27] = "宝箱",
+    [28] = "钥匙",
+    [29] = "矿石",
+    [30] = "木材",
+    [31] = "布",
+    [32] = "肉",
+    [33] = "鱼",
+    [34] = "蔬菜",
+    [35] = "其它",
+    [36] = "香草",
+    [37] = "未知",
+    [38] = "宝石",
+    [39] = "未知",
+    [40] = "封印卡",
+    [41] = "图鉴卡",
+    [42] = "料理",
+    [43] = "药水",
+    [44] = "书",
+    [45] = "未知",
+    [46] = "其它",
+    [47] = "彩票",
+    [48] = "未知",
+    [51] = "炸弹",
+    [52] = "家族兽的粪便",
+    [53] = "点心",
+    [54] = "家族兽之笛",
+    [55] = "头饰",
 }
-function showItemTip(wnd, item, attrMap)
-    local posX, posY = getItemTipPos(item)
-    local bgWidget = wnd:getWidget("ATip")
-    bgWidget:setImg(244317)
-    bgWidget:setPos(posX, posY)
+local petCatMap = {
+    [1] = "剑",
+    [2] = "弓",
+    [3] = "仗",
+    [4] = "盔",
+    [5] = "靴",
+    [6] = "盾",
+    [7] = "铠",
+    [8] = "袍",
+}
+function showItemTip(mainWnd, item, attrMap, itemId)
+    local wnd = mainWnd:getSubWindow()
+    wnd:close()
+
+    local posX, posY = getItemTipPos(mainWnd, item)
+    wnd:setPos(posX, posY)
 
     local name = wnd:getWidget("ANum1")
-    local top = 5
-    local left = 5
+    local top = 10
+    local left = 10
     local curLine = 2
     local curIndex = 1
     name:setText(attrMap["name"])
-    bgWidget:setPos(posX + left, posY + top)
-    for color, attrList in pairs(allAttr) do
+    name:setPos(left, top)
+    for  i = 1, 3 do
+        local color = allAttr[2 * i - 1]
+        local attrList = allAttr[2 * i]
         for attr, desc in pairs(attrList) do
-            local attrWidget = wnd:getWidget("ANum".. curLine .. curIndex)
-            attrWidget:setText(desc .. " " .. attrMap[attr])
-            attrWidget:setPos(posX + left + (curIndex - 1) * 56, posY + top + (curLine - 1) * 15)
-            attrWidget:setColor(color)
-            curIndex = curIndex + 1
-            if curIndex > 3 then
-                curIndex = 1
-                curLine = curLine + 1
+            if rawget(attrMap, attr) ~= nil then
+                local attrWidget = wnd:getWidget("ANum".. curLine .. curIndex)
+                attrWidget:setText(desc .. " +" .. attrMap[attr])
+                attrWidget:setPos(left + (curIndex - 1) * 66, top + (curLine - 1) * 15)
+                attrWidget:setColor(color)
+                curIndex = curIndex + 1
+                if curIndex > 3 then
+                    curIndex = 1
+                    curLine = curLine + 1
+                end
             end
+        end
+    end
+    for j = curIndex, 3 do
+        wnd:getWidget("ANum".. curLine .. j):setText("")
+    end
+    for i = curLine + 1, 7 do
+        for j = 1, 3 do
+            wnd:getWidget("ANum".. i .. j):setText("")
         end
     end
     if curIndex ~= 1 then
@@ -429,31 +507,29 @@ function showItemTip(wnd, item, attrMap)
     end
     local attrWidget = wnd:getWidget("ANum8")
     attrWidget:setText("等级 " .. attrMap["level"])
-    attrWidget:setPos(posX + left, posY + top + (curLine - 1) * 15)
+    attrWidget:setPos(left, top + (curLine - 1) * 15)
     attrWidget:setColor(4)
     curLine = curLine + 1
     local remain = string.format("%04d", attrMap["remain"])
     attrWidget = wnd:getWidget("ANum91")
     attrWidget:setText("耐久" .. remain .. "/" .. remain)
-    attrWidget:setPos(posX + left, posY + top + (curLine - 1) * 15)
+    attrWidget:setPos(left, top + (curLine - 1) * 15)
     attrWidget:setColor(4)
     attrWidget = wnd:getWidget("ANum92")
-    attrWidget:setText("种类 " .. itemCatMap[attrMap["type"]])
-    attrWidget:setPos(posX + left, posY + top + (curLine - 1) * 15)
+    local itemType = attrMap["type"]
+    if itemType <= 55 then
+        attrWidget:setText("种类 " .. (itemCatMap[itemType] or ""))
+    else
+        local eIndex = math.fmod(itemId, 10)
+        attrWidget:setText("种类 " .. (petCatMap[eIndex] or ""))
+    end
+    attrWidget:setPos(left + 100, top + (curLine - 1) * 15)
     attrWidget:setColor(26)
+    wnd:show()
 end
 
-function closeItemTip(wnd)
-    wnd:getWidget("ATip"):setImg(0)
-    wnd:getWidget("ANum1"):setText("")
-    wnd:getWidget("ANum8"):setText("")
-    wnd:getWidget("ANum91"):setText("")
-    wnd:getWidget("ANum92"):setText("")
-    for i = 2, 7 do
-        for j = 1, 3 do
-            wnd:getWidget("ANum".. i .. j):setText("")
-        end
-    end
+function closeItemTip(mainWnd)
+    mainWnd:getSubWindow():close()
 end
 
 function addItem(wnd, preTitle)

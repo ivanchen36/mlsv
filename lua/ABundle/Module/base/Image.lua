@@ -106,6 +106,10 @@ function Image:getTitle()
     return self._title
 end
 
+function Image:close()
+    self._img = nil
+end
+
 function Image:getControls()
     self._img = nil
     local img = new.image(self._title)
@@ -118,7 +122,6 @@ function Image:getControls()
             if not self._isActive then
                 return
             end
-
             self._isActive = false
             self._onUnActive(self)
             return
@@ -157,7 +160,7 @@ function Image:getCenter()
         return 0,0
     end
 
-    return self._posX + math.floor(self._img.sizex / 2), self._posX + math.floor(self._img.sizey / 2)
+    return self._posX + math.floor(self._img.sizex / 2), self._posY + math.floor(self._img.sizey / 2)
 end
 
 function Image:setCenter(x, y)

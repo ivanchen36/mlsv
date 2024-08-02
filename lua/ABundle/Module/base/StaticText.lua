@@ -21,9 +21,14 @@ function Label:getTitle()
     return self._title
 end
 
-function Label:getControls()
-    local text = new.textbox(self._title)
+function Label:close()
     self._showText = nil
+end
+
+function Label:getControls()
+    self._showText = nil
+
+    local text = new.textbox(self._title)
     return { text }
 end
 

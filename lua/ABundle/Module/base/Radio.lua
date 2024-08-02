@@ -35,6 +35,11 @@ function Radio:getTitle()
     return self._title
 end
 
+function Radio:close()
+    self._showImg = {}
+    self._showText = {}
+end
+
 function Radio:getControls()
     self._showImg = {}
     self._showText = {}

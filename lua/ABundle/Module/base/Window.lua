@@ -64,11 +64,20 @@ function Window:new(id, title, img)
     return newObj
 end
 
-function Window:reView(id)
+function Window:new(id, title, img)
+    local bgId = 0
+
+    if type(img) == "number" then
+        bgId = img
+    else
+        bgId = getImgId(img)
+    end
     local newObj = {
         _id = id,
-        _bgId = 0,
-        _title = nil,
+        _bgId = bgId,
+        _posX = 0,
+        _posY = 0,
+        _title = title,
         _view = nil,
         _onInit = nil,
         _onShow = nil,
@@ -77,8 +86,38 @@ function Window:reView(id)
     }
     setmetatable(newObj, self)
     wndMgr[newObj._id] = newObj
+    return newObj
+end
+
+function Window:reView(id)
+    local newObj = {
+        _id = id,
+        _bgId = 0,
+        _title = nil,
+        _view = nil,
+        _onInit = nil,
+        _onShow = nil,
+        _subWindow = nil,
+        _widgets = {},
+        _widgetList = {},
+    }
+    setmetatable(newObj, self)
+    wndMgr[newObj._id] = newObj
 
     return newObj
+end
+
+function Window:createSubWindow(bg)
+    self._subWindow = Window:new(self._id + 1, self._title .. "Sub", bg)
+    return self._subWindow
+end
+
+function Window:getSubWindow()
+    return self._subWindow
+end
+
+function Window:getTitle()
+    return self._title or ""
 end
 
 function Window:onInit(initFunc)
@@ -100,7 +139,7 @@ function Window:setupUi()
     if 723 == self._id then
         self._view.settop();
     end
-    self._view.settop();
+
     for __, item in pairs(self._widgetList) do
         local widget = item.value
         local controls = widget:getControls()
@@ -116,16 +155,24 @@ function Window:setupUi()
     end
 end
 
+function Window:setPos(x, y)
+    self._posX = x
+    self._posY = y
+    if nil ~= self._view then
+        self._view.xpos = self._posX
+        self._view.ypos = self._posY
+    end
+end
+
+function Window:getPos()
+    if nil == self._view then
+        return 0, 0
+    end
+    return self._view.xpos, self._view.ypos
+end
+
 function Window:showUi()
     if nil ~= self._title then
-        local screenWidth = 640
-        local screenHeight = 480
-        if Cli.GetHD() then
-            screenWidth =  960;
-            screenHeight =  720;
-        end
-
-
         local wndBg = self._view.find(self._title .. "bg")
         wndBg.enable = 1
         wndBg.imageID = self._bgId
@@ -133,6 +180,7 @@ function Window:showUi()
         wndBg.item_ypos = 0
         wndBg.xpos = 0
         wndBg.ypos = 0
+
         local sizeX = 0
         local sizeY = 0
         if wndBg.sizex <= 0 then
@@ -143,8 +191,19 @@ function Window:showUi()
         end
         self._view.sizex = sizeX
         self._view.sizey = sizeY
-        self._view.xpos = math.floor((screenWidth - sizeX) / 2);
-        self._view.ypos =  math.floor((screenHeight - sizeY) / 2);
+        if self._posX > 0 then
+            self._view.xpos = self._posX
+            self._view.ypos = self._posY
+        else
+            local screenWidth = 640
+            local screenHeight = 480
+            if Cli.GetHD() then
+                screenWidth =  960;
+                screenHeight =  720;
+            end
+            self._view.xpos = math.floor((screenWidth - sizeX) / 2);
+            self._view.ypos =  math.floor((screenHeight - sizeY) / 2);
+        end
 
         self._view.pxpos = 0
         self._view.pypos = 0
@@ -158,18 +217,30 @@ function Window:showUi()
 end
 
 function Window:show()
-    if lastWnd ~= nil then
-        lastWnd:close()
+    if math.fmod(self._id, 2) == 1 then
+        if lastWnd ~= nil then
+            lastWnd:close()
+        end
+        lastWnd = self
     end
-    lastWnd = self
     self._view = nil
     new.ShowView(self._id, showWnd)
 end
 
 function Window:close()
+    if self._view == nil then
+        return
+    end
+    if self._subWindow ~= nil then
+        self._subWindow:close()
+    end
+    for i, widget in pairs(self._widgets) do
+        widget:close()
+    end
     View.Close(self._id)
     Audio.Bell(54,320)
     lastWnd = nil
+    self._view = nil
 end
 
 function Window:getView()

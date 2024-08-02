@@ -115,7 +115,7 @@ function getSellerClient(player, arg)
             ["active"] = "b2.bmp",
             ["disable"] = "b3.bmp",
             ["text"] = "¹ºÂò",
-            ["click"] = "buyItem",
+            ["click"] = "buyNpcItem",
         }
     }--244317 216 149 60 50
     Protocol.PowerSend(player:getObj(), "SELLER_CLIENT", sellerClient)

@@ -159,6 +159,11 @@ function getItemImg(itemId)
     return item:getImage()
 end
 
+function getMaxStackCount(itemId)
+    local item = MyDataItem:new(itemId)
+    return item:getMaxStackCount()
+end
+
 function getItemName(itemId)
     local item = MyDataItem:new(itemId)
     return item:getName()

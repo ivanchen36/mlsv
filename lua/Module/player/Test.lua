@@ -11,6 +11,8 @@ local userInfo1 = {}
 function test(player)
     getSellerClient(player, "")
     --logPrint(getItemImg(20287))
+    --logPrint(MyItem:create(20242))
+    --logPrint(Item.MakeItemAndRegist(20242, 1))
 end
 
 function test2()
@@ -27,17 +29,6 @@ function testRecv(fd,head,packet)
     logPrint("testRecv", fd,head,packet)
     return 0
 end
-
-function testBattle(battleIndex)
-    for i = 0, 19 do
-        local player = MyPlayer:new(Battle.GetPlayer(battleIndex, i))
-        if player:isValid() then
-            logPrint(i,":", player:getName())
-        end
-    end
-end
-
-InitEvent["battle"] = testBattle
 
 --InitEvent["server"] = test2
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 1);

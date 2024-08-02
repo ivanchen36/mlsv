@@ -14,6 +14,9 @@ function MyDataItem:getObj()
 end
 
 function MyDataItem:get(key)
+    if (key >= 18 and key <= 28) or key == 72 then
+        return Data.ItemsetGetData(self._item, key) + Data.ItemsetGetRandomIntData(self._item, key)   -- 使用 Char.GetData 函数获取玩家数据
+    end
     return Data.ItemsetGetData(self._item, key)  -- 使用 Char.GetData 函数获取玩家数据
 end
 

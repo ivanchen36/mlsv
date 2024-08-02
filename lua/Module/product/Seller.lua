@@ -160,9 +160,10 @@ function initSeller(player, arg)
 end
 
 function buyNpcItem(player, arg)
+    logPrint("buyNpcItem", arg)
     local parts = strSplit(arg, "#")
     local npcImg = tonumber(parts[1])
-    local sellerList = sellerItemList[npcImg]
+    local sellerList = sellerList[npcImg]
     if sellerList == nil then
         player:sysMsg("系统异常，售卖NPC不存")
         return
@@ -181,36 +182,54 @@ function buyNpcItem(player, arg)
             return
         end
         local payInfo = itemList[buyItem]
-        local payItem =  payInfo[1]
-        local payNum =  payInfo[2] * buyNum
-        if rawget(needPayInfo, payItem) == nil then
-            needPayInfo[payItem] = payNum
-        else
-            needPayInfo[payItem] = needPayInfo[payItem] + payNum
+        for payItem, payNum in pairs(payInfo) do
+            if rawget(needPayInfo, payItem) == nil then
+                needPayInfo[payItem] = payNum
+            else
+                needPayInfo[payItem] = needPayInfo[payItem] + payNum * buyNum
+            end
         end
+
         buyInfo[buyItem] = buyNum
-        sum = sum + buyNum
+        local useBagNum = math.ceil(buyNum / getMaxStackCount(buyItem))
+        sum = sum + useBagNum
     end
     if sum > player:freeBagNum() then
         player:sysMsg("物品栏空间不足，购买失败")
         return
     end
+    logPrint(needPayInfo)
     for item, num in pairs(needPayInfo) do
-        if player:getItemNum(item) < num then
-            player:sysMsg("您需要的道具" .. getItemName(item) .. "不足" .. num .. "个")
-            return
+        if 0 == item then
+            if player:getGold() < num then
+                player:sysMsg("您的魔币不足" .. num)
+                return
+            end
+        else
+            if player:getItemNum(item) < num then
+                player:sysMsg("您需要的道具" .. getItemName(item) .. "不足" .. num .. "个")
+                return
+            end
         end
     end
     for item, num in pairs(needPayInfo) do
-        if player:delItem(item, num) <= 0 then
-            player:sysMsg("扣除 " .. getItemName(item) .. " 失败");
-            return 0
+        if 0 == item then
+            if player:subMoney(num) <= 0 then
+                player:sysMsg("扣除魔币失败");
+                return
+            end
+        else
+            if player:delItem(item, num) <= 0 then
+                player:sysMsg("扣除 " .. getItemName(item) .. " 失败");
+                return
+            end
         end
     end
-
+    logPrintTbl(buyInfo)
     for item, num in pairs(buyInfo) do
         player:addItem(item, num)
     end
+    player:flush()
     player:sysMsg("购买成功");
 end
 

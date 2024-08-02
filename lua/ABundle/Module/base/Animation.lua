@@ -18,6 +18,10 @@ function Animation:setImgId(img, imgId)
     end
 end
 
+function Animation:close()
+    self._img = nil
+end
+
 function Animation:getControls()
     self._img = nil
 
