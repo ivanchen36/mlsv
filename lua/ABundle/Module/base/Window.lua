@@ -260,11 +260,9 @@ function Window:addClose(x, y, img, actImg, disImg)
         btn:setDisableImg(disImg)
     end
 
-    local viewId = self._id
     btn:setPos(x, y)
     btn:clicked(function(btn)
-        View.Close(viewId)
-        Audio.Bell(54,320)
+        self:close()
     end)
     self:addWidget(btn)
 end
