@@ -260,9 +260,9 @@ function preRoutineEnemy(battleIndex)
     if Battle.IsBossBattle(battleIndex) then
         killEnemyMap = waitKillBossMap
     end
-    local player = MyPlayer:new(Battle.GetPlayer(battle,0))
+    local player = MyPlayer:new(Battle.GetPlayer(battleIndex,0))
     if not player:isValid() or not player:isPerson() then
-        player = MyPlayer:new(Battle.GetPlayer(battle,5))
+        player = MyPlayer:new(Battle.GetPlayer(battleIndex,5))
     end
     if rawget(killEnemyMap, player:getObj()) ~= nil then
         for _, item in ipairs(killEnemyMap[player:getObj()]) do

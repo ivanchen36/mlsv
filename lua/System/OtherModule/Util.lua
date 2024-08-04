@@ -1,3 +1,5 @@
+socket = require("socket")
+
 function truncDay(t1)
     return math.floor((t1 + 28800) / 86400) * 86400 - 28800
 end

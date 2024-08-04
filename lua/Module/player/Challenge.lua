@@ -1,5 +1,5 @@
 local bossMap = {
-    [imgId] = {encountId, enemyId, amount}
+    [101934] = {30001, 35001, 1000}
 }
 
 local encountTpl = "3|0,0,0,0||0|||||0|%d|||||||||"
@@ -7,11 +7,28 @@ local addBossAttrList = {"hp","atk","def","agi","mp","recover","spirit"}
 local bossBattleMap = {}
 local bossAddRate = {0, 100 ,200}
 
-local function modifyAttr(bossId, challengeLevel)
+local function modifyAttr(battleIndex, enemyId, challengeLevel)
+    local addRate = (challengeLevel - 1) * 0.5
     for i = 10, 19 do
         local enemy = MyEnemy:new(Battle.GetPlayer(battleIndex, i))
         if enemy:isValid() then
-
+            local buffList= {
+                ["hp"] = math.floor(enemy:getMaxHp() * addRate),
+                ["mp"] = math.floor(enemy:getMaxMp() * addRate),
+                ["atk"] = math.floor(enemy:getAttackPower() * addRate),
+                ["def"] = math.floor(enemy:getDefensePower() * addRate),
+                ["agi"] = math.floor(enemy:getAgility() * addRate),
+                ["spirit"] = math.floor(enemy:getMagicStrength() * addRate),
+                ["recover"] = math.floor(enemy:getRecoveryRate() * addRate),
+            }
+            addBuff(enemy, buffList)
+            logPrint(enemy:getMaxHp())
+            logPrint(enemy:getMaxMp())
+            logPrint(enemy:getAttackPower())
+            logPrint(enemy:getDefensePower())
+            logPrint(enemy:getAgility())
+            logPrint(enemy:getRecoveryRate())
+            logPrint(enemy:getMagicStrength())
         end
     end
 end
@@ -22,10 +39,12 @@ function modifyBossAttr(battleIndex)
     end
 
     local arr = bossBattleMap[battleIndex]
-    local bossId = arr[1]
+    local enemyId = arr[1]
     local challengeLevel = arr[2]
     bossBattleMap[battleIndex] = nil
-    modifyAttr(bossId, challengeLevel)
+    if challengeLevel > 1 then
+        modifyAttr(battleIndex, enemyId, challengeLevel)
+    end
 end
 
 function challengeBoss(player, arg)
@@ -43,10 +62,11 @@ function challengeBoss(player, arg)
         return
     end
 
-    bossBattleMap[battleIndex] = {bossId, challengeLevel}
+    bossBattleMap[battleIndex] = {bossInfo[2], challengeLevel}
 end
 
 function showChallenge(npc, player, s)
+    logPrint("showChallenge")
     local resp = {}
     local npcPlayer = MyPlayer:new(npc)
     local imgId = npcPlayer:getImage()
@@ -56,13 +76,17 @@ function showChallenge(npc, player, s)
     local attr = enemy:getAttr()
 
     resp["id"] = imgId
+    resp["type"] = "jjc"
     resp["amount"] = bossInfo[3]
-    resp["name"] = enemy:getName()
+    resp["name"] = player:getName()
+    resp["level"] = enemy:getLevel()
+    resp["boss"] = npcPlayer:getName()
+    resp["img"] = npcPlayer:getImage()
     for k, v in pairs(attr) do
         resp[k] = v
     end
-
-    Protocol.PowerSend(player:getObj(), "INIT_SELLER", resp)
+    
+    Protocol.PowerSend(player:getObj(), "SHOW_BOSS", resp)
 end
 
 local function registerChallenge()
@@ -71,6 +95,6 @@ local function registerChallenge()
     end
 end
 
-clientEvent["challenge_boss"] = challengeBoss
+ClientEvent["challenge_boss"] = challengeBoss
 InitEvent["battle"] = modifyBossAttr
 registerChallenge()

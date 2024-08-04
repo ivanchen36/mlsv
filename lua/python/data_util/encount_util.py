@@ -75,21 +75,19 @@ def copyGroup(path, groupId):
         arr1 = line.split("\t")
         if len(arr1) < 5:
             continue
-        if int(arr1[Group.gid]) != groupId:
-            continue
+        if int(arr1[Group.gid]) == groupId:
+            for eIndex in enemyList:
+                if len(arr1[eIndex]) > 0 and arr1[eIndex] != "0":
+                    newEnemyId = newEnemyId + 1
+                    print("copy enemy:" + arr1[eIndex])
+                    copyEnemy(path, int(arr1[eIndex]), newEnemyId)
+                    arr1[eIndex] = str(newEnemyId)
+            newgroupId = newGroupId + 1
+            arr1[Group.gid] = str(newGroupId)
 
-        for eIndex in enemyList:
-            newEnemyId = newEnemyId + 1
-
-            if len(arr1[eIndex]) > 0 and arr1[eIndex] != "0":
-                copyEnemy(path, int(arr1[eIndex]), newEnemyId)
-                arr1[eIndex] = str(newEnemyId)
-        newgroupId = newGroupId + 1
-        arr1[Group.gid] = str(newGroupId)
-
-        getString(arr1, Group.GROUP_LEN)
-        #groupFile1.writeLine(getString(arr1, Group.GROUP_LEN))
-    return newGroupId
+            #getString(arr1, Group.GROUP_LEN)
+            groupFile1.writeLine(getString(arr1, Group.GROUP_LEN))
+            return newGroupId
 
 newEncountId = 30000
 groupList = [Encount.g1, Encount.g2, Encount.g3, Encount.g4, Encount.g5, Encount.g6, Encount.g7, Encount.g8, Encount.g9, Encount.g10]
@@ -102,18 +100,19 @@ def copyEncount(path, encountId):
         arr1 = line.split("\t")
         if len(arr1) < 5:
             continue
-        if int(arr1[Encount.eid]) != encountId:
-            continue
-        for gIndex in groupList:
-            if len(arr1[gIndex]) > 0 and arr1[gIndex] != "0":
-                newGroupId = copyGroup(path, int(arr1[gIndex]))
-                arr1[gIndex] = str(newGroupId)
-        newEncountId = newEncountId + 1
-        arr1[Encount.eid] = str(newEncountId)
+        if int(arr1[Encount.eid]) == encountId:
+            for gIndex in groupList:
+                if len(arr1[gIndex]) > 0 and arr1[gIndex] != "0":
+                    print("copy group:" + arr1[gIndex])
+                    newGroupId = copyGroup(path, int(arr1[gIndex]))
+                    arr1[gIndex] = str(newGroupId)
+            newEncountId = newEncountId + 1
+            arr1[Encount.eid] = str(newEncountId)
 
-        getString(arr1, Encount.ENCOUNT_LEN)
-        #encountFile1.writeLine(getString(arr1, Encount.ENCOUNT_LEN))
+            #getString(arr1, Encount.ENCOUNT_LEN)
+            encountFile1.writeLine(getString(arr1, Encount.ENCOUNT_LEN))
+            return
 
 if __name__ == "__main__":
     #generateEnemy("../../../task/chx")
-    copyEncount("../../../task/chx", 1032)
+    copyEncount("../../../task/chx", 12002)

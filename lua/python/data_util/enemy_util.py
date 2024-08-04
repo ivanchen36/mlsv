@@ -20,31 +20,30 @@ def copyEnemy(path, enemyId, newEnemyId):
         arr1 = line.split("\t")
         if len(arr1) < 5:
             continue
-        if int(arr1[Enemy.eId]) != enemyId:
-            continue
+        if int(arr1[Enemy.eId]) == enemyId:
+            copyEnemyBase(path, int(arr1[Enemy.bId]), newEnemyId)
+            arr1[Enemy.eId] = str(newEnemyId)
+            arr1[Enemy.bId] = str(newEnemyId)
 
-        newEnemyId = newEnemyId + 1
-        copyEnemyBase(path, Enemy.bId, newEnemyId)
-        arr1[Enemy.eId] = str(newEnemyId)
-
-        getString(arr1, Enemy.ENEMY_LEN)
-        #enemyFile1.writeLine(getString(arr1, Enemy.ENEMY_LEN))
+            #getString(arr1, Enemy.ENEMY_LEN)
+            enemyFile1.writeLine(getString(arr1, Enemy.ENEMY_LEN))
+            return
 
 def copyEnemyBase(path, enemyBaseId, newEnemyBaseId):
+    print("copyEnemyBase", path, enemyBaseId, newEnemyBaseId)
     enemyBaseFile = FileUtil(path + "/../../data/enemybase.txt", "gbk")
     enemyBaseFile1 = FileUtil(path + "/enemybase.txt", "gbk")
     for line in enemyBaseFile.readLines():
         arr1 = line.split("\t")
         if len(arr1) < 5:
             continue
-        if int(arr1[Enemy.eId]) != enemyBaseId:
-            continue
 
-        newEnemyId = newEnemyId + 1
-        arr1[Enemy.eId] = str(newEnemyBaseId)
+        if int(arr1[EnemyBase.bId]) == enemyBaseId:
+            arr1[EnemyBase.bId] = str(newEnemyBaseId)
 
-        getString(arr1, EnemyBase.ENEMY_BASE_LEN)
-        #enemyBaseFile1.writeLine(getString(arr1, EnemyBase.ENEMY_BASE_LEN))
+            #getString(arr1, EnemyBase.ENEMY_BASE_LEN)
+            enemyBaseFile1.writeLine(getString(arr1, EnemyBase.ENEMY_BASE_LEN))
+            return
 
 def generateEnemy(path):
     template = "name	at:10;1;1|gu:1|es:1|wa:0;0;0;0;0;0;0;	id1	id2	1	1	1	1	0	-1	-1	0	1																															0	0			0"

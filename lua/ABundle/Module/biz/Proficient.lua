@@ -46,39 +46,117 @@ function initProficientContent()
 end
 
 function flushProficientInfo(info)
-    logPrintTbl(info)
     proficientInfo = info;
     initProficientContent()
 end
 
-function loadProficientClient(client)
-    logPrint("loadProficientClient")
-    logPrintTbl(client)
-
-    local needShow = false
-    if nil == proficientWnd and nil ~= proficientInfo then
-        needShow = true
-    end
+local function loadProficientClient()
+    local client = {
+        {
+            ["type"] = "bg",
+            ["img"] = "proficient.bmp",
+        },
+        {
+            ["type"] = "close",
+            ["x"] = 461,
+            ["y"] = 8,
+            ["img"] = 243000,
+            ["active"] = 243002,
+            ["disable"] = 243001,
+        },
+        {
+            ["table"] = "9,1",
+            ["high"] = 25,
+            ["type"] = "img",
+            ["title"] = "#raceTitle$line",
+            ["x"] = 106,
+            ["y"] = 82,
+            ["img"] = "line.bmp",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "lab",
+            ["title"] = "#raceTitle$Z",
+            ["x"] = 80,
+            ["y"] = 62,
+            ["text"] = "#raceTitleVal$:",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "img",
+            ["title"] = "#raceTitle$L",
+            ["x"] = 70,
+            ["y"] = 57,
+            ["img"] = "lab.bmp",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "lab",
+            ["title"] = "#raceTitle$Level",
+            ["x"] = 145,
+            ["y"] = 62,
+            ["text"] = "等级1",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "img",
+            ["title"] = "#raceTitle$a",
+            ["x"] = 137,
+            ["y"] = 59,
+            ["img"] = "lab1.bmp",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "lab",
+            ["title"] = "#raceTitle$Info",
+            ["x"] = 185,
+            ["y"] = 62,
+            ["text"] = "--",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "btn",
+            ["title"] = "#raceTitle$Up",
+            ["x"] = 325,
+            ["y"] = 59,
+            ["img"] = "b1.bmp",
+            ["active"] = "b2.bmp",
+            ["disable"] = "b3.bmp",
+            ["text"] = "升级",
+            ["click"] = "upProficient",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 25,
+            ["type"] = "btn",
+            ["title"] = "#raceTitle$Challenge",
+            ["x"] = 379,
+            ["y"] = 59,
+            ["img"] = "b1.bmp",
+            ["active"] = "b2.bmp",
+            ["disable"] = "b3.bmp",
+            ["text"] = "挑战",
+            ["click"] = "raceChallenge",
+        }
+    }
     proficientWnd = createWindow(1005, "proficient", client)
-    if needShow then
-        showProficient(proficientInfo)
-    end
 end
 
 function showProficient(info)
     proficientInfo = info;
     if (proficientWnd == nil) then
-        Cli.Send("proficient_client")
-        return
+        loadProficientClient()
     end
 
-    logPrint( 'showProficient1')
-    logPrintTbl(info)
     proficientWnd:show()
     initProficientContent()
-    logPrint( 'showProficient2')
 end
 
 Cli.Send().wait["FLUSH_PROFICIENT"] = flushProficientInfo
 Cli.Send().wait["SHOW_PROFICIENT"] = showProficient
-Cli.Send().wait["PROFICIENT_CLIENT"] = loadProficientClient

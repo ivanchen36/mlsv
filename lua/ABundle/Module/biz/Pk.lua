@@ -30,7 +30,6 @@ function initPkContent()
     for i = 1, #pkTitle do
         local info = pkInfo[i]
         if info ~= nil then
-            logPrintTbl(info)
             local title = pkTitle[i]
             local desc = pkWnd:getWidget(title .. "Cur")
             local status = pkWnd:getWidget(title .. "Status")
@@ -51,41 +50,134 @@ function initPkContent()
 end
 
 function flushPkInfo(info)
-    logPrintTbl(info)
     pkInfo[info[1]][3] = info[2];
     initPkContent()
 end
 
-function loadPkClient(client)
-    logPrint("loadPkClient")
-    logPrintTbl(client)
-
-    local needShow = false
-    if nil == pkWnd and nil ~= pkInfo then
-        needShow = true
-    end
+local function loadPkClient()
+    local client = {
+        {
+            ["type"] = "bg",
+            ["img"] = "pk.bmp",
+        },
+        {
+            ["type"] = "close",
+            ["x"] = 461,
+            ["y"] = 8,
+            ["img"] = 243000,
+            ["active"] = 243002,
+            ["disable"] = 243001,
+        },
+        {
+            ["table"] = "1,0",
+            ["width"] = 246,
+            ["type"] = "lab",
+            ["title"] = "#pkTitle$Time",
+            ["x"] = 31,
+            ["y"] = 90,
+            ["text"] = "#pkTime",
+        },
+        {
+            ["table"] = "1,0",
+            ["width"] = 246,
+            ["type"] = "lab",
+            ["title"] = "#pkTitle$Cond",
+            ["x"] = 31,
+            ["y"] = 117,
+            ["text"] = "#pkCond",
+        },
+        {
+            ["table"] = "1,0",
+            ["width"] = 246,
+            ["type"] = "lab",
+            ["title"] = "#pkTitle$Rule",
+            ["x"] = 31,
+            ["y"] = 145,
+            ["text"] = "#pkRule",
+        },
+        {
+            ["table"] = "1,0",
+            ["width"] = 246,
+            ["type"] = "lab",
+            ["title"] = "#pkTitle$Info",
+            ["x"] = 31,
+            ["y"] = 173,
+            ["text"] = "#pkRuleInfo",
+        },
+        {
+            ["table"] = "1,0",
+            ["width"] = 246,
+            ["type"] = "lab",
+            ["title"] = "#pkTitle$Cur",
+            ["x"] = 31,
+            ["y"] = 199,
+            ["text"] = "",
+        },
+        {
+            ["table"] = "1,0",
+            ["width"] = 246,
+            ["type"] = "lab",
+            ["title"] = "#pkTitle$Status",
+            ["x"] = 31,
+            ["y"] = 227,
+            ["text"] = "",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "singleJoin",
+            ["x"] = 96,
+            ["y"] = 255,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "报名",
+            ["click"] = "joinSinglePk",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "teamJoin",
+            ["x"] = 296,
+            ["y"] = 255,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "报名",
+            ["click"] = "joinTeamPk",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "singleWarp",
+            ["x"] = 150,
+            ["y"] = 255,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "传送",
+            ["click"] = "warpPk",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "teamWarp",
+            ["x"] = 348,
+            ["y"] = 255,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "传送",
+            ["click"] = "warpPk",
+        }
+    }
     pkWnd = createWindow(1003, "pk", client)
-    if needShow then
-        showPk(pkInfo)
-    end
 end
 
 function showPk(info)
-    logPrintTbl(info)
     pkInfo = info;
     if (pkWnd == nil) then
-        Cli.Send("pk_client")
-        return
+        loadPkClient()
     end
-
-    logPrint( 'showPk1')
-    logPrintTbl(info)
-
     pkWnd:show()
     initPkContent()
-    logPrint( 'showPk2')
 end
 
 Cli.Send().wait["FLUSH_PK"] = flushPkInfo
 Cli.Send().wait["SHOW_PK"] = showPk
-Cli.Send().wait["PK_CLIENT"] = loadPkClient

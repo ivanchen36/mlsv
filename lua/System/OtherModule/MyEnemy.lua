@@ -10,13 +10,14 @@ function MyEnemy:new(player)
 end
 
 function MyEnemy:getId()
-    return self:get(68)
+    return self:get(57)
 end
 
 function MyEnemy:setId(id)
-    return self:set(68, id)
+    return self:set(57, id)
 end
 
 function MyEnemy:flush()
     NLG.UpChar(self._player)
 end
+

@@ -571,9 +571,9 @@ function showItem(wnd, preTitle, itemImg, need, num)
     end
 end
 
-function Event.Recv.PrintP(player, packet)
-    logPrint("Recv " .. packet)
-end
+--function Event.Recv.PrintP(player, packet)
+--    logPrint("Recv " .. packet)
+--end
 
 function errorHandler(err)
     -- 这是一个错误处理函数，它会被 xpcall 调用，当 func 抛出错误时

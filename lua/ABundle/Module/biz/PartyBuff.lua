@@ -24,8 +24,6 @@ local function loadPartyWnd()
 end
 
 function flushPartyBuff(info)
-    logPrint("flushPartyBuff")
-    logPrintTbl(info)
     partyInfo = info
     if partyWnd == nil then
         loadPartyWnd()
@@ -37,17 +35,14 @@ function flushPartyBuff(info)
             end
             for i = 1, 5 do
                 local img = partyWnd:getWidget("m" .. i)
-                logPrint(vipInfo[tostring(i)])
                 if vipInfo[tostring(i)] ~= nil then
                     img:setImg("v" .. vipInfo[tostring(i)] .. ".bmp")
                 else
                     img:setImg(0)
                 end
-                logPrintTbl(img)
             end
         end)
     end
-    logPrintTbl(partyWnd)
 end
 
 function sendTax(param)

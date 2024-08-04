@@ -47,6 +47,7 @@ function initVip(player)
                 .. player:getRegistNumber() .. "',0,0,0,0,unix_timestamp(),0,0,0)";
         SQL.Run(sql);
         vipInfo[player:getRegistNumber()] = {
+            ["me"] = player:getFace(),
             ["level"] = 0,
             ["exp"] = 0,
             ["lastExp"] = 0,
@@ -67,6 +68,7 @@ function initVip(player)
     end
 
     vipInfo[player:getRegistNumber()] = {
+        ["me"] = player:getFace(),
         ["level"] = tonumber(rs["0_0"]),
         ["exp"] = tonumber(rs["0_1"]),
         ["lastExp"] = tonumber(rs["0_2"]),

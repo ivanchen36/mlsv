@@ -4,10 +4,9 @@ MyEnemyData.__index = MyEnemyData
 
 -- 定义构造函数 new
 function MyEnemyData:new(enemyId)
-    local enemyIndex = Data.EnemyGetIndex(enemyId)
     local newObj = {
-        _enemy = enemyIndex,
-        _enemyBase = Data.EnemyGetIndex(Data.EnemyGetData(enemyIndex, 1)),
+        _enemy = Data.EnemyGetIndex(enemyId),
+        _enemyBase = Data.EnemyTempGetIndex(enemyId),
     }
     setmetatable(newObj, self)
     return newObj
@@ -17,44 +16,40 @@ function MyEnemyData:get(pos)
     return Data.EnemyGetData(self._enemy, pos)
 end
 
-function MyEnemyData:get1()
+function MyEnemyData:get1(pos)
     return Data.EnemyTempGetData(self._enemyBase, pos)
 end
 
 function MyEnemyData:getLevel()
-    return self:get(1)
+    return self:get(2)
 end
 
 function MyEnemyData:getBirthBp()
-    return self:get(1)
+    return self:get1(1)
 end
 
 function MyEnemyData:getVital()
-    return self:get(self._player, 1)
+    return self:get1(4)
 end
 
 function MyEnemyData:getStr()
-    return self:get(self._player, 2)
+    return self:get1(5)
 end
 
 function MyEnemyData:getTough()
-    return self:get(self._player, 3)
+    return self:get1(6)
 end
 
 function MyEnemyData:getQuick()
-    return self:get(self._player, 4)
+    return self:get1(7)
 end
 
 function MyEnemyData:getMagic()
-    return self:get(self._player, 5)
+    return self:get1(8)
 end
 
 function MyEnemyData:getImage()
-    return self:get(self._player, 5)
-end
-
-function MyEnemyData:getName()
-    return self:get(self._player, 5)
+    return self:get1(29)
 end
 
 function MyEnemyData:getAttr()

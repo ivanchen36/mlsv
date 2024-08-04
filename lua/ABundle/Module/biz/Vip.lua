@@ -185,39 +185,126 @@ function initVipContent()
 end
 
 function flushVipInfo(info)
-    logPrintTbl(info)
     vipInfo = info;
     initVipContent()
 end
 
-function loadVipClient(client)
-    logPrint("loadVipClient")
-    logPrintTbl(client)
-    local needShow = false
-    if nil == vipWnd and nil ~= vipInfo then
-        needShow = true
-    end
+local function loadVipClient()
+    local client = {
+        {
+            ["type"] = "bg",
+            ["img"] = "vip.bmp",
+        },
+        {
+            ["type"] = "close",
+            ["x"] = 461,
+            ["y"] = 8,
+            ["img"] = 243000,
+            ["active"] = 243002,
+            ["disable"] = 243001,
+        },
+        {
+            ["type"] = "img",
+            ["title"] = "aLevel",
+            ["x"] = 35,
+            ["y"] = 29,
+            ["img"] = "vip0.bmp",
+        },
+        {
+            ["type"] = "img",
+            ["title"] = "mask",
+            ["x"] = 203,
+            ["y"] = 34,
+            ["img"] = "mask.bmp",
+        },
+        {
+            ["type"] = "img",
+            ["title"] = "me",
+            ["x"] = 218,
+            ["y"] = 48,
+            ["img"] = 0,
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 223,
+            ["high"] = 39,
+            ["type"] = "lab",
+            ["title"] = "#vipTitle",
+            ["x"] = 33,
+            ["y"] = 151,
+            ["text"] = "#vipTitleVal",
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 223,
+            ["high"] = 39,
+            ["type"] = "img",
+            ["title"] = "#vipTitle$Lab",
+            ["x"] = 27,
+            ["y"] = 146,
+            ["img"] = "lab.bmp",
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 223,
+            ["high"] = 39,
+            ["type"] = "lab",
+            ["title"] = "#vipTitle$Text",
+            ["x"] = 95,
+            ["y"] = 151,
+            ["text"] = "#vipTextVal",
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 223,
+            ["high"] = 39,
+            ["type"] = "btn",
+            ["title"] = "#vipBtn",
+            ["x"] = 187,
+            ["y"] = 147,
+            ["img"] = "b1.bmp",
+            ["active"] = "b2.bmp",
+            ["disable"] = "b3.bmp",
+            ["text"] = "#vipBtnText",
+            ["click"] = "#vipEvents",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "upVip",
+            ["x"] = 297,
+            ["y"] = 143,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "Éý¼¶",
+            ["click"] = "upVip",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "upGift",
+            ["x"] = 397,
+            ["y"] = 143,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "Àñ°ü",
+            ["click"] = "upGift",
+        }
+    }
     vipWnd = createWindow(1011, "vip", client)
-    if needShow then
-        showVip(vipInfo)
-    end
 end
 
 function showVip(info)
     vipInfo = info;
     if (vipWnd == nil) then
-        Cli.Send("vip_client")
-        return
+        loadVipClient()
+        vipWnd:getWidget("me"):setImg(vipInfo["me"])
     end
-    logPrint( 'showVip1')
-    logPrintTbl(info)
     vipWnd:show()
     initVipContent()
-    logPrint( 'showVip2')
 end
 
 function setVip(vip)
-    logPrint("setVip", vip)
     vipLevel = vip
     if userInfoWnd == nil then
         local client = {
@@ -234,10 +321,50 @@ function setVip(vip)
             userInfoWnd:getWidget("level"):setImg("v" .. vipLevel .. ".bmp")
         end)
     end
-    logPrintTbl(userInfoWnd)
 end
 
-Cli.Send().wait["VIP_CLIENT"] = loadVipClient
 Cli.Send().wait["FLUSH_VIP"] = flushVipInfo
 Cli.Send().wait["SHOW_VIP"] = showVip
 Cli.Send("set_vip").wait["SET_VIP"] = setVip
+
+local adWnd = nil
+local showTime = 0
+CHX = new.www('http://www.chxml.com/client/')
+
+function welcome(adImg)
+    local curTime = os.time()
+    if curTime - showTime < 60 then
+        return
+    end
+    showTime = curTime
+    if adWnd == nil then
+        local client = {
+            {
+                ["type"] = "bg",
+                ["img"] = "bg.bmp",
+            },
+            {
+                ["type"] = "close",
+                ["x"] = 461,
+                ["y"] = 8,
+                ["img"] = 243000,
+                ["active"] = 243002,
+                ["disable"] = 243001,
+            },
+            {
+                ["type"] = "img",
+                ["title"] = "ad",
+                ["x"] = 0,
+                ["y"] = 0,
+                ["img"] = 0,
+            }
+        }
+        adWnd = createWindow(1013, "recover", client)
+    end
+    CHX.Uwait(adImg)
+    adWnd:getWidget("ad"):setImg(adImg)
+    adWnd:show()
+end
+
+Cli.Send("welcome")
+Cli.Send().wait["WELCOME"] = welcome

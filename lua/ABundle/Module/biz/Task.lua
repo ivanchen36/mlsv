@@ -59,7 +59,6 @@ function initTaskContent()
         else
             submit:setEnabled(false)
         end
-        logPrintTbl(submit)
         submit:clicked(function(w)
             Cli.Send("submit_task|" .. task.id)
         end)
@@ -68,22 +67,91 @@ function initTaskContent()
 end
 
 function flushtaskInfo(info)
-    logPrintTbl(info)
     taskInfo = info;
     initTaskContent()
 end
 
-function loadTaskClient(client)
-    logPrint("loadTaskClient")
-    logPrintTbl(client)
-    local needShow = false
-    if nil == taskWnd and nil ~= taskInfo then
-        needShow = true
-    end
+local function loadTaskClient()
+    local client = {
+        {
+            ["type"] = "bg",
+            ["img"] = "task.bmp",
+        },
+        {
+            ["type"] = "close",
+            ["x"] = 461,
+            ["y"] = 8,
+            ["img"] = 243000,
+            ["active"] = 243002,
+            ["disable"] = 243001,
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 188,
+            ["high"] = 76,
+            ["type"] = "img",
+            ["title"] = "#taskTitle$Z",
+            ["x"] = 58,
+            ["y"] = 78,
+            ["img"] = 0,
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 188,
+            ["high"] = 76,
+            ["type"] = "lab",
+            ["title"] = "#taskTitle$Desc",
+            ["x"] = 108,
+            ["y"] = 85,
+            ["text"] = "",
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 188,
+            ["high"] = 76,
+            ["type"] = "lab",
+            ["title"] = "#taskTitle$Line",
+            ["x"] = 110,
+            ["y"] = 96,
+            ["text"] = "--------------",
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 188,
+            ["high"] = 76,
+            ["type"] = "lab",
+            ["title"] = "#taskTitle$Process",
+            ["x"] = 136,
+            ["y"] = 106,
+            ["text"] = "",
+        },
+        {
+            ["table"] = "0,2",
+            ["width"] = 188,
+            ["high"] = 76,
+            ["type"] = "btn",
+            ["title"] = "#taskTitle$Submit",
+            ["x"] = 206,
+            ["y"] = 87,
+            ["img"] = "y1.bmp",
+            ["active"] = "y2.bmp",
+            ["disable"] = "y3.bmp",
+            ["text"] = "Ã·Ωª",
+        },
+        {
+            ["table"] = "0,1",
+            ["high"] = 26,
+            ["type"] = "btn",
+            ["title"] = "#taskBtn",
+            ["x"] = 20,
+            ["y"] = 70,
+            ["img"] = "menu1.bmp",
+            ["active"] = "menu2.bmp",
+            ["disable"] = "menu3.bmp",
+            ["text"] = "#cycleName",
+        }
+    }
     taskWnd = createWindow(1009,"task", client)
-    if needShow then
-        showTask(taskInfo)
-    end
 end
 
 function addCycleEvent()
@@ -100,15 +168,11 @@ function showTask(info)
     taskInfo = info;
 
     if (taskWnd == nil) then
-        Cli.Send("task_client")
-        return
+        loadTaskClient()
     end
-    logPrint( 'showTask1')
-    logPrintTbl(info)
 
     taskWnd:show()
     initTaskContent()
-    logPrint( 'showTask2')
 end
 
 function flushSubmitTask(taskId)
@@ -125,4 +189,3 @@ end
 Cli.Send().wait["FLUSH_TASK"] = flushTaskInfo
 Cli.Send().wait["SUBMIT_TASK"] = flushSubmitTask
 Cli.Send().wait["SHOW_TASK"] = showTask
-Cli.Send().wait["TASK_CLIENT"] = loadTaskClient

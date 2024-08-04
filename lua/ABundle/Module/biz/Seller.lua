@@ -14,7 +14,6 @@ local maxPayNum = 3
 local buyList = {}
 
 function buyNpcItem(w)
-    logPrintTbl(buyList)
     local buyLen = 0
     local sendData = "buy_item|" .. sellerId .. "#" .. curCat
     for itemId, buyNum in pairs(buyList) do
@@ -46,7 +45,6 @@ local function flushPayInfo()
         end
     end
     if buyLen > freeBagNum then
-        logPrint(buyLen, freeBagNum)
         canBuy = false
         sellerWnd:getWidget("confirm"):setEnabled(false)
     end
@@ -60,7 +58,6 @@ local function flushPayInfo()
             imgW:setImg(payItem["i"])
             numW:setText("×" .. num)
             if num > payItem["c"] and canBuy then
-                logPrint(itemId, num, payItem["c"])
                 canBuy = false
                 sellerWnd:getWidget("confirm"):setEnabled(false)
             end
@@ -151,7 +148,6 @@ local function setGoodsImg(index, itemId)
 end
 
 local function initSellerContent()
-    logPrint("initSellerContent")
     buyList = {}
     local curGoodList = sellerInfo[tostring(curCat)]
     local index = 0
@@ -178,7 +174,6 @@ local function initSellerContent()
 end
 
 local function showSellerTab()
-    logPrint("showSellerTab")
     curCat = 1
     for i = 1, maxCatNum do
         local btn = sellerWnd:getWidget("cat" .. i)
@@ -205,25 +200,131 @@ local function showSellerTab()
     end
 end
 
-function loadSellerClient(client)
-    logPrintTbl(client)
-    local needShow = false
-    if nil == sellerWnd and nil ~= sellerInfo then
-        needShow = true
-    end
+local function loadSellerClient()
+    local client = {
+        {
+            ["type"] = "bg",
+            ["img"] = "seller.bmp",
+        },
+        {
+            ["type"] = "close",
+            ["x"] = 461,
+            ["y"] = 8,
+            ["img"] = 243000,
+            ["active"] = 243002,
+            ["disable"] = 243001,
+        },
+        {
+            ["type"] = "lab",
+            ["title"] = "title",
+            ["x"] = 210,
+            ["y"] = 35,
+            ["text"] = "商店标题",
+            ["font"] = 3,
+        },
+        {
+            ["table"] = "10,1",
+            ["high"] = 25,
+            ["type"] = "btn",
+            ["title"] = "cat&",
+            ["x"] = 20,
+            ["y"] = 60,
+            ["img"] = "menu1.bmp",
+            ["active"] = "menu2.bmp",
+            ["disable"] = "menu3.bmp",
+            ["text"] = "分类",
+        },
+        {
+            ["table"] = "4,2",
+            ["width"] = 161,
+            ["high"] = 59,
+            ["type"] = "img",
+            ["title"] = "goodI&",
+            ["cx"] = 97,
+            ["cy"] = 97,
+            ["img"] = 0,
+        },
+        {
+            ["table"] = "4,2",
+            ["width"] = 161,
+            ["high"] = 59,
+            ["type"] = "lab",
+            ["title"] = "goodN&",
+            ["x"] = 123,
+            ["y"] = 88,
+            ["text"] = "",
+        },
+        {
+            ["table"] = "4,2",
+            ["width"] = 161,
+            ["high"] = 59,
+            ["type"] = "btn",
+            ["title"] = "goodA&",
+            ["x"] = 165,
+            ["y"] = 107,
+            ["img"] = 243003,
+            ["active"] = 243005,
+            ["disable"] = 243004,
+            ["text"] = "",
+        },
+        {
+            ["table"] = "4,2",
+            ["width"] = 161,
+            ["high"] = 59,
+            ["type"] = "btn",
+            ["title"] = "goodS&",
+            ["x"] = 185,
+            ["y"] = 107,
+            ["img"] = 243006,
+            ["active"] = 243008,
+            ["disable"] = 243007,
+            ["text"] = "",
+        },
+        {
+            ["table"] = "4,2",
+            ["width"] = 161,
+            ["high"] = 59,
+            ["type"] = "lab",
+            ["title"] = "goodC&",
+            ["x"] = 130,
+            ["y"] = 107,
+            ["text"] = "×0",
+        },
+        {
+            ["table"] = "3,1",
+            ["high"] = 71,
+            ["type"] = "img",
+            ["title"] = "payI&",
+            ["cx"] = 430,
+            ["cy"] = 97,
+            ["img"] = 0,
+        },
+        {
+            ["table"] = "3,1",
+            ["high"] = 71,
+            ["type"] = "lab",
+            ["title"] = "payN&",
+            ["x"] = 407,
+            ["y"] = 125,
+            ["text"] = "×0",
+        },
+        {
+            ["type"] = "btn",
+            ["title"] = "confirm",
+            ["x"] = 407,
+            ["y"] = 285,
+            ["img"] = "b1.bmp",
+            ["active"] = "b2.bmp",
+            ["disable"] = "b3.bmp",
+            ["text"] = "购买",
+            ["click"] = "buyNpcItem",
+        }
+    }
     sellerWnd = createWindow(1015, "seller", client)
     addItemTip(sellerWnd)
-    if needShow then
-        sellerWnd:show()
-        sellerWnd:getWidget("title"):setText(wndName)
-        showSellerTab()
-        initSellerContent()
-    end
-    logPrint('loadSellerClient1')
 end
 
 function showSeller(info)
-    logPrintTbl(info)
     wndName = info["name"]
     sellerId = info["id"]
     sellerInfo = info["good"]
@@ -241,19 +342,16 @@ function showSeller(info)
         end
     end
     if (sellerWnd == nil) then
-        Cli.Send("seller_client")
-        return
+        loadSellerClient()
     end
 
     sellerWnd:show()
     sellerWnd:getWidget("title"):setText(wndName)
     showSellerTab()
     initSellerContent()
-    logPrint( 'showSeller2')
 end
 
 function initSeller(sellerId)
-    logPrint("initSeller")
     if rawget(sellerMap, sellerId) == nil then
         Cli.Send("init_seller|" .. sellerId)
         return
@@ -270,4 +368,3 @@ end
 Cli.Send().wait["INIT_SELLER"] = initSeller
 Cli.Send().wait["SHOW_SELLER"] = showSeller
 Cli.Send().wait["INIT_GOOD"] = initSellGood
-Cli.Send().wait["SELLER_CLIENT"] = loadSellerClient

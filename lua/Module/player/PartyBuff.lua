@@ -63,8 +63,6 @@ function getAttr(player, attr)
     return method(player)
 end
 
-
-
 function addBuff(player, buffList)
     if player:isValid() then
         for attr, buff in pairs(buffList) do

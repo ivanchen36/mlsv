@@ -65,7 +65,6 @@ local function showSelectWarp()
 end
 
 local function initWarpContent()
-    logPrintTbl(warpInfo)
     local canWarp = warpInfo.can
     local num = warpInfo.num
     local gold = warpInfo.gold
@@ -118,7 +117,6 @@ local function initWarpContent()
 end
 
 local function loadWarpClient()
-    logPrint("loadWarpClient")
     local gen = ClientGen:new("bg.bmp", 11, 5, 70, 60, 65, 30)
     for i, title in ipairs(warpTitle) do
         gen:addText(1, i, title)
@@ -151,13 +149,11 @@ local function loadWarpClient()
             ["disable"] = "menu3.bmp",
             ["text"] = name,
             ["click"] = function(w)
-                logPrint("click ", i)
                 curWarpPage = i
                 initWarpContent()
             end,
         })
     end
-    logPrintTbl(client)
     warpWnd = createWindow(1013,"warp", client)
 end
 
@@ -177,7 +173,6 @@ function showWarp(info)
 
     warpWnd:show()
     initWarpContent()
-    logPrint( 'showWarp2')
 end
 
 Cli.Send().wait["SHOW_WARP"] = showWarp

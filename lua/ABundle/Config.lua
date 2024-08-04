@@ -18,4 +18,5 @@ LoadABundle("biz/PartyBuff.lua");
 LoadABundle("biz/Recover.lua");
 LoadABundle("biz/Warp.lua");
 LoadABundle("biz/Seller.lua");
+LoadABundle("biz/Boss.lua");
 LoadABundle("ClientCfg.lua");
