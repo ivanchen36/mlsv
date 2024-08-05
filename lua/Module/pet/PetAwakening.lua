@@ -85,7 +85,7 @@ function getAwakeningInfo(player)
     return petArr
 end
 
-function showAwakening(player, arg)
+function showAwakening(player)
     Protocol.PowerSend(player:getObj(),"SHOW_AWAKENING", getAwakeningInfo(player))
 end
 
@@ -203,5 +203,10 @@ function upAwakening(player, arg)
     Protocol.PowerSend(player:getObj(), "FLUSH_AWAKENING", getAwakeningInfo(player))
 end
 
+function npcAwakening(npc, player, s)
+    showAwakening(player)
+end
+
+npcDialog[Const.NpcAwakening] = npcAwakening
 TalkEvent["[awakening]"] = showAwakening
 ClientEvent["up_awakening"] = upAwakening

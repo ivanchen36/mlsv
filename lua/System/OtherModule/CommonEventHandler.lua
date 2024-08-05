@@ -30,12 +30,10 @@ damageTable = {
     [23]  = petDefSubDamage,
 }
 
-local funcName = {}
-
-local function setFuncName(func)
+local function getFuncName(func)
     for key, val in pairs(_G) do
         if val == func then
-            funcName[func] = key
+            return key
         end
     end
 end
@@ -47,9 +45,9 @@ setmetatable(DamageEvent, {
         return damageTable[key]
     end,
     __newindex = function(t, key, val)
-        table.insert(damageTable[key], val)
-        setFuncName(val)
-        logPrint("DamageEvent set: ", key, #damageTable[key])
+        local funcName = getFuncName(val)
+        damageTable[key][funcName] = val
+        logPrint("DamageEvent set: ", funcName)
     end,
 })
 
@@ -69,9 +67,9 @@ setmetatable(InitEvent, {
         return initTable[key]
     end,
     __newindex = function(t, key, val)
-        table.insert(initTable[key], val)
-        setFuncName(val)
-        logPrint("InitEvent set: ", key, #initTable[key])
+        local funcName = getFuncName(val)
+        initTable[key][funcName] = val
+        logPrint("InitEvent set: ", funcName)
     end,
 })
 
@@ -91,9 +89,9 @@ setmetatable(DeinitEvent, {
         return deinitTable[key]
     end,
     __newindex = function(t, key, val)
-        table.insert(deinitTable[key], val)
-        setFuncName(val)
-        logPrint("DeinitEvent set: ", key, #deinitTable[key])
+        local funcName = getFuncName(val)
+        deinitTable[key][funcName] = val
+        logPrint("DeinitEvent set: ", funcName)
     end,
 })
 
@@ -119,9 +117,8 @@ end
 function Event.RegLoginEvent.doCharInitEvent(player)
     logPrint("doCharInitEvent: ", player)
     local myPlayer = MyPlayer:new(player);
-    for i, func in ipairs(charInitEvent) do
-        print("char init " .. funcName[func])
-        logPrint("char init ", funcName[func])
+    for funcName, func in pairs(charInitEvent) do
+        logPrint("char init ", funcName)
         func(myPlayer)
     end
 end
@@ -129,9 +126,8 @@ end
 function Event.RegAllOutEvent.doCharDeinitEvent(player)
     logPrint("doCharDeinitEvent: ", player)
     local myPlayer = MyPlayer:new(player);
-    for i, func in ipairs(charDeinitEvent) do
-        print("char deinit " .. funcName[func])
-        logPrint("char deinit ", funcName[func])
+    for funcName, func in pairs(charDeinitEvent) do
+        logPrint("char deinit ", funcName)
         func(myPlayer)
     end
 end
@@ -142,8 +138,8 @@ function doServerInitEvent()
 
     local sql1 = "delete from tbl_lock"
     SQL.Run(sql1)
-    for i, func in ipairs(serverInitEvent) do
-        logPrint("doServerInitEvent", i)
+    for funcName, func in pairs(serverInitEvent) do
+        logPrint("doServerInitEvent", funcName)
         func()
     end
 
@@ -175,7 +171,8 @@ end
 
 function Event.RegBattleStartEvent.doBattleInitEvent(battle)
     logPrint("doBattleInitEvent")
-    for i, func in ipairs(battleInitEvent) do
+    for funcName, func in pairs(battleInitEvent) do
+        logPrint("doBattleInitEvent", funcName)
         func(battle)
     end
     logPrint("doBattleInitEvent1")
@@ -183,7 +180,8 @@ end
 
 function Event.RegBattleOverEvent.doBattleDeinitEvent(battle)
     logPrint("doBattleDeinitEvent")
-    for i, func in ipairs(battleDeinitEvent) do
+    for funcName, func in pairs(battleDeinitEvent) do
+        logPrint("battleDeinitEvent", funcName)
         func(battle)
     end
 end
@@ -256,13 +254,13 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
 
     if rawget(damageTable, atkType) ~= nil then
         local myPlayer1 = MyPlayer:new(CharIndex);
-        for _, func in ipairs(damageTable[atkType]) do
-            logPrint(funcName[func])
+        for funcName, func in pairs(damageTable[atkType]) do
+            logPrint(funcName)
             atkRate = func(myPlayer1, atkRate)
         end
         atkType = atkType + 10
-        for _, func in ipairs(damageTable[atkType]) do
-            logPrint(funcName[func])
+        for funcName, func in pairs(damageTable[atkType]) do
+            logPrint(funcName)
             defRate = func(myPlayer1, defRate)
         end
     end
@@ -271,8 +269,8 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
         local defType =  Char.GetData(DefCharIndex, 0) + 20
         if rawget(damageTable, defType) ~= nil then
             local myPlayer1 = MyPlayer:new(DefCharIndex);
-            for i, func in ipairs(damageTable[defType]) do
-                logPrint(funcName[func])
+            for funcName, func in pairs(damageTable[defType]) do
+                logPrint(funcName)
                 defRate = func(myPlayer1, defRate)
             end
             if defRate < 0 then

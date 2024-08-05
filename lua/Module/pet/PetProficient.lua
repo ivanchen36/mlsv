@@ -140,7 +140,11 @@ function addProficientDamage(player, rate)
 end
 
 DamageEvent[3] = addProficientDamage
+function npcSynthesis(npc, player, s)
+    showProficient(player)
+end
 
+npcDialog[Const.NpcSynthesis] = npcSynthesis
 InitEvent["char"] = initProficient
 DeinitEvent["char"] = deinitProficient
 TalkEvent["[proficient]"] = showProficient

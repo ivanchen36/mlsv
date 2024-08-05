@@ -1,5 +1,13 @@
 Const = {}
 
+Const.NpcVip = 111
+Const.NpcTalent = 111
+Const.NpcAwakening = 111
+Const.NpcSynthesis = 111
+Const.NpcPk = 111
+Const.NpcTask = 111
+
+Const.GoldImgId = 27402
 Const.PetBattle = 2
 Const.PetWait = 2
 Const.PetFree = 1

@@ -133,7 +133,7 @@ function getMulRandObj(objList, count)
         return false
     end
 
-    local num = #count * 3
+    local num = count * 3
     local rs = {}
     local tmp = nil
     for i = 1, num do
@@ -157,6 +157,9 @@ function countKeys(t)
 end
 
 function getItemImg(itemId)
+    if 0 == itemId then
+        return Const.GoldImgId
+    end
     local item = MyDataItem:new(itemId)
     return item:getImage()
 end

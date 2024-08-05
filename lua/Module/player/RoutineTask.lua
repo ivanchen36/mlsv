@@ -379,6 +379,12 @@ function confirmRoutineEnemy(battleIndex)
     battleEnemyMap[battleIndex] = nil
 end
 
+function npcTask(npc, player, s)
+    showRoutine(player)
+end
+
+npcDialog[Const.NpcTask] = npcTask
+
 TalkEvent["[routine]"] = showRoutine
 ClientEvent["query_task"] = queryTask
 ClientEvent["submit_task"] = submitTask

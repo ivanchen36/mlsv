@@ -322,6 +322,11 @@ function openExp(player, arg)
     Protocol.PowerSend(player:getObj(),"FLUSH_VIP", info)
 end
 
+function npcVip(npc, player, s)
+    showVip(player)
+end
+
+npcDialog[Const.NpcVip] = npcVip
 --vip
 ClientEvent["up_gift"] = upGift
 TalkEvent["[vip]"] = showVip

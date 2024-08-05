@@ -22,6 +22,11 @@ function MyPlayer:createNpc(image, x, y, mapId, direction, name)
     return myPlayer
 end
 
+function MyPlayer:createArgNpc(type, arg, image, x, y, mapId, direction, name)
+    local myPlayer = MyPlayer:new(NL.CreateArgNpc(type, arg, name, image, 0, mapId, x, y, direction));
+    return myPlayer
+end
+
 function MyPlayer:flush()
     NLG.UpChar(self._player)
 end
@@ -99,6 +104,9 @@ function MyPlayer:havePet(petId)
 end
 
 function MyPlayer:getItemNum(itemId)
+    if 0 == itemId then
+        return self:getGold()
+    end
     return Char.ItemNum(self._player, itemId)
 end
 

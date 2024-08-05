@@ -362,8 +362,8 @@ function welcome(adImg)
         adWnd = createWindow(1019, "welcome", client)
     end
     CHX.Uwait(adImg)
-    adWnd:getWidget("ad"):setImg(adImg)
     adWnd:show()
+    adWnd:getWidget("ad"):setImg(adImg)
 end
 
 Cli.Send("welcome")

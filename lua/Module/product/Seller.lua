@@ -80,7 +80,6 @@ local petEquipSeller = {
 local sellerList = {
     [104387] = petEquipSeller
 }
-local goldImgId = 27402
 
 local function getSellAndPayItem(seller)
     local sellList = {}
@@ -119,17 +118,10 @@ end
 local function getPayItemNum(player, payList)
     local payNumList = {}
     for _, itemId in ipairs(payList) do
-        if itemId == 0 then
-            payNumList[itemId] = {
-                ["c"] = player:getGold(),
-                ["i"] = goldImgId,
-            }
-        else
-            payNumList[itemId] = {
-                ["c"] = player:getItemNum(itemId),
-                ["i"] = getItemImg(itemId),
-            }
-        end
+        payNumList[itemId] = {
+            ["c"] = player:getItemNum(itemId),
+            ["i"] = getItemImg(itemId),
+        }
     end
     return payNumList
 end

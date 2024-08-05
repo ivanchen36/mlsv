@@ -242,6 +242,11 @@ function warpPk(player, arg)
     return
 end
 
+function npcPk(npc, player, s)
+    showPk(player)
+end
+
+npcDialog[Const.NpcPk] = npcPk
 
 DeinitEvent["battle"] = pkSummary
 TalkEvent["[pk]"] = showPk
