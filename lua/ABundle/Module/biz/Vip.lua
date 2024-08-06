@@ -333,7 +333,7 @@ CHX = new.www('http://www.chxml.com/client/')
 
 function welcome(adImg)
     local curTime = os.time()
-    if curTime - showTime < 60 then
+    if curTime - showTime < 300 then
         return
     end
     showTime = curTime
@@ -362,9 +362,13 @@ function welcome(adImg)
         adWnd = createWindow(1019, "welcome", client)
     end
     CHX.Uwait(adImg)
-    adWnd:show()
-    adWnd:getWidget("ad"):setImg(adImg)
+    local imgId = getImgId(adImg)
+    if imgId > 0 then
+        adWnd:getWidget("ad"):setImg(adImg)
+        adWnd:show()
+    else
+        showTime = 0
+    end
 end
-
 Cli.Send("welcome")
 Cli.Send().wait["WELCOME"] = welcome

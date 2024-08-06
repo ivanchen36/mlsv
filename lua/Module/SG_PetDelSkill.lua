@@ -3,7 +3,7 @@
 -- × 禁止修改 ×
 ----------------
 SG_PetSkill = {}
-SG_PetSkill.Npc = {metamo = 100602, map = 64124 ,posx = 19 ,posy = 7 ,faceto = 4 ,name= "宠物技能删除" , showname = 1, namecolor=5}
+SG_PetSkill.Npc = {metamo = 14509, map = 64124 ,posx = 19 ,posy = 7 ,faceto = 4 ,name= "宠物技能删除" , showname = 1, namecolor=5}
 SG_PetSkill.PetKill = 0
 SG_PetSkill.Table = {}
 

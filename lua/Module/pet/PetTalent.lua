@@ -115,7 +115,7 @@ end
 
 local function setTalentBuff(pet, skillId)
     local index = skillId - 30400
-    local level = math.floor(index / 30) + 1
+    local level = math.floor((index - 1) / 30) + 1
     index = math.mod(index, 30)
     local uuid = pet:getUuid()
     if index >= 14 then
@@ -163,6 +163,40 @@ function unloadTalent(player)
             end
         end
     end
+end
+
+local function getTalentInfo(player)
+    local talentInfo = {}
+    local petArr = {}
+    local index = 1
+    for i = 0, 4 do
+        local pet = player:getPet(i)
+        if pet:isValid() then
+            local skillId = pet:getSkill(pet:getSkillSlots() - 1)
+            if skillId > 30400 and skillId < 30500 and pet:getLevel() >= 70 then
+                local petInfo = {
+                    ["name"] = pet:getName():gsub(16),
+                    ["uuid"] = pet:getUuid(),
+                    ["img"] = pet:getImage(),
+                    ["talent"] = skillId,
+                }
+                petArr[tostring(index)] = petInfo
+                index = index + 1
+            end
+        end
+    end
+    talentInfo["pet"] = petArr
+    local itemArr = {}
+    for i = 0, 3 do
+        itemArr[tostring(i)] = {
+            ["img"] = talentItemImg[i],
+            ["num"] = player:getItemNum(talentItemId[i]),
+            ["need"] = talentItemNeed[i],
+        }
+    end
+    talentInfo["item"] = itemArr
+    logPrintTbl(talentInfo)
+    return talentInfo
 end
 
 local function initTalent(player, pet)
@@ -214,6 +248,7 @@ function getTalent(player, arg)
         end
     end
     player:sysMsg("宠物重置天赋成功，获得新天赋【" .. skillName[skillId - 30400] .. "LV" .. level .. "】");
+    Protocol.PowerSend(player:getObj(),"FLUSH_TALENT", getTalentInfo(player))
 end
 
 function Event.RegPetLevelUpEvent.doPetLevelUp(index)
@@ -263,35 +298,8 @@ function changeSkill(fd, head, packet)
 end
 
 function showTalent(player)
-    local talentInfo = {}
-    local petArr = {}
-    local index = 1
-    for i = 0, 4 do
-        local pet = player:getPet(i)
-        if pet:isValid() then
-            local skillId = pet:getSkill(pet:getSkillSlots() - 1)
-            if skillId > 30400 and skillId < 30500 and pet:getLevel() >= 70 then
-                local petInfo = {
-                    ["name"] = pet:getName(),
-                    ["uuid"] = pet:getUuid(),
-                    ["img"] = pet:getImage(),
-                    ["talent"] = skillId,
-                }
-                petArr[tostring(index)] = petInfo
-                index = index + 1
-            end
-        end
-    end
-    talentInfo["pet"] = petArr
-    for i = 0, 3 do
-        talentInfo["item"][tostring(i)] = {
-            ["img"] = talentItemImg[i],
-            ["num"] = player:getItemNum(talentItemId[i]),
-            ["need"] = talentItemNeed[i],
-        }
-    end
-
-    Protocol.PowerSend(player:getObj(),"SHOW_TALENT", talentInfo)
+    Protocol.PowerSend(player:getObj(),"SHOW_TALENT", getTalentInfo(player))
+    logPrintTbl("showTalent")
 end
 
 function npcTalent(npc, player, s)
@@ -307,90 +315,3 @@ ClientEvent["get_talent"] = getTalent
 Protocol.OnRecv(nil, "setPetStatus", 37)
 Protocol.OnRecv(nil, "changeSkill", 58);
 
-function getTalentClient(player, arg)
-    local warpClient = {
-        {
-            ["type"] = "bg",
-            ["img"] = "bg.bmp",
-        },
-        {
-            ["type"] = "close",
-            ["x"] = 461,
-            ["y"] = 8,
-            ["img"] = 243000,
-            ["active"] = 243002,
-            ["disable"] = 243001,
-        },
-        {
-            ["type"] = "lab",
-            ["title"] = "petName",
-            ["x"] = 90,
-            ["y"] = 68,
-            ["text"] = "无可选择宠物",
-        },
-        {
-            ["type"] = "btn",
-            ["title"] = "prev",
-            ["x"] = 63,
-            ["y"] = 65,
-            ["img"] = "prev1.bmp",
-            ["active"] = "prev2.bmp",
-            ["disable"] = "prev3.bmp",
-            ["click"] = "talentPrev",
-        },
-        {
-            ["type"] = "btn",
-            ["title"] = "next",
-            ["x"] = 193,
-            ["y"] = 65,
-            ["img"] = "next1.bmp",
-            ["active"] = "next2.bmp",
-            ["disable"] = "next3.bmp",
-            ["click"] = "talentNext",
-        },
-        {
-            ["type"] = "img",
-            ["title"] = "zF",
-            ["x"] = 80,
-            ["y"] = 92,
-            ["img"] = "k3.bmp",
-        },
-        {
-            ["type"] = "ani",
-            ["title"] = "pet",
-            ["x"] = 0,
-            ["y"] = 0,
-            ["img"] = 0,
-            ["bg"] = "zF",
-        },
-        {
-            ["type"] = "lab",
-            ["title"] = "talent",
-            ["x"] = 121,
-            ["y"] = 263,
-            ["text"] = "天赋:",
-        },
-        {
-            ["type"] = "lab",
-            ["title"] = "desc",
-            ["x"] = 121,
-            ["y"] = 263,
-            ["text"] = "",
-        },
-        {
-            ["table"] = "4,1",
-            ["high"] = 71,
-            ["type"] = "btn",
-            ["title"] = "confirm&",
-            ["x"] = 430,
-            ["y"] = 97,
-            ["img"] = "y1.bmp",
-            ["active"] = "y2.bmp",
-            ["disable"] = "y3.bmp",
-            ["text"] = "#talentBtnText",
-        }
-    }
-    Protocol.PowerSend(player:getObj(), "TALENT_CLIENT", warpClient)
-end
-
-ClientEvent["talent_client"] = getTalentClient

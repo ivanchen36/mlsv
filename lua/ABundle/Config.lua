@@ -19,4 +19,5 @@ LoadABundle("biz/Recover.lua");
 LoadABundle("biz/Warp.lua");
 LoadABundle("biz/Seller.lua");
 LoadABundle("biz/Boss.lua");
+LoadABundle("biz/Talent.lua");
 LoadABundle("ClientCfg.lua");

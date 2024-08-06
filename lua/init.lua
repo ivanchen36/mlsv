@@ -73,6 +73,7 @@ gadofile("lua/System/OtherModule/TaskHandler.lua");--定时任务处理
 gadofile("lua/System/OtherModule/CommonEventHandler.lua");--通用事件处理
 
 --客户端界面
+gadofile("lua/Module/client/BossClient.lua");
 
 gadofile("lua/Module/sys/CharEquip.lua");
 --业务功能
@@ -93,7 +94,7 @@ gadofile("lua/Module/player/Recover.lua");--组队加成
 gadofile("lua/Module/player/Warp.lua");--传送
 gadofile("lua/Module/player/Clan.lua");--家族帮派
 gadofile("lua/Module/player/Challenge.lua");--BOSS挑战
---gadofile("lua/Module/player/Test.lua");
+gadofile("lua/Module/player/Test.lua");
 
 gadofile("lua/Module/product/ItemManager.lua");--物品信息管理，包括宠物
 gadofile("lua/Module/product/AutoProduct.lua");--自动制造

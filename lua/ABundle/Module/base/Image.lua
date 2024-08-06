@@ -61,6 +61,9 @@ function getImgId(imgFile)
     bmp.load(imgFile)
     for i = 1,#tbl_bmp2 do
         if tbl_bmp2[i].id == imgFile then
+            if nil == tbl_bmp2[i].buf then
+                return 0
+            end
             return 9990000 + i;
         end
     end

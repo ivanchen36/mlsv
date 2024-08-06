@@ -1,7 +1,7 @@
 Const = {}
 
 Const.NpcVip = 111
-Const.NpcTalent = 111
+Const.NpcTalent = 108851
 Const.NpcAwakening = 111
 Const.NpcSynthesis = 111
 Const.NpcPk = 111

@@ -23,5 +23,6 @@ function Event.RegLoginEvent.registInit(player)
     Client.RunABundle(player, "PartyBuff.lua")
     Client.RunABundle(player, "Seller.lua")
     Client.RunABundle(player, "Boss.lua")
+    Client.RunABundle(player, "Talent.lua")
 end
 ?>
