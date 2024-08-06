@@ -85,12 +85,14 @@ petTalentDefMap = {}
 
 local function setTalentAttr(pet, talentIndex, level)
     local tmp = petSkillBuff[talentIndex]
-    local buff = {tmp[1], tmp[2]}
-    buff[2] = buff[2] * level
+    local attr = tmp[1]
+    local val = tmp[2]
+    val = val * level
     if talentIndex > 6 then
-        buff[2] = math.ceil((getAttr(pet, buff[1]) * buff[2]) / 100)
+        val = math.ceil((getAttr(pet, attr) * val) / 100)
     end
     local uuid = pet:getUuid()
+    local buff = {[attr] = val}
     if rawget(petTalentMap, uuid) ~= nil then
         changeBuff(pet, petTalentMap[uuid], buff)
     else
@@ -102,6 +104,7 @@ end
 local function removePetTalentBuff(pet)
     local uuid = pet:getUuid()
     if rawget(petTalentMap, uuid) ~= nil then
+        logPrintTbl(petTalentMap[uuid])
         subBuff(pet, petTalentMap[uuid])
         petTalentMap[uuid] = nil
     end
@@ -217,6 +220,7 @@ local function initTalent(player, pet)
         setTalentBuff(pet, skillId)
     end
     player:sysMsg("宠物成功领悟天赋【" .. skillName[skillId - 30400] .. "LV1】");
+    Protocol.PowerSend(player:getObj(),"FLUSH_TALENT", getTalentInfo(player))
 end
 
 function getTalent(player, arg)
@@ -231,7 +235,7 @@ function getTalent(player, arg)
         player:sysMsg("宠物尚未领悟天赋, 无法重置天赋")
         return
     end
-    if player:delNum(talentItemId[level], 1) <= 0 then
+    if player:delItem(talentItemId[level], 1) <= 0 then
         player:sysMsg("道具不足,无法重置天赋")
         return
     end
@@ -265,21 +269,38 @@ function setPetStatus(fd, head, packet)
     logPrint("setPetStatus ", head, packet)
     local player = MyPlayer:new(Protocol.GetCharByFd(fd))
     local battleSlot = player:getBattlePetSlot()
+    logPrint(battleSlot)
     local arr = strSplit(packet, ":")
     for i, val in ipairs(arr) do
-        if val == "2" and i ~= battleSlot then
+        if val == "2" then
             local pet1 = player:getPet(battleSlot)
-            local pet2 = player:getPet(i)
-            local skillId = pet1:getSkill(pet1:getSkillSlots() - 1)
-            if skillId ~= 30400 then
-                removePetTalentBuff(pet1)
+            if pet1:isValid() then
+                local skillId = pet1:getSkill(pet1:getSkillSlots() - 1)
+                logPrint(skillId)
+                if skillId ~= 30400 then
+                    removePetTalentBuff(pet1)
+                end
             end
-            skillId = pet2:getSkill(pet1:getSkillSlots() - 1)
+
+            local pet2 = player:getPet(i - 1)
+            local skillId = pet2:getSkill(pet2:getSkillSlots() - 1)
             if skillId ~= 30400 then
-                setTalentBuff(pet1, skillId)
+                setTalentBuff(pet2, skillId)
             end
             logPrint("atk ", i)
+        else
+            if i - 1 == battleSlot then
+                local pet1 = player:getPet(battleSlot)
+                if pet1:isValid() then
+                    local skillId = pet1:getSkill(pet1:getSkillSlots() - 1)
+                    logPrint(skillId)
+                    if skillId ~= 30400 then
+                        removePetTalentBuff(pet1)
+                    end
+                end
+            end
         end
+
     end
     return 0
 end

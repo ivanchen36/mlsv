@@ -60,9 +60,11 @@ function showTalentInfo()
     if 0 == index then
         talentWnd:getWidget("talent"):setText("天赋技能")
         talentWnd:getWidget("desc"):setText("待领悟领悟技能")
-        local item = itemInfo["1"]
+        local item = itemInfo["0"]
         if item["num"] >= item["need"] then
             talentWnd:getWidget("confirm" .. 1):setEnabled(true)
+        else
+            talentWnd:getWidget("confirm" .. 1):setEnabled(false)
         end
         talentWnd:getWidget("confirm" .. 2):setEnabled(false)
         talentWnd:getWidget("confirm" .. 3):setEnabled(false)
@@ -82,6 +84,8 @@ function showTalentInfo()
             local item = itemInfo[tostring(i - 1)]
             if item["num"] >= item["need"] then
                 talentWnd:getWidget("confirm" .. i):setEnabled(true)
+            else
+                talentWnd:getWidget("confirm" .. i):setEnabled(false)
             end
         end
     end
@@ -114,7 +118,6 @@ function talentNext(widget)
 end
 
 function initTalentContent()
-    logPrint("initTalentContent")
     select1 = nil
     for i = 1, 5 do
         if petInfo[tostring(i)] ~= nil then
@@ -129,7 +132,6 @@ function initTalentContent()
 end
 
 function flushTalentInfo(info)
-    logPrintTbl(info)
     petInfo = info["pet"]
     itemInfo = info["item"]
     for i = 1, 5 do
@@ -269,21 +271,17 @@ local function loadTalentClient()
             end
         end)
     end
-    logPrint("loadTalentClient111")
 end
 
 function showTalent(info)
-    logPrintTbl(info)
     petInfo = info["pet"]
     itemInfo = info["item"]
     if (talentWnd == nil) then
         loadTalentClient()
     end
 
-    logPrint( 'showTalent1')
     talentWnd:show()
     safeCall(initTalentContent)
-    logPrint( 'showTalent2')
 end
 
 Cli.Send().wait["FLUSH_TALENT"] = flushTalentInfo
