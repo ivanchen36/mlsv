@@ -73,7 +73,7 @@ gadofile("lua/System/OtherModule/TaskHandler.lua");--定时任务处理
 gadofile("lua/System/OtherModule/CommonEventHandler.lua");--通用事件处理
 
 --客户端界面
-gadofile("lua/Module/client/BossClient.lua");
+--gadofile("lua/Module/client/BossClient.lua");
 
 gadofile("lua/Module/sys/CharEquip.lua");
 --业务功能
@@ -100,6 +100,7 @@ gadofile("lua/Module/product/ItemManager.lua");--物品信息管理，包括宠物
 gadofile("lua/Module/product/AutoProduct.lua");--自动制造
 gadofile("lua/Module/product/ProductEquip.lua");--制造装备
 gadofile("lua/Module/product/Seller.lua");--售卖商人
+gadofile("lua/Module/product/GoldCardTrade.lua"); --金卡兑换
 
 --系统通用事件
 gadofile("lua/Module/sys/Damage.lua");

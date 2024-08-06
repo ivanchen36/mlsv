@@ -1,4 +1,177 @@
 待做事项：
+法兰城（Frandor City）- 暗影君王（Shadow Overlord）
+作为主要城市的BOSS，暗影君王可以是一个掌握黑暗力量的强大统治者。
+BOSS：暗影君王（Shadow Overlord）
+成员：
+暗影战士（Shadow Warrior）：擅长近战攻击，使用黑暗力量增强自身。
+夜行刺客（Night Stalker）：隐身能力强，擅长偷袭和快速击杀。
+黑暗法师（Dark Sorcerer）：使用黑暗魔法进行远程攻击和控制。
+
+亚留特村（Ariut Village）- 森林霸主（Forest Tyrant）
+这个村庄周围是茂密的森林，森林霸主可以是一个巨大的树妖或森林巨兽。
+BOSS：森林霸主（Forest Tyrant）
+成员：
+树妖战士（Treant Warrior）：强大的近战战士，拥有高防御和生命值。
+森林精灵（Forest Sprite）：使用自然魔法进行远程攻击和治疗。
+树妖猎手（Treant Hunter）：擅长远程攻击和陷阱设置。
+
+加纳村（Gana Village）- 地狱炎魔（Inferno Demon）
+作为一个农业村庄，地狱炎魔可以是一个来自地狱的火焰恶魔，威胁着村庄的安全。
+BOSS：地狱炎魔（Inferno Demon）
+成员：
+火焰战士（Flame Warrior）：近战战士，使用火焰攻击敌人。
+熔岩巨人（Lava Giant）：高防御的坦克角色，能喷射熔岩。
+火焰法师（Flame Sorcerer）：使用火焰魔法进行远程攻击和控制。
+
+维诺亚村（Vinoya Village）- 冰霜巨龙（Frost Wyrm）
+这个村庄位于寒冷的北方，冰霜巨龙可以是一个强大的冰系龙族BOSS。
+BOSS：冰霜巨龙（Frost Wyrm）
+成员：
+冰霜战士（Frost Warrior）：近战战士，使用冰霜力量增强防御。
+冰元素（Ice Elemental）：召唤冰元素进行远程攻击和控制。
+冰霜法师（Frost Sorcerer）：使用冰霜魔法进行远程攻击和减速。
+
+奇利村（Kili Village）- 岩石巨灵（Stone Titan）
+作为一个矿业村庄，岩石巨灵可以是一个由矿石和岩石组成的巨大怪物。
+BOSS：岩石巨灵（Stone Titan）
+成员：
+石头人（Rock Golem）：高防御的近战战士，能造成震地攻击。
+矿石战士（Ore Warrior）：使用矿石武器进行近战攻击。
+岩石法师（Stone Sorcerer）：使用岩石魔法进行远程攻击和控制。
+
+圣拉鲁卡村（Saint Laruka Village）- 堕落圣灵（Fallen Seraphim）
+作为一个宗教村庄，堕落圣灵可以是一个曾经的守护者，现在变成了邪恶的存在。
+BOSS：堕落圣灵（Fallen Seraphim）
+成员：
+堕落骑士（Fallen Knight）：近战战士，使用堕落力量增强攻击。
+黑暗祭司（Dark Priest）：使用黑暗魔法进行治疗和诅咒。
+堕落使者（Fallen Messenger）：擅长远程攻击和召唤黑暗生物。
+
+蒂娜村（Tina Village）- 深海巨兽（Leviathan）
+这个渔业村庄周围是海洋，深海巨兽可以是一个巨大的海怪。
+BOSS：深海巨兽（Leviathan）
+成员：
+海洋战士（Ocean Warrior）：近战战士，使用水流攻击敌人。
+深海巨怪（Sea Monster）：高防御的坦克角色，能造成水流冲击。
+水元素（Water Elemental）：使用水元素进行远程攻击和治疗。
+
+亚诺曼城（Anoman City）- 烈焰凤凰（Blazing Phoenix）
+作为一个较大的城市，烈焰凤凰可以是一个重生于火焰中的强大BOSS。
+BOSS：烈焰凤凰（Blazing Phoenix）
+成员：
+火焰战士（Flame Warrior）：近战战士，使用火焰攻击敌人。
+火焰元素（Fire Elemental）：召唤火焰元素进行远程攻击和控制。
+火焰法师（Flame Sorcerer）：使用火焰魔法进行远程攻击和爆发。
+
+魔法大学（Magic University）- 禁忌魔导师（Forbidden Archmage）
+作为魔法学习的地方，禁忌魔导师可以是一个掌握禁忌魔法的强大BOSS。
+BOSS：禁忌魔导师（Forbidden Archmage）
+成员：
+黑暗法师（Dark Sorcerer）：使用黑暗魔法进行远程攻击和控制。
+禁忌学徒（Forbidden Apprentice）：学习禁忌魔法的学徒，擅长辅助和控制。
+黑暗元素（Dark Elemental）：召唤黑暗元素进行远程攻击和诅咒。
+
+关卡1：铁甲战士的试炼
+BOSS名称：铁甲战士（Ironclad Warrior）
+勇士名称：钢铁守卫（Steel Guardian）
+组合名称：钢铁双雄（Iron Duo）
+描述：铁甲战士和钢铁守卫是竞技场的初级挑战，他们拥有高防御和强力的物理攻击，玩家需要使用破甲技能或魔法来削弱他们的防御。
+
+关卡7：圣光神殿的堕落圣骑士
+BOSS名称：堕落圣骑士（Fallen Paladin）
+勇士名称：圣光战士（Holy Warrior）
+组合名称：圣光双雄（Holy Duo）
+描述：堕落圣骑士和圣光战士在圣光神殿中等待挑战者，他们拥有强大的物理攻击和圣光技能，玩家需要使用防御技能和魔法来削弱他们的攻击力，并在合适的时机进行反击。
+
+关卡11：幽灵船的幽灵船长
+BOSS名称：幽灵船长（Ghost Captain）
+勇士名称：幽灵水手（Ghost Sailor）
+组合名称：幽灵双雄（Ghost Duo）
+描述：幽灵船长和幽灵水手在幽灵船上等待挑战者，他们会使用幽灵攻击和诅咒技能，玩家需要使用驱魔技能或道具来解除诅咒并进行攻击。
+
+1. 炎狱魔龙（Infernal Dragon）
+团队名称：火焰军团（Flame Legion）
+成员：
+火焰小鬼（Flame Imp）
+熔岩兽（Lava Beast）
+灼热飞蛇（Scorching Serpent）
+2. 冰霜巨兽（Frost Behemoth）
+团队名称：冰霜军团（Frost Legion）
+成员：
+冰晶雪人（Crystal Yeti）
+霜冻幽灵（Frost Specter）
+寒冰巨鹰（Ice Giant Eagle）
+3. 雷霆战狼（Thunder Warwolf）
+团队名称：雷霆军团（Thunder Legion）
+成员：
+电光狐狸（Lightning Fox）
+风暴猎犬（Storm Hound）
+雷电鹰（Thunder Eagle）
+4. 暗影幽灵（Shadow Specter）
+团队名称：暗影军团（Shadow Legion）
+成员：
+夜影鬼（Night Wraith）
+幽暗蜘蛛（Gloom Spider）
+阴影猎手（Shadow Hunter）
+5. 岩石巨人（Rock Titan）
+团队名称：岩石军团（Rock Legion）
+成员：
+石化蜥蜴（Petrified Lizard）
+岩壁守卫（Rock Wall Guard）
+矿石战士（Ore Warrior）
+国家勇士及其团队
+1. 烈焰剑士（Blaze Swordsman）
+团队名称：烈焰军团（Blaze Legion）
+成员：
+火舞剑客（Fire Dance Swordsman）
+炽热法师（Blazing Mage）
+火焰护卫（Flame Guard）
+2. 冰雪女巫（Snow Witch）
+团队名称：冰雪军团（Snow Legion）
+成员：
+冰霜巫师（Frost Wizard）
+雪域猎人（Snowfield Hunter）
+冰晶护士（Crystal Nurse）
+3. 雷电法师（Thunder Mage）
+团队名称：雷电军团（Thunder Legion）
+成员：
+风暴召唤师（Storm Summoner）
+电击战士（Shock Warrior）
+雷霆护卫（Thunder Guard）
+4. 暗夜刺客（Night Assassin）
+团队名称：暗夜军团（Night Legion）
+成员：
+影刃武士（Shadow Blade Warrior）
+暗影行者（Shadow Walker）
+夜幕猎手（Nightfall Hunter）
+5. 岩石守卫（Stone Guardian）
+团队名称：岩石军团（Stone Legion）
+成员：
+岩石战士（Rock Warrior）
+石盾卫士（Stone Shield Guard）
+地裂术士（Earth Split Sorcerer）
+组合挑战
+1. 火与冰的对决：炎狱魔龙 + 冰雪女巫
+团队名称：烈焰与冰霜（Blaze and Frost）
+成员：
+火焰小鬼（Flame Imp）
+熔岩兽（Lava Beast）
+冰霜巫师（Frost Wizard）
+雪域猎人（Snowfield Hunter）
+2. 雷霆与暗影：雷霆战狼 + 暗夜刺客
+团队名称：雷霆与暗夜（Thunder and Night）
+成员：
+电光狐狸（Lightning Fox）
+风暴猎犬（Storm Hound）
+影刃武士（Shadow Blade Warrior）
+暗影行者（Shadow Walker）
+3. 岩石与幽灵：岩石巨人 + 暗影幽灵
+团队名称：岩石与暗影（Rock and Shadow）
+成员：
+石化蜥蜴（Petrified Lizard）
+岩壁守卫（Rock Wall Guard）
+夜影鬼（Night Wraith）
+幽暗蜘蛛（Gloom Spider）
 
 物品：
     1、会员勋章 -- 完成
@@ -9,7 +182,7 @@
     6、自定义配方及装备
     7、宠物天赋药水 -- 完成
     8、种族挑战图鉴
-    9、练级偷袭道具
+    9、练级偷袭道具 -- 完成
 
 宠物:
     1、金卡初级宠物 高级宠物 -- 完成

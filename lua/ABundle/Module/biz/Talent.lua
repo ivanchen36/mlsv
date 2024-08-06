@@ -35,6 +35,7 @@ local function initTalentSelect()
 end
 
 function showTalentInfo()
+    initTalentSelect()
     for i = 0, 3 do
         local item = itemInfo[tostring(i)]
         showItem(talentWnd, "item" .. (i + 1), item["img"], item["need"], item["num"])
@@ -94,7 +95,7 @@ function talentPrev(widget)
         initTalentSelect()
         return
     end
-    initTalentSelect()
+
     select1 = select1 - 1
     showTalentInfo()
 end

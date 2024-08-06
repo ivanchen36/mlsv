@@ -1,5 +1,12 @@
 Const = {}
 
+Const.CardUp = 1
+Const.CardDown = 2
+Const.TaskTypeCard = 99999
+
+Const.NpcSeller = 104387
+Const.NpcGoldCard = 104387
+
 Const.NpcVip = 111
 Const.NpcTalent = 108851
 Const.NpcAwakening = 111

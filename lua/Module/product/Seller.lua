@@ -77,8 +77,9 @@ local petEquipSeller = {
         [20268] = {[20386] = 10, [0] = 30000},
     },
 }
-local sellerList = {
-    [104387] = petEquipSeller
+
+sellerList = {
+    [Const.NpcSeller] = {"宠物装备", petEquipSeller}
 }
 
 local function getSellAndPayItem(seller)
@@ -107,10 +108,17 @@ local function getSellItemImg(sellList)
     local imgList = {}
     for _, itemId in ipairs(sellList) do
         local item = MyDataItem:new(itemId)
-        imgList[itemId] = {
-            ["i"] = item:getImage(),
-            ["n"] = item:getName()
-        }
+        if itemId < 200000 then
+            imgList[itemId] = {
+                ["i"] = Const.GoldImgId,
+                ["n"] = (itemId * 500) .. "G魔币"
+            }
+        else
+            imgList[itemId] = {
+                ["i"] = item:getImage(),
+                ["n"] = item:getName()
+            }
+        end
     end
     return imgList
 end
@@ -136,11 +144,11 @@ function initSeller(player, arg)
     logPrint("initSeller")
 
     local imgId = tonumber(arg)
-    local seller = sellerList[imgId]
+    local seller = sellerList[imgId][2]
     local resp = {}
     local sellList, payList = getSellAndPayItem(seller)
 
-    resp["name"] = "宠物装备"
+    resp["name"] = sellerList[imgId][1]
     resp["id"] = imgId
     resp["good"] = seller
     resp["img"] = getSellItemImg(sellList)
@@ -160,7 +168,7 @@ function buyNpcItem(player, arg)
         return
     end
 
-    local itemList = sellerList[parts[2]]
+    local itemList = sellerList[parts[2]][2]
     local needPayInfo = {}
     local buyInfo = {}
     local sum = 0
@@ -183,6 +191,10 @@ function buyNpcItem(player, arg)
 
         buyInfo[buyItem] = buyNum
         local useBagNum = math.ceil(buyNum / getMaxStackCount(buyItem))
+        if npcImg == Const.NpcGoldCard then
+            useBagNum = 1
+        end
+
         sum = sum + useBagNum
     end
     if sum > player:freeBagNum() then
@@ -218,7 +230,14 @@ function buyNpcItem(player, arg)
     end
     logPrintTbl(buyInfo)
     for item, num in pairs(buyInfo) do
-        player:addItem(item, num)
+        if item < 200000 and Const.NpcGoldCard == npcImg then
+            player:addMoney(item * num * 500)
+        else
+            player:addItem(item, num)
+        end
+        if Const.NpcGoldCard == npcImg then
+            statsGoldCardTrade(item, num)
+        end
     end
     player:flush()
     player:sysMsg("购买成功");

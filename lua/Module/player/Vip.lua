@@ -172,7 +172,7 @@ end
 
 function userCloseAvoid(player, arg)
     closeAvoid(player)
-    local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and RegNum ='" .. player:getRegistNumber() .. "'"
+    local sql1 = "UPDATE tbl_task SET Status = 2 WHERE Type = 1 and Status = 1 and RegNum ='" .. player:getRegistNumber() .. "'"
     SQL.Run(sql1)
     player:sysMsg("您已经停止驱魔功能！");
 end

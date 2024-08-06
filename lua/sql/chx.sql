@@ -31,6 +31,7 @@ CREATE TABLE `tbl_task` (
                                 `CreateTime` int NOT NULL,
                                 `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                 PRIMARY KEY (`id`),
+                                INDEX `idx_Status` (`Status`, `ExeTime`),
                                 INDEX `idx_Type` (`Type`,`Status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='角色信息表';
 

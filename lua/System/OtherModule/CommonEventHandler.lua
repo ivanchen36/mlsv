@@ -2,6 +2,8 @@ ClientEvent = {} --客户端报文事件
 
 TalkEvent = {} --聊天命令事件
 GmTalkEvent = {} --gm聊天命令事件
+local otherTalkName = {}
+local otherTalkEvent = {} --其他聊天命令事件
 
 InitEvent = {} --初始化事件 支持 char server battle
 DeinitEvent = {} --反初始化事件 支持 char server battle
@@ -11,8 +13,8 @@ SkillExpEvent = {}
 ProductExpEvent = {}
 
 DamageEvent = {}
-OtherDamageName = {}
-OtherDamageEvent = {}
+local otherDamageName = {}
+local otherDamageEvent = {}
 SkillDamageEvent = {}
 
 personAddDamage = {}
@@ -143,30 +145,59 @@ function doServerInitEvent()
         func()
     end
 
-    for i, v in ipairs(OtherDamageName) do
+    for i, v in ipairs(otherDamageName) do
         if rawget(_G, v) ~= nil then
-            logPrint("insert OtherDamageEvent: ", v, _G[v])
-            table.insert(OtherDamageEvent, _G[v])
+            logPrint("insert otherDamageEvent: ", v, _G[v])
+            table.insert(otherDamageEvent, _G[v])
         end
     end
     local deleteFunc = {}
     for k, v in pairs(Event.RegDamageCalculateEvent) do
         if k ~= "doDamageEvent" then
-            logPrint("insert OtherDamageEvent: ", k, v)
-            table.insert(OtherDamageEvent, v)
+            logPrint("insert otherDamageEvent: ", k, v)
+            table.insert(otherDamageEvent, v)
             table.insert(deleteFunc, k)
         else
             logPrint("doDamageEvent")
         end
     end
-
     for i, v in ipairs(deleteFunc) do
         Event.RegDamageCalculateEvent[v] = nil
+    end
+
+    for i, v in ipairs(otherTalkName) do
+        if rawget(_G, v) ~= nil then
+            logPrint("insert otherTalkEvent: ", v, _G[v])
+            table.insert(otherTalkEvent, _G[v])
+        end
+    end
+    local deleteFunc = {}
+    for k, v in pairs(Event.RegTalkEvent) do
+        if k ~= "doTalkEvent" then
+            logPrint("insert otherDamageEvent: ", k, v)
+            table.insert(otherTalkEvent, v)
+            table.insert(deleteFunc, k)
+        else
+            logPrint("doTalkEvent")
+        end
+    end
+
+    for i, v in ipairs(deleteFunc) do
+        Event.RegTalkEvent[v] = nil
+    end
+end
+
+function Event.RegShutDownEvent.doServerDeinitEvent()
+    logPrint("doServerDeinitEvent")
+
+    for funcName, func in pairs(serverDeinitEvent) do
+        logPrint("doServerDeinitEvent", funcName)
+        func()
     end
 end
 
 function NL.RegDamageCalculateEvent(Dofile, FuncName)
-    table.insert(OtherDamageName, FuncName)
+    table.insert(otherDamageName, FuncName)
 end
 
 function Event.RegBattleStartEvent.doBattleInitEvent(battle)
@@ -281,7 +312,7 @@ function Event.RegDamageCalculateEvent.doDamageEvent(CharIndex, DefCharIndex, Or
 
     local realDamage = 0
     if atkType ~= 2 then
-        for i, func in ipairs(OtherDamageEvent) do
+        for i, func in ipairs(otherDamageEvent) do
             realDamage = realDamage + func(CharIndex, DefCharIndex, OriDamage, Damage, BattleIndex, Com1, Com2, Com3, DefCom1, DefCom2, DefCom3, Flg) - Damage
         end
     end
