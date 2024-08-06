@@ -42,7 +42,7 @@ function showTalentInfo()
     if nil == select1 then
         talentWnd:getWidget("petName"):setText("无可选择宠物")
         talentWnd:getWidget("pet"):setImg(0)
-        talentWnd:getWidget("talent"):setText("天赋:暂无")
+        talentWnd:getWidget("talent"):setText("")
         talentWnd:getWidget("desc"):setText("")
         for i = 1, 4 do
             talentWnd:getWidget("confirm" .. i):setEnabled(false)
@@ -129,6 +129,14 @@ function flushTalentInfo(info)
     logPrintTbl(info)
     petInfo = info["pet"]
     itemInfo = info["item"]
+    for i = 1, 5 do
+        if petInfo[tostring(i)] ~= nil then
+            petNum1 = i
+        end
+    end
+    if select1 > petNum1 then
+        select1 = 1
+    end
     showTalentInfo()
 end
 
@@ -254,7 +262,7 @@ local function loadTalentClient()
     for i = 1, 4 do
         talentWnd:getWidget("confirm" .. i):clicked(function(widget)
             if nil ~= select1 then
-                Cli.Send("get_talent|" .. talentInfo[tostring(select1)]["uuid"] .. "," .. i)
+                Cli.Send("get_talent|" .. petInfo[tostring(select1)]["uuid"] .. "," .. i)
             end
         end)
     end
