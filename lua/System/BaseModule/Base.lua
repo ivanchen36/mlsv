@@ -176,7 +176,7 @@ function ZD2B(_num)
 	local _left = _num;
 	while true do
 		if _left > 1 then
-			_str = math.mod(_left,2).._str;
+			_str = math.fmod(_left,2).._str;
 			_left = math.floor(_left / 2);
 		else
 			_str = _left.._str;
@@ -245,7 +245,7 @@ function checkalbumid(_player,_aumid)
 	end
 	_aumid = _aumid-1;
 	local _npos = _aumid / 32;
-	local _lpos = math.mod(_aumid,32)+1;
+	local _lpos = math.fmod(_aumid,32)+1;
 	local _ndata = Char.GetData(_player,129+_npos);
 	local _nstr = IntToHex(_ndata);
 	if string.len(_nstr) < _lpos then

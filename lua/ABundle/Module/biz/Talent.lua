@@ -53,7 +53,7 @@ function showTalentInfo()
     local skillId = pet["talent"]
     local index = skillId - 30400
     local level = math.floor(index / 30) + 1
-    index = math.mod(index, 30)
+    index = math.fmod(index, 30)
     talentWnd:getWidget("petName"):setText(pet["name"])
     talentWnd:getWidget("pet"):setImg(pet["img"])
     if 0 == index then
@@ -94,6 +94,7 @@ function talentPrev(widget)
         initTalentSelect()
         return
     end
+    initTalentSelect()
     select1 = select1 - 1
     showTalentInfo()
 end
@@ -106,6 +107,7 @@ function talentNext(widget)
         initTalentSelect()
         return
     end
+    initTalentSelect()
     select1 = select1 + 1
     showTalentInfo()
 end
@@ -262,7 +264,7 @@ local function loadTalentClient()
     for i = 1, 4 do
         talentWnd:getWidget("confirm" .. i):clicked(function(widget)
             if nil ~= select1 then
-                Cli.Send("get_talent|" .. petInfo[tostring(select1)]["uuid"] .. "," .. i)
+                Cli.Send("get_talent|" .. petInfo[tostring(select1)]["uuid"] .. "," .. (i - 1))
             end
         end)
     end

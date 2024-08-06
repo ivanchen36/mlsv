@@ -29,7 +29,7 @@ function getAwakeningInfo(player)
         local pet = player:getPet(i)
         if pet:isValid() then
             local petAwake = {
-                ["name"] = pet:getName():gsub(16),
+                ["name"] = string.sub(pet:getName(), 1, 16),
                 ["uuid"] = pet:getUuid(),
                 ["vital"] = pet:getVital(),
                 ["str"] = pet:getStr(),

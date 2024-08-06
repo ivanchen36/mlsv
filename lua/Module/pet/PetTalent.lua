@@ -60,9 +60,9 @@ local skillAtkDamage = {
 
 local talentItemId = {
     [0] = 0,
-    [1] = 40103,
-    [2] = 40104,
-    [3] = 40105
+    [1] = 20103,
+    [2] = 20104,
+    [3] = 20105
 }
 
 local talentItemImg = {
@@ -116,7 +116,7 @@ end
 local function setTalentBuff(pet, skillId)
     local index = skillId - 30400
     local level = math.floor((index - 1) / 30) + 1
-    index = math.mod(index, 30)
+    index = math.fmod(index, 30)
     local uuid = pet:getUuid()
     if index >= 14 then
         if rawget(petTalentMap, uuid) ~= nil then
@@ -173,9 +173,9 @@ local function getTalentInfo(player)
         local pet = player:getPet(i)
         if pet:isValid() then
             local skillId = pet:getSkill(pet:getSkillSlots() - 1)
-            if skillId > 30400 and skillId < 30500 and pet:getLevel() >= 70 then
+            if skillId >= 30400 and skillId < 30500 and pet:getLevel() >= 70 then
                 local petInfo = {
-                    ["name"] = pet:getName():gsub(16),
+                    ["name"] = string.sub(pet:getName(), 1, 16),
                     ["uuid"] = pet:getUuid(),
                     ["img"] = pet:getImage(),
                     ["talent"] = skillId,
@@ -222,7 +222,7 @@ end
 function getTalent(player, arg)
     local arr = strSplit(arg, ",")
     local level = tonumber(arr[2])
-    local pet = player:getPet(arr[1])
+    local pet = player:getPetByUuid(arr[1])
     if 0 == level then
         return initTalent(player, pet)
     end
