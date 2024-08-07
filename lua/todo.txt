@@ -71,7 +71,7 @@ BOSS：禁忌魔导师（Forbidden Archmage）
 禁忌学徒（Forbidden Apprentice）：学习禁忌魔法的学徒，擅长辅助和控制。
 黑暗元素（Dark Elemental）：召唤黑暗元素进行远程攻击和诅咒。
 
-关卡1：铁甲战士的试炼
+关卡1：铁甲试炼
 BOSS名称：铁甲战士（Ironclad Warrior）
 勇士名称：钢铁守卫（Steel Guardian）
 组合名称：钢铁双雄（Iron Duo）
@@ -220,7 +220,8 @@ BOSS名称：幽灵船长（Ghost Captain）
     世界boss - 30008
     jjc季赛 - 30007
 
-
-
-
-
+1级的 神兽
+2级的 双王
+3级的 LBLS
+4级的 半山
+5级 羁绊
