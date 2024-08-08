@@ -1,0 +1,111 @@
+#####七宗罪一邪灵鸟人#####
+Event	赫顿摩尔	0	2	0	1	1	0	1500	34	70	34	70	34	70	34	70	1	60000	4	100008	0	1	0	Cayenne_qizongzui1_1.txt
+Event	赫顿的式神	0	2	0	1	1	0	400	150	334	150	334	150	334	150	334	1	60000	4	14148	0	1	0	Cayenne_qizongzui1_2.txt
+Event	邪灵鸟人	0	2	0	1	1	0	44877	14	14	14	14	14	14	14	14	1	60000	4	101834	0	1	0	Cayenne_qizongzui1_3.txt
+Event	堕落僧侣梅鲁	0	2	0	1	1	0	44878	11	11	11	11	11	11	11	11	1	60000	4	101532	0	1	0	Cayenne_qizongzui1_4.txt
+Event	堕落僧侣梅鲁	0	2	0	1	1	0	44879	11	11	11	11	11	11	11	11	1	60000	4	101532	0	1	0	Cayenne_qizongzui1_5.txt
+Event	红色水晶石	0	2	0	1	1	0	44877	14	5	14	5	14	5	14	5	1	60000	4	103011	0	1	0	Cayenne_qizongzui1_6.txt
+#####七宗罪二贪婪之心#####
+Event	士兵布鲁	0	2	0	1	1	0	1500	35	68	35	68	35	68	35	68	1	60000	4	14058	0	1	0	Cayenne_qizongzui2_1.txt
+Event	指挥官莱伊	0	2	0	1	1	0	44882	9	7	9	7	9	7	9	7	1	60000	4	14063	0	1	0	Cayenne_qizongzui2_2.txt
+Event	绿色水晶石	0	2	0	1	1	0	100	628	133	628	133	628	133	628	133	1	60000	4	103013	0	1	0	Cayenne_qizongzui2_3.txt
+Event	洞窟守护者	0	2	0	1	1	0	44881	98	26	98	26	98	26	98	26	1	60000	4	101513	0	1	0	Cayenne_qizongzui2_4.txt
+Event	地精	0	2	0	1	1	0	44881	98	15	98	15	98	15	98	15	1	60000	4	101513	0	1	0	Cayenne_qizongzui2_5.txt
+Event	台座	0	2	0	1	1	0	44881	256	110	256	110	256	110	256	110	1	60000	4	26523	0	1	0	Cayenne_qizongzui2_6.txt
+Event	侍女蒂雅	0	2	0	1	1	0	44884	18	10	18	10	18	10	18	10	1	60000	4	14544	0	1	0	Cayenne_qizongzui2_7.txt
+Event	葛罗姆	0	2	0	1	1	0	44883	14	8	14	8	14	8	14	8	1	60000	4	100339	0	1	0	Cayenne_qizongzui2_8.txt
+Event	葛罗姆	0	2	0	1	1	0	44884	14	8	14	8	14	8	14	8	1	60000	4	100339	0	1	0	Cayenne_qizongzui2_9.txt
+Event	无照护士米内帕鲁	0	990136	0	1	1	0	777	31	18	31	18	31	18	31	18	1	60000	4	14095	0	1	0	Cayenne_qizongzui2_11.txt
+Event	人类?	0	990137	0	1	1	0	777	31	16	31	16	31	16	31	16	1	60000	4	100428	0	1	0	Cayenne_qizongzui2_12.txt
+Event	南希的大哥	0	2	0	1	1	0	2421	8	4	8	4	8	4	8	4	1	60000	4	14001	0	1	0	Cayenne_qizongzui2_13.txt
+Event	公告牌	0	2	0	1	1	0	1500	36	68	36	68	36	68	36	68	1	60000	4	10416	0	1	0	Cayenne_qizongzui2_14.txt
+#####七宗罪三色欲的诱惑#####
+Event	士兵长哈姆	0	2	0	1	1	0	44882	12	4	12	4	12	4	12	4	1	60000	4	14157	0	1	0	Cayenne_qizongzui3_1.txt
+Event	亚鲁尼	0	2	0	1	1	0	3200	45	60	45	60	45	60	45	60	1	60000	4	14078	0	1	0	Cayenne_qizongzui3_2.txt
+Event	士兵霍尔	0	2	0	1	1	0	3350	6	3	6	3	6	3	6	3	1	60000	4	14058	0	1	0	Cayenne_qizongzui3_3.txt
+Event	格拉托尼	0	2	0	1	1	0	44888	9	7	9	7	9	7	9	7	1	60000	4	100552	0	1	0	Cayenne_qizongzui3_4.txt
+Event	拉斯特	0	2	0	1	1	0	44888	11	9	11	9	11	9	11	9	1	60000	4	106677	0	1	0	Cayenne_qizongzui3_5.txt
+Event	黄色水晶石	0	2	0	1	1	0	300	267	253	267	253	267	253	267	253	1	60000	4	103012	0	1	0	Cayenne_qizongzui3_6.txt
+Event	洞窟守护者	0	2	0	1	1	0	44890	40	49	40	49	40	49	40	49	1	60000	4	101511	0	1	0	Cayenne_qizongzui3_7.txt
+Event	洞窟侍者	0	2	0	1	1	0	44890	40	43	40	43	40	43	40	43	1	60000	4	101511	0	1	0	Cayenne_qizongzui3_8.txt
+Event	格拉托尼	0	2	0	1	1	0	44891	17	21	17	21	17	21	17	21	1	60000	4	100552	0	1	0	Cayenne_qizongzui3_9.txt
+Event	拉斯特	0	2	0	1	1	0	44891	16	21	16	21	16	21	16	21	1	60000	4	106677	0	1	0	Cayenne_qizongzui3_10.txt
+Event	冒险者卡尼	0	2	0	1	1	0	44889	18	9	18	9	18	9	18	9	1	60000	4	14028	0	1	0	Cayenne_qizongzui3_11.txt
+Event	希尔芙	0	2	0	1	1	0	44891	17	7	17	7	17	7	17	7	1	60000	4	100270	0	1	0	Cayenne_qizongzui3_12.txt
+Event	希尔芙	0	2	0	1	1	0	44892	17	7	17	7	17	7	17	7	1	60000	4	100270	0	1	0	Cayenne_qizongzui3_13.txt
+Event	格拉托尼	0	2	0	1	1	0	44892	23	12	23	12	23	12	23	12	1	60000	4	100552	0	1	0	Cayenne_qizongzui3_14.txt
+Event	拉斯特	0	2	0	1	1	0	44892	23	10	23	10	23	10	23	10	1	60000	4	106677	0	1	0	Cayenne_qizongzui3_15.txt
+Event	希尔芙	0	2	0	1	1	0	44893	17	7	17	7	17	7	17	7	1	60000	4	100270	0	1	0	Cayenne_qizongzui3_16.txt
+Event	士兵霍尔	0	2	0	1	1	0	16509	26	19	26	19	26	19	26	19	1	60000	4	14058	0	1	0	Cayenne_qizongzui3_17.txt
+#####七宗罪四消失的古都#####
+Event	士兵长柯德	0	2	0	1	1	0	44882	8	2	8	2	8	2	8	2	1	1000	4	14062	0	1	0	Cayenne_qizongzui4_1.txt
+Event	调查员486	0	2	0	1	1	0	300	518	232	518	232	518	232	518	232	1	1000	4	14060	0	1	0	Cayenne_qizongzui4_2.txt
+Event	被灼伤的蜥蜴	0	2	0	1	1	0	44913	9	6	9	6	9	6	9	6	1	1000	4	101702	0	1	0	Cayenne_qizongzui4_3.txt
+Event	洞窟守护者	0	2	0	1	1	0	44910	175	101	175	101	175	101	175	101	1	1000	4	101510	0	1	0	Cayenne_qizongzui4_4.txt
+Event	台座	0	2	0	1	1	0	44910	271	158	271	158	271	158	271	158	1	1000	6	10316	0	1	0	Cayenne_qizongzui4_5.txt
+Event	沙罗曼	0	2	0	1	1	0	44912	25	25	25	25	25	25	25	25	1	1000	4	100252	0	1	0	Cayenne_qizongzui4_6.txt
+Event	沙罗曼	0	2	0	1	1	0	44914	25	25	25	25	25	25	25	25	1	1000	4	100252	0	1	0	Cayenne_qizongzui4_7.txt
+Event	石碑	0	2	0	1	1	0	44914	25	13	25	13	25	13	25	13	1	1000	4	11567	0	1	0	Cayenne_qizongzui4_8.txt
+Event	沙罗曼	0	2	0	1	1	0	44915	25	25	25	25	25	25	25	25	1	1000	4	100252	0	1	0	Cayenne_qizongzui4_9.txt
+#支线部分#
+Event	斧圣	0	2	0	1	1	0	44911	170	160	170	160	170	160	170	160	1	1000	6	14196	0	1	0	Cayenne_qizongzui4_10.txt
+Event	格斗王	0	2	0	1	1	0	44911	42	94	42	94	42	94	42	94	1	1000	6	14207	0	1	0	Cayenne_qizongzui4_11.txt
+Event	剑圣	0	2	0	1	1	0	44911	78	35	78	35	78	35	78	35	1	1000	6	14077	0	1	0	Cayenne_qizongzui4_12.txt
+Event	枪圣	0	2	0	1	1	0	44911	70	140	70	140	70	140	70	140	1	1000	6	14191	0	1	0	Cayenne_qizongzui4_13.txt
+#剧情部分#
+Event	反抗军	0	2	0	1	1	0	44911	56	96	56	96	56	96	56	96	1	1000	2	14061	0	1	0	Cayenne_qizongzui4_14.txt
+Event	反抗军	0	2	0	1	1	0	44911	97	93	97	93	97	93	97	93	1	1000	2	14061	0	1	0	Cayenne_qizongzui4_15.txt
+Event	反抗军	0	2	0	1	1	0	44911	107	141	107	141	107	141	107	141	1	1000	0	14062	0	1	0	Cayenne_qizongzui4_16.txt
+Event	拉斯	0	2	0	1	1	0	44911	151	98	151	98	151	98	151	98	1	1000	6	100528	0	1	0	Cayenne_qizongzui4_17.txt
+Event	格拉托尼	0	2	0	1	1	0	44911	81	69	81	69	81	69	81	69	1	1000	6	100552	0	1	0	Cayenne_qizongzui4_18.txt
+Event	拉斯特	0	2	0	1	1	0	44911	81	67	81	67	81	67	81	67	1	1000	6	106677	0	1	0	Cayenne_qizongzui4_19.txt
+Event	牧师	0	2	0	1	1	0	44911	170	47	170	47	170	47	170	47	1	1000	6	14091	0	1	0	Cayenne_qizongzui4_20.txt
+Event	受伤的帝国兵	0	2	0	1	1	0	44911	72	95	72	95	72	95	72	95	1	1000	6	100551	0	1	0	Cayenne_qizongzui4_21.txt
+Event	斯内法德	0	2	0	1	1	0	44911	72	76	72	76	72	76	72	76	1	1000	4	100577	0	1	0	Cayenne_qizongzui4_22.txt
+#####七宗罪五隐藏的真相#####
+Event	士兵长莫尔肯	0	2	0	1	1	0	44882	11	8	11	8	11	8	11	8	1	1000	6	14059	0	1	0	Cayenne_qizongzui5_1.txt
+Event	士兵皮鲁柯尔	0	2	0	1	1	0	15522	33	32	33	32	33	32	33	32	1	1000	6	14138	0	1	0	Cayenne_qizongzui5_2.txt
+Event	洞窟守护者	0	2	0	1	1	0	44965	12	80	12	80	12	80	12	80	1	1000	4	101512	0	1	0	Cayenne_qizongzui5_3.txt
+Event	台座	0	2	0	1	1	0	44966	50	170	50	170	50	170	50	170	1	1000	6	10316	0	1	0	Cayenne_qizongzui5_4.txt
+Event	拉斯	0	2	0	1	1	0	44967	39	39	39	39	39	39	39	39	1	1000	6	100528	0	1	0	Cayenne_qizongzui5_5.txt
+Event	斯洛斯	0	2	0	1	1	0	44967	38	41	38	41	38	41	38	41	1	1000	6	100628	0	1	0	Cayenne_qizongzui5_6.txt
+Event	温蒂妮	0	2	0	1	1	0	44967	42	41	42	41	42	41	42	41	1	1000	6	100335	0	1	0	Cayenne_qizongzui5_7.txt
+Event	温蒂妮	0	2	0	1	1	0	44968	42	41	42	41	42	41	42	41	1	1000	6	100335	0	1	0	Cayenne_qizongzui5_8.txt
+#支线部分#
+Event	水元素精灵	0	2	0	1	1	0	44968	38	29	38	29	38	29	38	29	1	1000	4	101512	0	1	0	Cayenne_qizongzui5_9.txt
+Event	水元素精灵	0	2	0	1	1	0	44968	42	29	42	29	42	29	42	29	1	1000	4	101512	0	1	0	Cayenne_qizongzui5_10.txt
+Event	水元素精灵	0	2	0	1	1	0	44968	45	51	45	51	45	51	45	51	1	1000	0	101512	0	1	0	Cayenne_qizongzui5_11.txt
+Event	水元素精灵	0	2	0	1	1	0	44968	41	51	41	51	41	51	41	51	1	1000	0	101512	0	1	0	Cayenne_qizongzui5_12.txt
+#####七宗罪六传说中的勇者#####
+Event	邪灵鸟人	0	2	0	1	1	0	44970	14	14	14	14	14	14	14	14	1	60000	4	101834	0	1	0	Cayenne_qizongzui6_1.txt
+Event	红色水晶石	0	2	0	1	1	0	44970	14	5	14	5	14	5	14	5	1	60000	4	103011	0	1	0	Cayenne_qizongzui6_2.txt
+Event	堕落僧侣梅鲁	0	2	0	1	1	0	44971	11	11	11	11	11	11	11	11	1	60000	4	101532	0	1	0	Cayenne_qizongzui6_3.txt
+Event	黄色水晶石	0	2	0	1	1	0	300	470	380	470	380	470	380	470	380	1	60000	4	103012	0	1	0	Cayenne_qizongzui6_4.txt
+Event	拉斯	0	2	0	1	1	0	44972	20	16	20	16	20	16	20	16	1	1000	6	100528	0	1	0	Cayenne_qizongzui6_5.txt
+Event	格拉托尼	0	2	0	1	1	0	44972	17	14	17	14	17	14	17	14	1	1000	6	100552	0	1	0	Cayenne_qizongzui6_6.txt
+Event	斯洛斯	0	2	0	1	1	0	44972	18	17	18	17	18	17	18	17	1	1000	6	100628	0	1	0	Cayenne_qizongzui6_7.txt
+Event	拉斯特	0	2	0	1	1	0	44972	20	13	20	13	20	13	20	13	1	1000	6	106677	0	1	0	Cayenne_qizongzui6_8.txt
+Event	拉斯	0	2	0	1	1	0	44973	20	16	20	16	20	16	20	16	1	1000	6	100528	0	1	0	Cayenne_qizongzui6_9.txt
+Event	格拉托尼	0	2	0	1	1	0	44973	17	14	17	14	17	14	17	14	1	1000	6	100552	0	1	0	Cayenne_qizongzui6_10.txt
+Event	斯洛斯	0	2	0	1	1	0	44973	18	17	18	17	18	17	18	17	1	1000	6	100628	0	1	0	Cayenne_qizongzui6_11.txt
+Event	拉斯特	0	2	0	1	1	0	44973	20	13	20	13	20	13	20	13	1	1000	6	106677	0	1	0	Cayenne_qizongzui6_12.txt
+Event	赫顿摩尔	0	2	0	1	1	0	44974	7	16	7	16	7	16	7	16	1	1000	2	100011	0	1	0	Cayenne_qizongzui6_13.txt
+#支线#
+Event	巫师小爱	0	2	0	1	1	0	13009	30	25	30	25	30	25	30	25	1	1000	2	101022	0	1	0	Cayenne_qizongzui6_14.txt
+#####七宗罪终原罪#####
+Event	赫顿的式神	0	2	0	1	1	0	300	652	387	652	387	652	387	652	387	1	1000	6	14148	0	1	0	Cayenne_qizongzu7_1.txt
+Event	遗骨	0	2	0	1	1	0	300	654	386	654	386	654	386	654	386	1	1000	6	15191	0	1	0	Cayenne_qizongzui7_2.txt
+Event	苏珊娜	0	2	0	1	1	0	3000	42	46	42	46	42	46	42	46	1	1000	4	14009	0	1	0	Cayenne_qizongzui7_3.txt
+Event	赫顿的式神	0	2	0	1	1	0	44981	417	61	417	61	417	61	417	61	1	1000	6	14148	0	1	0	Cayenne_qizongzui7_4.txt
+Event	赫顿的式神	0	2	0	1	1	0	44981	445	36	445	36	445	36	445	36	1	1000	6	14148	0	1	0	Cayenne_qizongzui7_5.txt
+Event	赫顿的式神	0	2	0	1	1	0	44981	511	125	511	125	511	125	511	125	1	1000	6	14148	0	1	0	Cayenne_qizongzui7_6.txt
+Event	赫顿的式神	0	2	0	1	1	0	44981	536	60	536	60	536	60	536	60	1	1000	6	14148	0	1	0	Cayenne_qizongzui7_7.txt
+Event	赫顿的式神	0	2	0	1	1	0	44981	8	5	8	5	8	5	8	5	1	1000	6	14148	0	1	0	Cayenne_qizongzui7_8.txt
+Event	斯洛斯	0	2	0	1	1	0	44982	12	5	12	5	12	5	12	5	1	1000	6	100628	0	1	0	Cayenne_qizongzui7_9.txt
+Event	格利德	0	2	0	1	1	0	44982	12	8	12	8	12	8	12	8	1	1000	6	100577	0	1	0	Cayenne_qizongzui7_10.txt
+Event	格拉托尼	0	2	0	1	1	0	44982	12	11	12	11	12	11	12	11	1	1000	6	100552	0	1	0	Cayenne_qizongzui7_11.txt
+Event	拉斯	0	2	0	1	1	0	44982	15	3	15	3	15	3	15	3	1	1000	6	100528	0	1	0	Cayenne_qizongzui7_12.txt
+Event	拉斯特	0	2	0	1	1	0	44982	15	13	15	13	15	13	15	13	1	1000	6	106677	0	1	0	Cayenne_qizongzui7_13.txt
+Event	堕落僧侣梅鲁	0	2	0	1	1	0	44982	17	8	17	8	17	8	17	8	1	60000	6	101532	0	1	0	Cayenne_qizongzui7_14.txt
+Event	堕落僧侣梅鲁	0	2	0	1	1	0	44983	17	8	17	8	17	8	17	8	1	60000	6	101532	0	1	0	Cayenne_qizongzui7_15.txt
+Event	赫顿摩尔	0	2	0	1	1	0	44984	12	5	12	5	12	5	12	5	1	1000	4	100011	0	1	0	Cayenne_qizongzui7_16.txt

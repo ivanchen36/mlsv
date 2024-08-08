@@ -1,4 +1,4 @@
-local curPrice = 10000
+local curPrice = 5000
 local curBuy = 0
 local curSell = 0
 local cardBalance = 0
@@ -7,7 +7,7 @@ local lastAdjust = 0
 local adjustDiff = 100
 
 local function adjustPrice(newPrice)
-    if 0 == lastAdjust then
+    if newPrice > curPrice then
         curPrice = newPrice
         if curPrice > newPrice then
             lastAdjust = Const.CardUp
@@ -60,7 +60,6 @@ function initGoldCardTrade()
     local rs = SQL.Run(sql);
     logPrintTbl(rs)
     if(type(rs) ~= "table")then
-        curPrice = 10000
         sellerList[Const.NpcGoldCard] = {
             ["1"] = {
                 ["name"] = "½ð¿¨",
@@ -74,6 +73,13 @@ function initGoldCardTrade()
         return
     end
     setPriceInfo(rs["0_0"])
+    sellerList[Const.NpcGoldCard] = {
+        ["1"] = {
+            ["name"] = "½ð¿¨",
+            [29999] = {[0] = curPrice},
+            [curPrice / 500] = {[29999] = 1},
+        }
+    }
 end
 
 function saveGoldCardTrade()
@@ -99,8 +105,6 @@ function statsGoldCardTrade(itemId, num)
     local oldPrice = curPrice
     if curBuy - curSell > adjustDiff then
         adjustPrice(curPrice + 500)
-    elseif curSell - curBuy > adjustDiff then
-        adjustPrice(curPrice - 500)
     end
     if oldPrice ~= curPrice then
         logPrint("priceInfo", curPrice, curBuy, curSell, cardBalance, goldBalance)

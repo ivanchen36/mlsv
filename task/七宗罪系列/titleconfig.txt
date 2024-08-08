@@ -1,0 +1,4 @@
+####七宗罪六传说中的勇者####
+ENDFLG=169,TITLE=2075
+#####七宗罪终原罪#####
+EQUIPEVENT=0,EQUIPITEM=800209,TITLE=2076

@@ -61,4 +61,5 @@ function showRecover(npc, player, s)
 end
 
 npcDialog[14152] = showRecover
+npcDialog[14151] = showRecover
 ClientEvent["party_recover"] = partyRecover

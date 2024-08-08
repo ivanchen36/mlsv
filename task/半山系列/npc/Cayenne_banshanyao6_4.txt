@@ -1,0 +1,15 @@
+block item 141194 >= 1
+window "\n\n是否确定要恢复全部生命力并传送至未知领域召唤失去的灵魂?",yes,no
+window_yes item 141194 >= 1
+killitem 141194
+setlp +999999
+setmoonboyDB 1,0,11,999999
+setmoonboyDB 0,0,39,0
+LeaveGroup
+Warp 0,57405,54,20
+
+
+
+
+
+

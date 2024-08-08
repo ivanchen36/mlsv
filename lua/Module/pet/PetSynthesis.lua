@@ -31,7 +31,7 @@ function getSynthesisInfo(player)
     return petArr
 end
 
-function showSynthesis(player, arg)
+function showSynthesis(player)
     Protocol.PowerSend(player:getObj(),"SHOW_SYNTHESIS", getSynthesisInfo(player))
 end
 
@@ -67,5 +67,10 @@ function petSynthesis(player, arg)
     player:sysMsg("合成宠物成功");
 end
 
+function npcSynthesis(npc, player, s)
+    showSynthesis(player)
+end
+
+npcDialog[Const.NpcSynthesis] = npcSynthesis
 TalkEvent["[synthesis]"] = showSynthesis
 ClientEvent["pet_synthesis"] = petSynthesis

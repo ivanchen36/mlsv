@@ -1,0 +1,2 @@
+﻿#####法兰王国的暗流#####
+EQUIPEVENT=0,EQUIPITEM=39692,TITLE=2077

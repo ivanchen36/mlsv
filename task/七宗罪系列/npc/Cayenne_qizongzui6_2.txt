@@ -1,0 +1,3 @@
+block
+leavegroup
+warp 0,44971,12,17

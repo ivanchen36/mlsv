@@ -326,7 +326,7 @@ function npcVip(npc, player, s)
     showVip(player)
 end
 
-npcDialog[Const.NpcVip] = npcVip
+--npcDialog[Const.NpcVip] = npcVip
 --vip
 ClientEvent["up_gift"] = upGift
 TalkEvent["[vip]"] = showVip

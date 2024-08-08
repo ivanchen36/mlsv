@@ -1,0 +1,7 @@
+block globalFlag 76 == 1
+Window "\n\n『地上有个脏兮兮的袋子,要打开查看一下吗?』",yes,no
+Window_no
+Window_yes
+Window "\n\n『你身边突然出现了一个黑影!』",ok
+Window_ok
+encount 3|0,60053,8,5||0|||||0|50173|||||||||

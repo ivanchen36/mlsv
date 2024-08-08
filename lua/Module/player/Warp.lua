@@ -97,8 +97,8 @@ function playerWarp(player, arg)
     player:warp(0, mapInfo[1], mapInfo[2], mapInfo[3])
 end
 
-npcDialog[104890] = showPlayerWarp;
-ClientEvent["warp"] = playerWarp;
+npcDialog[Const.NpcWarp] = showPlayerWarp
+ClientEvent["warp"] = playerWarp
 
 local needLoadHomeNpc = true
 local homeWarpList = {

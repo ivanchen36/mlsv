@@ -1,0 +1,14 @@
+block item 18450 >= 1
+killitem 18450,1
+killitem 60476,1
+leavegroup
+warp 0,57058,28,30
+
+block
+endwindow "\n\n似乎缺少了一种能量"
+
+
+
+
+
+

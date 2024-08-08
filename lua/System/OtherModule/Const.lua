@@ -5,14 +5,16 @@ Const.CardDown = 2
 Const.TaskTypeCard = 99999
 
 Const.NpcSeller = 104387
-Const.NpcGoldCard = 104387
+Const.NpcGoldCard = 98082
 
-Const.NpcVip = 111
+Const.NpcWarp = 99238
 Const.NpcTalent = 108851
-Const.NpcAwakening = 111
-Const.NpcSynthesis = 111
-Const.NpcPk = 111
-Const.NpcTask = 111
+Const.NpcAwakening = 260530
+Const.NpcSynthesis = 235178
+Const.NpcProficient = 14548
+Const.NpcPk = 14064
+Const.NpcPkEquip = 14520
+Const.NpcTask = 99098
 
 Const.GoldImgId = 27402
 Const.PetBattle = 2

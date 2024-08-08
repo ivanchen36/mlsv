@@ -108,7 +108,7 @@ local function getSellItemImg(sellList)
     local imgList = {}
     for _, itemId in ipairs(sellList) do
         local item = MyDataItem:new(itemId)
-        if itemId < 200000 then
+        if itemId < 20000 then
             imgList[itemId] = {
                 ["i"] = Const.GoldImgId,
                 ["n"] = (itemId * 500) .. "GÄ§±Ò"
