@@ -371,7 +371,12 @@ local attr1 = {
     ["agi"] = "敏捷",
     ["spirit"] = "精神",
     ["recover"] = "回复",
-    ["adm"] = "魔攻"
+    ["adm"] = "魔攻",
+    ["vital"] = "体力",
+    ["str"] = "力量",
+    ["tough"] = "强度",
+    ["quick"] = "速度",
+    ["magic"] = "魔法",
 }
 
 local attr2 = {
@@ -381,7 +386,8 @@ local attr2 = {
     ["drunk"] = "抗醉",
     ["confusion"] = "抗混",
     ["amnesia"] = "抗忘",
-    ["rss"] = "抗魔"
+    ["rss"] = "抗魔",
+    ["art"] = "总档",
 }
 
 local attr3 = {
@@ -451,6 +457,8 @@ local itemCatMap = {
     [53] = "点心",
     [54] = "家族兽之笛",
     [55] = "头饰",
+    [98] = "魔币",
+    [99] = "宠物",
 }
 local petCatMap = {
     [1] = "宠物-剑",

@@ -17,8 +17,8 @@ useModule("zdzd");--自动战斗相关
 useModule("Login_can");--原地登录相关
 useModule("Login");--原地登录相关
 useModule("getpetBp");--宠物算档 配合按钮
-useModule("shop_canshu");--道具商城配置文件
-useModule("shop");--道具商城主文件
+--useModule("shop_canshu");--道具商城配置文件
+--useModule("shop");--道具商城主文件
 
 useModule("fram");--声望查询
 --useModule("laba");--喇叭

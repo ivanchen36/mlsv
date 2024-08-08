@@ -37,14 +37,24 @@ local function getPriceInfo()
     return string.format("%d,%d,%d,%d,%d", curPrice, curBuy, curSell, cardBalance, goldBalance)
 end
 
+local function setGoldSellInfo()
+    sellerList[Const.NpcGoldCard][2] = {
+        ["1"] = {
+            ["name"] = "金卡",
+            [29999] = {[0] = curPrice},
+            [Const.CardSkuId] = {[0] = curPrice * 10},
+            [Const.GoldSkuId] = {[29999] = 1},
+            [Const.GoldSkuId1] = {[29999] = 10},
+        }
+    }
+    sellerSkuList[Const.GoldSkuId] = {0,0,curPrice,""}
+    sellerSkuList[Const.GoldSkuId1] = {0,0,curPrice * 10,""}
+    sellerSkuList[Const.CardSkuId] = {0,0, 10,""}
+end
+
 local function setPriceInfo(info)
     local arr = strSplit(info, ",")
     if #arr ~= 5 then
-        curPrice = 10000
-        curBuy = 0
-        curSell = 0
-        cardBalance = 0
-        goldBalance = 0
         return
     end
     curPrice = tonumber(arr[1])
@@ -60,26 +70,14 @@ function initGoldCardTrade()
     local rs = SQL.Run(sql);
     logPrintTbl(rs)
     if(type(rs) ~= "table")then
-        sellerList[Const.NpcGoldCard] = {
-            ["1"] = {
-                ["name"] = "金卡",
-                [29999] = {[0] = curPrice},
-                [curPrice / 500] = {[29999] = 1},
-            }
-        }
+        setGoldSellInfo()
         local sql = string.format("insert into tbl_task(RegNum,Type,Status,Info, ExeTime, CreateTime) values ('',%d,2,'%s',unix_timestamp() + %d, UNIX_TIMESTAMP());",
                                   Const.TaskTypeCard, getPriceInfo(), 86400 * 730)
         SQL.Run(sql);
         return
     end
     setPriceInfo(rs["0_0"])
-    sellerList[Const.NpcGoldCard] = {
-        ["1"] = {
-            ["name"] = "金卡",
-            [29999] = {[0] = curPrice},
-            [curPrice / 500] = {[29999] = 1},
-        }
-    }
+    setGoldSellInfo()
 end
 
 function saveGoldCardTrade()
@@ -100,7 +98,7 @@ function statsGoldCardTrade(itemId, num)
     else
         curSell = curSell + num
         cardBalance = cardBalance + num
-        goldBalance = goldBalance - num * itemId * 500
+        goldBalance = goldBalance - num * (itemId - Const.GoldBaseItemId) * 500
     end
     local oldPrice = curPrice
     if curBuy - curSell > adjustDiff then
@@ -108,13 +106,10 @@ function statsGoldCardTrade(itemId, num)
     end
     if oldPrice ~= curPrice then
         logPrint("priceInfo", curPrice, curBuy, curSell, cardBalance, goldBalance)
-        sellerList[Const.NpcGoldCard] = {
-            ["1"] = {
-                ["name"] = "金卡",
-                [29999] = {[0] = curPrice},
-                [curPrice / 500] = {[29999] = 1},
-            }
-        }
+        Const.GoldSkuId = Const.GoldSkuId + 1000
+        Const.GoldSkuId1 = Const.GoldSkuId1 + 1000
+        Const.CardSkuId = Const.CardSkuId + 1000
+        setGoldSellInfo()
     end
 end
 

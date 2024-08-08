@@ -5,10 +5,10 @@ local bossMap = {
 local encountTpl = "3|0,0,0,0||0|||||0|%d|||||||||"
 local addBossAttrList = {"hp","atk","def","agi","mp","recover","spirit"}
 local bossBattleMap = {}
-local bossAddRate = {0, 100 ,200}
+local bossAddRate = {0, 50 ,100}
 
 local function modifyAttr(battleIndex, enemyId, challengeLevel)
-    local addRate = (challengeLevel - 1) * 0.5
+    local addRate = bossAddRate[challengeLevel]
     for i = 10, 19 do
         local enemy = MyEnemy:new(Battle.GetPlayer(battleIndex, i))
         if enemy:isValid() then

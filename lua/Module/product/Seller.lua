@@ -78,8 +78,17 @@ local petEquipSeller = {
     },
 }
 
+local petSeller = {
+
+}
+
 sellerList = {
-    [Const.NpcSeller] = {"宠物装备", petEquipSeller}
+    [Const.NpcSeller] = {"宠物装备", petEquipSeller},
+    [Const.NpcGoldCard] = {"金币兑换", {}},
+    [Const.NpcGoldCard] = {"宠物兑换", petSeller},
+}
+
+sellerSkuList = {
 }
 
 local function getSellAndPayItem(seller)
@@ -104,16 +113,53 @@ local function getSellAndPayItem(seller)
     return sellList, payList
 end
 
+local function getSkuItemInfo(item)
+    if rawget(sellerSkuList, item) == nil then
+        player:sysMsg("系统异常")
+        return {
+            ["i"] = Const.GoldImgId,
+            ["n"] = "0G魔币"
+        }
+    end
+    local sku = sellerSkuList[item]
+    local itemType = sku[1]
+    local itemId = sku[2]
+    local itemNum = sku[3]
+    local itemName = sku[4]
+    if Const.SkuTypeGold == itemType then
+        return {
+            ["i"] = Const.GoldImgId,
+            ["n"] = tostring(itemNum) .. "G魔币"
+        }
+    elseif Const.SkuTypeItem == itemType then
+        local itemInfo = MyDataItem:new(itemId)
+        if itemName ~= "" then
+            return {
+                ["i"] = itemInfo:getImage(),
+                ["n"] = itemName
+            }
+        else
+            return {
+                ["i"] = itemInfo:getImage(),
+                ["n"] = itemInfo:getName() .. "×" .. itemNum
+            }
+        end
+    elseif Const.SkuTypePet == itemType then
+        local enemy = MyEnemyData:new(itemId)
+        return {
+            ["i"] = enemy:getImage(),
+            ["n"] = "[宠物]" .. enemy:getName()
+        }
+    end
+end
+
 local function getSellItemImg(sellList)
     local imgList = {}
     for _, itemId in ipairs(sellList) do
-        local item = MyDataItem:new(itemId)
-        if itemId < 20000 then
-            imgList[itemId] = {
-                ["i"] = Const.GoldImgId,
-                ["n"] = (itemId * 500) .. "G魔币"
-            }
+        if itemId > 1000000 then
+            imgList[itemId] = getSkuItemInfo(itemId)
         else
+            local item = MyDataItem:new(itemId)
             imgList[itemId] = {
                 ["i"] = item:getImage(),
                 ["n"] = item:getName()
@@ -158,6 +204,24 @@ function initSeller(player, arg)
     Protocol.PowerSend(player:getObj(), "SHOW_SELLER", resp)
 end
 
+local function handleSkuItem(player, item, num)
+    if rawget(sellerSkuList, item) == nil then
+        player:sysMsg("系统异常，发放物品失败，联系GM")
+        return
+    end
+    local sku = sellerSkuList[item]
+    local itemType = sku[1]
+    local itemId = sku[2]
+    local itemNum = sku[3]
+    if Const.SkuTypeGold == itemType then
+        player:addMoney(itemNum * num)
+    elseif Const.SkuTypeItem == itemType then
+        player:addItem(itemId, itemNum * num)
+    elseif Const.SkuTypePet == itemType then
+        player:givePet(itemId)
+    end
+end
+
 function buyNpcItem(player, arg)
     logPrint("buyNpcItem", arg)
     local parts = strSplit(arg, "#")
@@ -172,6 +236,7 @@ function buyNpcItem(player, arg)
     local needPayInfo = {}
     local buyInfo = {}
     local sum = 0
+    local petSum = 0
     for i = 3, #parts do
         local itemArr = strSplit(parts[i], ",")
         local buyItem = tonumber(itemArr[1])
@@ -230,8 +295,8 @@ function buyNpcItem(player, arg)
     end
     logPrintTbl(buyInfo)
     for item, num in pairs(buyInfo) do
-        if item < 200000 and Const.NpcGoldCard == npcImg then
-            player:addMoney(item * num * 500)
+        if item > Const.SkuBaseItemId then
+            handleSkuItem(player, item, num)
         else
             player:addItem(item, num)
         end

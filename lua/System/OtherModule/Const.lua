@@ -1,11 +1,22 @@
 Const = {}
 
+Const.SkuBaseItemId = 1000000
+
+Const.GoldSkuId = 1000001
+Const.GoldSkuId1 = 1000002
+Const.CardSkuId = 1000003
+
+Const.SkuTypeGold = 0
+Const.SkuTypeItem = 1
+Const.SkuTypePet = 2
+
 Const.CardUp = 1
 Const.CardDown = 2
 Const.TaskTypeCard = 99999
 
 Const.NpcSeller = 104387
 Const.NpcGoldCard = 98082
+Const.NpcPetTrade = 1111
 
 Const.NpcWarp = 99238
 Const.NpcTalent = 108851
@@ -17,6 +28,8 @@ Const.NpcPkEquip = 14520
 Const.NpcTask = 99098
 
 Const.GoldImgId = 27402
+Const.PetImgId = 480407
+
 Const.PetBattle = 2
 Const.PetWait = 2
 Const.PetFree = 1

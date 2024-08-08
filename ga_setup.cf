@@ -15,7 +15,7 @@ disable_pet_leave = 0
 
 ################## Char 相关设置
 #限制mac多开
-max_connect_per_pc=9999
+max_connect_per_pc=30
 
 ###关闭贩卖验证码
 npc_recaptcha=0
@@ -88,6 +88,7 @@ dual_map_01=1401
 dual_map_02=33221
 dual_map_03=43131
 dual_map_04=59545
+dual_map_04=64126
 dual_map_05=777
 
 

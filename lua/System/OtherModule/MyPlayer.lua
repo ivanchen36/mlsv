@@ -57,6 +57,20 @@ function MyPlayer:getBattlePet()
     return self:getPet(self:getBattlePetSlot())
 end
 
+function MyPlayer:givePet(petId)
+    if Char.GivePet(self._player, petId, 0) < 0 then
+        return 0
+    end
+    return 1
+end
+
+function MyPlayer:giveFullPet(petId)
+    if Char.GivePet(self._player, petId, 1) < 0 then
+        return 0
+    end
+    return 1
+end
+
 function MyPlayer:getPetByUuid(uuid)
     for i = 0, 4 do
         local pet = self:getPet(i)
