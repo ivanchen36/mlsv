@@ -9,8 +9,9 @@ function test1()
 end
 local userInfo1 = {}
 function test(player)
-    getTalentClient(player, "")
-    --local enemy = MyEnemyData:new(35001)
+    --getTalentClient(player, "")
+    local enemy = MyEnemyData:new(30007)
+
     --logPrintTbl(enemy:getAttr())
     --logPrintTbl( calEnemyAttr(30, enemy:getBirthBp(), enemy:getVital(),
     --       enemy:getStr(), enemy:getTough(), enemy:getQuick(), enemy:getMagic()))

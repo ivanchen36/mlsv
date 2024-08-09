@@ -41,15 +41,15 @@ local function setGoldSellInfo()
     sellerList[Const.NpcGoldCard][2] = {
         ["1"] = {
             ["name"] = "½ð¿¨",
-            [29999] = {[0] = curPrice},
-            [Const.CardSkuId] = {[0] = curPrice * 10},
-            [Const.GoldSkuId] = {[29999] = 1},
-            [Const.GoldSkuId1] = {[29999] = 10},
+            [Const.ItemCard] = {[Const.ItemGold] = curPrice},
+            [Const.CardSkuId] = {[Const.ItemGold] = curPrice * 10},
+            [Const.GoldSkuId] = {[Const.ItemCard] = 1},
+            [Const.GoldSkuId1] = {[Const.ItemCard] = 10},
         }
     }
-    sellerSkuList[Const.GoldSkuId] = {0,0,curPrice,""}
-    sellerSkuList[Const.GoldSkuId1] = {0,0,curPrice * 10,""}
-    sellerSkuList[Const.CardSkuId] = {0,0, 10,""}
+    sellerSkuList[Const.CardSkuId] = {Const.SkuTypeItem, Const.ItemCard, 10,""}
+    sellerSkuList[Const.GoldSkuId] = {Const.SkuTypeGold, Const.ItemGold,curPrice,""}
+    sellerSkuList[Const.GoldSkuId1] = {Const.SkuTypeGold, Const.ItemGold,curPrice * 10,""}
 end
 
 local function setPriceInfo(info)
@@ -91,14 +91,31 @@ function saveGoldCardTrade()
 end
 
 function statsGoldCardTrade(itemId, num)
-    if itemId == 29999 then
-        curBuy = curBuy + num
-        cardBalance = cardBalance - num
-        goldBalance = goldBalance + num * curPrice
+    local buyItemId = itemId
+    local buyNum = num
+    local payNum = 0
+    if itemId > Const.SkuBaseItemId then
+        local sku = sellerSkuList[itemId]
+        local itemType = sku[1]
+        local itemNum = sku[3]
+
+        if Const.SkuTypeGold == itemType then
+            buyNum = num * itemNum
+            payNum = buyNum / curPrice
+        else
+            buyItemId = Const.ItemCard
+            buyNum = num * itemNum
+            payNum = buyNum * curPrice
+        end
+    end
+    if buyItemId == Const.ItemCard then
+        curBuy = curBuy + buyNum
+        cardBalance = cardBalance - buyNum
+        goldBalance = goldBalance + payNum
     else
-        curSell = curSell + num
-        cardBalance = cardBalance + num
-        goldBalance = goldBalance - num * (itemId - Const.GoldBaseItemId) * 500
+        curSell = curSell + payNum
+        cardBalance = cardBalance + payNum
+        goldBalance = goldBalance - buyNum
     end
     local oldPrice = curPrice
     if curBuy - curSell > adjustDiff then

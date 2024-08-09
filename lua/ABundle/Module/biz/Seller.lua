@@ -138,6 +138,8 @@ local function setGoodsImg(index, itemId)
                 flushPayInfo()
             end
         end)
+        add:setEnabled(true)
+        sub:setEnabled(true)
     else
         img:setImg(0)
         name:setText("")
@@ -352,7 +354,7 @@ function showSeller(info)
 end
 
 function initSeller(sellerId)
-    if rawget(sellerMap, sellerId) == nil then
+    if rawget(sellerMap, sellerId) == nil or 98082 == sellerId then
         Cli.Send("init_seller|" .. sellerId)
         return
     end

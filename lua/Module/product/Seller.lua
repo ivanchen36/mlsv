@@ -85,7 +85,7 @@ local petSeller = {
 sellerList = {
     [Const.NpcSeller] = {"宠物装备", petEquipSeller},
     [Const.NpcGoldCard] = {"金币兑换", {}},
-    [Const.NpcGoldCard] = {"宠物兑换", petSeller},
+    [Const.NpcPetTrade] = {"宠物兑换", petSeller},
 }
 
 sellerSkuList = {
@@ -147,7 +147,7 @@ local function getSkuItemInfo(item)
     elseif Const.SkuTypePet == itemType then
         local enemy = MyEnemyData:new(itemId)
         return {
-            ["i"] = enemy:getImage(),
+            ["i"] = Const.PetImgId,
             ["n"] = "[宠物]" .. enemy:getName()
         }
     end
@@ -156,7 +156,7 @@ end
 local function getSellItemImg(sellList)
     local imgList = {}
     for _, itemId in ipairs(sellList) do
-        if itemId > 1000000 then
+        if itemId > Const.SkuBaseItemId then
             imgList[itemId] = getSkuItemInfo(itemId)
         else
             local item = MyDataItem:new(itemId)
@@ -226,13 +226,13 @@ function buyNpcItem(player, arg)
     logPrint("buyNpcItem", arg)
     local parts = strSplit(arg, "#")
     local npcImg = tonumber(parts[1])
-    local sellerList = sellerList[npcImg]
-    if sellerList == nil then
+    local seller = sellerList[npcImg][2]
+    if seller == nil then
         player:sysMsg("系统异常，售卖NPC不存")
         return
     end
 
-    local itemList = sellerList[parts[2]][2]
+    local itemList = seller[parts[2]]
     local needPayInfo = {}
     local buyInfo = {}
     local sum = 0
@@ -248,25 +248,38 @@ function buyNpcItem(player, arg)
         local payInfo = itemList[buyItem]
         for payItem, payNum in pairs(payInfo) do
             if rawget(needPayInfo, payItem) == nil then
-                needPayInfo[payItem] = payNum
+                needPayInfo[payItem] = payNum * buyNum
             else
                 needPayInfo[payItem] = needPayInfo[payItem] + payNum * buyNum
             end
         end
-
         buyInfo[buyItem] = buyNum
-        local useBagNum = math.ceil(buyNum / getMaxStackCount(buyItem))
-        if npcImg == Const.NpcGoldCard then
-            useBagNum = 1
+        if buyItem > Const.SkuBaseItemId then
+            local sku = sellerSkuList[buyItem]
+            local itemType = sku[1]
+            if Const.SkuTypeItem == itemType then
+                sum = sum + 1
+            elseif Const.SkuTypePet == itemType then
+                petSum = petSum + buyNum
+            end
+        else
+            local useBagNum = math.ceil(buyNum / getMaxStackCount(buyItem))
+            if npcImg == Const.NpcGoldCard then
+                useBagNum = 1
+            end
+            sum = sum + useBagNum
         end
-
-        sum = sum + useBagNum
     end
-    if sum > player:freeBagNum() then
+    if sum > 0 and sum > player:freeBagNum() then
         player:sysMsg("物品栏空间不足，购买失败")
         return
     end
-    logPrint(needPayInfo)
+
+    if petSum > 0 and petSum > player:freePetNum() then
+        player:sysMsg("宠物栏空间不足，购买失败")
+        return
+    end
+    logPrintTbl(needPayInfo)
     for item, num in pairs(needPayInfo) do
         if 0 == item then
             if player:getGold() < num then

@@ -20,6 +20,15 @@ function MyEnemyData:get1(pos)
     return Data.EnemyTempGetData(self._enemyBase, pos)
 end
 
+--%¶ÔÏó_Ãû×Ö% 2000
+function MyEnemyData:getName()
+    return self:get1(2000)
+end
+
+function MyEnemyData:getImage()
+    return self:get1(29)
+end
+
 function MyEnemyData:getLevel()
     return self:get(2)
 end

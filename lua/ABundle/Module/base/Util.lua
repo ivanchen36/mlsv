@@ -518,19 +518,33 @@ function showItemTip(mainWnd, item, attrMap, itemId)
     attrWidget:setPos(left, top + (curLine - 1) * 15)
     attrWidget:setColor(4)
     curLine = curLine + 1
-    local remain = string.format("%04d", attrMap["remain"])
-    attrWidget = wnd:getWidget("ANum91")
-    attrWidget:setText("耐久" .. remain .. "/" .. remain)
-    attrWidget:setPos(left, top + (curLine - 1) * 15)
-    attrWidget:setColor(4)
-    attrWidget = wnd:getWidget("ANum92")
-    local itemType = attrMap["type"]
-    if itemType <= 55 then
-        attrWidget:setText("种类 " .. (itemCatMap[itemType] or ""))
+    if attrMap["remain"] ~= nil then
+        local remain = string.format("%04d", attrMap["remain"])
+        attrWidget = wnd:getWidget("ANum91")
+        attrWidget:setText("耐久" .. remain .. "/" .. remain)
+        attrWidget:setPos(left, top + (curLine - 1) * 15)
+        attrWidget:setColor(4)
+        attrWidget = wnd:getWidget("ANum92")
+        local itemType = attrMap["type"]
+        if itemType <= 55 or itemType > 70 then
+            attrWidget:setText("种类 " .. (itemCatMap[itemType] or ""))
+        else
+            local eIndex = math.fmod(itemId, 10)
+            attrWidget:setText("种类 " .. (petCatMap[eIndex] or ""))
+        end
     else
-        local eIndex = math.fmod(itemId, 10)
-        attrWidget:setText("种类 " .. (petCatMap[eIndex] or ""))
+        attrWidget = wnd:getWidget("ANum91")
+        local itemType = attrMap["type"]
+        if itemType <= 55 or itemType > 70 then
+            attrWidget:setText("种类 " .. (itemCatMap[itemType] or ""))
+        else
+            local eIndex = math.fmod(itemId, 10)
+            attrWidget:setText("种类 " .. (petCatMap[eIndex] or ""))
+        end
+        attrWidget:setColor(26)
+        wnd:getWidget("ANum92"):setText("")
     end
+
     attrWidget:setPos(left + 100, top + (curLine - 1) * 15)
     attrWidget:setColor(26)
     wnd:show()

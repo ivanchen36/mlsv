@@ -1,5 +1,6 @@
 Const = {}
-
+Const.ItemCard = 29999
+Const.ItemGold = 0
 Const.SkuBaseItemId = 1000000
 
 Const.GoldSkuId = 1000001

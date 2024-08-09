@@ -97,6 +97,18 @@ function MyPlayer:freeBagNum()
     return 20 - Char.ItemSlot(self._player)
 end
 
+function MyPlayer:freePetNum()
+    local free = 0
+    for i = 0, 4 do
+        local pet = self:getPet(i)
+        if not pet:isValid() then
+            free = free + 1
+        end
+    end
+
+    return free
+end
+
 function MyPlayer:getIp()
     return NLG.GetIp(self._player)
 end
@@ -125,6 +137,7 @@ function MyPlayer:getItemNum(itemId)
 end
 
 function MyPlayer:addItem(itemId, num)
+    logPrint("addItem: " .. itemId .. " " .. num)
     return Char.GiveItem(self._player, itemId, num)
 end
 
