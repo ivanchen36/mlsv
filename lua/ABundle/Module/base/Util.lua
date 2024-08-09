@@ -249,11 +249,15 @@ function createWindow(id, title, wndConfig)
             widgets[tmp:getTitle()] = tmp
         end
     end
-    if bgImg == nil or close == nil then
+    if bgImg == nil then
         wnd = Window:reView(id)
     else
-        wnd = Window:new(id, title, bgImg)
-        wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
+        if close ~= nil then
+            wnd = Window:new(id, title, bgImg)
+            wnd:addClose(close.x, close.y, close.img, close.active, close.disable)
+        else
+            wnd = Window:new(id, title, bgImg)
+        end
     end
     for _, val in pairs(widgets) do
         wnd:addWidget(val)

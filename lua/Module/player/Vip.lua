@@ -39,7 +39,7 @@ end
 
 function initVip(player)
     logPrint("initVip")
-    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime) FROM tbl_vip_info WHERE RegNum = '" .. player:getRegistNumber() .."'";
+    local sql = "SELECT VipLevel,VipExp,LastExp,LastTime,LuckVal,EnemyAvoidSec,RemoteBank, GodGift, Warp, UpGift, AddExp, UNIX_TIMESTAMP(UpdateTime), Home FROM tbl_vip_info WHERE RegNum = '" .. player:getRegistNumber() .."'";
     local rs = SQL.Run(sql);
     if(type(rs) ~= "table") then
         logPrint("vipInfo not found, id:" .. player:getRegistNumber());
@@ -61,6 +61,7 @@ function initVip(player)
             ["avoidTime"] = 0,
             ["upGift"] = 0,
             ["addExp"] = 0,
+            ["home"] = 0,
             ["up"] = os.time(),
             ["index"] = player:getObj()
         }
@@ -81,11 +82,22 @@ function initVip(player)
         ["upGift"] = tonumber(rs["0_9"]),
         ["addExp"] = tonumber(rs["0_10"]),
         ["up"] = tonumber(rs["0_11"]),
+        ["home"] = tonumber(rs["0_12"]),
         ["avoidFlag"] = 0,
         ["avoidTime"] = 0,
         ["index"] = player:getObj(),
     }
     logPrintTbl(vipInfo[player:getRegistNumber()])
+end
+
+function openHome(player)
+    local registNumber = player:getRegistNumber()
+
+    local info = vipInfo[registNumber]
+    local sql = string.format("UPDATE tbl_vip_info SET Home = 1 WHERE RegNum='%s'", registNumber);
+    SQL.Run(sql);
+    info["home"] = 1
+    player:sysMsg("恭喜您开启家园系统功能！")
 end
 
 function setVip(player, arg)

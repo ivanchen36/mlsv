@@ -32,13 +32,13 @@ F5 自动走路遇敌
 
 --在线挂机
 --泡点物品相关
-paodian_item1 = 664572;		--奖励
-paodian_item2 = 664571;		--泡点物品
+--paodian_item1 = 664572;		--奖励
+--paodian_item2 = 664571;		--泡点物品
 --泡点时间与奖励相关
-paodian_time = {8,7,6,5,4,3,2,1};
-paodian_gold = {8,7,6,5,4,3,2,1};
-paodiantime_H = 3600;	
-NPCpaodian = {104927,777,32,33,4}; --泡点的原型，地图，X坐标，Y坐标，方向
+--paodian_time = {8,7,6,5,4,3,2,1};
+--paodian_gold = {8,7,6,5,4,3,2,1};
+--paodiantime_H = 3600;
+--NPCpaodian = {104927,777,32,33,4}; --泡点的原型，地图，X坐标，Y坐标，方向
 --在线挂机
 
 

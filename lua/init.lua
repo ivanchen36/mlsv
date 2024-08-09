@@ -93,6 +93,7 @@ gadofile("lua/Module/player/Tax.lua");--税务系统
 gadofile("lua/Module/player/Recover.lua");--组队加成
 gadofile("lua/Module/player/Warp.lua");--传送
 gadofile("lua/Module/player/Clan.lua");--家族帮派
+gadofile("lua/Module/player/Home.lua");--家园
 gadofile("lua/Module/player/Challenge.lua");--BOSS挑战
 --gadofile("lua/Module/player/Test.lua");
 

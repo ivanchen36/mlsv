@@ -372,3 +372,40 @@ function welcome(adImg)
 end
 Cli.Send("welcome")
 Cli.Send().wait["WELCOME"] = welcome
+
+local redWnd = nil
+function redPacket(info)
+    if redWnd == nil then
+        local client = {
+            {
+                ["type"] = "bg",
+                ["img"] = "packet.bmp",
+            },
+            {
+                ["type"] = "lab",
+                ["title"] = "title",
+                ["x"] = 210,
+                ["y"] = 35,
+                ["text"] = "商店标题",
+                ["font"] = 3,
+            },
+            {
+                ["type"] = "btn",
+                ["x"] = 461,
+                ["y"] = 8,
+                ["img"] = "y1.bmp",
+                ["active"] = "y2.bmp",
+                ["disable"] = "y3.bmp",
+                ["text"] = "打开",
+                ["click"] = function(w)
+                    redWnd:close()
+                    Cli.Send("red_packet")
+                end,
+            }
+        }
+        redWnd = createWindow(1019, "packet", client)
+    end
+    redWnd:getWidget("title"):setText(info)
+    redWnd:show()
+end
+Cli.Send().wait["RED_PACKET"] = redPacket

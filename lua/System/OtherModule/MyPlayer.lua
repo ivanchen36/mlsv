@@ -98,15 +98,7 @@ function MyPlayer:freeBagNum()
 end
 
 function MyPlayer:freePetNum()
-    local free = 0
-    for i = 0, 4 do
-        local pet = self:getPet(i)
-        if not pet:isValid() then
-            free = free + 1
-        end
-    end
-
-    return free
+    return 5 - Char.PetNum(self._player)
 end
 
 function MyPlayer:getIp()

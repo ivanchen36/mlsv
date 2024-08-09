@@ -63,11 +63,4 @@ function sysNotice(regNum, info)
     return 1
 end
 
-function sendItem(regNum, info)
-    local player = MyPlayer:new(vipInfo[regNum]["index"])
-    player:addItem(tonumber(info), 1)
-    return 1
-end
-
 TaskHandler[99] = sysNotice
-TaskHandler[100] = sendItem

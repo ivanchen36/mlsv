@@ -14,6 +14,7 @@ CREATE TABLE `tbl_vip_info` (
                                       `Warp` int NOT NULL DEFAULT 0 COMMENT '传送开关',
                                       `UpGift` int NOT NULL DEFAULT 0 COMMENT '升级礼包',
                                       `AddExp` int NOT NULL DEFAULT 0 COMMENT '经验加成',
+                                      `Home` int NOT NULL DEFAULT 0 COMMENT '家园',
                                       `CreateTime` int NOT NULL,
                                       `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                                       PRIMARY KEY (`RegNum`)
