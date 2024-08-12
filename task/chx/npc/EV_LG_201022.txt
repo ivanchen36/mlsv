@@ -1,0 +1,2 @@
+block StrCmpChat == R
+	Warp 0,1000,243,77

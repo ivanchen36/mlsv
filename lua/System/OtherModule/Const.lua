@@ -3,9 +3,10 @@ Const.ItemCard = 29999
 Const.ItemGold = 0
 Const.SkuBaseItemId = 1000000
 
-Const.GoldSkuId = 1000001
-Const.GoldSkuId1 = 1000002
-Const.CardSkuId = 1000003
+Const.CardSkuId = 1000001
+Const.GoldSkuId = 1000002
+Const.GoldSkuId1 = 1000003
+
 
 Const.SkuTypeGold = 0
 Const.SkuTypeItem = 1
@@ -23,10 +24,10 @@ Const.NpcWarp = 99238
 Const.NpcTalent = 108851
 Const.NpcAwakening = 260530
 Const.NpcSynthesis = 235178
-Const.NpcProficient = 14548
-Const.NpcPk = 14064
+Const.NpcProficient = 231140
+Const.NpcPk = 231048
 Const.NpcPkEquip = 14520
-Const.NpcTask = 99098
+Const.NpcTask = 231108
 
 Const.GoldImgId = 27402
 Const.PetImgId = 480407

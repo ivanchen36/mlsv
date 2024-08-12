@@ -1,5 +1,5 @@
 local gift = nil
-local giftMapId = 1
+local giftMapId = 64153
 local giftSwitch = false
 local giftEndTime = 0
 local rate = 2000

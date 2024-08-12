@@ -1,6 +1,6 @@
 local waitBattleIndex = {}
 local startPk = false
-
+local pkMapId = 64155
 function isJoinPk(player, pkId)
     local mac = player:getMac()
     local reqNum = player:getRegistNumber()
@@ -152,6 +152,12 @@ function startPk(regNum, info)
         if rawget(vipInfo, bRegNum) ~= nil then
             playerA = MyPlayer:new(vipInfo[bRegNum]["index"]);
         end
+        if nil ~= playerA and playerA:getMapId() ~= pkMapId then
+            playerA = nil
+        end
+        if nil ~= playerB and playerB:getMapId() ~= pkMapId then
+            playerB = nil
+        end
         if nil ~= playerA and nil ~= playerB then
             local battleIndex = startBattle(playerA, playerB);
             local sql1 = "update tbl_pk_record set Status = 1, StartTime = UNIX_TIMESTAMP() where Id = " .. id;
@@ -239,7 +245,7 @@ function showPk(player)
 end
 
 function warpPk(player, arg)
-    return
+    player:warp(0, pkMapId, 28 + math.random(0, 9), 15 + math.random(0, 6))
 end
 
 function npcPk(npc, player, s)

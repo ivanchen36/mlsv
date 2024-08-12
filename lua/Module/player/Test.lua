@@ -11,7 +11,10 @@ local userInfo1 = {}
 function test(player)
     --getTalentClient(player, "")
     local enemy = MyEnemyData:new(30007)
-
+    local pet = player:getPet(1)
+    Char.DropPet(player:getObj(), 1)
+    Char.Warp(pet:getObj(),0,1000,245,81)
+    NLG.Talked(2, player:getObj(), pet:getObj())
     --logPrintTbl(enemy:getAttr())
     --logPrintTbl( calEnemyAttr(30, enemy:getBirthBp(), enemy:getVital(),
     --       enemy:getStr(), enemy:getTough(), enemy:getQuick(), enemy:getMagic()))
