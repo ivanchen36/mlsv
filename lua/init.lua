@@ -100,6 +100,7 @@ gadofile("lua/Module/player/Test.lua");
 gadofile("lua/Module/product/ItemManager.lua");--物品信息管理，包括宠物
 gadofile("lua/Module/product/AutoProduct.lua");--自动制造
 gadofile("lua/Module/product/ProductEquip.lua");--制造装备
+gadofile("lua/Module/product/SellerConfig.lua");--售卖配置
 gadofile("lua/Module/product/Seller.lua");--售卖商人
 gadofile("lua/Module/product/GoldCardTrade.lua"); --金卡兑换
 

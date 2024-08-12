@@ -180,7 +180,7 @@ function Window:showUi()
         wndBg.item_ypos = 0
         wndBg.xpos = 0
         wndBg.ypos = 0
-
+        local isHd = false
         local sizeX = 0
         local sizeY = 0
         if wndBg.sizex <= 0 then
@@ -195,9 +195,17 @@ function Window:showUi()
             self._view.xpos = self._posX
             self._view.ypos = self._posY
         else
+            if Cli.GetHD() then
+                isHd = true
+            end
+            if Cli.GetHD() then
+                isHd = true
+            else
+                isHd = false
+            end
             local screenWidth = 640
             local screenHeight = 480
-            if Cli.GetHD() then
+            if isHd then
                 screenWidth =  960;
                 screenHeight =  720;
             end

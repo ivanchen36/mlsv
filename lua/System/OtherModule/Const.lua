@@ -6,7 +6,8 @@ Const.SkuBaseItemId = 1000000
 Const.CardSkuId = 1000001
 Const.GoldSkuId = 1000002
 Const.GoldSkuId1 = 1000003
-
+Const.PetSkuBaseId = 1000100
+Const.PetReCycleBaseId = 1000500
 
 Const.SkuTypeGold = 0
 Const.SkuTypeItem = 1
@@ -18,7 +19,9 @@ Const.TaskTypeCard = 99999
 
 Const.NpcSeller = 104387
 Const.NpcGoldCard = 98082
-Const.NpcPetTrade = 1111
+Const.NpcPetTrade = 98083
+Const.NpcRecycle = 98080
+Const.NpcCard = 98056
 
 Const.NpcWarp = 99238
 Const.NpcTalent = 108851
@@ -26,7 +29,7 @@ Const.NpcAwakening = 260530
 Const.NpcSynthesis = 235178
 Const.NpcProficient = 231140
 Const.NpcPk = 231048
-Const.NpcPkEquip = 14520
+Const.NpcPkEquip = 14064
 Const.NpcTask = 231108
 
 Const.GoldImgId = 27402

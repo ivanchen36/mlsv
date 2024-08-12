@@ -75,7 +75,7 @@ def generateEnemy(path):
     print('\t'.join(arr))
     print(len(arr))
     print(path + "/enemybase.txt")
-    baseFile = FileUtil(path + "/enemybase.txt", "gbk")
+    baseFile = FileUtil("./tmp.txt", "gbk")
     enemyFile = FileUtil(path + "/enemy.txt", "gbk")
     if not enemyFile.isBlankLineEnd():
         enemyFile.writeLine("")
@@ -86,12 +86,8 @@ def generateEnemy(path):
         arr[Enemy.eId] = arr1[EnemyBase.bId]
         arr[Enemy.bId] = arr1[EnemyBase.bId]
         print('\t'.join(arr))
-        #enemyFile.writeLine('\t'.join(arr))
+        enemyFile.writeLine('\t'.join(arr))
 
 
 if __name__ == "__main__":
-    template = "211	0	1								0	2	0								0	7300	7400								15002	80	50								100"
-    arr = template.split("\t")
-    print(len(arr))
-    print(arr[8])
-    #generateEnemy("../../../task/chx", 1)
+    generateEnemy("../../../task/chx")

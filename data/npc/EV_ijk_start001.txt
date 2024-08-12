@@ -26,6 +26,8 @@ block Item18218 == 0 && ItemSpace >= 1
 		Window_YES ItemSpace >= 1
 		#É®ŞÑ»¥Ï¶¿æÎçËå±åØ¤ÈÕÊÏ³ğÎçÃ«©z
 		GiveLeak1Item 18218
+		LeaveGroup
+		Warp 0,1530,18,6
 		EndWindow 11166
 
 		Window_YES ItemSpace == 0
