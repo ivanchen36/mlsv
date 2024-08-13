@@ -200,6 +200,10 @@ function NL.RegDamageCalculateEvent(Dofile, FuncName)
     table.insert(otherDamageName, FuncName)
 end
 
+function NL.RegItemString(Dofile, FuncName, ItemSigh)
+    logPrint("RegItemString Dofile: ", Dofile, FuncName, ItemSigh)
+end
+
 function Event.RegBattleStartEvent.doBattleInitEvent(battle)
     logPrint("doBattleInitEvent")
     for funcName, func in pairs(battleInitEvent) do

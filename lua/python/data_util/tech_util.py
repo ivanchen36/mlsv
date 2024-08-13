@@ -124,6 +124,50 @@ def genDisableTech(path):
         print(tmp)
         techFile.writeLine(tmp)
 
+skillList = [
+    {200, 201,202},
+    {208,210,211,213},
+    {207,209,212,214},
+    {203,204,205,206}
+]
+def genDisableTech(path):
+    tmpFile = FileUtil("./tmp.txt", "gbk")
+    skillLvFile = FileUtil(path + "/../../data/skilllv.txt", "gbk")
+    id = 0
+    for line in skillLvFile.readLines():
+        line = line.replace("\r", "").replace("\n", "")
+        arr1 = line.split("\t")
+        if len(arr1) < 3:
+            continue
+        id = int(arr1[0])
+    if not tmpFile.isBlankLineEnd():
+        skillLvFile.writeLine("")
+    jobList = [3000, 4000, 5000, 6000]
+    for index in range(4):
+        jobId = jobList[index]
+        jobSkillList = skillList[index]
+        for line in tmpFile.readLines():
+            line = line.replace("\r", "").replace("\n", "")
+            arr1 = line.split("\t")
+            if len(arr1) < 3:
+                continue
+            id = id + 1
+            jobIndex = int(arr1[2]) - 200
+            arr1[0] = str(id)
+            if int(arr1[1]) in jobSkillList:
+                if jobIndex == 1:
+                    arr1[3] = "4"
+                elif jobIndex == 2:
+                    arr1[3] = "6"
+                elif jobIndex == 3:
+                    arr1[3] = "8"
+                elif jobIndex >= 4:
+                    arr1[3] = "10"
+            arr1[2] = str(jobIndex + jobId)
+            print('\t'.join(arr1))
+            skillLvFile.writeLine('\t'.join(arr1))
+
+
 if __name__ == "__main__":
     #modifyTechNo("../../../task/chx")
     genDisableTech("../../../task/chx")

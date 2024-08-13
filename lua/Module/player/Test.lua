@@ -27,8 +27,60 @@ function showWelcome(adImg)
     coroutine.resume(co)
 end
 
-function test2()
+local function parseFunction(func_name)
+    local func = _G[func_name]
+    if type(func) ~= "function" then
+        logPrint(func_name .. " is not a function in _G")
+        return
+    end
 
+    local info = debug.getinfo(func)
+    logPrint("Function: " .. func_name)
+    logPrint("Number of parameters: " .. info.nparams)
+
+    for i = 1, info.nparams do
+        local param_name = debug.getlocal(func, i)
+        logPrint("Parameter " .. i .. ": " .. (param_name or "unknown"))
+    end
+    local lines_executed = {}
+    debug.sethook(function()
+        local info = debug.getinfo(2, "Sl")
+        if info.what == "Lua" then
+            lines_executed[info.currentline] = (lines_executed[info.currentline] or 0) + 1
+        end
+    end, "l")
+    func(1, 1, 1)
+    debug.sethook()
+    logPrint("Lines executed in " .. func_name .. ":")
+    for line, count in pairs(lines_executed) do
+        logPrint(string.format("Line %d: executed %d times", line, count))
+    end
+end
+
+function print_stack_trace()
+    print("Stack trace:")
+    local level = 1
+    while true do
+        local info = debug.getinfo(level, "Sln")
+        if not info then break end
+
+        if info.what == "C" then
+            logPrint(string.format("%d: [C]: in function '%s'", level, info.name or "?"))
+        else
+            logPrint(string.format("%d: %s:%d: in function '%s'",
+                    level, info.short_src, info.currentline, info.name or "?"))
+        end
+
+        level = level + 1
+    end
+end
+
+function test2()
+    logPrint("test2")
+    --print_stack_trace()
+    for k, v in pairs(Event.RegTalkEvent) do
+        logPrint(k)
+    end
 end
 
 TalkEvent["/test"] = test
@@ -42,7 +94,7 @@ function testRecv(fd,head,packet)
     return 0
 end
 
---InitEvent["server"] = test2
+InitEvent["server"] = test2
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 1);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 2);
 Protocol.OnRecv("lua/Module/player/Test.lua", "testRecv", 3);

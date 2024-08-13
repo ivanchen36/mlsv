@@ -115,7 +115,8 @@ gadofile("lua/Module/sys/BattleInit.lua");--’Ω∂∑≥ı ºªØ
 dofile("lua/Config.lua");
 
 -- ºÊ»›Delegate
-for _,Func in ipairs(tbl_delegate_Init) do
+for key,Func in ipairs(tbl_delegate_Init) do
+	logPrint(key)
 	local f = loadstring(Func.."()");
 	f();
 end
