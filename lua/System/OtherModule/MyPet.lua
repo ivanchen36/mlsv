@@ -32,19 +32,19 @@ function MyPet:getStatus()
 end
 
 function MyPet:changeRemote()
-    if self:getId() > Const.RemoteId then
+    if self:getId() > Const.DisableTechId then
         return 0
     end
-    self:setId(self:getId() + Const.RemoteId)
+    self:setId(self:getId() + Const.DisableTechId)
     local slots = self:getSkillSlots() - 2
     for i = 0, slots do
         local techId = self:getSkill(i)
-        if techId >= Const.RemoteId then
-            techId = techId - Const.RemoteId
+        if techId >= Const.DisableTechId then
+            techId = techId - Const.DisableTechId
         end
         local skillId = math.floor(techId / 100)
         if rawget(Const.remoteForbiddenSkill, skillId) ~= nil then
-            techId = techId + Const.RemoteId
+            techId = techId + Const.DisableTechId
         end
         if techId ~= self:getSkill(i) then
             self:setSkill(i, techId)
@@ -54,19 +54,19 @@ function MyPet:changeRemote()
 end
 
 function MyPet:changeMelee()
-    if self:getId() < Const.RemoteId then
+    if self:getId() < Const.DisableTechId then
         return 0
     end
-    self:setId(self:getId() - Const.RemoteId)
+    self:setId(self:getId() - Const.DisableTechId)
     local slots = self:getSkillSlots() - 2
     for i = 0, slots do
         local techId = self:getSkill(i)
-        if techId >= Const.RemoteId then
-            techId = techId - Const.RemoteId
+        if techId >= Const.DisableTechId then
+            techId = techId - Const.DisableTechId
         end
         local skillId = math.floor(techId / 100)
         if rawget(Const.meleeForbiddenSkill, skillId) ~= nil then
-            techId = techId + Const.RemoteId
+            techId = techId + Const.DisableTechId
         end
         if techId ~= self:getSkill(i) then
             self:setSkill(i, techId)

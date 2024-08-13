@@ -13,7 +13,7 @@ TalkEvent["/dk"] = function (player)
 end
 
 TalkEvent["/hc"] = function (player)
-    player:warp(0,64148,19 + math.random(0, 15), 24 + math.random(0, 8))
+    player:warp(0,64148,19 + math.random(0, 4), 24 + math.random(0, 8))
 end
 
 TalkEvent["/zl"] = function (player)

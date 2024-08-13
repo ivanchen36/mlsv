@@ -30,7 +30,7 @@ function petInit(player, arg)
                     local techId = myPet:getSkill(i)
                     local skillId = math.floor(techId / 100)
                     if rawget(Const.meleeForbiddenSkill, skillId) ~= nil then
-                        techId = techId + Const.RemoteId
+                        techId = techId + Const.DisableTechId
                     end
                     myPet:setSkill(i, techId)
                 end

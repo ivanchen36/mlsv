@@ -44,7 +44,7 @@ Const.BT_ENEMY = 1
 Const.BT_PVP = 2
 
 Const.DaySecond = 86400
-Const.RemoteId = 1000000
+Const.DisableTechId = 1000000
 Const.PetWeapon = 59
 Const.PetJewelry = 60
 Const.EquipExp = 60

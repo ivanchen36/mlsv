@@ -19,11 +19,11 @@ zdzd_SetComSkill.EnemySuper = {27,28,29,30,44,45,46,47,48,49,195,570,805}-- 对敌
 
 
 
-zdzd_SetComSkill.WaitingTime = 30   -- 每回合出手等待时间（60 等于1秒） 注：此项很重要 根据自己服务器配置 调节 适合自己的速度
+zdzd_SetComSkill.WaitingTime = 90   -- 每回合出手等待时间（60 等于1秒） 注：此项很重要 根据自己服务器配置 调节 适合自己的速度
 zdzd_SetComSkill.zdsitu = {1,100}  -- 是否开启原地走路 1开启 0 关闭 ，间隔时间（60 等于1秒）  
 -----------------------反挂设置---------------
 zdzd_SetComSkill.speed_production = 1   --反高速制作  1 开启， 0 关闭 (注意：开启后 刻印技能无法使用了)
-zdzd_SetComSkill.speed_fighting = 0    -- 反高速战斗
+zdzd_SetComSkill.speed_fighting = 1    -- 反高速战斗
 zdzd_SetComSkill.speed_fighting_tolerate = 3 -- 反高速容忍  数值越大 越降低误封的可能性 （推荐 3）
 zdzd_SetComSkill.validation = 0 -- npc 对话验证码   0 关闭 其他为时间间隔 分钟
 

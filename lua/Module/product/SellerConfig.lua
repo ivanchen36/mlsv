@@ -80,7 +80,7 @@ local petEquipSeller = {
 
 local petSeller = {
     [Const.PetSkuBaseId + 8] = {[20109] = 10, [0] = 50000},
-    [Const.PetSkuBaseId + 9] = {[20106] = 1, [20107] = 1, [20108] = 1},
+    [Const.PetSkuBaseId + 9] = {[20106] = 1, [20107] = 1, [20108] = 1, [0] = 50000},
 }
 
 local cardSeller = {
@@ -150,17 +150,20 @@ local cardSeller = {
 }
 
 local recycleSeller = {
-
+    [Const.PetReCycleBaseId + 1] = {[20106] = 1},
+    [Const.PetReCycleBaseId + 2] = {[20107] = 1},
+    [Const.PetReCycleBaseId + 3] = {[20108] = 1},
+    [Const.PetReCycleBaseId + 4] = {[20109] = 1},
 }
 
 local jjcSeller = {
-    ["6"] = {
+    ["1"] = {
         ["name"] = "宠物",
         [Const.PetSkuBaseId + 12] = {[20111] = 1, [0] = 10000},
         [Const.PetSkuBaseId + 13] = {[20111] = 1, [0] = 10000},
         [Const.PetSkuBaseId + 14] = {[20111] = 1, [0] = 10000},
         [Const.PetSkuBaseId + 15] = {[20111] = 1, [0] = 10000},
-        [Const.PetSkuBaseId + 7] = {[20110] = 1},
+        [Const.PetSkuBaseId + 7] = {[20110] = 1, [0] = 50000},
     }
 }
 
@@ -187,4 +190,9 @@ sellerSkuList = {
     [Const.PetSkuBaseId + 13] = {Const.SkuTypePet, 30013, 1,""},
     [Const.PetSkuBaseId + 14] = {Const.SkuTypePet, 30009, 1,""},
     [Const.PetSkuBaseId + 15] = {Const.SkuTypePet, 30009, 1,""},
+
+    [Const.PetReCycleBaseId + 1] = {Const.SkuTypeItem, 29999, 500,"[彩]回收"},
+    [Const.PetReCycleBaseId + 2] = {Const.SkuTypeItem, 29999, 500,"[虹]回收"},
+    [Const.PetReCycleBaseId + 3] = {Const.SkuTypeItem, 29999, 500,"[星]回收"},
+    [Const.PetReCycleBaseId + 4] = {Const.SkuTypeItem, 29999, 100,"[寒霜飞龙魂魄]回收"},
 }

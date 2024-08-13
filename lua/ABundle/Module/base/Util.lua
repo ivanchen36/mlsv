@@ -79,7 +79,7 @@ function createSingleWidget(widgetMap, widget)
             tmp:setBg(widgetMap[widget.bg])
         end
     elseif "img" == widget.type then
-        tmp = Image:new(widget.title, widget.img or 0)
+        tmp = MyImage:new(widget.title, widget.img or 0)
         if rawget(widget, "bg") ~= nil then
             tmp:setBg(widgetMap[widget.bg])
         end
@@ -201,7 +201,7 @@ function createMulWidget(widgetMap, rows, columns, w, h, widget)
                         tmp:setCenter(widget.cx + (j - 1) * w, widget.cy + (i - 1) * h)
                     end
                 elseif "img" == widget.type then
-                    tmp = Image:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or 0, pos))
+                    tmp = MyImage:new(getGlobVal(widget.title, pos), getGlobVal(widget.img or 0, pos))
                     if rawget(widget, "bg") ~= nil then
                         tmp:setBg(widgetMap[getGlobVal(widget.bg or "", pos)])
                     end
@@ -269,7 +269,7 @@ function addAttr(wnd, preTitle, attr)
     local tmp1 = wnd:getWidget(preTitle .. attr)
     local pos = tmp1:getPos()
     for i = 1, 10 do
-        local img1 = Image:new(preTitle ..  string.sub(attr,1, 2) .. i, 0)
+        local img1 = MyImage:new(preTitle ..  string.sub(attr,1, 2) .. i, 0)
         img1:setPos(pos[1] + 27 + i * 8, pos[2])
         wnd:addWidget(img1)
     end
@@ -321,7 +321,7 @@ end
 
 function addItemTip(mainWnd)
     local wnd = mainWnd:createSubWindow(244317)
-    local bgWidget = Image:new("ATip", 0)
+    local bgWidget = MyImage:new("ATip", 0)
     local attrWidget = Label:new("ANum1", "")
     wnd:addWidget(bgWidget)
     wnd:addWidget(attrWidget)
@@ -565,8 +565,8 @@ function addItem(wnd, preTitle)
     local posY = pos[2]
 
     local numWidget = Label:new(preTitle .. "N", "¡Á0")
-    local itemWidget = Image:new(preTitle .. "D", 0)
-    local checkWidget = Image:new(preTitle .. "C", "f.bmp")
+    local itemWidget = MyImage:new(preTitle .. "D", 0)
+    local checkWidget = MyImage:new(preTitle .. "C", "f.bmp")
     itemWidget:setBg(frameWidget)
     checkWidget:setPos(posX + 18, posY + 27)
     numWidget:setPos(posX + 10, posY + 50)

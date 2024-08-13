@@ -26,8 +26,8 @@ function extendClass(child, parent)
     end
 end
 
-Image = {}
-Image.__index = Image
+MyImage = {}
+MyImage.__index = MyImage
 
 function bufToInt32(buf,seek)
     seek = seek + 1
@@ -70,7 +70,7 @@ function getImgId(imgFile)
     return 0
 end
 
-function Image:new(title, imgId)
+function MyImage:new(title, imgId)
     local newObj = {
         _title = title,
         _imgId = getImgId(imgId),
@@ -88,7 +88,7 @@ function Image:new(title, imgId)
     return newObj
 end
 
-function Image:setImgId(img, imgId)
+function MyImage:setImgId(img, imgId)
     if imgId == 0 then
         return
     end
@@ -105,15 +105,15 @@ function Image:setImgId(img, imgId)
     end
 end
 
-function Image:getTitle()
+function MyImage:getTitle()
     return self._title
 end
 
-function Image:close()
+function MyImage:close()
     self._img = nil
 end
 
-function Image:getControls()
+function MyImage:getControls()
     self._img = nil
     local img = new.image(self._title)
 
@@ -141,20 +141,20 @@ function Image:getControls()
     return {img}
 end
 
-function Image:setVisible(isVisible)
+function MyImage:setVisible(isVisible)
     self._img.enable = (isVisible and 1) or 0
 end
 
-function Image:setBg(bg)
+function MyImage:setBg(bg)
     self._bg = bg
 end
 
-function Image:activated(func1, func2)
+function MyImage:activated(func1, func2)
     self._onActive = func1
     self._onUnActive = func2
 end
 
-function Image:getCenter()
+function MyImage:getCenter()
     if self._centerX > 0 then
         return self._centerX, self._centerY
     end
@@ -166,7 +166,7 @@ function Image:getCenter()
     return self._posX + math.floor(self._img.sizex / 2), self._posY + math.floor(self._img.sizey / 2)
 end
 
-function Image:setCenter(x, y)
+function MyImage:setCenter(x, y)
     self._centerX = x
     self._centerY = y
     if self._img ~= nil then
@@ -174,7 +174,7 @@ function Image:setCenter(x, y)
     end
 end
 
-function Image:setPosByCenter()
+function MyImage:setPosByCenter()
     if 0 == self._imgId then
         return
     end
@@ -186,7 +186,7 @@ function Image:setPosByCenter()
     self._posY = pos[2]
 end
 
-function Image:setPosByBg()
+function MyImage:setPosByBg()
     if 0 == self._imgId then
         return
     end
@@ -200,7 +200,7 @@ function Image:setPosByBg()
     self._posY = pos[2]
 end
 
-function Image:setImg(image)
+function MyImage:setImg(image)
     self._imgId = getImgId(image)
     if nil ~= self._img then
         if 0 == self._imgId then
@@ -217,7 +217,7 @@ function Image:setImg(image)
     end
 end
 
-function Image:setPos(x, y)
+function MyImage:setPos(x, y)
     self._posX = x
     self._posY = y
     if nil ~= self._img then
@@ -226,11 +226,11 @@ function Image:setPos(x, y)
     end
 end
 
-function Image:getPos()
+function MyImage:getPos()
     return {self._posX, self._posY}
 end
 
-function Image:getSize()
+function MyImage:getSize()
     if nil ~= self._img then
         return {self._img.sizex, self._img.sizey}
     end
@@ -238,7 +238,7 @@ function Image:getSize()
     return {0, 0}
 end
 
-function Image:show(view)
+function MyImage:show(view)
     self._img = view.find(self._title)
     self:setVisible(true)
     self:setImgId(self._img, self._imgId)
