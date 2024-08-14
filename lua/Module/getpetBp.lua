@@ -9,7 +9,7 @@ end
 
 function initGetPetBpNpc()
 	if (GetPetBps == nil) then
-		GetPetBps = NL.CreateNpc("lua/Module/getpetBp.lua", "initgetpetBpNpc_Init");
+		GetPetBps = NL.CreateNpc(nil, "initgetpetBpNpc_Init");
 		Char.SetData(GetPetBps,%对象_形象%,106089);
 		Char.SetData(GetPetBps,%对象_原形%,106089);
 		Char.SetData(GetPetBps,%对象_X%,15);
@@ -20,9 +20,9 @@ function initGetPetBpNpc()
 		NLG.UpChar(GetPetBps);
 		tbl_GetPetBps["this"] = GetPetBps;
 		--含义:创建一个Npc,与其说话所触发的事件为Changepass
-		Char.SetWindowTalkedEvent("lua/Module/getpetBp.lua","GetPetBpsA",GetPetBps);
+		Char.SetWindowTalkedEvent(nil,"GetPetBpsA",GetPetBps);
 		--这里是与Npc说话的时候,调用ChangePassMsg函数
-		Char.SetTalkedEvent("lua/Module/getpetBp.lua","GetPetBpMsg", GetPetBps);
+		Char.SetTalkedEvent(nil,"GetPetBpMsg", GetPetBps);
 	end
 end
 

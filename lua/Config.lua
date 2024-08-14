@@ -111,9 +111,9 @@ useModule("Team_Service");--组队T人界面
 --useModule("SG_LuckyEggs");--砸蛋主文件
 --useModule("actioninfonpc");----全局掉落 可以限定时间 限定个数 几率 等级(服务器人数高于800不要使用)
 useModule("SG_Pet_Shop2_can");--宠物自售配置文件
---useModule("ShopQuery_can");--宠物自售配置文件
+useModule("ShopQuery_can");--宠物自售配置文件
 useModule("SG_Pet_Shop2");--宠物自售
---useModule("ShopQuery");--宠物自售
+useModule("ShopQuery");--宠物自售
 --useModule("zhuanzhuan_can");--转盘参数配置
 --useModule("zhuanzhuan");--转盘
 --useModule("bianjie") --扩展菜单(右侧边栏可自由diy)

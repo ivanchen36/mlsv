@@ -116,7 +116,6 @@ dofile("lua/Config.lua");
 
 -- ºÊ»›Delegate
 for key,Func in ipairs(tbl_delegate_Init) do
-	logPrint(key)
 	local f = loadstring(Func.."()");
 	f();
 end

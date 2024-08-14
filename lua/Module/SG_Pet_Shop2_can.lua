@@ -30,7 +30,7 @@ SG_pet_Shop.Ban_map = {1000,0,0,0,0}  -- 禁止摆放宠物地图坐标（范围坐标）
 SG_pet_Shop.AutomaticCharge = 100 --自动延期价格
 SG_pet_Shop.Gold_Pet = 100    --宠物延期价格（与npc对话）
 SG_pet_Shop.NpcName = "镜像自售管理员"					--Npc名称（同时也是脚本名称）
-SG_pet_Shop.NpcMapPos = {0,1000,247,85}				--Npc地图坐标
+SG_pet_Shop.NpcMapPos = {0,777,247,85}				--Npc地图坐标
 SG_pet_Shop.NpcImage = 101022					--Npc图档101022
 SG_pet_Shop.NpcDir = 6								--Npc方向（0为左上，顺时针转）
 

@@ -97,12 +97,20 @@ setmetatable(DeinitEvent, {
     end,
 })
 
+local function doOtherTalkEvent(player, msg, color, range, size)
+    for _, func in ipairs(otherTalkEvent) do
+        func(player, msg, color, range, size)
+    end
+end
+
 function Event.RegTalkEvent.doTalkEvent(player, msg, color, range, size)
     logPrint("doTalkEvent: ", player, msg)
     local myPlayer = MyPlayer:new(player);
     if rawget(TalkEvent, msg) ~= nil then
         TalkEvent[msg](myPlayer)
         return
+    else
+        doOtherTalkEvent(player, msg, color, range, size)
     end
 
     if not myPlayer:isGm() then
@@ -174,7 +182,7 @@ function doServerInitEvent()
     local deleteFunc = {}
     for k, v in pairs(Event.RegTalkEvent) do
         if k ~= "doTalkEvent" then
-            logPrint("insert otherDamageEvent: ", k, v)
+            logPrint("insert otherTalkEvent: ", k, v)
             table.insert(otherTalkEvent, v)
             table.insert(deleteFunc, k)
         else
@@ -200,8 +208,21 @@ function NL.RegDamageCalculateEvent(Dofile, FuncName)
     table.insert(otherDamageName, FuncName)
 end
 
+function NL.RegTalkEvent(Dofile, FuncName)
+    table.insert(otherTalkName, FuncName)
+end
+
+function myMountItem(index, toIndex, slot)
+    MountItem(index, toIndex, slot)
+end
+
+NL.RegItemString1 = NL.RegItemString
 function NL.RegItemString(Dofile, FuncName, ItemSigh)
-    logPrint("RegItemString Dofile: ", Dofile, FuncName, ItemSigh)
+    if "LUA_useMount" == ItemSigh then
+        NL.RegItemString1(Dofile, "myMountItem", ItemSigh)
+    else
+        NL.RegItemString1(Dofile, FuncName, ItemSigh)
+    end
 end
 
 function Event.RegBattleStartEvent.doBattleInitEvent(battle)

@@ -11,10 +11,7 @@ local userInfo1 = {}
 function test(player)
     --getTalentClient(player, "")
     local enemy = MyEnemyData:new(30007)
-    local pet = player:getPet(1)
-    Char.DropPet(player:getObj(), 1)
-    Char.Warp(pet:getObj(),0,1000,245,81)
-    NLG.Talked(2, player:getObj(), pet:getObj())
+    print_stack_trace()
     --logPrintTbl(enemy:getAttr())
     --logPrintTbl( calEnemyAttr(30, enemy:getBirthBp(), enemy:getVital(),
     --       enemy:getStr(), enemy:getTough(), enemy:getQuick(), enemy:getMagic()))
@@ -75,12 +72,16 @@ function print_stack_trace()
     end
 end
 
-function test2()
-    logPrint("test2")
-    --print_stack_trace()
-    for k, v in pairs(Event.RegTalkEvent) do
-        logPrint(k)
+local function getFuncName(func)
+    for key, val in pairs(_G) do
+        if val == func then
+            return key
+        end
     end
+end
+
+function test2()
+
 end
 
 TalkEvent["/test"] = test
