@@ -121,6 +121,10 @@ function MyPlayer:havePet(petId)
     return Char.HavePet(self._player, petId)
 end
 
+function MyPlayer:getItem(slot)
+    return MyItem:new(Char.GetItemIndex(self._player, slot))
+end
+
 function MyPlayer:getItemNum(itemId)
     if 0 == itemId then
         return self:getGold()

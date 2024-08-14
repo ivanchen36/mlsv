@@ -55,7 +55,7 @@ local function parseFunction(func_name)
 end
 
 function print_stack_trace()
-    print("Stack trace:")
+    logPrint("Stack trace:")
     local level = 1
     while true do
         local info = debug.getinfo(level, "Sln")
@@ -81,7 +81,7 @@ local function getFuncName(func)
 end
 
 function test2()
-
+    logPrintTbl(Item)
 end
 
 TalkEvent["/test"] = test

@@ -97,7 +97,7 @@ setmetatable(DeinitEvent, {
     end,
 })
 
-local function doOtherTalkEvent(player, msg, color, range, size)
+function doOtherTalkEvent(player, msg, color, range, size)
     for _, func in ipairs(otherTalkEvent) do
         func(player, msg, color, range, size)
     end
@@ -120,7 +120,6 @@ function Event.RegTalkEvent.doTalkEvent(player, msg, color, range, size)
     logPrint("doGmTalkEvent: ", player, msg)
     if rawget(GmTalkEvent, msg) ~= nil then
         GmTalkEvent[msg](myPlayer)
-        return
     end
 end
 
@@ -213,7 +212,15 @@ function NL.RegTalkEvent(Dofile, FuncName)
 end
 
 function myMountItem(index, toIndex, slot)
+    local player = MyPlayer:new(index);
+    local item = player:getItem(slot)
+    local itemNum = player:getItemNum(item:getId())
+    if itemNum < 50 then
+        player:sysMsg(item:getName() .. "不足50个,请在数量充足后使用.")
+        return
+    end
     MountItem(index, toIndex, slot)
+    player:deleteItem(item:getId(), 49)
 end
 
 NL.RegItemString1 = NL.RegItemString
