@@ -134,7 +134,7 @@ end
 
 function MyPlayer:addItem(itemId, num)
     logPrint("addItem: " .. itemId .. " " .. num)
-    return Char.GiveItem(self._player, itemId, num)
+    return MyItem:new(Char.GiveItem(self._player, itemId, num))
 end
 
 function MyPlayer:delItem(itemId, count)

@@ -81,7 +81,10 @@ local function getFuncName(func)
 end
 
 function test2()
-    logPrintTbl(Item)
+    logPrintTbl(NL)
+    logPrintTbl(NLG)
+    logPrintTbl(Char)
+    logPrintTbl(Data)
 end
 
 TalkEvent["/test"] = test

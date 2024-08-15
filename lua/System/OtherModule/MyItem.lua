@@ -21,6 +21,17 @@ function MyItem:isValid()
     return VaildChar(self._item)
 end
 
+function MyItem:flush(player)
+    for i = 8, 28 do
+        local item = player:getItem(i);
+        if item:isValid() then
+            if item:getObj() == self._item then
+                Item.UpItem(player:getObj(), i)
+            end
+        end
+    end
+end
+
 function MyItem:get(key)
     return Item.GetData(self._item, key)  -- 使用 Char.GetData 函数获取玩家数据
 end
