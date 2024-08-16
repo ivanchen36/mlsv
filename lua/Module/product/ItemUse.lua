@@ -5,7 +5,8 @@ local SpecialComp1 = 4 --压缩合成
 local SpecialWorkTime = 5 --时间水晶
 local SpecialFame = 6 --声望
 local SpecialSkillSlot = 7 --技能栏
-local SpecialXz = 7 --宠物修正
+local SpecialXz = 8 --宠物修正
+local SpecialUpJob = 9 --职业晋升
 
 local function packItem(player, useItem, slot)
     for i = 8, 28 do
@@ -136,7 +137,7 @@ local function addSpecialSkillSlot(player, useItem, slot)
         return 1
     end
 
-    if openSlot > curSlots + 1 then
+    if openSlot ~= curSlots + 1 then
         player:sysMsg("您尚未开启" .. curSlots + 1 .. "个技能栏,无法开启后续技能栏")
         return 1
     end
@@ -146,21 +147,45 @@ local function addSpecialSkillSlot(player, useItem, slot)
     return 1
 end
 
+-- 1-必杀 2-反击 3-命中 4-躲闪
+local baseFieldId = 27
+local xzDesc = {"必杀", "反击", "命中", "躲闪"}
 local function addPetXz(player, useItem, slot)
-    local openSlot = useItem:getSubParamOne()
-    local curSlots = player:getSkillSlots()
-    if openSlot <= curSlots then
-        player:sysMsg("您已经开启了" .. openSlot .. "个技能栏")
+    local fieldId = useItem:getSubParamOne() + baseFieldId
+    local maxVal = useItem:getSubParamTwo()
+    local pet = player:getPet(0)
+    local val = pet:get(fieldId)
+    if val >= maxVal then
+        player:sysMsg("果实等级已达最大值")
         return 1
     end
 
-    if openSlot > curSlots + 1 then
-        player:sysMsg("您尚未开启" .. curSlots + 1 .. "个技能栏,无法开启后续技能栏")
+    pet:set(fieldId, val + 1)
+    Item.Kill(player:getObj(), useItem:getObj(), slot)
+    pet:flush()
+    player:sysMsg("宠物" .. pet:getName() .. xzDesc[fieldId] .. "+1")
+    return 1
+end
+
+local function upJob(player, useItem, slot)
+    local jobLevel = useItem:getSubParamOne()
+    local jobClassId = player:getJobClassId()
+    local curJobLevel = math.fmod(jobClassId, 10)
+    if curJobLevel >= jobLevel then
+        player:sysMsg("您已经完成" .. jobLevel .. "转")
         return 1
     end
-    player:setSkillSlots(openSlot)
+
+    if jobLevel ~= curJobLevel + 1 then
+        player:sysMsg("您尚未完成" .. curJobLevel + 1 .. "转")
+        return 1
+    end
+
+    player:setJobClassId(curJobLevel + 1)
+    player:setEndEvent(94 - jobLevel)
     Item.Kill(player:getObj(), useItem:getObj(), slot)
     player:flush()
+    player:sysMsg("恭喜您完成" .. jobLevel .. "转")
     return 1
 end
 
@@ -172,7 +197,8 @@ local specialTypeEvent = {
     [SpecialWorkTime] = addWorkTime,
     [SpecialFame] = addFame,
     [SpecialSkillSlot] = addSpecialSkillSlot,
-    [SpecialXz] = addPetXz(),
+    [SpecialXz] = addPetXz,
+    [SpecialUpJob] = upJob,
 }
 
 function myItemUse(index, toIndex, slot)

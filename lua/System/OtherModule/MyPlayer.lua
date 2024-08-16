@@ -245,6 +245,18 @@ function MyPlayer:warp(mapID, floorID, x, y)
     Char.Warp(self._player, mapID, floorID, x, y)
 end
 
+function MyPlayer:getEndEvent(flg)
+    Char.EndEvent(self._player, flg)
+end
+
+function MyPlayer:clearEndEvent(flg)
+    Char.EndEvent(self._player, flg, 0)
+end
+
+function MyPlayer:setEndEvent(flg)
+    Char.EndEvent(self._player, flg, 1)
+end
+
 --%对象_香步数% 8152
 function MyPlayer:isYudi()
     return self:getIncenseStepCount() > 1

@@ -263,6 +263,23 @@ def modifyItemUse(path):
         print('\t'.join(arr1))
         itemFile.writeLine('\t'.join(arr1))
 
+def modifyItemId(path):
+    baseFile = FileUtil("./tmp.txt", "gbk")
+    itemFile = FileUtil(path + "/itemset.txt", "gbk")
+    if not itemFile.isBlankLineEnd():
+        itemFile.writeLine("")
+    baseId = 20151
+    for line in baseFile.readLines():
+        line = line.replace("\n", "")
+        arr1 = line.split("\t")
+        if len(arr1) < 20:
+            itemFile.writeLine(line)
+            continue
+        baseId = baseId + 1
+        arr1[iid] = str(baseId)
+        print('\t'.join(arr1))
+        itemFile.writeLine('\t'.join(arr1))
+
 if __name__ == "__main__":
-    generateItem2("../../../task/chx")
+    modifyItemId("../../../task/chx")
     #pringArrStr1()

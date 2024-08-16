@@ -1,6 +1,0 @@
-Block itemspace == 0
-endWindow"需要一个物品栏。"
-
-Block itemspace > 0
-Killitem 711159,1
-Giveleak1item 10409,80
