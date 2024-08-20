@@ -268,15 +268,32 @@ def modifyItemId(path):
     itemFile = FileUtil(path + "/itemset.txt", "gbk")
     if not itemFile.isBlankLineEnd():
         itemFile.writeLine("")
-    baseId = 20151
+    baseId = 20064
     for line in baseFile.readLines():
         line = line.replace("\n", "")
         arr1 = line.split("\t")
-        if len(arr1) < 20:
-            itemFile.writeLine(line)
+        if len(arr1) < 20 or arr1[1].find("拳套") <= -1:
             continue
         baseId = baseId + 1
         arr1[iid] = str(baseId)
+        print('\t'.join(arr1))
+        itemFile.writeLine('\t'.join(arr1))
+
+def copyRecipe(path):
+    baseFile = FileUtil("./tmp.txt", "gbk")
+    itemFile = FileUtil(path + "/itemrecipe.txt", "gbk")
+    if not itemFile.isBlankLineEnd():
+        itemFile.writeLine("")
+    baseId = 1005
+    for line in baseFile.readLines():
+        line = line.replace("\n", "")
+        arr1 = line.split("\t")
+        print(arr1)
+        print(arr1[0].find("拳套"))
+        if len(arr1) < 10 or arr1[0].find("拳套") <= -1:
+            continue
+        baseId = baseId + 1
+        arr1[1] = str(baseId)
         print('\t'.join(arr1))
         itemFile.writeLine('\t'.join(arr1))
 

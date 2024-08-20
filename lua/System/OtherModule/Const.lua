@@ -48,7 +48,6 @@ Const.DisableTechId = 1000000
 Const.PetWeapon = 59
 Const.PetJewelry = 60
 Const.EquipExp = 60
-Const.PetExp = 20046
 Const.PersonExp = 20045
 Const.PetExp = 20046
 Const.E_ADM = 1
