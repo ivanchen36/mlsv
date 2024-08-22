@@ -170,7 +170,7 @@ end
 local function upJob(player, useItem, slot)
     local jobLevel = useItem:getSubParamOne()
     local jobClassId = player:getJobClassId()
-    local curJobLevel = math.fmod(jobClassId, 10)
+    local curJobLevel = math.fmod(jobClassId, 10) - 1
     if curJobLevel >= jobLevel then
         player:sysMsg("您已经完成" .. jobLevel .. "转")
         return 1

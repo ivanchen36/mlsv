@@ -168,6 +168,26 @@ def genDisableTech(path):
             skillLvFile.writeLine('\t'.join(arr1))
 
 
+def copyJobSkill(path):
+    tmpFile = FileUtil("./tmp.txt", "gbk")
+    skillLvFile = FileUtil(path + "/skilllv.txt", "gbk")
+    id = 115498
+    if not tmpFile.isBlankLineEnd():
+        skillLvFile.writeLine("")
+    jobSet = {155, 19}
+    for index in range(4):
+        for line in tmpFile.readLines():
+            line = line.replace("\r", "").replace("\n", "")
+            arr1 = line.split("\t")
+            if len(arr1) < 3:
+                continue
+            id = id + 1
+            jobId = int(int(arr1[2]) / 10)
+            if jobId not in jobSet:
+                continue
+            print('\t'.join(arr1))
+            skillLvFile.writeLine('\t'.join(arr1))
+
 if __name__ == "__main__":
     #modifyTechNo("../../../task/chx")
-    genDisableTech("../../../task/chx")
+    copyJobSkill("../../../task/chx")
