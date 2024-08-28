@@ -73,7 +73,7 @@ def copyGroup(path, groupId):
     groupFile1 = FileUtil(path + "/group.txt", "gbk")
     for line in groupFile.readLines():
         arr1 = line.split("\t")
-        if len(arr1) < 5:
+        if len(arr1) < 5  or line.find("#") > -1:
             continue
         if int(arr1[Group.gid]) == groupId:
             for eIndex in enemyList:
@@ -82,7 +82,7 @@ def copyGroup(path, groupId):
                     print("copy enemy:" + arr1[eIndex])
                     copyEnemy(path, int(arr1[eIndex]), newEnemyId)
                     arr1[eIndex] = str(newEnemyId)
-            newgroupId = newGroupId + 1
+            newGroupId = newGroupId + 1
             arr1[Group.gid] = str(newGroupId)
 
             #getString(arr1, Group.GROUP_LEN)
@@ -98,7 +98,7 @@ def copyEncount(path, encountId):
     encountFile1 = FileUtil(path + "/encount.txt", "gbk")
     for line in encountFile.readLines():
         arr1 = line.split("\t")
-        if len(arr1) < 5:
+        if len(arr1) < 5 or line.find("#") > -1:
             continue
         if int(arr1[Encount.eid]) == encountId:
             for gIndex in groupList:
@@ -115,4 +115,20 @@ def copyEncount(path, encountId):
 
 if __name__ == "__main__":
     #generateEnemy("../../../task/chx")
-    copyEncount("../../../task/chx", 12002)
+    copyEncount("../../../task/chx", 263278)
+    copyEncount("../../../task/chx", 342663)
+    copyEncount("../../../task/chx", 216169)
+    copyEncount("../../../task/chx", 310135)
+    copyEncount("../../../task/chx", 290663)
+    copyEncount("../../../task/chx", 135241)
+    copyEncount("../../../task/chx", 340822)
+    copyEncount("../../../task/chx", 243862)
+    copyEncount("../../../task/chx", 391698)
+    copyEncount("../../../task/chx", 218250)
+    copyEncount("../../../task/chx", 336576)
+    copyEncount("../../../task/chx", 367399)
+    copyEncount("../../../task/chx", 198476)
+    copyEncount("../../../task/chx", 237999)
+    copyEncount("../../../task/chx", 277880)
+    copyEncount("../../../task/chx", 368641)
+    copyEncount("../../../task/chx", 215766)

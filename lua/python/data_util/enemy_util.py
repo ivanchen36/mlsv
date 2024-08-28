@@ -23,12 +23,11 @@ def copyEnemy(path, enemyId, newEnemyId):
     enemyFile1 = FileUtil(path + "/enemy.txt", "gbk")
     for line in enemyFile.readLines():
         arr1 = line.split("\t")
-        if len(arr1) < 5:
+        if len(arr1) < 5  or line.find("#") > -1:
             continue
         if int(arr1[Enemy.eId]) == enemyId:
             if arr1[Enemy.ai] != "0" or arr1[Enemy.ai]!= "":
                 copyEnemyAi(path, int(arr1[Enemy.ai]), newEnemyId)
-            copyEnemyAi(path, int(arr1[Enemy.ai]), newEnemyId)
             copyEnemyBase(path, int(arr1[Enemy.bId]), newEnemyId)
             arr1[Enemy.eId] = str(newEnemyId)
             arr1[Enemy.bId] = str(newEnemyId)
@@ -43,7 +42,7 @@ def copyEnemyBase(path, enemyBaseId, newEnemyBaseId):
     enemyBaseFile1 = FileUtil(path + "/enemybase.txt", "gbk")
     for line in enemyBaseFile.readLines():
         arr1 = line.split("\t")
-        if len(arr1) < 5:
+        if len(arr1) < 5 or line.find("#") > -1:
             continue
 
         if int(arr1[EnemyBase.bId]) == enemyBaseId:
@@ -59,7 +58,7 @@ def copyEnemyAi(path, enemyAiId, newEnemyAiId):
     enemyAiFile1 = FileUtil(path + "/enemyai.txt", "gbk")
     for line in enemyAiFile.readLines():
         arr1 = line.split("\t")
-        if len(arr1) < 5:
+        if len(arr1) < 10 or line.find("#") > -1:
             continue
 
         if int(arr1[EnemyAi.aId]) == enemyAiId:
