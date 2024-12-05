@@ -165,7 +165,6 @@ local function loadTalentClient()
             ["x"] = 210,
             ["y"] = 35,
             ["text"] = "³èÎïÌì¸³",
-            ["font"] = 10,
             ["font"] = 3,
         },
         {

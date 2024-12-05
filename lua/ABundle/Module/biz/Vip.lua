@@ -403,7 +403,7 @@ function redPacket(info)
                 end,
             }
         }
-        redWnd = createWindow(1019, "packet", client)
+        redWnd = createWindow(1021, "packet", client)
     end
     redWnd:getWidget("title"):setText(info)
     redWnd:show()

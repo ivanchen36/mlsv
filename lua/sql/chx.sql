@@ -159,7 +159,17 @@ CREATE TABLE `tbl_user_limit` (
                                 PRIMARY KEY (`UserId`, `Type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='用户限制表';
 
-
-
-
-
+-- tbl_user_limit
+DROP TABLE IF EXISTS `tbl_red_packet`;
+CREATE TABLE `tbl_red_packet` (
+                                  `RegNum` varchar(64) NOT NULL COMMENT '角色id',
+                                  `Type` int NOT NULL DEFAULT 0 COMMENT '红包类型',
+                                  `Status` int NOT NULL DEFAULT 0 COMMENT '状态',
+                                  `Info` Varchar(512) NOT NULL DEFAULT '' COMMENT '红包信息',
+                                  `SendTime` int NOT NULL DEFAULT 0 COMMENT '执行时间',
+                                  `RecvTime` int NOT NULL DEFAULT 0 COMMENT '领取时间',
+                                  `CreateTime` int NOT NULL,
+                                  `UpdateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                                  PRIMARY KEY (`RegNum`, `Type`),
+                                  INDEX `idx_Status` (`RegNum`,`Status`),
+) ENGINE=InnoDB DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC COMMENT='角色信息表';
