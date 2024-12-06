@@ -1,8 +1,8 @@
 
 local pingFenWnd = nil
 local pingFenInfo = nil
-local baseAttr = {"x", "m", "g", "j", "f", "h", "mj", "mg", "mk"}
-local otherAttr = {"kd", "ks", "kl", "ks", "kz", "kw", "bs", "mz", "tx", "fj","ds", "jy", "nl", "lq", "ml", "zl", "ys"}
+baseAttr = {"x", "m", "g", "j", "f", "h", "mj", "mg", "mk"}
+otherAttr = {"kd", "ks", "kl", "ks", "kz", "kw", "bs", "mz", "tx", "fj","ds", "jy", "nl", "lq", "ml", "zl", "ys"}
 
 function initPingFenContent()
     local base = pingFenInfo["base"]
@@ -11,7 +11,7 @@ function initPingFenContent()
     for i=1, #baseAttr do
         local title = baseAttr[i]
         local val = pingFenWnd:getWidget(title)
-        if base == nil or base[i] ~= nil then
+        if base == nil or base[i] == nil then
             val:setText("0")
         else
             val:setText(tostring(base[i]))
@@ -20,10 +20,10 @@ function initPingFenContent()
     for i=1, #otherAttr do
         local title = otherAttr[i]
         local val = pingFenWnd:getWidget(title)
-        if other == nil or other[i] ~= nil then
+        if other == nil or other[i] == nil then
             val:setText("0")
         else
-            val:setText(tostring(otherAttr[i]))
+            val:setText(tostring(other[i]))
         end
     end
     if pf ~= nil then
@@ -49,6 +49,7 @@ function loadPingFenClient()
         },
         {
             ["type"] = "img",
+            ["title"] = "img",
             ["x"] = 312,
             ["y"] = 4,
             ["img"] = "prev2.bmp"
@@ -89,7 +90,7 @@ function showPingFen(info)
     logPrintTbl(info)
     pingFenInfo = info;
     if (pingFenWnd == nil) then
-        safeCall(loadPingFenClient)
+        loadPingFenClient()
     end
     pingFenWnd:show()
     initPingFenContent()

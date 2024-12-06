@@ -386,7 +386,7 @@ function redPacket(info)
                 ["title"] = "title",
                 ["x"] = 210,
                 ["y"] = 35,
-                ["text"] = "商店标题",
+                ["text"] = "欢乐红包",
                 ["font"] = 3,
             },
             {
