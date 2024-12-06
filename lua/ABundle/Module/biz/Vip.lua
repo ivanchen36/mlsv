@@ -399,13 +399,13 @@ function redPacket(info)
                 ["text"] = "´ò¿ª",
                 ["click"] = function(w)
                     redWnd:close()
-                    Cli.Send("red_packet")
+                    Cli.Send("red_packet|" .. info["id"])
                 end,
             }
         }
         redWnd = createWindow(1021, "packet", client)
     end
-    redWnd:getWidget("title"):setText(info)
+    redWnd:getWidget("title"):setText(info["name"])
     redWnd:show()
 end
 Cli.Send().wait["RED_PACKET"] = redPacket
