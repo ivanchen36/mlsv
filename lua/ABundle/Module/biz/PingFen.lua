@@ -37,7 +37,7 @@ function loadPingFenClient()
     local client = {
         {
             ["type"] = "bg",
-            ["img"] = "pf1.bmp",
+            ["img"] = "synthesis.bmp",
         },
         {
             ["type"] = "close",
@@ -51,7 +51,7 @@ function loadPingFenClient()
             ["type"] = "img",
             ["x"] = 312,
             ["y"] = 4,
-            ["img"] = "pf2.bmp"
+            ["img"] = "prev2.bmp"
         },
         {
             ["table"] = "0,2",
@@ -86,9 +86,10 @@ function loadPingFenClient()
 end
 
 function showPingFen(info)
+    logPrintTbl(info)
     pingFenInfo = info;
     if (pingFenWnd == nil) then
-        loadPingFenClient()
+        safeCall(loadPingFenClient)
     end
     pingFenWnd:show()
     initPingFenContent()

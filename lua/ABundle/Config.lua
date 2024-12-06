@@ -20,4 +20,5 @@ LoadABundle("biz/Warp.lua");
 LoadABundle("biz/Seller.lua");
 LoadABundle("biz/Boss.lua");
 LoadABundle("biz/Talent.lua");
+LoadABundle("biz/PingFen.lua");
 LoadABundle("ClientCfg.lua");
