@@ -374,7 +374,7 @@ Cli.Send("welcome")
 Cli.Send().wait["WELCOME"] = welcome
 
 local redWnd = nil
-function redPacket(info)
+function sendGift(info)
     if redWnd == nil then
         local client = {
             {
@@ -386,7 +386,7 @@ function redPacket(info)
                 ["title"] = "title",
                 ["x"] = 210,
                 ["y"] = 35,
-                ["text"] = "欢乐红包",
+                ["text"] = "礼包",
                 ["font"] = 3,
             },
             {
@@ -399,7 +399,7 @@ function redPacket(info)
                 ["text"] = "打开",
                 ["click"] = function(w)
                     redWnd:close()
-                    Cli.Send("red_packet|" .. info["id"])
+                    Cli.Send("open_gift|" .. info["type"])
                 end,
             }
         }
@@ -408,4 +408,4 @@ function redPacket(info)
     redWnd:getWidget("title"):setText(info["name"])
     redWnd:show()
 end
-Cli.Send().wait["RED_PACKET"] = redPacket
+Cli.Send().wait["SEND_GIFT"] = sendGift

@@ -207,3 +207,21 @@ function copyTable(orig, copies)
 
     return copy
 end
+
+function hasFreeNum(itemList)
+    local itemLen = #itemList
+    local itemNum = 0
+    local petNum = 0
+    for i = 1, itemLen do
+        local item = itemList[i]
+        local itemId = item[1]
+        local itemType = item[2]
+        local itemNum = item[3]
+        if Const.SkuTypeGold == itemType then
+        elseif Const.SkuTypeItem == itemType then
+
+        elseif Const.SkuTypePet == itemType then
+            petNum = petNum + 1
+        end
+    end
+end

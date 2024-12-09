@@ -8,6 +8,7 @@ Const.GoldSkuId = 1000002
 Const.GoldSkuId1 = 1000003
 Const.PetSkuBaseId = 1000100
 Const.PetReCycleBaseId = 1000500
+Const.MaxGoldAmount = 1000000
 
 Const.SkuTypeGold = 0
 Const.SkuTypeItem = 1

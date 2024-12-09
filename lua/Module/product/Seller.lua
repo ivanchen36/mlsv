@@ -145,6 +145,7 @@ function buyNpcItem(player, arg)
     local buyInfo = {}
     local sum = 0
     local petSum = 0
+    local glodSum = 0
     for i = 3, #parts do
         local itemArr = strSplit(parts[i], ",")
         local buyItem = tonumber(itemArr[1])
@@ -169,6 +170,8 @@ function buyNpcItem(player, arg)
                 sum = sum + 1
             elseif Const.SkuTypePet == itemType then
                 petSum = petSum + buyNum
+            elseif Const.SkuTypeGold == itemType then
+                glodSum = glodSum * buyNum
             end
         else
             local useBagNum = math.ceil(buyNum / getMaxStackCount(buyItem))
