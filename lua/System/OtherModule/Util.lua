@@ -208,20 +208,57 @@ function copyTable(orig, copies)
     return copy
 end
 
-function hasFreeNum(itemList)
+function checkFreeNum(itemList)
     local itemLen = #itemList
-    local itemNum = 0
-    local petNum = 0
+    local goldSum = 0
+    local itemSum = 0
+    local petSum = 0
     for i = 1, itemLen do
         local item = itemList[i]
-        local itemId = item[1]
-        local itemType = item[2]
+        local itemType = item[1]
+        local itemId = item[2]
+        local itemNum = item[3]
+
+        if Const.SkuTypeItem == itemType then
+            local useBagNum = math.ceil(itemNum / getMaxStackCount(itemId))
+            itemSum = itemSum + useBagNum
+        elseif Const.SkuTypePet == itemType then
+            petSum = petSum + itemNum
+        elseif Const.SkuTypeGold == itemType then
+            goldSum = goldSum + itemNum
+        end
+    end
+
+    if itemSum > player:freeBagNum() then
+        return 1
+    end
+
+    if player:getGold() + goldSum > MaxGoldAmount then
+        return 2
+    end
+
+    if petSum > player:freePetNum() then
+        return 3
+    end
+
+    return 0
+end
+
+function giveItemList(player, itemList)
+    local itemLen = #itemList
+    for i = 1, itemLen do
+        local item = itemList[item]
+        local itemType = item[1]
+        local itemId = item[2]
         local itemNum = item[3]
         if Const.SkuTypeGold == itemType then
+            player:addMoney(itemNum)
         elseif Const.SkuTypeItem == itemType then
-
+            player:addItem(itemId, itemNum)
         elseif Const.SkuTypePet == itemType then
-            petNum = petNum + 1
+            for i = 1, itemNum do
+                player:givePet(itemId)
+            end
         end
     end
 end

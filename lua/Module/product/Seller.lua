@@ -112,24 +112,6 @@ function initSeller(player, arg)
     Protocol.PowerSend(player:getObj(), "SHOW_SELLER", resp)
 end
 
-local function handleSkuItem(player, item, num)
-    if rawget(sellerSkuList, item) == nil then
-        player:sysMsg("系统异常，发放物品失败，联系GM")
-        return
-    end
-    local sku = sellerSkuList[item]
-    local itemType = sku[1]
-    local itemId = sku[2]
-    local itemNum = sku[3]
-    if Const.SkuTypeGold == itemType then
-        player:addMoney(itemNum * num)
-    elseif Const.SkuTypeItem == itemType then
-        player:addItem(itemId, itemNum * num)
-    elseif Const.SkuTypePet == itemType then
-        player:givePet(itemId)
-    end
-end
-
 function buyNpcItem(player, arg)
     logPrint("buyNpcItem", arg)
     local parts = strSplit(arg, "#")
@@ -142,10 +124,7 @@ function buyNpcItem(player, arg)
 
     local itemList = seller[parts[2]]
     local needPayInfo = {}
-    local buyInfo = {}
-    local sum = 0
-    local petSum = 0
-    local glodSum = 0
+    local buyList = {}
     for i = 3, #parts do
         local itemArr = strSplit(parts[i], ",")
         local buyItem = tonumber(itemArr[1])
@@ -162,34 +141,32 @@ function buyNpcItem(player, arg)
                 needPayInfo[payItem] = needPayInfo[payItem] + payNum * buyNum
             end
         end
-        buyInfo[buyItem] = buyNum
         if buyItem > Const.SkuBaseItemId then
             local sku = sellerSkuList[buyItem]
-            local itemType = sku[1]
-            if Const.SkuTypeItem == itemType then
-                sum = sum + 1
-            elseif Const.SkuTypePet == itemType then
-                petSum = petSum + buyNum
-            elseif Const.SkuTypeGold == itemType then
-                glodSum = glodSum * buyNum
+            if nil == sku then
+                player:sysMsg("系统异常，您购买的商品不存在")
+                return
             end
+            table.insert(buyList,{sku[1], sku[2], sku[3] * buyNum})
         else
-            local useBagNum = math.ceil(buyNum / getMaxStackCount(buyItem))
-            if npcImg == Const.NpcGoldCard then
-                useBagNum = 1
-            end
-            sum = sum + useBagNum
+            table.insert(buyList,{Const.SkuTypeItem, buyItem, buyNum})
         end
     end
-    if sum > 0 and sum > player:freeBagNum() then
+    local checkRs = checkFreeNum(buyList)
+    if 1 == checkRs then
         player:sysMsg("物品栏空间不足，购买失败")
         return
     end
+    if 2 == checkRs then
+        player:sysMsg("可携带魔币余额不足，购买失败")
+        return 2
+    end
 
-    if petSum > 0 and petSum > player:freePetNum() then
+    if 3 == checkRs then
         player:sysMsg("宠物栏空间不足，购买失败")
         return
     end
+
     logPrintTbl(needPayInfo)
     for item, num in pairs(needPayInfo) do
         if 0 == item then
@@ -217,19 +194,10 @@ function buyNpcItem(player, arg)
             end
         end
     end
-    logPrintTbl(buyInfo)
-    for item, num in pairs(buyInfo) do
-        if item > Const.SkuBaseItemId then
-            handleSkuItem(player, item, num)
-        else
-            player:addItem(item, num)
-        end
-        if Const.NpcGoldCard == npcImg then
-            statsGoldCardTrade(item, num)
-        end
-    end
+    logPrintTbl(buyList)
+    giveItemList(player, buyList)
     player:flush()
-    player:sysMsg("购买成功");
+    player:sysMsg("购买成功")
 end
 
 local function registerSeller()

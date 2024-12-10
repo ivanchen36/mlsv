@@ -49,7 +49,7 @@ local function setGoldSellInfo()
     }
     sellerSkuList[Const.CardSkuId] = {Const.SkuTypeItem, Const.ItemCard, 10,""}
     sellerSkuList[Const.GoldSkuId] = {Const.SkuTypeGold, Const.ItemGold,curPrice,""}
-    sellerSkuList[Const.GoldSkuId1] = {Const.SkuTypeGold, Const.ItemGold,curPrice * 10,""}
+    sellerSkuList[Const.GoldSkuId1] = {Const.SkuTypeGold, Const.ItemGold, curPrice * 10,""}
 end
 
 local function setPriceInfo(info)
