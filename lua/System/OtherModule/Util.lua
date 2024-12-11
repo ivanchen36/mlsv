@@ -148,12 +148,13 @@ function getMulRandObj(objList, count)
     return rs
 end
 
-function countKeys(t)
-    local count = 0
-    for _ in pairs(t) do
-        count = count + 1
+function getQueryRow(t)
+    for i = 0, 9999999 do
+        if t[i .. "_0"] == nil then
+            return i
+        end
     end
-    return count
+    return 0
 end
 
 function getItemImg(itemId)

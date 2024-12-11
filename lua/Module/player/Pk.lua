@@ -137,8 +137,10 @@ function startPk(regNum, info)
         return 1
     end
 
-    local len = countKeys(rs)
-    for i = 1, (len / 7) do
+    for i = 0, 99999 do
+        if rs[i .. "_0"] == nil then
+            break
+        end
         local rid = rs[i .. "_0"]
         local aRegNum = rs[i .. "_1"]
         local bRegNum = rs[i .. "_2"]

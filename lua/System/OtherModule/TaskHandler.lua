@@ -36,8 +36,10 @@ function doTask(index)
     if(type(rs) ~= "table")then
         return
     end
-    local len = countKeys(rs)
-    for i = 0, (len / 4) - 1  do
+    for i = 0, 99999 do
+        if rs[i .. "_0"] == nil then
+            break
+        end
         local id = rs[i .. "_0"]
         local regNum = tonumber(rs[i .. "_1"])
         local type = tonumber(rs[i .. "_2"])

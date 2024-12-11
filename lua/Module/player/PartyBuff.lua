@@ -209,7 +209,7 @@ local function setPartyBuff(index)
         end
         partyDesc = partyDesc .. buffDesc[attr] .. " +" .. buff
     end
-    if countKeys(newBuffList) > 0 then
+    if not isEmpty(newBuffList) then
         partyBuffInfo[index] = newBuffList
         partyMemberInfo[index] = newList
         addPartyBuff(newList, newBuffList, partyDesc)

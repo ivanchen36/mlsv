@@ -42,8 +42,10 @@ function showProficient(player)
         Protocol.PowerSend(player:getObj(),"SHOW_PROFICIENT", info)
         return
     end
-    local len = countKeys(rs)
-    for i = 0, (len / 3) - 1  do
+    for i = 0, 99999 do
+        if rs[i .. "_0"] == nil then
+            break
+        end
         info[tonumber(rs[i .. "_0"])] = rs[i .. "_1"] .. "|" .. rs[i .. "_2"]
     end
 
@@ -112,8 +114,10 @@ function initProficient(player)
         return
     end
 
-    local len = countKeys(rs)
-    for i = 0, (len / 2) - 1  do
+    for i = 0, 99999 do
+        if rs[i .. "_0"] == nil then
+            break
+        end
         info[tonumber(rs[i .. "_0"])] = proficientDamage[tonumber(rs[i .. "_1"])]
     end
     proficientInfo[player:getRegistNumber()] = info

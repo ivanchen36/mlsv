@@ -41,8 +41,11 @@ function sendGift()
     if(type(rs) ~= "table")then
         return
     end
-    local len = countKeys(rs)
-    for i = 0, (len / 4) - 1  do
+
+    for i = 0, 99999 do
+        if rs[i .. "_0"] == nil then
+            break
+        end
         local regNum = tonumber(rs[i .. "_0"])
         local type = tonumber(rs[i .. "_1"])
         local title = rs[i .. "_2"]

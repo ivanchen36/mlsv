@@ -125,11 +125,11 @@ function queryTaskByType(player, cycleType)
         end
     end
     local taskList = {}
-    local len = countKeys(result)
-    logPrintTbl(result)
-    len = len / 7 - 1
-    for i = 0, len do
 
+    for i = 0, 99999 do
+        if result[i .. "_0"] == nil then
+            break
+        end
         local task = {
             ["id"] = tonumber(result[i .. "_0"]),
             ["type"] = tonumber(result[i .. "_1"]),
@@ -310,8 +310,10 @@ local function statsKillEnemyNum(player, enemyId, num)
         return 1
     end
 
-    local len = countKeys(rs)
-    for i = 0, (len / 3) - 1  do
+    for i = 0, 99999 do
+        if rs[i .. "_0"] == nil then
+            break
+        end
         local taskId = rs[i .. "_0"]
         local count = tonumber(rs[i .. "_1"])
         local process = tonumber(rs[i .. "_2"])
