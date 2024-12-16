@@ -4,25 +4,7 @@ local vipExp = {120, 1020, 3360, 6720, 13880, 23880, 33600, 67200, 201600}
 local vipLuck = {0, 0, 0, 5, 10, 12, 15, 17, 20}
 local vipAvoid = {600, 1800, 3600, 5400, 7200, 7800, 8400, 9200, 10800}
 
-local vipGiftInfo = {
-    {
-        ["id"] = 111,
-        ["name"] = "test",
-        ["count"] = 222
-    },{
-        ["id"] = 222,
-        ["name"] = "test",
-        ["count"] = 222
-    },{
-        ["id"] = 3333,
-        ["name"] = "test",
-        ["count"] = 222
-    }
-}
 local bankIndex = -1
-local vipGift = {
-    20000, 222, 333, 444
-}
 
 function getVipLevel(exp)
     local level = 0

@@ -1,7 +1,7 @@
 
 function openGift(player, arg)
     local regNum = player:getRegNum()
-    local sql = string.format("SELECT RegNum, Type, Title, Info FROM tbl_red_packet WHERE RegNum = '%s' and Type = %s", regNum, arg)
+    local sql = string.format("SELECT RegNum, Type, Title, Info FROM tbl_red_packet WHERE RegNum = '%s' and Type = %s and Status <> 2", regNum, arg)
     local rs = SQL.Run(sql);
 
     if(type(rs) ~= "table")then
@@ -32,6 +32,7 @@ function openGift(player, arg)
     local sql1 = string.format("UPDATE tbl_red_packet SET Status = 2 WHERE RegNum = '%s' and Type = %d", regNum, type)
     SQL.Run(sql1);
     player:sysMsg("领取" .. title .. "礼包成功！")
+    queryGift(player)
 end
 
 function sendGift()
@@ -60,9 +61,26 @@ function sendGift()
             ["name"] = title,
             ["type"] = type,
         }
-        Protocol.PowerSend(vip["index"],"FLUSH_TASK", info)
+        Protocol.PowerSend(vip["index"],"SEND_GIFT", info)
     end
 end
 
+function queryGift(player)
+    local regNum = player:getRegNum()
+    local sql = string.format("SELECT RegNum, Type, Title, Info FROM tbl_red_packet WHERE RegNum = '%s' and Status = 3 LIMIT 1", regNum)
+    local rs = SQL.Run(sql);
+
+    if(type(rs) ~= "table")then
+        return
+    end
+
+    local info = {
+        ["name"] = rs["0_2"],
+        ["type"] = tonumber(rs["0_1"]),
+    }
+    Protocol.PowerSend(vip["index"],"SEND_GIFT", info)
+end
+
+InitEvent["char"] = queryGift
 ClientEvent["open_gift"] = openGift
 addTimerTask(sendGift)
