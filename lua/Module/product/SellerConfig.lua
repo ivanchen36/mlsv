@@ -79,8 +79,11 @@ local petEquipSeller = {
 }
 
 local petSeller = {
-    [Const.PetSkuBaseId + 8] = {[20109] = 10, [0] = 50000},
-    [Const.PetSkuBaseId + 9] = {[20106] = 1, [20107] = 1, [20108] = 1, [0] = 50000},
+    ["1"] = {
+        ["name"] = "³èÎï",
+        [Const.PetSkuBaseId + 8] = {[20109] = 10, [0] = 50000},
+        [Const.PetSkuBaseId + 9] = {[20106] = 1, [20107] = 1, [20108] = 1, [0] = 50000},
+    }
 }
 
 local cardSeller = {
@@ -150,10 +153,13 @@ local cardSeller = {
 }
 
 local recycleSeller = {
-    [Const.PetReCycleBaseId + 1] = {[20106] = 1},
-    [Const.PetReCycleBaseId + 2] = {[20107] = 1},
-    [Const.PetReCycleBaseId + 3] = {[20108] = 1},
-    [Const.PetReCycleBaseId + 4] = {[20109] = 1},
+    ["1"] = {
+        ["name"] = "³èÎï",
+        [Const.PetReCycleBaseId + 1] = {[20106] = 1},
+        [Const.PetReCycleBaseId + 2] = {[20107] = 1},
+        [Const.PetReCycleBaseId + 3] = {[20108] = 1},
+        [Const.PetReCycleBaseId + 4] = {[20109] = 1},
+    }
 }
 
 local jjcSeller = {

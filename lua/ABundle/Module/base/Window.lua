@@ -204,21 +204,20 @@ function Window:showUi()
         end
         self._view.sizex = sizeX
         self._view.sizey = sizeY
-        if self._posX > 0 then
-            self._view.xpos = self._posX
-            self._view.ypos = self._posY
-        else
+        logPrint("Window:showUi1", "_posX = ", self._posX, "_posY = ", self._posY)
+        if self._posX <= 0 then
             local screenWidth = 640
             local screenHeight = 480
             if isHd() then
                 screenWidth =  960;
                 screenHeight =  720;
             end
-            logPrint("Window:showUi", "screenWidth = ", screenWidth, "screenHeight = ", screenHeight)
-            self._view.xpos = math.floor((screenWidth - sizeX) / 2);
-            self._view.ypos =  math.floor((screenHeight - sizeY) / 2);
+            self._posX = math.floor((screenWidth - sizeX) / 2);
+            self._posY = math.floor((screenHeight - sizeY) / 2);
         end
-
+        logPrint("Window:showUi2", "_posX = ", self._posX, "_posY = ", self._posY)
+        self._view.xpos = self._posX
+        self._view.ypos = self._posY
         self._view.pxpos = 0
         self._view.pypos = 0
     end
