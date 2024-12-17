@@ -348,7 +348,7 @@ local function getItemTipPos(wnd, item)
     local tipSizeY = 149
     local centerX = 320
     local centerY = 240
-    if Cli.GetHD() then
+    if isHd() then
         centerX =  480;
         centerY =  360;
     end

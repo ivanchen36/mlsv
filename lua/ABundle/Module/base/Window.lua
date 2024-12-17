@@ -171,6 +171,20 @@ function Window:getPos()
     return self._view.xpos, self._view.ypos
 end
 
+local isHdWnd = nil
+function isHd()
+    if nil == isHdWnd then
+        local cmd = Cli.GetCMD()
+        if string.find(cmd, "GAHD") == nil then
+            isHdWnd = false
+        else
+            isHdWnd = true
+        end
+    end
+    logPrint("isHdWnd = " .. tostring(isHdWnd))
+    return isHdWnd
+end
+
 function Window:showUi()
     if nil ~= self._title then
         local wndBg = self._view.find(self._title .. "bg")
@@ -180,7 +194,6 @@ function Window:showUi()
         wndBg.item_ypos = 0
         wndBg.xpos = 0
         wndBg.ypos = 0
-        local isHd = false
         local sizeX = 0
         local sizeY = 0
         if wndBg.sizex <= 0 then
@@ -195,20 +208,13 @@ function Window:showUi()
             self._view.xpos = self._posX
             self._view.ypos = self._posY
         else
-            if Cli.GetHD() then
-                isHd = true
-            end
-            if Cli.GetHD() then
-                isHd = true
-            else
-                isHd = false
-            end
             local screenWidth = 640
             local screenHeight = 480
-            if isHd then
+            if isHd() then
                 screenWidth =  960;
                 screenHeight =  720;
             end
+            logPrint("Window:showUi", "screenWidth = ", screenWidth, "screenHeight = ", screenHeight)
             self._view.xpos = math.floor((screenWidth - sizeX) / 2);
             self._view.ypos =  math.floor((screenHeight - sizeY) / 2);
         end
